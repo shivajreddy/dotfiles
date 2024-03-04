@@ -23,6 +23,7 @@
     enable = true;
     userName = "shivajreddy";
     userEmail = "shivajreddy@outlook.com";
+    extraConfig.credential.helper = "store";
   };
 
   home.sessionVariables = {
