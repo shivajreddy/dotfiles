@@ -4,33 +4,8 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    #(inputs.home-manager.nixosModules.home-manager)
-    #(inputs.home-manager.nixosModules.predator)
-    #(inputs.nixosConfigurations.predator.home-manager.nixosModules.home-manager)
-    #(inputs.home-manager.nixosModules.predator)
     ];
 
-  /*
-  # home-manager.nixosModules.home-manager = {
-  home-manager = {
-    # extraSpecialArgs = { inherit inputs; };
-    useGlobalPackages = true;
-    useUserPackages = true;
-    users = {
-      "shiva" = import ./home.nix;
-    };
-  };
-  # */
-
-
-  /* HomeConfiguration in configuration.nix ????
-    homeConfigurations = {
-      shiva = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
-      };
-    };
-  # */
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -39,7 +14,6 @@
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/????";
   # boot.loader.grub.useOSProber = true;
-
 
   networking.hostName = "predator"; # Define your hostname.
 
@@ -148,6 +122,7 @@
       swayosd
       wl-clipboard
       zsh-autosuggestions
+      pyprland
     ];
   };
 
@@ -176,7 +151,6 @@
     libnotify
     vscode
     python3
-    # home-manager
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -29,16 +29,26 @@
         # extraSpecialArgs = { inherit inputs; };
         inherit system;
         modules = [ 
-          ./configuration.nix 
-          # inputs.home-manager.nixosModules.home-manager
-          # /*
+          ./predator/configuration.nix 
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.shiva = import ./home.nix;
+            home-manager.users.shiva = import ./home_manager/home.nix;
           }
-          # */
+        ];
+      };
+      tars = lib.nixosSystem {
+        # extraSpecialArgs = { inherit inputs; };
+        inherit system;
+        modules = [ 
+          ./tars/configuration.nix 
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.shiva = import ./home_manager/home.nix;
+          }
         ];
       };
     };
