@@ -151,6 +151,8 @@
     libnotify
     vscode
     python3
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
