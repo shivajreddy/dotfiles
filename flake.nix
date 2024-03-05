@@ -66,15 +66,16 @@
 
     # /* HomeConfiguration -- using as a package
     homeConfigurations = {
+	/*
     	predator = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
 	  modules = [ ./home_manager/home.nix ];
-	 
 	};
+	*/
     	shiva = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
 	  modules = [ ./home_manager/home.nix ];
-	 
+	  # modules = [ ./home/home.nix ];
 	};
     };
     # */

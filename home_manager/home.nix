@@ -16,36 +16,44 @@
 	# /home/shiva/dotfiles/home_manager/shell/zsh.nix
   ];
 
+  # Configuration of packages using Home-Manager ???
+  # NOTE : write/make a file on left ,with the content of the file on right
+  # home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland.conf
+
   home.packages = with pkgs; [
-	        # core
-		zsh
-		firefox
-		brave
-		kitty
-		neovim
-		jetbrains-mono
-		rofi-wayland
-		bluez
-		blueman
-		pavucontrol
-		htop
-		btop
-		swww
-		xfce.thunar
-		gvfs  # for thumbdrive to work with thunar, not working
-		xfce.thunar-volman
-		xfce.tumbler
-		nomacs
-		spotify
-		obs-studio
-		starship
-		neofetch
-		wev	# wayland event viewer, for keystrokes
-		playerctl
-		swayosd
-		wl-clipboard
-		zsh-autosuggestions
-		eza
+	# core
+	zsh
+	firefox
+	brave
+	kitty
+	neovim
+	jetbrains-mono
+	rofi-wayland
+	bluez
+	blueman
+	pavucontrol
+	htop
+	btop
+	swww
+	xfce.thunar
+	gvfs  # for thumbdrive to work with thunar, not working
+	xfce.thunar-volman
+	xfce.tumbler
+	nomacs
+	spotify
+	obs-studio
+	starship
+	neofetch
+	wev	# wayland event viewer, for keystrokes
+	playerctl
+	swayosd
+	wl-clipboard
+	zsh-autosuggestions
+	waybar
+	eza
+	bottom
+	pyprland
+	lf
   ];
 
   home.file = {
@@ -72,12 +80,17 @@
   };
 
   # --------Directly pasting it
+  programs.starship = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+    vi="nvim";
     ls = "eza --icons -l -T -L=1";
     cat = "bat";
     htop = "btm";
@@ -86,19 +99,26 @@
     neofetch = "disfetch";
     fetch = "disfetch";
     gitfetch = "onefetch";
+    gaa="git add .";
+    gcm="git commit -m";
+    ggpush="git push -u origin main";
+    ggpull="git pull -u origin main";
     };
+    # RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
+  };
+    /*
     initExtra = ''
-    PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-     %F{green}→%f "
-    RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
+    PROMPT="%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
+     %F{green}%f "
     [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
-  };
+    */
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
     shellAliases = {
+    vi="nvim";
     ls = "eza --icons -l -T -L=1";
     cat = "bat";
     htop = "btm";
@@ -113,6 +133,4 @@
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
   programs.direnv.nix-direnv.enable = true;
-
-
 }
