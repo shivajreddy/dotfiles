@@ -40,7 +40,6 @@
 	xfce.thunar-volman
 	xfce.tumbler
 	nomacs
-	spotify
 	obs-studio
 	starship
 	neofetch
@@ -57,8 +56,16 @@
 	gcc
 	gnumake
 	ripgrep
+	spotify
+	spotifyd
 	spotify-tui
+	lua
   ];
+
+  # Enable spotify-deamon
+  services.spotifyd = {
+    enable = true;
+  };
 
   home.file = {
     /*
@@ -104,6 +111,7 @@
     fetch = "disfetch";
     gitfetch = "onefetch";
     gaa="git add .";
+    gst="git status .";
     gcmsg="git commit -m";
     ggpush="git push -u origin main";
     ggpull="git pull -u origin main";
