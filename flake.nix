@@ -20,11 +20,17 @@
   let 
         lib = nixpkgs.lib; 
         system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system};
+        #pkgs = nixpkgs.legacyPackages.${system};
+	#pkgs.config.allowUnfree = true;
+        pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true;};
+	/*
+        pkgs = {
+	  nixpkgs.legacyPackages.${system};
+	  config.allowUnfree = true;
+	};
+	*/
   in
   {
-    # -------------------- HOME config -------------------- #.
-
     nixosConfigurations = {
       predator = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
@@ -63,6 +69,7 @@
     	shiva = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
 	  modules = [ ./home_manager/home.nix ];
+	 
 	};
     };
     # */

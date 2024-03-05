@@ -7,7 +7,7 @@
   home.stateVersion = "23.11"; # DONT CHANGE THIS
 
   # /* Enable Home-Manager
-  programs.home-manager = true;
+  programs.home-manager.enable = true;
   # */ 
 
   # import configuration for apps, packages, etc...
@@ -16,9 +16,9 @@
 	# /home/shiva/dotfiles/home_manager/shell/zsh.nix
   ];
 
-  home.packages = [
-    zsh
-    kitty
+  home.packages = with pkgs; [
+	        # core
+		zsh
 		firefox
 		brave
 		kitty
@@ -70,9 +70,6 @@
 
   home.sessionVariables = {
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   # --------Directly pasting it
   programs.zsh = {

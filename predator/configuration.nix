@@ -4,6 +4,14 @@
   imports = [ 
     ./hardware-configuration.nix
     ];
+  
+  /*  NIX PATH FIX
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+  # */ 
+
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
