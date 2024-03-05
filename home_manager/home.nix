@@ -6,19 +6,46 @@
 
   home.stateVersion = "23.11"; # DONT CHANGE THIS
 
+  # /* Enable Home-Manager
+  programs.home-manager = true;
+  # */ 
+
   # import configuration for apps, packages, etc...
   imports = [
 	#./zsh.nix # My zsh and bash config
 	# /home/shiva/dotfiles/home_manager/shell/zsh.nix
   ];
 
-
   home.packages = [
-    # pkgs.hello
-    #disfetch lolcat cowsay onefetch
-    #gnugrep gnused
-    #bat eza bottom fd bc
-    #direnv nix-direnv
+    zsh
+    kitty
+		firefox
+		brave
+		kitty
+		neovim
+		jetbrains-mono
+		rofi-wayland
+		bluez
+		blueman
+		pavucontrol
+		htop
+		btop
+		swww
+		xfce.thunar
+		gvfs  # for thumbdrive to work with thunar, not working
+		xfce.thunar-volman
+		xfce.tumbler
+		nomacs
+		spotify
+		obs-studio
+		starship
+		neofetch
+		wev	# wayland event viewer, for keystrokes
+		playerctl
+		swayosd
+		wl-clipboard
+		zsh-autosuggestions
+		eza
   ];
 
   home.file = {
