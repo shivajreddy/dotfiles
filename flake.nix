@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    /* 1.a. HomeManager module like  IMPORT 
+    # /*  HomeManager -
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +66,11 @@
 
     # /* HomeConfiguration -- using as a package
     homeConfigurations = {
+    	predator = home-manager.lib.homeManagerConfiguration {
+	  inherit pkgs;
+	  modules = [ ./home_manager/home.nix ];
+	 
+	};
     	shiva = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
 	  modules = [ ./home_manager/home.nix ];
