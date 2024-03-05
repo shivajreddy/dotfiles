@@ -54,6 +54,10 @@
 	bottom
 	pyprland
 	lf
+	gcc
+	gnumake
+	ripgrep
+	spotify-tui
   ];
 
   home.file = {
@@ -100,7 +104,7 @@
     fetch = "disfetch";
     gitfetch = "onefetch";
     gaa="git add .";
-    gcm="git commit -m";
+    gcmsg="git commit -m";
     ggpush="git push -u origin main";
     ggpull="git pull -u origin main";
     };
