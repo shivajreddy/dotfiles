@@ -15,7 +15,7 @@
   # boot.loader.grub.device = "/dev/????";
   # boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "predator"; # Define your hostname.
+  networking.hostName = "tars"; # Define your hostname.
 
   networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
@@ -39,9 +39,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
+  # Enable the GNOME Desktop Environment..
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
+
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -98,6 +101,7 @@
 
     packages = with pkgs; [
       firefox
+      brave
       kitty
       neovim
       jetbrains-mono
@@ -122,6 +126,7 @@
       swayosd
       wl-clipboard
       zsh-autosuggestions
+      eza
     ];
   };
 
