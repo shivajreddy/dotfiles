@@ -71,7 +71,7 @@
     gvfs
     # swayosd
     gnome.gnome-tweaks
-    nautils
+    gnome.nautilus
     mojave-gtk-theme
     catppuccin-cursors.mochaDark
     home-manager
