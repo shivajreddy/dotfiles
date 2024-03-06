@@ -12,8 +12,7 @@
 
   # import configuration for apps, packages, etc...
   imports = [
-	#./zsh.nix # My zsh and bash config
-	# /home/shiva/dotfiles/home_manager/shell/zsh.nix
+	(./. + "/apps/hyprland/hyprland.nix")
   ];
 
   # Configuration of packages using Home-Manager ???
