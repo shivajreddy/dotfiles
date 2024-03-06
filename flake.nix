@@ -74,8 +74,9 @@
 	*/
     	shiva = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
-	  modules = [ ./home_manager/home.nix ];
-	  # modules = [ ./home/home.nix ];
+	  # modules = [ /home/shiva/dotfiles/home/home.nix ];
+	  #modules = [ "${self}./home/home.nix" ]; # this is an absoulte path apparently
+	  modules = [ "./home/home.nix" ];
 	};
     };
     # */

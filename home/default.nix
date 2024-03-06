@@ -20,6 +20,12 @@
   # NOTE : write/make a file on left ,with the content of the file on right
   # home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland.conf
 
+  home.file.".local/share/fonts/BerkeleyMono-Bold.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Bold.ttf";
+  home.file.".local/share/fonts/BerkeleyMono-BoldItalic.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-BoldItalic.ttf";
+  home.file.".local/share/fonts/BerkeleyMono-Italic.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Italic.ttf";
+  home.file.".local/share/fonts/BerkeleyMono-Regular.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Regular.ttf";
+
+
   home.packages = with pkgs; [
 	# core
 	zsh
@@ -60,11 +66,24 @@
 	spotifyd
 	spotify-tui
 	lua
+
+	p7zip
+	unzip
+	gnome.file-roller
+	gnome.nautilus
+	nautilus-open-any-terminal
+	webp-pixbuf-loader
+	ffmpegthumbnailer
   ];
 
   # Enable spotify-deamon
-  services.spotifyd = {
-    enable = true;
+  services = {
+    gvfs.enable = true;
+    udisk2.enable = true;
+    spotifyd.enable = true;
+
+    tumbler.enable = true;
+
   };
 
   home.file = {
