@@ -71,8 +71,9 @@
     gvfs
     swayosd
     gnome.gnome-tweaks
-    #mojave-gtk-theme
-    #catppuccin-cursors.mochaDark
+    nautils
+    mojave-gtk-theme
+    catppuccin-cursors.mochaDark
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells
@@ -91,7 +92,7 @@
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
- 
+
   # DESKTOP ENVIRONMENT 
   services.xserver.enable = true; 	# Enable the X11 windowing system.
   services.xserver.displayManager.gdm.enable = true;
