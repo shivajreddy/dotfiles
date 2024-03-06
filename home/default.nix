@@ -72,6 +72,8 @@
 
 	gtk4
 
+	pamixer
+
 	unzip
 
 	#p7zip
