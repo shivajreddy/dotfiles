@@ -69,9 +69,10 @@
     zsh 
     git
     gvfs
+    swayosd
     gnome.gnome-tweaks
-    mojave-gtk-theme
-    catppuccin-cursors.mochaDark
+    #mojave-gtk-theme
+    #catppuccin-cursors.mochaDark
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells
@@ -97,6 +98,8 @@
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.gvfs.enable = true;
+
+  services.swayosd.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
