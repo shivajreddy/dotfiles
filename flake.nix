@@ -36,7 +36,7 @@
         # extraSpecialArgs = { inherit inputs; };
         inherit system;
         modules = [ 
-          ./predator/configuration.nix 
+          (./. + "/hosts/predator/configuration.nix")
  	  /* 1.b. Importing home-manager as a module
           inputs.home-manager.nixosModules.home-manager
           {
@@ -51,7 +51,8 @@
         # extraSpecialArgs = { inherit inputs; };
         inherit system;
         modules = [ 
-          ./tars/configuration.nix 
+          # ./tars/configuration.nix 
+          (./. + "/hosts/tars/configuration.nix")
         ];
       };
     };

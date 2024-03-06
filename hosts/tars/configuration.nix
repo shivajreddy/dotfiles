@@ -1,0 +1,115 @@
+{ config, pkgs, inputs, ... }:
+
+{
+  imports = [ 
+    ./hardware-configuration.nix
+    ];
+  
+  /*  NIX PATH FIX
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+  # */ 
+
+
+  # Bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/????";
+  # boot.loader.grub.useOSProber = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Networking
+  networking.hostName = "tars";
+  networking.networkmanager.enable = true;
+
+  # TimeZone
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  # Hardware
+  hardware = {
+    opengl.enable = true;
+    bluetooth.enable = true;
+    nvidia.modesetting.enable = true; # Most wayland compositors need this
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Environment Settings
+  environment.systemPackages = with pkgs; [ 	# System packages
+    vim
+    zsh 
+    git
+    home-manager
+  ];
+  environment.shells = with pkgs; [ zsh ];	 # Shells
+  environment.sessionVariables = {		 # Session Variables
+    # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
+    NIXOS_OZONE_WL = "1";	 # Hint electron apps to use wayland
+  };
+
+  # User account
+  users.users.shiva = {
+    isNormalUser = true;
+    description = "shiva";
+    extraGroups = [ "networkmanager" "wheel" ];
+    # shell = pkgs.zsh;  # moved all user packages to home-manager, will cuz error????
+    packages = with pkgs; [ ];
+  };
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+ 
+  # DESKTOP ENVIRONMENT 
+  services.xserver.enable = true; 	# Enable the X11 windowing system.
+  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+
+  # HYPRLAND 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override{ fonts = ["JetBrainsMono"];})
+  ];
+
+  # NIX settings
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];	# enable flakes
+  system.stateVersion = "23.11"; # DON'T CHANGE THIS
+}
