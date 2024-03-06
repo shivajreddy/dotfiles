@@ -21,7 +21,7 @@
   # home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland.conf
 
 
-# /* Fonts
+  # Fonts
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Bold.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Bold.ttf;
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-BoldItalic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-BoldItalic.ttf;
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Italic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Italic.ttf;
@@ -29,8 +29,6 @@
 
   home.file.".local/share/fonts/sf-san-francisco-pro".source = ./fonts/san-francisco-pro;
 
-
-# */
 
   home.packages = with pkgs; [
 	# core

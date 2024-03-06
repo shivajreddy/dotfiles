@@ -69,6 +69,7 @@
     zsh 
     git
     gvfs
+    gnome-tweaks
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells
