@@ -5,16 +5,6 @@
 	programs.kitty.enable = true;
 	programs.kitty.extraConfig=''
 
-# vim:ft=kitty
-
-## name:     Catppuccin Kitty Mocha
-## author:   Catppuccin Org
-## license:  MIT
-## upstream: https://github.com/catppuccin/kitty/blob/main/themes/mocha.conf
-## blurb:    Soothing pastel theme for the high-spirited!
-
-
-
 # The basic colors
 		foreground              #CDD6F4
 		background              #1E1E2E
@@ -103,7 +93,6 @@
 		window_margin_width 5
 
 		cursor_shape		block
-
-
+		'';
 }
 

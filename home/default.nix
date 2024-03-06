@@ -14,6 +14,7 @@
   imports = [
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/kitty.nix")
+	(./. + "/apps/starship.nix")
   ];
 
   # Configuration of packages using Home-Manager ???
