@@ -13,6 +13,7 @@
   # import configuration for apps, packages, etc...
   imports = [
 	(./. + "/apps/hyprland/hyprland.nix")
+	(./. + "/apps/kitty.nix")
   ];
 
   # Configuration of packages using Home-Manager ???
