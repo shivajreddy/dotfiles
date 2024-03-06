@@ -20,11 +20,13 @@
   # NOTE : write/make a file on left ,with the content of the file on right
   # home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland.conf
 
-  home.file.".local/share/fonts/BerkeleyMono-Bold.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Bold.ttf";
-  home.file.".local/share/fonts/BerkeleyMono-BoldItalic.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-BoldItalic.ttf";
-  home.file.".local/share/fonts/BerkeleyMono-Italic.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Italic.ttf";
-  home.file.".local/share/fonts/BerkeleyMono-Regular.ttf".source = "home/shiva/dotfiles/home_manager/fonts/berkley-mono/BerkeleyMono-Regular.ttf";
 
+# /* Fonts
+  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Bold.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Bold.ttf;
+  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-BoldItalic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-BoldItalic.ttf;
+  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Italic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Italic.ttf;
+  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Regular.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Regular.ttf;
+# */
 
   home.packages = with pkgs; [
 	# core
@@ -42,7 +44,7 @@
 	btop
 	swww
 	xfce.thunar
-	gvfs  # for thumbdrive to work with thunar, not working
+	# gvfs  # for thumbdrive to work with thunar, not working
 	xfce.thunar-volman
 	xfce.tumbler
 	nomacs
@@ -67,23 +69,21 @@
 	spotify-tui
 	lua
 
-	p7zip
 	unzip
-	gnome.file-roller
-	gnome.nautilus
-	nautilus-open-any-terminal
-	webp-pixbuf-loader
-	ffmpegthumbnailer
+	#p7zip
+	#gnome.file-roller
+	#gnome.nautilus
+	#nautilus-open-any-terminal
+	#webp-pixbuf-loader
+	#ffmpegthumbnailer
   ];
 
   # Enable spotify-deamon
   services = {
-    gvfs.enable = true;
-    udisk2.enable = true;
+    #udisk2.enable = true;
     spotifyd.enable = true;
 
-    tumbler.enable = true;
-
+    #tumbler.enable = true;
   };
 
   home.file = {
