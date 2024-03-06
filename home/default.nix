@@ -111,9 +111,7 @@
   };
 
   # --------Directly pasting it
-  programs.starship = {
-    enable = true;
-  };
+  programs.starship.enable = true;
 
   programs.zsh = {
     enable = true;
