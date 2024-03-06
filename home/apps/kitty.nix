@@ -1,8 +1,9 @@
 { ... }:
 {
-  imports = [];
+	imports = [];
 
-	programs.kitty.extraConfig = ''
+	programs.kitty.enable = true;
+	programs.kitty.extraConfig=''
 
 # vim:ft=kitty
 
@@ -85,20 +86,24 @@
 		color7  #BAC2DE
 		color15 #A6ADC8
 
-		font_size		14.0
+		font_size		16.0
 
-		font_family		JetBrains Mono Nerd Font Mono
+# font_family		JetBrains Mono Nerd Font Mono
+		font_family		Berkeley Mono
 		bold_font		auto
 		italic_font		auto
 		bold_italic_font	auto
 
 		background_opacity	0.90
 
-
 		confirm_os_window_close	0
 
+		map ctrl+shift+backspace send_text all \x0c
+		window_padding_width 5
+		window_margin_width 5
 
-		'';
+		cursor_shape		block
+
 
 }
 
