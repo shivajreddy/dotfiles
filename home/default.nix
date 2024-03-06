@@ -107,7 +107,7 @@
       };
     };
   };
-  */
+  # */
 
   /* Remove existing GTK settings to avoid conflicts
   home.file.".config/gtk-3.0/settings.ini".state = "absent";
