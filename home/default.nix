@@ -123,13 +123,9 @@
     shellAliases = {
     vi="nvim";
     ls = "eza --icons -l -T -L=1";
-    cat = "bat";
+    vihome="vi /home/shiva/dotfiles/home/default.nix";
+    viconfig="vi /home/shiva/dotfiles/${builtins.getEnv "HOSTNAME"}/configuration.nix";
     htop = "btm";
-    fd = "fd -Lu";
-    w3m = "w3m -no-cookie -v";
-    neofetch = "disfetch";
-    fetch = "disfetch";
-    gitfetch = "onefetch";
     gaa="git add .";
     gst="git status .";
     gcmsg="git commit -m";
@@ -150,15 +146,6 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-    vi="nvim";
-    ls = "eza --icons -l -T -L=1";
-    cat = "bat";
-    htop = "btm";
-    fd = "fd -Lu";
-    w3m = "w3m -no-cookie -v";
-    neofetch = "disfetch";
-    fetch = "disfetch";
-    gitfetch = "onefetch";
     };
   };
 

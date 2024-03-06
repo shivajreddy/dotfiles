@@ -69,7 +69,9 @@
     zsh 
     git
     gvfs
-    gnome-tweaks
+    gnome.gnome-tweaks
+    mojave-gtk-theme
+    catppuccin-cursors.mochaDark
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells
