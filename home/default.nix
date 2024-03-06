@@ -107,6 +107,7 @@
   };
 
   home.sessionVariables = {
+    STARSHIP_CONFIG = "~/.config/starship/config.toml";
   };
 
   # --------Directly pasting it
@@ -160,6 +161,7 @@
     gitfetch = "onefetch";
     };
   };
+
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
