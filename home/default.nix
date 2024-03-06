@@ -27,7 +27,13 @@
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Italic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Italic.ttf;
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Regular.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Regular.ttf;
 
-  home.file".local/share/fonts/sf-san-francisco-pro/" = ./fonts/san-francisco-pro;
+  home.file = {
+    ".local/share/fonts/sf-san-francisco-pro".source = ./fonts/san-francisco-pro;
+    # Ensure you have this line to indicate copying the directory instead of linking
+    ".local/share/fonts/sf-san-francisco-pro".policy = "copy";
+  };
+
+  
 
 # */
 
