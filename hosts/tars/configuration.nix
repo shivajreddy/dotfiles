@@ -3,7 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    ];
+  ];
   
   /*  NIX PATH FIX
   nix.nixPath = [
@@ -68,6 +68,12 @@
     vim
     zsh 
     git
+    gvfs
+    # swayosd
+    gnome.gnome-tweaks
+    nautils
+    mojave-gtk-theme
+    catppuccin-cursors.mochaDark
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells
@@ -86,11 +92,13 @@
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
- 
+
   # DESKTOP ENVIRONMENT 
   services.xserver.enable = true; 	# Enable the X11 windowing system.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
+
+  services.gvfs.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -113,3 +121,4 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];	# enable flakes
   system.stateVersion = "23.11"; # DON'T CHANGE THIS
 }
+
