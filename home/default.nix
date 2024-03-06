@@ -70,8 +70,7 @@
 	spotify-tui
 	lua
 
-
-	gtk
+	gtk4
 
 	unzip
 
