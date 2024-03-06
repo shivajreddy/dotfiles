@@ -27,12 +27,8 @@
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Italic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Italic.ttf;
   home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Regular.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Regular.ttf;
 
-  home.file.".local/share/fonts/sf-san-francisco-pro" = {
-    source = ./fonts/san-francisco-pro;
-    isDirectory = true; # Ensure that Home Manager treats this as a directory
-  };
+  home.file.".local/share/fonts/sf-san-francisco-pro".source = ./fonts/san-francisco-pro;
 
-  
 
 # */
 
