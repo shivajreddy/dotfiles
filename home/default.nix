@@ -108,6 +108,13 @@
 	variant = "mocha";
       };
     };
+    cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+    iconTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+    settings = {
+      "org.gnome.desktop.interface" = {
+        gtk-theme = "Adwaita-dark";
+      };
+    };
   };
   # */
 
