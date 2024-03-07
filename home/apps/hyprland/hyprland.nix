@@ -287,6 +287,7 @@
 																									 '';
 	};
 
+/*
 	home.file."./config/hypr/pyprland.toml".text = ''
 	[pyprland]
 	plugins = ["scratchpads", "magnify"]
@@ -298,6 +299,9 @@
 	max_size = "800px 40%"
 	margin = 50
 	'';
+*/
+
+  	home.file.".config/hypr/pyprland.toml".source = ./pyprland.toml
 
 }
 
