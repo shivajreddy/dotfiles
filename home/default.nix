@@ -36,6 +36,7 @@
 	zsh
 	firefox
 	brave
+	google-chrome
 	kitty
 	neovim
 	jetbrains-mono
