@@ -287,7 +287,17 @@
 																									 '';
 	};
 
-	home.file."./config/hypr/pyprland.json".text = ''
-		'';
+	home.file."./config/hypr/pyprland.toml".text = ''
+	[pyprland]
+	plugins = ["scratchpads", "magnify"]
+
+	[scratchpads.term]
+	command = "kitty --class scratchpad"
+	class = "scratchpad"
+	size = "75% 60%"
+	max_size = "800px 40%"
+	margin = 50
+	'';
+
 }
 
