@@ -49,18 +49,17 @@ in
  #  home.file.".config/hypr/pyprland.toml".source = ./pyprland.toml;
 
 
-  home.file.".config/hypr/pyprland.json".text = ''
-    {
-      "pyprland": {
-        "plugins": ["scratchpads"]
-      },
-      "scratchpads": {
-        "term": {
-		"command" : "kitty --class scratchpad",
-		"class" : "scratchpad",
-        },
-      }
-    }
+  home.file.".config/hypr/pyprland.toml".text = ''
+	  [pyprland]
+	  plugins = ["scratchpads"]
+
+	  [scratchpads.term]
+	  animation=""
+	  command = "kitty --class scratchpad"
+	  class = "scratchpad"
+	  size = "75% 60%"
+	  max_size = "1920px 100%"
+	  margin = 50
   '';
 }
 
