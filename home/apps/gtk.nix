@@ -6,12 +6,19 @@
 
   gtk = {
     enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override{
+        accent = "pink";
+	flavor = "frappe";
+      };
+    };
     theme = {
       name = "Mocha-Sapphire-Dark";
       package = pkgs.catppuccin-gtk.override {
 	accents = [ "sapphire" ];
 	size = "standard";
-	tweaks = [ "rimless" ];
+	# tweaks = [ "rimless" ];
 	variant = "mocha";
       };
     };
@@ -19,10 +26,6 @@
       name = "Catppuccin-Mocha-Dark-Sapphire";
       # https://github.com/catppuccin/cursors
       package = pkgs.catppuccin-cursors.mochaSapphire;
-    };
-    iconTheme = {
-      name = "Catppuccin-Mocha-Dark-Cursors";
-      #package = pkgs.catppuccin-
     };
     gtk3 = {
       extraConfig = {

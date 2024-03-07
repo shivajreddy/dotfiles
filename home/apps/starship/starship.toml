@@ -151,7 +151,7 @@ disabled = false
 [cmd_duration]
 format = '[ $duration ]($style)'
 style = 'fg:yellow'
-show_milliseconds = true
+show_milliseconds = false
 min_time = 2000
 
 [jobs]
