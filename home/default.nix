@@ -18,11 +18,11 @@
 	(./. + "/fonts/fonts.nix")
 	(./. + "/apps/git.nix")
 	(./. + "/apps/zsh.nix")
-	# (./. + "/apps/starship.nix")
+	# (./. + "/apps/kitty.nix")
+	(./. + "/apps/kitty/kitty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/gtk.nix")
-	(./. + "/apps/kitty.nix")
   ];
   home.packages = with pkgs; [
 	# core
@@ -70,7 +70,6 @@
   ];
 
   services = {
-    # Enable spotify-deamon
     spotifyd.enable = true;
   };
 
