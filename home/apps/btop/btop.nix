@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 
+# NOT COMPLETE
 {
 	programs.btop = {
 		enable = true;
