@@ -2,7 +2,33 @@
 {
   imports = [];
 
-  # make sure the themes are installed
+  /*
+  home.pointerCursor.gtk.enable = true;
+  home.pointerCursor.name = "Something";
+  home.pointerCursor.package = pkgs.catppuccin-cursors.mochaSapphire;
+  # */
+
+  home.pointerCursor = 
+    let 
+      getFrom = url: hash: name: {
+          gtk.enable = true;
+          x11.enable = true;
+          name = name;
+          size = 48;
+          package = 
+            pkgs.runCommand "moveUp" {} ''
+              mkdir -p $out/share/icons
+              ln -s ${pkgs.fetchzip {
+                url = url;
+                hash = hash;
+              }} $out/share/icons/${name}
+          '';
+        };
+    in
+      getFrom 
+        "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
+        "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
+        "Fuchsia-Pop";
 
   gtk = {
     enable = true;
@@ -22,11 +48,14 @@
 	variant = "mocha";
       };
     };
+    /*
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Sapphire";
       # https://github.com/catppuccin/cursors
       package = pkgs.catppuccin-cursors.mochaSapphire;
+      # package = pkgs.mcmojave-cursors;
     };
+    # */
     gtk3 = {
       extraConfig = {
 	gtk-application-prefer-dark-theme=1;
@@ -42,7 +71,11 @@
 
   # /* Linking the Theme assets
   xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    #"gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/assets" = {
+      source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      recursive = true;
+    };
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
