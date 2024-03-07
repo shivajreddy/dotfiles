@@ -8,8 +8,8 @@ let
     gaa = "git add .";
     gcmsg = "git commit -m";
     gst = "git status .";
-    ggpush = "git push -origin main";
-    ggpull = "git pull -origin main";
+    ggpush = "git push -u origin main";
+    ggpull = "git pull -u origin main";
   };
 in
 {
