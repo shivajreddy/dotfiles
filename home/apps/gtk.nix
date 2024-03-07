@@ -9,7 +9,7 @@
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override{
-        accent = "pink";
+        accent = "blue"; # https://github.com/costales/folder-color/
 	flavor = "frappe";
       };
     };
