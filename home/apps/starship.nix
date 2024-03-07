@@ -4,7 +4,10 @@
 	imports = [];
 
 	programs.starship.enable = true;
-	# programs.starship.enableZshIntegration = true;
+
+	home.sessionVariables = {
+	    STARSHIP_CONFIG = "~/.config/starship/config.toml";
+	};
 
 	programs.starship.settings = {
 		add_newline = true;

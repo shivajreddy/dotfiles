@@ -12,26 +12,13 @@
 
   # import configuration for apps, packages, etc...
   imports = [
+	(./. + "/fonts/fonts.nix")
+	(./. + "/apps/git.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/gtk.nix")
 	(./. + "/apps/kitty.nix")
 	(./. + "/apps/starship.nix")
   ];
-
-  # Configuration of packages using Home-Manager ???
-  # NOTE : write/make a file on left ,with the content of the file on right
-  # home.file.".config/hypr/hyprland.conf".source = ./apps/hyprland.conf
-
-
-  # Fonts
-  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Bold.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Bold.ttf;
-  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-BoldItalic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-BoldItalic.ttf;
-  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Italic.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Italic.ttf;
-  home.file.".local/share/fonts/BerkeleyMono/BerkeleyMono-Regular.ttf".source = ./fonts/berkeley-mono/BerkeleyMono-Regular.ttf;
-
-  home.file.".local/share/fonts/sf-san-francisco-pro".source = ./fonts/san-francisco-pro;
-
-
   home.packages = with pkgs; [
 	# core
 	zsh
@@ -72,83 +59,15 @@
 	spotifyd
 	spotify-tui
 	lua
-
 	gtk4
-
 	pamixer
-
 	unzip
-
-	#p7zip
-	#gnome.file-roller
-	#gnome.nautilus
-	#nautilus-open-any-terminal
-	#webp-pixbuf-loader
-	#ffmpegthumbnailer
   ];
 
   # Enable spotify-deamon
   services = {
-    #udisk2.enable = true;
     spotifyd.enable = true;
-
-    #tumbler.enable = true;
   };
-
-
-  #also, path to python is ${pkgs.python}/bin/python
-  # configuration of my programs
-
-
-  programs.git = {
-    enable = true;
-    userName = "shivajreddy";
-    userEmail = "shivajreddy@outlook.com";
-    extraConfig.credential.helper = "store";
-    # Note: first time using git, when pushing to your account,
-    # use username, for password paste the token from github.com 
-  };
-
-  home.sessionVariables = {
-    STARSHIP_CONFIG = "~/.config/starship/config.toml";
-  };
-
-  # --------Directly pasting it
-  programs.starship.enable = true;
-
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-    vi="nvim";
-    ls = "eza --icons -l -T -L=1";
-    vihome="vi /home/shiva/dotfiles/home/default.nix";
-    htop = "btm";
-    gaa="git add .";
-    gst="git status .";
-    gcmsg="git commit -m";
-    ggpush="git push -u origin main";
-    ggpull="git pull -u origin main";
-    };
-    # RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-  };
-    /*
-    initExtra = ''
-    PROMPT="%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-     %F{green}%f "
-    [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-    '';
-    */
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = {
-    };
-  };
-
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;

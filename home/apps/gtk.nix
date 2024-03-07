@@ -1,21 +1,45 @@
-{ ... }:
+{ config, pkgs, ... }:
 {
   imports = [];
 
-  #/*
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      name = "Mocha-Sapphire-Dark";
       package = pkgs.catppuccin-gtk.override {
-	accents = [ "pink" ];
+	accents = [ "sapphire" ];
 	size = "standard";
 	tweaks = [ "rimless" ];
 	variant = "mocha";
       };
     };
-    cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
-    iconTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Dark-Sapphire";
+      # https://github.com/catppuccin/cursors
+      package = pkgs.catppuccin-cursors.mochaSapphire;
+    };
+    iconTheme = {
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      #package = pkgs.catppuccin-
+    };
+    gtk3 = {
+      extraConfig = {
+	gtk-application-prefer-dark-theme=1;
+      };
+    };
+    gtk4 = {
+      extraConfig = {
+	gtk-application-prefer-dark-theme=1;
+      };
+    };
+  };
+
+
+  # /* Linking the Theme assets
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
   # */
 
@@ -37,14 +61,6 @@
     gtk-icon-theme-name="YourIconTheme" # Replace with your icon theme
     gtk-font-name="YourFont 11" # Replace with your font settings
   '';
-  */
+  # */
 
-  # Linking the Theme assets
-  /*
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  };
-  */
 }
