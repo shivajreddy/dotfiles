@@ -44,7 +44,7 @@
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override{
         accent = "blue"; # https://github.com/costales/folder-color/
-	flavor = "frappe";
+	flavor = "mocha";
       };
     };
     theme = {
@@ -56,7 +56,7 @@
 	variant = "mocha";
       };
     };
-    /*
+    #/*
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Sapphire";
       # https://github.com/catppuccin/cursors
@@ -64,6 +64,11 @@
       # package = pkgs.mcmojave-cursors;
     };
     # */
+    gtk2 = {
+      extraConfig = {
+	gtk-application-prefer-dark-theme=1;
+      };
+    };
     gtk3 = {
       extraConfig = {
 	gtk-application-prefer-dark-theme=1;
