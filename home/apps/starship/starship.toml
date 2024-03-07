@@ -181,7 +181,7 @@ disabled = true
 disabled = false
 format = '[$symbol ]($style)'
 style = 'fg:yellow'
-symbol = ' '
+symbol = ' '
 
 ### LANGUAGE VERSION INDICATORS
 [buf]
