@@ -58,8 +58,6 @@ in
         "term": {
 		"command" : "kitty --class scratchpad",
 		"class" : "scratchpad",
-		"size" : "75% 60%",
-		"max_size" : "1920px 100%",
         },
       }
     }
