@@ -4,6 +4,7 @@ let
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
+    vi = "nvim";
     htop = "btm";
     gaa = "git add .";
     gcmsg = "git commit -m";
