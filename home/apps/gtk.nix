@@ -8,6 +8,13 @@
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaSapphire;
   # */
 
+  /*
+  home.packages = with pkgs; [
+    apple_cursor
+  ];
+  # */
+
+/*
   home.pointerCursor = 
     let 
       getFrom = url: hash: name: {
@@ -29,6 +36,7 @@
         "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
         "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
         "Fuchsia-Pop";
+*/
 
   gtk = {
     enable = true;
@@ -44,7 +52,7 @@
       package = pkgs.catppuccin-gtk.override {
 	accents = [ "sapphire" ];
 	size = "standard";
-	# tweaks = [ "rimless" ];
+	tweaks = [ "rimless" "black" ];
 	variant = "mocha";
       };
     };
