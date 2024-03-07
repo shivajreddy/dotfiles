@@ -6,6 +6,9 @@
 
   home.stateVersion = "23.11"; # DONT CHANGE THIS
 
+  # wtf is this
+  # home.pointerCursor.gtk.enable = true;
+
   # /* Enable Home-Manager
   programs.home-manager.enable = true;
   # */ 
@@ -14,10 +17,11 @@
   imports = [
 	(./. + "/fonts/fonts.nix")
 	(./. + "/apps/git.nix")
+	(./. + "/apps/zsh.nix")
+	(./. + "/apps/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/gtk.nix")
 	(./. + "/apps/kitty.nix")
-	(./. + "/apps/starship.nix")
   ];
   home.packages = with pkgs; [
 	# core
@@ -64,12 +68,9 @@
 	unzip
   ];
 
-  # Enable spotify-deamon
   services = {
+    # Enable spotify-deamon
     spotifyd.enable = true;
   };
 
-  programs.direnv.enable = true;
-  programs.direnv.enableZshIntegration = true;
-  programs.direnv.nix-direnv.enable = true;
 }

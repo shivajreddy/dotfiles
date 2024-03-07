@@ -74,6 +74,7 @@
     gnome.nautilus
     mojave-gtk-theme
     catppuccin-cursors.mochaDark
+    chatterino2
     home-manager
   ];
   environment.shells = with pkgs; [ zsh ];	 # Shells

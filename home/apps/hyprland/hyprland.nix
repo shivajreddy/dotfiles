@@ -84,9 +84,9 @@
 					     bind = $mainMod SHIFT , j , movewindow, d
 
 # Audiocontrol with mediakeys & show OSD values
-					     bind = , XF86AudioRaiseVolume , exec , swayosd --output-volume raise
-					     bind = , XF86AudioLowerVolume , exec , swayosd --output-volume lower
-					     bind = , XF86AudioMute        , exec , swayosd --output-volume mute-toggle
+					     bind = , XF86AudioRaiseVolume , exec , pamixer -i 10
+					     bind = , XF86AudioLowerVolume , exec , pamixer -d 10
+					     bind = , XF86AudioMute        , exec , pamixer -t
 
 # Mediacontrol with mediakeys
 					     bind = , XF86AudioPlay , exec , playerctl play-pause

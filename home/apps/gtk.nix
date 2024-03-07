@@ -2,6 +2,8 @@
 {
   imports = [];
 
+  # make sure the themes are installed
+
   gtk = {
     enable = true;
     theme = {
