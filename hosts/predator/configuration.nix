@@ -16,6 +16,8 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot";	# trying this option
+  
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/????";
   # boot.loader.grub.useOSProber = true;
