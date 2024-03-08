@@ -5,6 +5,7 @@ let
   myAliases = {
     ls = "eza --icons -l -T -L=1";
     vi = "nvim";
+    files = "thunar";
     htop = "btm";
     gaa = "git add .";
     gcmsg = "git commit -m";
