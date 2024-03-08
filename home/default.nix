@@ -71,8 +71,8 @@
 
 	tmux
 	vscode
-	jetbrains.pycharm-professional
-	jetbrains.webstorm
+	#jetbrains.pycharm-professional
+	#jetbrains.webstorm
 
 	lua
 	rustup
