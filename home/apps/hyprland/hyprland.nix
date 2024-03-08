@@ -54,12 +54,10 @@ in
 	  plugins = ["scratchpads"]
 
 	  [scratchpads.term]
-	  animation=""
-	  command = "kitty --class scratchpad"
+	  animation = "popin"
+	  position = "30% 50%"
+	  size = "5% 5%"
 	  class = "scratchpad"
-	  size = "75% 60%"
-	  max_size = "1920px 100%"
-	  margin = 50
   '';
 }
 
