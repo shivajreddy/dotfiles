@@ -78,6 +78,11 @@
     streamlink-twitch-gui-bin
     chatterino2
     # swayosd
+
+    libadwaita
+    gnome.adwaita-icon-theme
+    gsettings-desktop-schemas
+
     gnome.gnome-tweaks
     gnome.nautilus
     mojave-gtk-theme

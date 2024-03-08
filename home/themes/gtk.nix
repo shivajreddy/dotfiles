@@ -73,18 +73,46 @@
  
     gtk3 = {
       extraConfig = {
-	gtk-application-prefer-dark-theme=true;
+	gtk-theme-name="adw-gtk3-dark";
+	gtk-icon-theme-name="Adwaita";
+	# gtk-font-name=Noto Sans,  10;
+	gtk-cursor-theme-name="Adwaita";
+	gtk-cursor-theme-size=24;
+	# gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ;
+	# gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR;
+	gtk-button-images=1;
+	gtk-menu-images=1;
+	gtk-enable-event-sounds=1;
+	gtk-enable-input-feedback-sounds=0;
+	gtk-xft-antialias=1;
+	gtk-xft-hinting=1;
+	# gtk-xft-hintstyle=hintslight;
+	# gtk-xft-rgba=rgb;
+	gtk-application-prefer-dark-theme=0;
+	# gtk-decoration-layout=icon:minimize,maximize,close;
+	gtk-enable-animations=true;
+	gtk-primary-button-warps-slider=false;
       };
     };
     gtk4 = {
       extraConfig = {
 	gtk-application-prefer-dark-theme=true;
+	gtk-cursor-theme-name="Adwaita";
+	gtk-cursor-theme-size=24;
+	#gtk-decoration-layout=icon:minimize,maximize,close;
+	gtk-enable-animations=true;
+	# gtk-font-name=Noto Sans,  10;
+	gtk-icon-theme-name="Adwaita";
+	gtk-primary-button-warps-slider=false;
+	gtk-theme-name="adw-gtk3-dark";
       };
     };
   };
 
 
-  # /* Linking the Theme assets
+
+
+  /* Linking the Theme assets
   xdg.configFile = {
     #"gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
     "gtk-4.0/assets" = {
