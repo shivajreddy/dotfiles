@@ -65,11 +65,13 @@
 	spotify
 	spotifyd
 	spotify-tui
-	lua
 	gtk4
 	pamixer
 	unzip
+	tmux
+	vscode
 
+	lua
 	rustup
 	python3
 	nodejs_21
