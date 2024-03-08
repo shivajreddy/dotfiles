@@ -19,6 +19,7 @@
 	(./. + "/apps/git.nix")
 	(./. + "/apps/zsh.nix")
 	# (./. + "/apps/kitty.nix")
+	(./. + "/apps/alacritty/alacritty.nix")
 	(./. + "/apps/kitty/kitty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")

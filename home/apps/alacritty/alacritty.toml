@@ -1,0 +1,83 @@
+import = ["./mocha.toml"]
+
+
+live_config_reload = true
+
+# [[keyboard.bindings]]
+# key = "L"
+# mods = "Control|Shift"
+# action = "ClearHistory"
+# action = "ClearLogNotice"
+
+#[shell]
+# program = "/usr/bin/zsh"
+# args = ["-l", "-c", "tmux"] # creates new session every time
+# this will keep attaching to old session, so you can only have 1 session
+# args = ["-l", "-c", "tmux attach || tmux"]
+
+[env]
+TERM = "xterm-256color"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 14
+
+normal.family = "berkeley mono nerd font"
+normal.style = "regular"
+
+bold.family = "berkeley mono nerd font"
+bold.style = "bold"
+
+bold_italic.family = "berkeley mono nerd font"
+bold_italic.style = "bold italic"
+
+italic.family = "berkeley mono nerd font"
+italic.style = "italic"
+
+normal.family = "berkeley mono nerd font"
+normal.style = "regular"
+
+bold.family = "berkeley mono nerd font"
+bold.style = "bold"
+
+bold_italic.family = "berkeley mono nerd font"
+bold_italic.style = "bold italic"
+
+italic.family = "berkeley mono nerd font"
+italic.style = "italic"
+
+offset.x = 0
+offset.y = 0
+
+glyph_offset.x = 0
+glyph_offset.y = 0
+
+[mouse]
+hide_when_typing = true
+
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+# auto_scroll = true
+
+
+[window]
+opacity = 1
+dynamic_padding = false
+
+padding.x = 6
+padding.y = 6
+
+decorations = "full"
+
+startup_mode = "Maximized"
+
+class.general = "Alacritty"
+class.instance = "Alacritty"
+
