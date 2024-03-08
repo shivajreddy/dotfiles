@@ -70,6 +70,7 @@
 
 	rustup
 	python3
+	nodejs_21
 
   ];
 
