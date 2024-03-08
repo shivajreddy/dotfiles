@@ -67,6 +67,10 @@
 	gtk4
 	pamixer
 	unzip
+
+	rustup
+	python3
+
   ];
 
   services = {
