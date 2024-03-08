@@ -50,14 +50,14 @@ in
 
 
   home.file.".config/hypr/pyprland.toml".text = ''
-	  [pyprland]
+  	  [pyprland]
 	  plugins = ["scratchpads"]
 
 	  [scratchpads.term]
-	  position = "5% 5%"
-	  size = "90% 90%"
+	  command = "kitty --class scratchpad"
+	  position = "35% 35%"
+	  size = "30% 30%"
 	  class = "scratchpad"
   '';
 }
-	  # animation = "popin"
 
