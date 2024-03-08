@@ -54,10 +54,10 @@ in
 	  plugins = ["scratchpads"]
 
 	  [scratchpads.term]
-	  animation = "popin"
-	  position = "30% 50%"
-	  size = "5% 5%"
+	  position = "5% 5%"
+	  size = "90% 90%"
 	  class = "scratchpad"
   '';
 }
+	  # animation = "popin"
 
