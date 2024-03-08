@@ -31,6 +31,7 @@
 	brave
 	google-chrome
 	kitty
+	alacritty
 	neovim
 	jetbrains-mono
 	rofi-wayland
