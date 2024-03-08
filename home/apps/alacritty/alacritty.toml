@@ -3,6 +3,7 @@ import = ["./mocha.toml"]
 
 live_config_reload = true
 
+#
 # [[keyboard.bindings]]
 # key = "L"
 # mods = "Control|Shift"
