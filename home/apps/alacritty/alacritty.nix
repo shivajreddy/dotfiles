@@ -50,16 +50,16 @@ in
 
     font = {
       size = 14;
-      normal.family = "berkeley mono nerd font";
+      normal.family = "Berkeley Mono";
       normal.style = "regular";
 
-      bold.family = "berkeley mono nerd font";
+      bold.family = "Berkeley Mono";
       bold.style = "bold";
 
-      bold_italic.family = "berkeley mono nerd font";
+      bold_italic.family = "Berkeley Mono";
       bold_italic.style = "bold italic";
 
-      italic.family = "berkeley mono nerd font";
+      italic.family = "Berkeley Mono";
       italic.style = "italic";
 
       offset.x = 0;
