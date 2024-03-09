@@ -68,6 +68,7 @@
 	gtk4
 	pamixer
 	unzip
+  spicetify-cli
 
 	tmux
 	vscode
