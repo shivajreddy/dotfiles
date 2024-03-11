@@ -55,8 +55,8 @@ in
 
 	  [scratchpads.term]
 	  command = "kitty --class scratchpad"
-	  position = "35% 35%"
-	  size = "30% 30%"
+	  position = "25% 25%"
+	  size = "50% 50%"
 	  class = "scratchpad"
   '';
 }
