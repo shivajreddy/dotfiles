@@ -12,6 +12,7 @@ let
     gst = "git status .";
     ggpush = "git push -u origin main";
     ggpull = "git pull -u origin main";
+    rebuild = "home-manager switch --flake /home/shiva/dotfiles"
   };
 in
 {
