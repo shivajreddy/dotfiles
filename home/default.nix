@@ -64,8 +64,8 @@
 	gnumake
 	ripgrep
 	spotify
-	spotifyd
-	spotify-tui
+	# spotifyd
+	# spotify-tui
 	gtk4
 	pamixer
 	unzip
