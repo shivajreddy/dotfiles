@@ -76,6 +76,8 @@
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 
+  mpd # music player deamon
+
 	lua
 	rustup
 	python3
@@ -83,6 +85,9 @@
 
   ];
 
-  # services = { spotifyd.enable = true; };
+  services = {
+    # spotifyd.enable = true; 
+    mpd.enable = true;
+  };
 
 }
