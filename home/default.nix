@@ -77,6 +77,9 @@
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 
+  gnome-themes-extra
+  # catppuccin-gtk
+
 	lua
 	rustup
 	python3

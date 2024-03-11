@@ -37,7 +37,6 @@
       # */ 
     };
 
-
     # Cursors
     cursorTheme = {
       package = pkgs.bibata-cursors;
