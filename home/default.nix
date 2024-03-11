@@ -23,8 +23,8 @@
 	(./. + "/apps/kitty/kitty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
-	# (./. + "/themes/gtk.nix")
-	(./. + "/themes/qt/qt.nix")
+	(./. + "/themes/gtk/gtk.nix")
+	# (./. + "/themes/qt/qt.nix")
   ];
   home.packages = with pkgs; [
 	# core
@@ -63,7 +63,7 @@
 	gcc
 	gnumake
 	ripgrep
-	 #spotify
+	spotify
 	# spotifyd
 	# spotify-tui
 	gtk4
