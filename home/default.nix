@@ -83,8 +83,6 @@
 
   ];
 
-  services = {
-    spotifyd.enable = true;
-  };
+  # services = { spotifyd.enable = true; };
 
 }
