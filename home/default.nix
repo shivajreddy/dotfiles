@@ -18,12 +18,13 @@
 	(./. + "/fonts/fonts.nix")
 	(./. + "/apps/git.nix")
 	(./. + "/apps/zsh.nix")
-	# (./. + "/apps/kitty.nix")
-	(./. + "/apps/alacritty/alacritty.nix")
 	(./. + "/apps/kitty/kitty.nix")
+	(./. + "/apps/alacritty/alacritty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
+	(./. + "/apps/waybar/waybar.nix")
 	(./. + "/themes/gtk/gtk.nix")
+#
 	# (./. + "/themes/qt/qt.nix")
   ];
   home.packages = with pkgs; [
