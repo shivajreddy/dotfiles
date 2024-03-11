@@ -23,7 +23,8 @@
 	(./. + "/apps/kitty/kitty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
-	(./. + "/themes/gtk.nix")
+	# (./. + "/themes/gtk.nix")
+	(./. + "/themes/qt.nix")
   ];
   home.packages = with pkgs; [
 	# core
