@@ -63,7 +63,7 @@
 	gcc
 	gnumake
 	ripgrep
-	spotify
+	 #spotify
 	# spotifyd
 	# spotify-tui
 	gtk4
