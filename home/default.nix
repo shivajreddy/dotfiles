@@ -41,7 +41,7 @@
 	starship
 	alacritty
 
-	neovim
+	# neovim
 
 	jetbrains-mono
 	rofi-wayland
