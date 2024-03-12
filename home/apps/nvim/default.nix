@@ -1,11 +1,20 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  # NVIM Config -> The Nix way ./\.
   programs.neovim = {
+
+    enable = true;
+
+    defaultEditor = true;
+
     extraPackages = with pkgs; [
       # LazyVim
       lua-language-server
       stylua
+      #justadded this
+      rust-analyzer	
       # Telescope
       ripgrep
     ];
@@ -117,5 +126,9 @@
     "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim/lua".source = ./lua;
+  # xdg.configFile."nvim/lua".source = ./lua;
+
+
 }
+
+
