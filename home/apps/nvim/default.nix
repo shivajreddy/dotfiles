@@ -108,7 +108,6 @@
             { "williamboman/mason-lspconfig.nvim", enabled = false },
             { "williamboman/mason.nvim", enabled = false },
             -- import/override with your plugins
-            -- hi mom!
             { import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
@@ -119,6 +118,7 @@
 
 
   # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
+  # This is the work around. look at the last line in 'spec', it says that we have clear ensure_installed for tree-sitter
   xdg.configFile."nvim/parser".source =
     let
       parsers = pkgs.symlinkJoin {
