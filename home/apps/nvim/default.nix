@@ -121,12 +121,14 @@
   # This is the work around. look at the last line in 'spec', it says that we have clear ensure_installed for tree-sitter
   xdg.configFile."nvim/parser".source =
     let
-      parsers = pkgs.symlinkJoin {
+      # this returns a 'derivation', derivation in nix represents a package build
+      parsers = pkgs.symlinkJoin {      
         name = "treesitter-parsers";
         paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           lua
           rust  # NOTE: can i do this ??????
+          python
         ])).dependencies;
       };
     in
