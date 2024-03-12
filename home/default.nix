@@ -84,10 +84,10 @@
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 
-	# lua
-	# rustup
-	# python3
-	# nodejs_21
+	lua
+	rustup
+	python3
+	nodejs_21
 
   ];
 

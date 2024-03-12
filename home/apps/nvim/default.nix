@@ -14,7 +14,7 @@
       lua-language-server
       stylua
       #justadded this
-      rust-analyzer	
+      rust-analyzer
       # Telescope
       ripgrep
     ];
@@ -67,6 +67,7 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
+          # these are some of the plugins that have a difference b/t name nad path
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
@@ -76,11 +77,14 @@
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
         ];
+        # This fn maps each plugin to it's name and path
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
             { name = "${lib.getName drv}"; path = drv; }
           else
             drv;
+
+        # lazypath uses the pkgs.linkFarm to create symlink for lazy-loading plugins
         lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
       in
       ''
@@ -104,6 +108,7 @@
             { "williamboman/mason-lspconfig.nvim", enabled = false },
             { "williamboman/mason.nvim", enabled = false },
             -- import/override with your plugins
+            -- hi mom!
             { import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
@@ -111,6 +116,7 @@
         })
       '';
   };
+
 
   # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
   xdg.configFile."nvim/parser".source =
@@ -120,10 +126,12 @@
         paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           lua
+          rust
         ])).dependencies;
       };
     in
     "${parsers}/parser";
+
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
   # xdg.configFile."nvim/lua".source = ./lua;
