@@ -51,6 +51,7 @@
 	htop
 	btop
 	swww
+  # flameshot
 
 	xfce.thunar
 	# gvfs  # for thumbdrive to work with thunar, not working

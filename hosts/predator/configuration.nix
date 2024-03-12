@@ -77,6 +77,7 @@
     streamlink
     streamlink-twitch-gui-bin
     chatterino2
+    shotman
     # swayosd
 
     libadwaita

@@ -126,7 +126,7 @@
         paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           lua
-          rust
+          rust  # NOTE: can i do this ??????
         ])).dependencies;
       };
     in
