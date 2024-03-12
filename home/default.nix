@@ -32,12 +32,17 @@
   home.packages = with pkgs; [
 	# core
 	zsh
+
 	firefox
 	brave
 	google-chrome
+
 	kitty
+	starship
 	alacritty
+
 	neovim
+
 	jetbrains-mono
 	rofi-wayland
 	bluez
@@ -46,13 +51,14 @@
 	htop
 	btop
 	swww
+
 	xfce.thunar
 	# gvfs  # for thumbdrive to work with thunar, not working
 	xfce.thunar-volman
 	xfce.tumbler
+
 	nomacs
 	obs-studio
-	starship
 	neofetch
 	wev	# wayland event viewer, for keystrokes
 	playerctl
@@ -72,17 +78,16 @@
 	gtk4
 	pamixer
 	unzip
-  spicetify-cli
 
 	tmux
 	vscode
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 
-	lua
-	rustup
-	python3
-	nodejs_21
+	# lua
+	# rustup
+	# python3
+	# nodejs_21
 
   ];
 
