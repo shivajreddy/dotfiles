@@ -5,9 +5,9 @@
   # NVIM Config -> The Nix way ./\.
   programs.neovim = {
 
-    enable = true;
+    # enable = true;
 
-    defaultEditor = true;
+    # defaultEditor = true;
 
     extraPackages = with pkgs; [
       # LazyVim
