@@ -41,7 +41,7 @@
       setw -g window-status-style "NONE,fg=#cdd6f4"  # fg of inactive window
       setw -g window-status-format ' #{b:pane_current_path} '
       setw -g window-status-current-format '#[bg=#11111b,fg=#f5c2e7,bold] [#{b:pane_current_path}] '
-      set -g default-terminal "xterm-256color"
+      set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",xterm-256color:Tc"
       unbind C-b
       set-option -g prefix C-t
@@ -71,11 +71,11 @@
       set-option -g history-limit 64096
       set -sg escape-time 10
       set-option -g status-style fg=colour146,bg=colour233,default
-      set-window-option -g window-status-style fg=colour146,bg=colour233,dim
-      set-window-option -g window-status-current-style fg=colour146,bg=colour233,default,bright
+      # set-window-option -g window-status-style fg=colour146,bg=colour233,dim
+      # set-window-option -g window-status-current-style fg=colour146,bg=colour233,default,bright
       set-option -g pane-border-style fg=colour235 #base02
       set-option -g pane-active-border-style fg=colour183,bg=colour235
-      set-option -g message-style fg=colour146,bg=colour233
+      # set-option -g message-style fg=colour146,bg=colour233
       set-option -g display-panes-active-colour colour33 #blue
       set-option -g display-panes-colour colour166 #orange
       set-window-option -g clock-mode-colour colour64 #green
