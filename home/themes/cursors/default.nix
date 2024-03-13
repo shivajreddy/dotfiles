@@ -9,5 +9,6 @@
   # Copy Bibata-Mocha folder
   home.file."~/.icons/Bibata-Mocha".source = ./Bibata-Mocha;
   home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-Mocha;
+# /home/shiva/.icons
 
 }
