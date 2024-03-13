@@ -73,6 +73,7 @@
     streamlink
     streamlink-twitch-gui-bin
     chatterino2
+    pcloud
     # swayosd
     gnome.gnome-tweaks
     gnome.nautilus
