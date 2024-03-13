@@ -1,4 +1,9 @@
 { config, pkgs, ... }:
+
+let
+  # myBibataMocha = import ./../cursors/default.nix {inherit pkgs;};
+  myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
+in 
 {
   imports = [];
 
@@ -22,8 +27,10 @@
 
     # Cursors
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      # package = pkgs.bibata-cursors;
+      # name = "Bibata-Modern-Classic";
+      package = pkgs.myBibataMocha;
+      name = "Bibata-Mocha";
     };
 
     # Icons
