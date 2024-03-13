@@ -26,8 +26,7 @@
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/waybar/waybar.nix")
 	(./. + "/themes/gtk/gtk.nix")
-	(./. + "/themes/cursors/Bibata/cursors/")
-#
+	(./. + "/themes/cursors/default.nix")
 	# (./. + "/themes/qt/qt.nix")
   ];
   home.packages = with pkgs; [
