@@ -21,6 +21,7 @@ pkgs.stdenv.mkDerivation {
 
   dontWrapGzip = true;
 
+  /*
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor ${myName} <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
@@ -28,7 +29,17 @@ pkgs.stdenv.mkDerivation {
   echo "out = $out"
   cp -r $src/* $out/share/icons/
   '';
-  # cp -r $src/* ~/.icons/
+  # */
+
+  # /*
+  installPhase = ''
+  echo "-------->>>>>>> Installing Cursor ${myName} <<<<<<<---------"
+  echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
+  mkdir -p $out
+  cp -r $src/* -d $out
+  '';
+  # */
+  # cp -r $src/Bibata-* -d $out
 }
 
 
