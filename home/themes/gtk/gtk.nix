@@ -2,6 +2,7 @@
 {
   imports = [];
 
+  # this is what fixed the gnome cursors for me
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
