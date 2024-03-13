@@ -22,10 +22,13 @@ pkgs.stdenv.mkDerivation {
   dontWrapGzip = true;
 
   installPhase = ''
-  echo "Installing Cursor ${myName}"
+  echo "-------->>>>>>> Installing Cursor ${myName} <<<<<<<---------"
+  echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
   mkdir -p $out/share/icons
-  cp -r $src/* $out/share/icons
+  echo "out = $out"
+  cp -r $src/* $out/share/icons/
   '';
+  # cp -r $src/* ~/.icons/
 }
 
 
