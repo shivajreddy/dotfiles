@@ -26,6 +26,7 @@
 	(./. + "/apps/hyprland/hyprland.nix")
 	(./. + "/apps/waybar/waybar.nix")
 	(./. + "/themes/gtk/gtk.nix")
+	(./. + "/themes/cursors/Bibata/cursors/")
 #
 	# (./. + "/themes/qt/qt.nix")
   ];
