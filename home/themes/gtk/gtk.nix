@@ -29,7 +29,7 @@ in
     cursorTheme = {
       # package = pkgs.bibata-cursors;
       # name = "Bibata-Modern-Classic";
-      package = pkgs.myBibataMocha;
+      package = myBibataMocha;
       name = "Bibata-Mocha";
     };
 

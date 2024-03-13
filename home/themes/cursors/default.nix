@@ -1,24 +1,31 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 
 # this is the almighty fn that is used in nix-os to build packages
+let
+  myName = "bibata-mocha";
+in 
 pkgs.stdenv.mkDerivation {
 
-  name = "bibata-mocha";  # it doesn't matter what you name
+  name = myName;  # it doesn't matter what you name
 
+  src = ./Bibata-Mocha;
+  /*
   src = pkgs.fetchurl {
-    url = "https://github.com/shivajreddy/dotfiles/tree/main/home/themes/cursors/bibata-mocha.tar.gz";
-    sha256 = "1r6qc4xw7528g1wzsdk5hmifz19rkjldh80s6pb1lh937ir2chsy";
+    url = "<has to be a package like stuff with makefile or buildphase>";
+    sha256 = "<its sha256 got by nix-prefetch-url 'above url'>";
   };
+  # */
 
-  dontUnpack = true;
+  # dontUnpack = true;
+
+  dontWrapGzip = true;
 
   installPhase = ''
-  echo "Installing Cursor ${name}"
-  mkdir -p $out
-  ${pkgs.unzip}/bin/unzip $src -d $out/
+  echo "Installing Cursor ${myName}"
+  mkdir -p $out/share/icons
+  cp -r $src/* $out/share/icons
   '';
-
 }
 
 
