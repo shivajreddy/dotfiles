@@ -3,6 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
+	  (./. + "/apps/pcloud/default.nix")
   ];
   
   /*  NIX PATH FIX
