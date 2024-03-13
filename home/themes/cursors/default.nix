@@ -7,7 +7,7 @@
   # sudo mv Bibata-* /usr/share/icons/    # Install to all users
   
   # Copy Bibata-Mocha folder
-  home.file."~/.icons/Bibata-Mocha".source = ./Bibata-mocha;
-  home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-mocha;
+  home.file."~/.icons/Bibata-Mocha".source = ./Bibata-Mocha;
+  home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-Mocha;
 
 }
