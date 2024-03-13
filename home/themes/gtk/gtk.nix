@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  # myBibataMocha = import ./../cursors/default.nix {inherit pkgs;};
   myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
 in 
 {
