@@ -78,6 +78,7 @@
 	pamixer
 	unzip
 
+  obsidian
 	tmux
 	vscode
 	#jetbrains.pycharm-professional
