@@ -1,12 +1,40 @@
-{ lib, ... }:
-{
-  imports = [];
+{ pkgs, ... }:
 
 
-  # home.file.".local/share/fonts/sf-san-francisco-pro".source = ./san-francisco-pro;
-  # home.file.".local/share/fonts/berkeley-mono".source = ./berkeley-mono;
-  # home.file.".local/share/fonts/berkeley-mono-nerdfont".source = ./berkeley-mono-nerdfont;
+# this is the almighty fn that is used in nix-os to build packages
+pkgs.stdenv.mkDerivation {
 
-  home.file.".icons/Bibata-Mocha".source = ./Bibata-Mocha;
+  name = "bibata-mocha"; # it doesn't matter what you name
+
+  src = ./Bibata-Mocha;
+
+  dontWrapGzip = true;
+
+  installPhase = ''
+  echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
+  echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
+  install -dm 0755 $out/share/icons
+  cp -r $src $out/.icons/
+  '';
+
+  postInstall = ''
+  echo "To link these icons to your home directory, run:"
+  echo "-------->>>>>>> DONE <<<<<<<---------"
+  '';
+
+  # echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
+  # mkdir -p $out/.icons
 
 }
+
+
+/*
+  # Copy the cursor folder
+  mv Bibata-* ~/.icons/                 # Install to local users
+  sudo mv Bibata-* /usr/share/icons/    # Install to all users
+
+  # Copy Bibata-Mocha folder
+  home.file."~/.icons/Bibata-Mocha".source = ./Bibata-Mocha;
+  home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-Mocha;
+# */
+
