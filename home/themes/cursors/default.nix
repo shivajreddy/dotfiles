@@ -9,7 +9,7 @@ pkgs.stdenv.mkDerivation {
 
   src = ./Bibata-Mocha;
 
-  dontWrapGzip = true;
+  # dontWrapGzip = true;
 
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
