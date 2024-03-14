@@ -77,7 +77,7 @@
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
-          { name = "tmux"; path="tmux.nvim" } # NOTE: added this by myself
+          { name = "tmux"; path="tmux.nvim"; } # NOTE: added this by myself
         ];
         # This fn maps each plugin to it's name and path
         mkEntryFromDrv = drv:
