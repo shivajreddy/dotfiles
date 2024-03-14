@@ -84,6 +84,8 @@
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 
+  typer
+
 	lua
 	rustup
 	python3
