@@ -14,6 +14,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
+  mkdir -p $out/share/icons
   cp -r $src/* $out/share/icons/
   '';
 
