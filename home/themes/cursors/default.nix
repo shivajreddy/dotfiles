@@ -13,8 +13,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
-  install -dm 0755 $out/share/icons
-  cp -r $src $out/share/icons/
+  cp -r $src $out/
   '';
 
   postInstall = ''
@@ -22,6 +21,7 @@ pkgs.stdenv.mkDerivation {
   echo "-------->>>>>>> DONE <<<<<<<---------"
   '';
 
+  # install -dm 0755 $out/share/icons
   # echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
   # mkdir -p $out/.icons
 
