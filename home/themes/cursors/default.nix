@@ -16,15 +16,6 @@ pkgs.stdenv.mkDerivation {
   cp -r $src $out/
   '';
 
-  postInstall = ''
-  echo "To link these icons to your home directory, run:"
-  echo "-------->>>>>>> DONE <<<<<<<---------"
-  '';
-
-  # install -dm 0755 $out/share/icons
-  # echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
-  # mkdir -p $out/.icons
-
 }
 
 
@@ -37,4 +28,15 @@ pkgs.stdenv.mkDerivation {
   home.file."~/.icons/Bibata-Mocha".source = ./Bibata-Mocha;
   home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-Mocha;
 # */
+
+  /*
+  postInstall = ''
+  echo "To link these icons to your home directory, run:"
+  echo "-------->>>>>>> DONE <<<<<<<---------"
+  '';
+  */
+
+  # install -dm 0755 $out/share/icons
+  # echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
+  # mkdir -p $out/.icons
 
