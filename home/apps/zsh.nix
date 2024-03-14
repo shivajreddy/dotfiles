@@ -13,6 +13,7 @@ let
     ggpush = "git push -u origin main";
     ggpull = "git pull -u origin main";
     rebuild = "home-manager switch --flake /home/shiva/dotfiles";
+    savedots = "cd ~/dotfiles && gaa && gcmsg '.' && ggpush";
   };
 in
 {
