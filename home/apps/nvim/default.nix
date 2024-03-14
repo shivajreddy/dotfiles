@@ -2,6 +2,7 @@
 
 {
 
+  # NOTE: copied from https://github.com/LazyVim/LazyVim/discussions/1972
   # NVIM Config -> The Nix way ./\.
   programs.neovim = {
 
@@ -67,7 +68,7 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
-          # these are some of the plugins that have a difference b/t name nad path
+          # these are some of the plugins that have a difference between name and path
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
@@ -76,6 +77,7 @@
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
+          { name = "tmux", path="tmux.nvim" } # NOTE: added this by myself
         ];
         # This fn maps each plugin to it's name and path
         mkEntryFromDrv = drv:
