@@ -14,7 +14,7 @@ pkgs.stdenv.mkDerivation {
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
   install -dm 0755 $out/share/icons
-  cp -r $src $out/.icons/
+  cp -r $src $out/share/icons/
   '';
 
   postInstall = ''
