@@ -32,10 +32,13 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
-  mkdir -p $out/share/icons
-  cp -r $src $out/share/icons/Bibata-Mocha
+  mkdir -p $out/.icons
+  cp -r $src $out/.icons/
+  echo "-------->>>>>>> DONE <<<<<<<---------"
   '';
   # */
+  # mkdir -p $out/share/icons
+  # cp -r $src $out/share/icons/
   # mkdir -p $out
   # cp -r $src/Bibata-* -d $out
   # cp -r $src/Bibata-Mocha/ $out/share/icons/Bibata-Mocha
