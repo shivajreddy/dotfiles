@@ -5,6 +5,7 @@
 pkgs.stdenv.mkDerivation {
 
   name = "bibata-mocha"; # it doesn't matter what you name
+  version = "1.0.0";
 
   src = ./Bibata-Mocha;
 
@@ -13,7 +14,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
-  cp -r $src $out/
+  cp -r $src/* $out/share/icons/
   '';
 
 }
