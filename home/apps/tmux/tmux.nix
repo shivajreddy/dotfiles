@@ -35,7 +35,7 @@
       set -g status-left-style NONE
       set -g status-right-style NONE
       set -g status-left "#[fg=#a6adc8, bg=#313244,bold] #S "
-      set -g status-right "#[fg=#a6adc8, bg=#313244]   #(date '+%H:%M %p')  #h "
+      set -g status-right "#[fg=#a6adc8, bg=#313244]   #(date '+%I:%M %p')  #h "
       setw -g window-status-activity-style "underscore,fg=#839496,bg=#fab387"
       setw -g window-status-separator ""
       setw -g window-status-style "NONE,fg=#cdd6f4"  # fg of inactive window
