@@ -26,19 +26,14 @@ pkgs.stdenv.mkDerivation {
   mv Bibata-* ~/.icons/                 # Install to local users
   sudo mv Bibata-* /usr/share/icons/    # Install to all users
 
-  # Copy Bibata-Mocha folder
-  home.file."~/.icons/Bibata-Mocha".source = ./Bibata-Mocha;
-  home.file."/usr/share/icons/Bibata-Mocha".source = ./Bibata-Mocha;
-# */
+  install -dm 0755 $out/share/icons
+  echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
+  mkdir -p $out/.icons
 
-  /*
   postInstall = ''
   echo "To link these icons to your home directory, run:"
   echo "-------->>>>>>> DONE <<<<<<<---------"
   '';
-  */
 
-  # install -dm 0755 $out/share/icons
-  # echo "ln -sfn $out/share/icons ~/.icons/bibata-mocha"
-  # mkdir -p $out/.icons
+# */
 
