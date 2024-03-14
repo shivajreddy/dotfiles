@@ -9,13 +9,13 @@ pkgs.stdenv.mkDerivation {
 
   src = ./Bibata-Mocha;
 
-  # dontWrapGzip = true;
+  dontWrapGzip = true;
 
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
   mkdir -p $out/share/icons
-  cp -r $src/* $out/share/icons/
+  cp -rf $src/* $out/share/icons/
   '';
 
 }
