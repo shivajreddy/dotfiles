@@ -4,7 +4,10 @@
 # this is the almighty fn that is used in nix-os to build packages
 pkgs.stdenv.mkDerivation {
 
-  name = "bibata-mocha"; # it doesn't matter what you name
+  # WARNING: what is the diff b/w name and pname;
+
+  # name = "bibata-mocha"; # it doesn't matter what you name
+  pname = "bibata-mocha"; 
   version = "1.0.0";
 
   src = ./Bibata-Mocha;
@@ -15,7 +18,7 @@ pkgs.stdenv.mkDerivation {
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
   mkdir -p $out/share/icons
-  cp -rf $src/* $out/share/icons/
+  cp -rf $src/* $out/share/icons/Bibata-Mocha
   '';
 
 }
