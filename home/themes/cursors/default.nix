@@ -2,12 +2,9 @@
 
 
 # this is the almighty fn that is used in nix-os to build packages
-let
-  myName = "bibata-mocha";
-in 
 pkgs.stdenv.mkDerivation {
 
-  name = myName;  # it doesn't matter what you name
+  name = "bibata-mocha"; # it doesn't matter what you name
 
   src = ./Bibata-Mocha;
   /*
@@ -33,13 +30,15 @@ pkgs.stdenv.mkDerivation {
 
   # /*
   installPhase = ''
-  echo "-------->>>>>>> Installing Cursor ${myName} <<<<<<<---------"
+  echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
-  mkdir -p $out
-  cp -r $src/* -d $out
+  mkdir -p $out/share/icons
+  cp -r $src $out/share/icons/Bibata-Mocha
   '';
   # */
+  # mkdir -p $out
   # cp -r $src/Bibata-* -d $out
+  # cp -r $src/Bibata-Mocha/ $out/share/icons/Bibata-Mocha
 }
 
 
