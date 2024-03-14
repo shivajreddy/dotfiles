@@ -17,8 +17,14 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
   echo "-------->>>>>>> Installing Cursor <<<<<<<---------"
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
-  mkdir -p $out/share/icons
-  cp -rf $src/* $out/share/icons/Bibata-Mocha
+
+  echo "Copy for all users"
+  mkdir -p $out/share/icons/Bibata-Mocha
+  cp -rf $src/* $out/share/icons/Bibata-Mocha/
+
+  echo "Copy for current user"
+  mkdir -p $out/.icons/Bibata-Mocha
+  cp -rf $src/* $out/.icons/Bibata-Mocha
   '';
 
 }
