@@ -85,9 +85,9 @@ return {
 					-- { "location", padding = { left = 0, right = 1 } },
 				},
 				lualine_z = {
-					-- function()
-					--   return " " .. os.date("%R")
-					-- end,
+					function()
+						return " " .. os.date("%R")
+					end,
 				},
 			},
 			extensions = { "neo-tree", "lazy" },
