@@ -82,11 +82,24 @@
       set -g set-titles on
       set -g set-titles-string "#T"
       '';
-
-      programs.tmux.plugins = [
-        catppuccin;
-      ];
   };
+
+  programs.tmux.plugins = [
+    /*
+    pkgs.tmuxPlugins.better-mouse-mode
+    pkgs.tmuxPlugins.catppuccin.overrideAttrs ( _: {
+          src = pkgs.fetchFromGitHub {
+          owner = "Millrocious";
+          repo = "tmux";
+          rev = "f71e781b56a45c97dfaa6519bc2914837a9b5f78";
+          sha256 = "sha256-fJlQYstWEk3y1kJxoY+ylJ8vU9zTeidDr/vIp9ZtubM=";
+          };
+    })
+    pkgs.tmuxPlugins.sensible
+    */
+    pkgs.tmuxPlugins.vim-tmux-navigator
+  ];
+
 
 }
 

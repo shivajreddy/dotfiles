@@ -60,7 +60,6 @@
           nvim-web-devicons
           persistence-nvim
           plenary-nvim
-          nvim-tmux-navigation
           telescope-fzf-native-nvim
           telescope-nvim
           todo-comments-nvim
@@ -69,7 +68,6 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
-          nvim-tmux-navigation # NOTE: This is the new nvim plugin i added
           # these are some of the plugins that have a difference between name and path
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
