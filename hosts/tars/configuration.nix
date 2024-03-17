@@ -65,6 +65,8 @@
   };
 
   # Environment Settings
+  environment.systemPackages = import ../apps/default.nix { inerit pkgs; };
+  /* moved all this to apps/default.nix file
   environment.systemPackages = with pkgs; [ 	# System packages
     vim
     zsh 
@@ -82,6 +84,8 @@
     catppuccin-cursors.mochaDark
     home-manager
   ];
+  */
+
   environment.shells = with pkgs; [ zsh ];	 # Shells
   environment.sessionVariables = {		 # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
