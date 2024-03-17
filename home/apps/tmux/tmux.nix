@@ -86,20 +86,29 @@
 
   programs.tmux.plugins = with pkgs; [
     /*
-    pkgs.tmuxPlugins.better-mouse-mode
-    pkgs.tmuxPlugins.catppuccin.overrideAttrs ( _: {
-          src = pkgs.fetchFromGitHub {
-          owner = "Millrocious";
-          repo = "tmux";
-          rev = "f71e781b56a45c97dfaa6519bc2914837a9b5f78";
-          sha256 = "sha256-fJlQYstWEk3y1kJxoY+ylJ8vU9zTeidDr/vIp9ZtubM=";
-          };
-    })
-    pkgs.tmuxPlugins.sensible
-    */
+       pkgs.tmuxPlugins.better-mouse-mode
+       pkgs.tmuxPlugins.catppuccin.overrideAttrs ( _: {
+       src = pkgs.fetchFromGitHub {
+       owner = "Millrocious";
+       repo = "tmux";
+       rev = "f71e781b56a45c97dfaa6519bc2914837a9b5f78";
+       sha256 = "sha256-fJlQYstWEk3y1kJxoY+ylJ8vU9zTeidDr/vIp9ZtubM=";
+       };
+       })
+       pkgs.tmuxPlugins.sensible
+     */
     tmuxPlugins.vim-tmux-navigator
     tmuxPlugins.better-mouse-mode
-  ];
+    {
+      plugin = tmuxPlugins.catppuccin;
+      extraConfig = '' 
+        set -g @catppuccin_flavour 'frappe'
+        set -g @catppuccin_window_tabs_enabled on
+        set -g @catppuccin_date_time "%H:%M"
+        '';
+    }
+    tmuxPlugins.catppuccin
+    ];
 
 
 }
