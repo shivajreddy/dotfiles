@@ -59,10 +59,10 @@
       # bind -r j select-pane -D 
       # bind -r h select-pane -L 
       # bind -r l select-pane -R 
-      bind -n A-h select-pane -L
-      bind -n A-j select-pane -D
-      bind -n A-k select-pane -U
-      bind -n A-l select-pane -R
+      bind -n M-h select-pane -L
+      bind -n M-j select-pane -D
+      bind -n M-k select-pane -U
+      bind -n M-l select-pane -R
 
       bind-key -n C-S-Left swap-window -t -1 \; previous-window
       bind-key -n C-S-Right swap-window -t +1 \; next-window
