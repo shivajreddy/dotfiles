@@ -15,6 +15,8 @@
 
 
   # Bootloader
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # boot.loader.grub.enable = true;
@@ -97,6 +99,7 @@
 
   # DESKTOP ENVIRONMENT 
   services.xserver.enable = true; 	# Enable the X11 windowing system.
+  services.xserver.videoDrivers = ["amdgpu"]; # Make sure Xserver uses the amdgpu driver
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
