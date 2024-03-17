@@ -6,42 +6,45 @@
   programs.tmux = {
     enable = true;
 
+    /*
+    # --- statusline.conf file ---
+    thm_bg="#1e1e2e"
+    thm_fg="#cdd6f4"
+    thm_cyan="#89dceb"
+    thm_black="#181825"
+    thm_gray="#313244"
+    thm_magenta="#cba6f7"
+    thm_pink="#f5c2e7"
+    thm_red="#f38ba8"
+    thm_green="#a6e3a1"
+    thm_yellow="#f9e2af"
+    thm_blue="#89b4fa"
+    thm_orange="#fab387"
+    thm_black4="#585b70"
+    set -g mode-style "fg=#eee8d5,bg=#11111b"
+    set -g message-style "fg=#eee8d5,bg=#073642"
+    set -g message-command-style "fg=#eee8d5,bg=#073642"
+    set -g pane-border-style "fg=#073642"
+    set -g pane-active-border-style "fg=#eee8d5"
+    set -g status "on"
+    set -g status-interval 1
+    set -g status-justify "left"
+    set -g status-style "fg=#002b36,bg=#11111b"
+    set -g status-bg "#11111b"
+    set -g status-left-length "100"
+    set -g status-right-length "100"
+    set -g status-left-style NONE
+    set -g status-right-style NONE
+    set -g status-left "#[fg=#a6adc8, bg=#313244,bold] #S "
+    set -g status-right "#[fg=#a6adc8, bg=#313244] #(date '+%I:%M %p')  #h "
+    setw -g window-status-activity-style "underscore,fg=#839496,bg=#fab387"
+    setw -g window-status-separator ""
+    setw -g window-status-style "NONE,fg=#cdd6f4"  # fg of inactive window
+    setw -g window-status-format ' #{b:pane_current_path} '
+    setw -g window-status-current-format '#[bg=#11111b,fg=#f5c2e7,bold] [#{b:pane_current_path}] '
+    */
+
     extraConfig = ''
-      # --- statusline.conf file ---
-      thm_bg="#1e1e2e"
-      thm_fg="#cdd6f4"
-      thm_cyan="#89dceb"
-      thm_black="#181825"
-      thm_gray="#313244"
-      thm_magenta="#cba6f7"
-      thm_pink="#f5c2e7"
-      thm_red="#f38ba8"
-      thm_green="#a6e3a1"
-      thm_yellow="#f9e2af"
-      thm_blue="#89b4fa"
-      thm_orange="#fab387"
-      thm_black4="#585b70"
-      set -g mode-style "fg=#eee8d5,bg=#11111b"
-      set -g message-style "fg=#eee8d5,bg=#073642"
-      set -g message-command-style "fg=#eee8d5,bg=#073642"
-      set -g pane-border-style "fg=#073642"
-      set -g pane-active-border-style "fg=#eee8d5"
-      set -g status "on"
-      set -g status-interval 1
-      set -g status-justify "left"
-      set -g status-style "fg=#002b36,bg=#11111b"
-      set -g status-bg "#11111b"
-      set -g status-left-length "100"
-      set -g status-right-length "100"
-      set -g status-left-style NONE
-      set -g status-right-style NONE
-      set -g status-left "#[fg=#a6adc8, bg=#313244,bold] #S "
-      set -g status-right "#[fg=#a6adc8, bg=#313244] #(date '+%I:%M %p')  #h "
-      setw -g window-status-activity-style "underscore,fg=#839496,bg=#fab387"
-      setw -g window-status-separator ""
-      setw -g window-status-style "NONE,fg=#cdd6f4"  # fg of inactive window
-      setw -g window-status-format ' #{b:pane_current_path} '
-      setw -g window-status-current-format '#[bg=#11111b,fg=#f5c2e7,bold] [#{b:pane_current_path}] '
 
       # --- tmux.conf file ---
       set -g default-terminal "tmux-256color"
