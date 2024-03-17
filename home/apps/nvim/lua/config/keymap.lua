@@ -5,6 +5,7 @@ vim.keymap.set("n", "<Leader>/", "gc<CR>", { desc = "Comment Line", silent = tru
 vim.keymap.set("n", "Y", "y$", { desc = "Yank end of line", silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "Open NetRW", silent = true })
 
+-- Not working for somereason
 vim.keymap.set("n", "<Left>", "<C-w>h<CR>", { desc = "Tab Left" })
 vim.keymap.set("n", "<Down>", "<C-w>j<CR>", { desc = "Tab Down" })
 vim.keymap.set("n", "<Up>", "<C-w>k<CR>", { desc = "Tab Up" })

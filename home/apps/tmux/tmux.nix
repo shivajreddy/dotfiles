@@ -84,7 +84,7 @@
       '';
   };
 
-  programs.tmux.plugins = [
+  programs.tmux.plugins = with pkgs; [
     /*
     pkgs.tmuxPlugins.better-mouse-mode
     pkgs.tmuxPlugins.catppuccin.overrideAttrs ( _: {
@@ -97,7 +97,8 @@
     })
     pkgs.tmuxPlugins.sensible
     */
-    pkgs.tmuxPlugins.vim-tmux-navigator
+    tmuxPlugins.vim-tmux-navigator
+    tmuxPlugins.better-mouse-mode
   ];
 
 
