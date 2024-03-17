@@ -64,27 +64,9 @@
     pulse.enable = true;
   };
 
-  # Environment Settings
+  # #### Environment Settings ####
+  # #### Apps ####
   environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
-  /* moved all this to apps/default.nix file
-  environment.systemPackages = with pkgs; [ 	# System packages
-    vim
-    zsh 
-    git
-    gvfs
-    vlc
-    streamlink
-    streamlink-twitch-gui-bin
-    chatterino2
-    pcloud
-    # swayosd
-    gnome.gnome-tweaks
-    gnome.nautilus
-    mojave-gtk-theme
-    catppuccin-cursors.mochaDark
-    home-manager
-  ];
-  */
 
   environment.shells = with pkgs; [ zsh ];	 # Shells
   environment.sessionVariables = {		 # Session Variables

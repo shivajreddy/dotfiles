@@ -68,27 +68,10 @@
     pulse.enable = true;
   };
 
-  # Environment Settings
-  environment.systemPackages = with pkgs; [ 	# System packages
-    vim
-    zsh 
-    git
-    gvfs
-    vlc
-    streamlink
-    streamlink-twitch-gui-bin
-    chatterino2
-    pcloud
-    # swayosd
-    # libadwaita
-    # gnome.adwaita-icon-theme
-    # gsettings-desktop-schemas
-    gnome.gnome-tweaks
-    gnome.nautilus
-    mojave-gtk-theme
-    catppuccin-cursors.mochaDark
-    home-manager
-  ];
+  # #### Environment Settings ####
+  # #### Apps ####
+  environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
+
   environment.shells = with pkgs; [ zsh ];	 # Shells
   environment.sessionVariables = {		 # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
