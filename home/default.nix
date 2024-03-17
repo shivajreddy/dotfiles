@@ -74,6 +74,7 @@
 	spotify
 	# spotifyd
 	# spotify-tui
+  discord
 	gtk4
 	pamixer
 	unzip
