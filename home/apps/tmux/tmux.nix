@@ -54,15 +54,15 @@
       bind o run-shell "open #{pane_current_path}"
       bind -r e kill-pane -a
       
-      # --- Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
+      # Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
       # bind -r k select-pane -U 
       # bind -r j select-pane -D 
       # bind -r h select-pane -L 
       # bind -r l select-pane -R 
-      bind -n C-h select-pane -L
-      bind -n C-j select-pane -D
-      bind -n C-k select-pane -U
-      bind -n C-l select-pane -R
+      bind -n C-S-h select-pane -L
+      bind -n C-S-j select-pane -D
+      bind -n C-S-k select-pane -U
+      bind -n C-S-l select-pane -R
 
       bind-key -n C-S-Left swap-window -t -1 \; previous-window
       bind-key -n C-S-Right swap-window -t +1 \; next-window
