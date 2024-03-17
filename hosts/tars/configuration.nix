@@ -89,6 +89,12 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # DESKTOP ENVIRONMENT 
   services.xserver.enable = true; 	# Enable the X11 windowing system.
   services.xserver.displayManager.gdm.enable = true;
