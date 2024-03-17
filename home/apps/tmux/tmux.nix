@@ -7,6 +7,7 @@
     enable = true;
 
     extraConfig = ''
+      # --- statusline.conf file ---
       thm_bg="#1e1e2e"
       thm_fg="#cdd6f4"
       thm_cyan="#89dceb"
@@ -41,6 +42,8 @@
       setw -g window-status-style "NONE,fg=#cdd6f4"  # fg of inactive window
       setw -g window-status-format ' #{b:pane_current_path} '
       setw -g window-status-current-format '#[bg=#11111b,fg=#f5c2e7,bold] [#{b:pane_current_path}] '
+
+      # --- tmux.conf file ---
       set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",xterm-256color:Tc"
       unbind C-b
@@ -50,10 +53,17 @@
       set-window-option -g mode-keys vi
       bind o run-shell "open #{pane_current_path}"
       bind -r e kill-pane -a
-      bind -r k select-pane -U 
-      bind -r j select-pane -D 
-      bind -r h select-pane -L 
-      bind -r l select-pane -R 
+      
+      # --- Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
+      # bind -r k select-pane -U 
+      # bind -r j select-pane -D 
+      # bind -r h select-pane -L 
+      # bind -r l select-pane -R 
+      bind -n C-h select-pane -L
+      bind -n C-j select-pane -D
+      bind -n C-k select-pane -U
+      bind -n C-l select-pane -R
+
       bind-key -n C-S-Left swap-window -t -1 \; previous-window
       bind-key -n C-S-Right swap-window -t +1 \; next-window
       bind -r C-k resize-pane -U 5
