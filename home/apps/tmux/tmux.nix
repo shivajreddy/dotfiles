@@ -83,9 +83,9 @@
       set -g set-titles-string "#T"
       '';
 
-      programs.tmux.plugins = {
-        catppuccin
-      };
+      programs.tmux.plugins = [
+        catppuccin;
+      ];
   };
 
 }
