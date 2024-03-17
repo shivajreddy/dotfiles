@@ -1,3 +1,5 @@
+--[[   for some reason this is not working
+
 return {
 	"folke/lazy",
 	keys = {
@@ -7,3 +9,5 @@ return {
 		vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Lazy", silent = true }),
 	},
 }
+
+--]]
