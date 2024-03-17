@@ -82,6 +82,10 @@
       set -g set-titles on
       set -g set-titles-string "#T"
       '';
+
+      programs.tmux.plugins = {
+        catppuccin
+      };
   };
 
 }
