@@ -65,7 +65,7 @@
   };
 
   # Environment Settings
-  environment.systemPackages = import ../apps/default.nix { inerit pkgs; };
+  environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
   /* moved all this to apps/default.nix file
   environment.systemPackages = with pkgs; [ 	# System packages
     vim

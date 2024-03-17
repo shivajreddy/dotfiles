@@ -18,6 +18,7 @@ with pkgs; [
   gnome.nautilus
   mojave-gtk-theme
   catppuccin-cursors.mochaDark
+  discord
   home-manager
 ]
 
