@@ -74,9 +74,9 @@
     NIXOS_OZONE_WL = "1";	 # Hint electron apps to use wayland
   };
   environment.variables = {
-    MY_MONITOR_1_DECORATION = "monitor = DP-3, 2560x1440@144.0,0";
-    MY_MONITOR_2_DECORATION = "";
+    MY_MONITOR_1_DECORATION = "monitor = DP-3, 2560x1440@144.0,";
   };
+    # MY_MONITOR_2_DECORATION = "";
 
   # User account
   users.users.shiva = {
