@@ -30,9 +30,9 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
-    ${myMonitors}
 		'';
 	};
+    # ${myMonitors}
 
   home.file.".config/hypr/pyprland.toml".text = ''
   	[pyprland]
