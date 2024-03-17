@@ -44,6 +44,30 @@
     setw -g window-status-current-format '#[bg=#11111b,fg=#f5c2e7,bold] [#{b:pane_current_path}] '
     */
 
+    /*
+    set -g mouse on
+    set-option -g status-justify "left"
+    set-window-option -g mode-keys vi
+    set-option -g status-fg cyan
+    set-option -g status-bg black
+    set -g pane-active-border-style fg=colour166,bg=default
+    set -g window-style fg=colour10,bg=default
+    set -g window-active-style fg=colour12,bg=default
+    set-option -g history-limit 64096
+    set -sg escape-time 10
+    set-option -g status-style fg=colour146,bg=colour233,default
+    # set-window-option -g window-status-style fg=colour146,bg=colour233,dim
+    # set-window-option -g window-status-current-style fg=colour146,bg=colour233,default,bright
+    set-option -g pane-border-style fg=colour235 #base02
+    set-option -g pane-active-border-style fg=colour183,bg=colour235
+    # set-option -g message-style fg=colour146,bg=colour233
+    set-option -g display-panes-active-colour colour33 #blue
+    set-option -g display-panes-colour colour166 #orange
+    set-window-option -g clock-mode-colour colour64 #green
+    set -g set-titles on
+    set -g set-titles-string "#T"
+    */
+
     extraConfig = ''
 
       # --- tmux.conf file ---
@@ -73,27 +97,7 @@
       bind -r C-j resize-pane -D 5
       bind -r C-h resize-pane -L 5
       bind -r C-l resize-pane -R 5
-      set -g mouse on
-      set-option -g status-justify "left"
-      set-window-option -g mode-keys vi
-      set-option -g status-fg cyan
-      set-option -g status-bg black
-      set -g pane-active-border-style fg=colour166,bg=default
-      set -g window-style fg=colour10,bg=default
-      set -g window-active-style fg=colour12,bg=default
-      set-option -g history-limit 64096
-      set -sg escape-time 10
-      set-option -g status-style fg=colour146,bg=colour233,default
-      # set-window-option -g window-status-style fg=colour146,bg=colour233,dim
-      # set-window-option -g window-status-current-style fg=colour146,bg=colour233,default,bright
-      set-option -g pane-border-style fg=colour235 #base02
-      set-option -g pane-active-border-style fg=colour183,bg=colour235
-      # set-option -g message-style fg=colour146,bg=colour233
-      set-option -g display-panes-active-colour colour33 #blue
-      set-option -g display-panes-colour colour166 #orange
-      set-window-option -g clock-mode-colour colour64 #green
-      set -g set-titles on
-      set -g set-titles-string "#T"
+
       '';
   };
 
