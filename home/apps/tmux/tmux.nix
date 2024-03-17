@@ -102,12 +102,11 @@
     {
       plugin = tmuxPlugins.catppuccin;
       extraConfig = '' 
-        set -g @catppuccin_flavour 'frappe'
+        set -g @catppuccin_flavour 'mocha'
         set -g @catppuccin_window_tabs_enabled on
         set -g @catppuccin_date_time "%H:%M"
         '';
     }
-    tmuxPlugins.catppuccin
     ];
 
 
