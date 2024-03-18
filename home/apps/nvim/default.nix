@@ -14,10 +14,10 @@
       # LazyVim
       lua-language-server
       stylua
-      #justadded this
-      rust-analyzer
       # Telescope
       ripgrep
+
+      rust-analyzer # NOTE: Added by me
     ];
 
     plugins = with pkgs.vimPlugins; [
