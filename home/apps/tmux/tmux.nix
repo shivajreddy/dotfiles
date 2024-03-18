@@ -14,7 +14,7 @@ in
     '';
 
     plugins = with pkgs; [
-      tmuxPlugins.vi-tmux-navigator
+      tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.better-mouse-mode
       {
         plugin = tmuxPlugins.catppuccin;
