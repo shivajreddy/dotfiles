@@ -69,14 +69,15 @@
     */
 
     extraConfig = ''
-      unbind C-b
-      set-option -g prefix C-t
       '';
+# unbind C-b
+# set-option -g prefix C-t
   };
 
   programs.tmux.plugins = with pkgs; [
     tmuxPlugins.vim-tmux-navigator
     tmuxPlugins.better-mouse-mode
+      /*
     {
       plugin = tmuxPlugins.catppuccin;
       extraConfig = '' 
@@ -95,6 +96,7 @@
         set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
         '';
     }
+       */
     ];
 
 
