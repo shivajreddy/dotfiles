@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  tmux-conf = builtins.readFile ./tmux.conf
+  tmux-conf = builtins.readFile ./tmux.conf;
 in 
 {
   imports = [];
