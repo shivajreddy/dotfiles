@@ -69,17 +69,8 @@
     */
 
     extraConfig = ''
-
-      # --- tmux.conf file ---
-      set -g default-terminal "tmux-256color"
-      set -ga terminal-overrides ",xterm-256color:Tc"
       unbind C-b
       set-option -g prefix C-t
-      set-option -g repeat-time 0
-      set-option -g focus-events on
-      set-window-option -g mode-keys vi
-      bind o run-shell "open #{pane_current_path}"
-      bind -r e kill-pane -a
 
       # Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
       # -n => no need of ctrl+t, -r => needs ctrl+t
@@ -88,14 +79,8 @@
       bind -n M-k select-pane -U
       bind -n M-l select-pane -R
 
-      bind-key -n M-Tab swap-window -t -1 \; previous-window
-      bind-key -n M-S-Tab swap-window -t +1 \; next-window
-
-      bind -r C-k resize-pane -U 5
-      bind -r C-j resize-pane -D 5
-      bind -r C-h resize-pane -L 5
-      bind -r C-l resize-pane -R 5
-
+      bind-key -n M-Tab next-window
+      bind-key -n M-S-Tab previous-window
       '';
   };
 
