@@ -12,7 +12,21 @@ in
     extraConfig = ''
     ${tmux-conf}
     '';
+
+    plugins = with pkgs; [
+      tmuxPlugins.vi-tmux-navigator
+      tmuxPlugins.better-mouse-mode
+      {
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_falvour 'mocha'
+          set -g @catppuccin_window_tabs_enabled on
+        '';
+      }
+    ];
+
   };
+
 
 }
 
