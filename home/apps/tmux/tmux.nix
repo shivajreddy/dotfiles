@@ -74,13 +74,13 @@
 
       # Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
       # -n => no need of ctrl+t, -r => needs ctrl+t
-      bind -n M-h select-pane -L
-      bind -n M-j select-pane -D
-      bind -n M-k select-pane -U
-      bind -n M-l select-pane -R
+      # bind -n M-h select-pane -L
+      # bind -n M-j select-pane -D
+      # bind -n M-k select-pane -U
+      # bind -n M-l select-pane -R
 
-      bind-key -n M-Tab next-window
-      bind-key -n M-S-Tab previous-window
+      # bind-key -n M-Tab next-window
+      # bind-key -n M-S-Tab previous-window
       '';
   };
 
