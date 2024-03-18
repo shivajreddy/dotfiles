@@ -10,10 +10,10 @@
       unbind C-b
       set-option -prefix C-t
 
-      bind -n C-h select-pane -L
-      bind -n C-j select-pane -D
-      bind -n C-k select-pane -U
-      bind -n C-l select-pane -R
+      bind -r C-h select-pane -L
+      bind -r C-j select-pane -D
+      bind -r C-k select-pane -U
+      bind -r C-l select-pane -R
     '';
   };
 
