@@ -71,32 +71,10 @@
     extraConfig = ''
       unbind C-b
       set-option -g prefix C-t
-
-      # Navigate panes with Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l
-      # -n => no need of ctrl+t, -r => needs ctrl+t
-      # bind -n M-h select-pane -L
-      # bind -n M-j select-pane -D
-      # bind -n M-k select-pane -U
-      # bind -n M-l select-pane -R
-
-      # bind-key -n M-Tab next-window
-      # bind-key -n M-S-Tab previous-window
       '';
   };
 
   programs.tmux.plugins = with pkgs; [
-    /*
-       pkgs.tmuxPlugins.better-mouse-mode
-       pkgs.tmuxPlugins.catppuccin.overrideAttrs ( _: {
-       src = pkgs.fetchFromGitHub {
-       owner = "Millrocious";
-       repo = "tmux";
-       rev = "f71e781b56a45c97dfaa6519bc2914837a9b5f78";
-       sha256 = "sha256-fJlQYstWEk3y1kJxoY+ylJ8vU9zTeidDr/vIp9ZtubM=";
-       };
-       })
-       pkgs.tmuxPlugins.sensible
-     */
     tmuxPlugins.vim-tmux-navigator
     tmuxPlugins.better-mouse-mode
     {
