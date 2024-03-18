@@ -68,6 +68,7 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
+          tmux-navigator # NOTE: Added by me
           # these are some of the plugins that have a difference between name and path
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
@@ -77,7 +78,7 @@
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
-          { name = "tmux.nvim"; path="tmux.nvim"; } # NOTE: added this by myself
+          { name = "tmux.nvim"; path="tmux.nvim"; } # NOTE: Added by me
         ];
         # This fn maps each plugin to it's name and path
         mkEntryFromDrv = drv:
