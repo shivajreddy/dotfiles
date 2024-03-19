@@ -48,8 +48,17 @@
   # Hardware
   hardware = {
     opengl.enable = true;
-    bluetooth.enable = true;
     nvidia.modesetting.enable = true; # Most wayland compositors need this
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    # powerOnBoot = true;
+    # settings = {
+    #  General = {
+    #    ControllerMode = "bredr";
+    #  };
+    # };
   };
 
   # Enable CUPS to print documents.
