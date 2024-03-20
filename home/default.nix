@@ -87,13 +87,7 @@
 
   typer
 
-	lua
-
-  rustc
-	rustup
-  cargo
-  rustfmt
-  rust-analyzer
+	# lua
 
 
 	python3
