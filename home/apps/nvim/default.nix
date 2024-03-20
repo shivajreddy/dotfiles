@@ -68,6 +68,8 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
+
+          rustaceanvim # NOTE Added by me
           tmux-navigator # NOTE: Added by me
           # these are some of the plugins that have a difference between name and path
           { name = "LuaSnip"; path = luasnip; }
