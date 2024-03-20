@@ -40,8 +40,6 @@
 	starship
 	alacritty
 
-	neovim
-
 	jetbrains-mono
 	rofi-wayland
 	bluez

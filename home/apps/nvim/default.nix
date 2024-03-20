@@ -9,10 +9,10 @@
 
 		extraLuaConfig = ''
 
-		${builtins.readFile ./. + "/options.lua"}
 
 		'';
 
 	};
 }
+		# ${builtins.readFile ./. + "/options.lua"}
 
