@@ -1,1 +1,3 @@
 -- options.lua
+return {
+}
