@@ -20,7 +20,7 @@
 	(./. + "/apps/zsh.nix")
 	(./. + "/apps/kitty/kitty.nix")
 	(./. + "/apps/tmux/tmux.nix")
-	(./. + "/apps/nvim/default.nix")
+	# (./. + "/apps/nvim/default.nix")
 	(./. + "/apps/alacritty/alacritty.nix")
 	(./. + "/apps/starship/starship.nix")
 	(./. + "/apps/hyprland/hyprland.nix")
@@ -88,7 +88,14 @@
   typer
 
 	lua
+
+  rustc
 	rustup
+  cargo
+  rustfmt
+  rust-analyzer
+
+
 	python3
 	nodejs_21
 

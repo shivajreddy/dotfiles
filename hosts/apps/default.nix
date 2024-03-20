@@ -19,13 +19,6 @@ with pkgs; [
   mojave-gtk-theme
   catppuccin-cursors.mochaDark
 
-  rustc
-  cargo
-  rustfmt
-  rust-analyzer
-
-  go
-
   home-manager
 ]
 
