@@ -43,12 +43,12 @@ in
       nvim-cmp 
       {
         plugin = nvim-cmp;
-        config = toLuaFile ./nvim/plugin/cmp.lua;
+        config = toLuaFile ./plugin/cmp.lua;
       }
 
       {
         plugin = telescope-nvim;
-        config = toLuaFile ./nvim/plugin/telescope.lua;
+        config = toLuaFile ./plugin/telescope.lua;
       }
 
       telescope-fzf-native-nvim
@@ -72,7 +72,7 @@ in
           p.tree-sitter-python
           p.tree-sitter-json
         ]));
-        config = toLuaFile ./nvim/plugin/treesitter.lua;
+        config = toLuaFile ./plugin/treesitter.lua;
       }
 
       vim-nix
