@@ -86,6 +86,8 @@
   typer
 
 	# lua
+    rust-analyzer
+    rnix-lsp
 
 
 	python3
