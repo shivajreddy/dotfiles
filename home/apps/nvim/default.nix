@@ -17,7 +17,6 @@ in
 	programs.neovim = {
 		enable = true;
 
-
 		extraLuaConfig = ''
 		${builtins.readFile ./options.lua}
 		'';
@@ -25,39 +24,59 @@ in
 		plugins = with pkgs.vimPlugins; [
 
                         {
-                          plugin = comment-nvim;
-                          config = toLua("require(\"Comment\").setup()");
-                        }
+        plugin = nvim-lspconfig;
+        config = toLuaFile ./plugin/lsp.lua;
+      }
 
-                        {
-                          plugin = nvim-lspconfig;
-                          config = toLuaFile ./plugin/lsp.lua;
-                        }
+      {
+        plugin = comment-nvim;
+        config = toLua "require(\"Comment\").setup()";
+      }
 
-                        {
-                          plugin = catppuccin;
-                          config = "colorscheme catppuccin";
-                        }
+      {
+        plugin = gruvbox-nvim;
+        config = "colorscheme gruvbox";
+      }
 
-			nvim-cmp
-			
-			cmp_luasnip
-			cmp-nvim-lsp
+      neodev-nvim
 
-			lualine-nvim
-			nvim-web-devicons
+      nvim-cmp 
+      {
+        plugin = nvim-cmp;
+        config = toLuaFile ./nvim/plugin/cmp.lua;
+      }
 
-			(nvim-treesitter.withPlugins (p: [
-				p.tree-sitter-nix
-				p.tree-sitter-vim
-				p.tree-sitter-bash
-				p.tree-sitter-lua
-				p.tree-sitter-python
-				p.tree-sitter-json
-				p.tree-sitter-rust
-			]))
+      {
+        plugin = telescope-nvim;
+        config = toLuaFile ./nvim/plugin/telescope.lua;
+      }
 
-			vim-nix
+      telescope-fzf-native-nvim
+
+      cmp_luasnip
+      cmp-nvim-lsp
+
+      luasnip
+      friendly-snippets
+
+
+      lualine-nvim
+      nvim-web-devicons
+
+      {
+        plugin = (nvim-treesitter.withPlugins (p: [
+          p.tree-sitter-nix
+          p.tree-sitter-vim
+          p.tree-sitter-bash
+          p.tree-sitter-lua
+          p.tree-sitter-python
+          p.tree-sitter-json
+        ]));
+        config = toLuaFile ./nvim/plugin/treesitter.lua;
+      }
+
+      vim-nix
+
 
 		];
 
