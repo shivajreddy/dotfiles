@@ -86,7 +86,7 @@
 
 	# lua
   rust-analyzer
-  rnix-lsp
+  # rnix-lsp
 
 
 	python3
