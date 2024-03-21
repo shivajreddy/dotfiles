@@ -85,7 +85,7 @@
   typer
 
 	# lua
-  rust-analyzer
+  # rust-analyzer
   # rnix-lsp
 
 
