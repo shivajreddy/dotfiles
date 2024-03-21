@@ -89,7 +89,7 @@
   # rust-analyzer
   # rnix-lsp
 
-
+    rustc
 	python3
 	nodejs_21
 
