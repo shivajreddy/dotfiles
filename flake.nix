@@ -54,7 +54,7 @@
           modules = [ ( ./. + "/home/default.nix" ) ];
 
           specialArgs = {inherit inputs; };
-	};
+        };
     };
 
   };
