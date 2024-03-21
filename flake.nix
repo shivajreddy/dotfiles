@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     # HomeManager Flake
+    # this will be passed as an argument for the outputs function by nix
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,15 +13,17 @@
 
     # Other Flakes...
     # Testing onedark theme flake
+    /*
     plugin-onedark = {
       url = "github:navarasu/onedark.nvim";
       flake = false;
     };
+    */
     
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, ... }@inputs:
   let 
         lib = nixpkgs.lib; 
         system = "x86_64-linux";
@@ -46,9 +49,11 @@
 
     # HomeConfiguration -- using as a package
     homeConfigurations = {
-    	shiva = home-manager.lib.homeManagerConfiguration {
-	  inherit pkgs;
-	  modules = [ ( ./. + "/home/default.nix" ) ];
+    	shiva = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ( ./. + "/home/default.nix" ) ];
+
+          specialArgs = {inherit inputs; };
 	};
     };
 
