@@ -25,14 +25,8 @@ in
 
       {
         plugin = catppuccin-nvim;
-        config = "colorscheme catppuccin";
+        # config = "colorscheme catppuccin";
       }
-      /*
-      {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
-      }
-      */
 
       {
         plugin = nvim-lspconfig;

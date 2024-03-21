@@ -4,12 +4,19 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    # /*  HomeManager -
+    # HomeManager Flake
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # */
+
+    # Other Flakes...
+    # Testing onedark theme flake
+    plugin-onedark = {
+      url = "github:navarasu/onedark.nvim";
+      flake = false;
+    };
+    
 
   };
 
