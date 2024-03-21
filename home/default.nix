@@ -79,6 +79,7 @@
   obsidian
 	tmux
 	vscode
+    jetbrains.rust-rover
 	#jetbrains.pycharm-professional
 	#jetbrains.webstorm
 

@@ -42,7 +42,11 @@ require('lspconfig').lua_ls.setup {
     }
 }
 
+
+--[[ This rnix repo is not maintained
 require('lspconfig').rnix.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+--]]
+
