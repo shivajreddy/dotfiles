@@ -76,6 +76,8 @@
 	pamixer
 	unzip
 
+    zoom
+
   obsidian
 	tmux
 	vscode
@@ -89,7 +91,7 @@
   # rust-analyzer
   # rnix-lsp
 
-    rustc
+    rustup
 	python3
 	nodejs_21
 
