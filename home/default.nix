@@ -28,6 +28,7 @@
 	(./. + "/themes/gtk/gtk.nix")
 	# (./. + "/themes/qt/qt.nix")
   ];
+
   home.packages = with pkgs; [
 	# core
 	zsh
@@ -86,8 +87,8 @@
   typer
 
 	# lua
-    rust-analyzer
-    rnix-lsp
+  rust-analyzer
+  rnix-lsp
 
 
 	python3
