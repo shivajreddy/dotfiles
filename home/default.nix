@@ -30,7 +30,6 @@
   ];
 
   home.packages = with pkgs; [
-	# core
 	zsh
 
 	firefox
@@ -51,7 +50,6 @@
 	swww
 
 	xfce.thunar
-	# gvfs  # for thumbdrive to work with thunar, not working
 	xfce.thunar-volman
 	xfce.tumbler
 
