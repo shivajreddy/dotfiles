@@ -76,7 +76,7 @@
 	pamixer
 	unzip
 
-    zoom
+    zoom-us
 
   obsidian
 	tmux
