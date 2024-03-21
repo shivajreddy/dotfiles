@@ -23,7 +23,18 @@ in
 
 		plugins = with pkgs.vimPlugins; [
 
-                        {
+      {
+        plugin = catppuccin-nvim;
+        config = "colorscheme catppuccin";
+      }
+      /*
+      {
+        plugin = gruvbox-nvim;
+        config = "colorscheme gruvbox";
+      }
+      */
+
+      {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugin/lsp.lua;
       }
@@ -33,11 +44,6 @@ in
         config = toLua "require(\"Comment\").setup()";
       }
 
-      {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
-      }
-
       neodev-nvim
 
       nvim-cmp 
@@ -45,6 +51,7 @@ in
         plugin = nvim-cmp;
         config = toLuaFile ./plugin/cmp.lua;
       }
+
 
       {
         plugin = telescope-nvim;
