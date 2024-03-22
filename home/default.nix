@@ -60,7 +60,11 @@
 	playerctl
 	wl-clipboard
 	zsh-autosuggestions
-	waybar
+
+    # waybar
+    eww
+
+
 	eza
 	bottom
 	pyprland
