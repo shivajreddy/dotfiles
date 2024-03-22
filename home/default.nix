@@ -49,6 +49,7 @@
 	htop
 	btop
 	swww
+    localsend
 
 	xfce.thunar
 	xfce.thunar-volman
