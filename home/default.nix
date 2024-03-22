@@ -35,6 +35,7 @@
 	firefox
 	brave
 	google-chrome
+    qutebrowser
 
 	kitty
 	starship
