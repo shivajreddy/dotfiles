@@ -91,8 +91,8 @@
 
   typer
 
-	# lua
-  # rust-analyzer
+	lua
+  rust-analyzer
   # rnix-lsp
 
     rustup
