@@ -3,7 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-	  (../apps/pcloud/default.nix)
+    (../apps/pcloud/default.nix)
   ];
   
   /*  NIX PATH FIX
@@ -14,14 +14,20 @@
   # */ 
 
 
-  # Bootloader
+  # GPU modules
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/????";
-  # boot.loader.grub.useOSProber = true;
+  # Bootloader.
+  boot.loader = {
+    # systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+
+    grub.enable = true;
+    grub.efiSupport = true;
+    # grub.device = "nodev";
+    grub.device = "/dev/nvme0n1p1";
+  };
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
