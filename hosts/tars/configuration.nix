@@ -24,8 +24,9 @@
 
     grub.enable = true;
     grub.efiSupport = true;
-    # grub.device = "nodev";
-    grub.device = "/dev/nvme0n1p1";
+    # https://nixos.org/manual/nixos/stable/options#opt-boot.loader.grub.device
+    grub.device = "nodev";
+    # grub.device = "/nvme0n1/nvme0n1p1";
   };
 
 
