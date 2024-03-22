@@ -25,7 +25,8 @@
       enable = true;
       efiSupport = true;
 
-      device = "/dev/nvme0n1p1";  # Ensure this is the disk where your EFI partition is located
+      device = "nodev";
+      # device = "nvme0n1p1";  # Ensure this is the disk where your EFI partition is located
       # lsblk
       # ├─nvme0n1p1 259:1    0   100M  0 part /boot
 
