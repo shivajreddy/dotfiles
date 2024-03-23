@@ -36,6 +36,7 @@
   # Networking
   networking.hostName = "tars";
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   # TimeZone
   time.timeZone = "America/New_York";
@@ -101,8 +102,6 @@
     isNormalUser = true;
     description = "shiva";
     extraGroups = [ "networkmanager" "wheel" ];
-    # shell = pkgs.zsh;  # moved all user packages to home-manager, will cuz error????
-    packages = with pkgs; [ ];
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
