@@ -102,6 +102,8 @@
     isNormalUser = true;
     description = "shiva";
     extraGroups = [ "networkmanager" "wheel" ];
+    # adding the openssh config here
+    openssh.authorizedKeys.keys = [ "AAAAB3NzaC1yc2EAAAADAQABAAABgQCv0py1uj8lVQMegIWiV1vW5QEuo0rQHqTDsSg6bRgxJ/VhSmZLR430Oa2+rJFIqInmlFtYNoIXDbXYugKbyxPkqBfrkAsk4OicRTET9aTRSJ/cBGSN4zFK6fWgYnv6255jAPfXOdPXLjTpXJ2hTkO8nTSXAcDA+eGzBWv/WHxhxJ19c5MgnBqFAvQO3igfm0hzeKcrtzhziTIHXiWFpZic7C0FC4fvD9VcAO+o3Zt20X53idrhBsxm/r2whRVh7xII7EhTdaDZSaxyKYU6tvhA7xI2CvkLq8SsguW/FJS5bsF2zwiU/ECByyMLuNdeaY0hS2AbJaaKyJ5rnROMRK+0dxUwv5coJYSzVRQMesJUpbiUPng+5Zy5gqNx8WWullkpUxx0efK1njhzTbeFYEKPbRRE0Ot9KAdj3dhBQ9cmvAL8lBB2cyFh40uXFgIG5bSvrABE4fjR6jSTPAjq7vnCKg5q5dAHOKczo/QjyGQF0MLVyWlFIHDQcusyrZwTpm8=" ];
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

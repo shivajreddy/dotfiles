@@ -20,6 +20,7 @@ with pkgs; [
   catppuccin-cursors.mochaDark
 
   home-manager
+  openssh
 ]
 
 
