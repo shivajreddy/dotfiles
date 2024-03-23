@@ -1,4 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
+
 # the inputs are passed in as 'extraSpecialArgs' in my flake file
 
 
@@ -55,10 +56,12 @@ in
         config = "colorscheme catppuccin";
       }
 
+      /*
       {
         plugin = shivas-onedark-nvim;
         config = "colorscheme onedark";
       }
+      */
 
       {
         plugin = nvim-lspconfig;
