@@ -51,10 +51,13 @@ in
 
 		plugins = with pkgs.vimPlugins; [
 
+      # /*
       {
         plugin = catppuccin-nvim;
-        config = "colorscheme catppuccin";
+        # config = "colorscheme catppuccin";
+        config = toLuaFile ./plugin/theme.lua;
       }
+      # */
 
       /*
       {
