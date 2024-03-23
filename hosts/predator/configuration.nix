@@ -107,6 +107,13 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  /* testing openssh settings
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+  */
+
   # DESKTOP ENVIRONMENT 
   services.xserver.enable = true; 	# Enable the X11 windowing system.
   services.xserver.displayManager.gdm.enable = true;
