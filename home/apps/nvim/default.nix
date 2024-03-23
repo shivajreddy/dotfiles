@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
+# the inputs are passed in as 'extraSpecialArgs' in my flake file
 
 
 /*
@@ -14,8 +15,34 @@ let
 in
 {
 
+  # /* Learning nvim setup using flake from: https://www.youtube.com/watch?v=YZAnJ0rwREA&t=210s
+  nixpkgs = {
+    overlays = [
+      # 1st arg is what you get, so its like the final nixpkgs you would get after sending in
+      # the prev nixpkgs
+      (final: prev: {
+        # we are extending the vimPlugins set with our custom plugins
+        # // is the update operator, so its like appending in this case cuz onedark isn't there in vimPlugins
+        vimPlugins = prev.vimPlugins // {
+          shivas-onedark-nvim = prev.vimUtils.buildVimPlugin {
+            name = "onedark";
+            src = inputs.plugin-onedark;  # this is the name we gave in the inputs set of flake.nix file
+          };
+        };
+      })
+    ];
+  };
+  # */
+
 	programs.neovim = {
 		enable = true;
+
+        extraPackages = with pkgs; [
+          nil # nix language server
+          lua-language-server
+          yaml-language-server
+          rust-analyzer # rust LSP
+        ];
 
 		extraLuaConfig = ''
 		${builtins.readFile ./options.lua}
@@ -26,6 +53,11 @@ in
       {
         plugin = catppuccin-nvim;
         config = "colorscheme catppuccin";
+      }
+
+      {
+        plugin = shivas-onedark-nvim;
+        config = "colorscheme onedark";
       }
 
       {

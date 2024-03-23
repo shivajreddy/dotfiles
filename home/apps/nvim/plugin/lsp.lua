@@ -30,6 +30,9 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- LSP conifiguation for specific languages -------------
 require('neodev').setup()
 
+-- LSP : Nix
+require('lspconfig').nil_ls.setup {}
+
 -- LSP : Lua
 require('lspconfig').lua_ls.setup {
     on_attach = on_attach,
@@ -55,11 +58,4 @@ require('lspconfig').rust_analyzer.setup{
 	}
 }
 
--- LSP : Nix
---[[ This rnix repo is not maintained
-require('lspconfig').rnix.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
---]]
 
