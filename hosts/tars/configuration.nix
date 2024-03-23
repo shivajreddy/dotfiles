@@ -38,6 +38,16 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
 
+  /* testing openssh settings
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+  */
+  services.openssh = {
+    enable = true;
+  };
+
   # TimeZone
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
