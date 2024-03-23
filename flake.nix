@@ -12,13 +12,12 @@
     };
 
     # Other Flakes...
-    # Testing onedark theme flake
-    /*
+    # /* Testing onedark theme flake
     plugin-onedark = {
       url = "github:navarasu/onedark.nvim";
       flake = false;
     };
-    */
+    # */
     
 
   };

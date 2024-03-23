@@ -1,5 +1,6 @@
 local on_attach = function(_, bufnr)
 
+  -- Helper function
   local bufmap = function(keys, func)
     vim.keymap.set('n', keys, func, { buffer = bufnr })
   end
@@ -26,7 +27,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+-- LSP conifiguation for specific languages -------------
 require('neodev').setup()
+
+-- LSP : Lua
 require('lspconfig').lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -42,7 +46,16 @@ require('lspconfig').lua_ls.setup {
     }
 }
 
+-- LSP: Rust
+require('lspconfig').rust_analyzer.setup{
+	settings = {
+		['rust-analyzer'] = {
+			diagnostics = { enable = false; }
+		}
+	}
+}
 
+-- LSP : Nix
 --[[ This rnix repo is not maintained
 require('lspconfig').rnix.setup {
     on_attach = on_attach,
