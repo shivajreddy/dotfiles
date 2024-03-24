@@ -49,6 +49,7 @@ require('lspconfig').lua_ls.setup {
     }
 }
 
+
 -- LSP: Rust
 require('lspconfig').rust_analyzer.setup{
 	settings = {
@@ -57,5 +58,4 @@ require('lspconfig').rust_analyzer.setup{
 		}
 	}
 }
-
 

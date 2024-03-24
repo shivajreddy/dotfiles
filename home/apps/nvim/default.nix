@@ -7,14 +7,14 @@
 basically for plugin configation, 
 1. you can simply import the file using builtin.readFile
 2. or do nix way, define a set with two keys -> `plugin` and `config`
-  config accepts string, but it should be a lua command, but for readablity
-  make a function at the top that does this convertion
+config accepts string, but it should be a lua command, but for readablity
+make a function at the top that does this convertion
 */
 let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+  toLua = str: "lua << EOF\n${str}\nEOF\n";
+  toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 in
-{
+  {
 
   # /* Learning nvim setup using flake from: https://www.youtube.com/watch?v=YZAnJ0rwREA&t=210s
   nixpkgs = {
@@ -35,73 +35,56 @@ in
   };
   # */
 
-	programs.neovim = {
-		enable = true;
+  programs.neovim = {
+    enable = true;
 
-        extraPackages = with pkgs; [
-          nil # nix language server
-          lua-language-server
-          yaml-language-server
-          rust-analyzer # rust LSP
-        ];
+    extraPackages = with pkgs; [
+      nil # nix language server
+      lua-language-server
+      yaml-language-server
+      rust-analyzer # rust LSP
+    ];
 
-		extraLuaConfig = ''
-		${builtins.readFile ./options.lua}
-		'';
+    extraLuaConfig = ''
+    ${builtins.readFile ./options.lua}
+    '';
 
-		plugins = with pkgs.vimPlugins; [
-
-      # /*
+    plugins = with pkgs.vimPlugins; [
+      neodev-nvim
+      telescope-fzf-native-nvim
+      cmp_luasnip
+      cmp-nvim-lsp
+      luasnip
+      friendly-snippets
+      lualine-nvim
+      nvim-web-devicons
+      vim-nix
+      tmux-navigator
+      nvim-cmp 
+      {
+        plugin = neo-tree-nvim;
+        config = toLuaFile ./plugin/neotree.lua;
+      }
       {
         plugin = catppuccin-nvim;
-        # config = "colorscheme catppuccin";
         config = toLuaFile ./plugin/theme.lua;
       }
-      # */
-
-      /*
-      {
-        plugin = shivas-onedark-nvim;
-        config = "colorscheme onedark";
-      }
-      */
-
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugin/lsp.lua;
       }
-
       {
         plugin = comment-nvim;
         config = toLua "require(\"Comment\").setup()";
       }
-
-      neodev-nvim
-
-      nvim-cmp 
       {
         plugin = nvim-cmp;
         config = toLuaFile ./plugin/cmp.lua;
       }
-
-
       {
         plugin = telescope-nvim;
         config = toLuaFile ./plugin/telescope.lua;
       }
-
-      telescope-fzf-native-nvim
-
-      cmp_luasnip
-      cmp-nvim-lsp
-
-      luasnip
-      friendly-snippets
-
-
-      lualine-nvim
-      nvim-web-devicons
-
       {
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
@@ -113,12 +96,8 @@ in
         ]));
         config = toLuaFile ./plugin/treesitter.lua;
       }
+    ];
 
-      vim-nix
-
-
-		];
-
-	};
+  };
 }
 
