@@ -10,4 +10,6 @@ require('telescope').setup({
   	}
 })
 
+vim.api.nvim_set_keymap('n', '<Leader>e', ':Neotree toggle<CR>', {noremap = true, silent=true})
+
 require('telescope').load_extension('fzf')
