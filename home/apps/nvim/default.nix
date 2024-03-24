@@ -67,14 +67,9 @@ in
       }
       {
         plugin = rose-pine;
-        config = "colorscheme rosepine";
-      }
-      /*
-      {
-        plugin = catppuccin-nvim;
+        # plugin = catppuccin-nvim;
         config = toLuaFile ./plugin/theme.lua;
       }
-      */
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugin/lsp.lua;
