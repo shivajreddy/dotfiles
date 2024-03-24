@@ -1,5 +1,4 @@
-{
-    "nvim-neo-tree/neo-tree.nvim",
+require("nvim-neo-tree/neo-tree.nvim").setup({
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
