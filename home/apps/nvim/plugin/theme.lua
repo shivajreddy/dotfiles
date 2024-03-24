@@ -1,4 +1,3 @@
--- My theme for NeoVim
 
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
