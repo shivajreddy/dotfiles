@@ -66,8 +66,7 @@ in
         config = toLuaFile ./plugin/neotree.lua;
       }
       {
-        plugin = rose-pine;
-        # plugin = catppuccin-nvim;
+        plugin = catppuccin-nvim;
         config = toLuaFile ./plugin/theme.lua;
       }
       {
