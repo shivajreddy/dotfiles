@@ -19,4 +19,8 @@ vim.o.termguicolors = true
 vim.o.mouse = 'a'
 
 
+vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>')
+vim.keymap.set('n', '<Leader>s', '<Cmd>w<CR>')
+vim.keymap.set('n', '<Leader>wq', '<Cmd>wq<CR>')
+
 
