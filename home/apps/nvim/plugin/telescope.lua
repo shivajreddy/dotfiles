@@ -10,6 +10,6 @@ require('telescope').setup({
   	}
 })
 
-vim.cmd('n', '<Leader>e', ':Neotree toggle<CR>', {noremap = true, silent=true})
+-- vim.cmd('n', '<Leader>e', ':Neotree toggle<CR>', {noremap = true, silent=true})
 
 require('telescope').load_extension('fzf')
