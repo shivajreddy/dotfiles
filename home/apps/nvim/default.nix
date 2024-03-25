@@ -43,6 +43,7 @@ in
       lua-language-server
       yaml-language-server
       rust-analyzer # rust LSP
+      pyright
     ];
 
     extraLuaConfig = ''

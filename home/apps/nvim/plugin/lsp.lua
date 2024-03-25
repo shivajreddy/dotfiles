@@ -49,6 +49,9 @@ require('lspconfig').lua_ls.setup {
     }
 }
 
+-- LSP: Python
+require('lspconfig').pyright.setup{}
+
 
 -- LSP: Rust
 require('lspconfig').rust_analyzer.setup{
