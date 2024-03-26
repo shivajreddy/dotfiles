@@ -22,6 +22,7 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
+        # hello wtf man
         ${builtins.getEnv "MY_MONITOR_1_DECORATION"}
         ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
 		'';
