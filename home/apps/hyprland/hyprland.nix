@@ -23,8 +23,6 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
-        monitor=eDP-1,2560x1440@144.0, 0x0, 1.0
-        monitor=DP-1,3840x2160@144.0, 2560x0,1.0
 		'';
 	};
 
