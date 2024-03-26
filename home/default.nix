@@ -83,6 +83,7 @@
     tmux
     vscode
     jetbrains.rust-rover
+    jetbrains.clion
     #jetbrains.pycharm-professional
     #jetbrains.webstorm
 
