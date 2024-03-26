@@ -7,8 +7,8 @@ let
   decorationsConf = builtins.readFile (./. + "/decorations.conf");
   workspacesConf = builtins.readFile (./. + "/workspaces.conf");
 
-  m1 = ${builtins.getEnv "MY_MONITOR_1_DECORATION"};
-  m2 = ${builtins.getEnv "MY_MONITOR_2_DECORATION"};
+  m1 = builtins.getEnv "MY_MONITOR_1_DECORATION";
+  m2 = builtins.getEnv "MY_MONITOR_2_DECORATION";
 in
 
 {
