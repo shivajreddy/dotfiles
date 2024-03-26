@@ -12,8 +12,8 @@ let
 
   myMonitors = ''
   ${builtins.getEnv "MY_MONITOR_1_DECORATION"}
+  ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
   '';
-  # ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
 in
 
 {

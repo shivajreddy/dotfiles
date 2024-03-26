@@ -90,6 +90,12 @@
   # #### Apps ####
   environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
 
+  environment.variables = {
+    MY_MONITOR_1_DECORATION = "monitor = DP-4, 3840x2160@60.0, 1920x0";
+    MY_MONITOR_2_DECORATION = "monitor = eDP-1, 1920x1080@144.0, 0x0";
+  };
+    # MY_MONITOR_2_DECORATION = "";
+
   environment.shells = with pkgs; [ zsh ];	 # Shells
   environment.sessionVariables = {		 # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
