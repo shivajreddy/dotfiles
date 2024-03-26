@@ -7,8 +7,6 @@ let
   decorationsConf = builtins.readFile (./. + "/decorations.conf");
   workspacesConf = builtins.readFile (./. + "/workspaces.conf");
 
-  m1 = builtins.getEnv "MY_MONITOR_1_DECORATION";
-  m2 = builtins.getEnv "MY_MONITOR_2_DECORATION";
 in
 
 {
@@ -25,11 +23,8 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
-        # hello wtf man
-        # m1
-        ${m1}
-        # m2
-        ${m2}
+        monitor=eDP-1,2560x1440@144.0, 0x0, 1.0
+        monitor=DP-1,3840x2160@144.0, 2560x0,1.0
 		'';
 	};
 

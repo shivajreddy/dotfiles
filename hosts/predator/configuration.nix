@@ -90,11 +90,6 @@
   # #### Apps ####
   environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
 
-  environment.variables = {
-    MY_MONITOR_2_DECORATION = "monitor = eDP-1, 2560x1440@144.0, 0x0, 1";
-    MY_MONITOR_1_DECORATION = "monitor = DP-1, 3840x2160@60.0, 2560x2160, 1";
-  };
-    # MY_MONITOR_2_DECORATION = "";
 
   environment.shells = with pkgs; [ zsh ];	 # Shells
   environment.sessionVariables = {		 # Session Variables
