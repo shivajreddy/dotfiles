@@ -6,15 +6,6 @@ let
   keybindsConf = builtins.readFile (./. + "/keybinds.conf");
   decorationsConf = builtins.readFile (./. + "/decorations.conf");
   workspacesConf = builtins.readFile (./. + "/workspaces.conf");
-
-  # my monitor settings
-  m1 = builtins.getEnv "MY_MONITOR_1_DECORATION";
-  m2 = builtins.getEnv "MY_MONITOR_2_DECORATION";
-
-  myMonitors = ''
-  ${builtins.getEnv "MY_MONITOR_1_DECORATION"}
-  ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
-  '';
 in
 
 {
@@ -31,7 +22,8 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
-    ${myMonitors}
+        ${builtins.getEnv "MY_MONITOR_1_DECORATION"}
+        ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
 		'';
 	};
 
