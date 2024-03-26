@@ -6,6 +6,9 @@ let
   keybindsConf = builtins.readFile (./. + "/keybinds.conf");
   decorationsConf = builtins.readFile (./. + "/decorations.conf");
   workspacesConf = builtins.readFile (./. + "/workspaces.conf");
+
+  m1 = ${builtins.getEnv "MY_MONITOR_1_DECORATION"};
+  m2 = ${builtins.getEnv "MY_MONITOR_2_DECORATION"};
 in
 
 {
@@ -23,8 +26,10 @@ in
 		${decorationsConf}
 		${workspacesConf}
         # hello wtf man
-        ${builtins.getEnv "MY_MONITOR_1_DECORATION"}
-        ${builtins.getEnv "MY_MONITOR_2_DECORATION"}
+        # m1
+        ${m1}
+        # m2
+        ${m2}
 		'';
 	};
 
