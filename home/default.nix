@@ -1,18 +1,12 @@
 { config, pkgs, ... }:
 
 
-let
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-  });
-in
 {
   # Main settings 
   home.username = "shiva";
   home.homeDirectory = "/home/shiva";
   home.stateVersion = "23.11"; # DONT CHANGE THIS
   programs.home-manager.enable = true; # Enable Home-Manager
-  programs.nixvim.enable = true;
 
   # import configuration for apps, packages, etc...
   imports = [
