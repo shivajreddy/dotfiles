@@ -17,6 +17,8 @@
 
 			};
 
+			tmux-navigator.enable = true;
+
 			lsp = {
 				enable = true;
 				servers = {
