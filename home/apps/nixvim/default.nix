@@ -40,7 +40,7 @@
 				};
 			};
 
-			cmp = {
+			nvim-cmp = {
 				enable = true;
 				autoEnableSources = true;
 				sources = [
