@@ -39,6 +39,11 @@
 			Note.underline = true;
 			Note.bold = true;
 
+			Comment.fg = "#ff00ff";
+			Comment.bg = "#000000";
+			Comment.underline = true;
+			Comment.bold = true;
+
 			wtf.fg = "#ff00ff";
 			wtf.bg = "#000000";
 			wtf.underline = true;
