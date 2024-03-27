@@ -1,11 +1,18 @@
 { config, pkgs, ... }:
 
+
+let
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+  });
+in
 {
   # Main settings 
   home.username = "shiva";
   home.homeDirectory = "/home/shiva";
   home.stateVersion = "23.11"; # DONT CHANGE THIS
   programs.home-manager.enable = true; # Enable Home-Manager
+  programs.nixvim.enable = true;
 
   # import configuration for apps, packages, etc...
   imports = [
@@ -14,13 +21,16 @@
     (./. + "/apps/zsh.nix")
     (./. + "/apps/kitty/kitty.nix")
     (./. + "/apps/tmux/tmux.nix")
-    (./. + "/apps/nvim/default.nix")
     (./. + "/apps/alacritty/alacritty.nix")
     (./. + "/apps/starship/starship.nix")
     (./. + "/apps/hyprland/hyprland.nix")
     (./. + "/apps/waybar/waybar.nix")
     (./. + "/themes/gtk/gtk.nix")
     # (./. + "/themes/qt/qt.nix")
+
+    # (./. + "/apps/nvim/default.nix")
+    nixvim.homeManagerModules.nixvim
+
   ];
 
   home.packages = with pkgs; [
