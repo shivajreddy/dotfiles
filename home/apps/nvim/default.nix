@@ -121,7 +121,8 @@ in
     vim-startuptime
     vscode-nvim
     which-key-nvim
-    { name = "LuaSnip"; path = luasnip; }
+    luasnip
+    # { name = "LuaSnip"; path = luasnip; }
     { name = "blame-me.nvim"; path = blame-me-nvim; }
     { name = "catppuccin"; path = catppuccin-nvim; }
     { name = "cmake-gtest.nvim"; path = cmake-gtest-nvim; }
