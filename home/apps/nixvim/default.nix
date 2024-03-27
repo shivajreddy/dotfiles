@@ -11,6 +11,7 @@
 		plugins = {
 			lualine.enable = true;
 			bufferline.enable = true;
+			catppuccin.enable = true;
 
 			lsp = {
 				enable = true;
