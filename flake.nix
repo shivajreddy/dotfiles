@@ -18,44 +18,43 @@
       flake = false;
     };
     # */
-    
 
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-  let 
-        lib = nixpkgs.lib; 
-        system = "x86_64-linux";
-        pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true;};
-  in
-  {
-    nixosConfigurations = {
-      predator = lib.nixosSystem {
-        # extraSpecialArgs = { inherit inputs; };
-        inherit system;
-        modules = [ 
-          (./. + "/hosts/predator/configuration.nix")
-        ];
-      };
-      tars = lib.nixosSystem {
-        # extraSpecialArgs = { inherit inputs; };
-        inherit system;
-        modules = [ 
-          (./. + "/hosts/tars/configuration.nix")
-        ];
-      };
-    };
-
-    # HomeConfiguration -- using as a package
-    homeConfigurations = {
-    	shiva = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ( ./. + "/home/default.nix" ) ];
-
-          extraSpecialArgs = {inherit inputs; };
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+    in
+    {
+      nixosConfigurations = {
+        predator = lib.nixosSystem {
+          # extraSpecialArgs = { inherit inputs; };
+          inherit system;
+          modules = [
+            (./. + "/hosts/predator/configuration.nix")
+          ];
         };
-    };
+        tars = lib.nixosSystem {
+          # extraSpecialArgs = { inherit inputs; };
+          inherit system;
+          modules = [
+            (./. + "/hosts/tars/configuration.nix")
+          ];
+        };
+      };
 
-  };
+      # HomeConfiguration -- using as a package
+      homeConfigurations = {
+        shiva = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ (./. + "/home/default.nix") ];
+
+          extraSpecialArgs = { inherit inputs; };
+        };
+      };
+
+    };
 }
 
