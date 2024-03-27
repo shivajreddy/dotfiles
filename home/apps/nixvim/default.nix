@@ -24,10 +24,10 @@
 			nvim-cmp = {
 				enable = true;
 				autoEnableSources = true;
-				sources = {
+				sources = [
 					{name = "nvim_lsp";}
 					{name = "buffer";}
-				};
+				];
 			};
 		};
 
