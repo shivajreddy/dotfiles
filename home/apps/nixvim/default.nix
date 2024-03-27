@@ -25,6 +25,8 @@
 
 			telescope.enable = true;
 
+			neotree.enable = true;
+
 			lsp = {
 				enable = true;
 				servers = {
