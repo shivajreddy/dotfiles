@@ -40,10 +40,10 @@
 				};
 			};
 
-			nvim-cmp = {
+			cmp = {
 				enable = true;
 				autoEnableSources = true;
-				sources = [
+				settings.sources = [
 					{name = "nvim_lsp";}
 					{name = "buffer";}
 				];
