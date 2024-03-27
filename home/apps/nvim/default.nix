@@ -82,7 +82,6 @@ in
     kanagawa-nvim
     lualine-nvim
     marks-nvim
-    neo-tree-nvim
     neoconf-nvim
     neodev-nvim
     neorg
@@ -90,12 +89,10 @@ in
     noice-nvim
     none-ls-nvim
     nui-nvim
-    nvim-cmp
     nvim-dap
     nvim-dap-ui
     nvim-dap-virtual-text
     nvim-lint
-    nvim-lspconfig
     nvim-notify
     nvim-spectre
     nvim-treesitter
@@ -112,7 +109,6 @@ in
     rust-tools-nvim
     sqlite-lua
     telescope-fzf-native-nvim
-    telescope-nvim
     tmux-navigator
     todo-comments-nvim
     tokyonight-nvim
@@ -136,10 +132,6 @@ in
     { name = "mini.surround"; path = mini-nvim; }
     { name = "yanky.nvim"; path = yanky-nvim; }
     */
-      {
-        plugin = catppuccin-nvim;
-        config = toLuaFile ./plugin/theme.lua;
-      }
 
     /*
       LazyVim
@@ -154,13 +146,14 @@ in
       vim-nix
       tmux-navigator
       nvim-cmp
-      {
-        plugin = neo-tree-nvim;
-        config = toLuaFile ./plugin/neotree.lua;
-      }
+	  */
       {
         plugin = catppuccin-nvim;
         config = toLuaFile ./plugin/theme.lua;
+      }
+      {
+        plugin = neo-tree-nvim;
+        config = toLuaFile ./plugin/neotree.lua;
       }
       {
         plugin = nvim-lspconfig;
@@ -189,7 +182,6 @@ in
         ]));
         config = toLuaFile ./plugin/treesitter.lua;
       }
-      */
 
     ];
 
