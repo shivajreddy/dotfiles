@@ -53,7 +53,7 @@
 
 		plugins = {
 			lualine.enable = true;
-			bufferline.enable = true;
+			# bufferline.enable = true;
 			auto-save = {
 				enable = true;
 				enableAutoSave = true;
