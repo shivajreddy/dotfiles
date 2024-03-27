@@ -11,7 +11,11 @@
 		plugins = {
 			lualine.enable = true;
 			bufferline.enable = true;
-			catppuccin.enable = true;
+			auto-save = {
+				enable = true;
+				enableAutoSave = true;
+
+			};
 
 			lsp = {
 				enable = true;
