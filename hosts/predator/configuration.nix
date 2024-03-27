@@ -1,10 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports = [ 
     ./hardware-configuration.nix
-	  (../apps/pcloud/default.nix)
+    (../apps/pcloud/default.nix)
+    # nixvim.homeManagerModules.nixvim
+    nixvim.nixosModules.nixvim
   ];
+
+  programs.nixvim.enable = true;
   
   /*  NIX PATH FIX
   nix.nixPath = [
