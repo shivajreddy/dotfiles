@@ -4,7 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     (../apps/pcloud/default.nix)
-    # nixvim.homeManagerModules.nixvim
+    nixvim.homeManagerModules.nixvim
     nixvim.nixosModules.nixvim
   ];
 
