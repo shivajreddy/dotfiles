@@ -121,8 +121,8 @@ in
     vim-startuptime
     vscode-nvim
     which-key-nvim
-    luasnip
-    # { name = "LuaSnip"; path = luasnip; }
+    /*
+    { name = "LuaSnip"; path = luasnip; }
     { name = "blame-me.nvim"; path = blame-me-nvim; }
     { name = "catppuccin"; path = catppuccin-nvim; }
     { name = "cmake-gtest.nvim"; path = cmake-gtest-nvim; }
@@ -135,6 +135,7 @@ in
     { name = "mini.pairs"; path = mini-nvim; }
     { name = "mini.surround"; path = mini-nvim; }
     { name = "yanky.nvim"; path = yanky-nvim; }
+    */
 
     /*
       LazyVim
