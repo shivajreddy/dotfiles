@@ -13,7 +13,7 @@
 
 		clipboard.providers.wl-copy.enable = true;
 
-		globals.leader = " ";
+		globals.mapleader = " ";
 
 		keymaps = [
 		{
