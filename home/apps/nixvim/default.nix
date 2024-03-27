@@ -17,7 +17,11 @@
 				servers = {
 					pyright.enable = true;
 					lua-ls.enable = true;
-					rust-analyzer.enable = true;
+					rust-analyzer = {
+						enable = true;
+						installRustc = true;
+						installCargo = true;
+					};
 				};
 			};
 
