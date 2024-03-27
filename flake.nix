@@ -19,6 +19,10 @@
     };
     # */
 
+    nixvim = import(builtins.fetchGit {
+      url = "https://github.com/nix-community/nixvim";
+    });
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
