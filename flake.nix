@@ -19,10 +19,10 @@
     };
     # */
 
-    /*
+    # /*
     nixvim = {
       # If using a stable channel you can use    url = "github:nix-community/nixvim/nixos-<version>"
-      url = "https://github.com/nix-community/nixvim";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # */
