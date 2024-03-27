@@ -31,6 +31,13 @@
 		}
 		];
 
+		highlight = {
+			Note.fg = "#ff00ff";
+			Note.bg = "#000000";
+			Note.underline = true;
+			Note.bold = true;
+		};
+
 
 		plugins = {
 			lualine.enable = true;
