@@ -23,6 +23,10 @@
 			action = "<cmd>Telescope live_grep<CR>";
 			key = "<Leader>sg";
 		}
+		{
+			action = "<cmd>Neotree toggle<CR>";
+			key = "<C-n>";
+		}
 		];
 
 
