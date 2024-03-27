@@ -15,11 +15,13 @@
 
 		globals.mapleader = " ";
 
+		# NOTE: hello
+		# WTF: test
+		# COMMENT: hello
 		keymaps = [
 		{
 			action = "<cmd>w<CR>";
-			key = "<Leader-w>";
-			options = {noremap = true; silent = true;};
+			key = "<Leader>w";
 		}
 		{
 			action = "<cmd>Telescope live_grep<CR>";
@@ -36,6 +38,11 @@
 			Note.bg = "#000000";
 			Note.underline = true;
 			Note.bold = true;
+
+			wtf.fg = "#ff00ff";
+			wtf.bg = "#000000";
+			wtf.underline = true;
+			wtf.bold = true;
 		};
 
 
