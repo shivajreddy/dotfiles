@@ -8,6 +8,8 @@
 	programs.nixvim = {
 		enable = true;
 
+		colorschemes.catppuccin.enable = true;
+
 		plugins = {
 			lualine.enable = true;
 			bufferline.enable = true;
@@ -18,6 +20,10 @@
 			};
 
 			tmux-navigator.enable = true;
+
+			which-key.enable = true;
+
+			telescope.enable = true;
 
 			lsp = {
 				enable = true;
