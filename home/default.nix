@@ -32,7 +32,6 @@
 
   home.packages = with pkgs; [
     zsh
-    # neovim
 
     firefox
     brave

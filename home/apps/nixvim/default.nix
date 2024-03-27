@@ -1,8 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
-	imports = [];
+	imports = [
+		./bufferline.nix
+	];
 
-	programs.nixvim.enable = true;
+	programs.nixvim = {
+		enable = true;
+	};
 }
 
