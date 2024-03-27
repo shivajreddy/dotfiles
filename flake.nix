@@ -57,7 +57,10 @@
       homeConfigurations = {
         shiva = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ (./. + "/home/default.nix") ];
+          modules = [ 
+	  	(./. + "/home/default.nix") 
+		inputs.nixvim.homeManagerModules.nixvim
+	  ];
 
           extraSpecialArgs = { inherit inputs; };
         };

@@ -25,7 +25,6 @@
     # (./. + "/themes/qt/qt.nix")
 
     # (./. + "/apps/nvim/default.nix")
-    nixvim.homeManagerModules.nixvim
 
   ];
 
