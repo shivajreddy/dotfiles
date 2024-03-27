@@ -8,8 +8,6 @@
   home.stateVersion = "23.11"; # DONT CHANGE THIS
   programs.home-manager.enable = true; # Enable Home-Manager
 
-  programs.nixvim.enable = true;
-
   # import configuration for apps, packages, etc...
   imports = [
     (./. + "/fonts/fonts.nix")
@@ -29,9 +27,12 @@
 
   ];
 
+  # programs.nixvim.enable = true;
+
+
   home.packages = with pkgs; [
     zsh
-    neovim
+    # neovim
 
     firefox
     brave
