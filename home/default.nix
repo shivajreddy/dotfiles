@@ -25,6 +25,7 @@
     # (./. + "/themes/qt/qt.nix")
 
     # (./. + "/apps/nvim/default.nix")
+    (./. + "/apps/nixvim/default.nix")
 
   ];
 
