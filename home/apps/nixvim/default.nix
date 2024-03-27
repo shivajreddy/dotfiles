@@ -19,7 +19,12 @@
 			key = "<Leader-w>";
 			options = {noremap = true; silent = true;};
 		}
+		{
+			action = "<cmd>Telescope live_grep<CR>";
+			key = "<Leader>sg";
+		}
 		];
+
 
 		plugins = {
 			lualine.enable = true;
