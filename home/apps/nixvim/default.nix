@@ -10,6 +10,16 @@
 
 		colorschemes.catppuccin.enable = true;
 
+		clipboard.providers.wl-copy.enable = true;
+
+		keymaps = [
+		{
+			action = "<cmd>w<CR>";
+			key = "<Leader-w>";
+			options = {noremap = true; silent = true;};
+		}
+		];
+
 		plugins = {
 			lualine.enable = true;
 			bufferline.enable = true;
