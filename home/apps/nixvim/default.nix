@@ -13,6 +13,8 @@
 
 		clipboard.providers.wl-copy.enable = true;
 
+		globals.leader = " ";
+
 		keymaps = [
 		{
 			action = "<cmd>w<CR>";
