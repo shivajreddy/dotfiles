@@ -4,12 +4,10 @@
   imports = [ 
     ./hardware-configuration.nix
     (../apps/pcloud/default.nix)
-    nixvim.homeManagerModules.nixvim
-    nixvim.nixosModules.nixvim
+    # nixvim.homeManagerModules.nixvim
+    # nixvim.nixosModules.nixvim
   ];
 
-  programs.nixvim.enable = true;
-  
   /*  NIX PATH FIX
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
