@@ -136,6 +136,10 @@ in
     { name = "mini.surround"; path = mini-nvim; }
     { name = "yanky.nvim"; path = yanky-nvim; }
     */
+      {
+        plugin = catppuccin-nvim;
+        config = toLuaFile ./plugin/theme.lua;
+      }
 
     /*
       LazyVim
