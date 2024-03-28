@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./keymaps.nix
     ./style.nix
@@ -20,7 +24,7 @@
 
     options = {
       number = true;
-      colorcolumn = "80";
+      # colorcolumn = "80";
       relativenumber = true;
       shiftwidth = 2;
       tabstop = 2;
@@ -39,10 +43,11 @@
 
     plugins = {
       gitsigns.enable = true;
-      oil.enable = true;
+      neo-tree.enable = true;
+      # oil.enable = true;
       undotree.enable = true;
       fugitive.enable = true;
-      nvim-tree.enable = true;
+      # nvim-tree.enable = true;
     };
     extraPackages = with pkgs; [
       # Formatters
@@ -85,13 +90,6 @@
       lldb_17
       llvmPackages_17.bintools-unwrapped
       marksman
-
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "RobotoMono"
-      ];
-    })
 
       python3
       ripgrep
