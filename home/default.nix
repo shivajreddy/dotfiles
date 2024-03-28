@@ -1,15 +1,16 @@
-{ config, pkgs, inputs, ... }:
-
-
-let
-  neovimconfig = import ./apps/nixvim2;
-  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-  	inherit pkgs;
-	module = neovimconfig;
-  };
-in
 {
-  # Main settings 
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  neovimconfig = import ./apps/nixvim;
+  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+    inherit pkgs;
+    module = neovimconfig;
+  };
+in {
+  # Main settings
   home.username = "shiva";
   home.homeDirectory = "/home/shiva";
   home.stateVersion = "23.11"; # DONT CHANGE THIS
@@ -31,11 +32,9 @@ in
 
     # (./. + "/apps/nvim/default.nix")
     # (./. + "/apps/nixvim/default.nix")
-
   ];
 
   # programs.nixvim.enable = true;
-
 
   home.packages = with pkgs; [
     zsh
@@ -70,7 +69,7 @@ in
     obs-studio-plugins.obs-vaapi
 
     neofetch
-    wev	# wayland event viewer, for keystrokes
+    wev # wayland event viewer, for keystrokes
     playerctl
     wl-clipboard
     zsh-autosuggestions
@@ -109,11 +108,9 @@ in
     # rustup
     python3
     nodejs_21
+  ];
 
-];
-
-services = {
-    # spotifyd.enable = true; 
+  services = {
+    # spotifyd.enable = true;
   };
-
 }

@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   plugins = {
-    nvim-cmp = {
+    cmp = {
       enable = true;
-      snippet.expand = "luasnip";
-      mapping = {
+      settings.snippet.expand = "luasnip";
+ 
+      settings.mappping = {
         "<C-d>" = "cmp.mapping.scroll_docs(-4)";
         "<C-f>" = "cmp.mapping.scroll_docs(4)";
         "<C-e>" = "cmp.mapping.close()";
@@ -13,7 +14,7 @@
                                 select = true, behavior = cmp.ConfirmBehavior.Insert })";
         };
       };
-      window.documentation.border = [
+      settings.window.documentation.border = [
         "╭"
         "─"
         "╮"
@@ -23,7 +24,7 @@
         "╰"
         "│"
       ];
-      sources = [
+      settings.sources = [
         {name = "nvim_lua";}
         {name = "nvim_lsp";}
         {name = "cmdline";}

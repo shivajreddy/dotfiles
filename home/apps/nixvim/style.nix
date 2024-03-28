@@ -1,9 +1,16 @@
 {pkgs, ...}: {
+  /*
   colorschemes.tokyonight = {
     enable = true;
     style = "night";
     transparent = true;
   };
+  */
+  colorscheme.catppuccin = {
+    enable = true;
+    # flavor = "mocha";
+  };
+
   plugins = {
     notify.enable = true;
     lualine = {

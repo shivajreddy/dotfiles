@@ -1,138 +1,103 @@
-{ config, lib, pkgs, ... }:
+{pkgs, lib, ...}: {
+  imports = [
+    ./keymaps.nix
+    ./style.nix
+    ./telescope.nix
+    ./treesitter.nix
+    ./harpoon.nix
+    ./folds.nix
+    ./lsp.nix
+    ./completion.nix
+    ./format.nix
+    ./lint.nix
+    ./debug.nix
+  ];
 
+  config = {
+    globals = {
+      mapleader = " ";
+    };
 
-{
-	imports = [
-		# ./bufferline.nix
-		# ./keymaps.nix
-		./completion.nix
-	];
+    options = {
+      number = true;
+      colorcolumn = "80";
+      relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
+      wrap = false;
+      swapfile = false; #Undotree
+      backup = false; #Undotree
+      undofile = true;
+      hlsearch = false;
+      incsearch = true;
+      termguicolors = true;
+      scrolloff = 8;
+      signcolumn = "yes";
+      updatetime = 50;
+      foldlevelstart = 99;
+    };
 
-	programs.nixvim = {
-		enable = true;
+    plugins = {
+      gitsigns.enable = true;
+      oil.enable = true;
+      undotree.enable = true;
+      fugitive.enable = true;
+      nvim-tree.enable = true;
+    };
+    extraPackages = with pkgs; [
+      # Formatters
+      alejandra
+      asmfmt
+      astyle
+      black
+      cmake-format
+      gofumpt
+      golines
+      gotools
+      isort
+      nodePackages.prettier
+      prettierd
+      rustfmt
+      shfmt
+      stylua
+      # Linters
+      commitlint
+      eslint_d
+      golangci-lint
+      hadolint
+      html-tidy
+      luajitPackages.luacheck
+      markdownlint-cli
+      nodePackages.jsonlint
+      pylint
+      ruff
+      shellcheck
+      vale
+      yamllint
+      # Debuggers / misc deps
+      asm-lsp
+      bashdb
+      clang-tools
+      delve
+      fd
+      gdb
+      go
+      lldb_17
+      llvmPackages_17.bintools-unwrapped
+      marksman
 
-		colorschemes.catppuccin.enable = true;
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "RobotoMono"
+      ];
+    })
 
-		# clipboard.providers.wl-copy.enable = true;
-		clipboard.register = "unnamedplus";
-
-		globals.mapleader = " ";
-
-		# NOTE: hello
-		# WTF: test
-		# COMMENT: hello
-		keymaps = import ./keymaps.nix;
-		/*
-		[
-		{
-			action = "<cmd>w<CR>";
-			key = "<Leader>w";
-		}
-		{
-			action = "<cmd>Telescope live_grep<CR>";
-			key = "<Leader>sg";
-		}
-		{
-			action = "<cmd>Neotree toggle<CR>";
-			key = "<C-n>";
-		}
-		];
-		*/
-
-		highlight = {
-			Note.fg = "#ff00ff";
-			Note.bg = "#000000";
-			Note.underline = true;
-			Note.bold = true;
-
-			Comment.fg = "#ff00ff";
-			Comment.bg = "#000000";
-			Comment.underline = true;
-			Comment.bold = true;
-
-			wtf.fg = "#ff00ff";
-			wtf.bg = "#000000";
-			wtf.underline = true;
-			wtf.bold = true;
-		};
-
-
-		plugins = {
-
-			# Formatting
-			conform-nvim = {
-				enable = true;
-				extraOptions = {
-					keys = {
-						action = "<cmd>q<CR>";
-						key = "<Leader>cF";
-						options.desc = "Format Injected Langs";
-					};
-				};
-			};
-
-
-			lualine.enable = true;
-			# bufferline.enable = true;
-			auto-save = {
-				enable = true;
-				enableAutoSave = true;
-
-			};
-
-
-			tmux-navigator.enable = true;
-
-			which-key.enable = true;
-
-			telescope.enable = true;
-
-			treesitter.enable = true;
-
-			luasnip.enable = true;
-
-			neo-tree.enable = true;
-
-			lsp = {
-				enable = true;
-				servers = {
-					pyright.enable = true;
-					lua-ls.enable = true;
-					rust-analyzer = {
-						enable = true;
-						installRustc = true;
-						installCargo = true;
-					};
-				};
-			};
-
-			cmp = {
-				enable = true;
-				autoEnableSources = true;
-				settings.sources = [
-				{name = "nvim_lsp";}
-				{name = "buffer";}
-				];
-				settings.mapping = {
-					__raw = ''
-						cmp.mapping.preset.insert({
-								['<C-b>'] = cmp.mapping.scroll_docs(-4),
-								['<C-f>'] = cmp.mapping.scroll_docs(4),
-								['<C-Space>'] = cmp.mapping.complete(),
-								['<C-e>'] = cmp.mapping.abort(),
-								['<CR>'] = cmp.mapping.confirm({ select = true }),
-								})
-					'';
-				};
-			};
-
-
-
-		};
-
-	};
-
-
-
+      python3
+      ripgrep
+      rr
+      tmux-sessionizer
+      zig
+    ];
+  };
 }
-
