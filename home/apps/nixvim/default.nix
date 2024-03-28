@@ -4,6 +4,7 @@
 {
 	imports = [
 		# ./bufferline.nix
+		# ./keymaps.nix
 	];
 
 	programs.nixvim = {
@@ -11,14 +12,17 @@
 
 		colorschemes.catppuccin.enable = true;
 
-		clipboard.providers.wl-copy.enable = true;
+		# clipboard.providers.wl-copy.enable = true;
+		clipboard.register = "unnamedplus";
 
 		globals.mapleader = " ";
 
 		# NOTE: hello
 		# WTF: test
 		# COMMENT: hello
-		keymaps = [
+		keymaps = import ./keymaps.nix;
+		/*
+		[
 		{
 			action = "<cmd>w<CR>";
 			key = "<Leader>w";
@@ -32,6 +36,7 @@
 			key = "<C-n>";
 		}
 		];
+		*/
 
 		highlight = {
 			Note.fg = "#ff00ff";
