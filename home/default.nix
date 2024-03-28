@@ -39,6 +39,7 @@ in
 
   home.packages = with pkgs; [
     zsh
+    nvim
 
     firefox
     brave
