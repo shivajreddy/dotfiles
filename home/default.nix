@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 
+let
+  neovimconfig = import ./apps/nxivm2;
+  nvim = inputs.nixvim {
+  	inherit pkgs;
+	module = neovimconfig;
+  };
+in
 {
   # Main settings 
   home.username = "shiva";
@@ -23,7 +30,7 @@
     # (./. + "/themes/qt/qt.nix")
 
     # (./. + "/apps/nvim/default.nix")
-    (./. + "/apps/nixvim/default.nix")
+    # (./. + "/apps/nixvim/default.nix")
 
   ];
 
