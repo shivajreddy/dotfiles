@@ -2,7 +2,7 @@
 
 
 let
-  neovimconfig = import ./apps/nxivm2;
+  neovimconfig = import ./apps/nixvim2;
   nvim = inputs.nixvim {
   	inherit pkgs;
 	module = neovimconfig;

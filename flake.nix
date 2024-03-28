@@ -1,6 +1,7 @@
 {
   description = "Shiva's NixOS Flake";
 
+  # The nixpkgs entry in the flake registry.
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -8,6 +9,12 @@
     # this will be passed as an argument for the outputs function by nix
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # NIXVIM
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,13 +26,6 @@
     };
     # */
 
-    # /* NIXVIM
-    nixvim = {
-      # If using a stable channel you can use    url = "github:nix-community/nixvim/nixos-<version>"
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # */
 
   };
 
