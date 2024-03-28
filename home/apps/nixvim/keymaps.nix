@@ -28,15 +28,29 @@ vim.keymap.set('n', '<Leader>wq', '<Cmd>wq<CR>')
 
 [
 	{
+		action = "<cmd>q<CR>";
+		key = "<Leader>q";
+		options.desc = "Quit";
+	}
+	{
+		# change to auto-save plugin toggle
 		action = "<cmd>w<CR>";
-		key = "<Leader>w";
+		key = "<Leader>s";
+		options.desc = "Write";
+	}
+	{
+		action = "<cmd>wq<CR>";
+		key = "<Leader>wq";
+		options.desc = "Write&Quit";
 	}
 	{
 		action = "<cmd>Telescope live_grep<CR>";
 		key = "<Leader>sg";
+		options.desc = "Telescope::LiveGrep";
 	}
 	{
 		action = "<cmd>Neotree toggle<CR>";
 		key = "<C-n>";
+		options.desc = "Neotree Toggle";
 	}
 ]
