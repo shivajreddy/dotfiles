@@ -2,7 +2,7 @@
   plugins = {
     cmp = {
       enable = true;
-      snippet.expand = "luasnip";
+      settings.snippet.expand = "luasnip";
  
       settings.mappping = {
         "<C-d>" = "cmp.mapping.scroll_docs(-4)";
