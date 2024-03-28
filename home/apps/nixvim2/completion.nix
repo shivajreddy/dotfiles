@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   plugins = {
-    nvim-cmp = {
+    cmp = {
       enable = true;
       snippet.expand = "luasnip";
       mapping = {
@@ -23,7 +23,7 @@
         "╰"
         "│"
       ];
-      sources = [
+      settings.sources = [
         {name = "nvim_lua";}
         {name = "nvim_lsp";}
         {name = "cmdline";}
