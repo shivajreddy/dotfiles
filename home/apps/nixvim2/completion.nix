@@ -14,7 +14,7 @@
                                 select = true, behavior = cmp.ConfirmBehavior.Insert })";
         };
       };
-      window.documentation.border = [
+      settings.window.documentation.border = [
         "╭"
         "─"
         "╮"
