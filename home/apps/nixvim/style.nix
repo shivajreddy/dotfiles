@@ -6,7 +6,7 @@
     transparent = true;
   };
   */
-  colorscheme.catppuccin = {
+  colorschemes.catppuccin = {
     enable = true;
     # flavor = "mocha";
   };
