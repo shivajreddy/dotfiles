@@ -5,6 +5,7 @@
 	imports = [
 		# ./bufferline.nix
 		# ./keymaps.nix
+		./completion.nix
 	];
 
 	programs.nixvim = {
@@ -57,6 +58,20 @@
 
 
 		plugins = {
+
+			# Formatting
+			conform-nvim = {
+				enable = true;
+				extraOptions = {
+					keys = {
+						action = "<cmd>q<CR>";
+						key = "<Leader>cF";
+						options.desc = "Format Injected Langs";
+					};
+				};
+			};
+
+
 			lualine.enable = true;
 			# bufferline.enable = true;
 			auto-save = {
@@ -64,6 +79,7 @@
 				enableAutoSave = true;
 
 			};
+
 
 			tmux-navigator.enable = true;
 
