@@ -15,9 +15,9 @@
     notify.enable = true;
     lualine = {
       enable = true;
-      iconsEnabled = false;
+      iconsEnabled = true;
       globalstatus = true;
-      theme = "onedark";
+      theme = "catppuccin";
     };
     noice = {
       enable = true;

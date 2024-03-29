@@ -88,15 +88,6 @@
       };
     }
     {
-      key = "n";
-      mode = "n";
-      action = "nzzzv"; # Keep cursor in middle
-      options = {
-        silent = true;
-        noremap = true;
-      };
-    }
-    {
       key = "N";
       mode = "n";
       action = "Nzzzv";
