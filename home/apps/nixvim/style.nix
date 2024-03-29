@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   /*
   colorschemes.tokyonight = {
-    enable = true;
-    style = "night";
-    transparent = true;
+  enable = true;
+  style = "night";
+  transparent = true;
   };
   */
   colorschemes.catppuccin = {
@@ -48,17 +48,83 @@
         inc_rename.cmdline.format.IncRename = {icon = "⟳";};
       };
     };
+    alpha = {
+      enable = true;
+      theme = "dashboard";
+      layout = [
+        {
+          type = "padding";
+          val = 2;
+        }
+        {
+          opts = {
+            hl = "Type";
+            position = "center";
+          };
+          type = "text";
+          val = [
+            "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
+            "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
+            "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
+            "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
+            "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
+            "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+          ];
+        }
+        {
+          type = "padding";
+          val = 2;
+        }
+        {
+          type = "group";
+          val = [
+            {
+              on_press = {
+                __raw = "function() vim.cmd[[ene]] end";
+              };
+              opts = {
+                shortcut = "n";
+              };
+              type = "button";
+              val = "  New file";
+            }
+            {
+              on_press = {
+                __raw = "function() vim.cmd[[qa]] end";
+              };
+              opts = {
+                shortcut = "q";
+              };
+              type = "button";
+              val = " Quit Neovim";
+            }
+          ];
+        }
+        {
+          type = "padding";
+          val = 2;
+        }
+        {
+          opts = {
+            hl = "Keyword";
+            position = "center";
+          };
+          type = "text";
+          val = "Inspiring quote here.";
+        }
+      ];
+    };
   };
   extraConfigLua = ''
     -- Noice recommended config
     require("noice").setup({
-    lsp = {
-    	override = {
+    		lsp = {
+    		override = {
     		["vim.lsp.util.convert_input_to_markdown_lines"] = true,
     		["vim.lsp.util.stylize_markdown"] = true,
     		["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    	},
-    },
-    })
+    		},
+    		},
+    		})
   '';
 }
