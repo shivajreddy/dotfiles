@@ -216,13 +216,13 @@
       };
     }
     {
-      key = "<leader>t";
+      key = "<leader>e";
       mode = "n";
-      action = "<cmd>NvimTreeToggle<CR>";
+      action = "<cmd>Neotree toggle<CR>";
       options = {
         silent = true;
         noremap = true;
-        desc = "Toggle nvim [t]ree";
+        desc = "Toggle Neotree tree";
       };
     }
 

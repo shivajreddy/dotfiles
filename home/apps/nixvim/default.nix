@@ -96,7 +96,6 @@
       ripgrep
       rr
       tmux-sessionizer
-      zig
     ];
   };
 }
