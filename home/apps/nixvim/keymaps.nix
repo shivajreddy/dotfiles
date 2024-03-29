@@ -207,7 +207,7 @@
       };
     }
     {
-      key = "<leader>e";
+      key = "<C-n>";
       mode = "n";
       action = "<cmd>Neotree toggle<CR>";
       options = {
