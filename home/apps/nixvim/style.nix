@@ -50,7 +50,7 @@
     };
     alpha = {
       enable = true;
-      theme = "dashboard";
+      # theme = "dashboard";
       layout = [
         {
           type = "padding";
