@@ -44,7 +44,7 @@
     plugins = {
       gitsigns.enable = true;
       neo-tree.enable = true;
-      tmux-navigator = true;
+      tmux-navigator.enable = true;
       # oil.enable = true;
       undotree.enable = true;
       fugitive.enable = true;
