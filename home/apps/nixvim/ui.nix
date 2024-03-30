@@ -1,15 +1,13 @@
-{pkgs, ...}: let
-  max_height = ''
-    function()
-      return math.floor(vim.o.lines * 0.75)
-    end
-  '';
-in {
+{pkgs, ...}: {
   plugins = {
     notify = {
       enable = true;
       timeout = 3000;
-      maxHeight = max_height;
+    };
+
+    bufferline = {
+      enable = true;
+      closeCommand = "function(n) require(" mini.bufremove ").delete(n, false) end";
     };
 
     alpha = {
