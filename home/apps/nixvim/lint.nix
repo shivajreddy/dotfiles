@@ -13,7 +13,8 @@
       lua = ["luacheck"];
       markdownlint = ["markdownlint"];
       nix = ["nix"];
-      python = ["ruff"];
+      # python = ["ruff"];
+      python = ["pyright"];
       sh = ["shellcheck"];
       typescript = ["eslint_d"];
       typescriptreact = ["eslint_d"];
