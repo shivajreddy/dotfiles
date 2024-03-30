@@ -14,7 +14,7 @@
     };
     bufferline = {
       enable = true;
-      closeCommand = "function(n) require('mini.bufremove').delete(n, false) end";
+      closeCommand = "function(n) require('bufremove').delete(n, false) end";
     };
 
     alpha = {
