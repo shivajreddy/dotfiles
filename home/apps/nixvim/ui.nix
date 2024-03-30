@@ -13,6 +13,34 @@
     };
     bufferline = {
       enable = true;
+      alwaysShowBufferline = false;
+    };
+
+    indent-blankline = {
+      enable = true;
+      settings = {
+        indent = {
+          char = "│";
+          tab_char = "│";
+        };
+        scope = {enabled = false;};
+        exclude = {
+          buftypes = [
+            "terminal"
+            "quickfix"
+          ];
+          filetypes = [
+            ""
+            "checkhealth"
+            "help"
+            "lspinfo"
+            "packer"
+            "TelescopePrompt"
+            "TelescopeResults"
+            "yaml"
+          ];
+        };
+      };
     };
 
     alpha = {
