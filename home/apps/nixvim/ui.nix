@@ -1,5 +1,15 @@
 {pkgs, ...}: {
   plugins = {
+    notify = {
+      enable = true;
+      timeout = 3000;
+      maxHeight = ''
+        function()
+        	return math.floor(vim.o.lines * 0.75)
+        end
+      '';
+    };
+
     alpha = {
       enable = true;
       # theme = "dashboard";
