@@ -5,7 +5,13 @@
       timeout = 3000;
     };
 
-    mini.enable = true;
+    mini = {
+      enable = true;
+      modules = {
+        surround = {};
+        bufremove = {};
+      };
+    };
     bufferline = {
       enable = true;
       closeCommand = "function(n) require('mini.bufremove').delete(n, false) end";
