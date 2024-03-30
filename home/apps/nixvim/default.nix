@@ -51,6 +51,9 @@
       fugitive.enable = true;
       # nvim-tree.enable = true;
     };
+    extraPlugins = with pkgs; [
+      vimPlugins.nvim-web-devicons
+    ];
     extraPackages = with pkgs; [
       # Formatters
       alejandra
@@ -93,8 +96,6 @@
       python3
       ripgrep
       rr
-      # Otehrs
-      vimPlugins.nvim-web-devicons
     ];
   };
 }
