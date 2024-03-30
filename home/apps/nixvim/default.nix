@@ -77,7 +77,6 @@
       markdownlint-cli
       nodePackages.jsonlint
       pylint
-      ruff
       shellcheck
       vale
       yamllint
@@ -88,15 +87,14 @@
       delve
       fd
       gdb
-      go
       lldb_17
       llvmPackages_17.bintools-unwrapped
       marksman
-
       python3
       ripgrep
       rr
-      tmux-sessionizer
+      # Otehrs
+      vimplugin.nvim-web-devicons
     ];
   };
 }
