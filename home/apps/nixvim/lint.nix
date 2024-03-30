@@ -14,7 +14,7 @@
       markdownlint = ["markdownlint"];
       nix = ["nix"];
       # python = ["ruff"];
-      python = ["pylint"];
+      # python = ["pylint"];
       sh = ["shellcheck"];
       typescript = ["eslint_d"];
       typescriptreact = ["eslint_d"];
