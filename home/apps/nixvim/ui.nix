@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   plugins = {
-    dressing.enable = true;
+    # dressing.enable = true;
   };
 }
