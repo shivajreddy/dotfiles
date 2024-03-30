@@ -190,7 +190,7 @@
       })
 
       -- Python LSP
-      require("lspconfig").ruff.setup({
+      require("lspconfig").ruff_lsp.setup({
       	on_attach = function()
       		set_cmn_lsp_keybinds()
       	end,
