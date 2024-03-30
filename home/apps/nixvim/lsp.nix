@@ -8,8 +8,8 @@
       # html.enable = true;
       lua-ls.enable = true;
       nixd.enable = true;
-      ruff-lsp.enable = true;
-      # pyright.enable = true;
+      # ruff-lsp.enable = true;
+      pyright.enable = true;
       rust-analyzer = {
         enable = true;
         installCargo = true;
@@ -190,7 +190,8 @@
       })
 
       -- Python LSP
-      require("lspconfig").ruff_lsp.setup({
+      -- require("lspconfig").ruff_lsp.setup({
+      require("lspconfig").pyright.setup({
       	on_attach = function()
       		set_cmn_lsp_keybinds()
       	end,
