@@ -9,12 +9,10 @@
       enable = true;
       modules = {
         surround = {};
-        bufremove = {};
       };
     };
     bufferline = {
       enable = true;
-      closeCommand = "function(n) require('bufremove').delete(n, false) end";
     };
 
     alpha = {
