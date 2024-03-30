@@ -10,10 +10,12 @@
         action = "buffers";
         desc = "[ ] Find existing buffers";
       };
+      /*
       "<leader>/" = {
         action = "current_buffer_fuzzy_find";
         desc = "[/] Fuzzily search in current buffer]";
       };
+      */
       "<leader>sf" = {
         action = "find_files";
         desc = "[s]earch [f]iles";

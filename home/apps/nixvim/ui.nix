@@ -1,5 +1,13 @@
 {pkgs, ...}: {
   plugins = {
+    comment = {
+      enable = true;
+      toggler = {
+        block = "<leader>/";
+        line = "<leader>/";
+      };
+    };
+
     notify = {
       enable = true;
       timeout = 3000;
