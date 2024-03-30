@@ -3,7 +3,7 @@
     comment = {
       enable = true;
       settings.toggler = {
-        block = "<leader>/";
+        # block = "<leader>/";
         line = "<leader>/";
       };
     };
