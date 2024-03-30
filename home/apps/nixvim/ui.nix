@@ -5,6 +5,7 @@
       timeout = 3000;
     };
 
+    mini.enable = true;
     bufferline = {
       enable = true;
       closeCommand = "function(n) require(" mini.bufremove ").delete(n, false) end";
