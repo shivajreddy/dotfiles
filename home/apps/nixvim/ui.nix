@@ -5,7 +5,7 @@
       settings = {
         toggler = {
           line = "<leader>/";
-          block = "<leader>/";
+          block = "<C-/>";
         };
       };
     };
