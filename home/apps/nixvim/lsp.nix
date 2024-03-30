@@ -8,7 +8,7 @@
       # html.enable = true;
       lua-ls.enable = true;
       nixd.enable = true;
-      ruff_lsp.enable = true;
+      ruff-lsp.enable = true;
       # pyright.enable = true;
       rust-analyzer = {
         enable = true;
