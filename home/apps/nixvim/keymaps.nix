@@ -20,13 +20,6 @@
         desc = "[u]ndotree toggle";
       };
     }
-		{
-			key = "<leader>/";
-			mode = "n";
-      action = "current_buffer_fuzzy_find";
-      desc = "[/] Comment Line or Selection]";
-      };
-		}
     {
       key = "<leader>gs";
       mode = "n";
