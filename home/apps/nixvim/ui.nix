@@ -47,6 +47,11 @@
       };
     };
 
+    which-key.enable = true;
+
+    # this is not yet there in NIXVIM, have to do manually
+    # nvim-web-devicons = true;
+
     alpha = {
       enable = true;
       # theme = "dashboard";
