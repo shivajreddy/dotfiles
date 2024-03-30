@@ -9,7 +9,7 @@ in {
     notify = {
       enable = true;
       timeout = 3000;
-      maxHeight = ${max_height};
+      maxHeight = max_height;
     };
 
     alpha = {
