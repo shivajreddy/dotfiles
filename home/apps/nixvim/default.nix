@@ -94,7 +94,7 @@
       ripgrep
       rr
       # Otehrs
-      vimplugins.nvim-web-devicons
+      vimPlugins.nvim-web-devicons
     ];
   };
 }
