@@ -2,9 +2,11 @@
   plugins = {
     comment = {
       enable = true;
-      settings.toggler = {
-        # block = "<leader>/";
-        line = "<leader>/";
+      settings = {
+        toggler = {
+          line = "<leader>/";
+          block = "<leader>/";
+        };
       };
     };
 
