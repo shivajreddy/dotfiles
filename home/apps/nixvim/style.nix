@@ -5,7 +5,6 @@
   };
 
   plugins = {
-    notify.enable = true;
     lualine = {
       enable = true;
       iconsEnabled = true;
