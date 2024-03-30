@@ -4,22 +4,19 @@
       bashls.enable = true;
       clangd.enable = true;
       cmake.enable = true;
-      cssls.enable = true;
-      gopls.enable = true;
-      html.enable = true;
-      jsonls.enable = true;
+      # cssls.enable = true;
+      # html.enable = true;
       lua-ls.enable = true;
       nixd.enable = true;
-      prismals.enable = true;
-      ruff-lsp.enable = true;
+      pyright.enable = true;
       rust-analyzer = {
         enable = true;
         installCargo = true;
         installRustc = true;
       };
-      tsserver.enable = true;
+      # tsserver.enable = true;
       yamlls.enable = true;
-      zls.enable = true;
+      # zls.enable = true;
     };
   };
   extraPlugins = with pkgs.vimPlugins; [
