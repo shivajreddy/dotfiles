@@ -23,6 +23,8 @@
       mapleader = " ";
     };
 
+    clipboard.register = "unnamedplus";
+
     options = {
       number = true;
       # colorcolumn = "80";
