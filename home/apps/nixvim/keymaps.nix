@@ -10,7 +10,6 @@
         desc = "[W]rite";
       };
     }
-    #     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     {
       key = "<C-Tab>";
       mode = "n";
