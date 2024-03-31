@@ -3,7 +3,7 @@
     {
       key = "<leader>w";
       mode = "n";
-      action = "<cmd>w";
+      action = "<cmd>w<CR>";
       options = {
         silent = true;
         noremap = true;
@@ -13,7 +13,7 @@
     {
       key = "<C-Tab>";
       mode = "n";
-      action = "<cmd>BufferLineCycleNext<cr>";
+      action = "<cmd>BufferLineCycleNext<CR>";
       options = {
         silent = true;
         noremap = true;
@@ -23,7 +23,7 @@
     {
       key = "<C-S-tab>";
       mode = "n";
-      action = "<cmd>BufferLineCyclePrev<cr>";
+      action = "<cmd>BufferLineCyclePrev<CR>";
       options = {
         silent = true;
         noremap = true;
