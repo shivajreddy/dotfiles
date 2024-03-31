@@ -11,16 +11,6 @@
       };
     }
     {
-      key = "<leader>wq";
-      mode = "n";
-      action = "<cmd>wq";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "[W]rite [Q]uit";
-      };
-    }
-    {
       key = "<leader>pv";
       mode = "n";
       action = "<cmd>Oil<CR>";
