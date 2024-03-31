@@ -1,6 +1,26 @@
 {pkgs, ...}: {
   keymaps = [
     {
+      key = "<leader>s";
+      mode = "n";
+      action = "<cmd>w";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[W]rite";
+      };
+    }
+    {
+      key = "<leader>wq";
+      mode = "n";
+      action = "<cmd>wq";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[W]rite [Q]uit";
+      };
+    }
+    {
       key = "<leader>pv";
       mode = "n";
       action = "<cmd>Oil<CR>";
