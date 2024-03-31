@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   keymaps = [
     {
-      key = "<leader>s";
+      key = "<leader>w";
       mode = "n";
       action = "<cmd>w";
       options = {
