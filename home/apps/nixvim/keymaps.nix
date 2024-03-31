@@ -12,7 +12,7 @@
     }
     #     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     {
-      key = "<C-tab>";
+      key = "<C-Tab>";
       mode = "n";
       action = "<cmd>BufferLineCycleNext<cr>";
       options = {
@@ -22,7 +22,7 @@
       };
     }
     {
-      key = "<C-shift-tab>";
+      key = "<C-S-tab>";
       mode = "n";
       action = "<cmd>BufferLineCyclePrev<cr>";
       options = {
