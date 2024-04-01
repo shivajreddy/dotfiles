@@ -11,7 +11,7 @@
       };
     }
     {
-      key = "<C-Tab>";
+      key = "<S-l>";
       mode = "n";
       action = "<cmd>BufferLineCycleNext<CR>";
       options = {
@@ -21,7 +21,7 @@
       };
     }
     {
-      key = "<C-S-tab>";
+      key = "<S-h>";
       mode = "n";
       action = "<cmd>BufferLineCyclePrev<CR>";
       options = {

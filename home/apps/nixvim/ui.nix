@@ -20,8 +20,7 @@
       modules = {
         surround = {};
         indentscope = {
-          # symbol = "|";
-					symbol = "│";
+          symbol = "│";
           options = {try_as_border = true;};
         };
       };
@@ -33,15 +32,6 @@
 
     indent-blankline = {
       enable = true;
-      /*
-         extraOptions = {
-           indent.char = "│";
-           indent.tab_char = "│";
-           scope.enabled = false;
-         };
-      #
-      */
-      # /*
       settings = {
         indent = {
           char = "│";
@@ -51,7 +41,6 @@
           enabled = false;
         };
       };
-      # */
     };
 
     which-key.enable = true;
