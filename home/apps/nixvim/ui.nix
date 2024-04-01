@@ -51,7 +51,7 @@
         };
         indent = {
           char = "│";
-          tabChar = "│";
+          tab_char = "│";
         };
         scope = {
           enabled = false;
