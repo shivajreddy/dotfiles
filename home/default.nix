@@ -112,17 +112,4 @@ in {
     python3
     nodejs_21
   ];
-
-  services = {
-    # spotifyd.enable = true;
-    avahi = {
-      nssmdns = true;
-      enable = true;
-      publish = {
-        enable = true;
-        userServices = true;
-        domain = true;
-      };
-    };
-  };
 }
