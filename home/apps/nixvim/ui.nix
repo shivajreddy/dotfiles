@@ -36,6 +36,12 @@
       '';
     };
 
+    # bufferline
+    bufferline = {
+      enable = true;
+      alwaysShowBufferline = false;
+    };
+
     mini = {
       enable = true;
       modules = {
@@ -58,11 +64,6 @@
           enabled = false;
         };
       };
-    };
-
-    bufferline = {
-      enable = true;
-      alwaysShowBufferline = false;
     };
 
     which-key.enable = true;
