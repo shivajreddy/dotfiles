@@ -68,7 +68,7 @@ in {
     obs-studio
     obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vaapi
-    uxplay
+    uxplay # this depends on services.avahi
     gst_all_1.gstreamer
 
     neofetch
@@ -115,5 +115,14 @@ in {
 
   services = {
     # spotifyd.enable = true;
+    avahi = {
+      nssmdns = true;
+      enable = true;
+      publish = {
+        enable = true;
+        userServices = true;
+        domain = true;
+      };
+    };
   };
 }

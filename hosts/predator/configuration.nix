@@ -1,22 +1,27 @@
-{ lib, config, pkgs, inputs, ... }:
-
 {
-  imports = [ 
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
     ./hardware-configuration.nix
-    (../apps/pcloud/default.nix)
+    ../apps/pcloud/default.nix
     # nixvim.homeManagerModules.nixvim
     # nixvim.nixosModules.nixvim
   ];
 
-  /*  NIX PATH FIX
+  /*
+      NIX PATH FIX
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
-  # */ 
+  #
+  */
 
-#   virtualisation.docker.enable = true;
-
+  #   virtualisation.docker.enable = true;
 
   # Bootloader
   boot.loader = {
@@ -33,14 +38,13 @@
       # ├─nvme0n1p1 259:1    0   100M  0 part /boot
 
       # useOSProber = true;   # This allows GRUB to detect Windows.
-
     };
   };
 
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
   # boot.loader.efi.efiSysMountPoint = "/boot";	# trying this option
-  
+
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/????";
   # boot.loader.grub.useOSProber = true;
@@ -90,29 +94,28 @@
 
   # #### Environment Settings ####
   # #### Apps ####
-  environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
+  environment.systemPackages = import ../apps/default.nix {inherit pkgs;};
 
-
-  environment.shells = with pkgs; [ zsh ];	 # Shells
-  environment.sessionVariables = {		 # Session Variables
+  environment.shells = with pkgs; [zsh]; # Shells
+  environment.sessionVariables = {
+    # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
-    NIXOS_OZONE_WL = "1";	 # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
   };
 
   # User account
   users.users.shiva = {
     isNormalUser = true;
     description = "shiva";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     # shell = pkgs.zsh;  # moved all user packages to home-manager, will cuz error????
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-
-  # DESKTOP ENVIRONMENT 
-  services.xserver.enable = true; 	# Enable the X11 windowing system.
+  # DESKTOP ENVIRONMENT
+  services.xserver.enable = true; # Enable the X11 windowing system.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
@@ -124,7 +127,7 @@
     xkb.variant = "";
   };
 
-  # HYPRLAND 
+  # HYPRLAND
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -132,10 +135,23 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override{ fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
+  services = {
+    # spotifyd.enable = true;
+    avahi = {
+      nssmdns = true;
+      enable = true;
+      publish = {
+        enable = true;
+        userServices = true;
+        domain = true;
+      };
+    };
+  };
+
   # NIX settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];	# enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"]; # enable flakes
   system.stateVersion = "23.11"; # DON'T CHANGE THIS
 }
