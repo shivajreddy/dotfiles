@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
@@ -14,9 +12,9 @@ let
     ggpull = "git pull -u origin main";
     rebuild = "home-manager switch --flake /home/shiva/dotfiles";
     savedots = "cd ~/dotfiles && gaa && gcmsg '.' && ggpush";
+    uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
   };
-in
-{
+in {
   programs.zsh = {
     enable = true;
     # enableAutosuggestions = true;
@@ -25,20 +23,21 @@ in
     syntaxHighlighting.enable = true;
     shellAliases = myAliases;
     initExtra = ''
-    zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-    PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-     %F{green}→%f "
-    [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+      zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
+       %F{green}→%f "
+      [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
   };
 
-/*
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = myAliases;
-  };
-# */
+  /*
+    programs.bash = {
+      enable = true;
+      enableCompletion = true;
+      shellAliases = myAliases;
+    };
+  #
+  */
 
   home.packages = with pkgs; [
     direnv
@@ -54,5 +53,4 @@ in
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
-
 }
