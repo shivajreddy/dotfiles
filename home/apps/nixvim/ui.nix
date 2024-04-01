@@ -20,7 +20,8 @@
       modules = {
         surround = {};
         indentscope = {
-          symbol = "|";
+          # symbol = "|";
+					symbol = "│",
           options = {try_as_border = true;};
         };
       };
