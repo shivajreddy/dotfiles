@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   colorschemes = {
-    # catppuccin.enable = true;
-    tokyonight.enable = true;
+    catppuccin.enable = true;
+    # tokyonight.enable = true;
     # flavor = "mocha";
   };
 
