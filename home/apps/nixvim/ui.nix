@@ -19,7 +19,7 @@
       enable = true;
       stages = "static";
       timeout = 3000;
-      maxHeight = helpers.rawLua ''
+      maxHeight = helpers.mkRaw ''
         function()
         	return math.floor(vim.o.lines * 0.75)
         end
