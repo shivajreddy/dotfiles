@@ -43,7 +43,7 @@
       # /*
       settings = {
         indent = {
-          char = "│";
+          char = "│││";
           tab_char = "│";
         };
         scope = {
