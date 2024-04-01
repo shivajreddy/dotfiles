@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helpers,
+  ...
+}: {
   plugins = {
     comment = {
       enable = true;
@@ -10,9 +14,16 @@
       };
     };
 
+    # nvim-notify
     notify = {
       enable = true;
+      stages = "static";
       timeout = 3000;
+      maxHeight = helpers.rawLua ''
+        function()
+        	return math.floor(vim.o.lines * 0.75)
+        end
+      '';
     };
 
     mini = {
