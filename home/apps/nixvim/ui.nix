@@ -32,6 +32,11 @@
 
     indent-blankline = {
       enable = true;
+      extraOptions = {
+        indent.char = "│";
+        indent.tab_char = "│";
+        scope.enabled = false;
+      };
       settings = {
         exclude = {
           buftypes = [
@@ -49,18 +54,18 @@
             "yaml"
           ];
         };
+        /*
         indent = {
-          char = "│";
-          tab_char = "│";
+        char = "│";
+        tab_char = "│";
         };
         scope = {
-          enabled = false;
-          /*
-          show_end = false;
-          show_exact_scope = true;
-          show_start = false;
-          */
+        enabled = false;
+        show_end = false;
+        show_exact_scope = true;
+        show_start = false;
         };
+        */
       };
     };
 
