@@ -32,41 +32,41 @@
 
     indent-blankline = {
       enable = true;
-      extraOptions = {
-        indent.char = "│";
-        indent.tab_char = "│";
-        scope.enabled = false;
-      };
       /*
-      settings = {
-      exclude = {
-      buftypes = [
-      "terminal"
-      "quickfix"
-      ];
-      filetypes = [
-      ""
-      "checkhealth"
-      "help"
-      "lspinfo"
-      "packer"
-      "TelescopePrompt"
-      "TelescopeResults"
-      "yaml"
-      ];
-      };
-      indent = {
-      char = "│";
-      tab_char = "│";
-      };
-      scope = {
-      enabled = false;
-      show_end = false;
-      show_exact_scope = true;
-      show_start = false;
-      };
-      };
+         extraOptions = {
+           indent.char = "│";
+           indent.tab_char = "│";
+           scope.enabled = false;
+         };
+      #
       */
+      # /*
+      settings = {
+        indent = {
+          char = "│";
+          tab_char = "│";
+        };
+        scope = {
+          enabled = false;
+        };
+        exclude = {
+          buftypes = [
+            "terminal"
+            "quickfix"
+          ];
+          filetypes = [
+            ""
+            "checkhealth"
+            "help"
+            "lspinfo"
+            "packer"
+            "TelescopePrompt"
+            "TelescopeResults"
+            "yaml"
+          ];
+        };
+      };
+      # */
     };
 
     which-key.enable = true;
