@@ -37,36 +37,36 @@
         indent.tab_char = "│";
         scope.enabled = false;
       };
+      /*
       settings = {
-        exclude = {
-          buftypes = [
-            "terminal"
-            "quickfix"
-          ];
-          filetypes = [
-            ""
-            "checkhealth"
-            "help"
-            "lspinfo"
-            "packer"
-            "TelescopePrompt"
-            "TelescopeResults"
-            "yaml"
-          ];
-        };
-        /*
-        indent = {
-        char = "│";
-        tab_char = "│";
-        };
-        scope = {
-        enabled = false;
-        show_end = false;
-        show_exact_scope = true;
-        show_start = false;
-        };
-        */
+      exclude = {
+      buftypes = [
+      "terminal"
+      "quickfix"
+      ];
+      filetypes = [
+      ""
+      "checkhealth"
+      "help"
+      "lspinfo"
+      "packer"
+      "TelescopePrompt"
+      "TelescopeResults"
+      "yaml"
+      ];
       };
+      indent = {
+      char = "│";
+      tab_char = "│";
+      };
+      scope = {
+      enabled = false;
+      show_end = false;
+      show_exact_scope = true;
+      show_start = false;
+      };
+      };
+      */
     };
 
     which-key.enable = true;
