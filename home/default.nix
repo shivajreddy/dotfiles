@@ -64,9 +64,12 @@ in {
     xfce.tumbler
     nomacs
 
+    # Streaming
     obs-studio
     obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vaapi
+    uxplay
+    gst_all_1.gstreamer
 
     neofetch
     wev # wayland event viewer, for keystrokes
