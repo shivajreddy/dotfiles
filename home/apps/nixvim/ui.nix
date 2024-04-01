@@ -33,11 +33,6 @@
     indent-blankline = {
       enable = true;
       settings = {
-        indent = {
-          char = "│";
-          tab_char = "│";
-        };
-        scope = {enabled = false;};
         exclude = {
           buftypes = [
             "terminal"
@@ -53,6 +48,14 @@
             "TelescopeResults"
             "yaml"
           ];
+        };
+        indent = {
+          char = "│";
+        };
+        scope = {
+          show_end = false;
+          show_exact_scope = true;
+          show_start = false;
         };
       };
     };
