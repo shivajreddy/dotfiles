@@ -1,5 +1,19 @@
 {pkgs, ...}: {
   keymaps = [
+    # UI
+    {
+      key = "<Leader>un";
+      mode = "n";
+      action = ''
+        require("notify").dismiss({ silent = true, pending = true })
+      '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[U][N]otify";
+      };
+    }
+
     {
       key = "<leader>w";
       mode = "n";

@@ -25,10 +25,6 @@
         };
       };
     };
-    bufferline = {
-      enable = true;
-      alwaysShowBufferline = false;
-    };
 
     indent-blankline = {
       enable = true;
@@ -41,6 +37,11 @@
           enabled = false;
         };
       };
+    };
+
+    bufferline = {
+      enable = true;
+      alwaysShowBufferline = false;
     };
 
     which-key.enable = true;
