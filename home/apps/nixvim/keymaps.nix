@@ -10,7 +10,7 @@
       options = {
         silent = true;
         noremap = true;
-        desc = "[U][N]otify";
+        desc = "Dismiss All Notifications";
       };
     }
 
