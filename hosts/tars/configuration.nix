@@ -1,21 +1,25 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports = [ 
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
     ./hardware-configuration.nix
-    (../apps/pcloud/default.nix)
+    ../apps/pcloud/default.nix
   ];
-  
-  /*  NIX PATH FIX
+
+  /*
+      NIX PATH FIX
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
-  # */ 
-
+  #
+  */
 
   # GPU modules
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
 
   # Bootloader.
   boot.loader = {
@@ -29,16 +33,16 @@
     # grub.device = "/nvme0n1/nvme0n1p1";
   };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Networking
   networking.hostName = "tars";
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [22];
 
-  /* testing openssh settings
+  /*
+     testing openssh settings
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -95,25 +99,26 @@
 
   # #### Environment Settings ####
   # #### Apps ####
-  environment.systemPackages = import ../apps/default.nix { inherit pkgs; };
+  environment.systemPackages = import ../apps/default.nix {inherit pkgs;};
 
-  environment.shells = with pkgs; [ zsh ];	 # Shells
-  environment.sessionVariables = {		 # Session Variables
+  environment.shells = with pkgs; [zsh]; # Shells
+  environment.sessionVariables = {
+    # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
-    NIXOS_OZONE_WL = "1";	 # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
   };
   environment.variables = {
     MY_MONITOR_1_DECORATION = "monitor = DP-3, 2560x1440@144.0,";
   };
-    # MY_MONITOR_2_DECORATION = "";
+  # MY_MONITOR_2_DECORATION = "";
 
   # User account
   users.users.shiva = {
     isNormalUser = true;
     description = "shiva";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     # adding the openssh config here
-    openssh.authorizedKeys.keys = [ "AAAAB3NzaC1yc2EAAAADAQABAAABgQCv0py1uj8lVQMegIWiV1vW5QEuo0rQHqTDsSg6bRgxJ/VhSmZLR430Oa2+rJFIqInmlFtYNoIXDbXYugKbyxPkqBfrkAsk4OicRTET9aTRSJ/cBGSN4zFK6fWgYnv6255jAPfXOdPXLjTpXJ2hTkO8nTSXAcDA+eGzBWv/WHxhxJ19c5MgnBqFAvQO3igfm0hzeKcrtzhziTIHXiWFpZic7C0FC4fvD9VcAO+o3Zt20X53idrhBsxm/r2whRVh7xII7EhTdaDZSaxyKYU6tvhA7xI2CvkLq8SsguW/FJS5bsF2zwiU/ECByyMLuNdeaY0hS2AbJaaKyJ5rnROMRK+0dxUwv5coJYSzVRQMesJUpbiUPng+5Zy5gqNx8WWullkpUxx0efK1njhzTbeFYEKPbRRE0Ot9KAdj3dhBQ9cmvAL8lBB2cyFh40uXFgIG5bSvrABE4fjR6jSTPAjq7vnCKg5q5dAHOKczo/QjyGQF0MLVyWlFIHDQcusyrZwTpm8=" ];
+    openssh.authorizedKeys.keys = ["AAAAB3NzaC1yc2EAAAADAQABAAABgQCv0py1uj8lVQMegIWiV1vW5QEuo0rQHqTDsSg6bRgxJ/VhSmZLR430Oa2+rJFIqInmlFtYNoIXDbXYugKbyxPkqBfrkAsk4OicRTET9aTRSJ/cBGSN4zFK6fWgYnv6255jAPfXOdPXLjTpXJ2hTkO8nTSXAcDA+eGzBWv/WHxhxJ19c5MgnBqFAvQO3igfm0hzeKcrtzhziTIHXiWFpZic7C0FC4fvD9VcAO+o3Zt20X53idrhBsxm/r2whRVh7xII7EhTdaDZSaxyKYU6tvhA7xI2CvkLq8SsguW/FJS5bsF2zwiU/ECByyMLuNdeaY0hS2AbJaaKyJ5rnROMRK+0dxUwv5coJYSzVRQMesJUpbiUPng+5Zy5gqNx8WWullkpUxx0efK1njhzTbeFYEKPbRRE0Ot9KAdj3dhBQ9cmvAL8lBB2cyFh40uXFgIG5bSvrABE4fjR6jSTPAjq7vnCKg5q5dAHOKczo/QjyGQF0MLVyWlFIHDQcusyrZwTpm8="];
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
@@ -124,8 +129,8 @@
     dedicatedServer.openFirewall = true;
   };
 
-  # DESKTOP ENVIRONMENT 
-  services.xserver.enable = true; 	# Enable the X11 windowing system.
+  # DESKTOP ENVIRONMENT
+  services.xserver.enable = true; # Enable the X11 windowing system.
   services.xserver.videoDrivers = ["amdgpu"]; # Make sure Xserver uses the amdgpu driver
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -138,7 +143,7 @@
     xkb.variant = "";
   };
 
-  # HYPRLAND 
+  # HYPRLAND
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -146,11 +151,23 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override{ fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
+  # System Services
+  services = {
+    avahi = {
+      nssmdns4 = true;
+      enable = true;
+      publish = {
+        enable = true;
+        userServices = true;
+        domain = true;
+      };
+    };
+  };
+
   # NIX settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];	# enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"]; # enable flakes
   system.stateVersion = "23.11"; # DON'T CHANGE THIS
 }
-

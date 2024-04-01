@@ -141,8 +141,8 @@
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
+  # System Services
   services = {
-    # spotifyd.enable = true;
     avahi = {
       nssmdns4 = true;
       enable = true;

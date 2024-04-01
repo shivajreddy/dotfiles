@@ -69,7 +69,7 @@ in {
     obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vaapi
     uxplay # this depends on system services.avahi
-    iptables
+    iptables # required for custom uxplay script
     gst_all_1.gstreamer
 
     neofetch
