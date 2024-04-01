@@ -1,11 +1,17 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helpers,
+  ...
+}: {
   keymaps = [
     # UI
     {
       key = "<Leader>un";
       mode = "n";
-      action = ''
-        require("notify").dismiss({ silent = true, pending = true })
+      action = helpers.mkRaw ''
+        function()
+        		require("notify").dismiss({ silent = true, pending = true })
+        end
       '';
       options = {
         silent = true;
