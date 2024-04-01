@@ -49,22 +49,6 @@
         scope = {
           enabled = false;
         };
-        exclude = {
-          buftypes = [
-            "terminal"
-            "quickfix"
-          ];
-          filetypes = [
-            ""
-            "checkhealth"
-            "help"
-            "lspinfo"
-            "packer"
-            "TelescopePrompt"
-            "TelescopeResults"
-            "yaml"
-          ];
-        };
       };
       # */
     };
