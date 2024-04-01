@@ -51,6 +51,7 @@
         };
         indent = {
           char = "│";
+          tab_char = "│";
         };
         scope = {
           show_end = false;
