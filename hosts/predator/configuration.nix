@@ -56,6 +56,9 @@
   networking.hostName = "predator";
   networking.networkmanager.enable = true;
 
+  # NOTE: DONT DO THIS EVER
+  # networking.firewall.enable = false;
+
   # TimeZone
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -141,7 +144,7 @@
   services = {
     # spotifyd.enable = true;
     avahi = {
-      nssmdns = true;
+      nssmdns4 = true;
       enable = true;
       publish = {
         enable = true;
