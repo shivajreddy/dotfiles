@@ -4,7 +4,21 @@
   ...
 }: let
   # Define or import your custom functions here
-  icons = "require ('lazyvim.config').icons";
+  # icons = "require ('lazyvim.config').icons";
+  # Assuming your icons and custom functions are defined or imported elsewhere
+  icons = {
+    diagnostics = {
+      Error = "E"; # You should replace these with the actual icons
+      Warn = "W";
+      Info = "I";
+      Hint = "H";
+    };
+    git = {
+      added = "+";
+      modified = "~";
+      removed = "-";
+    };
+  };
   customFunctions = {
     rootDir = ''function() return LazyVim.lualine.root_dir() end'';
     prettyPath = ''function() return LazyVim.lualine.pretty_path() end'';
