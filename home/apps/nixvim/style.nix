@@ -13,8 +13,6 @@
         indent_blankline.enabled = true;
       };
     };
-    # tokyonight.enable = true;
-    # flavor = "mocha";
   };
 
   plugins = {
