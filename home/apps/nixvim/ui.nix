@@ -102,7 +102,7 @@ in {
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-          "require('lazyvim.util').lualine.root_dir()"
+          {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
           {
             name = "p";
             extraConfig = {
