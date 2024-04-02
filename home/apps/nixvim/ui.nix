@@ -106,7 +106,7 @@ in {
           {
             "name" = "diagnostics";
             "icons_enabled" = true;
-            "icon" = {
+            "symbols" = {
               "error" = icons.diagnostics.Error;
               "warn" = icons.diagnostics.Warn;
               "info" = icons.diagnostics.Info;
