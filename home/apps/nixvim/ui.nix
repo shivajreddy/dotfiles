@@ -102,7 +102,7 @@ in {
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-          "function() return LazyVim.lualine.root_dir() end"
+          "LazyVim.lualine.root_dir()"
           # customFunctions.rootDir
           # customFunctions.prettyPath
         ];
