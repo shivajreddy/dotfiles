@@ -90,6 +90,17 @@
           #
           */
           {
+            name = "diagnostics";
+            extraConfig = {
+              symbols = {
+                error = " ";
+                warn = " ";
+                hint = " ";
+                info = " ";
+              };
+            };
+          }
+          {
             name = "filetype";
             icons_enabled = true;
             separator = {left = "";};
