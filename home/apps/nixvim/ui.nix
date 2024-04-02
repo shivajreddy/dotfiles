@@ -102,7 +102,23 @@ in {
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-          {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
+          # {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
+          {name = helpers.mkRaw ''
+					function GetProjectRoot()
+						local current_file = vim.fn.expand('%:p:h')
+						local root = current_file
+						while true do
+							if root == nil or root == "" then break end  -- Reached the root of the filesystem without finding .git
+							local git_dir = root..'/.git'
+							if vim.fn.isdirectory(git_dir) == 1 then
+								return root
+							end
+							root = vim.fn.fnamemodify(root, ':h')
+						end
+						return current_file  -- Fallback to the directory of the current file
+					end
+					vim.cmd(GetProjectRoot())
+					'';}
           {
             name = "p";
             extraConfig = {
