@@ -182,7 +182,7 @@
 
   extraConfigLua = ''
     -- LuaLine Config
-    	-- local icons = require("lazyvim.config").icons
+    	local icons = require("lazyvim.config").icons
       require('lualine').setup {
           sections = {
             lualine_c = {
