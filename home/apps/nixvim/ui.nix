@@ -75,8 +75,8 @@
         statusline = ["dashboard" "alpha" "starter"];
       };
       sections = {
-        lualine_b = ["branch"];
-        lualine_a = ["mode"];
+        lualine_a = ["branch"];
+        lualine_b = ["mode"];
       };
     };
 
