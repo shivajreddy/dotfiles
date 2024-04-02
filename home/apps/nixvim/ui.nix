@@ -65,6 +65,17 @@
       ];
     };
 
+    # lualine -> Status Line
+    lualine = {
+      enable = true;
+      iconsEnabled = true;
+      theme = "catppuccin";
+      globalstatus = true;
+      disabledFiletypes = {
+        statusline = ["dashboard" "alpha" "starter"];
+      };
+    };
+
     mini = {
       enable = true;
       modules = {

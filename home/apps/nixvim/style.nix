@@ -6,12 +6,6 @@
   };
 
   plugins = {
-    lualine = {
-      enable = true;
-      iconsEnabled = true;
-      globalstatus = true;
-      theme = "catppuccin";
-    };
     noice = {
       enable = true;
       presets = {
