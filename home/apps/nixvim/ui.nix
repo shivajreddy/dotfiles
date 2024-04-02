@@ -92,7 +92,12 @@
           {
             name = "filetype";
             icons_enabled = true;
-            fmt = "";
+            fmt = helpers.mkNullOrLuaFn ''
+              function(text)
+              	return ""
+              end
+              ()
+            '';
             separator = {left = "";};
             padding = {
               left = 1;
