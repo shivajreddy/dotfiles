@@ -55,13 +55,14 @@
            return vim.trim(ret)
          end
       '';
-      # look at helpers.listToUnkeyedAttrs
+      /* look at helpers.listToUnkeyedAttrs
       offsets = [{
         filetype = "neo-tree";
         text = "Neo-tree";
         highlight = "Directory";
         text_align = "left";
       }];
+      # */
     };
 
     mini = {
