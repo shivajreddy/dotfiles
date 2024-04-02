@@ -103,9 +103,11 @@ in {
         lualine_b = ["branch"];
         lualine_c = [
           # {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
-          {name = helpers.mkRaw ''
-	  vim.fn.expand('%:p:h')
-	  '';}
+          {
+            name = helpers.mkRaw ''
+              vim.fn.expand('%:p:h')
+            '';
+          }
           {
             name = "p";
             extraConfig = {
