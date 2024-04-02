@@ -2,7 +2,15 @@
   pkgs,
   helpers,
   ...
-}: {
+}: let
+  # Define or import your custom functions here
+  icons = "require ('lazyvim.config').icons";
+  customFunctions = {
+    rootDir = ''function() return LazyVim.lualine.root_dir() end'';
+    prettyPath = ''function() return LazyVim.lualine.pretty_path() end'';
+    # Add other custom Lua snippets or functions here as needed
+  };
+in {
   plugins = {
     comment = {
       enable = true;
@@ -80,18 +88,27 @@
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-          ''function() return LazyVim.lualine.root_dir() end''
-          ''            {
-                            "diagnostics",
-                            symbols = {
-                              error = icons.diagnostics.Error,
-                              warn = icons.diagnostics.Warn,
-                              info = icons.diagnostics.Info,
-                              hint = icons.diagnostics.Hint,
-                            },
-                          }''
-          ''{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }''
-          ''function() return LazyVim.lualine.pretty_path() end''
+          customFunctions.rootDir
+          {
+            "name" = "diagnostics";
+            "icons_enabled" = true;
+            "icon" = {
+              "error" = icons.diagnostics.Error;
+              "warn" = icons.diagnostics.Warn;
+              "info" = icons.diagnostics.Info;
+              "hint" = icons.diagnostics.Hint;
+            };
+          }
+          {
+            "name" = "filetype";
+            "icon_only" = true;
+            "separator" = "";
+            "padding" = {
+              left = 1;
+              right = 0;
+            };
+          }
+          customFunctions.prettyPath
         ];
       };
     };
