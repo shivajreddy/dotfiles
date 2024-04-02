@@ -103,22 +103,27 @@ in {
         lualine_b = ["branch"];
         lualine_c = [
           # {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
+          # root_dir
           {
             name = helpers.mkRaw ''
               vim.fn.expand('%:p:h')
             '';
           }
+          # pretty_path
           {
-            name = "p";
-            extraConfig = {
-              symbols = {
-                error = "E";
-                warn = "W";
-              };
-            };
+            name = helpers.mkRaw ''
+                        function pretty_path(opts)
+                        opts = vim.tbl_extend("force", {
+                        	relative =  "cwd",
+                        	modified_hl = "matchParen",
+                        	directory_hl = "",
+                        	filename_hl = "Bold",
+                        	modified_sign = "",
+                        }, opts or {})
+                 				return "hi"
+              end
+            '';
           }
-          # customFunctions.rootDir
-          # customFunctions.prettyPath
         ];
       };
     };
