@@ -1,6 +1,18 @@
 {pkgs, ...}: {
   colorschemes = {
-    catppuccin.enable = true;
+    catppuccin = {
+      enable = true;
+      integrations = {
+        aerial = true;
+        alpha = true;
+        cmp = true;
+        dashboard = true;
+        flash = true;
+        gitsigns = true;
+        headlines = true;
+        indent_blankline.enabled = true;
+      };
+    };
     # tokyonight.enable = true;
     # flavor = "mocha";
   };
