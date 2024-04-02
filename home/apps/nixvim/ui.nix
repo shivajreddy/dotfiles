@@ -103,6 +103,15 @@ in {
         lualine_b = ["branch"];
         lualine_c = [
           "require('lazyvim.util').lualine.root_dir()"
+          {
+            name = "p";
+            extraConfig = {
+              symbols = {
+                error = "E";
+                warn = "W";
+              };
+            };
+          }
           # customFunctions.rootDir
           # customFunctions.prettyPath
         ];
