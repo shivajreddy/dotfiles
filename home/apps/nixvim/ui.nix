@@ -2,29 +2,8 @@
   pkgs,
   helpers,
   ...
-}: let
-  # Define or import your custom functions here
-  # icons = "require ('lazyvim.config').icons";
-  # Assuming your icons and custom functions are defined or imported elsewhere
-  icons = {
-    diagnostics = {
-      Error = "E"; # You should replace these with the actual icons
-      Warn = "W";
-      Info = "I";
-      Hint = "H";
-    };
-    git = {
-      added = "+";
-      modified = "~";
-      removed = "-";
-    };
-  };
-  customFunctions = {
-    rootDir = ''function() return LazyVim.lualine.root_dir() end'';
-    prettyPath = ''function() return LazyVim.lualine.pretty_path() end'';
-    # Add other custom Lua snippets or functions here as needed
-  };
-in {
+}:
+{
   plugins = {
     comment = {
       enable = true;
@@ -102,14 +81,14 @@ in {
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-          # {name = helpers.mkRaw "require('lazyvim.util').lualine.root_dir()";}
-          # root_dir
+	  /* root_dir
           {
             name = helpers.mkRaw ''
               vim.fn.expand('%:p:h')
             '';
           }
-          # pretty_path
+	  # */
+          /* pretty_path
           {
             name = helpers.mkRaw ''
                         function pretty_path(opts)
@@ -125,6 +104,7 @@ in {
 	      pretty_path()
             '';
           }
+	  # */ 
         ];
       };
     };
