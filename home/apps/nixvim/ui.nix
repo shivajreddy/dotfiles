@@ -71,8 +71,7 @@
         surround = {};
         indentscope = {
           symbol = "│";
-          # options = {try_as_border = true;};
-          opts = {try_as_border = true;};
+          options = {try_as_border = true;};
         };
       };
     };
