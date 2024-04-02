@@ -172,19 +172,19 @@
           action = "Telescope oldfiles";
           desc = "Recent Files";
           icon = "";
-          key = "r";
+          shortcut = "r";
         }
         {
           action = "Telescope live_grep";
           desc = " Find File";
           icon = " ";
-          key = "f";
+          shortcut = "f";
         }
         {
           action = "qa";
           desc = " Quit";
           icon = " ";
-          key = "q";
+          shortcut = "q";
         }
       ];
     };
