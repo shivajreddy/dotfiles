@@ -113,17 +113,7 @@
       extensions = ["neo-tree" "lazy"];
     };
 
-    mini = {
-      enable = true;
-      modules = {
-        surround = {};
-        indentscope = {
-          symbol = "│";
-          options = {try_as_border = true;};
-        };
-      };
-    };
-
+    # indent guides for neovim
     indent-blankline = {
       enable = true;
       settings = {
@@ -131,8 +121,36 @@
           char = "│";
           tab_char = "│";
         };
-        scope = {
-          enabled = false;
+        scope.enabled = false;
+        exclude = {
+          buftypes = [
+            "terminal"
+            "quickfix"
+          ];
+          filetypes = [
+            "help"
+            "alpha"
+            "dashboard"
+            "neo-tree"
+            "Trouble"
+            "trouble"
+            "lazy"
+            "notify"
+            "toggleterm"
+            "lazyterm"
+          ];
+        };
+      };
+    };
+
+    # Active indent guide and indext text objects
+    mini = {
+      enable = true;
+      modules = {
+        surround = {};
+        indentscope = {
+          symbol = "│";
+          options = {try_as_border = true;};
         };
       };
     };
