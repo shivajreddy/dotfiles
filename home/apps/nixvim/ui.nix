@@ -117,7 +117,7 @@ in {
 						end
 						return current_file  -- Fallback to the directory of the current file
 					end
-					vim.cmd(GetProjectRoot())
+					GetProjectRoot()
 					'';}
           {
             name = "p";
