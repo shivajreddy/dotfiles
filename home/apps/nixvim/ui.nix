@@ -79,7 +79,7 @@
       sections = {
         lualine_a = ["mode"];
         lualine_b = ["branch"];
-        lualine_c = ["branch" "LazyVim.lualine.root_dir()"];
+        lualine_c = ["branch" "function() return LazyVim.lualine.root_dir() end"];
       };
     };
 
