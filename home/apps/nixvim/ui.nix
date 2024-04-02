@@ -89,6 +89,15 @@
                  }
           #
           */
+          {
+            name = "filetype";
+            icons_enabled = true;
+            separator = "";
+            padding = {
+              left = 1;
+              right = 0;
+            };
+          }
           /*
                     pretty_path
                  {
