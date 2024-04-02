@@ -96,7 +96,6 @@
               function(text)
               	return ""
               end
-              ()
             '';
             separator = {left = "";};
             padding = {
