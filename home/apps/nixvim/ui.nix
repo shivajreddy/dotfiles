@@ -92,15 +92,13 @@
           {
             name = "filetype";
             icons_enabled = true;
-            fmt = ''
-              function(text)
-              	return ""
-              end
-            '';
             separator = {left = "";};
             padding = {
               left = 1;
               right = 0;
+            };
+            extraConfig = {
+              icon_only = true;
             };
           }
           /*
