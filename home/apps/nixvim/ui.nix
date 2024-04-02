@@ -92,7 +92,7 @@
           {
             name = "filetype";
             icons_enabled = true;
-            separator = "";
+            separator = {left = "";};
             padding = {
               left = 1;
               right = 0;
