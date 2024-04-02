@@ -2,8 +2,7 @@
   pkgs,
   helpers,
   ...
-}:
-{
+}: {
   plugins = {
     comment = {
       enable = true;
@@ -81,32 +80,37 @@
         lualine_a = ["mode"];
         lualine_b = ["branch"];
         lualine_c = [
-	  /* root_dir
-          {
-            name = helpers.mkRaw ''
-              vim.fn.expand('%:p:h')
-            '';
-          }
-	  # */
-          /* pretty_path
-          {
-            name = helpers.mkRaw ''
-                        function pretty_path(opts)
-                        opts = vim.tbl_extend("force", {
-                        	relative =  "cwd",
-                        	modified_hl = "matchParen",
-                        	directory_hl = "",
-                        	filename_hl = "Bold",
-                        	modified_sign = "",
-                        }, opts or {})
-                 				return "hi"
-              end
-	      pretty_path()
-            '';
-          }
-	  # */ 
+          /*
+             root_dir
+                 {
+                   name = helpers.mkRaw ''
+                     vim.fn.expand('%:p:h')
+                   '';
+                 }
+          #
+          */
+          /*
+                    pretty_path
+                 {
+                   name = helpers.mkRaw ''
+                               function pretty_path(opts)
+                               opts = vim.tbl_extend("force", {
+                               	relative =  "cwd",
+                               	modified_hl = "matchParen",
+                               	directory_hl = "",
+                               	filename_hl = "Bold",
+                               	modified_sign = "",
+                               }, opts or {})
+                        				return "hi"
+                     end
+              pretty_path()
+                   '';
+                 }
+          #
+          */
         ];
       };
+      extensions = ["neo-tree" "lazy"];
     };
 
     mini = {
