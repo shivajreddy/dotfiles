@@ -55,7 +55,6 @@
            return vim.trim(ret)
          end
       '';
-      # /* look at helpers.listToUnkeyedAttrs
       offsets = [
         {
           filetype = "neo-tree";
@@ -64,7 +63,6 @@
           text_align = "left";
         }
       ];
-      # */
     };
 
     mini = {
