@@ -74,6 +74,10 @@
       disabledFiletypes = {
         statusline = ["dashboard" "alpha" "starter"];
       };
+      sections = {
+        lualine_b = ["branch"];
+        lualine_a = ["mode"];
+      };
     };
 
     mini = {
