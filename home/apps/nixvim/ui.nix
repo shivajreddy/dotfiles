@@ -180,8 +180,8 @@
     };
   };
 
-  extraLuaConfig = ''
-        -- LuaLine Config
+  extraConfigLua = ''
+    -- LuaLine Config
     local icons = require("lazyvim.config").icons
       require('lualine').setup {
           sections = {
