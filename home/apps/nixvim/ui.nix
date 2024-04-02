@@ -92,7 +92,7 @@
           {
             name = "filetype";
             icons_enabled = true;
-            fmt = helpers.mkNullOrLuaFn ''
+            fmt = ''
               function(text)
               	return ""
               end
