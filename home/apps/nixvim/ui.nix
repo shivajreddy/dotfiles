@@ -65,6 +65,8 @@
       ];
     };
 
+    lazy.enable = true;
+
     # lualine -> Status Line
     lualine = {
       enable = true;
@@ -75,8 +77,9 @@
         statusline = ["dashboard" "alpha" "starter"];
       };
       sections = {
-        lualine_a = ["branch"];
-        lualine_b = ["mode"];
+        lualine_a = ["mode"];
+        lualine_b = ["branch"];
+        lualine_c = [];
       };
     };
 
