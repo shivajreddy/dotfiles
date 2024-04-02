@@ -89,6 +89,7 @@
                  }
           #
           */
+          # hi
           {
             name = "diagnostics";
             extraConfig = {
