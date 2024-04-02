@@ -122,6 +122,7 @@ in {
                         }, opts or {})
                  				return "hi"
               end
+	      pretty_path()
             '';
           }
         ];
