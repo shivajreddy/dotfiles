@@ -40,10 +40,10 @@
     bufferline = {
       enable = true;
       closeCommand = helpers.mkRaw ''
-        function(n) require("mini.bufremove").delete(n, false) end,
+        function(n) require("mini.bufremove").delete(n, false) end
       '';
       rightMouseCommand = helpers.mkRaw ''
-        function(n) require("mini.bufremove").delete(n, false) end,
+        function(n) require("mini.bufremove").delete(n, false) end
       '';
       diagnostics = "nvim_lsp";
       alwaysShowBufferline = false;
