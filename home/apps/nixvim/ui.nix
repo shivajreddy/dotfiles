@@ -183,11 +183,18 @@
   extraConfigLua = ''
     -- LuaLine Config
       require('lualine').setup {
+    			local icons = require("lazyvim.config").icons
           sections = {
             lualine_c = {
               function() return LazyVim.lualine.root_dir() end,
               {
                 "diagnostics",
+                symbols = {
+                  error = icons.diagnostics.Error,
+                  warn = icons.diagnostics.Warn,
+                  info = icons.diagnostics.Info,
+                  hint = icons.diagnostics.Hint,
+                },
               },
               { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
               function() return LazyVim.lualine.pretty_path() end,
