@@ -248,6 +248,11 @@
       options.desc = "Buffer Explorer";
     }
 
+    # flash
+    {
+      mode = ["n" "x" "o"];
+    }
+
     {
       key = "<leader>u";
       mode = "n";
