@@ -185,7 +185,7 @@
     {
       key = "<C-s>";
       mode = ["i" "x" "n" "s"];
-      action = "<cmd>w<cr>esc>";
+      action = "<cmd>w<cr><esc>";
       options.desc = "Save File";
     }
     /*
