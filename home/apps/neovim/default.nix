@@ -33,10 +33,10 @@ in {
       indent-blankline-nvim
       gitsigns-nvim
       todo-comments-nvim
-      neotest
-      neotest-go
-      neotest-rust
-      neotest-jest
+      # neotest
+      # neotest-go
+      # neotest-rust
+      # neotest-jest
       harpoon2
       vim-fugitive
       vim-rhubarb
