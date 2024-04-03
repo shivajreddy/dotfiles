@@ -281,6 +281,8 @@
       options.desc = "Toggle Flash Search";
     }
 
+    # trouble
+
     # # # # # # EXISTING
     {
       mode = "n";
