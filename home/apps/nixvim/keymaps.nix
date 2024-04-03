@@ -181,6 +181,38 @@
       };
     }
 
+    # # Save File
+    {
+      key = "<C-s>";
+      mode = ["i" "x" "n" "s"];
+      action = "<cmd>w<cr>esc>";
+      options.desc = "Save File";
+    }
+    /*
+    {
+      key = "<Leader>w";
+      mode = ["i" "x" "n" "s"];
+      action = "<cmd>w<cr>esc>";
+      options.desc = "Save File";
+    }
+    {
+      key = "<Leader>s";
+      mode = ["i" "x" "n" "s"];
+      action = "<cmd>w<cr>esc>";
+      options.desc = "Save File";
+    }
+    {
+      key = "<leader>w";
+      mode = "n";
+      action = "<cmd>w<CR>";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[W]rite";
+      };
+    }
+    */
+
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
     # notify
@@ -213,17 +245,6 @@
         silent = true;
         noremap = true;
         desc = "";
-      };
-    }
-
-    {
-      key = "<leader>w";
-      mode = "n";
-      action = "<cmd>w<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "[W]rite";
       };
     }
 
