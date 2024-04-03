@@ -117,6 +117,70 @@
       };
     }
 
+    # # saner search behaviour of n and N
+    /*
+    map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+    map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+    map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+    map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+    map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+    map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+    */
+    {
+      key = "n";
+      mode = "n";
+      action = "'Nn'[v:searchforward].'zv'";
+      options = {
+        expr = true;
+        desc = "Next Search Result";
+      };
+    }
+    {
+      key = "n";
+      mode = "x";
+      action = "'Nn'[v:searchforward]";
+      options = {
+        expr = true;
+        desc = "Next Search Result";
+      };
+    }
+    {
+      key = "n";
+      mode = "o";
+      action = "'Nn'[v:searchforward]";
+      options = {
+        expr = true;
+        desc = "Next Search Result";
+      };
+    }
+    {
+      key = "N";
+      mode = "n";
+      action = "'nN'[v:searchforward].'zv'";
+      options = {
+        expr = true;
+        desc = "Prev Search Result";
+      };
+    }
+    {
+      key = "N";
+      mode = "x";
+      action = "'nN'[v:searchforward]";
+      options = {
+        expr = true;
+        desc = "Prev Search Result";
+      };
+    }
+    {
+      key = "N";
+      mode = "o";
+      action = "'nN'[v:searchforward]";
+      options = {
+        expr = true;
+        desc = "Prev Search Result";
+      };
+    }
+
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
     # notify
