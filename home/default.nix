@@ -38,7 +38,7 @@ in {
 
   home.packages = with pkgs; [
     zsh
-    nvim
+    # nvim
 
     firefox
     brave
