@@ -63,10 +63,12 @@
           name = "LuaSnip";
           path = luasnip;
         }
+        /*
         {
           name = "catppuccin";
           path = catppuccin-nvim;
         }
+        */
         {
           name = "mini.ai";
           path = mini-nvim;
@@ -121,7 +123,7 @@
           { "williamboman/mason-lspconfig.nvim", enabled = false },
           { "williamboman/mason.nvim", enabled = false },
           -- uncomment to import/override with your plugins
-          { import = ./style.lua },
+          { import = "plugins" },
           -- put this line at the end of spec to clear ensure_installed
           { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
         },
