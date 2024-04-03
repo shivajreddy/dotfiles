@@ -235,16 +235,6 @@
     }
 
     {
-      key = "<leader>pv";
-      mode = "n";
-      action = "<cmd>Oil<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "[p]roject [v]iew";
-      };
-    }
-    {
       key = "<leader>u";
       mode = "n";
       action = "<cmd>UndotreeToggle<CR>";
@@ -272,26 +262,6 @@
         silent = true;
         noremap = true;
         desc = "Toggle vertical column because [Y]AML sucks";
-      };
-    }
-    {
-      key = "J";
-      mode = "v";
-      action = ":m '>+1<CR>gv=gv";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Shift line down 1 in visual mode";
-      };
-    }
-    {
-      key = "K";
-      mode = "v";
-      action = ":m '<-2<CR>gv=gv";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Shift line up 1 in visual mode";
       };
     }
     {
@@ -358,16 +328,6 @@
         silent = true;
         noremap = true;
         desc = "[Y]ank line to system clipboard";
-      };
-    }
-    {
-      key = "Q";
-      mode = "n";
-      action = "<nop>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Don't";
       };
     }
     {
