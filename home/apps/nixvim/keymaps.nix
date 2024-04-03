@@ -264,13 +264,21 @@
       '';
       options.desc = "Flash";
     }
+    # {
+    #   mode = ["n" "x" "o"];
+    #   key = "S";
+    #   action = helpers.mkRaw ''
+    #     function() require("flash").treesitter() end
+    #   '';
+    #   options.desc = "Flash Treesitter";
+    # }
     {
-      mode = ["n" "x" "o"];
-      key = "S";
+      mode = "c";
+      key = "<c-s>";
       action = helpers.mkRaw ''
-        function() require("flash").treesitter() end
+        function() require("flash").toggle() end
       '';
-      options.desc = "Flash Treesitter";
+      options.desc = "Toggle Flash Search";
     }
 
     # # # # # # EXISTING
