@@ -258,7 +258,7 @@
     */
     {
       mode = ["n" "x" "o"];
-      key = "<c-/>";
+      key = "s";
       action = helpers.mkRaw ''
         function() require("flash").jump() end
       '';
