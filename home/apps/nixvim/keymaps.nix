@@ -92,18 +92,6 @@
         desc = "Escape and Clear hlsearch";
       };
     }
-    {
-      key = "";
-      mode = "n";
-      action =
-        helpers.mkRaw ''
-        '';
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "";
-      };
-    }
 
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
