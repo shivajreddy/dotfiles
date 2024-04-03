@@ -5,13 +5,10 @@
   ...
 }: let
   neovimconfig = import ./apps/nixvim;
-  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvim neovimconfig;
-  /*
   nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
     module = neovimconfig;
   };
-  */
 in {
   # Main settings
   home.username = "shiva";
