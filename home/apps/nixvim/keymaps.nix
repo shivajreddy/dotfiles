@@ -61,6 +61,7 @@
         desc = "Move Up";
       };
     }
+    /*
     {
       key = "<A-j>";
       mode = ["v"];
@@ -77,6 +78,7 @@
         desc = "Move Up";
       };
     }
+    */
 
     {
       key = "";
