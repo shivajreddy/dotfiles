@@ -88,7 +88,6 @@ in {
     lf
     gcc
     gnumake
-    ripgrep #NOTE: may be this is being installed twice
     spotify
     # spotifyd
     # spotify-tui
