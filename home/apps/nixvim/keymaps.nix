@@ -24,6 +24,16 @@
 
     # # editor
     # neo-tree
+    {
+      key = "";
+      mode = "n";
+      action = "";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
+      };
+    }
 
     {
       key = "<leader>w";
