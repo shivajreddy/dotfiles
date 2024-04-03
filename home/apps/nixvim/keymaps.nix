@@ -4,26 +4,11 @@
   ...
 }: {
   keymaps = [
-    /*
-       hi
-    {
-      key = "";
-      mode = ["n"];
-      action = helpers.mkRaw ''
-      '';
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "";
-      };
-    }
-    */
-
     # # # General
     # # Move Lines
     {
-      key = "<A-j>";
       mode = ["n"];
+      key = "<A-j>";
       action = "<cmd>m .+1<cr>==";
       options = {
         desc = "Move Down";
@@ -31,8 +16,8 @@
       };
     }
     {
-      key = "<A-k>";
       mode = ["n"];
+      key = "<A-k>";
       action = "<cmd>m .-2<cr>==";
       options = {
         desc = "Move Up";
@@ -40,8 +25,8 @@
       };
     }
     {
-      key = "<A-j>";
       mode = ["i"];
+      key = "<A-j>";
       action = "<esc><cmd>m .+1<cr>==gi";
       options = {
         silent = true;
@@ -49,8 +34,8 @@
       };
     }
     {
-      key = "<A-k>";
       mode = ["i"];
+      key = "<A-k>";
       action = "<esc><cmd>m .-2<cr>==gi";
       options = {
         silent = true;
@@ -58,8 +43,8 @@
       };
     }
     {
-      key = "<A-j>";
       mode = ["v"];
+      key = "<A-j>";
       action = ":m '>+1<cr>gv=gv";
       options = {
         silent = true;
@@ -67,8 +52,8 @@
       };
     }
     {
-      key = "<A-k>";
       mode = ["v"];
+      key = "<A-k>";
       action = ":m '<-2<cr>gv=gv";
       options = {
         silent = true;
@@ -78,8 +63,8 @@
 
     # # buffers
     {
-      key = "<S-l>";
       mode = "n";
+      key = "<S-l>";
       action = "<cmd>BufferLineCycleNext<CR>";
       options = {
         silent = true;
@@ -88,8 +73,8 @@
       };
     }
     {
-      key = "<S-h>";
       mode = "n";
+      key = "<S-h>";
       action = "<cmd>BufferLineCyclePrev<CR>";
       options = {
         silent = true;
@@ -98,8 +83,8 @@
       };
     }
     {
-      key = "<Leader>`";
       mode = "n";
+      key = "<Leader>`";
       action = "<cmd>e #<CR>";
       options = {
         desc = "Switch to Other Buffer";
@@ -108,8 +93,8 @@
 
     # # Clear Search with <esc>
     {
-      key = "<esc>";
       mode = "n";
+      key = "<esc>";
       action = "<CMD>noh<CR><ESC>";
       options = {
         silent = true;
@@ -119,17 +104,9 @@
     }
 
     # # saner search behaviour of n and N
-    /*
-    map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
-    map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-    map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-    map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
-    map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-    map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-    */
     {
-      key = "n";
       mode = "n";
+      key = "n";
       action = "'Nn'[v:searchforward].'zv'";
       options = {
         expr = true;
@@ -137,17 +114,8 @@
       };
     }
     {
-      key = "n";
       mode = "x";
-      action = "'Nn'[v:searchforward]";
-      options = {
-        expr = true;
-        desc = "Next Search Result";
-      };
-    }
-    {
       key = "n";
-      mode = "o";
       action = "'Nn'[v:searchforward]";
       options = {
         expr = true;
@@ -155,8 +123,17 @@
       };
     }
     {
-      key = "N";
+      mode = "o";
+      key = "n";
+      action = "'Nn'[v:searchforward]";
+      options = {
+        expr = true;
+        desc = "Next Search Result";
+      };
+    }
+    {
       mode = "n";
+      key = "N";
       action = "'nN'[v:searchforward].'zv'";
       options = {
         expr = true;
@@ -164,8 +141,8 @@
       };
     }
     {
-      key = "N";
       mode = "x";
+      key = "N";
       action = "'nN'[v:searchforward]";
       options = {
         expr = true;
@@ -173,8 +150,8 @@
       };
     }
     {
-      key = "N";
       mode = "o";
+      key = "N";
       action = "'nN'[v:searchforward]";
       options = {
         expr = true;
@@ -184,35 +161,19 @@
 
     # # Save File
     {
-      key = "<C-s>";
       mode = ["i" "x" "n" "s"];
+      key = "<C-s>";
       action = "<cmd>w<cr><esc>";
       options.desc = "Save File";
     }
-    /*
+
+    # # keywordprg
     {
-      key = "<Leader>w";
-      mode = ["i" "x" "n" "s"];
-      action = "<cmd>w<cr>esc>";
-      options.desc = "Save File";
-    }
-    {
-      key = "<Leader>s";
-      mode = ["i" "x" "n" "s"];
-      action = "<cmd>w<cr>esc>";
-      options.desc = "Save File";
-    }
-    {
-      key = "<leader>w";
       mode = "n";
-      action = "<cmd>w<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "[W]rite";
-      };
+      key = "<leader>K";
+      action = "<cmd>norm! K<cr>";
+      options.desc = "Keywordprg";
     }
-    */
 
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
