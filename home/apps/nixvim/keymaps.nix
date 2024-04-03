@@ -266,7 +266,7 @@
     }
     {
       mode = ["n" "x" "o"];
-      key = "s";
+      key = "S";
       action = helpers.mkRaw ''
         function() require("flash").treesitter() end
       '';
