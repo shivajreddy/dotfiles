@@ -4,7 +4,9 @@
   ...
 }: {
   keymaps = [
-    # UI
+    # # # PLUGINS - Category Specific Keymaps
+    #	# UI
+    # notify
     {
       key = "<Leader>un";
       mode = "n";
@@ -19,6 +21,9 @@
         desc = "Dismiss All Notifications";
       };
     }
+
+    # # editor
+    # neo-tree
 
     {
       key = "<leader>w";
