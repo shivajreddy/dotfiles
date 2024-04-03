@@ -29,7 +29,7 @@
     map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
     */
 
-    /*
+    # /*
     {
       key = "<A-j>";
       mode = ["n"];
@@ -78,45 +78,9 @@
         desc = "Move Up";
       };
     }
-    */
+    # */
 
-    {
-      key = "";
-      mode = "n";
-      action =
-        helpers.mkRaw ''
-        '';
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "";
-      };
-    }
-    {
-      key = "";
-      mode = "n";
-      action =
-        helpers.mkRaw ''
-        '';
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "";
-      };
-    }
-    {
-      key = "";
-      mode = "n";
-      action =
-        helpers.mkRaw ''
-        '';
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "";
-      };
-    }
-
+    # Clear Search with <esc>
     {
       key = "<esc>";
       mode = "n";
