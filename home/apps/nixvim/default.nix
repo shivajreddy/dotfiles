@@ -37,7 +37,7 @@
       swapfile = false; #Undotree
       backup = false; #Undotree
       undofile = true;
-      hlsearch = false;
+      hlsearch = true;
       incsearch = true;
       termguicolors = true;
       scrolloff = 8;

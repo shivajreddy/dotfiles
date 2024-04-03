@@ -22,7 +22,7 @@
     {
       key = "<esc>";
       mode = "n";
-      action = "<CMD>noh<CR><ESC><CR>";
+      action = "<CMD>noh<CR><ESC>";
       options = {
         silent = true;
         noremap = true;
