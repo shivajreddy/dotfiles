@@ -50,12 +50,13 @@
       gitsigns.enable = true;
       tmux-navigator.enable = true;
       # oil.enable = true;
-      undotree.enable = true;
+      # undotree.enable = true;
       fugitive.enable = true;
       # nvim-tree.enable = true;
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
+      LazyVim
     ];
     extraPackages = with pkgs; [
       # Formatters
