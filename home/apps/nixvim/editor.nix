@@ -5,5 +5,8 @@
 }: {
   plugins = {
     neo-tree = {enable = true;};
+    flash = {
+      enable = true;
+    };
   };
 }

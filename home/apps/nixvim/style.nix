@@ -7,7 +7,6 @@
         alpha = true;
         cmp = true;
         dashboard = true;
-        flash = true;
         gitsigns = true;
         headlines = true;
         indent_blankline.enabled = true;
