@@ -56,7 +56,7 @@
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
-      LazyVim
+      vimPlugins.LazyVim
     ];
     extraPackages = with pkgs; [
       # Formatters
