@@ -4,8 +4,7 @@
   ...
 }: {
   keymaps = [
-
-		/*
+    /*
     {
       key = "";
       mode = "n";
@@ -17,20 +16,19 @@
         desc = "";
       };
     }
-		*/
+    */
 
-		# # # General
+    # # # General
     {
       key = "<esc>";
       mode = "n";
-      action = "<CMD>noh<CR><ESC>"
+      action = "<CMD>noh<CR><ESC>";
       options = {
         silent = true;
         noremap = true;
         desc = "Escape and Clear hlsearch";
       };
     }
-
 
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
