@@ -75,7 +75,37 @@
       };
     }
 
-    # Clear Search with <esc>
+    # # buffers
+    {
+      key = "<S-l>";
+      mode = "n";
+      action = "<cmd>BufferLineCycleNext<CR>";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "Next Buffer";
+      };
+    }
+    {
+      key = "<S-h>";
+      mode = "n";
+      action = "<cmd>BufferLineCyclePrev<CR>";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "Prev Buffer";
+      };
+    }
+    {
+      key = "<Leader>`";
+      mode = "n";
+      action = "<cmd>e #<CR>";
+      options = {
+        desc = "Switch to Other Buffer";
+      };
+    }
+
+    # # Clear Search with <esc>
     {
       key = "<esc>";
       mode = "n";
@@ -130,26 +160,6 @@
         silent = true;
         noremap = true;
         desc = "[W]rite";
-      };
-    }
-    {
-      key = "<S-l>";
-      mode = "n";
-      action = "<cmd>BufferLineCycleNext<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Next Buffer";
-      };
-    }
-    {
-      key = "<S-h>";
-      mode = "n";
-      action = "<cmd>BufferLineCyclePrev<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Prev Buffer";
       };
     }
 
