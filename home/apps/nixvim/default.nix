@@ -59,7 +59,7 @@
     };
 
     plugins = {
-      catppuccin
+      tmux-navigator.enable = true;
     };
 
     extraPlugins = [pkgs.vimPlugins.lazy-nvim];
