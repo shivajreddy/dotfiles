@@ -30,7 +30,7 @@ in {
     (./. + "/themes/gtk/gtk.nix")
     # (./. + "/themes/qt/qt.nix")
 
-    (./. + "/apps/neovim")
+    # (./. + "/apps/neovim")
 
     # (./. + "/apps/nvim/default.nix")
     # (./. + "/apps/nixvim/default.nix")
