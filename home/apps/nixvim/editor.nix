@@ -20,7 +20,7 @@
       enable = true;
       settings.use_diagnostic_signs = true;
       settings = {
-        keys = {helpers.toLuaObject ''
+        keys = {helpers.mkRaw ''
           { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
                  { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
                  { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
