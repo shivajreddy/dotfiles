@@ -20,22 +20,13 @@
 
     # # # General
     # # Move Lines
-    /*
-    map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-    map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-    map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-    map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-    map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-    map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
-    */
-
-    # /*
     {
       key = "<A-j>";
       mode = ["n"];
       action = "<cmd>m .+1<cr>==";
       options = {
         desc = "Move Down";
+        silent = true;
       };
     }
     {
@@ -44,6 +35,7 @@
       action = "<cmd>m .-2<cr>==";
       options = {
         desc = "Move Up";
+        silent = true;
       };
     }
     {
@@ -51,6 +43,7 @@
       mode = ["i"];
       action = "<esc><cmd>m .+1<cr>==gi";
       options = {
+        silent = true;
         desc = "Move Down";
       };
     }
@@ -59,6 +52,7 @@
       mode = ["i"];
       action = "<esc><cmd>m .-2<cr>==gi";
       options = {
+        silent = true;
         desc = "Move Up";
       };
     }
@@ -67,6 +61,7 @@
       mode = ["v"];
       action = ":m '>+1<cr>gv=gv";
       options = {
+        silent = true;
         desc = "Move Down";
       };
     }
@@ -75,10 +70,10 @@
       mode = ["v"];
       action = ":m '<-2<cr>gv=gv";
       options = {
+        silent = true;
         desc = "Move Up";
       };
     }
-    # */
 
     # Clear Search with <esc>
     {
