@@ -5,8 +5,9 @@
 }: {
   imports = [
     ./keymaps.nix
-    ./style.nix
     ./ui.nix
+    ./coding.nix
+    ./style.nix
     ./telescope.nix
     ./treesitter.nix
     ./harpoon.nix
