@@ -121,7 +121,7 @@
           { "williamboman/mason-lspconfig.nvim", enabled = false },
           { "williamboman/mason.nvim", enabled = false },
           -- uncomment to import/override with your plugins
-          { import = "plugins" },
+          { import = ./style.lua },
           -- put this line at the end of spec to clear ensure_installed
           { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
         },
