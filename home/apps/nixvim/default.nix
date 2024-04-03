@@ -14,6 +14,10 @@
       ripgrep
     ];
 
+    plugins = {
+      catppuccin.enable = true;
+    };
+
     extraPlugins = [pkgs.vimPlugins.lazy-nvim];
 
     extraConfigLua = let
