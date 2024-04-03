@@ -42,10 +42,10 @@
     nvim_config = {
       extraPackages = with pkgs; [
         # LazyVim
-        lua-language-server
-        stylua
+        # lua-language-server
+        # stylua
         # Telescope
-        ripgrep
+        # ripgrep
       ];
 
       extraPlugins = [pkgs.vimPlugins.lazy-nvim];

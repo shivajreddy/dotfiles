@@ -10,8 +10,48 @@
   config = {
     extraPackages = with pkgs; [
       lua-language-server
+
+      # Formatters
+      alejandra
+      asmfmt
+      astyle
+      black
+      cmake-format
+      gofumpt
+      golines
+      gotools
+      isort
+      nodePackages.prettier
+      prettierd
+      rustfmt
+      shfmt
       stylua
+      # Linters
+      commitlint
+      eslint_d
+      golangci-lint
+      hadolint
+      html-tidy
+      luajitPackages.luacheck
+      markdownlint-cli
+      nodePackages.jsonlint
+      pylint
+      shellcheck
+      vale
+      yamllint
+      # Debuggers / misc deps
+      asm-lsp
+      bashdb
+      clang-tools
+      delve
+      fd
+      gdb
+      lldb_17
+      llvmPackages_17.bintools-unwrapped
+      marksman
+      python3
       ripgrep
+      rr
     ];
 
     colorschemes.catppuccin = {
@@ -70,12 +110,10 @@
           name = "LuaSnip";
           path = luasnip;
         }
-        /*
         {
           name = "catppuccin";
           path = catppuccin-nvim;
         }
-        */
         {
           name = "mini.ai";
           path = mini-nvim;
