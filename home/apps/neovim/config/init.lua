@@ -17,13 +17,13 @@ require("user.lualine")
 --
 require("user.indent")
 require("gitsigns").setup({
-  current_line_blame = true,
+	current_line_blame = true,
 })
 require("user.todo")
 require("dressing").setup({
-  input = {
-    insert_only = false,
-  },
+	input = {
+		insert_only = false,
+	},
 })
 require("user.test")
 require("user.harpoon")
@@ -31,19 +31,21 @@ require("user.telescope")
 require("user.fugitive")
 require("auto-hlsearch").setup()
 require("better_escape").setup({
-  mapping = { "jk", "kj" },
-  timeout = 100,
+	mapping = { "jk", "kj" },
+	timeout = 100,
 })
 
 --
 -- CODING
 --
 require("neodev").setup({})
+--[[
 require("luasnip").setup({
-  -- see: https://github.com/L3MON4D3/LuaSnip/issues/525
-  region_check_events = "InsertEnter",
-  delete_check_events = "InsertLeave",
+	-- see: https://github.com/L3MON4D3/LuaSnip/issues/525
+	region_check_events = "InsertEnter",
+	delete_check_events = "InsertLeave",
 })
+--]]
 require("luasnip.loaders.from_vscode").lazy_load()
 require("nvim-autopairs").setup({ check_ts = true })
 require("nvim-ts-autotag").setup({ enable = true })
