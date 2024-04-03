@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+  ./ui.nix
   ];
 
   config = {
