@@ -282,6 +282,32 @@
     }
 
     # trouble
+    /*
+    { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+    { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+    { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+    { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+    */
+    {
+      key = "<leader>xx";
+      action = "<cmd>TroubleToggle document_diagnostics<cr>";
+      options.desc = "Document Diagnostics (Trouble)";
+    }
+    {
+      key = "<leader>xX";
+      action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
+      options.desc = "Workspace Diagnostics (Trouble)";
+    }
+    {
+      key = "<leader>xL";
+      action = "<cmd>TroubleToggle loclist<cr>";
+      options.desc = "Location List (Trouble)";
+    }
+    {
+      key = "<leader>xQ";
+      action = "<cmd>TroubleToggle quickfix<cr>";
+      options.desc = "Quickfix List (Trouble)";
+    }
 
     # # # # # # EXISTING
     {
