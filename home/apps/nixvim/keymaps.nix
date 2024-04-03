@@ -7,7 +7,7 @@
     /*
     {
       key = "";
-      mode = "n";
+      mode = ["n"];
       action = helpers.mkRaw ''
       '';
       options = {
@@ -19,6 +19,102 @@
     */
 
     # # # General
+    # # Move Lines
+    /*
+    map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+    map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+    map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+    map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+    map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+    map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+    */
+
+    {
+      key = "<A-j>";
+      mode = ["n"];
+      action = "<cmd>m .+1<cr>==";
+      options = {
+        desc = "Move Down";
+      };
+    }
+    {
+      key = "<A-k>";
+      mode = ["n"];
+      action = "<cmd>m .-2<cr>==";
+      options = {
+        desc = "Move Up";
+      };
+    }
+    {
+      key = "<A-j>";
+      mode = ["i"];
+      action = "<esc><cmd>m .+1<cr>==gi";
+      options = {
+        desc = "Move Down";
+      };
+    }
+    {
+      key = "<A-k>";
+      mode = ["i"];
+      action = "<esc><cmd>m .-2<cr>==gi";
+      options = {
+        desc = "Move Up";
+      };
+    }
+    {
+      key = "<A-j>";
+      mode = ["v"];
+      action = ":m '>+1<cr>gv=gv";
+      options = {
+        desc = "Move Down";
+      };
+    }
+    {
+      key = "<A-k>";
+      mode = ["v"];
+      action = ":m '<-2<cr>gv=gv";
+      options = {
+        desc = "Move Up";
+      };
+    }
+
+    {
+      key = "";
+      mode = "n";
+      action =
+        helpers.mkRaw ''
+        '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
+      };
+    }
+    {
+      key = "";
+      mode = "n";
+      action =
+        helpers.mkRaw ''
+        '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
+      };
+    }
+    {
+      key = "";
+      mode = "n";
+      action =
+        helpers.mkRaw ''
+        '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
+      };
+    }
+
     {
       key = "<esc>";
       mode = "n";
@@ -27,6 +123,18 @@
         silent = true;
         noremap = true;
         desc = "Escape and Clear hlsearch";
+      };
+    }
+    {
+      key = "";
+      mode = "n";
+      action =
+        helpers.mkRaw ''
+        '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
       };
     }
 
