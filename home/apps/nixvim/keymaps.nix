@@ -189,8 +189,8 @@
 
     # # formatting
     {
-      key = "<leader>mp";
       mode = ["n" "v"];
+      key = "<leader>mp";
       action = ":lua _G.format_with_conform()<CR>";
       options = {
         silent = true;
@@ -203,8 +203,8 @@
     #	# UI
     # notify
     {
-      key = "<Leader>un";
       mode = "n";
+      key = "<Leader>un";
       action = helpers.mkRaw ''
         function()
         		require("notify").dismiss({ silent = true, pending = true })
@@ -220,14 +220,23 @@
     # # editor
     # neo-tree
     {
-      key = "<C-n>";
       mode = "n";
+      key = "<C-n>";
       action = "<cmd>Neotree toggle<CR>";
       options = {
         silent = true;
         noremap = true;
         desc = "Toggle Neotree tree";
       };
+    }
+    {
+      key = "<leader>ge";
+      action = helpers.mkRaw ''
+        function()
+        	require("neo-tree.command").execute({source = 'git_status', toggle = true})
+        	end
+      '';
+      options.desc = "Git Explorer";
     }
 
     {
