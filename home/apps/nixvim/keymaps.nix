@@ -187,6 +187,18 @@
       action = ">gv";
     }
 
+    # # formatting
+    {
+      key = "<leader>mp";
+      mode = ["n" "v"];
+      action = ":lua _G.format_with_conform()<CR>";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[m]ake [p]retty by formatting";
+      };
+    }
+
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
     # notify
@@ -406,16 +418,6 @@
         silent = true;
         noremap = true;
         desc = "Prev quickfix location";
-      };
-    }
-    {
-      key = "<leader>mp";
-      mode = ["n" "v"];
-      action = ":lua _G.format_with_conform()<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "[m]ake [p]retty by formatting";
       };
     }
     {
