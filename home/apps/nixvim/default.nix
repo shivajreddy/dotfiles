@@ -5,6 +5,7 @@
 }: {
   imports = [
   ./ui.nix
+  ./keymaps.nix
   ];
 
   config = {
