@@ -175,6 +175,18 @@
       options.desc = "Keywordprg";
     }
 
+    # # better indenting
+    {
+      mode = "v";
+      key = "<";
+      action = "<gv";
+    }
+    {
+      mode = "v";
+      key = ">";
+      action = ">gv";
+    }
+
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
     # notify
