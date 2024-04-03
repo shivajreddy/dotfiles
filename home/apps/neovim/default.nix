@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   fromGitHub = owner: repo: ref: hash:
     pkgs.vimUtils.buildVimPlugin {
       pname = "${lib.strings.sanitizeDerivationName repo}";
@@ -11,9 +15,7 @@ let
         sha256 = hash;
       };
     };
-
-in
-{
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -135,9 +137,8 @@ in
       telescope-dap-nvim
       nvim-dap-virtual-text
 
-
       # others
-      vim-wakatime
+      # vim-wakatime
     ];
   };
 
