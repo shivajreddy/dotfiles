@@ -220,17 +220,13 @@
     # # editor
     # neo-tree
     {
-      key = "<Leader>fe";
+      key = "<C-n>";
       mode = "n";
-      action = helpers.mkRaw ''
-        function()
-        	require("neo-tree.command").execute({toggle = true, dir = LazyVim.root()})
-        end
-      '';
+      action = "<cmd>Neotree toggle<CR>";
       options = {
         silent = true;
         noremap = true;
-        desc = "";
+        desc = "Toggle Neotree tree";
       };
     }
 
@@ -388,16 +384,6 @@
         silent = true;
         noremap = true;
         desc = "[d]iagnostic changes [a]ccepted";
-      };
-    }
-    {
-      key = "<C-n>";
-      mode = "n";
-      action = "<cmd>Neotree toggle<CR>";
-      options = {
-        silent = true;
-        noremap = true;
-        desc = "Toggle Neotree tree";
       };
     }
 
