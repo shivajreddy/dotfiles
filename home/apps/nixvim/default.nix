@@ -54,10 +54,6 @@
       rr
     ];
 
-    colorschemes.catppuccin = {
-      enable = true;
-    };
-
     plugins = {
       tmux-navigator.enable = true;
     };
