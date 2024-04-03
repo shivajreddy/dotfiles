@@ -26,7 +26,7 @@
       rustfmt
       shfmt
       stylua
-      # Linters
+      # Linters.
       commitlint
       eslint_d
       golangci-lint
