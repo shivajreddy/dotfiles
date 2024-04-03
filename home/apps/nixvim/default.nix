@@ -14,8 +14,11 @@
       ripgrep
     ];
 
+    colorschemes.catppuccin = {
+      enable = true;
+    };
+
     plugins = {
-      catppuccin.enable = true;
     };
 
     extraPlugins = [pkgs.vimPlugins.lazy-nvim];
