@@ -5,6 +5,7 @@
 }: {
   keymaps = [
     /*
+       hi
     {
       key = "";
       mode = ["n"];
