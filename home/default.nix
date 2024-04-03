@@ -40,7 +40,7 @@ in {
 
   home.packages = with pkgs; [
     zsh
-    nvim_with_nixvim
+    # nvim_with_nixvim
 
     firefox
     brave
