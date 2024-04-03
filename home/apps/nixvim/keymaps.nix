@@ -258,11 +258,19 @@
     */
     {
       mode = ["n" "x" "o"];
-      key = "s";
+      key = "<C-/>";
       action = helpers.mkRaw ''
         function() require("flash").jump() end
       '';
-      options.desc = "Flas";
+      options.desc = "Flash";
+    }
+    {
+      mode = ["n" "x" "o"];
+      key = "s";
+      action = helpers.mkRaw ''
+        function() require("flash").treesitter() end
+      '';
+      options.desc = "Flash Treesitter";
     }
 
     # # # # # # EXISTING
