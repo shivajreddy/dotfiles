@@ -29,7 +29,7 @@
     map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
     */
 
-    # /*
+    /*
     {
       key = "<A-j>";
       mode = ["n"];
@@ -78,7 +78,8 @@
         desc = "Move Up";
       };
     }
-    # */
+    #
+    */
 
     # Clear Search with <esc>
     {
