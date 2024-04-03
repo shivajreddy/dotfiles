@@ -13,7 +13,7 @@
     illuminate = {
       enable = true;
       delay = 200;
-      largeFileCutOff = 2000;
+      largeFileOverrides.largeFileCutOff = 2000;
     };
 
     trouble = {
