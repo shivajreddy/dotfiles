@@ -4,6 +4,34 @@
   ...
 }: {
   keymaps = [
+
+		/*
+    {
+      key = "";
+      mode = "n";
+      action = helpers.mkRaw ''
+      '';
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "";
+      };
+    }
+		*/
+
+		# # # General
+    {
+      key = "<esc>";
+      mode = "n";
+      action = "<CMD>noh<CR><ESC>"
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "Escape and Clear hlsearch";
+      };
+    }
+
+
     # # # PLUGINS - Category Specific Keymaps
     #	# UI
     # notify
@@ -25,9 +53,13 @@
     # # editor
     # neo-tree
     {
-      key = "";
+      key = "<Leader>fe";
       mode = "n";
-      action = "";
+      action = helpers.mkRaw ''
+        function()
+        	require("neo-tree.command").execute({toggle = true, dir = LazyVim.root()})
+        end
+      '';
       options = {
         silent = true;
         noremap = true;
