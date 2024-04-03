@@ -238,6 +238,15 @@
       '';
       options.desc = "Git Explorer";
     }
+    {
+      key = "<leader>be";
+      action = helpers.mkRaw ''
+        function()
+        	require("neo-tree.command").execute({source = 'buffers', toggle = true})
+        	end
+      '';
+      options.desc = "Buffer Explorer";
+    }
 
     {
       key = "<leader>u";
