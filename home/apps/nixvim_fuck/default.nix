@@ -39,14 +39,14 @@
     };
 
     plugins = {
-      # oil.enable = true;
-      # undotree.enable = true;
       fugitive.enable = true;
-      # nvim-tree.enable = true;
     };
+
+		# VimPlugins that are not there on NixVim
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
     ];
+	
     extraPackages = with pkgs; [
       # Formatters
       alejandra
