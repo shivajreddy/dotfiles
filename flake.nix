@@ -81,15 +81,6 @@
 
   in {
 
-    packages = rec {
-      # Wrap neovim again to make runtime dependencies available
-      nvim = pkgs.writeShellApplication {
-        name = "nvim";
-        runtimeInputs = [ runtimePath ];
-        text = ''${neovimWrapped}/bin/nvim "$@"'';
-      };
-      default = nvim;
-    };
 
     nixosConfigurations = {
       predator = lib.nixosSystem {
@@ -98,6 +89,16 @@
         modules = [
           (./. + "/hosts/predator/configuration.nix")
         ];
+
+        packages = {
+          # Wrap neovim again to make runtime dependencies available
+          nvim = pkgs.writeShellApplication {
+            name = "nvim";
+            runtimeInputs = [ runtimePath ];
+            text = ''${neovimWrapped}/bin/nvim "$@"'';
+          };
+        };
+
       };
       tars = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
@@ -120,5 +121,6 @@
         extraSpecialArgs = {inherit inputs;};
       };
     };
+
   };
 }
