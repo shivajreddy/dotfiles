@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-  ./lsp.nix
   ];
 
   config = {
@@ -151,12 +150,14 @@
         defaults = {
           lazy = true,
         },
+        --[[ using plugins directly fron nixvim
         dev = {
           -- reuse files from pkgs.vimPlugins.*
           path = "${lazyPath}",
           patterns = { "." },
           -- fallback to download
           fallback = true,
+        --]]
         },
         spec = {
           { "LazyVim/LazyVim", import = "lazyvim.plugins" },
