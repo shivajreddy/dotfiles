@@ -8,6 +8,8 @@
 		./editor.nix
 		./style.nix
 		./telescope.nix
+		./coding.nix
+		./lsp.nix
   ];
 
   config = {
