@@ -77,6 +77,7 @@ in {
       treesj
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [
+				lua5.3-nvim-nio
           arduino
           awk
           bash
