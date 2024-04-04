@@ -105,7 +105,7 @@
 
           -- The following configs are needed for fixing lazyvim on nix
           -- force enable telescope-fzf-native.nvim
-          -- { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
+          { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
 
           -- disable mason.nvim, use config.extraPackages
           { "williamboman/mason-lspconfig.nvim", enabled = false },
