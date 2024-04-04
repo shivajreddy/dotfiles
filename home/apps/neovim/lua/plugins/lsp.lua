@@ -10,6 +10,7 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
+				rust_analyzer = {},
 			},
 		},
 	},

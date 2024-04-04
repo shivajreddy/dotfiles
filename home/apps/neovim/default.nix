@@ -11,15 +11,6 @@
       # Telescope
       ripgrep
 
-      nodePackages.bash-language-server
-      clang-tools
-      cmake-language-server
-      pyright
-      rust-analyzer
-      rustc
-      cargo
-
-
       /* These worked with nixvim
        * # so look at https://github.com/nix-community/nixvim/blob/main/plugins/lsp/language-servers/default.nix
       bashls.enable = true;
@@ -40,6 +31,13 @@
       yamlls.enable = true;
       # zls.enable = true;
       # */
+      nodePackages.bash-language-server
+      clang-tools
+      cmake-language-server
+      pyright
+      rust-analyzer
+      rustc
+      cargo
 
     ];
 
