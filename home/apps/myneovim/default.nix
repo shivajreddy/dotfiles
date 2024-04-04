@@ -11,6 +11,13 @@
       # Telescope
       ripgrep
 
+      nodePackages.bash-language-server
+      clang-tools
+      cmake-language-server
+      pyright
+      rust-analyzer
+
+
       /* These worked with nixvim
       bashls.enable = true;
       clangd.enable = true;
