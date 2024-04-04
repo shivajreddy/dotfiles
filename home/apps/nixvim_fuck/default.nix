@@ -46,6 +46,7 @@
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
+      vimPlugins.nvim-cmp
       # vimPlugins.LazyVim
     ];
     extraPackages = with pkgs; [
