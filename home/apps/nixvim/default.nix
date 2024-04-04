@@ -51,6 +51,8 @@
       vimPlugins.telescope-fzf-native-nvim
     ];
     extraPackages = with pkgs; [
+
+      fzf
       # LSP
       lua-language-server
 
