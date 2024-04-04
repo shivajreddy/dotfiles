@@ -95,7 +95,8 @@
 
     # /*
     extraConfigLua = ''
-        require("neoconf").setup({})
+		{
+        require("neoconf").setup({}),
         require("lazy").setup({
           defaults = {
             lazy = true,
@@ -121,6 +122,7 @@
             -- { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
+		}
     '';
     # */
 
