@@ -46,9 +46,9 @@
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
-      # vimPlugins.LazyVim
     ];
     extraPackages = with pkgs; [
+      lua-language-server
       # Formatters
       alejandra
       asmfmt
