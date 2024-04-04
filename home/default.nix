@@ -37,7 +37,7 @@ in {
     # (./. + "/apps/nixvim/default.nix")
   ];
 
-  # programs.nixvim.enable = true;
+  programs.nixvim.enable = true;
 
   home.packages = with pkgs; [
     zsh
