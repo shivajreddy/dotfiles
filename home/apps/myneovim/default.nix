@@ -10,6 +10,27 @@
       stylua
       # Telescope
       ripgrep
+
+      /* These worked with nixvim
+      bashls.enable = true;
+      clangd.enable = true;
+      cmake.enable = true;
+      # cssls.enable = true;
+      # html.enable = true;
+      lua-ls.enable = true;
+      nixd.enable = true;
+      # ruff-lsp.enable = true;
+      pyright.enable = true;
+      rust-analyzer = {
+        enable = true;
+        installCargo = true;
+        installRustc = true;
+      };
+      # tsserver.enable = true;
+      yamlls.enable = true;
+      # zls.enable = true;
+      # */
+
     ];
 
     plugins = with pkgs.vimPlugins; [
