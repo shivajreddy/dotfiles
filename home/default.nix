@@ -113,7 +113,7 @@ in {
     python3
     nodejs_21
 
-		lua5.3-nvim-nio
+    lua53packages.nvim-nio
   ];
 
   /*
