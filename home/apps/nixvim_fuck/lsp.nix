@@ -27,6 +27,8 @@
   extraConfigLua = ''
       -- Extra nvim-lspconfig configuration
 
+      require("neo-conf").setup({})
+
       -- Common LSP key mappings
       local function set_cmn_lsp_keybinds()
       	local lsp_keybinds = {
