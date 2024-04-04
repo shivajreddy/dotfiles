@@ -114,10 +114,9 @@ in {
     nodejs_21
   ];
 
-  /*
+  # /*
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink ./configx;
   };
-  #
-  */
+  # */
 }
