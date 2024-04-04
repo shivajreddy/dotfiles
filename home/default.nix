@@ -112,8 +112,6 @@ in {
     # rustup
     python3
     nodejs_21
-
-    lua53packages.nvim-nio
   ];
 
   /*
