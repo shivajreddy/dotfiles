@@ -120,7 +120,7 @@
           { "williamboman/mason.nvim", enabled = false },
 
           -- uncomment to import/override with your plugins
-          -- NOTE: not sure how this works ??? usually this is the lua file, but whats this doing in nixvim 
+          -- Use xdg to copy the ./cnfig/nvim folder in which you have directories like this https://github.com/LazyVim/starter
           { import = "plugins" },
 
           -- put this line at the end of spec to clear ensure_installed
