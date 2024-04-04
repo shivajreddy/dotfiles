@@ -6,7 +6,8 @@
 }: let
   # neovimconfig = import ./apps/nixvim_new;
   neovimconfig = import ./apps/nixvim;
-  nvim_with_nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+  # nvim_with_nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
     module = neovimconfig;
   };
@@ -37,10 +38,10 @@ in {
     # (./. + "/apps/nixvim/default.nix")
   ];
 
-
   home.packages = with pkgs; [
     zsh
-    nvim_with_nixvim
+    # nvim_with_nixvim
+    nvim
 
     firefox
     brave
