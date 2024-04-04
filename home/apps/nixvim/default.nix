@@ -34,6 +34,7 @@
     };
 
     plugins = {
+			lazy.enable = true;
       gitsigns.enable = true;
       tmux-navigator.enable = true;
       # oil.enable = true;
