@@ -1,0 +1,1 @@
+-- my autocommands for lazy vim
