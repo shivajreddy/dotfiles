@@ -11,16 +11,6 @@
       # Telescope
       ripgrep
 
-      bashls
-      clangd
-      cmake
-      lua-ls
-      nixd
-      pyright
-      rust-analyzer
-      yamlls
-      # tsserver.enable = true;
-      # zls.enable = true;
     ];
 
     plugins = with pkgs.vimPlugins; [
