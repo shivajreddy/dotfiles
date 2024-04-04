@@ -14,7 +14,7 @@
 
     clipboard.register = "unnamedplus";
 
-    /*
+    # /*
     opts = {
       number = true;
       # colorcolumn = "80";
@@ -33,7 +33,7 @@
       updatetime = 50;
       foldlevelstart = 99;
     };
-    */
+    # */
 
     plugins = {
 			lazy.enable = true;
@@ -50,7 +50,6 @@
     extraPackages = with pkgs; [
       # LSP
       lua-language-server
-      clang
 
       # Formatters
       alejandra
@@ -96,6 +95,7 @@
       rr
     ];
 
+/*
   extraConfigLua = ''
       require("lazy").setup({
         defaults = {
@@ -122,6 +122,7 @@
         },
       })
   '';
+# */
 
   };
 
