@@ -10,6 +10,11 @@ return {
 
 		presets = { bottom_search = true },
 
+		popupmenu = {
+			enabled = true,
+			backend = "nui",
+		},
+
 		format = {
 			cmdline = { pattern = "^:", icon = "", lang = "vim" },
 			search_down = { kind = "search", pattern = "^/", icon = " 🔍 ", lang = "regex" },
