@@ -1,1 +1,0 @@
--- options to override globals in lazyvim
