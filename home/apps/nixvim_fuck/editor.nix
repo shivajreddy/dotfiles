@@ -7,8 +7,6 @@
 
     neo-tree.enable = true;
 
-    gitsigns.enable = true;
-
 		tmux-navigator.enable = true;
 
     flash.enable = true;
