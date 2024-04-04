@@ -2,7 +2,7 @@ return {
 	-- lazy.nvim
 	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 		opts = {
 			-- add any options here
 			lsp = {
