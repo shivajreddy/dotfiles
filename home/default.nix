@@ -37,11 +37,10 @@ in {
     # (./. + "/apps/nixvim/default.nix")
   ];
 
-  programs.nixvim.enable = true;
 
   home.packages = with pkgs; [
     zsh
-    # nvim_with_nixvim
+    nvim_with_nixvim
 
     firefox
     brave
