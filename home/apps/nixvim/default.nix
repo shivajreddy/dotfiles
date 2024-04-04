@@ -26,8 +26,9 @@
 
     clipboard.register = "unnamedplus";
 
-    # options = { # this changed to opts instead of options ??!!
-    opts = {
+    options = {
+      # this changed to opts instead of options ??!!
+      # opts = {
       number = true;
       # colorcolumn = "80";
       relativenumber = true;
