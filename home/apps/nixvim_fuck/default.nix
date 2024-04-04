@@ -92,6 +92,7 @@
       rr
     ];
 
+/*
   extraConfigLua = ''
       require("lazy").setup({
         defaults = {
@@ -113,6 +114,9 @@
         },
       })
   '';
+# */
+
+
   };
 
 }
