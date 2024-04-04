@@ -10,6 +10,7 @@
 		./telescope.nix
 		./coding.nix
 		./lsp.nix
+		./ui.nix
   ];
 
   config = {

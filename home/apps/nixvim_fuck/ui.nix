@@ -183,106 +183,6 @@
 
     which-key.enable = true;
 
-    dashboard = {
-      enable = true;
-      header = [
-        "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
-        "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
-        "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
-        "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
-        "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
-        "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
-      ];
-      center = [
-        {
-          action = "Telescope oldfiles";
-          desc = "Recent Files";
-          icon = "";
-          shortcut = "r";
-        }
-        {
-          action = "Telescope live_grep";
-          desc = " Find File";
-          icon = " ";
-          shortcut = "f";
-        }
-        {
-          action = "qa";
-          desc = " Quit";
-          icon = " ";
-          shortcut = "q";
-        }
-      ];
-    };
-
-    /*
-    alpha = {
-      enable = true;
-      # theme = "dashboard";
-      layout = [
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            hl = "Type";
-            position = "center";
-          };
-          type = "text";
-          val = [
-            "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
-            "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
-            "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
-            "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
-            "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
-            "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
-          ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          type = "group";
-          val = [
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[ene]] end";
-              };
-              opts = {
-                shortcut = "n";
-              };
-              type = "button";
-              val = "  New file";
-            }
-            {
-              on_press = {
-                __raw = "function() vim.cmd[[qa]] end";
-              };
-              opts = {
-                shortcut = "q";
-              };
-              type = "button";
-              val = "󰗼 Quit Neovim";
-            }
-          ];
-        }
-        {
-          type = "padding";
-          val = 2;
-        }
-        {
-          opts = {
-            hl = "Keyword";
-            position = "center";
-          };
-          type = "text";
-          val = "Inspiring quote here.";
-        }
-      ];
-    };
-    */
   };
 
   /*
@@ -310,4 +210,5 @@
   '';
   #
   */
+
 }
