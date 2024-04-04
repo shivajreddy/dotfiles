@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   plugins = {
+
     cmp = {
       enable = true;
       settings.snippet.expand = "luasnip";
@@ -33,6 +34,7 @@
         {name = "buffer";}
       ];
     };
+
     cmp-buffer.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lua.enable = true;
