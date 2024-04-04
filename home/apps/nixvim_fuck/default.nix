@@ -39,8 +39,7 @@
     };
 
     plugins = {
-      gitsigns.enable = true;
-      tmux-navigator.enable = true;
+      gitsigns.enable = true; tmux-navigator.enable = true;
       # oil.enable = true;
       # undotree.enable = true;
       fugitive.enable = true;
@@ -48,8 +47,6 @@
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
-      vimPlugins.nvim-cmp
-      # vimPlugins.LazyVim
     ];
     extraPackages = with pkgs; [
       # Formatters
