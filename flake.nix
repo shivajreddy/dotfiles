@@ -79,6 +79,12 @@
       };
     };
 
+    nvim = pkgs.writeShellApplication {
+      name = "nvim";
+      runtimeInputs = [ runtimePath ];
+      text = ''${neovimWrapped}/bin/nvim "$@"'';
+    };
+
   in {
 
 
@@ -88,16 +94,10 @@
         inherit system;
         modules = [
           (./. + "/hosts/predator/configuration.nix")
+          nvim
         ];
 
-        packages = {
-          # Wrap neovim again to make runtime dependencies available
-          nvim = pkgs.writeShellApplication {
-            name = "nvim";
-            runtimeInputs = [ runtimePath ];
-            text = ''${neovimWrapped}/bin/nvim "$@"'';
-          };
-        };
+
 
       };
       tars = lib.nixosSystem {
