@@ -7,6 +7,7 @@
     ./keymaps.nix
 		./editor.nix
 		./style.nix
+		./telescope.nix
   ];
 
   config = {
