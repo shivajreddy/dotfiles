@@ -33,6 +33,7 @@ in {
     # (./. + "/themes/qt/qt.nix")
 
     # (./. + "/apps/neovim")
+    (./. + "/apps/myneovim")
 
     # (./. + "/apps/nvim/default.nix")
     # (./. + "/apps/nixvim/default.nix")
@@ -41,7 +42,6 @@ in {
   home.packages = with pkgs; [
     zsh
     # nvim_with_nixvim
-		neovim
 
 
     firefox
