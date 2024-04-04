@@ -105,7 +105,7 @@
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
-          inputs.nixvim.homeManagerModules.nixvim
+          # inputs.nixvim.homeManagerModules.nixvim
         ];
 
         extraSpecialArgs = {inherit inputs;};
