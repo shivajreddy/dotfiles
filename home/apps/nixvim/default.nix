@@ -48,7 +48,10 @@
       vimPlugins.nvim-web-devicons
     ];
     extraPackages = with pkgs; [
+      # LSP
       lua-language-server
+      clang
+
       # Formatters
       alejandra
       asmfmt
