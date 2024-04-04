@@ -41,7 +41,6 @@ in {
 
   home.packages = with pkgs; [
     zsh
-    neovim
     # nvim_with_nixvim
 
 
