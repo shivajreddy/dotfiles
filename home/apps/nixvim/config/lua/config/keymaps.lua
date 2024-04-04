@@ -1,1 +1,1 @@
--- my keymaps for lazy vim
+-- my keymaps for lazyvim
