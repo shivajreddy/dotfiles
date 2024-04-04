@@ -46,6 +46,7 @@
 		# VimPlugins that are not there on NixVim
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
+      vimPlugins.telescope-fzf-native-nvim
     ];
 	
     extraPackages = with pkgs; [

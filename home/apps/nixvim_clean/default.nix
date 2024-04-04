@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-  ./lsp.nix
   ];
 
   config = {
