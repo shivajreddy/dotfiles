@@ -4,8 +4,8 @@
   inputs,
   ...
 }: let
-  neovimconfig = import ./apps/nixvim_new;
-  # neovimconfig = import ./apps/nixvim;
+  # neovimconfig = import ./apps/nixvim_old;
+  neovimconfig = import ./apps/nixvim;
   nvim_with_nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
     module = neovimconfig;
