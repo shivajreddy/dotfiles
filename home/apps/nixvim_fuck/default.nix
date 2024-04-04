@@ -40,6 +40,7 @@
     };
 
     plugins = {
+			lazy.enable = true;
     };
 
 		# VimPlugins that are not there on NixVim
