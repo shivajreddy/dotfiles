@@ -97,14 +97,6 @@
         defaults = {
           lazy = true,
         },
-        --[[dev = {
-          -- reuse files from pkgs.vimPlugins.*
-          path = "${lazyPath}",
-          patterns = { "." },
-          -- fallback to download
-          fallback = true,
-        },
-				--]]
         spec = {
           { "LazyVim/LazyVim", import = "lazyvim.plugins" },
           -- The following configs are needed for fixing lazyvim on nix
