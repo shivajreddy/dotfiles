@@ -15,7 +15,7 @@
       clang-tools
       cmake-language-server
       pyright
-      rust-analyzerxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      rust-analyzer
 
 
       /* These worked with nixvim
