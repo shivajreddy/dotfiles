@@ -14,6 +14,7 @@
 
     clipboard.register = "unnamedplus";
 
+    /*
     opts = {
       number = true;
       # colorcolumn = "80";
@@ -32,6 +33,7 @@
       updatetime = 50;
       foldlevelstart = 99;
     };
+    */
 
     plugins = {
 			lazy.enable = true;
@@ -61,6 +63,7 @@
       prettierd
       rustfmt
       shfmt
+      nixfmt
       stylua
       # Linters
       commitlint
@@ -96,6 +99,7 @@
           lazy = true,
         },
         spec = {
+          -- This ensures that lazyvim will install all the plugins
           { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
           -- The following configs are needed for fixing lazyvim on nix
