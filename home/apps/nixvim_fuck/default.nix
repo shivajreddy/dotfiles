@@ -5,18 +5,6 @@
 }: {
   imports = [
     ./keymaps.nix
-    ./coding.nix
-    ./editor.nix
-    ./ui.nix
-    ./style.nix
-    ./telescope.nix
-    ./treesitter.nix
-    ./harpoon.nix
-    ./folds.nix
-    ./lsp.nix
-    ./format.nix
-    ./lint.nix
-    ./debug.nix
   ];
 
   config = {
@@ -100,6 +88,9 @@
       ripgrep
       rr
     ];
+
+  extraConfigLua = ''
+  '';
   };
 
 }
