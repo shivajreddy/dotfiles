@@ -10,9 +10,6 @@
       stylua
       # Telescope
       ripgrep
-
-      clangd
-
     ];
 
     plugins = with pkgs.vimPlugins; [
