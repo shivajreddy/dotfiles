@@ -4,14 +4,61 @@
   ...
 }: {
   imports = [
-  ./ui.nix
-  ./keymaps.nix
+    ./keymaps.nix
+    ./coding.nix
+    ./editor.nix
+    ./ui.nix
+    ./style.nix
+    ./telescope.nix
+    ./treesitter.nix
+    ./harpoon.nix
+    ./folds.nix
+    ./lsp.nix
+    ./format.nix
+    ./lint.nix
+    ./debug.nix
   ];
 
   config = {
-    extraPackages = with pkgs; [
-      lua-language-server
+    globals = {
+      mapleader = " ";
+    };
 
+    clipboard.register = "unnamedplus";
+
+    # options = { # this changed to opts instead of options ??!!
+    opts = {
+      number = true;
+      # colorcolumn = "80";
+      relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
+      wrap = false;
+      swapfile = false; #Undotree
+      backup = false; #Undotree
+      undofile = true;
+      hlsearch = true;
+      incsearch = true;
+      termguicolors = true;
+      scrolloff = 8;
+      signcolumn = "yes";
+      updatetime = 50;
+      foldlevelstart = 99;
+    };
+
+    plugins = {
+      gitsigns.enable = true;
+      tmux-navigator.enable = true;
+      # oil.enable = true;
+      # undotree.enable = true;
+      fugitive.enable = true;
+      # nvim-tree.enable = true;
+    };
+    extraPlugins = with pkgs; [
+      vimPlugins.nvim-web-devicons
+      vimPlugins.LazyVim
+    ];
+    extraPackages = with pkgs; [
       # Formatters
       alejandra
       asmfmt
@@ -27,7 +74,7 @@
       rustfmt
       shfmt
       stylua
-      # Linters.
+      # Linters
       commitlint
       eslint_d
       golangci-lint
@@ -54,125 +101,5 @@
       ripgrep
       rr
     ];
-
-    plugins = {
-      tmux-navigator.enable = true;
-    };
-
-    extraPlugins = [pkgs.vimPlugins.lazy-nvim];
-
-    extraConfigLua = let
-      plugins = with pkgs.vimPlugins; [
-        # LazyVim
-        LazyVim
-        bufferline-nvim
-        cmp-buffer
-        cmp-nvim-lsp
-        cmp-path
-        cmp_luasnip
-        conform-nvim
-        dashboard-nvim
-        dressing-nvim
-        flash-nvim
-        friendly-snippets
-        gitsigns-nvim
-        indent-blankline-nvim
-        lualine-nvim
-        neo-tree-nvim
-        neoconf-nvim
-        neodev-nvim
-        noice-nvim
-        nui-nvim
-        nvim-cmp
-        nvim-lint
-        nvim-lspconfig
-        nvim-notify
-        nvim-spectre
-        nvim-treesitter
-        nvim-treesitter-context
-        nvim-treesitter-textobjects
-        nvim-ts-autotag
-        nvim-ts-context-commentstring
-        nvim-web-devicons
-        persistence-nvim
-        plenary-nvim
-        telescope-fzf-native-nvim
-        telescope-nvim
-        todo-comments-nvim
-        # tokyonight-nvim
-        trouble-nvim
-        vim-illuminate
-        vim-startuptime
-        which-key-nvim
-        tmux-navigator  # NOTE: I added this
-        {
-          name = "LuaSnip";
-          path = luasnip;
-        }
-        {
-          name = "catppuccin";
-          path = catppuccin-nvim;
-        }
-        {
-          name = "mini.ai";
-          path = mini-nvim;
-        }
-        {
-          name = "mini.bufremove";
-          path = mini-nvim;
-        }
-        {
-          name = "mini.comment";
-          path = mini-nvim;
-        }
-        {
-          name = "mini.indentscope";
-          path = mini-nvim;
-        }
-        {
-          name = "mini.pairs";
-          path = mini-nvim;
-        }
-        {
-          name = "mini.surround";
-          path = mini-nvim;
-        }
-      ];
-      mkEntryFromDrv = drv:
-        if lib.isDerivation drv
-        then {
-          name = "${lib.getName drv}";
-          path = drv;
-        }
-        else drv;
-      lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
-    in ''
-      require("lazy").setup({
-        defaults = {
-          lazy = true,
-        },
-        dev = {
-          -- reuse files from pkgs.vimPlugins.*
-          path = "${lazyPath}",
-          patterns = { "." },
-          -- fallback to download
-          fallback = true,
-        },
-        spec = {
-          { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = {colorscheme = 'catppuccin'} },
-          -- The following configs are needed for fixing lazyvim on nix
-          -- force enable telescope-fzf-native.nvim
-          { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
-          -- disable mason.nvim, use config.extraPackages
-          { "williamboman/mason-lspconfig.nvim", enabled = false },
-          { "williamboman/mason.nvim", enabled = false },
-          -- uncomment to import/override with your plugins
-          -- NOTE: not sure how this works ??? usually this is the lua file, but whats this doing in nixvim 
-          { import = "plugins" },
-          -- put this line at the end of spec to clear ensure_installed
-          { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
-        },
-      })
-    '';
   };
 }
