@@ -88,7 +88,6 @@
       ripgrep
       rr
     ];
-  };
 
   extraConfigLua = ''
       require("lazy").setup({
@@ -115,4 +114,7 @@
         },
       })
   '';
+
+  };
+
 }
