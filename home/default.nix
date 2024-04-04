@@ -43,7 +43,6 @@ in {
     zsh
     # nvim_with_nixvim
 
-
     firefox
     brave
     google-chrome
