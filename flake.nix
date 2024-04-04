@@ -12,14 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # /*
-         NIXVIM
-      nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-    #
-    */
+    # /* NIXVIM
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # */
 
     # Other Flakes...
     # /* Testing onedark theme flake
@@ -65,7 +63,7 @@
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
-          # inputs.nixvim.homeManagerModules.nixvim
+          inputs.nixvim.homeManagerModules.nixvim
         ];
 
         extraSpecialArgs = {inherit inputs;};
