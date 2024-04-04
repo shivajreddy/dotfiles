@@ -109,6 +109,7 @@
         },
         spec = {
           -- This ensures that lazyvim will install all the plugins
+          -- Should you use lazyvim to set up the plugins for you?
           -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
           -- The following configs are needed for fixing lazyvim on nix
