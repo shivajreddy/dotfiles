@@ -1,3 +1,8 @@
+{ config, lib, pkgs, ... }:
+
+{
+  imports = [];
+
 # Define Waybar
       programs.waybar = let
         # Sway workspaces
@@ -450,3 +455,4 @@
           }
 	'';
       };
+}
