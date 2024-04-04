@@ -142,7 +142,7 @@ in {
     ];
   };
 
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./config;
+  xdg.configFile."nvimx" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./configx;
   };
 }
