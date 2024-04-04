@@ -40,7 +40,10 @@
       config.allowUnfree = true;
     };
   in {
+
     nixosConfigurations = {
+
+      # P R E D A T O R
       predator = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
         inherit system;
@@ -48,6 +51,8 @@
           (./. + "/hosts/predator/configuration.nix")
         ];
       };
+
+      # T A R S
       tars = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
         inherit system;
