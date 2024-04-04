@@ -95,7 +95,7 @@
 
     # /*
     extraConfigLua = ''
-        require("neo-conf").setup({})
+        -- require("neo-conf").setup({})
         require("lazy").setup({
           defaults = {
             lazy = true,
