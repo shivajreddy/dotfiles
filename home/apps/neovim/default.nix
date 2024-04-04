@@ -16,6 +16,8 @@
       cmake-language-server
       pyright
       rust-analyzer
+      rustc
+      cargo
 
 
       /* These worked with nixvim
