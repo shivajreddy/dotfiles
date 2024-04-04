@@ -1,4 +1,3 @@
---[[
 return {
 	-- lazy.nvim
 	{
@@ -16,7 +15,8 @@ return {
 		},
 	},
 }
---]]
+
+--[[
 return {
 	require("noice").setup({
 		lsp = {
@@ -28,3 +28,4 @@ return {
 		},
 	}),
 }
+--]]
