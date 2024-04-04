@@ -39,7 +39,6 @@
     };
 
     plugins = {
-      gitsigns.enable = true; tmux-navigator.enable = true;
       # oil.enable = true;
       # undotree.enable = true;
       fugitive.enable = true;

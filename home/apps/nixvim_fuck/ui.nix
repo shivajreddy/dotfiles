@@ -4,6 +4,8 @@
   ...
 }: {
   plugins = {
+
+	 # Comment
     comment = {
       enable = true;
       settings = {
