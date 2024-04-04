@@ -92,36 +92,35 @@
       rr
     ];
 
-# /*
-  extraConfigLua = ''
-      require("lazy").setup({
-        defaults = {
-          lazy = true,
-        },
-        spec = {
-          -- This ensures that lazyvim will install all the plugins
-          -- Should you use lazyvim to set up the plugins for you?
-          { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    # /*
+    extraConfigLua = ''
+        require("lazy").setup({
+          defaults = {
+            lazy = true,
+          },
+          spec = {
+            -- This ensures that lazyvim will install all the plugins
+            -- Should you use lazyvim to set up the plugins for you?
+            { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-          -- The following configs are needed for fixing lazyvim on nix
-          -- force enable telescope-fzf-native.nvim
-          { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
+            -- The following configs are needed for fixing lazyvim on nix
+            -- force enable telescope-fzf-native.nvim
+            { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
 
-          -- disable mason.nvim, use config.extraPackages
-          { "williamboman/mason-lspconfig.nvim", enabled = false },
-          { "williamboman/mason.nvim", enabled = false },
+            -- disable mason.nvim, use config.extraPackages
+            { "williamboman/mason-lspconfig.nvim", enabled = false },
+            { "williamboman/mason.nvim", enabled = false },
 
-          -- uncomment to import/override with your plugins
-          -- Use xdg to copy the ./cnfig/nvim folder in which you have directories like this https://github.com/LazyVim/starter
-          { import = "plugins" },
+            -- uncomment to import/override with your plugins
+            -- Use xdg to copy the ./cnfig/nvim folder in which you have directories like this https://github.com/LazyVim/starter
+            { import = "plugins" },
 
-          -- put this line at the end of spec to clear ensure_installed
-          { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
-        },
-      })
-  '';
-# */
-
+            -- put this line at the end of spec to clear ensure_installed
+            { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+          },
+        })
+    '';
+    # */
 
   };
 
