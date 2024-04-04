@@ -44,6 +44,7 @@
       # oil.enable = true;
       # undotree.enable = true;
       fugitive.enable = true;
+      fzf-lua.enable = true;
       # nvim-tree.enable = true;
     };
     extraPlugins = with pkgs; [
