@@ -104,6 +104,7 @@
         vim-illuminate
         vim-startuptime
         which-key-nvim
+        tmux-navigator  # NOTE: I added this
         {
           name = "LuaSnip";
           path = luasnip;
