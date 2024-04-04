@@ -48,6 +48,7 @@
     };
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
+      vimPlugins.telescope-fzf-native-nvim
     ];
     extraPackages = with pkgs; [
       # LSP
