@@ -56,6 +56,7 @@
 
     plugins = {
       tmux-navigator.enable = true;
+      cmp-nvim-lsp.enable = true;
     };
 
     extraPlugins = [pkgs.vimPlugins.lazy-nvim];
