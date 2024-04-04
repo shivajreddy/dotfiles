@@ -8,6 +8,8 @@ return {
 			},
 		},
 
+		presets = { bottom_search = true },
+
 		format = {
 			cmdline = { pattern = "^:", icon = "", lang = "vim" },
 			search_down = { kind = "search", pattern = "^/", icon = "🔍", lang = "regex" },
