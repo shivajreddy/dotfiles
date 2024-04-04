@@ -33,7 +33,7 @@ in {
     # (./. + "/themes/qt/qt.nix")
 
     # (./. + "/apps/neovim")
-    # (./. + "/apps/myneovim")
+    (./. + "/apps/myneovim")
 
     # (./. + "/apps/nvim/default.nix")
     # (./. + "/apps/nixvim/default.nix")
