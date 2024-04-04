@@ -19,6 +19,7 @@
 
 
       /* These worked with nixvim
+       * # so look at https://github.com/nix-community/nixvim/blob/main/plugins/lsp/language-servers/default.nix
       bashls.enable = true;
       clangd.enable = true;
       cmake.enable = true;
