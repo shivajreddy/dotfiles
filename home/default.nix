@@ -116,7 +116,7 @@ in {
 
   # /*
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./apps/nixvim_new/config/;
+    source = config.lib.file.mkOutOfStoreSymlink ./apps/nixvim_new/config/
   };
   # */
 }
