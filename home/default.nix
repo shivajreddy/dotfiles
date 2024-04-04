@@ -4,7 +4,8 @@
   inputs,
   ...
 }: let
-  neovimconfig = import ./apps/nixvim;
+  # neovimconfig = import ./apps/nixvim;
+  neovimconfig = import ./apps/nixvim-bak;
   nvim_with_nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
     module = neovimconfig;
@@ -115,10 +116,10 @@ in {
     nodejs_21
   ];
 
-  /*
+  # /*
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink ./configx;
   };
-  */
+  # */
 
 }
