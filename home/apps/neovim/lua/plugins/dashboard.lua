@@ -2,7 +2,7 @@ return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
 	opts = function()
-		local log = [[
+		local logo = [[
           _____                    _____                    _____                    _____                    _____          
          /\    \                  /\    \                  /\    \                  /\    \                  /\    \         
         /::\    \                /::\____\                /::\    \                /::\____\                /::\    \        
