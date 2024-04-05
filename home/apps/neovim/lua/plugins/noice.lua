@@ -10,7 +10,6 @@ return {
 			},
 		},
 
-		--[[
 		presets = { bottom_search = true },
 
 		popupmenu = {
@@ -18,6 +17,7 @@ return {
 			backend = "nui",
 			kind_icons = false,
 		},
+		--[[
     --]]
 
 		format = {
