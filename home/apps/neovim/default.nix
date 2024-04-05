@@ -103,6 +103,8 @@
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
+
+          obsidian-nvim
         ];
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
