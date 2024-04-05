@@ -12,6 +12,7 @@ return {
 
 		presets = { bottom_search = true },
 
+		--[[
 		views = {
 			cmdline_popup = {
 				border = {
@@ -24,14 +25,13 @@ return {
 				},
 			},
 		},
+    --]]
 
 		popupmenu = {
 			enabled = true,
 			backend = "nui",
 			kind_icons = false,
 		},
-		--[[
-    --]]
 
 		format = {
 			cmdline = { pattern = "^:", icon = " ", lang = "vim" },
