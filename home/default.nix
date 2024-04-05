@@ -21,7 +21,7 @@ in {
     (./. + "/apps/alacritty/alacritty.nix")
     (./. + "/apps/starship/starship.nix")
     (./. + "/apps/hyprland/hyprland.nix")
-    (./. + "/apps/waybar")
+    # (./. + "/apps/waybar")
     # (./. + "/apps/waybar/test.nix")
     (./. + "/themes/gtk/gtk.nix")
     # (./. + "/themes/qt/qt.nix")
