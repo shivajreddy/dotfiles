@@ -4,13 +4,6 @@
   inputs,
   ...
 }: let
-/*
-  neovimconfig = import ./apps/nixvim_fuck;
-  nvim_with_nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-    inherit pkgs;
-    module = neovimconfig;
-  };
-  */
 in {
   # Main settings
   home.username = "shiva";
@@ -41,7 +34,6 @@ in {
 
   home.packages = with pkgs; [
     zsh
-    # nvim_with_nixvim
 
     firefox
     brave
@@ -66,6 +58,7 @@ in {
     xfce.thunar-volman
     xfce.tumbler
     nomacs
+    swappy
 
     # Streaming
     obs-studio
