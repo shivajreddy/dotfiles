@@ -1,53 +1,55 @@
-@define-color background rgb({background.rgb});
-@define-color backgroundAlpha rgba({background.rgb},0.5);
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
 
-@define-color foreground rgb({foreground.rgb});
-@define-color foregroundAlpha rgba({foreground.rgb},0.5);
+@define-color background #1e1e2e;
+@define-color backgroundAlpha #1e1e2e;
 
-@define-color color0 rgb({color0.rgb});
-@define-color color0Alpha rgba({color0.rgb},0.5);
-
-@define-color color1 rgb({color1.rgb});
-@define-color color1Alpha rgba({color1.rgb},0.5);
-
-@define-color color2 rgb({color2.rgb});
-@define-color color2Alpha rgba({color2.rgb},0.5);
-
-@define-color color3 rgb({color3.rgb});
-@define-color color3Alpha rgba({color3.rgb},0.5);
-
-@define-color color4 rgb({color4.rgb});
-@define-color color4Alpha rgba({color4.rgb},0.5);
-
-@define-color color5 rgb({color5.rgb});
-@define-color color5Alpha rgba({color5.rgb},0.5);
-
-@define-color color6 rgb({color6.rgb});
-@define-color color6Alpha rgba({color6.rgb},0.5);
-
-@define-color color7 rgb({color7.rgb});
-@define-color color7Alpha rgba({color7.rgb},0.5);
-
-@define-color color8 rgb({color8.rgb});
-@define-color color8Alpha rgba({color8.rgb},0.5);
-
-@define-color color9 rgb({color9.rgb});
-@define-color color9Alpha rgba({color9.rgb},0.5);
-
-@define-color color10 rgb({color10.rgb});
-@define-color color10Alpha rgba({color10.rgb},0.5);
-
-@define-color color11 rgb({color11.rgb});
-@define-color color11Alpha rgba({color11.rgb},0.5);
-
-@define-color color12 rgb({color12.rgb});
-@define-color color12Alpha rgba({color12.rgb},0.5);
-
-@define-color color13 rgb({color13.rgb});
-@define-color color13Alpha rgba({color13.rgb},0.5);
-
-@define-color color14 rgb({color14.rgb});
-@define-color color14Alpha rgba({color14.rgb},0.5);
-
-@define-color color15 rgb({color15.rgb});
-@define-color color15Alpha rgba({color15.rgb},0.5);
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color mantle #181825;
+@define-color crust #11111b;
