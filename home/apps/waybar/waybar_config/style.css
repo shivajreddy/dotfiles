@@ -2,8 +2,8 @@
 
 :root {
   /* Background Colors */
-  --background: rgb(255, 255, 255); /* Placeholder for background color */
-  --backgroundAlpha: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  --background: #1e1e2e; /* Placeholder for background color */
+  --backgroundAlpha: #1e1e2e; /* Semi-transparent background */
 
   /* Foreground Colors */
   --foreground: rgb(0, 0, 0); /* Placeholder for foreground color */
