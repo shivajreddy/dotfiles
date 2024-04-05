@@ -58,6 +58,8 @@ in {
     xfce.thunar-volman
     xfce.tumbler
     nomacs
+    grim
+    slurp
     swappy
 
     # Streaming
