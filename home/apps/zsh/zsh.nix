@@ -31,7 +31,7 @@ in {
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
-    interactiveShellInit = script1;
+    # interactiveShellInit = script1;
   };
 
   /*
