@@ -1,6 +1,6 @@
 /* @import url("../../.cache/wal/colors-gtk3.css"); */
 
-:root {
+* {
   /* Background Colors */
   --background: #1e1e2e; /* Placeholder for background color */
   --backgroundAlpha: #1e1e2e; /* Semi-transparent background */
