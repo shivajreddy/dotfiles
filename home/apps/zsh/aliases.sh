@@ -4,8 +4,9 @@ dots() {
 }
 
 osbuild(){
-  # sudo nixos-rebuild switch --flake ~dotfiles$1
-  echo $(hostname)
+  # echo $(hostname)
+  # sudo nixos-rebuild switch --flake ~dotfiles\#$()
+  echo dotfiles\#$(hostname)
 }
 
 
