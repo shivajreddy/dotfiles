@@ -9,7 +9,7 @@ return {
 				alpha = true,
 				cmp = true,
 				dashboard = true,
-				flash = false,
+				flash = true,
 				gitsigns = true,
 				headlines = true,
 				illuminate = true,

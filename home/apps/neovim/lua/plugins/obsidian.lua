@@ -11,7 +11,7 @@ return {
 			workspaces = {
 				{
 					name = "ObsidianVault",
-					path = "/Users/andrew/Documents/ObsidianVault",
+					path = "/home/shiva/pCloudDrive/Files/ObsidianVault/",
 				},
 			},
 			completion = {
