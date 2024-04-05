@@ -3,7 +3,7 @@
 
 * {
   border: none;
-	font-family: 'Roboto Mono Nerd';
+	font-family: 'JetBrains Mono Nerd';
 	font-size: 14px;
 	margin: 2px;
 }
@@ -19,19 +19,20 @@
 */
 
 window{
-	border: solid 2px;
+	border: none;
 	border-color: @pink;
 	border-radius: 100px;
 }
 
 window#waybar{
+  margin: 0px;
 	background: @base;
-    color: @text;
-    border-radius: 100px;
+  color: @text;
+  border-radius: 100px;
 }
 
 window#waybar > box{
-    border-radius: 100px;
+  border-radius: 100px;
 	box-shadow: 0px 0px 0px @mantle;
 }
 
@@ -55,8 +56,8 @@ tooltip{
     padding: 0px 5px;
     margin: 0px 5px;
     border-radius: 100px;
-    color: @sapphire;
-    background: @sapphire;
+    color: @pink;
+    background: @crust;
     transition: all 0.3s cubic-bezier(.11, 1.09, .6, .96);
 }
 
