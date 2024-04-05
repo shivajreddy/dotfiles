@@ -1,7 +1,6 @@
 return {
 	require("noice").setup({
 
-		--[[
 		lsp = {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -10,6 +9,7 @@ return {
 			},
 		},
 
+		--[[
 		presets = { bottom_search = true },
 
 		popupmenu = {
