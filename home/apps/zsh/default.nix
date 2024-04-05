@@ -1,7 +1,7 @@
 {pkgs, ...}: let
 
   # My Scripts
-  script1 = pkgs.lib.readFile ./script1.sh;
+  aliases_script = pkgs.lib.readFile ./aliases.sh;
 
   # My shell aliases
   myAliases = {
@@ -30,7 +30,7 @@ in {
       PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-      ${script1}
+      ${aliases_script}
     '';
   };
 
