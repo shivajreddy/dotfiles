@@ -54,6 +54,7 @@
           cmp-buffer
           cmp-nvim-lsp
           cmp-path
+          cmp-cmdline
           cmp_luasnip
           conform-nvim
           dashboard-nvim
