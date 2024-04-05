@@ -1,3 +1,4 @@
+--[[
 return {
 	require("noice").setup({
 
@@ -9,7 +10,6 @@ return {
 			},
 		},
 
-		--[[
 		presets = { bottom_search = true },
 
 		popupmenu = {
@@ -17,7 +17,6 @@ return {
 			backend = "nui",
 			kind_icons = false,
 		},
-    --]]
 
 		format = {
 			cmdline = { pattern = "^:", icon = "󰘳 ", lang = "vim" },
@@ -30,6 +29,27 @@ return {
 			input = {}, -- Used by input()
 		},
 	}),
+}
+--]]
+
+return {
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	opts = {
+		routes = {
+			{
+				filter = { event = "notify", find = "No information available" },
+				opts = { skip = true },
+			},
+		},
+		presets = {
+			lsp_doc_border = true,
+		},
+	},
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify",
+	},
 }
 
 --[[
