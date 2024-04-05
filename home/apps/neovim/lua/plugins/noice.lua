@@ -10,11 +10,13 @@ return {
 
 		presets = { bottom_search = true },
 
+		--[[
 		popupmenu = {
 			enabled = true,
 			backend = "nui",
 			kind_icons = false,
 		},
+    --]]
 
 		format = {
 			cmdline = { pattern = "^:", icon = "", lang = "vim" },
