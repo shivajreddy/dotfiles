@@ -1,5 +1,6 @@
 return {
-	require("noice").setup({
+	"folke/noice.nvim",
+	opts = {
 
 		lsp = {
 			override = {
@@ -29,7 +30,7 @@ return {
 			help = { pattern = "^:%s*he?l?p?%s+", icon = "?" },
 			input = {}, -- Used by input()
 		},
-	}),
+	},
 }
 
 --[[
