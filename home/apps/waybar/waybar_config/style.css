@@ -19,6 +19,7 @@
 */
 
 window{
+  margin: 0px;
 	border: none;
 	border-color: @pink;
 	border-radius: 100px;

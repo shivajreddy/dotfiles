@@ -8,6 +8,7 @@
     enable = true;
   };
 
-  xdg.configFile."waybar".source = ./waybar_config;
+  # remvoing this to test locally for now
+  # xdg.configFile."waybar".source = ./waybar_config;
 
 }
