@@ -1,0 +1,3 @@
+kill waybar
+exec waybar
+

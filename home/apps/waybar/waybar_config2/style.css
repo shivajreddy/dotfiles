@@ -1,0 +1,99 @@
+window#waybar {
+  background: transparent;
+  color: #FDF5E6;
+}
+
+window > box {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: rgba(5,9,40,0.4);
+}
+
+* {
+    font-family: "JetBrains Mono Font";
+    min-height: 28px;
+    border-radius: 15px;
+}
+
+#custom-arch {
+  background-color: transparent;
+  font-size: 20px;
+  padding-top: 1px;
+  padding-right: 10px;
+  color: #FFFFFF;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+#workspaces {
+  border-radius: 0px;
+  background-color: transparent;
+  margin-right: 20px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#workspaces button {
+  font-size: 22px;
+  background: transparent;
+  color: #FFFFFF;
+}
+
+#workspaces button.active {
+  font-size: 22px;
+  background: rgba(5,9,40,0.6);
+  color: #FFFFFF;
+  border-radius: 15px;
+}
+
+#pulseaudio {
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#network {
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#clock {
+  font-size: 17px;
+  background-color: transparent;
+  color:#FFFFFF;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0px;
+}
+
+.custom-spotify {
+    font-size: 17px;
+    padding-left: 10px;
+    padding-right: 15px;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+#tray {
+    font-size: 17px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+#memory {
+    font-size: 17px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
