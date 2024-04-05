@@ -1,0 +1,96 @@
+window#waybar {
+  background: transparent;
+  color: #d5c4a1;
+}
+
+window > box {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #282828;
+}
+
+* {
+    font-family: "Mononoki Nerd Font";
+    font-size: 17px;
+    min-height: 25px;
+}
+
+#custom-arch {
+  background-color: #83c092;
+  margin-right: 0px;
+  padding-top: 1px;
+  padding-left: 0px;
+  padding-right: 10px;
+  margin-left: 10px;
+  color: #282828;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+#workspaces {
+  border-radius: 0px;
+  background-color: #1D327F;
+  margin-right: 20px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 5px;
+  opacity: 0.6;
+}
+
+#workspaces button {
+  background: ;
+  color: #d5c4a1;
+  opacity: 0.9;
+}
+
+#workspaces button.active{
+  background: #3c3836;
+  color: #d5c4a1;
+  border-radius: 0px;
+}
+
+#pulseaudio {
+  background-color: #cc241d;
+  color: #282828;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#network {
+  background-color: #83a598;
+  color: #282828;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#clock {
+  background-color: #b8bb26;
+  color:#282828;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0px;
+}
+
+.custom-spotify {
+    font-size: 17px;
+    padding-left: 10px;
+    padding-right: 15px;
+    background-color: #282828;
+    color: #8ec07c;
+}
+
+#tray {
+    background-color: #d79921;
+    color: #282828;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#memory {
+    background-color: #fe8019;
+    color: #282828;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
