@@ -1,3 +1,0 @@
-kill waybar
-exec waybar
-

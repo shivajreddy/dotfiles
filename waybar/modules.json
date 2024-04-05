@@ -30,12 +30,7 @@
     "group/system": {
         "orientation": "horizontal",
         "transition-duration": 300,
-        "drawer": {
-            "transition-left-to-right": "false",
-            "transition-duration": 300
-        },
         "modules": [
-            "battery",
             "cpu",
             "memory"
         ]
@@ -67,24 +62,49 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
-    "custom/randpaper": {
-            "on-click": "export SWWW_TRANSITION_POS=$(hyprctl cursorpos) && hywal $(find $HOME/Pictures/Wallpapers/favorites | sort -R |  tail -n 1)",
-            "format": " 󰏘 ",
-           	"tooltip": "false"
-        },
+
+    /*
     "clock": {
-        "format": " {:%H:%M}",
+        "format": " {:%a %d %b %H:%M}",
         "format-alt": " {:%a %d %b %H:%M}",
         "tooltip": "true",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    */
+    "clock": {
+        "format": " {:%a %d %b %H:%M}",
+        "format-alt": " {:%a %d %b %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#89b4fa'><b>{}</b></span>",
+                              "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+                              // "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#f2cdcd'><b>{}</b></span>",
+                              "today":      "<span color='#f38ba8'><b>{}</b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
     "network": {
-        "on-click": "foot -e nmtui",
+        // "on-click": "zsh nmtui",
         "format-disconnected": "󰖪 0% ",
         "format-ethernet": "󰈀 100% ",
         "format-linked": "{ifname} (No IP)",
-        "format-wifi": "  {signalStrength}%",
-        "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}"
+        "format-wifi": " ",
+        "tooltip-format": "{essid} {ifname} {gwaddr}"
     },
     "position": "top",
     "pulseaudio": {
@@ -126,11 +146,6 @@
         },
         "max-length": 60,
         "interval": 1
-    },
-    "custom/pomodoro": {
-    	"format": "{}",
-    	"exec": "tomato -t",
-    	"interval": 1
     },
     "mpd": {
         "format": "MPD • {stateIcon}{consumeIcon} {randomIcon} {repeatIcon} {singleIcon} {artist}  {title}  {album} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
@@ -180,12 +195,4 @@
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-scroll-up": "hyprctl dispatch workspace e-1"
     },
-    "group/general": {
-        "orientation": "horizontal",
-        "modules": [
-            "group/system",
-            "group/settings",
-            "custom/notification"
-        ]
-    }
 }

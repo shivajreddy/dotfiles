@@ -1,0 +1,24 @@
+[
+  {
+    "height": 20,
+    "layer": "top",
+    "position": "top",
+    "margin-top": 0,
+    "reload_style_on_change": true,
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+        "group/media"
+    ],
+    "modules-right": [
+        "group/system",
+        "clock",
+        "custom/notification"
+    ]
+  }
+]
