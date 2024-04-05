@@ -5,7 +5,7 @@
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- Obsidian
-vim.vim.keymap.set(
+vim.keymap.set(
 	"n",
 	"<leader>oc",
 	"<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
