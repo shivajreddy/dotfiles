@@ -21,7 +21,7 @@ return {
 
 		format = {
 			cmdline = { pattern = "^:", icon = "󰘳 ", lang = "vim" },
-			search_down = { kind = "search", pattern = "^/", icon = " 🔍 " },
+			--search_down = { kind = "search", pattern = "^/", icon = " 🔍 " },
 			--search_down = { pattern = "^/", icon = " 🔍 " },
 			-- search_up = { kind = "search", pattern = "^%?", icon = " 🔍 ", lang = "regex" },
 			filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
