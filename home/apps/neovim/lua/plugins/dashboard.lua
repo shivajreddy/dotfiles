@@ -31,7 +31,8 @@ return {
             { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
             { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
             {
-              action = [[lua require("lazyvim.util").telescope.config_files()()]],
+              -- action = [[lua require("lazyvim.util").telescope.config_files()()]],
+              action = "Telescope find_files cwd=~/dotfiles/home/apps/neovim/",
               desc = " Config",
               icon = " ",
               key = "c"
