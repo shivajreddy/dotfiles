@@ -17,6 +17,7 @@ return {
 			backend = "nui",
 			kind_icons = false,
 		},
+    --]]
 
 		format = {
 			cmdline = { pattern = "^:", icon = "", lang = "vim" },
@@ -27,7 +28,6 @@ return {
 			help = { pattern = "^:%s*he?l?p?%s+", icon = "?" },
 			input = {}, -- Used by input()
 		},
-    --]]
 	}),
 }
 
