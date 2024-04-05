@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 dots() {
-    cd ~/dotfiles
+    cd /home/shiva/dotfiles/
 }
 
