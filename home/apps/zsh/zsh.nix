@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   # my scripts
-  script1 =  pkgs.lib.readFile ./script1.sh;
+  # script1 =  pkgs.lib.readFile ./script1.sh;
+
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
