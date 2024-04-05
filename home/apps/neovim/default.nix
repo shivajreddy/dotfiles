@@ -149,6 +149,8 @@
     in
     "${parsers}/parser";
 
+  # NOTE: the './lua' (right hand side value in below code) folder next to this file is nix file will be linked to
+  # '.config/nvim/lua' this is the left hand side value of code below
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
   xdg.configFile."nvim/lua".source = ./lua;
 }
