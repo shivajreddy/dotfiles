@@ -22,7 +22,7 @@ in {
   imports = [
     (./. + "/fonts/fonts.nix")
     (./. + "/apps/git.nix")
-    (./. + "/apps/zsh.nix")
+    (./. + "/apps/zsh")
     (./. + "/apps/kitty/kitty.nix")
     (./. + "/apps/tmux/tmux.nix")
     (./. + "/apps/alacritty/alacritty.nix")

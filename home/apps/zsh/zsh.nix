@@ -1,4 +1,6 @@
 {pkgs, ...}: let
+  # my scripts
+  script1 =  pkgs.lib.readFile ./script1.sh;
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
@@ -10,6 +12,7 @@
     gst = "git status .";
     ggpush = "git push -u origin main";
     ggpull = "git pull -u origin main";
+    osrebuild = "sudo nixos-";
     rebuild = "home-manager switch --flake /home/shiva/dotfiles";
     savedots = "cd ~/dotfiles && gaa && gcmsg '.' && ggpush";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
@@ -28,6 +31,7 @@ in {
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
+    interactiveShellInit = script1;
   };
 
   /*
