@@ -1,4 +1,8 @@
 {pkgs, ...}: let
+
+  # My Scripts
+  script1 = pkgs.lib.readFile ./script1.sh;
+
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
@@ -29,6 +33,8 @@ in {
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
   };
+
+  interactiveShellInit = script1;
 
   /*
     programs.bash = {
