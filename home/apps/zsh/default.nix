@@ -21,7 +21,6 @@
 in {
   programs.zsh = {
     enable = true;
-    # enableAutosuggestions = true;
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
@@ -31,10 +30,10 @@ in {
       PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+      ${script1}
     '';
   };
 
-  interactiveShellInit = script1;
 
   /*
     programs.bash = {
@@ -48,10 +47,6 @@ in {
   home.packages = with pkgs; [
     direnv
     nix-direnv
-    # disfetch lolcat cowsay onefetch
-    # gnugrep gnused
-    # bat eza bottom fd bc
-    # direnv nix-direnv
   ];
 
   programs.direnv = {
@@ -59,4 +54,5 @@ in {
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
 }
