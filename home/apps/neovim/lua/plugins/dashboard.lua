@@ -39,7 +39,7 @@ return {
               icon = " ",
               key = "c"
             },
-            { action = "Telescope find_files cwd=~/dotfiles/home/", desc = " Config", icon = " ", key = "h" },
+            { action = "Telescope find_files cwd=~/dotfiles/home/", desc = " Home Manager", icon = " ", key = "h" },
             { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
             { action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
             { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
