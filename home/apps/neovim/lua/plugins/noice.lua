@@ -1,4 +1,3 @@
---[[
 return {
 	require("noice").setup({
 
@@ -30,8 +29,8 @@ return {
 		},
 	}),
 }
---]]
 
+--[[
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
@@ -51,6 +50,7 @@ return {
 		"rcarriga/nvim-notify",
 	},
 }
+--]]
 
 --[[
   plugins = {
