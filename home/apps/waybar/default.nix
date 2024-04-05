@@ -8,6 +8,6 @@
     enable = true;
   };
 
-  xdg.configFile."nvim/lua".source = ./lua;
+  xdg.configFile."waybar".source = ./waybar_config;
 
 }
