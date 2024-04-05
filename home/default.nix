@@ -52,6 +52,7 @@ in {
     htop
     btop
     swww
+    swaynotificationcenter
     localsend
 
     xfce.thunar
