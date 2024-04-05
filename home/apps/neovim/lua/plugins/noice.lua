@@ -1,5 +1,7 @@
 return {
 	require("noice").setup({
+
+		--[[
 		lsp = {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -25,6 +27,7 @@ return {
 			help = { pattern = "^:%s*he?l?p?%s+", icon = "?" },
 			input = {}, -- Used by input()
 		},
+    --]]
 	}),
 }
 
