@@ -47,6 +47,10 @@
 
     extraLuaConfig =
       let
+        # NOTE: 1. These are the plugins that we are using nix to install directly instead of
+        # lazyvim to install them, since they are used in lazyvim config, and which would get 
+        # executed when require("lazy").setup({spec= { "LazyVim/LazyVim", import = "lazyvim.plugins" }, }) 
+        # is called and this is called in this extraLuaConfig attribute for 'neovim' program
         plugins = with pkgs.vimPlugins; [
           # LazyVim
           LazyVim
@@ -107,6 +111,11 @@
             drv;
         lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
       in
+      # NOTE 2: These settings are important to ensure lazyvim is setup properly for nix
+      # Especially, the treesitter and LSP should be installed through nix, not lazyvim
+      # we are installing the plugins also through nix (however if we werent installing any or some), those 
+      # would be installed by lazy, but the reason to install them trhrough nix is because of caching done by nix,
+      # and it makes it faster to install them the nix way.
       ''
         require("lazy").setup({
           defaults = {
@@ -136,6 +145,9 @@
       '';
   };
 
+  # NOTE 3: make sure to given an emtpty table as the input for 'ensure_installed' in the nvim-treesitter setup, that
+  # you can see in the above extraLuaConfig attribute, this ensures that the nvim-treesitter wont install any treesitter
+  # plugins, and now we can 1. install them trhough nix and 2. symlink them using xdg
   # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
   xdg.configFile."nvim/parser".source =
     let
@@ -144,12 +156,16 @@
         paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           lua
+          cpp
+          rust
+          python
         ])).dependencies;
       };
     in
     "${parsers}/parser";
 
-  # NOTE: the './lua' (right hand side value in below code) folder next to this file is nix file will be linked to
+  # NOTE 4: This makes our custom lua config files, which is the beaty of just using lua files the regular way.
+  # the './lua' (right hand side value in below code) folder next to this file is nix file will be linked to
   # '.config/nvim/lua' this is the left hand side value of code below
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
   xdg.configFile."nvim/lua".source = ./lua;
