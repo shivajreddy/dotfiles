@@ -15,21 +15,17 @@ in {
   imports = [
     (./. + "/fonts/fonts.nix")
     (./. + "/apps/git.nix")
-    (./. + "/apps/zsh")
-    (./. + "/apps/kitty/kitty.nix")
-    (./. + "/apps/tmux/tmux.nix")
+
     (./. + "/apps/alacritty/alacritty.nix")
+    (./. + "/apps/kitty/kitty.nix")
+    (./. + "/apps/zsh")
+    (./. + "/apps/neovim")
+    (./. + "/apps/tmux/tmux.nix")
     (./. + "/apps/starship/starship.nix")
+
     (./. + "/apps/hyprland/hyprland.nix")
     (./. + "/apps/waybar")
-    # (./. + "/apps/waybar/test.nix")
     (./. + "/themes/gtk/gtk.nix")
-    # (./. + "/themes/qt/qt.nix")
-
-    (./. + "/apps/neovim")
-
-    # (./. + "/apps/nvim/default.nix")
-    # (./. + "/apps/nixvim/default.nix")
   ];
 
   home.packages = with pkgs; [
