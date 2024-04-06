@@ -49,6 +49,7 @@ in {
     btop
     swww
     swaynotificationcenter
+    swaylock
     localsend
 
     xfce.thunar
