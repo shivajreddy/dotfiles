@@ -8,6 +8,6 @@
   };
 
   xdg.configFile."waybar".source = ./waybar_config;
-  xdg.configFile."swaync".source = ../swaync/swaync_config/;
+  xdg.configFile."swaync".source = ../swaync/swaync_config;
 
 }
