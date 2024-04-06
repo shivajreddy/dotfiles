@@ -1,4 +1,5 @@
 return {
+	--  catppuccin
 	{
 		"catppuccin/nvim",
 		lazy = true,
@@ -42,11 +43,14 @@ return {
 		},
 	},
 
-	-- Configure LazyVim to load catppuccin
+	-- Rose Pine
+	{ "rose-pine/neovim", name = "rose-pine" },
+
+	-- Configure LazyVim to load the colorscheme
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "catppuccin",
+			colorscheme = "rose-pine",
 		},
 	},
 }
