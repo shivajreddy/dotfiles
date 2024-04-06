@@ -39,7 +39,6 @@
       rustup
       rustc
       cargo
-
     ];
 
     plugins = with pkgs.vimPlugins; [

@@ -101,10 +101,10 @@ in {
     #jetbrains.pycharm-professional
     #jetbrains.webstorm
 
-    # lua
+    lua
     # rust-analyzer
     # rnix-lsp
-    # rustup
+    rustup
     python3
     nodejs_21
   ];
