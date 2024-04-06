@@ -36,6 +36,7 @@
       cmake-language-server
       pyright
       rust-analyzer
+      rustup
       rustc
       cargo
 
