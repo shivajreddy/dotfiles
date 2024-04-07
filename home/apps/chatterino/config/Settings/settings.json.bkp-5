@@ -1,0 +1,24 @@
+{
+  "appearance": {
+    "messages": {
+      "lastMessageColor": "#f5c2e7",
+      "showLastMessageIndicator": true
+    },
+    "theme": {
+      "name": "mocha-pink.json"
+    }
+  },
+  "highlighting": {
+    "elevatedMessageHighlight": {
+      "color": "#3cf9e2af"
+    },
+    "firstMessageHighlightColor": "#3ca6e3a1",
+    "redeemedHighlightColor": "#3c94e2d5",
+    "selfHighlightColor": "#7ff38ba8",
+    "selfMessageHighlight": {
+      "color": "#fff5c2e7"
+    },
+    "subHighlightColor": "#64cba6f7",
+    "threadHighlightColor": "#3cf38ba8"
+  }
+}

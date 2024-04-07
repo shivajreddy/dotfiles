@@ -1,0 +1,34 @@
+{
+    "windows": [
+        {
+            "emotePopup": {
+                "x": 0,
+                "y": 0
+            },
+            "height": 605,
+            "state": "maximized",
+            "tabs": [
+                {
+                    "highlightsEnabled": true,
+                    "selected": true,
+                    "splits2": {
+                        "data": {
+                            "name": "leetguru",
+                            "type": "twitch"
+                        },
+                        "filters": [
+                        ],
+                        "flexh": 1,
+                        "flexv": 1,
+                        "moderationMode": false,
+                        "type": "split"
+                    }
+                }
+            ],
+            "type": "main",
+            "width": 337,
+            "x": 0,
+            "y": 0
+        }
+    ]
+}
