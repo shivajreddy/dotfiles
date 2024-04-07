@@ -17,6 +17,7 @@
     rebuild = "home-manager switch --flake /home/shiva/dotfiles";
     savedots = "cd ~/dotfiles && gaa && gcmsg '.' && ggpush";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
+    todo = "cd ~/todo && vi todo.md"
   };
 in {
   programs.zsh = {
