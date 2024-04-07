@@ -26,6 +26,8 @@ in {
     (./. + "/apps/hyprland/hyprland.nix")
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
+
+    (./. + "/apps/chatterino")
   ];
 
   home.packages = with pkgs; [
