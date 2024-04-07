@@ -77,7 +77,8 @@ trap "close-port-tcp 7100 && \
 
 # -p flag is for the ports
 # -s is the resolution the programs runs at, which is my ipad resolution
+# Landscape
 # uxplay -p -s 2732x2048
-# uxplay -p -s 2048x2732
-uxplay -p -s 2008x2732
+# Potrait
+uxplay -p -s 2048x2732
 
