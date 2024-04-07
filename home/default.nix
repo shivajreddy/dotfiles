@@ -83,8 +83,8 @@ in {
     gcc
     gnumake
     spotify
-    spotifyd
-    spotify-tui
+    # spotifyd
+    # spotify-tui
     discord
     gtk4
     pamixer
