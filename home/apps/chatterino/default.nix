@@ -2,7 +2,10 @@
 
 {
 
-	programs.chatterino2.enable = true;
+  with pkgs; [
+    chatterino2
+  ];
+	# programs.chatterino2.enable = true;
 
   # xdg.configFile."swaync".source = ../swaync/swaync_config;
   # copy the settings folder into .local/share/chatterino2
