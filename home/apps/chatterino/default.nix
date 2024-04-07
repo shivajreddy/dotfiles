@@ -1,10 +1,6 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-
-  inputs.systemPackages = with pkgs; [
-    chatterino2
-  ];
 
 	# programs.chatterino2.enable = true;
 

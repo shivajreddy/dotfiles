@@ -12,7 +12,7 @@ with pkgs; [
   vlc
   streamlink
   streamlink-twitch-gui-bin
-  # chatterino2 # moving to home-manager
+  chatterino2 
   pcloud
   gnome.gnome-tweaks
   gnome.nautilus
