@@ -2,7 +2,7 @@
 
 {
 
-  environment.systemPackages = with pkgs; [
+  inputs.systemPackages = with pkgs; [
     chatterino2
   ];
 
