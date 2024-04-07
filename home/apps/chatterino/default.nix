@@ -2,15 +2,9 @@
 
 {
 
-  # install the system package: chatterino2
-  inputs.nixpkgs = [
+  environment.systemPackages = with pkgs; [
     chatterino2
   ];
-  /*
-  with pkgs; [
-    chatterino2
-  ];
-  */
 
 	# programs.chatterino2.enable = true;
 
