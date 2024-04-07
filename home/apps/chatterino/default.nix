@@ -2,9 +2,16 @@
 
 {
 
+  # install the system package: chatterino2
+  inputs.pkgs = [
+    chatterino2
+  ];
+  /*
   with pkgs; [
     chatterino2
   ];
+  */
+
 	# programs.chatterino2.enable = true;
 
   # xdg.configFile."swaync".source = ../swaync/swaync_config;
