@@ -3,7 +3,7 @@
 {
 
   # install the system package: chatterino2
-  inputs.pkgs = [
+  inputs.nixpkgs = [
     chatterino2
   ];
   /*
