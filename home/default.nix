@@ -16,8 +16,9 @@ in {
     (./. + "/fonts/fonts.nix")
     (./. + "/apps/git.nix")
 
-    (./. + "/apps/alacritty/alacritty.nix")
-    (./. + "/apps/kitty/kitty.nix")
+    # (./. + "/apps/alacritty/alacritty.nix")
+    (./. + "/apps/kitty")
+    (./. + "/apps/wezterm")
     (./. + "/apps/zsh")
     (./. + "/apps/neovim")
     (./. + "/apps/tmux/tmux.nix")
