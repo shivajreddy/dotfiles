@@ -20,6 +20,11 @@
     # */
 
     # Other Flakes...
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # /* Testing onedark theme flake
     plugin-onedark = {
       url = "github:navarasu/onedark.nvim";

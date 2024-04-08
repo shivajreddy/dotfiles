@@ -26,6 +26,8 @@ in {
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
 
+    (./. + "/apps/spicetify")
+
     (./. + "/apps/chatterino")
   ];
 
