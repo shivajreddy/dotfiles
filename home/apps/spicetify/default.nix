@@ -5,8 +5,8 @@
 }: {
   # themable spotify
   imports = [
-    # inputs.spicetify-nix.homeManagerModule
-    inputs.spicetify-nix
+    inputs.spicetify-nix.homeManagerModule
+    # inputs.spicetify-nix
   ];
 
   programs.spicetify = let
