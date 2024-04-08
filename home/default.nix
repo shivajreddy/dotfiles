@@ -84,7 +84,8 @@ in {
     lf
     gcc
     gnumake
-    spotify
+
+    # spotify
     # spotifyd
     # spotify-tui
     # discord
