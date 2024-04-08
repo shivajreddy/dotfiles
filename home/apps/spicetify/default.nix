@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }: {
   # themable spotify
@@ -11,10 +10,7 @@
 
   programs.spicetify = let
     spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-    variant =
-      if config.theme.name == "light"
-      then "latte"
-      else "mocha";
+    variant = "mocha";
   in {
     enable = true;
 
