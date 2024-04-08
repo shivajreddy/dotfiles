@@ -3,3 +3,5 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
+
+vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
