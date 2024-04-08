@@ -37,9 +37,8 @@ in {
     google-chrome
     qutebrowser
 
-    kitty
-    wezterm
-    starship
+    # kitty
+    # starship
 
     jetbrains-mono
     rofi-wayland
