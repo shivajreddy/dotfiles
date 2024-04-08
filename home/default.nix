@@ -39,8 +39,8 @@ in {
     qutebrowser
 
     kitty
+    wezterm
     starship
-    alacritty
 
     jetbrains-mono
     rofi-wayland
