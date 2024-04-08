@@ -1,3 +1,4 @@
+--[[
 return {
 	"Pocco81/auto-save.nvim",
 	opts = {
@@ -30,5 +31,15 @@ return {
 			before_asserting_save = nil, -- ran before checking `condition`
 			before_saving = nil, -- ran before doing the actual save
 		},
+	},
+}
+--]]
+return {
+	"okuuva/auto-save.nvim",
+	cmd = "ASToggle", -- optional for lazy loading on command
+	event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+	opts = {
+		-- your config goes here
+		-- or just leave it empty :)
 	},
 }
