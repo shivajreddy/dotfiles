@@ -88,6 +88,7 @@ in {
     # spotifyd
     # spotify-tui
     discord
+    webcord
     gtk4
     pamixer
     unzip
