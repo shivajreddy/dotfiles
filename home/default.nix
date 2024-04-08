@@ -86,7 +86,7 @@ in {
     spotify
     # spotifyd
     # spotify-tui
-    discord
+    # discord
     webcord
     gtk4
     pamixer
