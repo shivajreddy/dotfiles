@@ -39,8 +39,9 @@ return {
 	cmd = "ASToggle", -- optional for lazy loading on command
 	event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
 	opts = {
+		-- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+		enabled = false,
 		--[[
-		enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
 		execution_message = {
 			enabled = false,
 			message = function() -- message to print on save
