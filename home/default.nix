@@ -18,7 +18,7 @@ in {
 
     (./. + "/apps/kitty")
     (./. + "/apps/zsh")
-    (./. + "/apps/neovim")
+    # (./. + "/apps/neovim")
     (./. + "/apps/tmux/tmux.nix")
     (./. + "/apps/starship/starship.nix")
 
