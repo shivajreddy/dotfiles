@@ -1,12 +1,10 @@
 { inputs, pkgs, ... }:
 {
-  /*
   imports = [
     inputs.webcord.homeManagerModules.default
   ];
-  */
 
-  pkgs.webcord = {
+  programs.webcord = {
     enable = true;
     themes = let
       catppuccin = pkgs.fetchFromGitHub {
