@@ -1,8 +1,10 @@
 { inputs, pkgs, ... }:
 {
+  /*
   imports = [
     inputs.webcord.homeManagerModules.default
   ];
+  */
 
   programs.webcord = {
     enable = true;
