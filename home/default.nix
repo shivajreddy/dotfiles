@@ -16,6 +16,8 @@ in {
     (./. + "/fonts/fonts.nix")
     (./. + "/apps/git.nix")
 
+    (./. + "/apps/firefox")
+
     (./. + "/apps/kitty")
     (./. + "/apps/zsh")
     (./. + "/apps/neovim")
