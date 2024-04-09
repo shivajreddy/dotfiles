@@ -25,6 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    webcord.url = "github:fufexan/webcord-flake";
+
     # /* Testing onedark theme flake
     plugin-onedark = {
       url = "github:navarasu/onedark.nvim";

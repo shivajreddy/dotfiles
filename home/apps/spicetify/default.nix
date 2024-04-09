@@ -6,7 +6,6 @@ in
   # themable spotify
   imports = [
     inputs.spicetify-nix.homeManagerModule
-    # inputs.spicetify-nix
   ];
 
   programs.spicetify = {
