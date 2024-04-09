@@ -6,7 +6,7 @@
   ];
   */
 
-  programs.webcord = {
+  pkgs.webcord = {
     enable = true;
     themes = let
       catppuccin = pkgs.fetchFromGitHub {
