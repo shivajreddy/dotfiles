@@ -26,6 +26,7 @@ in {
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
 
+    (./. + "/apps/webcord")
     (./. + "/apps/spicetify")
 
     (./. + "/apps/chatterino")
@@ -89,7 +90,7 @@ in {
     # spotifyd
     # spotify-tui
     # discord
-    webcord
+
     gtk4
     pamixer
     unzip
