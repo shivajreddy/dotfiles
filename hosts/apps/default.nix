@@ -14,7 +14,6 @@ with pkgs; [
   streamlink
   streamlink-twitch-gui-bin
   chatterino2
-  # pcloud
   gnome.gnome-tweaks
   gnome.nautilus
   mojave-gtk-theme
