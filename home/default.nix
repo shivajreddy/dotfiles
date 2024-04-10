@@ -86,8 +86,7 @@ in {
     bottom
     pyprland
     lf
-    gcc
-    gnumake
+
 
     # spotify
     # spotifyd
@@ -110,11 +109,12 @@ in {
     #jetbrains.webstorm
 
     lua
-    # rust-analyzer
-    # rnix-lsp
     rustup
     python3
     nodejs_21
+    gcc
+    gnumake
+    go
   ];
 
   /*
