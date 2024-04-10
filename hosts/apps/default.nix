@@ -4,9 +4,7 @@
 # System packages
 with pkgs; [
   discord
-  webcord
-  teams-for-linux
-
+  # webcord
 
   vim
   zsh

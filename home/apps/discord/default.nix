@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 {
 
-  /* WebCord: Using Flake
+  # /* WebCord: Using Flake
   # https://wiki.hyprland.org/Useful-Utilities/App-Clients/
   imports = [
     inputs.webcord.homeManagerModules.default
@@ -38,9 +38,11 @@
   # */
 
 
+  /* Home Packages
   home.packages = with pkgs; [
     webcord
     discord
   ];
+  # */
 
 }
