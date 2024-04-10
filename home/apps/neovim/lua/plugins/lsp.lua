@@ -10,6 +10,7 @@ return {
 				clangd = {},
 				cmake = {},
 				rust_analyzer = {},
+				gopls = {},
 			},
 		},
 	},
