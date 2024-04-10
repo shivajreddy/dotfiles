@@ -16,7 +16,6 @@ in
 
 # System packages
 with pkgs; [
-  discord
   webcord
   pcloudFixes
 

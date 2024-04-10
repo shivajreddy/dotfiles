@@ -91,7 +91,6 @@ in {
     # spotify
     # spotifyd
     # spotify-tui
-    # discord
     # webcord
 
     gtk4
