@@ -26,7 +26,7 @@
   # /* WebCord usinf from packages
   programs.webcord = {
     enable = true;
-    }
+  };
   # */
 
 
