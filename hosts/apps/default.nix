@@ -2,13 +2,15 @@
 { pkgs }:
 let
   myPcloud = import ../apps/pcloud {inherit pkgs;} ;
-  myDiscord = import ../apps/discord {inherit pkgs;};
 in
 
 # System packages
 with pkgs; [
   myPcloud
-  myDiscord
+  discord
+  webcord
+
+
   vim
   zsh
   git
