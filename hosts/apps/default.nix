@@ -25,5 +25,5 @@ with pkgs; [
 
   home-manager
   openssh
-];
+]
 
