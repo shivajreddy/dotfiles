@@ -5,7 +5,7 @@
 with pkgs; [
   discord
   webcord
-  teams
+  teams-for-linux
 
 
   vim
