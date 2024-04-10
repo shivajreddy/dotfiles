@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
 
-  # WebCord
+  /* WebCord: Using Flake
   # https://wiki.hyprland.org/Useful-Utilities/App-Clients/
   imports = [
     inputs.webcord.homeManagerModules.default
@@ -20,6 +20,14 @@
       CatpuccinMocha = "${catppuccin}/themes/mocha.theme.css";
     };
   };
+  # */
+
+  
+  # /* WebCord usinf from packages
+  programs.webcord = {
+    enable = true;
+    }
+  # */
 
 
   home.packages = with pkgs; [
