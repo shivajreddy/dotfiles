@@ -163,6 +163,7 @@
           cpp
           rust
           python
+          go
         ])).dependencies;
       };
     in
