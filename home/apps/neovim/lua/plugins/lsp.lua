@@ -1,5 +1,6 @@
 return {
 
+	-- NOTE 5: set up the language's lsp config here
 	{
 		"neovim/nvim-lspconfig",
 		---@class PluginLspOpts

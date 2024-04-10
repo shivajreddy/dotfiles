@@ -108,6 +108,7 @@ in {
     #jetbrains.pycharm-professional
     #jetbrains.webstorm
 
+    # PROGRAMMING LANGUAGES
     lua
     rustup
     python3
