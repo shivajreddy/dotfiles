@@ -34,6 +34,7 @@
       };
     in {
       CatpuccinMocha = "${catppuccin}/themes/mocha.theme.css";
+    };
   # */
 
 
