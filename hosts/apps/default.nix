@@ -1,8 +1,6 @@
-# This file is for listing all system apps to be installed
 { pkgs }:
 
 let
-  # myPlcoud = import ./pcloud;
   patchelfFixes = pkgs.patchelfUnstable.overrideAttrs (_finalAttrs: _previousAttrs: {
     src = pkgs.fetchFromGitHub {
       owner = "Patryk27";
