@@ -28,8 +28,8 @@ in {
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
 
-    (./. + "/apps/webcord")
     (./. + "/apps/spicetify")
+    (./. + "/apps/discord")
 
     (./. + "/apps/chatterino")
   ];

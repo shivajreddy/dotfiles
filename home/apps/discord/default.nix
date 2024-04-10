@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
 {
+
+  # WebCord
+  # https://wiki.hyprland.org/Useful-Utilities/App-Clients/
   imports = [
     inputs.webcord.homeManagerModules.default
   ];
@@ -17,4 +20,8 @@
       CatpuccinMocha = "${catppuccin}/themes/mocha.theme.css";
     };
   };
+
+
+  programs.discord.enable = true;
+
 }
