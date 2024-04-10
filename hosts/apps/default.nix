@@ -4,12 +4,12 @@
 { pkgs }:
 {
   imports = [
-    ../apps/pcloud/default.nix
+    ../apps/pcloud
     ../apps/discord
   ];
 
   # System packages
-  pkgs = [
+  environment.systemPackages = with pkgs; [
     vim
     zsh 
     git
@@ -26,7 +26,7 @@
 
     home-manager
     openssh
-  ]
+  ];
 }
 
 
