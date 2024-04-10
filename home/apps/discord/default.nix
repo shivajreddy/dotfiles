@@ -24,13 +24,11 @@
 
   
   # /* WebCord usinf from packages
-  programs.webcord = {
-    enable = true;
-  };
   # */
 
 
   home.packages = with pkgs; [
+    webcord
     discord
   ];
 
