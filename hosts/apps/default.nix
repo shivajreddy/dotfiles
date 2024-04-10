@@ -4,7 +4,7 @@
 # System packages
 with pkgs; [
   discord
-  # webcord
+  webcord
 
   vim
   zsh
