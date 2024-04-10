@@ -40,7 +40,7 @@
       cargo
 
       gopls
-      golangci-lint-ls
+      golangci-lint-langserver
     ];
 
     plugins = with pkgs.vimPlugins; [
