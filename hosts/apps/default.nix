@@ -2,7 +2,7 @@
 { pkgs }:
 let
   myPcloud = import ../apps/pcloud {inherit pkgs;} ;
-  myDiscord = import ../apps/discord {inherit pkgs};
+  myDiscord = import ../apps/discord {inherit pkgs;};
 in
 
 # System packages
