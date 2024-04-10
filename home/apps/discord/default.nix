@@ -1,7 +1,9 @@
 { config, inputs, pkgs, ... }:
 {
 
-  # /* WebCord: Using Flake
+  # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
+
+  /* WebCord: Using Flake
   # https://wiki.hyprland.org/Useful-Utilities/App-Clients/
   imports = [
     inputs.webcord.homeManagerModules.default
