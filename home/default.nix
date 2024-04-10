@@ -36,6 +36,7 @@ in {
 
   home.packages = with pkgs; [
     zsh
+    tmux
 
     firefox
     brave
@@ -100,8 +101,7 @@ in {
 
     zoom-us
 
-    obsidian
-    tmux
+    # obsidian
     # vscode
     # jetbrains.clion
     # jetbrains.pycharm-professional
