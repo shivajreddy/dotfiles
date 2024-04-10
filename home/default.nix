@@ -29,7 +29,7 @@ in {
     (./. + "/themes/gtk/gtk.nix")
 
     (./. + "/apps/spicetify")
-    (./. + "/apps/discord")
+    # (./. + "/apps/discord")
 
     (./. + "/apps/chatterino")
   ];
