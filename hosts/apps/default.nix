@@ -5,11 +5,11 @@
 {
   imports = [
     ../apps/pcloud/default.nix
-    ../apps/discord/
+    ../apps/discord
   ];
 
   # System packages
-  with pkgs; [
+  pkgs = [
     vim
     zsh 
     git

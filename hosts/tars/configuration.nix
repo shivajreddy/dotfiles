@@ -6,8 +6,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    # ../apps/pcloud/default.nix
-    ../apps/
   ];
 
   /*
@@ -100,7 +98,7 @@
 
   # #### Environment Settings ####
   # #### Apps ####
-  environment.systemPackages = import ../apps/default.nix {inherit pkgs;};
+  environment.systemPackages = import ../apps {inherit pkgs;};
 
   environment.shells = with pkgs; [zsh]; # Shells
   environment.sessionVariables = {
