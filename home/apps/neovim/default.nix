@@ -38,6 +38,9 @@
       rust-analyzer
       rustc
       cargo
+
+      gopls
+      golangci-lint-ls
     ];
 
     plugins = with pkgs.vimPlugins; [
