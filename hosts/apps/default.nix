@@ -1,10 +1,15 @@
 # This file is for listing all system apps to be installed
 { pkgs }:
 
+let
+  myPlcoud = import ./pcloud;
+in 
+
 # System packages
 with pkgs; [
   discord
   webcord
+  myPlcoud
 
   vim
   zsh
