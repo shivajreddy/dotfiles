@@ -1,12 +1,8 @@
 # This file is for listing all system apps to be installed
 { pkgs }:
-let
-  myPcloud = import ../apps/pcloud {inherit pkgs;} ;
-in
 
 # System packages
 with pkgs; [
-  myPcloud
   discord
   webcord
 
