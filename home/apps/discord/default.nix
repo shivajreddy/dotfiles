@@ -23,7 +23,7 @@
   # */
 
   
-  # /* WebCord usinf from packages
+  /* WebCord usinf from packages
     programs.webcord.enable = true;
     themes = let
       catppuccin = pkgs.fetchFromGitHub {
