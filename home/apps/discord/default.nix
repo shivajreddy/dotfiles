@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 {
 
-  # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
+  xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
 
   /* WebCord: Using Flake
   # https://wiki.hyprland.org/Useful-Utilities/App-Clients/
