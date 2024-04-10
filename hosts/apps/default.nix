@@ -3,8 +3,8 @@
 
 { pkgs }:
 let 
-  myPcloud = import ../apps/pcloud
-  myDiscord = import ../apps/discord
+  myPcloud = import ../apps/pcloud;
+  myDiscord = import ../apps/discord;
 in
 
 # System packages
