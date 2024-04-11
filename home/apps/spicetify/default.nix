@@ -15,7 +15,7 @@ in
     # colorScheme = "mocha";
 
     theme = spicePkgs.themes.Dribbblish;
-    colorScheme = "catppuccin-mocha";
+    colorScheme = "catppuccinMocha";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
