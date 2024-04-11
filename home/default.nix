@@ -106,6 +106,7 @@ in {
     # jetbrains.rust-rover
     #jetbrains.pycharm-professional
     #jetbrains.webstorm
+    jetbrains.goland
 
     # PROGRAMMING LANGUAGES
     lua
