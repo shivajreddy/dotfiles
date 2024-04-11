@@ -20,7 +20,7 @@ in
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       lastfm
-      genre
+      # genre
       historyShortcut
       shuffle
     ];
