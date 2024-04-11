@@ -15,14 +15,14 @@ in
     # colorScheme = "mocha";
 
     theme = spicePkgs.themes.Dribbblish;
-    colorScheme = "mocha";
+    colorScheme = "catppuccin-mocha";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
-      # history
-      # genre
-      # hidePodcasts
-      # shuffle
+      lastfm
+      genre
+      historyShortcut
+      shuffle
     ];
   };
 }
