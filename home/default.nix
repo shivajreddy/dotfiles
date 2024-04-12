@@ -90,7 +90,7 @@ in {
 
     # spotify
     # spotifyd
-    # spotify-tui
+    spotify-tui
     # webcord
 
     gtk4

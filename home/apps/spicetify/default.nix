@@ -31,4 +31,8 @@ in
 
     ];
   };
+
+  pkgs = [
+  spotify-tui
+  ];
 }
