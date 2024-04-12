@@ -22,10 +22,12 @@ in
       historyShortcut
       shuffle
 
+      # Community Extensions
       groupSession
-      powerBar
       keyboardShortcut
       fullAppDisplayMod
+      seekSong
+      fullScreen
 
     ];
   };
