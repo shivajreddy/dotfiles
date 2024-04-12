@@ -107,6 +107,7 @@
           { name = "mini.surround"; path = mini-nvim; }
 
           obsidian-nvim
+          nvim-dap
         ];
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
