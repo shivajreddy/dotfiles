@@ -8,7 +8,7 @@ return {
 			-- comment_visual = "gc",
 			comment = "<Leader>/",
 			comment_visual = "<Leader>/",
-			comment_line = "<Leader>//",
+			comment_line = "<Leader>/",
 		},
 	},
 }
