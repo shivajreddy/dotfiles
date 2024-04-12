@@ -90,7 +90,7 @@ in {
 
     # spotify
     # spotifyd
-    spotify-tui
+    # spotify-tui # this is removed from nixPkgs
     # webcord
 
     gtk4
