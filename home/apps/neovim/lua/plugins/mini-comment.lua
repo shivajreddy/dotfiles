@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.nvim",
+	"mini.comment",
 	opts = {
 		mappings = {
 			-- comment = "gc",
@@ -8,6 +8,7 @@ return {
 			-- comment_visual = "gc",
 			comment = "<Leader>/",
 			comment_visual = "<Leader>/",
+			comment_line = "<Leader>//",
 		},
 	},
 }
