@@ -21,6 +21,12 @@ in
       # genre
       historyShortcut
       shuffle
+
+      groupSession
+      powerBar
+      keyboardShortcut
+      fullAppDisplayMod
+
     ];
   };
 }
