@@ -3,10 +3,11 @@ return {
 	opts = {
 		mappings = {
 			-- comment = "gc",
-			comment = "<Leader>/",
 			-- comment_line = "<Leader>/",
 			-- Toggle comment on visual selection
-			comment_visual = "gc",
+			-- comment_visual = "gc",
+			comment = "<Leader>/",
+			comment_visual = "<Leader>/",
 		},
 	},
 }
