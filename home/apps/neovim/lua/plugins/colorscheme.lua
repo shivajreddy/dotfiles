@@ -44,7 +44,7 @@ return {
 	},
 
 	-- Rose Pine
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "rose-pine/neovim", name = "rose-pine", styles = { transparency = true } },
 
 	-- Configure LazyVim to load the colorscheme
 	{
