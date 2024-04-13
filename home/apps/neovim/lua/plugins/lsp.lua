@@ -13,6 +13,8 @@ return {
 				rust_analyzer = {},
 				gopls = {},
 			},
+
+			inlay_hits = { enabled = true },
 		},
 	},
 }
