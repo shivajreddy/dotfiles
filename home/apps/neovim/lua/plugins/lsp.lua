@@ -10,7 +10,14 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
-				rust_analyzer = {},
+				rust_analyzer = {
+					inlayHints = {
+						lifetimeElisionHints = {
+							enable = true,
+							useParameterNames = true,
+						},
+					},
+				},
 				gopls = {},
 			},
 
