@@ -1,5 +1,3 @@
-{}:
-
 {
   # Note1: copy the settings folder into .local/share/chatterino2
   home.file.".local/share/catterino2/Settings".source = ./config/Settings;
