@@ -19,7 +19,7 @@
             "showTitle": false,
             "showViewerCount": true
         },
-        "hidePreferencesButton": true,
+        "hidePreferencesButton": false,
         "tabDirection": 3
     },
     "highlighting": {
