@@ -12,10 +12,7 @@ return {
 				cmake = {},
 				rust_analyzer = {
 					inlayHints = {
-						lifetimeElisionHints = {
-							enable = true,
-							useParameterNames = true,
-						},
+						enable = true,
 					},
 				},
 				gopls = {},
