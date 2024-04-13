@@ -109,6 +109,7 @@ in {
     jetbrains.goland
 
     # PROGRAMMING LANGUAGES
+    just
     lua
     rustup
     python3
