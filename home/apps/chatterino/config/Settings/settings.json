@@ -23,6 +23,18 @@
         "tabDirection": 3
     },
     "highlighting": {
+        "highlights": [
+            {
+                "pattern": ".*",
+                "showInMentions": true,
+                "alert": true,
+                "sound": true,
+                "regex": true,
+                "case": false,
+                "soundUrl": "file:///home/shiva/Music/pop-up-something-160353.mp3",
+                "color": "#7f7f3f49"
+            }
+        ]
         "elevatedMessageHighlight": {
             "color": "#3cf9e2af"
         },
