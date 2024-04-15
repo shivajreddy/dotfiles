@@ -10,7 +10,13 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
-				rust_analyzer = {},
+				rust_analyzer = {
+					tools = {},
+					inlay_hints = {
+						auto = true,
+						show_parameter_hints = true,
+					},
+				},
 				gopls = {},
 			},
 		},
