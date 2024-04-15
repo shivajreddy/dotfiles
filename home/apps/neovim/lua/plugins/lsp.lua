@@ -78,21 +78,9 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
-				rust_analyzer = {
-					inlayHints = {
-						enable = true,
-					},
-				},
+				rust_analyzer = {},
 				gopls = {},
 			},
-			setup = {
-				rust_analyzer = function(_, opts)
-					require("rust_analyzer").setup({ server = opts })
-					return true
-				end,
-			},
-
-			inlay_hints = { enabled = true },
 		},
 	},
 }
