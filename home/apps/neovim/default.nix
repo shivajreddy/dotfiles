@@ -35,7 +35,7 @@
       clang-tools
       cmake-language-server
       pyright
-      rust-analyzer
+      # rust-analyzer
       rustc
       cargo
 
