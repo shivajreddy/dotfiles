@@ -34,10 +34,6 @@ in {
     (./. + "/apps/chatterino")
   ];
 
-  fonts.packages = with pkgs; [
-    ibm-plex
-  ];
-
   home.packages = with pkgs; [
     zsh
     tmux

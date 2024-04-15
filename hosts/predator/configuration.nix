@@ -92,6 +92,8 @@
     pulse.enable = true;
   };
 
+
+
   # #### Environment Settings ####
   # #### Apps ####
   environment.systemPackages = import ../apps/default.nix {inherit pkgs;};
@@ -136,6 +138,7 @@
   # Fonts
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka"];})
+    ibm-plex
   ];
 
   # System Services
