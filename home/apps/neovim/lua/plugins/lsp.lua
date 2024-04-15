@@ -14,5 +14,6 @@ return {
 				gopls = {},
 			},
 		},
+		inlay_hints = { enabled = true },
 	},
 }
