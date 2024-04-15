@@ -1,4 +1,12 @@
 return {
+
+	-- TokyoNight
+	{
+		"folke/tokyonight.nvim",
+		lazy = true,
+		opts = { style = "moon" },
+	},
+
 	--  catppuccin
 	{
 		"catppuccin/nvim",
@@ -54,7 +62,7 @@ return {
 		opts = {
 			-- colorscheme = "catppuccin",
 			-- colorscheme = "rose-pine",
-			colorscheme = "tokyo-night",
+			colorscheme = "tokyonight",
 		},
 	},
 }
