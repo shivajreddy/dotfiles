@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # HomeManager Flake
     # this will be passed as an argument for the outputs function by nix
@@ -46,9 +47,9 @@
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-    overlays = [
-      inputs.neovim-nightly-overlay.overlay
-    ];
+      overlays = [
+        inputs.neovim-nightly-overlay.overlay
+      ];
     };
   in {
 
