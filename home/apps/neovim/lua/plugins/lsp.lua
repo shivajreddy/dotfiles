@@ -78,9 +78,15 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
-				rust_analyzer = {},
+				rust_analyzer = {
+					inlayHints = {
+						enable = true,
+					},
+				},
 				gopls = {},
 			},
+
+			inlay_hints = { enabled = true },
 		},
 	},
 }
