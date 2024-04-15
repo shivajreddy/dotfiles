@@ -13,7 +13,7 @@ in {
 
   # import configuration for apps, packages, etc...
   imports = [
-    (./. + "/fonts/fonts.nix")
+    (./. + "/fonts")
     (./. + "/apps/git.nix")
 
     (./. + "/apps/firefox")
