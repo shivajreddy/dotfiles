@@ -5,6 +5,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    nixpkgs.overlays = [
+      (import (builtins.fetchTarball {
+        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      }))
+    ];
+
     # HomeManager Flake
     # this will be passed as an argument for the outputs function by nix
     home-manager = {
@@ -12,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # /* NIXVIM
+    /* NIXVIM
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,11 +81,12 @@
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
-          inputs.nixvim.homeManagerModules.nixvim
+          # inputs.nixvim.homeManagerModules.nixvim
         ];
 
         extraSpecialArgs = {inherit inputs;};
       };
     };
+
   };
 }
