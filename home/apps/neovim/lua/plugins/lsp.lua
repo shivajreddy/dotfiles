@@ -10,7 +10,7 @@ return {
 				pyright = {},
 				clangd = {},
 				cmake = {},
-				rust_analyzer = {},
+				-- rust_analyzer = {},
 				gopls = {},
 			},
 		},
