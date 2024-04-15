@@ -5,11 +5,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    nixpkgs.overlays = [
-      (import (builtins.fetchTarball {
-        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-      }))
-    ];
 
     # HomeManager Flake
     # this will be passed as an argument for the outputs function by nix
@@ -52,10 +47,13 @@
       system = "x86_64-linux";
       config.allowUnfree = true;
     };
+    overlays = [
+      inputs.neovim-nightly-overlay.overlay
+    ];
   in {
 
+    # NIXOS
     nixosConfigurations = {
-
       # P R E D A T O R
       predator = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
@@ -75,9 +73,14 @@
       };
     };
 
-    # HomeConfiguration -- using as a package
+    # HOMEMANAGER
     homeConfigurations = {
       shiva = inputs.home-manager.lib.homeManagerConfiguration {
+        configuration = { pkgs, ... }:
+            {
+              nixpkgs.overlays = overlays;
+            };
+        };
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
