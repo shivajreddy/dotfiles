@@ -12,6 +12,7 @@ return {
 				clangd = {},
 				cmake = {},
 				rust_analyzer = {
+					-- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/
 					tools = {},
 					inlay_hints = {
 						enabled = true,
