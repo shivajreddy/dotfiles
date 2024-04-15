@@ -46,10 +46,10 @@
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-    };
     overlays = [
       inputs.neovim-nightly-overlay.overlay
     ];
+    };
   in {
 
     # NIXOS
@@ -76,7 +76,6 @@
     # HOMEMANAGER
     homeConfigurations = {
       shiva = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs.overlays = overlays;
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
