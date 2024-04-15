@@ -153,6 +153,7 @@
   # Fonts
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka"];})
+    ibm-plex
   ];
 
   # System Services
