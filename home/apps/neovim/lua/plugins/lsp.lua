@@ -13,6 +13,7 @@ return {
 				rust_analyzer = {
 					tools = {},
 					inlay_hints = {
+						enabled = true,
 						auto = true,
 						show_parameter_hints = true,
 					},
