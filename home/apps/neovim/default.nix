@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-    programs.neovim-nightly = {
-    # programs.neovim = {
+    programs.neovim = {
 
     enable = true;
 
