@@ -76,10 +76,7 @@
     # HOMEMANAGER
     homeConfigurations = {
       shiva = inputs.home-manager.lib.homeManagerConfiguration {
-        configuration = { pkgs, ... }:
-            {
-              nixpkgs.overlays = overlays;
-            };
+        pkgs.overlays = overlays;
         inherit pkgs;
         modules = [
           (./. + "/home/default.nix")
