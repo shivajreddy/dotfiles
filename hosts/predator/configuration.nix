@@ -135,7 +135,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka" "IbmPlex"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka"];})
   ];
 
   # System Services
