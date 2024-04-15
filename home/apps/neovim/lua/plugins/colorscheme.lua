@@ -46,11 +46,15 @@ return {
 	-- Rose Pine
 	{ "rose-pine/neovim", name = "rose-pine", styles = { transparency = true } },
 
+	-- TokyoNight
+
 	-- Configure LazyVim to load the colorscheme
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "rose-pine",
+			-- colorscheme = "catppuccin",
+			-- colorscheme = "rose-pine",
+			colorscheme = "tokyo-night",
 		},
 	},
 }
