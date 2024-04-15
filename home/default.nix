@@ -112,6 +112,7 @@ in {
     just
     lua
     rustup
+    cargo
     python3
     nodejs_21
     gcc
