@@ -34,5 +34,7 @@ with pkgs; [
 
   home-manager
   openssh
+
+  rust-analyzer
 ]
 
