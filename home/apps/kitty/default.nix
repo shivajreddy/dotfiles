@@ -8,5 +8,8 @@ in
 
 	programs.kitty.enable = true;
 	programs.kitty.extraConfig=confFileContent;
+
+  # Copy the theme folder 
+  xdg.configFile."kitty/themes".source = ./themes;
 }
 
