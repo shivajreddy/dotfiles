@@ -15,7 +15,7 @@ return {
 		name = "catppuccin",
 		opts = {
 
-			flavour = "auto", -- latte, frappe, macchiato, mocha
+			flavour = "mocha", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
 				light = "latte",
 				dark = "mocha",
@@ -168,8 +168,8 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			-- colorscheme = "catppuccin",
-			colorscheme = "rose-pine-main", -- rose-pine-moon  rose-pine-dawn
+			colorscheme = "catppuccin",
+			-- colorscheme = "rose-pine-main", -- rose-pine-moon  rose-pine-dawn
 			-- colorscheme = "tokyonight",
 		},
 	},
