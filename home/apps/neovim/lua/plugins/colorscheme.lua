@@ -15,9 +15,9 @@ return {
 		name = "catppuccin",
 		opts = {
 
-			flavour = "mocha", -- latte, frappe, macchiato, mocha
+			flavour = "auto", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
-				light = "latte",
+				light = "mocha",
 				dark = "mocha",
 			},
 			transparent_background = false, -- disables setting the background color.
