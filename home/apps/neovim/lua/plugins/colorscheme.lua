@@ -98,7 +98,7 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		variant = "auto", -- auto, main, moon, or dawn
+		variant = "main", -- auto, main, moon, or dawn
 		dark_variant = "main", -- main, moon, or dawn
 		dim_inactive_windows = true,
 		extend_background_behind_borders = true,
@@ -169,7 +169,7 @@ return {
 		"LazyVim/LazyVim",
 		opts = {
 			-- colorscheme = "catppuccin",
-			colorscheme = "rose-pine-main", -- rose-pine-moon  rose-pine-dawn
+			colorscheme = "rose-pine", -- rose-pine-main rose-pine-moon  rose-pine-dawn
 			-- colorscheme = "tokyonight",
 		},
 	},
