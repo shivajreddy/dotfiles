@@ -11,7 +11,7 @@ return {
 	--  catppuccin
 	{
 		"catppuccin/nvim",
-		lazy = true,
+		lazy = false,
 		name = "catppuccin",
 		opts = {
 
