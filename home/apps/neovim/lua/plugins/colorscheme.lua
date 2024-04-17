@@ -14,7 +14,6 @@ return {
 		lazy = false,
 		name = "catppuccin",
 		opts = {
-
 			flavour = "auto", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
 				light = "mocha",
@@ -48,8 +47,8 @@ return {
 			},
 			color_overrides = {
 				mocha = {
-					-- base = "#181825",
-					base = "#11111b",
+					base = "#181825",
+					-- base = "#11111b",
 				},
 			},
 			custom_highlights = {},
@@ -152,23 +151,6 @@ return {
 			h5 = "pine",
 			h6 = "foam",
 		},
-
-		highlight_groups = {
-			-- Comment = { fg = "foam" },
-			-- VertSplit = { fg = "muted", bg = "muted" },
-		},
-
-		before_highlight = function(group, highlight, palette)
-			-- Disable all undercurls
-			-- if highlight.undercurl then
-			--     highlight.undercurl = false
-			-- end
-			--
-			-- Change palette colour
-			-- if highlight.fg == palette.pine then
-			--     highlight.fg = palette.foam
-			-- end
-		end,
 	},
 
 	-- Configure LazyVim to load the colorscheme
