@@ -48,8 +48,8 @@ return {
 			},
 			color_overrides = {
 				mocha = {
-					-- base = "#181825",
-					base = "#11111b",
+					base = "#181825",
+					-- base = "#11111b",
 				},
 			},
 			custom_highlights = {},
