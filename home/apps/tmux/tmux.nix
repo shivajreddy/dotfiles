@@ -15,7 +15,6 @@ in
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.copycat
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
