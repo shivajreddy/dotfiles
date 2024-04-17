@@ -18,8 +18,7 @@ in {
 
     (./. + "/apps/firefox")
 
-    (./. + "/apps/kitty")
-    (./. + "/apps/wezterm")
+    (./. + "/apps/terminal")
     (./. + "/apps/zsh")
     (./. + "/apps/neovim")
     (./. + "/apps/tmux/tmux.nix")
