@@ -48,8 +48,8 @@ return {
 			},
 			color_overrides = {
 				mocha = {
-					base = "#181825",
-					-- base = "#11111b",
+					-- base = "#181825",
+					base = "#11111b",
 				},
 			},
 			custom_highlights = {},
@@ -83,8 +83,9 @@ return {
 				},
 				navic = { enabled = true, custom_bg = "lualine" },
 				neotest = true,
-				neotree = true,
+				-- neotree = true,
 				-- neotree = { enabled = true, active_bg = "#11111b" },
+				neotree = { enabled = true, active_bg = "#181825" },
 				noice = true,
 				notify = true,
 				nvimtree = true,
