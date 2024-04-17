@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 let
   tmux-conf = builtins.readFile ./tmux.conf;
 in 
@@ -31,13 +30,9 @@ in
           set -g @catppuccin_status_left_separator "█"
           set -g @catppuccin_status_right_separator "█"
           set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
-
         '';
       }
     ];
 
   };
-
-
 }
-
