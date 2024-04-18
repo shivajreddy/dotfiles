@@ -15,9 +15,14 @@ return {
 					fill = { bg = "#000000" },
 				},
 				mocha = {
-					buffer_visible = { bg = "#b4befe", fg = "#11111b" },
+					-- buffer_visible = { bg = "#b4befe", fg = "#11111b" },
 					buffer_selected = { bg = "#6c7086", fg = "#11111b" },
 					-- indicator_selected = { fg = "#89b4fa" },
+					-- separators
+					separator = {},
+					separator_visible = {},
+					separator_selected = {},
+					offset_separator = {},
 				},
 				latte = {
 					background = { fg = "#000000" },
