@@ -31,10 +31,18 @@ in
 	  plugins = ["scratchpads"]
 
 	  [scratchpads.term]
+	  command = "wezterm --config-file "
+	  position = "25% 25%"
+	  size = "50% 50%"
+	  class = "scratchpad"
+
+  '';
+  /*
+	  [scratchpads.term]
 	  command = "kitty --class scratchpad"
 	  position = "25% 25%"
 	  size = "50% 50%"
 	  class = "scratchpad"
-  '';
+  */
 }
 
