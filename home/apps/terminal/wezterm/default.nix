@@ -18,6 +18,8 @@
 
     local config = wezterm.config_builder()
 
+    config.enable_wayland = false
+
     config.default_prog = { "tmux" }
 
     config.audible_bell = "Disabled"
