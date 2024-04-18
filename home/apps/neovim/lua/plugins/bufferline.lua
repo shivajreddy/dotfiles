@@ -15,10 +15,9 @@ return {
 					fill = { bg = "#000000" },
 				},
 				mocha = {
-					background = { fg = mocha.text },
-					buffer_selected = { bg = "#b4befe", fg = "#11111b" },
 					buffer_visible = { bg = "#b4befe", fg = "#11111b" },
-					indicator_selected = { fg = "#89b4fa" },
+					buffer_selected = { bg = "#6c7086", fg = "#11111b" },
+					-- indicator_selected = { fg = "#89b4fa" },
 				},
 				latte = {
 					background = { fg = "#000000" },
