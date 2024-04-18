@@ -55,8 +55,8 @@ return {
 			highlight_overrides = {
 				all = function(colors)
 					return {
-						NvimTreeNormal = { fg = "#11111b" },
-						CmpBorder = { fg = "#3e4145" },
+						NeoTreeNormal = { bg = "#11111b" },
+						NeoTreeNormalNC = { bg = "#11111b" },
 					}
 				end,
 			},
