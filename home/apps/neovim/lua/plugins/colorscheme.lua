@@ -51,14 +51,12 @@ return {
 					-- base = "#11111b",
 				},
 			},
-			custom_highlights = {
-				all = function(colors)
-					return {
-						NeoTreeNormal = { bg = "#11111b" },
-						NeoTreeNormalNC = { bg = "#11111b" },
-					}
-				end,
-			},
+			custom_highlights = function()
+				return {
+					NeoTreeNormal = { bg = "#11111b" },
+					NeoTreeNormalNC = { bg = "#11111b" },
+				}
+			end,
 			default_integrations = true,
 			integrations = {
 				aerial = true,
