@@ -2,7 +2,7 @@
 
 
 let
-  weztermConfig = builtins.readFile (./. + "./main_config.lua");
+  weztermConfig = builtins.readFile (./main_config.lua);
 in 
 
 {
