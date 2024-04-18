@@ -55,7 +55,7 @@ return {
 			highlight_overrides = {
 				all = function(colors)
 					return {
-						NvimTreeNormal = { fg = mocha.crust },
+						NvimTreeNormal = { fg = "#11111b" },
 						CmpBorder = { fg = "#3e4145" },
 					}
 				end,
