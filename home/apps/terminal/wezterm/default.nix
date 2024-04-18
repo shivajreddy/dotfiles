@@ -20,9 +20,7 @@
 
     config.default_prog = { "tmux" }
 
-    -- This is where you actually apply your config choices
-
-    -- For example, changing the color scheme:
+    config.audible_bell = "Disabled"
 
     config.color_scheme = "rose-pine"
 
