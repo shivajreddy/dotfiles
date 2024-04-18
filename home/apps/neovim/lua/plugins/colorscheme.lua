@@ -53,6 +53,7 @@ return {
 			},
 			custom_highlights = function()
 				return {
+					background = { bg = "#11111b" },
 					NeoTreeNormal = { bg = "#11111b" },
 					NeoTreeNormalNC = { bg = "#11111b" },
 				}
