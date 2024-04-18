@@ -6,9 +6,9 @@ config.enable_wayland = false
 
 config.audible_bell = "Disabled"
 
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Nocturnal Winter"
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.80
 
 config.font = wezterm.font("Berkeley Mono")
 config.font_size = 14
