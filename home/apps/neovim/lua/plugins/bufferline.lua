@@ -5,14 +5,14 @@ return {
 		options = {
 			show_buffer_close_icons = false,
 		},
-	},
 
-	-- Customize Catppuccin colors
-	-- https://github.com/catppuccin/nvim?tab=readme-ov-file
-	after = "catppuccin",
-	config = function()
-		require("bufferline").setup({
-			highlights = require("catppuccin.groups.integrations.bufferline").get(),
-		})
-	end,
+		-- Customize Catppuccin colors
+		-- https://github.com/catppuccin/nvim?tab=readme-ov-file
+		after = "catppuccin",
+		config = function()
+			require("bufferline").setup({
+				highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			})
+		end,
+	},
 }
