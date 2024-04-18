@@ -7,9 +7,8 @@
 # this is not finished
 	programs.rofi = {
 	  enable = true;
-	  font = "Berkeley Mono";
+	  font = "JetBrains Mono";
 	  theme = ''
-
 	  '';
 	};
 }
