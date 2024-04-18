@@ -8,7 +8,9 @@ config.audible_bell = "Disabled"
 
 config.color_scheme = "Tokyo Night"
 
-config.font = wezterm.font("IBM Plex Mono")
+config.window_background_opacity = 0.95
+
+config.font = wezterm.font("Berkeley Mono")
 config.font_size = 14
 
 config.use_fancy_tab_bar = false

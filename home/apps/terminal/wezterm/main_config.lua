@@ -10,8 +10,6 @@ config.default_prog = { "tmux" }
 
 config.color_scheme = "rose-pine"
 
-config.window_background_opacity = 0.95
-
 config.font = wezterm.font("IBM Plex Mono")
 config.font_size = 14
 
