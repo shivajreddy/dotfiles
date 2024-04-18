@@ -6,38 +6,30 @@
 	programs.wezterm.enable = true;
 
   programs.wezterm.extraConfig = ''
-  
-    -- Pull in the wezterm API
+  local wezterm = require("wezterm")
 
-    local wezterm = require("wezterm")
+  local config = wezterm.config_builder()
 
-    -- This will hold the configuration.
+  config.enable_wayland = false
 
-    local config = wezterm.config_builder()
+  config.color_scheme = "Github Dark (Gogh)"
 
-    config.enable_wayland = false
+  config.window_background_opacity = 0.95
 
-    config.default_prog = { "tmux" }
+  config.font = wezterm.font("IBM Plex Mono")
+  config.font_size = 14
 
-    config.audible_bell = "Disabled"
+  config.use_fancy_tab_bar = false
+  config.enable_tab_bar = false
 
-    config.color_scheme = "rose-pine"
+  config.window_padding = {
+    top = 0,
+    right = 0,
+    bottom = 0,
+    left = 0,
+  }
 
-    config.font = wezterm.font("IBM Plex Mono")
-    config.font_size = 14
-
-    config.use_fancy_tab_bar = false
-    config.enable_tab_bar = false
-
-    config.window_padding = {
-      top = 0,
-      right = 0,
-      bottom = 0,
-      left = 0,
-    }
-
-    -- and finally, return the configuration to wezterm
-    return config
+  return config
   '';
 }
 
