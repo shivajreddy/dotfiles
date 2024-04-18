@@ -20,10 +20,10 @@ return {
 					buffer_selected = { bg = "#6c7086", fg = "#11111b" },
 					-- indicator_selected = { fg = "#89b4fa" },
 					-- separators
-					separator = {},
-					-- separator_visible = { bg=""},
-					separator_selected = {},
-					offset_separator = {},
+					separator = { bg = "#6c7086", fg = "#11111b" },
+					separator_visible = { bg = "#6c7086", fg = "#11111b" },
+					separator_selected = { bg = "#6c7086", fg = "#11111b" },
+					offset_separator = { bg = "#6c7086", fg = "#11111b" },
 				},
 				latte = {
 					background = { fg = "#000000" },
