@@ -9,13 +9,6 @@ return {
 			offsets = { { separator = false } },
 		},
 
-		highlights = {
-			buffer_selected = {
-				-- fg = "#",
-				bg = "#907aa9",
-			},
-		},
-
 		--[[
 		highlights = require("catppuccin.groups.integrations.bufferline").get({
 			styles = { "italic", "bold" },
