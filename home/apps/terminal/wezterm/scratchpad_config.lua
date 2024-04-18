@@ -4,9 +4,9 @@ local config = wezterm.config_builder()
 
 config.enable_wayland = false
 
-config.color_scheme = "Github Dark (Gogh)"
+config.audible_bell = "Disabled"
 
-config.window_background_opacity = 0.95
+config.color_scheme = "Tokyo Night"
 
 config.font = wezterm.font("IBM Plex Mono")
 config.font_size = 14
@@ -21,4 +21,5 @@ config.window_padding = {
 	left = 0,
 }
 
+-- and finally, return the configuration to wezterm
 return config

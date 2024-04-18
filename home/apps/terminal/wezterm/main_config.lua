@@ -1,18 +1,16 @@
--- Pull in the wezterm API
-
 local wezterm = require("wezterm")
-
--- This will hold the configuration.
 
 local config = wezterm.config_builder()
 
 config.enable_wayland = false
 
-config.default_prog = { "tmux" }
-
 config.audible_bell = "Disabled"
 
+config.default_prog = { "tmux" }
+
 config.color_scheme = "rose-pine"
+
+config.window_background_opacity = 0.95
 
 config.font = wezterm.font("IBM Plex Mono")
 config.font_size = 14
@@ -27,5 +25,4 @@ config.window_padding = {
 	left = 0,
 }
 
--- and finally, return the configuration to wezterm
 return config
