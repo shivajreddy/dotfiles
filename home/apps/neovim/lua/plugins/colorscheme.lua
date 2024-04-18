@@ -51,8 +51,7 @@ return {
 					-- base = "#11111b",
 				},
 			},
-			custom_highlights = {},
-			highlight_overrides = {
+			custom_highlights = {
 				all = function(colors)
 					return {
 						NeoTreeNormal = { bg = "#11111b" },
