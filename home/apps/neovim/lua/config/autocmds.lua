@@ -11,3 +11,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	nested = true,
 })
 --]]
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	command = "set formatoptions-=cro",
+})
