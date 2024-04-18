@@ -53,8 +53,10 @@ return {
 			},
 			custom_highlights = function()
 				return {
-					buffer_visible = { bg = "#11111b", fg = "red" },
+					-- BufferLine
 					buffer_selected = { bg = "#b4befe", fg = "#11111b" },
+					buffer_visible = { bg = "#b4befe", fg = "#11111b" },
+					-- NeoTree
 					NeoTreeNormal = { bg = "#11111b" },
 					NeoTreeNormalNC = { bg = "#11111b" },
 				}
