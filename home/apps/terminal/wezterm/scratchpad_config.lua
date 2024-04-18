@@ -10,7 +10,8 @@ config.color_scheme = "Nocturnal Winter"
 
 config.window_background_opacity = 0.80
 
-config.font = wezterm.font("Berkeley Mono")
+-- config.font = wezterm.font("Berkeley Mono")
+config.font = wezterm.font("IBM Plex Mono")
 config.font_size = 14
 
 config.use_fancy_tab_bar = false
