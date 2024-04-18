@@ -9,6 +9,7 @@ return {
 			offsets = { { separator = false } },
 		},
 
+		--[[
 		highlights = require("catppuccin.groups.integrations.bufferline").get({
 			styles = { "italic", "bold" },
 			custom = {
@@ -30,6 +31,7 @@ return {
 				},
 			},
 		}),
+    --]]
 
 		-- Customize Catppuccin colors
 		-- https://github.com/catppuccin/nvim?tab=readme-ov-file
