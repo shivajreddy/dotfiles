@@ -52,6 +52,14 @@ return {
 				},
 			},
 			custom_highlights = {},
+			highlight_overrides = {
+				all = function(colors)
+					return {
+						NvimTreeNormal = { fg = mocha.crust },
+						CmpBorder = { fg = "#3e4145" },
+					}
+				end,
+			},
 			default_integrations = true,
 			integrations = {
 				aerial = true,
