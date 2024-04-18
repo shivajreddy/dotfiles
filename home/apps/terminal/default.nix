@@ -4,7 +4,7 @@
 	imports = [
     (./. + "/wezterm")
     # (./. + "/alacritty")
-    # (./. + "/kitty")
+    (./. + "/kitty")
   ];
 
 }
