@@ -5,9 +5,6 @@
 
 	programs.wezterm.enable = true;
 
-  # Copy the theme folder
-  # xdg.configFile."kitty/themes".source = ./themes;
-
   programs.wezterm.extraConfig = ''
   
     -- Pull in the wezterm API
