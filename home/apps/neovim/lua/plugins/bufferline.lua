@@ -12,7 +12,7 @@ return {
 		highlights = {
 			buffer_selected = {
 				-- fg = "#",
-				bg = "#b4befe",
+				bg = "#907aa9",
 			},
 		},
 
