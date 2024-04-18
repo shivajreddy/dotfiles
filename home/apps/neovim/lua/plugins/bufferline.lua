@@ -6,6 +6,7 @@ return {
 	opts = {
 		options = {
 			show_buffer_close_icons = false,
+			offsets = { separator = false },
 		},
 
 		highlights = require("catppuccin.groups.integrations.bufferline").get({
@@ -20,7 +21,7 @@ return {
 					-- indicator_selected = { fg = "#89b4fa" },
 					-- separators
 					separator = {},
-					separator_visible = {},
+					-- separator_visible = { bg=""},
 					separator_selected = {},
 					offset_separator = {},
 				},
