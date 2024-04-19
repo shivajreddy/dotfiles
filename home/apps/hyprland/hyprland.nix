@@ -31,11 +31,14 @@ in
 	  plugins = ["scratchpads"]
 
 	  [scratchpads.term]
-	  command = "wezterm --config-file ~/dotfiles/home/apps/terminal/wezterm/scratchpad_config.lua start --class scratchpad"
+	  command = "wezterm start --class scratchpad"
 	  position = "25% 25%"
 	  size = "50% 50%"
 	  class = "scratchpad"
   '';
+	  # command = "wezterm --config-file ~/dotfiles/home/apps/terminal/wezterm/scratchpad_config.lua start --class scratchpad"
+
+
   /*
 	  [scratchpads.term]
 	  command = "kitty --class scratchpad"
