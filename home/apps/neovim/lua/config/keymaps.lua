@@ -11,3 +11,6 @@ vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
 vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
+
+-- Remove ctrl+z, where it stops and exits nvim
+vim.keymap.set("n", "C-z", "<nop>", { noremap = true })
