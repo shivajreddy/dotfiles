@@ -16,7 +16,6 @@ config.color_scheme = "rose-pine"
 config.font = wezterm.font("IBM Plex Mono")
 config.font_size = 14
 
-# 
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = false
 
