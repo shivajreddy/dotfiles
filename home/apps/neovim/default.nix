@@ -106,6 +106,7 @@
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
 
+          smart-splits-nvim
           obsidian-nvim
         ];
         mkEntryFromDrv = drv:
