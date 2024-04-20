@@ -4,7 +4,7 @@
 # this is the almighty fn that is used in nix-os to build packages
 pkgs.stdenv.mkDerivation {
 
-  pname = "bibata-mocha"; 
+  pname = "bibata-mocha-blue"; 
   version = "1.0.0";
 
   src = ./Bibata-Mocha-Blue;
