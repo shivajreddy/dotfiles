@@ -11,6 +11,8 @@ in
     gtk.enable = true;
     # package = pkgs.bibata-cursors;
     # name = "Bibata-Modern-Classic";
+
+    # 4. Set the name here or else it wont work
     package = myBibataMocha;
     name = "Bibata-Mocha-Blue";
   };
@@ -30,6 +32,8 @@ in
     cursorTheme = {
       # package = pkgs.bibata-cursors;
       # name = "Bibata-Modern-Classic";
+
+    # 5. Finally set it here too
       package = myBibataMocha;
       name = "Bibata-Mocha-Blue";
     };
