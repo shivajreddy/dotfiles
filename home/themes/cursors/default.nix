@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
   pname = "bibata-mocha"; 
   version = "1.0.0";
 
-  src = ./Bibata-Mocha;
+  src = ./Bibata-Mocha-Blue;
 
   dontWrapGzip = true;
 
