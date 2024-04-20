@@ -12,7 +12,7 @@ in
     # package = pkgs.bibata-cursors;
     # name = "Bibata-Modern-Classic";
     package = myBibataMocha;
-    name = "Bibata-Mocha";
+    name = "Bibata-Mocha-Blue";
   };
 
 
