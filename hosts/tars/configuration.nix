@@ -8,14 +8,6 @@
     ./hardware-configuration.nix
   ];
 
-  /*
-      NIX PATH FIX
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
-  #
-  */
 
   # GPU modules
   boot.initrd.kernelModules = ["amdgpu"];
@@ -40,13 +32,6 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [22];
 
-  /*
-     testing openssh settings
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-  */
   services.openssh = {
     enable = true;
   };

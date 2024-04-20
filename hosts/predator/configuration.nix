@@ -9,16 +9,6 @@
     ./hardware-configuration.nix
   ];
 
-  /*
-      NIX PATH FIX
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
-  #
-  */
-
-  #   virtualisation.docker.enable = true;
 
   # Bootloader
   boot.loader = {
@@ -38,13 +28,6 @@
     };
   };
 
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot";	# trying this option
-
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/????";
-  # boot.loader.grub.useOSProber = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
