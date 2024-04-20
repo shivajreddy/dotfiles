@@ -35,29 +35,38 @@ in {
   ];
 
   home.packages = with pkgs; [
+    #   :: TERMINAL ::
     zsh
     tmux
+    lf
+    eza
+    neofetch
+    wev # wayland event viewer, for keystrokes
+    playerctl
+    wl-clipboard
+    zsh-autosuggestions
+    htop
+    btop
 
-    firefox
+    #   :: BROWSWERS ::
     brave
     google-chrome
-    qutebrowser
+    firefox
+    # qutebrowser
 
-    # kitty
-    # starship
-
+    #   :: FONTS ::
     jetbrains-mono
+    ibm-plex
+
+    #  :: LINUX PACKAGES ::
     rofi-wayland
     bluez
     blueman
     pavucontrol
-    htop
-    btop
     swww
     swaynotificationcenter
     swaylock
     localsend
-
     xfce.thunar
     xfce.thunar-volman
     xfce.tumbler
@@ -66,7 +75,15 @@ in {
     slurp
     swappy
 
-    # Streaming
+    #   :: HYPRLAND ::
+    waybar
+    bottom
+    pyprland
+    gtk4
+    pamixer
+    unzip
+
+    #   :: STREAMING ::
     obs-studio
     obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vaapi
@@ -74,41 +91,7 @@ in {
     iptables # required for custom uxplay script
     gst_all_1.gstreamer
 
-    neofetch
-    wev # wayland event viewer, for keystrokes
-    playerctl
-    wl-clipboard
-    zsh-autosuggestions
-
-    waybar
-
-    eza
-    bottom
-    pyprland
-    lf
-
-
-    # spotify
-    # spotifyd
-    # spotify-tui # this is removed from nixPkgs
-    # webcord
-
-    gtk4
-    pamixer
-    unzip
-
-    zoom-us
-
-    # obsidian
-    # vscode
-    # jetbrains.clion
-    # jetbrains.pycharm-professional
-    # jetbrains.rust-rover
-    #jetbrains.pycharm-professional
-    #jetbrains.webstorm
-    jetbrains.goland
-
-    # PROGRAMMING LANGUAGES
+    #   :: PROGRAMMING LANGUAGES ::
     just
     lua
     rustup
@@ -117,11 +100,20 @@ in {
     gcc
     gnumake
     go
-  ];
 
-  /*
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./apps/nixvim_fuck/config;
-  };
-  # */
+    #  :: MISC ::
+    zoom-us
+    # obsidian
+    # vscode
+    # jetbrains.clion
+    # jetbrains.pycharm-professional
+    # jetbrains.rust-rover
+    #jetbrains.pycharm-professional
+    #jetbrains.webstorm
+    # jetbrains.goland
+    # spotify
+    # spotifyd
+    # spotify-tui # this is removed from nixPkgs
+    # webcord
+  ];
 }
