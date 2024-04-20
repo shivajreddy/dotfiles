@@ -16,11 +16,11 @@ pkgs.stdenv.mkDerivation {
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
 
   echo "Copy for all users"
-  mkdir -p $out/share/icons/Bibata-Mocha
+  mkdir -p $out/share/icons/Bibata-Mocha-Blue
   cp -rf $src/* $out/share/icons/Bibata-Mocha-Blue
 
   echo "Copy for current user"
-  mkdir -p $out/.icons/Bibata-Mocha
+  mkdir -p $out/.icons/Bibata-Mocha-Blue
   cp -rf $src/* $out/.icons/Bibata-Mocha-Blue
   '';
 
