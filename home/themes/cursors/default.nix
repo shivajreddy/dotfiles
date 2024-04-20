@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
   # Total 5 steps, 3 here, 2 on the gtk.nix file. 
   # After changing in all 5 places, reboot system.
   # and this should work for legacy apps too. if not 
-  # then set run 'gnome-tweaks' on terminal and set it there
+  # then set run 'gnome-tweaks' on terminal and set it Appearance>Cursor
   # 1. set the name here
   pname = "bibata-mocha-blue"; 
   version = "1.0.0";
