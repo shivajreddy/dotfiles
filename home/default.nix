@@ -50,7 +50,7 @@ in {
 
     #   :: BROWSWERS ::
     brave
-    google-chrome
+    # google-chrome
     firefox
     # qutebrowser
 
