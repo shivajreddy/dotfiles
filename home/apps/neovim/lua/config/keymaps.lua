@@ -12,5 +12,4 @@ vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 
-vim.keymap.set("n", "<Leader>uh", )
-
+-- vim.keymap.set("n", "<Leader>uh", )
