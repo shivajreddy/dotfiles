@@ -1,9 +1,6 @@
-{ ... }:
+{config, pkgs, ...}:
 {
-	imports = [
-    (./. + "/brave")
-    (./. + "/chrome")
-    (./. + "/firefox")
-  ];
+
+  programs.firefox.enable = true;
 
 }
