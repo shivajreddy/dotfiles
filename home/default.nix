@@ -56,7 +56,7 @@ in {
 
     #   :: FONTS ::
     jetbrains-mono
-    ibm-plex
+    # ibm-plex  # for some reasons this shit wont work, only a sys package
 
     #  :: LINUX PACKAGES ::
     rofi-wayland
