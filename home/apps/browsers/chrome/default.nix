@@ -12,11 +12,10 @@ let
       Icon=chrome
     '';
   };
-in 
+in
 {
   programs.google-chrome.enable = true;
 
   # Create .desktop file for rofi to run with args
   home.file.".local/share/applications/chrome.desktop".source = chromeDesktopFile;
-
 }
