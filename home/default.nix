@@ -49,9 +49,10 @@ in {
     btop
 
     #   :: BROWSWERS ::
-    brave
-    google-chrome
-    firefox
+    # now moved to their own folders
+    # brave
+    # google-chrome
+    # firefox
     # qutebrowser
 
     #   :: FONTS ::
