@@ -3,4 +3,5 @@
 -- Add any additional options here
 
 -- This will disable new line to also have comment
+-- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
