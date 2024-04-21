@@ -1,5 +1,4 @@
 return {
-
 	-- NOTE 5: set up the language's lsp config here
 	{
 		"neovim/nvim-lspconfig",
@@ -28,10 +27,10 @@ return {
 }
 
 --[[
-
 08:34:05 PM msg_show "~/projects/MyRust/borrowchecker/src/generics.rs" 
 08:34:05 PM msg_show "~/projects/MyRust/borrowchecker/src/generics.rs" 46L, 654B
-   Warn  08:34:07 PM notify.warn vim.lsp.inlay_hint.enable(bufnr:number, enable:boolean) is deprecated, use vim.lsp.inlay_hint.enable(enable:boolean, filter:table) instead. :help deprecated
+   Warn  08:34:07 PM notify.warn vim.lsp.inlay_hint.enable(bufnr:number, enable:boolean) is deprecated, 
+ use vim.lsp.inlay_hint.enable(enable:boolean, filter:table) instead. :help deprecated
 Feature was removed in Nvim 0.10-dev
    Warn  08:34:07 PM notify.warn stack traceback:
 	...ed-52d2851/share/nvim/runtime/lua/vim/lsp/inlay_hint.lua:382: in function 'enable'
@@ -43,6 +42,4 @@ stack traceback:
 	...ed-52d2851/share/nvim/runtime/lua/vim/lsp/inlay_hint.lua:387: in function 'enable'
 	...zpn68qr-lazy-plugins/LazyVim/lua/lazyvim/util/toggle.lua:70: in function 'inlay_hints'
 	...68qr-lazy-plugins/LazyVim/lua/lazyvim/config/keymaps.lua:122: in function <...68qr-lazy-plugins/LazyVim/lua/lazyvim/config/keymaps.lua:122>
-
-
 --]]
