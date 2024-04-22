@@ -15,23 +15,13 @@ in
     # colorScheme = "mocha";
 
     theme = spicePkgs.themes.Comfy;
-    # colorScheme = "mocha";
-
 
     enabledExtensions = with spicePkgs.extensions; [
-      # fullAppDisplay
-      # lastfm
-      # genre
       historyShortcut
       shuffle
       fullScreen
-
-      # Community Extensions
       groupSession
       keyboardShortcut
-
-      # fullAppDisplayMod
-      # seekSong
     ];
   };
 }
