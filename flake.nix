@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    # 1. Mention which overlay flakes we are using
     # THIS IS NVIM nigtly, which is the dev branch
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -48,8 +49,9 @@
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
+      # 2. Mention all your overlays here
       overlays = [
-        inputs.neovim-nightly-overlay.overlay
+        # inputs.neovim-nightly-overlay.overlay
       ];
     };
   in {
