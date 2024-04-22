@@ -5,11 +5,21 @@ let
 
   my_catppuccin_name = "Catppuccin-Mocha-Standard-Pink-Dark";
   my_catppuccin = pkgs.catppuccin-gtk.override {
+        accents = [ "green" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "macchiato";
+  };
+  /*
+  my_catppuccin_name = "Catppuccin-Macchiato-Standard-Green-Dark";
+  my_catppuccin = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
         accents = [ "blue" ];
         size = "standard";
         tweaks = [ "normal" "rimless"];
         variant = "mocha";
   };
+  */
 in 
 {
   imports = [];
@@ -72,12 +82,13 @@ in
   # useful link: https://github.com/catppuccin/gtk/issues/110
   home.sessionVariables.GTK_THEME = "${my_catppuccin_name}";
   # home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
+
+  /*
   home.file.".config/gtk-4.0/gtk-dark.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk-dark.css";
   home.file.".config/gtk-4.0/assets" = {
     recursive = true;
     source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/assets";
   };
-  /*
   # */
 
 }
