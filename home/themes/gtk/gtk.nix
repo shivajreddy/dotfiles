@@ -2,6 +2,14 @@
 
 let
   myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
+
+  my_catppuccin_name = "Catppuccin-Macchiato-Standard-Green-Dark";
+  my_catppuccin = pkgs.catppuccin-gtk.override {
+        accents = [ "green" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "macchiato";
+  };
 in 
 {
   imports = [];
@@ -30,13 +38,8 @@ in
     };
     */
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "compact";
-        tweaks = [ "rimless" "black" ];
-        variant = "mocha";
-      };
+      name = my_catppuccin_name;
+      package = my_catppuccin;
     };
 
     # Cursors
@@ -86,11 +89,20 @@ in
 
   };
 
-  # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
+  home.file.".config/gtk-4.0/gtk.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk.css";
+  home.file.".config/gtk-4.0/gtk-dark.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk-dark.css";
+
+  home.file.".config/gtk-4.0/assets" = {
+    recursive = true;
+    source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/assets";
+  };
+
+  /* Now symlink the `~/.config/gtk-4.0/` folder declaratively:
   xdg.configFile = {
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
+  # */
 
 }
