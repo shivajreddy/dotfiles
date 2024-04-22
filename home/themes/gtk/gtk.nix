@@ -23,9 +23,15 @@ in
     enable = true;
 
     # Desktop Theme
+    /*
     theme = {
       package = pkgs.gnome.gnome-themes-extra;
       name = "Adwaita-dark";
+    };
+    */
+    theme = {
+      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin";
     };
 
     # Cursors
