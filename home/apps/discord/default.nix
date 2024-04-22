@@ -16,6 +16,6 @@ in
 
   xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
 
-  home.file.".local/share/applications/chrome.desktop".source = discordDesktopFile;
+  home.file.".local/share/applications/discord.desktop".source = discordDesktopFile;
 
 }
