@@ -30,8 +30,13 @@ in
     };
     */
     theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "Catppuccin";
+      name = "Catppuccin-Macchiato-Compact-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = "mocha";
+      };
     };
 
     # Cursors
