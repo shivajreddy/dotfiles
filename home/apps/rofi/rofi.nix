@@ -7,7 +7,7 @@
 # this is not finished
 	programs.rofi = {
 	  enable = true;
-	  font = "JetBrains Mono";
+	  font = "JetBrainsMono Nerd Font";
 	  theme = ''
 	  '';
 	};
