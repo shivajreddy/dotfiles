@@ -14,7 +14,7 @@ in
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "mocha";
 
-    theme = spicePkgs.themes.comfy;
+    theme = spicePkgs.themes.Comfy;
     # colorScheme = "mocha";
 
 
