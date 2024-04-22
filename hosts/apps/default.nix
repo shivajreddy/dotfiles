@@ -16,6 +16,9 @@ in
 
 # System packages
 with pkgs; [
+
+  dconf-editor
+
   webcord
   pcloudFixes
 

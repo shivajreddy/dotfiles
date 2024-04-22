@@ -76,8 +76,6 @@ in {
     slurp
     swappy
 
-    dconf-editor
-
     #   :: HYPRLAND ::
     waybar
     bottom
