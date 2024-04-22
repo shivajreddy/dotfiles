@@ -11,24 +11,27 @@ in
   programs.spicetify = {
     enable = true;
 
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    # theme = spicePkgs.themes.catppuccin;
+    # colorScheme = "mocha";
+
+    theme = spicePkgs.themes.comfy;
+    # colorScheme = "mocha";
 
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
-      lastfm
+      # fullAppDisplay
+      # lastfm
       # genre
       historyShortcut
       shuffle
+      fullScreen
 
       # Community Extensions
       groupSession
       keyboardShortcut
-      fullAppDisplayMod
-      seekSong
-      fullScreen
 
+      # fullAppDisplayMod
+      # seekSong
     ];
   };
 }
