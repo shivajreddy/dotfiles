@@ -81,8 +81,8 @@ in {
     bottom
     pyprland
     gtk4
-    pamixer
     unzip
+    pamixer
     volnoti
 
     #   :: STREAMING ::
