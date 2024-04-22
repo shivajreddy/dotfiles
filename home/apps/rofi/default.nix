@@ -8,8 +8,8 @@
 	programs.rofi = {
 	  enable = true;
 	  font = "JetBrainsMono Nerd Font";
-	  theme = ''
-	  '';
+	  # theme = ''
+	  # '';
 	};
 
   xdg.configFile."rofi/config.rasi".source = ./config.rasi;
