@@ -32,6 +32,8 @@ in {
     (./. + "/apps/discord")
 
     (./. + "/apps/chatterino")
+
+    (./. + "/apps/rofi")
   ];
 
   home.packages = with pkgs; [
