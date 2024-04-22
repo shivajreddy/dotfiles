@@ -12,7 +12,7 @@
 	};
   # */
 
-  programs.rofi-wayland.enable = true;
+  pkgs.rofi-wayland.enable = true;
 
   # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
   # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
