@@ -79,8 +79,8 @@ in
   };
 
   # /*
-  home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
-  home.file.".config/gtk-4.0/gtk-dark.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk-dark.css";
+  # home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
+  # home.file.".config/gtk-4.0/gtk-dark.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk-dark.css";
 
   home.file.".config/gtk-4.0/assets" = {
     recursive = true;
