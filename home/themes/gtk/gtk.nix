@@ -61,18 +61,6 @@ in
       };
     };
 
-    /* TODO: Test this configuration breaking dark mode for legacy applications
-        gtk2 = {
-          extraConfig = ''
-            "gtk-theme-name=adw-gtk3-dark"
-            "gtk-cursor-theme-name="Adwaita""
-            "gtk-cursor-theme-size=24"
-            "gtk-application-prefer-dark-theme=0"
-            "gtk-applications-prefer-dark-theme=0"
-            '';
-        };
-    # */
-
     gtk3 = {
       extraConfig = {
         gtk-application-prefer-dark-theme=true;
@@ -80,12 +68,13 @@ in
       };
     };
 
+/*
     gtk4 = {
       extraConfig = {
         gtk-application-prefer-dark-theme=true;
-        # gtk-applications-prefer-dark-theme=true;
       };
     };
+    */
 
   };
 
@@ -97,7 +86,7 @@ in
     source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/assets";
   };
 
-  /* Now symlink the `~/.config/gtk-4.0/` folder declaratively:
+  /* Now symlink the `~/.config/gtk-4.0/` folder declaratively
   xdg.configFile = {
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
