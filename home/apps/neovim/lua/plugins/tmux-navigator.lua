@@ -1,4 +1,3 @@
---[[
 return {
 	"christoomey/vim-tmux-navigator",
 	cmd = {
@@ -16,8 +15,7 @@ return {
 		-- { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 	},
 }
---]]
 
-return {
-	"mrjones2014/smart-splits.nvim",
-}
+-- return {
+-- 	"mrjones2014/smart-splits.nvim",
+-- }
