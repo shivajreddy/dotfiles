@@ -33,7 +33,7 @@ in {
 
     (./. + "/apps/chatterino")
 
-    (./. + "/apps/rofi")
+    # (./. + "/apps/rofi")
   ];
 
   home.packages = with pkgs; [
@@ -62,7 +62,7 @@ in {
     # ibm-plex  # for some reasons this shit wont work, only a sys package
 
     #  :: LINUX PACKAGES ::
-    # rofi-wayland
+    rofi-wayland
     bluez
     blueman
     pavucontrol
