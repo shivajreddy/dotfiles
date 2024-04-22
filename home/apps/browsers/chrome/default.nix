@@ -7,7 +7,7 @@ let
     text = ''
       [Desktop Entry]
       Type=Application
-      Name=google Chrome
+      Name=Google Chrome
       Exec=google-chrome-stable --ozone-platform=wayland
       Icon=chrome
     '';
