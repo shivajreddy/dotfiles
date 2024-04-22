@@ -70,20 +70,12 @@ in
 
 
   # useful link: https://github.com/catppuccin/gtk/issues/110
-  # home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
+  home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
+  /*
   home.file.".config/gtk-4.0/gtk-dark.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk-dark.css";
   home.file.".config/gtk-4.0/assets" = {
     recursive = true;
     source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/assets";
-  };
-  /*
-  # */
-
-  /* Now symlink the `~/.config/gtk-4.0/` folder declaratively
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
   # */
 
