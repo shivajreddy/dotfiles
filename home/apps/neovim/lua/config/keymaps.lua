@@ -15,7 +15,7 @@ vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 -- ]]
 
 -- Using TmuxNavigator
-vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", {})
-vim.keymap.set("n", "<C-j>", "<cmd><C-U>TmuxNavigateDown<cr>", {})
+vim.keymap.set("n", "<C-h>", "<cmd><C-T>TmuxNavigateLeft<cr>", {})
+vim.keymap.set("n", "<C-j>", "<cmd><C-T>TmuxNavigateDown<cr>", {})
 vim.keymap.set("n", "<C-k>", "<cmd><C-U>TmuxNavigateUp<cr>", {})
 vim.keymap.set("n", "<C-l>", "<cmd><C-U>TmuxNavigateRight<cr>", {})
