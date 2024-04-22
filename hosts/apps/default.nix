@@ -17,7 +17,7 @@ in
 # System packages
 with pkgs; [
 
-  dconf-editor
+  gnome.dconf-editor
 
   webcord
   pcloudFixes
