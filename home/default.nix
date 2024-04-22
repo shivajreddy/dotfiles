@@ -33,7 +33,7 @@ in {
 
     (./. + "/apps/chatterino")
 
-    # (./. + "/apps/rofi")
+    (./. + "/apps/rofi")
   ];
 
   home.packages = with pkgs; [
