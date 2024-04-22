@@ -14,7 +14,7 @@ in
 {
   imports = [];
 
-  # this is what fixed the gnome cursors for me
+  # this is what fixed the gnome cursors for me.
   home.pointerCursor = {
     gtk.enable = true;
     # package = pkgs.bibata-cursors;
@@ -78,6 +78,7 @@ in
 
   };
 
+  /*
   home.file.".config/gtk-4.0/gtk.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk.css";
   home.file.".config/gtk-4.0/gtk-dark.css".source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/gtk-dark.css";
 
@@ -85,6 +86,7 @@ in
     recursive = true;
     source = "${my_catppuccin}/share/themes/${my_catppuccin_name}/gtk-4.0/assets";
   };
+  # */
 
   /* Now symlink the `~/.config/gtk-4.0/` folder declaratively
   xdg.configFile = {
