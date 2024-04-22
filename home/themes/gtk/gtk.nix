@@ -3,12 +3,12 @@
 let
   myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
 
-  my_catppuccin_name = "Catppuccin-Macchiato-Standard-Green-Dark";
+  my_catppuccin_name = "Catppuccin-Mocha-Standard-Green-Dark";
   my_catppuccin = pkgs.catppuccin-gtk.override {
         accents = [ "green" ];
         size = "standard";
         tweaks = [ "normal" ];
-        variant = "macchiato";
+        variant = "mocha";
   };
   /*
   my_catppuccin_name = "Catppuccin-Mocha-Standard-Pink-Dark";
