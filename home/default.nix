@@ -24,7 +24,8 @@ in {
     (./. + "/apps/tmux/tmux.nix")
     (./. + "/apps/starship/starship.nix")
 
-    (./. + "/apps/hyprland/hyprland.nix")
+    (./. + "/apps/hyprland")
+    (./. + "/apps/hyprlock")
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
 
