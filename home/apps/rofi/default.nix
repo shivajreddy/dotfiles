@@ -5,14 +5,13 @@
 	imports = [];
 
 # this is not finished
-  /*
+  # /*
 	programs.rofi = {
 	  enable = true;
 	  font = "JetBrainsMono Nerd Font";
 	};
   # */
 
-  pkgs.rofi-wayland.enable = true;
 
   # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
   # xdg.configFile."WebCord/Themes/CatpuccinMocha".source = ./mocha.theme.css;
