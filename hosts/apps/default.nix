@@ -17,6 +17,8 @@ in
 # System packages
 with pkgs; [
 
+  hyprlock
+
   gnome.dconf-editor
 
   webcord
