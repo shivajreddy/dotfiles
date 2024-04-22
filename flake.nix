@@ -5,7 +5,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # THIS IS NVIM nigtly, which is the dev branch
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # HomeManager Flake
     # this will be passed as an argument for the outputs function by nix
