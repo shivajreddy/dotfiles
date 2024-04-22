@@ -9,7 +9,7 @@ let
       Type=Application
       Name=Google Chrome
       Exec=google-chrome-stable --ozone-platform=wayland
-      Icon=chrome
+      Icon=~/dotfiles/home/apps/browsers/chrome/google.png
     '';
   };
 in
