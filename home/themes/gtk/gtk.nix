@@ -42,7 +42,7 @@ in
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override{
-        accent = "maroon"; # https://github.com/costales/folder-color/
+        accent = "blue"; # https://github.com/costales/folder-color/
           flavor = "mocha";
       };
     };
