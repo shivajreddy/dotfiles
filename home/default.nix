@@ -105,7 +105,7 @@ in {
 
     #  :: MISC ::
     zoom-us
-    # obsidian
+    obsidian
     # vscode
     # jetbrains.clion
     # jetbrains.pycharm-professional
