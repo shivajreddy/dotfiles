@@ -83,6 +83,7 @@ in {
     gtk4
     pamixer
     unzip
+    volnoti
 
     #   :: STREAMING ::
     obs-studio
