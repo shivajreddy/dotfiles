@@ -21,7 +21,8 @@
 
     savedots = "${pkgs.lib.getBin pkgs.bash}/bin/zsh $HOME/.config/zsh/scripts/savedots.sh";
 
-    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/rebuild.sh";
+    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/zsh $HOME/.config/zsh/scripts/rebuild.sh";
+
     aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/aliases.sh";
 
   };
