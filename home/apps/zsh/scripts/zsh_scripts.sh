@@ -42,3 +42,18 @@ rebuild() {
     echo " ::::::    Home-Manager-Rebuild : $hostname    :::::: "
     home-manager switch --flake "$HOME/dotfiles"
 }
+
+# Todo in pclouddrive
+todo() {
+  local current_dir
+  current_dir=$(pwd)  # Save the current directory
+
+  cd pCloudDrive/Files/ObsidianVault/todo
+
+  nvim todo.md
+
+  echo " :::::: Changing back to current_dir :::::: "
+  cd "$current_dir"  # Return to the original directory
+
+}
+
