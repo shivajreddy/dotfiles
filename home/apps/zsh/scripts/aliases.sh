@@ -32,3 +32,13 @@ savedots() {
     cd "$current_dir"  # Return to the original directory
 }
 
+
+# Home-Manager-Rebuild
+rebuild() {
+    # Rebuild NixOS configuration based on the current hostname's flake
+    local hostname
+    hostname=$(hostname)  # Capture the hostname in a variable
+    echo "Home-Manager-Rebuild for: $hostname"
+
+    home-manager switch --flake "$HOME/dotfiles"
+}
