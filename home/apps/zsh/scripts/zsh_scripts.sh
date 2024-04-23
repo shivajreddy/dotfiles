@@ -52,7 +52,7 @@ todo() {
 
   nvim todo.md
 
-  echo " :::::: Changing back to current_dir :::::: "
+  # echo " :::::: Changing back to current_dir :::::: "
   cd "$current_dir"  # Return to the original directory
 
 }
