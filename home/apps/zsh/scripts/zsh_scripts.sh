@@ -10,8 +10,9 @@ dots() {
 osbuild() {
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
-    echo "Rebuilding for: $hostname"
-    sudo nixos-rebuild switch --flake "~/dotfiles#$hostname"
+    echo " ::::::    NixOS-Rebuild for : $hostname    :::::: "
+    echo " ::::::    Path with HostName: $HOME/dotfiles#$hostname :::::: "
+    sudo nixos-rebuild switch --flake "$HOME/dotfiles#$hostname"
 }
 
 
