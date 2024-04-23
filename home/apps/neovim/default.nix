@@ -108,6 +108,7 @@
 
           smart-splits-nvim
           obsidian-nvim
+          zen-mode-nvim
         ];
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
