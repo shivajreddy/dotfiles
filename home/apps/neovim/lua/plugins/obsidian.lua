@@ -11,10 +11,7 @@ return {
 	--   "BufNewFile path/to/my-vault/**.md",
 	-- },
 	dependencies = {
-		-- Required.
-		"nvim-lua/plenary.nvim",
-
-		-- see below for full list of optional dependencies 👇
+		"nvim-lua/plenary.nvim", -- Required.
 	},
 	opts = {
 		workspaces = {
@@ -22,12 +19,10 @@ return {
 				name = "personal",
 				path = "~/pCloudDrive/Files/ObsidianVault/",
 			},
-			-- {
-			-- 	name = "work",
-			-- 	path = "~/vaults/work",
-			-- },
 		},
-
-		-- see below for full list of options 👇
+		completion = {
+			nvim_cmp = true,
+			min_chars = 2,
+		},
 	},
 }
