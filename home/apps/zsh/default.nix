@@ -17,10 +17,10 @@
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
     gitsave = "gaa && gcmsg '.' && ggpush";
 
-    osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/osbuild.sh";
-    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/savedots.sh";
+    osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/osbuild.sh";
+    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/savedots.sh";
     rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/rebuild.sh";
-    aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/aliases.sh";
+    aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/aliases.sh";
 
   };
 in {
