@@ -1,7 +1,7 @@
 {pkgs, ...}: let
 
   # My Scripts
-  aliases_script = pkgs.lib.readFile ./scripts/aliases.sh;
+  zsh_scripts = pkgs.lib.readFile ./scripts/zsh_scripts.sh;
 
   # My shell aliases
   myAliases = {
@@ -16,17 +16,6 @@
     ggpull = "git pull -u origin main";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
     gitsave = "gaa && gcmsg '.' && ggpush";
-
-/*
-    osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/osbuild.sh";
-
-    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/zsh $HOME/.config/zsh/scripts/savedots.sh";
-
-    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/zsh $HOME/.config/zsh/scripts/rebuild.sh";
-
-    aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/aliases.sh";
-    */
-
   };
 in {
 
@@ -45,7 +34,7 @@ in {
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
 
-      ${aliases_script}
+      ${zsh_scripts}
 
     '';
   };
