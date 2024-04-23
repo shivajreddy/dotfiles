@@ -12,7 +12,6 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
-
       tmuxPlugins.sensible
       tmuxPlugins.yank
       tmuxPlugins.resurrect
@@ -74,7 +73,6 @@ in
       set -g @catppuccin_status_fill "icon"
       set -g @catppuccin_status_connect_separator "no"
       set -g @catppuccin_directory_text "#{b:pane_current_path}"
-      set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
       set -g @catppuccin_date_time_text "%H:%M"
     '';
   };
