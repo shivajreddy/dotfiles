@@ -26,7 +26,7 @@
 in {
 
   # copy the scripts folder to .config/zsh/
-  xdg.configFile."zsh/scripts".source = ./scripts/;
+  xdg.configFile."zsh/scripts".source = ./scripts;
 
 
   programs.zsh = {
