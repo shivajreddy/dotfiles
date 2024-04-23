@@ -1,7 +1,7 @@
 {pkgs, ...}: let
 
   # My Scripts
-  aliases_script = pkgs.lib.readFile ./aliases.sh;
+  # aliases_script = pkgs.lib.readFile ./aliases.sh;
 
   # My shell aliases
   myAliases = {
@@ -15,10 +15,13 @@
     ggpush = "git push -u origin main";
     ggpull = "git pull -u origin main";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
-    # savedots = "cd ~/dotfiles && gaa && gcmsg '.' && ggpush";
-    # rebuild = "home-manager switch --flake /home/shiva/dotfiles";
-    # todo = "cd ~/todo && vi todo.md";
     gitsave = "gaa && gcmsg '.' && ggpush";
+
+    osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/osbuild.sh";
+    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/savedots.sh";
+    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/rebuild.sh";
+    aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/aliases.sh";
+
   };
 in {
   programs.zsh = {
@@ -32,7 +35,6 @@ in {
       PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-      ${aliases_script}
     '';
   };
 
