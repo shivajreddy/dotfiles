@@ -21,6 +21,7 @@ savedots() {
 
     # Use the first positional parameter as the commit message, or use a default message if none is provided
     local commit_message="${1:-Update dotfiles}"
+    echo "Your Commin Message: ${commit_message}"
 
     git add .
     git commit -m "$commit_message"
