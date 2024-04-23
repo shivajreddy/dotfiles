@@ -3,7 +3,7 @@
   # My Scripts
   # aliases_script = pkgs.lib.readFile ./aliases.sh;
 
-  # My shell aliases
+  # My shell aliases.
   myAliases = {
     ls = "eza --icons -l -T -L=1";
     vi = "nvim";
@@ -18,7 +18,9 @@
     gitsave = "gaa && gcmsg '.' && ggpush";
 
     osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/osbuild.sh";
-    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/savedots.sh";
+
+    savedots = "${pkgs.lib.getBin pkgs.bash}/bin/zsh $HOME/.config/zsh/scripts/savedots.sh";
+
     rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/rebuild.sh";
     aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/aliases.sh";
 
@@ -27,7 +29,6 @@ in {
 
   # copy the scripts folder to .config/zsh/
   xdg.configFile."zsh/scripts".source = ./scripts;
-
 
   programs.zsh = {
     enable = true;
@@ -43,15 +44,6 @@ in {
     '';
   };
 
-
-  /*
-    programs.bash = {
-      enable = true;
-      enableCompletion = true;
-      shellAliases = myAliases;
-    };
-  #
-  */
 
   home.packages = with pkgs; [
     direnv
