@@ -36,7 +36,7 @@ osbuild() {
 
 # Home-Manager-Rebuild
 rebuild() {
-    # Rebuild NixOS configuration based on the current hostname's flake.
+    # Rebuild NixOS configuration based on the current hostname's flake
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
     echo " ::::::    Home-Manager-Rebuild : $hostname    :::::: "
