@@ -20,8 +20,6 @@ in
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
-      set -g @plugin 'omerxx/tmux-sessionx'
-
 
       {
         plugin = tmuxPlugins.catppuccin;
@@ -48,6 +46,9 @@ in
 
     extraConfig = ''
     ${tmux-conf}
+
+      set -g @plugin 'omerxx/tmux-sessionx'
+
       set -g @sessionx-bind 'o'
       set -g @sessionx-x-path '~/dotfiles'
       set -g @sessionx-window-height '85%'
