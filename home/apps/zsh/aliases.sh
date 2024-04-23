@@ -5,7 +5,7 @@ dots() {
     cd /home/shiva/dotfiles/ || exit
 }
 
-# Rebuild NixOS configuration based on the current hostname's flake.
+# Rebuild NixOS configuration based on the current hostname's flake
 osbuild() {
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
