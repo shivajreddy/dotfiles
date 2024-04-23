@@ -9,8 +9,17 @@ dots() {
 osbuild() {
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
-    echo "Rebuilding for: $hostname"
+    echo "NixOS-Rebuild for: $hostname"
     sudo nixos-rebuild switch --flake "$HOME/dotfiles#$hostname"
+}
+
+# Rebuild NixOS configuration based on the current hostname's flake
+rebuild() {
+    local hostname
+    hostname=$(hostname)  # Capture the hostname in a variable
+    echo "Home-Manager-Rebuild for: $hostname"
+
+    home-manager switch --flake "$HOME/dotfiles"
 }
 
 # Save changes to the dotfiles repository
