@@ -9,6 +9,9 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap("n", "<C-w>", "<C-w>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-y>", "<C-y>zz", { noremap = true, silent = true })
+
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
 
