@@ -23,7 +23,7 @@ savedots() {
     cd ~/dotfiles || exit  # Change to dotfiles directory safely
 
     echo " ::::::         Adding to Git        :::::: "
-    # Use the first positional parameter as the commit message, or use a default message if none is provided
+    # .Use the first positional parameter as the commit message, or use a default message if none is provided
     local commit_message="${1:-Update dotfiles}"
     echo " :::::: Commit Message: ${commit_message} :::::: "
 
