@@ -11,4 +11,6 @@
     # use username, for password paste the token from github.com 
   };
 
+  programs.lazygit.enable = true;
+
 }

@@ -14,7 +14,7 @@ in {
   # import configuration for apps, packages, etc...
   imports = [
     (./. + "/fonts")
-    (./. + "/apps/git.nix")
+    (./. + "/apps/git")
 
     (./. + "/apps/browsers")
 
