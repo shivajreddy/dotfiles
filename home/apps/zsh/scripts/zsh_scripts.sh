@@ -2,7 +2,7 @@
 
 # Change to the dotfiles directory
 dots() {
-    cd /home/shiva/dotfiles/ || exit
+    cd $HOME/dotfiles/ || exit
 }
 
 # Save changes to the dotfiles repository
