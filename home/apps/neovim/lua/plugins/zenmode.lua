@@ -62,12 +62,12 @@ return {
 		-- callback where you can add custom code when the Zen window opens
 		on_open = function(win)
 			vim.fn.system([[tmux set status off]])
-			vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
+			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
 		end,
 		-- callback where you can add custom code when the Zen window closes
 		on_close = function()
 			vim.fn.system([[tmux set status on]])
-			vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
+			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
 		end,
 	},
 }
