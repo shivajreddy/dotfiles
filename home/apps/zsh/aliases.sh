@@ -10,7 +10,7 @@ osbuild() {
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
     echo "Rebuilding for: $hostname"
-    sudo nixos-rebuild switch --flake "~/dotfiles#$hostname"
+    sudo nixos-rebuild switch --flake "$HOME/dotfiles#$hostname"
 }
 
 # Save changes to the dotfiles repository
