@@ -1,9 +1,9 @@
 {pkgs, ...}: let
 
   # My Scripts
-  # aliases_script = pkgs.lib.readFile ./aliases.sh;
+  aliases_script = pkgs.lib.readFile ./scripts/aliases.sh;
 
-  # My shell aliases.
+  # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
     vi = "nvim";
@@ -42,6 +42,9 @@ in {
       PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+
+      ${aliases_script}
+
     '';
   };
 
