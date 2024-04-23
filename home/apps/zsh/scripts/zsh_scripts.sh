@@ -48,7 +48,7 @@ todo() {
   local current_dir
   current_dir=$(pwd)  # Save the current directory
 
-  cd pCloudDrive/Files/ObsidianVault/todo
+  cd ~/pCloudDrive/Files/ObsidianVault/todo
 
   nvim todo.md
 
