@@ -20,12 +20,12 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/vaults/personal",
+				path = "~/pCloudDrive/Files/ObsidianVault/",
 			},
-			{
-				name = "work",
-				path = "~/vaults/work",
-			},
+			-- {
+			-- 	name = "work",
+			-- 	path = "~/vaults/work",
+			-- },
 		},
 
 		-- see below for full list of options 👇
