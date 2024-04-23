@@ -19,7 +19,7 @@
 
     osbuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/osbuild.sh";
     savedots = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/savedots.sh";
-    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${HOME}/.config/zsh/scripts/rebuild.sh";
+    rebuild = "${pkgs.lib.getBin pkgs.bash}/bin/bash $HOME/.config/zsh/scripts/rebuild.sh";
     aliases = "${pkgs.lib.getBin pkgs.bash}/bin/bash ${/absolute/path/to/your/dotfiles}/scripts/aliases.sh";
 
   };
