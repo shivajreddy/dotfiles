@@ -5,17 +5,6 @@ dots() {
     cd /home/shiva/dotfiles/ || exit
 }
 
-
-# Rebuild NixOS configuration based on the current hostname's flake
-osbuild() {
-    local hostname
-    hostname=$(hostname)  # Capture the hostname in a variable
-    echo " ::::::    NixOS-Rebuild for : $hostname    :::::: "
-    echo " ::::::    Path with HostName: $HOME/dotfiles#$hostname :::::: "
-    sudo nixos-rebuild switch --flake "$HOME/dotfiles#$hostname"
-}
-
-
 # Save changes to the dotfiles repository
 savedots() {
     echo " ::::::    Changing to ~/dotfiles    :::::: "
@@ -36,13 +25,20 @@ savedots() {
     cd "$current_dir"  # Return to the original directory
 }
 
+# Rebuild NixOS configuration based on the current hostname's flake
+osbuild() {
+    local hostname
+    hostname=$(hostname)  # Capture the hostname in a variable
+    echo " ::::::    NixOS-Rebuild for : $hostname    :::::: "
+    # echo " ::::::    Path with HostName: $HOME/dotfiles#$hostname :::::: "
+    sudo nixos-rebuild switch --flake "$HOME/dotfiles#$hostname"
+}
 
 # Home-Manager-Rebuild
 rebuild() {
     # Rebuild NixOS configuration based on the current hostname's flake
     local hostname
     hostname=$(hostname)  # Capture the hostname in a variable
-    echo "Home-Manager-Rebuild for: $hostname"
-
+    echo " ::::::    Home-Manager-Rebuild : $hostname    :::::: "
     home-manager switch --flake "$HOME/dotfiles"
 }
