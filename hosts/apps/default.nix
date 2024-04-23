@@ -16,6 +16,7 @@ in
 
 # System packages
 with pkgs; [
+  pkg-config
 
   hyprlock
 
