@@ -17,6 +17,7 @@ in
 # System packages
 with pkgs; [
   pkg-config
+  gtk4
 
   hyprlock
 
