@@ -95,7 +95,7 @@ in
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold] #W 󰇙 #{b:pane_current_path} #{?window_zoomed_flag,  ,}"
 
           # set -g @catppuccin_window_default_text "#W·#{b:pane_current_path} "
-          set -g @catppuccin_window_default_text " #{s|/shiva|~|:pane_current_path}  #W·#{b:pane_current_path} "
+          set -g @catppuccin_window_default_text "#{s|^$HOME|~|:pane_current_path} #W·#{b:pane_current_path} "
           set -g @catppuccin_window_current_text "#[fg=#11111b,bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
 
           # set -g @catppuccin_window_default_text " #W"
