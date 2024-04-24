@@ -25,7 +25,7 @@ in
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
 
-        set -g @catppuccin_status_background "theme"
+        set -g @catppuccin_status_background "default"
 
         set -g @catppuccin_window_left_separator " "
         set -g @catppuccin_window_right_separator ""
