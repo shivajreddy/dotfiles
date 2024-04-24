@@ -41,6 +41,8 @@
 
       gopls
       golangci-lint-langserver
+
+      nil
     ];
 
     plugins = with pkgs.vimPlugins; [

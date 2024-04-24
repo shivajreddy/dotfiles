@@ -21,6 +21,9 @@ return {
 					},
 				},
 				gopls = {},
+
+				-- Nix Lsp
+				nil_ls = {},
 			},
 		},
 	},

@@ -21,7 +21,7 @@ in {
     (./. + "/apps/terminal")
     (./. + "/apps/zsh")
     (./. + "/apps/neovim")
-    (./. + "/apps/tmux/tmux.nix")
+    # (./. + "/apps/tmux")
     (./. + "/apps/starship/starship.nix")
 
     (./. + "/apps/hyprland")
