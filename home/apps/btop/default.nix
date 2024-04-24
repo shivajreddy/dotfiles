@@ -4,8 +4,10 @@
 {
 	programs.btop = {
 		enable = true;
-		extraConfig = {
 
+    color_theme = "mocha";
+    theme_background = false;
+		extraConfig = {
 		};
 	};
 
