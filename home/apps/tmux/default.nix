@@ -95,7 +95,6 @@ in
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold] #W 󰇙 #{b:pane_current_path} #{?window_zoomed_flag,  ,}"
 
           # set -g @catppuccin_window_default_text "#W·#{b:pane_current_path} "
-          set-option -g status-left "#(sed 's|^$HOME|~|; s|^/$|~|' <<< #{pane_current_path})"
           # set -g @catppuccin_window_default_text "#W· #{s|^$HOME|~|; s|^/$|~|:pane_current_path}"
           # set -g @catppuccin_window_current_text "#W· #{s|^$HOME|~|; s|^/$|~|:pane_current_path}"
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
@@ -117,6 +116,8 @@ in
           set -g @catppuccin_status_connect_separator "no"
           set -g @catppuccin_directory_text "#{b:pane_current_path}"
           set -g @catppuccin_date_time_text "%I:%M %p"
+
+          set-option -g status-left "#(sed 's|^$HOME|~|; s|^/$|~|' <<< #{pane_current_path})"
         '';
       }
 
