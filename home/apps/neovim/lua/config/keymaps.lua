@@ -6,9 +6,6 @@ vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle
 
 vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
 
@@ -19,3 +16,45 @@ vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 -- ]]
+
+-- Prime's Keymaps: https://github.com/Eandrju/cellular-automaton.nvim
+-- Open Neovim Explorer
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- dont change cursor position when using J
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- half page jumping with centering screen
+-- vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- searching with n, N will also center the screen
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- preserve copy buffer, when you paster over highligted
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- leader+y or leader+Y to yank to clipboard, and y,Y to yank with in vim
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- delete to void register so that when you leader+d you dont add that delete to yank
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+-- <nop> means no operation, so we are disabling Q. cuz by default Q is recording
+vim.keymap.set("n", "Q", "<nop>")
+
+-- switch projects via tmux
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+-- quick fix navigation, not sure wtf this is
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
