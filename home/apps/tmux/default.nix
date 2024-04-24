@@ -27,6 +27,10 @@ in
 
         set -g @catppuccin_status_background "default"
 
+        '';
+      }
+
+      /*
         set -g @catppuccin_window_left_separator " "
         set -g @catppuccin_window_right_separator ""
         # set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
@@ -56,8 +60,7 @@ in
         set -g @catppuccin_status_connect_separator "no"
         set -g @catppuccin_directory_text "#{b:pane_current_path}"
         set -g @catppuccin_date_time_text "%H:%M"
-        '';
-      }
+      *;
 
       /*
       {
