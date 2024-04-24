@@ -18,6 +18,7 @@
     (./. + "/apps/neovim")
     (./. + "/apps/tmux")
     (./. + "/apps/starship/starship.nix")
+    (./. + "/apps/btop")
 
     (./. + "/apps/hyprland")
     (./. + "/apps/hyprlock")
@@ -44,7 +45,7 @@
     wl-clipboard
     zsh-autosuggestions
     htop
-    btop
+    # btop
 
     #   :: BROWSWERS ::
     # now moved to their own folders

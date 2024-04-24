@@ -9,9 +9,8 @@
 		};
 	};
 
-  xdg.configFile."kitty/themes".source = ./themes;
+  # xdg.configFile."kitty/themes".source = ./themes;
+  xdg.configFile."btop/btop.conf".source = ./btop.conf;
+  xdg.configFile."btop/mocha.conf".source = ./mocha.theme;
 
-	home.sessionVariable ={
-	 XDG_CONFIG_HOME = ./.
-	};
 }
