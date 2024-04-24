@@ -57,3 +57,17 @@ todo() {
 
 }
 
+# Git Pull
+gpush () {
+  local branch_name="${1:-main}"
+  git push origin ${branch_name}
+}
+
+gpull () {
+  local branch_name="${1:-main}"
+  git pull origin ${branch_name}
+}
+
+
+
+
