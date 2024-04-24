@@ -18,6 +18,7 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
+      /*
       {
         plugin = pkgs.fetchFromGitHub {
           owner = "catppuccin";
@@ -25,8 +26,9 @@ in
           rev = "v${version}";
           hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
         };
-
       }
+      # */
+
     ];
 
   };
