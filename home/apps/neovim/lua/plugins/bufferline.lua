@@ -1,12 +1,15 @@
-local mocha = require("catppuccin.palettes").get_palette("mocha")
+-- local mocha = require("catppuccin.palettes").get_palette("mocha")
+
+local bufferline = require("bufferline")
 
 return {
 	"akinsho/bufferline.nvim",
 	event = "VeryLazy",
 	opts = {
 		options = {
+			always_show_bufferline = true,
+			style_preset = bufferline.style_preset.no_italic,
 			show_buffer_close_icons = false,
-			offsets = { { separator = false } },
 		},
 
 		--[[

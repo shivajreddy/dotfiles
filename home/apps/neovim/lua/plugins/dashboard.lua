@@ -33,15 +33,11 @@ return {
             { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
             { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
 
-            { action = "Telescope find_files cwd=~/pCloudDrive/Files/ObsidianVault/", desc = "Obsidian Notes", icon = " ", key = "n" },
+            -- { action = "Telescope find_files cwd=~/pCloudDrive/Files/ObsidianVault/", desc = "Obsidian Notes", icon = " ", key = "n" },
+            { action = "Telescope find_files cwd=$HOME/obsidianvault/", desc = "Obsidian Notes", icon = " ", key = "n" },
             -- { action = "Telescope find_files cwd=~/pCloudDrive/Files/ObsidianVault/", desc = "Obsidian Notes", icon = " ", key = "n" },
-            {
-              -- action = [[lua require("lazyvim.util").telescope.config_files()()]],
-              action = "Telescope find_files cwd=~/dotfiles/home/apps/neovim/",
-              desc = " Config",
-              icon = " ",
-              key = "c"
-            },
+          -- stylua: ignore
+            { -- action = [[lua require("lazyvim.util").telescope.config_files()()]], action = "Telescope find_files cwd=~/dotfiles/home/apps/neovim/", desc = " Config", icon = " ", key = "c" },
             { action = "Telescope find_files cwd=~/dotfiles/home/", desc = " Home", icon = " ", key = "h" },
             { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
             { action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
