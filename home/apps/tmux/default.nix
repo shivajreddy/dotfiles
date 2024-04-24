@@ -28,8 +28,9 @@ in
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
-        set -g status-bg default
         # set -g @catppuccin_status_background "default"
+        set -g status-bg '#ff80ed'
+        set -g @catppuccin_status_background "#ff80ed"
         '';
       }
 
