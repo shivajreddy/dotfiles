@@ -8,6 +8,10 @@ in
   programs.tmux = {
     enable = true;
 
+    extraConfig = ''
+      ${main_tmux_conf}
+    '';
+
     # installing tmux plugins through nix, since TPM wont work
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
@@ -85,8 +89,5 @@ in
 
     ];
 
-    extraConfig = ''
-    ${main_tmux_conf}
-    '';
   };
 }
