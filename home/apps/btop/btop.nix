@@ -9,6 +9,8 @@
 		};
 	};
 
+  xdg.configFile."kitty/themes".source = ./themes;
+
 	home.sessionVariable ={
 	 XDG_CONFIG_HOME = ./.
 	};
