@@ -105,6 +105,7 @@
     #  :: MISC ::
     zoom-us
     obsidian
+    cava
     # vscode
     # jetbrains.clion
     # jetbrains.pycharm-professional
