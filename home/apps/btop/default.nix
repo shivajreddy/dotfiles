@@ -10,8 +10,6 @@
       theme_background = false;
     };
 
-		extraConfig = {
-		};
 	};
 
   xdg.configFile."btop/btop.conf".source = ./btop.conf;
