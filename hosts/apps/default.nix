@@ -17,6 +17,7 @@ in
 # System packages
 with pkgs; [
   hyprlock
+  hyprpicker
 
   gnome.dconf-editor
 

@@ -61,23 +61,54 @@ in
       # tmuxplugins as of this day is soo many months old,
       # so i made the custom tmux-plugin from the catppuccin-tmux repo on 2024-04-24
       {
-      plugin = (
-        mkTmuxPlugin {
-          pluginName = "catppuccin";
-          version = "unstable-2024";
-          src = pkgs.fetchFromGitHub {
-            owner = "catppuccin";
-            repo = "tmux";
-            rev = "a556353d60833367b13739e660d4057a96f2f4fe"; # 2024-04-24
-            hash = "sha256-i5rnMnkFGOWeRi38euttei/fVIxlrV6dQxemAM+LV0A=";
-          };
-        }
-      );
+        plugin = (
+          mkTmuxPlugin {
+            pluginName = "catppuccin";
+            version = "unstable-2024";
+            src = pkgs.fetchFromGitHub {
+              owner = "catppuccin";
+              repo = "tmux";
+              rev = "a556353d60833367b13739e660d4057a96f2f4fe"; # 2024-04-24
+              hash = "sha256-i5rnMnkFGOWeRi38euttei/fVIxlrV6dQxemAM+LV0A=";
+            };
+          }
+        );
         extraConfig = ''
-        set -g @catppuccin_flavour  "mocha"
+          set -g @catppuccin_flavour  "mocha"
 
-        # set -g @catppuccin_status_default "off"
-        set -g @catppuccin_status_background "default"
+          set -g @catppuccin_status_background "default"
+
+          set -g @catppuccin_window_left_separator " "
+          set -g @catppuccin_window_right_separator ""
+          # set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
+          # set -g @catppuccin_window_right_separator "#[fg=#ff0000,bg=#ff0000,bold,underscore,italics]"
+
+          # set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_middle_separator "#[fg=#9399b2,bg=#9399b2]█"
+          # set -g @catppuccin_window_middle_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics]█"
+
+          # tmux setting to turn off window numbers
+          setw -g window-status-current-format '#{pane_current_command}'
+          setw -g window-status-format '#{pane_current_command}'
+          # set -g @catppuccin_window_number_position "right"
+
+          set -g @catppuccin_window_status_icon_enable "yes"
+
+          set -g @catppuccin_window_default_fill "none" # number all none
+          set -g @catppuccin_window_default_text "#W"
+
+          set -g @catppuccin_window_current_fill "all" # number all none
+          set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,  ,}"
+
+          set -g @catppuccin_status_modules_right "directory meetings date_time"
+          set -g @catppuccin_status_modules_left "session"
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator " "
+          set -g @catppuccin_status_right_separator_inverse "no"
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_connect_separator "no"
+          set -g @catppuccin_directory_text "#{b:pane_current_path}"
+          set -g @catppuccin_date_time_text "%H:%M"
         '';
       }
 
