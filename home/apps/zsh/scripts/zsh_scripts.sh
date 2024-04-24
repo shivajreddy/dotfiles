@@ -69,6 +69,15 @@ gpull () {
   git pull origin ${branch_name}
 }
 
+# Nix flake update, shorthand for sudo-flake-update
+sfu(){
+  sudo nix flake update ~/dotfiles
+}
+
+sncg(){
+  sudo nix-collect-garbage -d
+}
+
 
 
 

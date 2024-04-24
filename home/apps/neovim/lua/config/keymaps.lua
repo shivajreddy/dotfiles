@@ -36,13 +36,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- preserve copy buffer, when you paster over highligted
 vim.keymap.set("x", "<leader>p", [["_dP]])
+-- delete to void register so that when you leader+d you dont add that delete to yank
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- leader+y or leader+Y to yank to clipboard, and y,Y to yank with in vim
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-
--- delete to void register so that when you leader+d you dont add that delete to yank
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- <nop> means no operation, so we are disabling Q. cuz by default Q is recording
 vim.keymap.set("n", "Q", "<nop>")
