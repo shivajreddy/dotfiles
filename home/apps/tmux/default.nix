@@ -3,13 +3,13 @@ let
   main_tmux_conf = builtins.readFile ./tmux.conf;
 
 
+  # Got this from 
+  # https://github.com/NixOS/nixpkgs/blob/2230a20f2b5a14f2db3d7f13a2dc3c22517e790b/pkgs/misc/tmux-plugins/default.nix
   rtpPath = "share/tmux-plugins";
-
   addRtp = path: rtpFilePath: attrs: derivation:
     derivation // { rtp = "${derivation}/${path}/${rtpFilePath}"; } // {
       overrideAttrs = f: mkTmuxPlugin (attrs // f attrs);
     };
-
   mkTmuxPlugin = a@{
     pluginName,
     rtpFilePath ? (builtins.replaceStrings ["-"] ["_"] pluginName) + ".tmux",
@@ -45,10 +45,8 @@ let
       '';
     }));
 
-
 in 
 {
-
 
   imports = [];
 
@@ -64,6 +62,8 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
+      # tmuxplugins as of this day is soo many months old,
+      # so i made the custom tmux-plugin from the catppuccin-tmux repo on 2024-04-24
       {
       plugin = (
         mkTmuxPlugin {
@@ -71,11 +71,8 @@ in
           version = "unstable-2024";
           src = pkgs.fetchFromGitHub {
             owner = "catppuccin";
-              # "sha": "a556353d60833367b13739e660d4057a96f2f4fe",
             repo = "tmux";
-            rev = "a556353d60833367b13739e660d4057a96f2f4fe";
-                        # got:    sha256-i5rnMnkFGOWeRi38euttei/fVIxlrV6dQxemAM+LV0A=
-
+            rev = "a556353d60833367b13739e660d4057a96f2f4fe"; # 2024-04-24
             hash = "sha256-i5rnMnkFGOWeRi38euttei/fVIxlrV6dQxemAM+LV0A=";
           };
         }
