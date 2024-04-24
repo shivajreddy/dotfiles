@@ -13,11 +13,13 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
+      /*
       tmuxPlugins.sensible
       tmuxPlugins.yank
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
+      */
 
       {
         plugin = tmuxPlugins.catppuccin;
@@ -42,6 +44,7 @@ in
         '';
       }
 
+      /*
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
@@ -59,6 +62,7 @@ in
         set -g @continuum-save-interval '10'
         '';
       }
+      */
 
     ];
 

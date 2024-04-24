@@ -1,10 +1,5 @@
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
-in {
   # Main settings
   home.username = "shiva";
   home.homeDirectory = "/home/shiva";
