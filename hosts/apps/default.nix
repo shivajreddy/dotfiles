@@ -20,6 +20,7 @@ with pkgs; [
   hyprpicker
   
   pkg-config
+  openssl
 
   gnome.dconf-editor
 
