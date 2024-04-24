@@ -12,7 +12,7 @@
 
 	};
 
-  xdg.configFile."btop/btop.conf".source = ./btop.conf;
+  # xdg.configFile."btop/btop.conf".source = ./btop.conf;
   xdg.configFile."btop/themes".source = ./themes;
 
 }
