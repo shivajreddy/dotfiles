@@ -33,7 +33,7 @@ in
         set -g @catppuccin_window_default_text "#W"
 
         set -g @catppuccin_window_current_fill "all" # number all none
-        set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(  ),}"
+        set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,  ,}"
 
         set -g @catppuccin_status_modules_right "directory meetings date_time"
         set -g @catppuccin_status_modules_left "session"
