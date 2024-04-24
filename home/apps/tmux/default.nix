@@ -25,12 +25,12 @@ in
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
 
-        set -g status-bg default
+        set -g @catppuccin_status_background "theme"
 
-        # set -g @catppuccin_window_left_separator " "
-        # set -g @catppuccin_window_right_separator ""
-        set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
-        set -g @catppuccin_window_right_separator "#[fg=#ff0000,bg=#ff0000,bold,underscore,italics]"
+        set -g @catppuccin_window_left_separator " "
+        set -g @catppuccin_window_right_separator ""
+        # set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
+        # set -g @catppuccin_window_right_separator "#[fg=#ff0000,bg=#ff0000,bold,underscore,italics]"
 
         set -g @catppuccin_window_middle_separator " █"
         # set -g @catppuccin_window_middle_separator ""
