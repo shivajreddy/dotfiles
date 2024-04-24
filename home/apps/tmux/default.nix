@@ -83,8 +83,9 @@ in
           # set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
           # set -g @catppuccin_window_right_separator "#[fg=#ff0000,bg=#ff0000,bold,underscore,italics]"
 
+          set -g @catppuccin_window_middle_separator ""
           # set -g @catppuccin_window_middle_separator " █"
-          set -g @catppuccin_window_middle_separator "#[fg=#313244,bg=#313244]█"
+          # set -g @catppuccin_window_middle_separator "#[fg=#313244,bg=#313244]█"
           # set -g @catppuccin_window_middle_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics]█"
 
           # tmux setting to turn off window numbers
