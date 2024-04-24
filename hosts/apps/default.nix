@@ -18,6 +18,8 @@ in
 with pkgs; [
   hyprlock
   hyprpicker
+  
+  pkg-config
 
   gnome.dconf-editor
 
