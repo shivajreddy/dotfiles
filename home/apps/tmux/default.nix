@@ -30,6 +30,8 @@ in
         set -g @catppuccin_window_middle_separator ""
         set -g @catppuccin_window_number_position "right"
 
+        set -g @catppuccin_window_status_icon_enable "yes"
+
         set -g @catppuccin_window_default_fill "none" # number all none
         set -g @catppuccin_window_default_text "#W"
 
