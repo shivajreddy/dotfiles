@@ -78,16 +78,28 @@ in
 
           set -g @catppuccin_status_background "default"
 
+          set -g @catppuccin_window_number_position "right"
+
           set -g @catppuccin_window_left_separator " "
           set -g @catppuccin_window_right_separator ""
           # set -g @catppuccin_window_left_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics] "
           # set -g @catppuccin_window_right_separator "#[fg=#ff0000,bg=#ff0000,bold,underscore,italics]"
 
-          # set -g @catppuccin_window_middle_separator ""
-          # set -g @catppuccin_window_middle_separator " █"
-          # set -g @catppuccin_window_middle_separator "#[fg=#313244,bg=#313244]█"
-          # set -g @catppuccin_window_middle_separator "#[fg=#ffffff,bg=#ffffff,bold,underscore,italics]█"
+          set -g @catppuccin_window_default_fill "none"                        # number all none
+          set -g @catppuccin_window_current_fill "all" # number all none
+          # set -g @catppuccin_window_status_default "off"
+          set -g @catppuccin_window_current_color "#7287fd "
+          set -g @catppuccin_window_current_text_color "#11111b"
 
+          # set -g @catppuccin_window_default_text " #W 󰇙 #{b:pane_current_path} "
+          # set -g @catppuccin_window_current_text "#[fg=#11111b,bold] #W 󰇙 #{b:pane_current_path} #{?window_zoomed_flag,  ,}"
+          set -g @catppuccin_window_default_text " #W"
+          set -g @catppuccin_window_current_text "#[fg=#11111b,bold] #W#{?window_zoomed_flag,  ,}"
+
+          set -g @catppuccin_window_middle_separator " "
+          # set -g @catppuccin_window_middle_separator " █"
+        '';
+        /*
           # tmux setting to turn off window numbers
           # set -g window-status-current-format '#{pane_current_command}'
           # set -g window-status-format '#{pane_current_command}'
@@ -109,7 +121,7 @@ in
           set -g @catppuccin_status_connect_separator "no"
           set -g @catppuccin_directory_text "#{b:pane_current_path}"
           set -g @catppuccin_date_time_text "%H:%M"
-        '';
+        */
       }
 
     ];
