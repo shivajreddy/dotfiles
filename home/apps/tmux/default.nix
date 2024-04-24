@@ -96,7 +96,7 @@ in
 
           set -g @catppuccin_window_default_text "#W·#{b:pane_current_path} "
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
-          set -g status-right "#[fg=cyan]#(if [ \"$(pwd)\" = \"$HOME\" ]; then echo '~'; else pwd; fi) #{?window_zoomed_flag,  ,}"
+          set -g status-right "#[fg=cyan] #{s|/Users/myname|~|:pane_current_path} #{?window_zoomed_flag,  ,}"
 
           # set -g @catppuccin_window_default_text " #W"
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold] #W#{?window_zoomed_flag,  ,}"
