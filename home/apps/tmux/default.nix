@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  tmux-conf = builtins.readFile ./tmux.conf;
+  main_tmux_conf = builtins.readFile ./tmux.conf;
 in 
 {
   imports = [];
@@ -8,6 +8,7 @@ in
   programs.tmux = {
     enable = true;
 
+    # installing tmux plugins through nix, since TPM wont work
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
@@ -62,7 +63,7 @@ in
     ];
 
     extraConfig = ''
-    ${tmux-conf}
+    ${main_tmux_conf}
     '';
   };
 }
