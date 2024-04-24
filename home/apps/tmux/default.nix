@@ -30,8 +30,7 @@ in
         extraConfig = ''
         set -g @catppuccin_flavour  "mocha"
         # set -g @catppuccin_status_background "default"
-        set -g status-bg '#ff80ed'
-        set -g @catppuccin_status_background "#ff80ed"
+        set -g status-bg "#191724"
         '';
       }
 
