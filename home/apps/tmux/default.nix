@@ -86,13 +86,16 @@ in
           set -g @catppuccin_window_default_fill "none"                        # number all none
           set -g @catppuccin_window_current_fill "all" # number all none
           # set -g @catppuccin_window_status_default "off"
-          set -g @catppuccin_window_color "#11111b"   # this is the current-window-background-color
-          set -g @catppuccin_window_current_color "#a6adc8"   # this is the current-window-background-color
-          # set -g @catppuccin_window_current_color "#f5c2e7"   # this is the current-window-background-color
-          set -g @catppuccin_window_current_text_color "#11111b"
 
           set -g @catppuccin_window_default_text "#W·#{b:pane_current_path} "
-          set -g @catppuccin_window_current_text "#[fg=#cdd6f4,bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
+          set -g @catppuccin_window_default_color "#45475a"         # this is the text color of default-window
+          set -g @catppuccin_window_default_background "#11111b"    # this is the background of default-window
+
+          set -g @catppuccin_window_current_text "#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
+          set -g @catppuccin_window_current_text_color "#[bold]"    # this is the text color of current-window
+          set -g @catppuccin_window_current_color "#6c7086"         # this is the background of current-window
+          # set -g @catppuccin_window_current_color "#f5c2e7"   # this is the current-window-background-color
+
           # set -g @catppuccin_window_current_text "#[fg=#11111b,bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
 
 
