@@ -86,7 +86,7 @@ in
           set -g @catppuccin_window_default_fill "none"                        # number all none
           set -g @catppuccin_window_current_fill "all" # number all none
           # set -g @catppuccin_window_status_default "off"
-          set -g @catppuccin_window_current_color "#11111b"   # this is the current-window-background-color
+          set -g @catppuccin_window_current_color "#b4befe"   # this is the current-window-background-color
           # set -g @catppuccin_window_current_color "#f5c2e7"   # this is the current-window-background-color
           set -g @catppuccin_window_current_text_color "#11111b"
 

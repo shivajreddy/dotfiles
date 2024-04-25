@@ -39,7 +39,7 @@ tooltip{
 #workspaces button.active {
 	padding: 0 4px;
   color: @mantle;
-  background-color: @pink;
+  background-color: @blue;
 }
 
 
