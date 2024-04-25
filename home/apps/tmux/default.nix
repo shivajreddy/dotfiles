@@ -92,7 +92,7 @@ in
           set -g @catppuccin_window_default_background "#11111b"    # this is the background of default-window
 
           set -g @catppuccin_window_current_text "#[bold]#W·#{b:pane_current_path} #{?window_zoomed_flag,  ,}"
-          set -g @catppuccin_window_current_color "#cdd6f4"         # this is the text color of current-window
+          set -g @catppuccin_window_current_color "#11111b"         # this is the text color of current-window
           set -g @catppuccin_window_current_background "#6c7086"    # this is the background color of current-window
           # set -g @catppuccin_window_current_color "#f5c2e7"   # this is the current-window-background-color
 
