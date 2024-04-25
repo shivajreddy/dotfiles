@@ -12,6 +12,15 @@ vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
+-- All Text Controls
+function YankEntireBuffer()
+	local cursor_pos = vim.api.nvim_win_get_cursor(0) -- Save cursor position
+	vim.cmd(":%yank") -- Yank the entire buffer
+	vim.api.nvim_win_set_cursor(0, cursor_pos) -- Restore cursor position
+end
+vim.keymap.set("n", "<Leader>ay", [[:lua YankEntireBuffer()<CR>]], { desc = "Yank all" })
+vim.keymap.set("n", "<Leader>ad", ":%d<CR>")
+
 --[[ :: Using Smart-splits ::
 vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
 vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
