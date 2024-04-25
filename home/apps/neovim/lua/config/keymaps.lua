@@ -9,6 +9,9 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
 
+-- Select all
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+
 --[[ :: Using Smart-splits ::
 vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
 vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
