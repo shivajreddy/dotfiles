@@ -30,7 +30,7 @@ tooltip{
 #workspaces button {
   padding: 0px 0px;
   margin: 0px 2px;
-  color: @pink;
+  color: @blue;
   background: @mantle;
  /* transition: all 0.3s cubic-bezier(.11, 1.09, .6, .96);*/
   font-weight: bold;
