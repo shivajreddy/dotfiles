@@ -5,7 +5,7 @@
     # (./. + "/wezterm")
     # (./. + "/alacritty")
     (./. + "/kitty")
-    # (./. + "/zellij")
+    (./. + "/zellij")
   ];
 
 }
