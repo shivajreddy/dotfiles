@@ -25,9 +25,11 @@ return {
 				theme = "auto",
 				globalstatus = true,
 				disabled_filetypes = { statusline = { "neo-tree", "dashboard", "alpha", "starter" } },
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+
 				-- lualine_b = { "branch" },
 
 				lualine_c = {
