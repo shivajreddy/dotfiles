@@ -75,7 +75,7 @@ in
 
           set -g @rose_pine_default_window_behavior 'on' # Forces tmux default window list behaviour
           set -g @rose_pine_show_current_program 'on' # Forces tmux to show the current running program as window name
-          set -g @rose_pine_show_pane_directory 'on' # Forces tmux to show the current directory as window name
+          set -g @rose_pine_show_pane_directory 'off' # Forces tmux to show the current directory as window name
 
           # Example values for these can be:
           set -g @rose_pine_left_separator "" # The strings to use as separators are 1-space padded
