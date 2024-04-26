@@ -49,6 +49,7 @@
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [ "linux-wallpaerengine" ];
       # 2. Mention all your overlays here
       overlays = [
         # inputs.neovim-nightly-overlay.overlay

@@ -14,12 +14,14 @@ let
   });
 in
 
+
 # System packages
 with pkgs; [
   hyprlock
   hyprpicker
 
   linux-wallpaperengine
+  permitted
 
   pkg-config
   openssl
