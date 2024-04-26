@@ -9,6 +9,11 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
 
+-- LazyTerm
+vim.keymap.set("n", "<C-/>", function()
+	Util.terminal(nil, { border = "rounded" })
+end, { desc = "LazyTerm with Border", silent = false })
+
 -- All Text Controls
 function YankEntireBuffer()
 	local cursor_pos = vim.api.nvim_win_get_cursor(0) -- Save cursor position
