@@ -55,7 +55,7 @@
 
     #   :: FONTS ::
     jetbrains-mono
-    inter
+    monaspace
     # ibm-plex  # for some reasons this shit wont work, only a sys package
 
     #  :: LINUX PACKAGES ::
