@@ -20,8 +20,6 @@ with pkgs; [
   hyprlock
   hyprpicker
 
-  linux-wallpaperengine
-
   pkg-config
   openssl
 
