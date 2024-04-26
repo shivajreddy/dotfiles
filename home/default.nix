@@ -97,7 +97,7 @@
     lua
     rustup
     python3
-    nodejs_21
+    # nodejs_21
     gcc
     gnumake
     go
