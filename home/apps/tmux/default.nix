@@ -58,6 +58,9 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
+      tmuxPlugins.rose-pine
+
+      /* Catppuccin Theme
       # tmuxplugins as of this day is soo many months old,
       # so i made the custom tmux-plugin from the catppuccin-tmux repo on 2024-04-24
       {
@@ -113,6 +116,7 @@ in
           set -g @catppuccin_date_time_text "%I:%M %p"
         '';
       }
+      # */
 
     ];
 
