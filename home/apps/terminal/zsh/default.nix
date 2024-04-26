@@ -35,6 +35,12 @@ in {
        %F{green}→%f "
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
 
+      # current wordchars
+      # *?_-.[]~=/&;!#$%^(){}<>
+
+      WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+
       ${zsh_scripts}
 
     '';
