@@ -33,7 +33,7 @@ return {
 				-- statusline will be shown only if 'laststatus' == 3
 				laststatus = 0, -- turn off the statusline in zen mode
 			},
-			twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+			twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
 			gitsigns = { enabled = false }, -- disables git signs
 			tmux = { enabled = false }, -- disables the tmux statusline when enabled = false
 			-- this will change the font size on kitty when in zen mode
@@ -61,12 +61,12 @@ return {
 		},
 		-- callback where you can add custom code when the Zen window opens
 		on_open = function(win)
-			-- vim.fn.system([[tmux set status off]])
+			vim.fn.system([[tmux set status off]])
 			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
 		end,
 		-- callback where you can add custom code when the Zen window closes
 		on_close = function()
-			-- vim.fn.system([[tmux set status on]])
+			vim.fn.system([[tmux set status on]])
 			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
 		end,
 	},

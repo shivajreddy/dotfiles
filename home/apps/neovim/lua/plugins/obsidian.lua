@@ -17,7 +17,6 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				-- path = "~/pCloudDrive/Files/ObsidianVault/",
 				path = "$HOME/obsidianvault/",
 			},
 		},
