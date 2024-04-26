@@ -9,7 +9,6 @@ return {
 	},
 
 	--  catppuccin
-	--[[
 	{
 		"catppuccin/nvim",
 		lazy = false,
@@ -103,7 +102,6 @@ return {
 			},
 		},
 	},
-  --]]
 
 	-- Rose Pine
 	-- Simple Config
