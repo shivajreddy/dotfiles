@@ -24,27 +24,28 @@ return {
 			options = {
 				theme = "auto",
 				globalstatus = true,
-				disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+				disabled_filetypes = { statusline = { "neo-tree", "dashboard", "alpha", "starter" } },
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch" },
+				-- lualine_b = { "branch" },
 
 				lualine_c = {
-					LazyVim.lualine.root_dir(),
+					-- LazyVim.lualine.root_dir(),
 					{
 						"diagnostics",
 						symbols = {
 							error = icons.diagnostics.Error,
-							warn = icons.diagnostics.Warn,
-							info = icons.diagnostics.Info,
-							hint = icons.diagnostics.Hint,
+							-- warn = icons.diagnostics.Warn,
+							-- info = icons.diagnostics.Info,
+							-- hint = icons.diagnostics.Hint,
 						},
 					},
-					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-					{ LazyVim.lualine.pretty_path() },
+					-- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+					-- { LazyVim.lualine.pretty_path() },
 				},
 				lualine_x = {
+					--[[
           -- stylua: ignore
           {
             function() return require("noice").api.status.command.get() end,
@@ -87,6 +88,7 @@ return {
 							end
 						end,
 					},
+        --]]
 				},
 				lualine_y = {
 					-- { "progress", separator = " ", padding = { left = 1, right = 0 } },
