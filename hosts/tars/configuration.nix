@@ -138,6 +138,7 @@
   fonts.packages = with pkgs; [
     ibm-plex
     inter
+    poppins
     (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka"];})
   ];
 
