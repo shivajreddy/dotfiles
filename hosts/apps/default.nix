@@ -21,7 +21,6 @@ with pkgs; [
   hyprpicker
 
   linux-wallpaperengine
-  permitted
 
   pkg-config
   openssl
