@@ -58,7 +58,12 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
 
-      tmuxPlugins.rose-pine
+      {
+        plugin = tmuxPlugins.rose-pine;
+        extraConfig = ''
+          set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
+        '';
+      }
 
       /* Catppuccin Theme
       # tmuxplugins as of this day is soo many months old,

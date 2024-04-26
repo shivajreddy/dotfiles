@@ -46,6 +46,7 @@ return {
 					{ LazyVim.lualine.pretty_path() },
 					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
 				},
+
 				lualine_x = {
 					--[[
           -- stylua: ignore
