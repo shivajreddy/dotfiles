@@ -31,7 +31,7 @@ tooltip
 {
   margin: 0px 0px 0px 0px;
   padding: 5px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 #workspaces button 
@@ -41,7 +41,7 @@ tooltip
   color: @foam;
   background: @base;
  /* transition: all 0.3s cubic-bezier(.11, 1.09, .6, .96);*/
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 #workspaces button.active {
