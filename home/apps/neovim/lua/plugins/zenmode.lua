@@ -41,7 +41,8 @@ return {
 			-- - allow_remote_control socket-only
 			-- - listen_on unix:/tmp/kitty
 			kitty = {
-				enabled = true,
+				-- using a dedicated kitty-config and i load it using the on_open function below
+				enabled = false,
 				font = "+4", -- font size increment
 			},
 			-- this will change the font size on alacritty when in zen mode
