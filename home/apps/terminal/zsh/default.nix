@@ -1,5 +1,6 @@
 {pkgs, ...}: let
 
+
   # My Scripts
   zsh_scripts = pkgs.lib.readFile ./scripts/zsh_scripts.sh;
 

@@ -14,7 +14,6 @@
     (./. + "/apps/browsers")
 
     (./. + "/apps/terminal")
-    (./. + "/apps/zsh")
     (./. + "/apps/neovim")
     (./. + "/apps/tmux")
     (./. + "/apps/starship/starship.nix")
