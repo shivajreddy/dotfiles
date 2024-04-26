@@ -8,18 +8,18 @@ return {
 			-- * an absolute number of cells when > 1
 			-- * a percentage of the width / height of the editor when <= 1
 			-- * a function that returns the width or the height
-			width = 1, -- width of the Zen window
-			height = 1, -- height of the Zen window
+			width = 120, -- width of the Zen window
+			height = 120, -- height of the Zen window
 			-- by default, no options are changed for the Zen window
 			-- uncomment any of the options below, or add other vim.wo options you want to apply
 			options = {
-				-- signcolumn = "no", -- disable signcolumn
+				signcolumn = "no", -- disable signcolumn
 				number = false, -- disable number column
 				relativenumber = false, -- disable relative numbers
-				-- cursorline = false, -- disable cursorline
-				-- cursorcolumn = false, -- disable cursor column
-				-- foldcolumn = "0", -- disable fold column
-				-- list = false, -- disable whitespace characters
+				cursorline = false, -- disable cursorline
+				cursorcolumn = false, -- disable cursor column
+				foldcolumn = "0", -- disable fold column
+				list = false, -- disable whitespace characters
 			},
 		},
 		plugins = {
@@ -41,7 +41,7 @@ return {
 			-- - allow_remote_control socket-only
 			-- - listen_on unix:/tmp/kitty
 			kitty = {
-				enabled = false,
+				enabled = true,
 				font = "+4", -- font size increment
 			},
 			-- this will change the font size on alacritty when in zen mode
