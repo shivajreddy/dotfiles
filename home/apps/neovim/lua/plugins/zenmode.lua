@@ -63,10 +63,14 @@ return {
 		on_open = function(win)
 			vim.fn.system([[tmux set status off]])
 			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
+			-- NOTE: i got the below setting from https://sw.kovidgoyal.net/kitty/generated/rc/#load-config
+			vim.fn.system([[kitty @ load-config ~/dotfiles/home/apps/terminal/kitty/obsidian_kitty.conf]])
 		end,
 		-- callback where you can add custom code when the Zen window closes
 		on_close = function()
 			vim.fn.system([[tmux set status on]])
+			vim.fn.system([[kitty @ load-config ignore_overrides]])
+			vim.fn.system([[kitty @ load-config ~/dotfiles/home/apps/terminal/kitty/kitty.conf]])
 			-- vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
 		end,
 	},

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 let
   confFileContent = builtins.readFile (./. + "/kitty.conf");
