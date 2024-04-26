@@ -9,6 +9,7 @@ return {
 	},
 
 	--  catppuccin
+	--[[
 	{
 		"catppuccin/nvim",
 		lazy = false,
@@ -102,6 +103,7 @@ return {
 			},
 		},
 	},
+  --]]
 
 	-- Rose Pine
 	-- Simple Config
@@ -109,6 +111,7 @@ return {
 	-- Advanced Config
 	{
 		"rose-pine/neovim",
+		lazy = false,
 		name = "rose-pine",
 		variant = "main", -- auto, main, moon, or dawn
 		dark_variant = "main", -- main, moon, or dawn
