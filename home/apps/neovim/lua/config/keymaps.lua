@@ -14,7 +14,7 @@ vim.keymap.set("n", "<Leader>w'", "<cmd>split<CR>")
 vim.keymap.set("n", '<Leader>w"', "<cmd>vs<CR>")
 
 -- Close winodw
-vim.keymap.set("n", "<Leader>x", "<Leader>bd")
+vim.keymap.set("n", "<Leader>x", "<Space>bd<CR>")
 -- vim.keymap.set("n", "<Leader>wq", "<cmd>wq<CR>")
 -- vim.keymap.set("n", "<Leader>wx", "<cmd>q<CR>")
 
