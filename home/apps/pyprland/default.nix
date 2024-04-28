@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs }:
 
 let
   pyprland = pkgs.python3Packages.buildPythonApplication rec {
