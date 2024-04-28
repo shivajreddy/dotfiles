@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  myPyprland = import ./apps/pyprland { inherit pkgs; };
-in
 {
   # Main settings
   home.username = "shiva";
@@ -84,8 +81,7 @@ in
     #   :: HYPRLAND ::
     waybar
     bottom
-    myPyprland
-    # pyprland
+    pyprland
     gtk4
     unzip
     pamixer
