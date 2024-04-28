@@ -1,11 +1,11 @@
 { lib, pkgs }:
 
-pkgs.python3Packages.buildPythonApplication rec {
+pkgs.python3.pkgs.buildPythonApplication rec {
   pname = "pyprland";
   version = "2.0.9";
   format = "pyproject";
 
-  disabled = pkgs.python3Packages.pythonOlder "3.10";
+  # disabled = pkgs.python3Packages.pkgs.pythonOlder "3.10";
 
   src = pkgs.fetchFromGitHub {
     owner = "hyprland-community";
