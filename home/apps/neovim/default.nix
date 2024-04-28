@@ -168,6 +168,7 @@
           rust
           python
           go
+          nix
         ])).dependencies;
       };
     in
