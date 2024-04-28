@@ -79,7 +79,7 @@
     #   :: HYPRLAND ::
     waybar
     bottom
-    # pyprland
+    pyprland
     gtk4
     unzip
     pamixer
