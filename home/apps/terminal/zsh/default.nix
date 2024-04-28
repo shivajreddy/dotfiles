@@ -34,7 +34,7 @@ in {
       PROMPT="%U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
        %F{green}→%f "
 
-      [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+      # [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
 
       # current wordchars
       # *?_-.[]~=/&;!#$%^(){}<>
