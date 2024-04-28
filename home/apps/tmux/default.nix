@@ -51,7 +51,8 @@ in
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.rose-pine
+      # tmuxPlugins.rose-pine
+      tmuxPlugins.catppuccin
     ];
 
     extraConfig = ''
