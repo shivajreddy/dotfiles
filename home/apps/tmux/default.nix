@@ -9,7 +9,7 @@ in
     enable = true;
 
     plugins = with pkgs; [
-      tmuxPlugins.resurrect
+      # tmuxPlugins.resurrect
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
     ];
