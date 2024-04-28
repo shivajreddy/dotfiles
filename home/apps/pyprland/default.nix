@@ -2,29 +2,28 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "pyprland";
-  version = "2.2.10";
+  version = "2.0.9";
+  format = "pyproject";
+
+  disabled = python3Packages.pythonOlder "3.10";
 
   src = fetchFromGitHub {
     owner = "hyprland-community";
     repo = "pyprland";
-    rev = "v${version}";
-    sha256 = "sha256-Lx9BYd/1kg/8C8Kwx+iumCJVaS5MyHmIK9ze7MmLrQk=";
+    rev = "refs/tags/${version}";
+    hash = "sha256-dfE4KQguLp9DEWOuCtNDw8TA3sK9vEqU4VqAVlVaUvw=";
   };
 
-  format = "pyproject";
+  nativeBuildInputs = with python3Packages; [ poetry-core ];
 
-  nativeBuildInputs = with python3Packages; [
-    poetry-core
-  ];
-
-  propagatedBuildInputs = with python3Packages; [
-    aiofiles
-  ];
+  propagatedBuildInputs = with python3Packages; [ aiofiles ];
 
   postInstall = ''
+    # file has shebang but cant be run due to a relative import, has proper entrypoint in /bin
     chmod -x $out/${python3Packages.python.sitePackages}/pyprland/command.py
   '';
 
+  # NOTE: this is required for the imports check below to work properly
   HYPRLAND_INSTANCE_SIGNATURE = "dummy";
 
   pythonImportsCheck = [
@@ -56,7 +55,7 @@ python3Packages.buildPythonApplication rec {
 
   meta = with lib; {
     mainProgram = "pypr";
-    description = "An Hyprland plugin system";
+    description = "An hyperland plugin system";
     homepage = "https://github.com/hyprland-community/pyprland";
     license = licenses.mit;
     maintainers = with maintainers; [ iliayar ];
