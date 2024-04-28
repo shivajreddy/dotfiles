@@ -43,7 +43,6 @@ let
 
 in
 {
-
   imports = [];
 
   programs.tmux = {
@@ -52,26 +51,26 @@ in
     extraConfig = ''
       ${main_tmux_conf}
     '';
-
-  /* Config the Nix way
-    extraConfig = ''
-      ${main_tmux_conf}
-    '';
-
-    # installing tmux plugins through nix, since TPM wont work
-    plugins = with pkgs; [
-      tmuxPlugins.better-mouse-mode
-      tmuxPlugins.vim-tmux-navigator
-
-      {
-        plugin = tmuxPlugins.rose-pine;
-        extraConfig = ''
-          set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
-        '';
-      }
-
-    ];
-  */
-
   };
 }
+
+
+  /* Config the Nix way
+  extraConfig = ''
+    ${main_tmux_conf}
+  '';
+
+# installing tmux plugins through nix, since TPM wont work
+  plugins = with pkgs; [
+    tmuxPlugins.better-mouse-mode
+    tmuxPlugins.vim-tmux-navigator
+
+    {
+      plugin = tmuxPlugins.rose-pine;
+      extraConfig = ''
+        set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
+      '';
+    }
+
+  ];
+  */
