@@ -2,13 +2,13 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "pyprland";
-  version = "2.2.10"; # Update this to the desired version
+  version = "2.2.10";
 
   src = fetchFromGitHub {
     owner = "hyprland-community";
     repo = "pyprland";
-    rev = "v${version}"; # Use the appropriate Git tag or commit hash
-    sha256 = "sha256-Lx9BYd/1kg/8C8Kwx+iumCJVaS5MyHmIK9ze7MmLrQk="; # Update this with the correct hash
+    rev = "v${version}";
+    sha256 = "sha256-Lx9BYd/1kg/8C8Kwx+iumCJVaS5MyHmIK9ze7MmLrQk=";
   };
 
   format = "pyproject";
@@ -22,11 +22,9 @@ python3Packages.buildPythonApplication rec {
   ];
 
   postInstall = ''
-    # file has shebang but cant be run due to a relative import, has proper entrypoint in /bin
     chmod -x $out/${python3Packages.python.sitePackages}/pyprland/command.py
   '';
 
-  # NOTE: this is required for the imports check below to work properly
   HYPRLAND_INSTANCE_SIGNATURE = "dummy";
 
   pythonImportsCheck = [
