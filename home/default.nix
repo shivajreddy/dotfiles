@@ -36,7 +36,7 @@
   home.packages = with pkgs; [
     #   :: TERMINAL ::
     zsh
-    tmux
+    # tmux
     lf
     eza
     neofetch
