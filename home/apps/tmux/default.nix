@@ -49,6 +49,10 @@ in
   programs.tmux = {
     enable = true;
 
+    extraConfig = ''
+      ${main_tmux_conf}
+    '';
+
   /* Config the Nix way
     extraConfig = ''
       ${main_tmux_conf}
