@@ -9,6 +9,10 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
 
+-- Split windows
+vim.keymap.set("n", "<Leader>w'", "<cmd>split<CR>")
+vim.keymap.set("n", '<Leader>w"', "<cmd>vs<CR>")
+
 -- LazyTerm
 vim.keymap.set("n", "<C-/>", function()
 	Util.terminal(nil, { border = "rounded" })
