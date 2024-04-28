@@ -13,8 +13,8 @@ vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode
 vim.keymap.set("n", "<Leader>w'", "<cmd>split<CR>")
 vim.keymap.set("n", '<Leader>w"', "<cmd>vs<CR>")
 
--- Close winodw
-vim.keymap.set("n", "<Leader>x", "bdelete<CR>")
+-- Close
+vim.keymap.set("n", "<Leader>x", "<cmd>bdelete<CR>")
 -- vim.keymap.set("n", "<Leader>wq", "<cmd>wq<CR>")
 -- vim.keymap.set("n", "<Leader>wx", "<cmd>q<CR>")
 
