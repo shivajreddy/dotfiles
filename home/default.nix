@@ -80,7 +80,7 @@
     #   :: HYPRLAND ::
     waybar
     bottom
-    # pyprland
+    pyprland
     gtk4
     unzip
     pamixer
@@ -99,7 +99,7 @@
     lua
     rustup
     python3
-    python311Packages.pip
+    # python311Packages.pip
     nodejs
     gcc
     gnumake
