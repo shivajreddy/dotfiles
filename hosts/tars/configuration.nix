@@ -23,7 +23,7 @@
 
     # https://nixos.org/manual/nixos/stable/options#opt-boot.loader.grub.device
     # grub.device = "/nvme0n1/nvme0n1p1";
-      device = "/nvme0n1p1";
+      device = "nodev";
       # device = "nvme0n1p1";  # Ensure this is the disk where your EFI partition is located
       # lsblk
       # ├─nvme0n1p1 259:1    0   100M  0 part /boot
