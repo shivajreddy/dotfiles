@@ -21,7 +21,6 @@
 
     (./. + "/apps/hyprland")
     (./. + "/apps/hyprlock")
-    (./. + "/apps/pyprland")
 
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
@@ -80,7 +79,7 @@
     #   :: HYPRLAND ::
     waybar
     bottom
-    pyprland
+    # pyprland
     gtk4
     unzip
     pamixer
