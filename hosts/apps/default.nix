@@ -18,6 +18,7 @@ in
 # System packages
 with pkgs; [
   hyprlock
+  pyprland
   hyprpicker
 
   pkg-config
