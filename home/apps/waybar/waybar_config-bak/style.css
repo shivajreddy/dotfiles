@@ -1,0 +1,80 @@
+/* @import url("./mocha.css"); */
+@import url("./rosepine.css");
+
+*
+{
+	font-family: 'JetBrains Mono Nerd';
+	font-size: 20px;
+}
+
+window#waybar
+{
+  color: white;
+
+  /* background: rgba(29, 29, 46, 0.93); */
+  background: @base;
+  -webkit-backdrop-filter: blur(5px);
+}
+
+tooltip
+{
+	background-color: @surface0;
+	color: @text;
+}
+
+#battery, #network, #pulseaudio, #cpu, #memory 
+{
+    margin: 0px 10px;
+}
+
+#workspaces
+{
+  margin: 0px 0px 0px 0px;
+  padding: 5px;
+  /* font-weight: bold; */
+}
+
+#workspaces button
+{
+  padding: 0px 0px;
+  margin: 0px 2px;
+  color: @foam;
+  background: @base;
+ /* transition: all 0.3s cubic-bezier(.11, 1.09, .6, .96);*/
+  /* font-weight: bold; */
+}
+
+#workspaces button.active {
+	padding: 0 4px;
+  color: @base;
+  background-color: @foam;
+}
+
+
+#custom-launcher, #tray{
+    background-color: @surface;
+    border-radius: 100px;
+}
+
+#custom-launcher {
+    color: @love;
+    background: @love;
+}
+
+#media {
+	border-radius: 100px;
+	background: linear-gradient(225deg, @surface 50%, @base 50%);
+	background-color: @base;
+	color: @text;
+	/* font-weight: bold; */
+}
+
+#mpd, #mpris{
+    margin: 0 10px;
+}
+
+#custom-notification {
+    margin: 0px 15px 0px 15px;
+}
+
+

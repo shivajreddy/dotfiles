@@ -97,6 +97,7 @@
     lua
     rustup
     python3
+    python311Packages.pip
     nodejs
     gcc
     gnumake
