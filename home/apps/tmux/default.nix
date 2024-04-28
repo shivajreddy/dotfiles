@@ -48,6 +48,12 @@ in
   programs.tmux = {
     enable = true;
 
+    plugins = with pkgs; [
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.rose-pine
+    ];
+
     extraConfig = ''
       ${main_tmux_conf}
     '';
