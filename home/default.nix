@@ -20,6 +20,7 @@
     (./. + "/apps/btop")
 
     (./. + "/apps/hyprland")
+    (./. + "/apps/pyprland")
     (./. + "/apps/hyprlock")
 
     (./. + "/apps/waybar")
@@ -79,7 +80,7 @@
     #   :: HYPRLAND ::
     waybar
     bottom
-    pyprland
+    # pyprland
     gtk4
     unzip
     pamixer
