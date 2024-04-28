@@ -21,6 +21,8 @@
 
     (./. + "/apps/hyprland")
     (./. + "/apps/hyprlock")
+    (./. + "/apps/pyprland")
+
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
 
