@@ -14,14 +14,23 @@
 
   # Bootloader.
   boot.loader = {
-    # systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
 
-    grub.enable = true;
-    grub.efiSupport = true;
     # https://nixos.org/manual/nixos/stable/options#opt-boot.loader.grub.device
-    grub.device = "nodev";
     # grub.device = "/nvme0n1/nvme0n1p1";
+      device = "/nvme0n1p1";
+      # device = "nvme0n1p1";  # Ensure this is the disk where your EFI partition is located
+      # lsblk
+      # ├─nvme0n1p1 259:1    0   100M  0 part /boot
+
+      # useOSProber = true;   # This allows GRUB to detect Windows.
+    };
+
   };
 
   # Allow unfree packages
