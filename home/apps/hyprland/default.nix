@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 let 
   # tomlFile = builtins.readFile (./. + "/starship.toml");
@@ -34,8 +34,8 @@ in
 	  command = "kitty --class scratchpad"
 	  position = "25% 25%"
 	  size = "50% 50%"
+	  class = "scratchpad"
   '';
-	  # class = "scratchpad"
 
 	  # command = "wezterm start --class scratchpad"
 	  # command = "wezterm --config-file ~/dotfiles/home/apps/terminal/wezterm/scratchpad_config.lua start --class scratchpad"
