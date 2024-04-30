@@ -7,7 +7,8 @@ configuration {
 
 * {
     /* font: "JetBrainsMono NF Bold 12"; */
-    font: "BerkeleyMono Nerd Font Mono Bold 14";
+    /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
+    font: "IBM Plex Mono Bold 14";
 }
 
 
