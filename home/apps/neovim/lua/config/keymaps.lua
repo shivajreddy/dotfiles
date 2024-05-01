@@ -4,7 +4,10 @@
 
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
-vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
+-- Autosave toggle
+vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", {})
+-- GitSigns toggle
+vim.keymap.set("n", "<leader>ug", ":Gitsigns toggle_signs<CR>", {})
 
 -- ZenMode
 vim.api.nvim_set_keymap("n", "<leader>zz", "<CMD>ZenMode<CR>", { desc = "ZenMode", silent = false })
