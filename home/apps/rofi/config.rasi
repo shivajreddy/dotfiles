@@ -7,9 +7,9 @@ configuration {
 
 * {
     /* font: "JetBrainsMono NF Bold 12"; */
-    /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
+    font: "BerkeleyMono Nerd Font Mono Bold 14";
     /* font: "IBM Plex Mono Bold 14"; */
-    font: "Inter 14";
+    /* font: "Inter 14"; */
 
     /* Define color palette here */
     /* Mocha */
@@ -49,7 +49,7 @@ window {
     border-color: @rose;
     border-radius: 12px;
 
-    background-color: #11111b ;
+    background-color: @surface;
     padding: 0px;
 }
 
@@ -69,15 +69,15 @@ inputbar {
     spacing: 10px;
     padding: 5px;
     border-radius: 20px;
-    background-color: #11111b ;
-    text-color: #cdd6f4 ;
+    background-color: @base;
+    text-color: @text;
     children: [ "textbox-prompt-colon", "entry" ];
 }
 
 /*-icons*/
 textbox-prompt-colon {
     expand: false;
-    str: "";
+    str: "  ";
     background-color: inherit;
     text-color: inherit;
     vertical-align: 0.5;
@@ -87,8 +87,8 @@ textbox-prompt-colon {
 entry {
     background-color: inherit;
     text-color: inherit;
-    placeholder: "Search";
-    placeholder-color: inherit;
+    placeholder: "Search...";
+    placeholder-color: @muted;
 }
 
 /*list elemens*/
@@ -97,7 +97,7 @@ listview {
     lines: 6;
     scrollbar: false;
     spacing: 10px;
-    text-color: #cdd6f4;
+    text-color: @text;
     background-color: transparent;
     border: 0px;
 }
@@ -119,13 +119,13 @@ element.normal.normal {
 
 
 element.alternate.normal {
-    background-color: #1e1e2e;
-    text-color: #cdd6f4;
+    background-color: @surface;
+    text-color: @text;
 }
 
 element.selected.normal {
-    background-color: #b4befe;
-    text-color: #11111b;
+    background-color: @rose;
+    text-color: @base;
 }
 
 element-icon {
