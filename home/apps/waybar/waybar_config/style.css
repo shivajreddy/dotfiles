@@ -3,28 +3,34 @@
 
 *
 {
-	font-family: 'JetBrains Mono Nerd';
+	/* font-family: 'JetBrains Mono Nerd'; */
+	font-family: 'Inter';
 	font-size: 20px;
+  border: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 window#waybar
 {
-  color: white;
+  /* background: @base; */
+  background: rgba(21, 18, 27, 0);
+  color: @text;
 
   /* background: rgba(29, 29, 46, 0.93); */
-  background: @base;
-  -webkit-backdrop-filter: blur(5px);
+  /* -webkit-backdrop-filter: blur(5px); */
 }
 
 tooltip
 {
-	background-color: @surface0;
-	color: @text;
-}
+	/* background-color: @surface0; */
+	/* color: @text; */
 
-#battery, #network, #pulseaudio, #cpu, #memory 
-{
-    margin: 0px 10px;
+  background: @base;
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @overlay;
 }
 
 #workspaces
@@ -36,45 +42,96 @@ tooltip
 
 #workspaces button
 {
-  padding: 0px 0px;
-  margin: 0px 2px;
-  color: @foam;
-  background: @base;
- /* transition: all 0.3s cubic-bezier(.11, 1.09, .6, .96);*/
-  /* font-weight: bold; */
+  padding: 5px;
+  margin-right: 5px;
+  min-width: 44px;
+
+  color: @muted;
+  background: @highlightLow;
 }
 
 #workspaces button.active {
-	padding: 0 4px;
   color: @base;
-  background-color: @foam;
+  background-color: @rose;
+}
+
+#workspaces button.focused {
+  color: @subtle;
+  background: @love;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  background: @pine;
 }
 
 
-#custom-launcher, #tray{
-    background-color: @surface;
-    border-radius: 100px;
+
+#custom-power_profile,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#tray,
+#cpu,
+#memory,
+#custom-notification
+{
+  color:@text;
+  background: @base;
+  opacity: 0.7;
+
+  border-radius: 10px;
+  padding: 0px 14px;
+  margin: 4px 4px;
+  border-radius: 6px;
 }
 
-#custom-launcher {
-    color: @love;
-    background: @love;
+#window {
+  color: @muted;
+  background: @overlay;
+  opacity: 1;
+  /* border: 1px solid @rose; */
 }
 
-#media {
-	border-radius: 100px;
-	background: linear-gradient(225deg, @surface 50%, @base 50%);
-	background-color: @base;
-	color: @text;
-	/* font-weight: bold; */
+#pulseaudio,
+#cpu,
+#memory
+{
+  min-width: 74px;
 }
 
-#mpd, #mpris{
-    margin: 0 10px;
+
+#pulseaudio
+{
+  color: @foam;
+  /* border: 1px solid @foam; */
 }
 
-#custom-notification {
-    margin: 0px 15px 0px 15px;
+#network
+{
+  color: @love;
+  /* border: 1px solid @love; */
 }
 
+#bluetooth
+{
+  color: @iris;
+  /* border: 1px solid @iris; */
+}
+
+#clock
+{
+  color: @text;
+  /* border: 1px solid @text; */
+}
+
+#custom-notification
+{
+  color: @rose;
+  /* border: 1px solid @rose; */
+}
 

@@ -1,4 +1,30 @@
 {
+    "layer": "top",
+    "position": "top",
+    "margin": 0,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "clock",
+        "hyprland/workspaces",
+        "tray"
+    ],
+    /* 
+    "modules-center": [
+        "hyprland/window" 
+    ],
+    */
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "bluetooth",
+       "group/system",
+        "clock",
+        "custom/notification"
+    ],
+
+
+    /* :: Configuration of each module :: */
+
     "battery": {
         "format": "{icon}   {capacity}%",
         "format-alt": "{icon}   {time}",
@@ -120,7 +146,18 @@
         "format-wifi": " ",
         "tooltip-format": "{essid} {ifname} {gwaddr}"
     },
-    "position": "top",
+
+    "bluetooth": {
+      "format": " {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": " {num_connections}",
+      "tooltip-format": "{device_alias}",
+      "tooltip-format-connected": " {device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}",
+      "on-click-right": "blueman-manager"
+    },
+
+    /*
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-icons": {
@@ -134,6 +171,24 @@
         "on-click": "pavucontrol",
         "scroll-step": 5
     },
+    */
+
+    "pulseaudio": {
+      "format": "{icon}  {volume}",
+      "tooltip": false,
+      "format-muted": "󰝟",
+      "on-click": "pavucontrol",
+      "format-icons": {
+        "default": [" ", " ", " "],
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
+        "phone": " ",
+        "portable": " ",
+        "car": " "
+      }
+    },
+
     "tray": {
         "icon-size": 20,
         "spacing": 8
@@ -176,19 +231,23 @@
         "tooltip-format-disconnected": "MPD (disconnected)",
         "max-length": 60
     },
-    "wlr/workspaces": {
-        "active-only": false,
-        "all-outputs": false,
-        "disable-scroll": false,
-        "format": "{name}",
-        "format-icons": {
-            "active": "",
-            "default": "",
-            "sort-by-number": true,
-            "urgent": ""
-        },
-        "on-click": "activate",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-scroll-up": "hyprctl dispatch workspace e-1"
+
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "1": "いち",
+        "2": " に ",
+        "3": "さん",
+        "4": "よん",
+        "5": "ご",
+        "6": "ろく",
+        "7": "なな",
+        "8": "はち",
+        "9": "きゅう",
+        "10": "じゅう"
+      }
     },
 }
