@@ -10,6 +10,34 @@ configuration {
     /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
     /* font: "IBM Plex Mono Bold 14"; */
     font: "Inter 14";
+
+    /* Define color palette here */
+    /* Mocha */
+    bg-col:  #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #1e1e2e;
+    selected-col: #1e1e2e;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+
+    /* RosePine */
+    base:            #191724;
+    surface:         #1f1d2e;
+    overlay:         #26233a;
+    muted:           #6e6a86;
+    subtle:          #908caa;
+    text:            #e0def4;
+    love:            #eb6f92;
+    gold:            #f6c177;
+    rose:            #ebbcba;
+    pine:            #31748f;
+    foam:            #9ccfd8;
+    iris:            #c4a7e7;
+    highlightLow:    #21202e;
+    highlightMed:    #403d52;
+    highlightHigh:   #524f67;
 }
 
 
@@ -18,7 +46,7 @@ window {
     width: 800px;
 
     border: 2px solid;
-    border-color: #cba6f7;
+    border-color: @rose;
     border-radius: 12px;
 
     background-color: #11111b ;
