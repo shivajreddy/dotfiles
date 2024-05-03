@@ -86,7 +86,9 @@
     # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
   };
+
 
   environment.variables = {
     # OPENSSL_DEV = pkgs.openssl.dev;
