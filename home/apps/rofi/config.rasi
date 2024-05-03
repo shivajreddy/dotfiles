@@ -88,7 +88,8 @@ textbox-prompt-colon {
 entry {
     background-color: inherit;
     text-color: inherit;
-    placeholder: "Search...";
+    /* placeholder: "Search..."; */
+    placeholder: "";
     placeholder-color: @muted;
 }
 
