@@ -77,7 +77,8 @@ inputbar {
 /*-icons*/
 textbox-prompt-colon {
     expand: false;
-    str: "  ";
+    str: " 🔍 ";
+    /* str: "  "; */
     background-color: inherit;
     text-color: inherit;
     vertical-align: 0.5;
