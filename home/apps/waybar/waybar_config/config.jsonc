@@ -139,7 +139,7 @@
     },
 
     "network": {
-        // "on-click": "zsh nmtui",
+        "on-click": "zsh nmtui",
         "format-disconnected": "󰖪 0% ",
         "format-ethernet": "󰈀 100% ",
         "format-linked": "{ifname} (No IP)",
