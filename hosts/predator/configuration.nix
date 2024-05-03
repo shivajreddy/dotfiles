@@ -88,6 +88,10 @@
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
   };
 
+  environment.variables = {
+    OPENSSL_DEV = pkgs.openssl.dev;
+  };
+
   # User account
   users.users.shiva = {
     isNormalUser = true;
