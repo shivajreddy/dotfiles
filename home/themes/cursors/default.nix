@@ -9,11 +9,11 @@ pkgs.stdenv.mkDerivation {
   # and this should work for legacy apps too. if not 
   # then set run 'gnome-tweaks' on terminal and set it Appearance>Cursor
   # 1. set the name here
-  pname = "bibata-mocha-blue"; 
+  pname = "bibata-rosepine"; 
   version = "1.0.0";
 
   # 2. use the proper directory here
-  src = ./Bibata-Mocha-Blue;
+  src = ./Bibata-RosePine;
 
   dontWrapGzip = true;
 
@@ -23,12 +23,12 @@ pkgs.stdenv.mkDerivation {
   echo "-------->>>>>>> src:$src out:$out <<<<<<<---------"
 
   echo "Copy for all users"
-  mkdir -p $out/share/icons/Bibata-Mocha-Blue
-  cp -rf $src/* $out/share/icons/Bibata-Mocha-Blue
+  mkdir -p $out/share/icons/Bibata-RosePine
+  cp -rf $src/* $out/share/icons/Bibata-RosePine
 
   echo "Copy for current user"
-  mkdir -p $out/.icons/Bibata-Mocha-Blue
-  cp -rf $src/* $out/.icons/Bibata-Mocha-Blue
+  mkdir -p $out/.icons/Bibata-RosePine
+  cp -rf $src/* $out/.icons/Bibata-RosePine
   '';
 
 }

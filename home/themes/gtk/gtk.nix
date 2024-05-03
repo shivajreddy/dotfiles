@@ -3,6 +3,8 @@
 let
   myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
 
+  bibataRosePine = import ../cursors/default.nix {inherit pkgs;};
+
   my_catppuccin_name = "Catppuccin-Mocha-Standard-Lavender-Dark";
   my_catppuccin = pkgs.catppuccin-gtk.override {
         accents = [ "lavender" ];
@@ -19,8 +21,8 @@ in
     gtk.enable = true;
 
     # 4. Set the name here or else it wont work
-    package = myBibataMocha;
-    name = "Bibata-Mocha-Blue";
+    package = bibataRosePine;
+    name = "Bibata-RosePine";
   };
 
 
@@ -37,8 +39,10 @@ in
     # Cursors
     cursorTheme = {
       # 5. Finally set it here too
-      package = myBibataMocha;
-      name = "Bibata-Mocha-Blue";
+      package = bibataRosePine;
+      name = "Bibata-RosePine";
+      # package = myBibataMocha;
+      # name = "Bibata-Mocha-Blue";
     };
 
     # Icons
