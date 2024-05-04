@@ -6,4 +6,6 @@
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
-vim.o.scrolloff = 7
+vim.o.scrolloff = 8
+
+vim.opt.updatetime = 50
