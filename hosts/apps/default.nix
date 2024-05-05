@@ -44,8 +44,5 @@ with pkgs; [
   home-manager
   openssh
 
-  # Misc
-  multiviewer-for-f1
-
 ]
 
