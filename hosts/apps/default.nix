@@ -45,7 +45,7 @@ with pkgs; [
   openssh
 
   # Misc
-  programs.multiviewer-for-f1
+  multiviewer-for-f1
 
 ]
 
