@@ -26,13 +26,14 @@
 
     (./. + "/apps/waybar")
     (./. + "/themes/gtk/gtk.nix")
+    (./. + "/apps/rofi")
 
     (./. + "/apps/spicetify")
     (./. + "/apps/discord")
 
     (./. + "/apps/chatterino")
 
-    (./. + "/apps/rofi")
+    (./. + "/apps/misc")
   ];
 
   home.packages = with pkgs; [
