@@ -78,6 +78,9 @@ garbage(){
   sudo nix-collect-garbage -d
 }
 
+news() {
+  home-manager news --flake ~/dotfiles
+}
 
 
 
