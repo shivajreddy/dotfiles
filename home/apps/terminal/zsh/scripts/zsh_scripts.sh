@@ -60,13 +60,13 @@ todo() {
 # Git Push with optional branch name
 gpush () {
   local branch_name="${1:-main}"
-  git push origin ${branch_name}
+  git push -u origin ${branch_name}
 }
 
 # Git Pull with optional branch name
 gpull () {
   local branch_name="${1:-main}"
-  git pull origin ${branch_name}
+  git pull -u origin ${branch_name}
 }
 
 # Nix flake update, shorthand for sudo-flake-update
@@ -80,6 +80,23 @@ garbage(){
 
 news() {
   home-manager news --flake ~/dotfiles
+}
+
+myalias() {
+  echo "todo -> Open ~/obsidianvault/todo"
+
+  echo""
+  echo "gpull <branch> -> git pull -u origin <branch_name (or) main>"
+  echo "gpush <branch> -> git push -u origin <branch_name (or) main>"
+
+  echo""
+  echo "dots -> go to dotfiles directory"
+  echo "savedots -> git commit and push all changes in dotfiles directory"
+  echo "osbuild -> sudo nixos-rebuild switch --flake"
+  echo "rebuild -> home-manager switch --flake"
+  echo "sfu -> sudo nix flake update"
+  echo "garbage -> sudo nix-collect-garbage -d"
+  echo "news -> home-manager news --flake"
 }
 
 

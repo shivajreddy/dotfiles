@@ -8,13 +8,10 @@
   myAliases = {
     ls = "eza --icons -l -T -L=1";
     vi = "nvim";
-    files = "thunar";
-    htop = "btm";
+    files = "nautilus";
     gaa = "git add .";
     gcmsg = "git commit -m";
     gst = "git status .";
-    ggpush = "git push -u origin main";
-    ggpull = "git pull -u origin main";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
     gitsave = "gaa && gcmsg '.' && ggpush";
   };
