@@ -17,32 +17,39 @@ in
 
 # System packages
 with pkgs; [
+  home-manager
+
+  # Hyprland related
   hyprlock
   hyprpicker
 
-  pkg-config
-  openssl
-
-  gnome.dconf-editor
-
-  webcord
-  pcloudFixes
-
+  # Must haves
   vim
   zsh
   git
   gvfs
+
+  # Apps
+  webcord
   vlc
-  streamlink
-  streamlink-twitch-gui-bin
-  chatterino2
+  pcloudFixes
+
+  # UI
   gnome.gnome-tweaks
-  gnome.nautilus
+  gnome.nautilus  # explorer
+  gnome.dconf-editor
   mojave-gtk-theme
   catppuccin-cursors.mochaDark
 
-  home-manager
+  # Streaming
+  # streamlink      # not working in this latest flake update
+  # streamlink-twitch-gui-bin
+  chatterino2
+
+  # MISC
   openssh
+  pkg-config
+  openssl
 
 ]
 
