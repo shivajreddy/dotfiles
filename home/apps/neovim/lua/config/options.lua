@@ -9,8 +9,3 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.o.scrolloff = 8
 
 vim.opt.updatetime = 50
-
--- Overriding colors
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#232136" })
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#232136" })
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#232136" })
