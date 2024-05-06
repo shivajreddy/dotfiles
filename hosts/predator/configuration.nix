@@ -125,6 +125,7 @@
   # Fonts
   # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/data/fonts/nerdfonts/shas.nix
   fonts.packages = with pkgs; [
+    (ibm-plex)
     (nerdfonts.override {fonts = ["JetBrainsMono" "IBMPlexMono"];})
   ];
 
