@@ -12,3 +12,5 @@ vim.opt.updatetime = 50
 
 -- Overriding colors
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#191724" })
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#191724" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#191724" })
