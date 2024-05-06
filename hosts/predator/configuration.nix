@@ -123,6 +123,7 @@
   };
 
   # Fonts
+  # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/data/fonts/nerdfonts/shas.nix
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka" "IBMPlexMono"];})
   ];
