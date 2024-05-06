@@ -33,7 +33,7 @@ return {
             { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
             { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
 
-            { action = "Telescope find_files cwd=$HOME/obsidianvault/", desc = "Obsidian Notes", icon = " ", key = "n" },
+            { action = "Telescope find_files cwd=$HOME/obsidianvault/", desc = " Obsidian Notes", icon = " ", key = "n" },
 
             --stylua: ignore
             { action = "Telescope find_files cwd=~/dotfiles/home/apps/neovim/", desc = " Config", icon = " ", key = "c" },
