@@ -74,7 +74,7 @@ sfu(){
   sudo nix flake update ~/dotfiles
 }
 
-sncg(){
+garbage(){
   sudo nix-collect-garbage -d
 }
 
