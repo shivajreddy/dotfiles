@@ -12,7 +12,7 @@ in
       # tmuxPlugins.resurrect
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
-      # tmux-sessionizer is not a plugin, its a package
+      # tmux-sessionizer is not a plugin, its a package, installed on home/default.nix
     ];
 
     extraConfig = ''
