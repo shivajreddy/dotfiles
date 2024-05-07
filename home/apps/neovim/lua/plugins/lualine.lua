@@ -22,7 +22,9 @@ return {
 
 		return {
 			options = {
-				theme = "auto",
+				-- theme = "auto",
+				--- @usage 'rose-pine' | 'rose-pine-alt'
+				theme = "rose-pine",
 				globalstatus = true,
 				disabled_filetypes = { statusline = { "neo-tree", "dashboard", "alpha", "starter" } },
 				section_separators = { left = "", right = "" },
