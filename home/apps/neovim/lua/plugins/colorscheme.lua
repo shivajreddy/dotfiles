@@ -162,6 +162,7 @@ return {
 
 		highlight_groups = {
 			Comment = { fg = "foam" },
+			VertSplit = { fg = "muted", bg = "muted" },
 		},
 	},
 
