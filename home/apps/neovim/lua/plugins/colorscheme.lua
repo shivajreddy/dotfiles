@@ -161,6 +161,7 @@ return {
 		},
 
 		highlight_groups = {
+
 			Comment = { fg = "foam" },
 			VertSplit = { fg = "muted", bg = "muted" },
 
@@ -168,12 +169,25 @@ return {
 			StatusLineNC = { fg = "subtle", bg = "surface" },
 
 			-- Telescope
-			TelescopeBorder = { fg = "highlight_high", bg = "none" },
-			TelescopeNormal = { bg = "none" },
-			TelescopePromptNormal = { bg = "base" },
+			-- TelescopeBorder = { fg = "highlight_high", bg = "none" },
+			-- TelescopeNormal = { bg = "none" },
+			-- TelescopePromptNormal = { bg = "base" },
+			-- TelescopeSelection = { fg = "text", bg = "base" },
+			-- TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 			TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-			TelescopeSelection = { fg = "text", bg = "base" },
-			TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+
+			TelescopeBorder = { fg = "overlay", bg = "overlay" },
+			TelescopeNormal = { fg = "subtle", bg = "overlay" },
+			TelescopeSelection = { fg = "text", bg = "highlight_med" },
+			TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+			TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+
+			TelescopeTitle = { fg = "base", bg = "love" },
+			TelescopePromptTitle = { fg = "base", bg = "pine" },
+			TelescopePreviewTitle = { fg = "base", bg = "iris" },
+
+			TelescopePromptNormal = { fg = "text", bg = "surface" },
+			TelescopePromptBorder = { fg = "surface", bg = "surface" },
 		},
 	},
 
