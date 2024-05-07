@@ -20,9 +20,6 @@ in
     '';
   };
 
-  program.tmux-sessionizer = {
-      enable = true;
-  };
 }
 
 

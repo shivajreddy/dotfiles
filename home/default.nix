@@ -39,7 +39,7 @@
   home.packages = with pkgs; [
     #   :: TERMINAL ::
     zsh
-    # tmux-sessionizer
+    tmux-sessionizer
     lf
     eza
     neofetch
