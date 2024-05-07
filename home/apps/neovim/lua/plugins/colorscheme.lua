@@ -162,11 +162,11 @@ return {
 
 		highlight_groups = {
 
-			Comment = { fg = "foam" },
-			VertSplit = { fg = "muted", bg = "muted" },
-
-			StatusLine = { fg = "love", bg = "love", blend = 10 },
-			StatusLineNC = { fg = "subtle", bg = "surface" },
+			-- Comment = { fg = "foam" },
+			-- VertSplit = { fg = "muted", bg = "muted" },
+			--
+			-- StatusLine = { fg = "love", bg = "love", blend = 10 },
+			-- StatusLineNC = { fg = "subtle", bg = "surface" },
 
 			-- Telescope
 			TelescopeBorder = { fg = "highlight_high", bg = "none" },
