@@ -21,7 +21,7 @@ in
 
   };
 
-  xdg.configFile."tms".source = ./tms;
+  # xdg.configFile."tms".source = ./tms;
 
 
 }
