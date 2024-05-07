@@ -39,7 +39,7 @@
   home.packages = with pkgs; [
     #   :: TERMINAL ::
     zsh
-    # tmux
+    # tmux-sessionizer
     lf
     eza
     neofetch
@@ -48,7 +48,6 @@
     wl-clipboard
     zsh-autosuggestions
     htop
-    tmux-sessionizer
 
     #   :: BROWSWERS ::
     # now moved to their own folders

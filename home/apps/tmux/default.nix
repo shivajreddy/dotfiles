@@ -19,6 +19,10 @@ in
       ${main_tmux_conf}
     '';
   };
+
+  program.tmux-sessionizer = {
+      enable = true;
+  };
 }
 
 
