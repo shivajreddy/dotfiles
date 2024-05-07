@@ -48,7 +48,7 @@
     wl-clipboard
     zsh-autosuggestions
     htop
-    # btop
+    tmux-sessionizer
 
     #   :: BROWSWERS ::
     # now moved to their own folders
