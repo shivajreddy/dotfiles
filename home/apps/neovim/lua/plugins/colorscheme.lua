@@ -159,6 +159,10 @@ return {
 			h5 = "pine",
 			h6 = "foam",
 		},
+
+		highlight_groups = {
+			Comment = { fg = "foam" },
+		},
 	},
 
 	-- Configure LazyVim to load the colorscheme

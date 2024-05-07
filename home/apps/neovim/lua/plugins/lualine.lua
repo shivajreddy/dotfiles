@@ -36,6 +36,7 @@ return {
 					LazyVim.lualine.root_dir(),
 				},
 
+				--
 				-- lualine_c = {
 				-- LazyVim.lualine.root_dir(),
 				-- {
