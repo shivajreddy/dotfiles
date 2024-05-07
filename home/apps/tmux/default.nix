@@ -19,9 +19,10 @@ in
       ${main_tmux_conf}
     '';
 
+  };
+
   xdg.configFile."tms".source = ./tms;
 
-  };
 
 }
 
