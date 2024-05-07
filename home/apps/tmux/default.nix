@@ -12,6 +12,7 @@ in
       # tmuxPlugins.resurrect
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.tmux-sessionizer
     ];
 
     extraConfig = ''
@@ -19,4 +20,5 @@ in
     '';
   };
 }
+
 
