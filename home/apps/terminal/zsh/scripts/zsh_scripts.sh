@@ -60,13 +60,15 @@ todo() {
 # Git Push with optional branch name
 gpush () {
   local branch_name="${1:-main}"
-  git push "-u origin ${branch_name}"
+  # git push "-u origin ${branch_name}"
+  git push
 }
 
 # Git Pull with optional branch name
 gpull () {
   local branch_name="${1:-main}"
-  git pull "-u origin ${branch_name}"
+  # git pull "-u origin ${branch_name}"
+  git pull
 }
 
 # Nix flake update, shorthand for sudo-flake-update
