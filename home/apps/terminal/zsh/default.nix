@@ -32,6 +32,8 @@ in {
        %F{green}→%f "
       WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
       ${zsh_scripts}
+
+      export PATH=~/bin:$PATH
     '';
       # [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
   };
