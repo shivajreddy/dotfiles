@@ -5,14 +5,13 @@
     "reload_style_on_change": true,
     "modules-left": [
         "clock",
-        "hyprland/workspaces",
+        // "hyprland/workspaces",
         "tray"
     ],
-    /* 
     "modules-center": [
+        "hyprland/workspaces",
         "hyprland/window" 
     ],
-    */
     "modules-right": [
         "pulseaudio",
         "network",
