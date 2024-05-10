@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
+    };
+    hyprland-virtual-desktops.url = "github:levnikmyskin/hyprland-virtual-desktops";
+
 
     # Other Flakes...
     spicetify-nix = {
