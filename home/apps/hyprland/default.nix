@@ -1,4 +1,4 @@
-{ pkgs, inputs,... }:
+{ ... }:
 
 let 
   # tomlFile = builtins.readFile (./. + "/starship.toml");
@@ -14,12 +14,7 @@ in
 
 	wayland.windowManager.hyprland = {
 		enable = true;
-
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-		plugins = [
-      inputs.hyprland-virtual-desktops.packages.${pkgs.system}.virtual-desktops
-    ];
-
+		plugins = [];
 		settings = {};
 		xwayland = { enable = true; };
 		systemd.enable = true;
@@ -28,17 +23,6 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
-
-    plugin {
-      virtual-desktops {
-          names = 1:coding, 2:internet, 3:mail and chats 
-          cycleworkspaces = 1
-          rememberlayout = size
-          notifyinit = 0
-          verbose_logging = 0
-      }
-    }
-
 		'';
 	};
 
