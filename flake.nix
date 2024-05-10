@@ -16,12 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    /* NIXVIM
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # */
 
     # Other Flakes...
     spicetify-nix = {
@@ -29,14 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # webcord.url = "github:fufexan/webcord-flake";
-
-    # /* Testing onedark theme flake
-    plugin-onedark = {
-      url = "github:navarasu/onedark.nvim";
-      flake = false;
-    };
-    # */
   };
 
   outputs = {
