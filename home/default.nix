@@ -88,6 +88,7 @@
     volnoti
 
     #   :: STREAMING ::
+    audacity
     obs-studio
     obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vaapi
