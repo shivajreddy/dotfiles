@@ -25,6 +25,7 @@
     (./. + "/apps/hyprlock")
 
     (./. + "/apps/waybar")
+    (./. + "/apps/wlogout")
     (./. + "/themes/gtk/gtk.nix")
     (./. + "/apps/rofi")
 
