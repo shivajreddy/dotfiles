@@ -7,7 +7,7 @@
   home.stateVersion = "23.11"; # DONT CHANGE THIS
   programs.home-manager.enable = true; # Enable Home-Manager
 
-  # import configuration for apps, packages, etc...
+  # import configuration for apps, packages, etc... .
   imports = [
     (./. + "/fonts")
     (./. + "/apps/git")
