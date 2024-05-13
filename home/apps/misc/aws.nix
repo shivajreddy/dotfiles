@@ -1,8 +1,6 @@
 { ... }:
 
+# https://mynixos.com/nixpkgs/package/awscli
 {
-	imports = [];
-
 	programs.awscli.enable = true;
-
 }
