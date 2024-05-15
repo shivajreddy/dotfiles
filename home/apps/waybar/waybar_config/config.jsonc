@@ -17,6 +17,7 @@
         "bluetooth",
        "group/system",
         "clock",
+        "custom/wlogout",
         "custom/notification"
     ],
 
@@ -84,6 +85,11 @@
             },
             "separate-outputs": true
         },
+    "custom/wlogout" : {
+      "tooltip": false,
+      "format": " ",
+      "exec": "hyprctl dispatch exec wlogout"
+    },
     "custom/notification": {
         "tooltip": false,
         "format": "{icon}",
