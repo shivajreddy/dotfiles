@@ -4,6 +4,7 @@
     "margin": 0,
     "reload_style_on_change": true,
     "modules-left": [
+        "custom/wlogout",
         "clock",
         "tray",
         "hyprland/window"
@@ -17,7 +18,7 @@
         "bluetooth",
        "group/system",
         "clock",
-        "custom/wlogout",
+        // "custom/wlogout",
         "custom/notification"
     ],
 
