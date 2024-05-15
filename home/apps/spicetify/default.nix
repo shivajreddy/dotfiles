@@ -19,7 +19,7 @@ in
     colorScheme = "rosepine";
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullScreen
+      # fullScreen
       groupSession
       keyboardShortcut
     ];
