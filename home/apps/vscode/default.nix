@@ -26,6 +26,8 @@
       # editorconfig.editorconfig
       # ms-dotnettools.csharp
 
+      mvllow.rose-pine
+
       asvetliakov.vscode-neovim
       # vscodevim.vim
     ];
