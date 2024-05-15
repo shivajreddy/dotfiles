@@ -16,6 +16,7 @@
 
     (./. + "/apps/terminal")
     (./. + "/apps/neovim")
+    (./. + "/apps/vscode")
     (./. + "/apps/tmux")
     (./. + "/apps/starship/starship.nix")
     (./. + "/apps/btop")
