@@ -14,14 +14,15 @@ in
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "mocha";
 
-    theme = spicePkgs.themes.Comfy;
+    # theme = spicePkgs.themes.Comfy;
+    theme = spicePkgs.themes.text;
 
     enabledExtensions = with spicePkgs.extensions; [
-      historyShortcut
-      shuffle
       fullScreen
       groupSession
       keyboardShortcut
+      # historyShortcut
+      # shuffle
     ];
   };
 }
