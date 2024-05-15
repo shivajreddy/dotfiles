@@ -26,8 +26,8 @@
       # editorconfig.editorconfig
       # ms-dotnettools.csharp
 
-      # asvetliakov.vscode-neovim
-      vscodevim.vim
+      asvetliakov.vscode-neovim
+      # vscodevim.vim
     ];
   };
 }
