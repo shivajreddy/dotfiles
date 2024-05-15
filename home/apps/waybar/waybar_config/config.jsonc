@@ -88,7 +88,7 @@
     "custom/wlogout" : {
       "tooltip": false,
       "format": " ",
-      "exec": "hyprctl dispatch exec wlogout"
+      "on-click": "hyprctl dispatch exec wlogout"
     },
     "custom/notification": {
         "tooltip": false,
