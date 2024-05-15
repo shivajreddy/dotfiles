@@ -19,12 +19,9 @@ in
     colorScheme = "rosepine";
 
     enabledExtensions = with spicePkgs.extensions; [
-      # fullScreen
-      fullAppDisplay
+     fullScreen
       groupSession
       keyboardShortcut
-      # historyShortcut
-      # shuffle
     ];
   };
 }
