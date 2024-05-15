@@ -16,6 +16,7 @@ in
 
     # theme = spicePkgs.themes.Comfy;
     theme = spicePkgs.themes.text;
+    colorScheme = "rosepine";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullScreen
