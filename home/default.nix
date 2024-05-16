@@ -53,6 +53,7 @@
 
     #   :: BROWSWERS ::
     # now moved to their own folders
+    firefox-devedition
     # brave
     # google-chrome
     # firefox
