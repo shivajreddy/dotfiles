@@ -181,15 +181,15 @@
     */
 
     "pulseaudio": {
-      "format": "{icon}  {volume}",
+      "format": "<span font_size='19pt'>{icon}</span> {volume}",
       "tooltip": false,
       "format-muted": "󰝟",
       "on-click": "pavucontrol",
       "format-icons": {
         "default": [" ", " ", " "],
-        "headphone": " ",
-        "hands-free": " ",
-        "headset": " ",
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
         "phone": " ",
         "portable": " ",
         "car": " "
@@ -248,7 +248,7 @@
       "format": "{icon}",
       "format-icons": {
         "1": " ",
-        "2": "<span font_size='20pt'>󱘗</span>",
+        "2": "<span font_size='19pt'>󱘗</span>",
         "3": "<span font_size='18pt'> </span>",
         "6": "<span font_size='18pt'></span>",
         "9": " ",
