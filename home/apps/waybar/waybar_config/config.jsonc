@@ -242,15 +242,15 @@
       "disable-scroll": true,
       // "all-outputs": true,
       "on-click": "activate",
-      // "format": "<span font_size='26pt'>{icon}</span>",
+      "format": "<span font_size='30pt'>{icon}</span>",
       "format": "{icon}",
       "format-icons": {
         "1": " ",
-        // "2": "󱘗",
-        "2": "<span font_size='26pt'>󱘗</span>",
+        "2": "󱘗",
+        // "2": "<span font_size='26pt'>󱘗</span>",
         "3": " ",
-        // "6": "",
-        "6": "<span font_size='28pt'></span>",
+        "6": "",
+        // "6": "<span font_size='28pt'></span>",
         "9": " ",
         "10": " "
 
