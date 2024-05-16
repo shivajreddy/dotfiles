@@ -246,7 +246,7 @@
       "format": "{icon}",
       "format-icons": {
         "1": " ",
-        "2": "<span font_size='15.5pt'>󱘗</span>",
+        "2": "<span font_size='25.5pt'>󱘗</span>",
         "3": " ",
         // "6": "",
         "6": "<span size='x-large'></span>",
