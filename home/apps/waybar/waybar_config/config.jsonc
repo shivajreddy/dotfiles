@@ -237,7 +237,11 @@
         "max-length": 60
     },
 
+    // https://github.com/Alexays/Waybar/wiki/Module:-Hyprland
     "hyprland/workspaces": {
+      "persistent-workspaces": {
+        "eDP-1" : [10]
+      },
       "disable-scroll": true,
       "all-outputs": true,
       "on-click": "activate",
