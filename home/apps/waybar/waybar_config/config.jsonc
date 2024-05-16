@@ -248,9 +248,9 @@
       "format": "{icon}",
       "format-icons": {
         "1": " ",
-        "2": "<span font_size='14pt'>󱘗</span>",
-        "3": "<span font_size='14pt'> </span>",
-        "6": "<span font_size='14pt'></span>",
+        "2": "<span font_size='24pt'>󱘗</span>",
+        "3": "<span font_size='24pt'> </span>",
+        "6": "<span font_size='24pt'></span>",
         "9": " ",
         "10": " "
 
