@@ -34,15 +34,12 @@ tooltip
   border-color: @overlay;
 }
 
+#workspaces {}
 
 #workspaces button
 {
-  /* margin-left: 5px; */
-  /* margin-right: 5px; */
-  margin: 5px;
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
-  /* margin-right: 5px; */
+  margin: "2 10 2 10";
+  /* margin: 5px; */
   min-width: 60px;
 
   color: @muted;
