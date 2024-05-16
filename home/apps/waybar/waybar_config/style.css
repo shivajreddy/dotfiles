@@ -46,8 +46,9 @@ tooltip
 #workspaces button
 {
   padding: 0px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin: "0";
+  /* margin-left: 2px; */
+  /* margin-right: 2px; */
   /* min-width: 44px; */
 
   color: @muted;
