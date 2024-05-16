@@ -45,12 +45,12 @@ tooltip
 
 #workspaces button
 {
-  font-size: 22px;
+  font-size: 42px;
   font-weight: bold;
 
-  /* padding: 5px; */
-  /* margin-right: 5px; */
-  /* min-width: 44px; */
+  padding: 5px;
+  margin-right: 5px;
+  min-width: 44px;
 
   color: @muted;
   background: @highlightLow;
