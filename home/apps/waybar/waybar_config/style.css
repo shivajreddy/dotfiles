@@ -28,8 +28,6 @@ tooltip
 }
 
 #workspaces {
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
 
 #workspaces button
@@ -37,7 +35,7 @@ tooltip
   /* margin: 0 0.35em; */
   /* padding: 0 0.1em; */
 
-  /* min-width: 60px; */
+  min-width: 40px;
 
   color: @muted;
   background: @highlightLow;
