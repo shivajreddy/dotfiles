@@ -4,6 +4,7 @@
     (./. + "/brave")
     (./. + "/chrome")
     (./. + "/firefox")
+    (./. + "/vivaldi")
   ];
 
 }
