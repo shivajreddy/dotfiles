@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     // "margin": 0,
-    "height": 50,
+    "height": 30,
     // "spacing": 4,
     "reload_style_on_change": true,
     "modules-left": [
