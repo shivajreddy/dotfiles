@@ -3,7 +3,7 @@
 	imports = [
     (./. + "/brave")
     (./. + "/chrome")
-    # (./. + "/firefox")
+    (./. + "/firefox")
   ];
 
 }
