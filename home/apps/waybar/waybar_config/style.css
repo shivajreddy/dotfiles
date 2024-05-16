@@ -42,6 +42,10 @@ tooltip
   margin-right: 10px;
   margin-bottom: 2px;
   margin-left: 10px;
+
+  padding-top: 0px;
+  padding-bottom: 0px;
+
   min-width: 60px;
 
   color: @muted;
