@@ -40,12 +40,11 @@ tooltip
   font-weight: bold;
 
   margin: 0px 0px 0px 0px;
-  /* padding: 5px; */
+  padding: 5px;
 }
 
 #workspaces button
 {
-  padding: 4px;
   margin-left: 2px;
   margin-right: 2px;
   /* min-width: 44px; */
