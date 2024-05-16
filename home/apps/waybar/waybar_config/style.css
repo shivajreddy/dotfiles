@@ -45,6 +45,7 @@ tooltip
 
 #workspaces button
 {
+  padding: 5px;
   margin-left: 2px;
   margin-right: 2px;
   /* min-width: 44px; */
