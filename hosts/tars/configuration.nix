@@ -68,7 +68,18 @@
 
   hardware.bluetooth = {
     enable = true;
-    # powerOnBoot = true;
+    powerOnBoot = true;
+        settings = {
+      General = {
+        Name = "Hello";
+        ControllerMode = "dual";
+        FastConnectable = "true";
+        Experimental = "true";
+      };
+      Policy = {
+        AutoEnable = "true";
+      };
+    };
     # settings = {
     #  General = {
     #    ControllerMode = "bredr";
