@@ -2,6 +2,8 @@
     "layer": "top",
     "position": "top",
     "margin": 0,
+    "height": 50,
+    "spacing": 4,
     "reload_style_on_change": true,
     "modules-left": [
         "custom/wlogout",
