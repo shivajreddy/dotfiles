@@ -43,7 +43,7 @@ tooltip
   /* padding-left: 15px; */
   /* padding-right: 15px; */
   /* margin-right: 5px; */
-  min-width: 50px;
+  min-width: 60px;
 
   color: @muted;
   background: @highlightLow;
