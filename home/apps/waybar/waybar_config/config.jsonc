@@ -242,17 +242,17 @@
       "disable-scroll": true,
       // "all-outputs": true,
       "on-click": "activate",
-      "format": "<span font_size='24pt'>{icon}</span>",
-      // "format": "{icon}",
+      // "format": "<span font_size='26pt'>{icon}</span>",
+      "format": "{icon}",
       "format-icons": {
-        "1": "",
-        "2": "󱘗",
-        // "2": "<span font_size='25.5pt'>󱘗</span>",
-        "3": "",
-        "6": "",
-        // "6": "<span font_size='26pt'></span>",
-        "9": "",
-        "10": ""
+        "1": " ",
+        // "2": "󱘗",
+        "2": "<span font_size='26pt'>󱘗</span>",
+        "3": " ",
+        // "6": "",
+        "6": "<span font_size='26pt'></span>",
+        "9": " ",
+        "10": " "
 
         // "1": "いち",
         // "2": " に ",
