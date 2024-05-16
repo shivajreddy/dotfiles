@@ -240,8 +240,9 @@
     // https://github.com/Alexays/Waybar/wiki/Module:-Hyprland
     "hyprland/workspaces": {
       "persistent-workspaces": {
-        "eDP-1" : [ 10 ],
-        "DP-1"  : [ 1,2,3,4,5,6,7,8,9 ]
+        "10": ["eDP-1"]
+        // "eDP-1" : [ 10 ],
+        // "DP-1"  : [ 1,2,3,6,9 ]
       },
       "disable-scroll": true,
       "all-outputs": true,
