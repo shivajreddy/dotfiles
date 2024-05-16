@@ -241,7 +241,8 @@
       "disable-scroll": true,
       "all-outputs": true,
       "on-click": "activate",
-      "format": "{icon}",
+      "format": "<span size='x-large'>{icon}</span>",
+      // "format": "{icon}",
       "format-icons": {
         "1": " ",
         "2": "󱘗 ",
