@@ -95,7 +95,7 @@
     },
     "custom/notification": {
         "tooltip": false,
-        "format": "<span font_size='19pt'>{icon}</span>",
+        "format": "<span font_size='22pt'>{icon}</span>",
         "format-icons": {
             "notification": "󰂚<span foreground='red'><sup></sup></span>",
             "none": "󰂚",
