@@ -28,10 +28,13 @@ fn main() {
         None => get_hostname(),
     };
 
-    // Convert the name to the desired format
-    let mut formatted_name = String::with_capacity(name.len());
-    formatted_name.push(name.chars().next().unwrap().to_ascii_uppercase());
-    formatted_name.push_str(&name[1..].to_ascii_lowercase());
-
-    println!("{}", formatted_name);
+    if name == "tars" {
+        println!("T.A.R.S.");
+    } else {
+        // Convert the name to the desired format
+        let mut formatted_name = String::with_capacity(name.len());
+        formatted_name.push(name.chars().next().unwrap().to_ascii_uppercase());
+        formatted_name.push_str(&name[1..].to_ascii_lowercase());
+        println!("{}", formatted_name);
+    }
 }
