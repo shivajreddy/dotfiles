@@ -8,9 +8,11 @@ in
 
   programs.firefox = {
     enable = true;
-    userChrome = ''
-    ${user_chrome_css}
-    '';
+    profiles."shiva" = {
+      userChrome = ''
+      ${user_chrome_css}
+      '';
+    };
   };
 
 }
