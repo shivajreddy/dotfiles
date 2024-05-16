@@ -46,8 +46,8 @@
         }
     },
     "cpu": {
-        "format": "<span font_size='19pt'>󰻠 {usage}%</span>",
-        "format-alt": "<span font_size='19pt'>󰻠 {avg_frequency} GHz</span>",
+        "format": "<span font_size='19pt'>󰻠</span> {usage}%",
+        "format-alt": "<span font_size='19pt'>󰻠</span> {avg_frequency} GHz",
         "interval": 1
     },
     "memory": {
