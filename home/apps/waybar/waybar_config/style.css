@@ -34,7 +34,10 @@ tooltip
   border-color: @overlay;
 }
 
-#workspaces {}
+#workspaces {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 
 #workspaces button
 {
