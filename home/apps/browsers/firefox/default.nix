@@ -3,7 +3,7 @@
 
   programs.firefox = {
     enable = true;
-    userChrome = builtins.readFile "./userChrome.css";
+    userChrome = builtins.readFile ("./userChrome.css");
   };
 
 }
