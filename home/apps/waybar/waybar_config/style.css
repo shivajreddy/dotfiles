@@ -36,18 +36,15 @@ tooltip
 
 #workspaces
 {
-  font-size: 22px;
-  font-weight: bold;
-
-  margin: 0px 0px 0px 0px;
   padding: 5px;
+  margin: 0px 0px 0px 0px;
 }
 
 #workspaces button
 {
   padding: 5px;
   margin-right: 5px;
-  min-width: 44px;
+  /* min-width: 44px; */
 
   color: @muted;
   background: @highlightLow;
