@@ -242,7 +242,7 @@
       "disable-scroll": true,
       // "all-outputs": true,
       "on-click": "activate",
-      "format": "<span font_size='20pt'>{icon}</span>",
+      "format": "<span font_size='16pt'>{icon}</span>",
       // "format": "{icon}",
       "format-icons": {
         "1": " ",
