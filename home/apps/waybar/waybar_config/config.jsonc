@@ -242,14 +242,15 @@
       "disable-scroll": true,
       // "all-outputs": true,
       "on-click": "activate",
-      // "format": "<span size='x-medium'>{icon}</span>",
-      "format": "{icon}",
+      "fotmat": "<span font_size='26pt'>{icon}</span>",
+      // "format": "{icon}",
       "format-icons": {
         "1": " ",
-        "2": "<span font_size='25.5pt'>󱘗</span>",
+        "2": "󱘗",
+        // "2": "<span font_size='25.5pt'>󱘗</span>",
         "3": " ",
-        // "6": "",
-        "6": "<span size='x-large'></span>",
+        "6": "",
+        // "6": "<span font_size='26pt'></span>",
         "9": " ",
         "10": " "
 
