@@ -242,7 +242,7 @@
       "disable-scroll": true,
       // "all-outputs": true,
       "on-click": "activate",
-      "fotmat": "<span font_size='26pt'>{icon}</span>",
+      "format": "<span font_size='26pt'>{icon}</span>",
       // "format": "{icon}",
       "format-icons": {
         "1": " ",
