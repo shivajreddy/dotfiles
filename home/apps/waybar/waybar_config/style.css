@@ -32,10 +32,10 @@ tooltip
 
 #workspaces button
 {
-  /* margin: 0 0.35em; */
+  margin: 0 0.35em;
   /* padding: 0 0.1em; */
 
-  min-width: 40px;
+  min-width: 60px;
 
   color: @muted;
   background: @highlightLow;
