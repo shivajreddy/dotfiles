@@ -46,13 +46,13 @@
         }
     },
     "cpu": {
-        "format": "󰻠 {usage}%",
-        "format-alt": "󰻠 {avg_frequency} GHz",
+        "format": "<span font_size='19pt'>󰻠</span> {usage}%",
+        "format-alt": "<span font_size='19pt'>󰻠</span> {avg_frequency} GHz",
         "interval": 1
     },
     "memory": {
-        "format": "󰍛 {}%",
-        "format-alt": "󰍛 {used}/{total} GiB",
+        "format": "<span font_size='19pt'>󰍛</span> {}%",
+        "format-alt": "<span font_size='19pt'>󰍛</span> {used}/{total} GiB",
         "interval": 5
     },
     "group/system": {
@@ -150,7 +150,7 @@
         "format-disconnected": "󰖪 0% ",
         "format-ethernet": "󰈀 100% ",
         "format-linked": "{ifname} (No IP)",
-        "format-wifi": " ",
+        "format-wifi": "<span font_size='19pt'></span>",
         "tooltip-format": "{essid} {ifname} {gwaddr}"
     },
 
