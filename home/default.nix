@@ -12,6 +12,8 @@
     (./. + "/fonts")
     (./. + "/apps/git")
 
+    (./. + "/apps/bins")
+
     (./. + "/apps/browsers")
 
     (./. + "/apps/terminal")

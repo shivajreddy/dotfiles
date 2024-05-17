@@ -1,0 +1,105 @@
+#!/bin/sh
+
+: '
+Author: Shiva
+Date: 05-17-24
+Time: 07:46 AM
+
+Description:
+usage: stream <command>
+commands: start -> stars the streaming setup
+          end -> will stop the streaming setup
+'
+
+# Define the color using the 256-color palette
+ROSEPINE_SUBTLE="\033[38;5;103m"
+ROSEPINE_LOVE="\033[38;5;203m"
+ROSEPINE_PINE="\033[38;5;23m"
+ROSEPINE_GOLD="\033[38;5;216m"
+ROSEPINE_FOAM="\033[38;5;117m"
+BOLD_TEXT="\033[1m"
+RESET="\033[0m"
+
+
+# # Make sure we receive the correct command
+# - No command is given
+: '
+if [[ -z $1 ]]; then
+  echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Must give a command${RESET}"
+  exit 1
+fi
+# - Too many commands are given
+if [[ $# -ne 1 ]]; then
+  echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Must give only 1 command${RESET}"
+  exit 1
+fi
+# - Not a valid command
+if [[ $1 != "start" && $1 != "end" ]]; then
+  echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}'$1' is not a valid command${RESET}"
+  exit 1
+fi
+'
+
+# Exit, if given command is same as the current STREAM_STATUS
+echo -e "${ROSEPINE_SUBTLE}Current Stream Status:${RESET} ${ROSEPINE_PINE}$STREAM_STATUS${RESET}"
+
+if [[ $1 == "start" && $STREAM_STATUS == "ON" ]]; then
+  echo -e "${BOLD_TEXT}${ROSEPINE_GOLD}Stream is already running${RESET}"
+  exit 1
+fi
+
+if [[ $1 == "end" && $STREAM_STATUS == "OFF" ]]; then
+  echo -e "${BOLD_TEXT}${ROSEPINE_GOLD}Stream is already off${RESET}"
+  exit 1
+fi
+
+
+# Start Stream
+if [[ $1 == "start" ]]; then
+  echo "all functions of stream start finished"
+  exit 1
+fi
+
+# End Stream
+if [[ $1 == "end" ]]; then
+  echo "Reverting back to normal"
+
+  hyprctl reload
+
+  output=$(hyprctl keyword monitor DP-1,addreserved,0,0,0,0) # Remove the reserved area on DP-1
+  if [[ $output == "ok" ]]; then
+    if [[ -n "$(pgrep obs)" ]]; then # check for obs process
+      echo "OBS Started"
+    else
+      echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
+    fi
+  else
+    echo "$output"
+  fi
+
+
+  exit 1
+fi
+
+
+
+# Run OBS
+if [[ -n "$(pgrep obs)" ]]; then # check for obs process
+  echo "OBS is already running"
+else
+  output=$(hyprctl dispatch exec obsx) # start obs using hyprland
+  if [[ $output == "ok" ]]; then
+    if [[ -n "$(pgrep obs)" ]]; then # check for obs process
+      echo "OBS Started"
+    else
+      echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
+    fi
+  else
+    echo "$output"
+  fi
+fi
+
+
+desktop=$(hyprctl activeworkspace | grep -E '^workspace' | grep DP-1 | awk '{print $3}')
+id=""
+
