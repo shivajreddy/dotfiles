@@ -88,8 +88,10 @@
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
   };
 
+  # #### Environment Variables ####
   environment.variables = {
     PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+    STREAM_STATUS = "OFF";  # should be only 'OFF' or 'ON'
   };
 
   # User account
