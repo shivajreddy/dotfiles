@@ -86,13 +86,14 @@
     # Session Variables
     # WLR_NO_HARDWARE_CURSORS = "1";	 # if cursor is not workign then set the below to 1
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    STREAM_STATUS = "OFF";  # should be only 'OFF' or 'ON'
   };
 
   # #### Environment Variables ####
   # make sure to restart terminal after rebuilding to use the new variables
   environment.variables = {
     PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
-    STREAM_STATUS = "OFF";  # should be only 'OFF' or 'ON'
+    # STREAM_STATUS = "OFF";  # should be only 'OFF' or 'ON'
   };
 
   # User account
