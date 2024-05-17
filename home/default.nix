@@ -12,7 +12,7 @@
     (./. + "/fonts")
     (./. + "/apps/git")
 
-    (./. + "/apps/bins")
+    # (./. + "/apps/bins")
 
     (./. + "/apps/browsers")
 
