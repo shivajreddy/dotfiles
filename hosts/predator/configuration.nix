@@ -89,6 +89,7 @@
   };
 
   # #### Environment Variables ####
+  # make sure to restart terminal after rebuilding to use the new variables
   environment.variables = {
     PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
     STREAM_STATUS = "OFF";  # should be only 'OFF' or 'ON'
