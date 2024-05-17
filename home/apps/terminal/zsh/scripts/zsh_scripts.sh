@@ -1,7 +1,8 @@
-#! /usr/bin/sh
+#! /usr/bin/env bash
 
 # use this maybe?
 # /usr/bin/env bash
+# /usr/bin/sh
 
 # Change to the dotfiles directory
 dots() {
