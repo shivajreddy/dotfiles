@@ -20,10 +20,8 @@ ROSEPINE_FOAM="\033[38;5;117m"
 BOLD_TEXT="\033[1m"
 RESET="\033[0m"
 
-
-# # Make sure we receive the correct command
+# :: Make sure we receive the correct command ::
 # - No command is given
-: '
 if [[ -z $1 ]]; then
   echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Must give a command${RESET}"
   exit 1
@@ -38,68 +36,137 @@ if [[ $1 != "start" && $1 != "end" ]]; then
   echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}'$1' is not a valid command${RESET}"
   exit 1
 fi
-'
 
-# Exit, if given command is same as the current STREAM_STATUS
-echo -e "${ROSEPINE_SUBTLE}Current Stream Status:${RESET} ${ROSEPINE_PINE}$STREAM_STATUS${RESET}"
+# :: Run OBS ::
+function run_obs(){
+  if [[ -n "$(pgrep obs)" ]]; then # check for obs process
+    echo "OBS is already running"
+  else
+    output=$(hyprctl dispatch exec obs) # start obs using hyprland
+    if [[ $output == "ok" ]]; then
+      if [[ -n "$(pgrep obs)" ]]; then # check for obs process
+        sleep 3   # let OBS open
+        echo "✅ OBS Started"
+      else
+        echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
+      fi
+    else
+      echo "$output"
+    fi
+  fi
+}
 
-if [[ $1 == "start" && $STREAM_STATUS == "ON" ]]; then
-  echo -e "${BOLD_TEXT}${ROSEPINE_GOLD}Stream is already running${RESET}"
-  exit 1
-fi
+function update_hyprland(){
+  # activate the twitch-workspace
+  hyprctl dispatch workspace 6
+  # remove gaps
+	hyprctl keyword general:gaps_out 0
+  # add reserved area to view only 1920x1080 tiling area
+	hyprctl keyword monitor DP-1,addreserved,1026,12,640,1280
 
-if [[ $1 == "end" && $STREAM_STATUS == "OFF" ]]; then
-  echo -e "${BOLD_TEXT}${ROSEPINE_GOLD}Stream is already off${RESET}"
-  exit 1
-fi
+  echo "✅ Hyprland Updated"
+}
+
+function open_kitty_with_stream_session() {
+  SESSION_NAME="stream"
+
+  # Check if the tmux session already exists
+  tmux has-session -t $SESSION_NAME 2>/dev/null
+
+  if [ $? != 0 ]; then
+    # If the session does not exist, create it
+    echo "Creating new tmux session: $SESSION_NAME"
+    tmux new-session -d -s $SESSION_NAME
+  fi
+
+  # Open Kitty terminal and attach to the tmux session
+  hyprctl dispatch exec "kitty tmux attach-session -t $SESSION_NAME" > /dev/null 2>&1
+  echo "✅ Kitty @tmux-stream-session Opened"
+}
+
+function open_chat(){
+  echo "✅ Chat Is Opened"
+}
+
+function open_chat() {
+  # browser="Brave"
+  browser="Chrome"
+	before=$(hyprctl clients | grep -E '^Window' | grep ${browser} | awk '{print $2}')
+  sorted_before=$(echo "$before" | sort) # Sort the process lists
+	# echo "BEFORE-Brave Pid's\n$before"
+
+  hyprctl dispatch exec "google-chrome-stable --new-window https://dashboard.twitch.tv/u/simplecolon/stream-manager" > /dev/null
+	sleep 1 # let it open
+  echo "✅ Chrome Twitch-Chat window is opened"
+
+	after=$(hyprctl clients | grep -E '^Window' | grep ${browser} | awk '{print $2}')
+  sorted_after=$(echo "$after" | sort) # Sort the process lists
+	# echo "AFTER-Brave Pid's\n$after"
+
+	chat_window_pid=$(comm -13 <(echo "$sorted_before") <(echo "$sorted_after"))
+	# echo "New Brave Pid's\n$chat_window_pid"
+
+  # if new brave windows is created, make that float
+  if [[ -n "$chat_window_pid" ]]; then
+    hyprctl dispatch movetoworkspace "10,address:0x$chat_window_pid"
+
+    # echo "Chat window: $chat_window_pid"
+    # hyprctl dispatch togglefloating "address:0x$chat_window_pid" > /dev/null
+    # hyprctl dispatch resizewindowpixel "exact 1125 $((2160/2)),address:0x$chat_window_pid" > /dev/null
+    # hyprctl dispatch movewindowpixel "exact $((3840-1920-640)) 0,address:0x$chat_window_pid" > /dev/null
+    # hyprctl dispatch pin "address:0x$chat_window_pid" > /dev/null
+  fi
+  echo "✅ Twitch-Chat: Float, Move, Resize, Pin"
+}
+
+function open_browser(){
+  browser="Brave"
+  # browser="Chrome"
+	before=$(hyprctl clients | grep -E '^Window' | grep ${browser} | awk '{print $2}')
+  sorted_before=$(echo "$before" | sort) # Sort the process lists
+	# echo "BEFORE-Brave Pid's\n$before"
+
+  hyprctl dispatch exec "brave" > /dev/null
+	sleep 1 # let it open
+  echo "✅ New ${browser} window is opened"
+
+	after=$(hyprctl clients | grep -E '^Window' | grep ${browser} | awk '{print $2}')
+  sorted_after=$(echo "$after" | sort) # Sort the process lists
+	# echo "AFTER-Brave Pid's\n$after"
+
+	browser_window_pid=$(comm -13 <(echo "$sorted_before") <(echo "$sorted_after"))
+	# echo "New Brave Pid's\n$browser_window_pid"
+
+  # if new brave windows is created, make that float
+  if [[ -n "$browser_window_pid" ]]; then
+    # echo "Browser window: $browser_window_pid"
+    hyprctl dispatch togglefloating "address:0x$browser_window_pid" > /dev/null
+    hyprctl dispatch resizewindowpixel "exact 1125 $((2160-12-1080-70)),address:0x$browser_window_pid" > /dev/null
+    hyprctl dispatch movewindowpixel "exact 200 500,address:0x$browser_window_pid" > /dev/null
+    # hyprctl dispatch movewindowpixel "exact $((3840-1920-640)) 0,address:0x$browser_window_pid" > /dev/null
+    hyprctl dispatch pin "address:0x$browser_window_pid" > /dev/null
+  fi
+  echo "✅ Twitch-Chat: Float, Move, Resize, Pin"
+}
 
 
 # Start Stream
 if [[ $1 == "start" ]]; then
-  echo "all functions of stream start finished"
+  echo -e "${ROSEPINE_GOLD}Starting Stream${RESET}"
+  # run_obs
+  # update_hyprland
+  # open_kitty_with_stream_session
+  # open_chat
+  open_browser
   exit 1
 fi
 
 # End Stream
 if [[ $1 == "end" ]]; then
-  echo "Reverting back to normal"
-
+  echo -e "${ROSEPINE_PINE}Resetting Hyprland${RESET}"
   hyprctl reload
-
-  output=$(hyprctl keyword monitor DP-1,addreserved,0,0,0,0) # Remove the reserved area on DP-1
-  if [[ $output == "ok" ]]; then
-    if [[ -n "$(pgrep obs)" ]]; then # check for obs process
-      echo "OBS Started"
-    else
-      echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
-    fi
-  else
-    echo "$output"
-  fi
-
-
+  sleep 1
+  echo "✅ Hyprland Updated"
   exit 1
 fi
-
-
-
-# Run OBS
-if [[ -n "$(pgrep obs)" ]]; then # check for obs process
-  echo "OBS is already running"
-else
-  output=$(hyprctl dispatch exec obsx) # start obs using hyprland
-  if [[ $output == "ok" ]]; then
-    if [[ -n "$(pgrep obs)" ]]; then # check for obs process
-      echo "OBS Started"
-    else
-      echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
-    fi
-  else
-    echo "$output"
-  fi
-fi
-
-
-desktop=$(hyprctl activeworkspace | grep -E '^workspace' | grep DP-1 | awk '{print $3}')
-id=""
 
