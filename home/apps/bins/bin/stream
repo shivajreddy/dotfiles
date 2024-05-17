@@ -43,9 +43,16 @@ function run_obs(){
     echo "OBS is already running"
   else
     output=$(hyprctl dispatch exec obs) # start obs using hyprland
+    sleep 1   # let OBS open
+
+    # get the window-id of 
+	  obs_window_id=$(hyprctl clients | grep -E '^Window' | grep "OBS" | awk '{print $2}')
+    # echo "OBS Pid: ${obs_window_id}"
+    # Move the OBS window to side monitor workspace
+    hyprctl dispatch movetoworkspace "10,address:0x${obs_window_id}"
+
     if [[ $output == "ok" ]]; then
       if [[ -n "$(pgrep obs)" ]]; then # check for obs process
-        sleep 3   # let OBS open
         echo "✅ OBS Started"
       else
         echo -e "${BOLD_TEXT}${ROSEPINE_LOVE}Couldn't start OBS. Make sure to have OBS installed${RESET}"
@@ -57,12 +64,18 @@ function run_obs(){
 }
 
 function update_hyprland(){
+  # turn off borders
+  hyprctl keyword general:border_size 2
   # activate the twitch-workspace
   hyprctl dispatch workspace 6
   # remove gaps
+	hyprctl keyword general:gaps_in 0
 	hyprctl keyword general:gaps_out 0
+  # turn off shadow
+	hyprctl keyword decoration:drop_shadow false
   # add reserved area to view only 1920x1080 tiling area
 	hyprctl keyword monitor DP-1,addreserved,1026,12,640,1280
+	# hyprctl keyword monitor DP-1,addreserved,1026,12,645,1285
 
   echo "✅ Hyprland Updated"
 }
@@ -142,21 +155,22 @@ function open_browser(){
     # echo "Browser window: $browser_window_pid"
     hyprctl dispatch togglefloating "address:0x$browser_window_pid" > /dev/null
     hyprctl dispatch resizewindowpixel "exact 1125 $((2160-12-1080-70)),address:0x$browser_window_pid" > /dev/null
-    hyprctl dispatch movewindowpixel "exact 200 500,address:0x$browser_window_pid" > /dev/null
+    hyprctl dispatch movewindowpixel "exact $((1440 + 8)) 50,address:0x$browser_window_pid" > /dev/null
     # hyprctl dispatch movewindowpixel "exact $((3840-1920-640)) 0,address:0x$browser_window_pid" > /dev/null
     hyprctl dispatch pin "address:0x$browser_window_pid" > /dev/null
   fi
-  echo "✅ Twitch-Chat: Float, Move, Resize, Pin"
+  echo "✅ ${browser}-Window: Float, Move, Resize, Pin"
 }
+
 
 
 # Start Stream
 if [[ $1 == "start" ]]; then
   echo -e "${ROSEPINE_GOLD}Starting Stream${RESET}"
-  # run_obs
-  # update_hyprland
-  # open_kitty_with_stream_session
-  # open_chat
+  run_obs
+  update_hyprland
+  open_kitty_with_stream_session
+  open_chat
   open_browser
   exit 1
 fi
@@ -169,4 +183,5 @@ if [[ $1 == "end" ]]; then
   echo "✅ Hyprland Updated"
   exit 1
 fi
+
 
