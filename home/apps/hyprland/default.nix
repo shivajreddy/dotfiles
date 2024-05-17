@@ -6,6 +6,7 @@ let
   keybindsConf = builtins.readFile (./. + "/keybinds.conf");
   decorationsConf = builtins.readFile (./. + "/decorations.conf");
   workspacesConf = builtins.readFile (./. + "/workspaces.conf");
+  monitorsConf = builtins.readFile (./. + "/monitors.conf");
 
 in
 
@@ -23,6 +24,7 @@ in
 		${keybindsConf}
 		${decorationsConf}
 		${workspacesConf}
+    ${monitorsConf}
 		'';
 	};
 
