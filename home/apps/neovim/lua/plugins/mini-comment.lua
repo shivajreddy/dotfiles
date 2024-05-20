@@ -1,5 +1,5 @@
 return {
-	"mini.comment",
+	"echasnovski/mini.comment",
 	opts = {
 		mappings = {
 			comment = "<Leader>/",
