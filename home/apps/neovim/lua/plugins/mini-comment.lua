@@ -1,5 +1,6 @@
 return {
 	"echasnovski/mini.comment",
+	lazy = false,
 	opts = {
 		mappings = {
 			comment = "<Leader>/",
