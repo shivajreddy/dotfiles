@@ -97,6 +97,7 @@
     obs-studio
     # obs-studio-plugins.obs-gstreamer
     obs-studio-plugins.obs-vkcapture
+    obs-studio-plugins.obs-multi-rtmp
     # obs-studio-plugins.obs-vaapi
 
     # uxplay to cast iPad
