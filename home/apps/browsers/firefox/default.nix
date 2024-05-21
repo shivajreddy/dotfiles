@@ -18,9 +18,9 @@ in
       # ${user_chrome_css}
       # '';
 
-      extraConfig = ''
-      ${user_js}
-      '';
+      # extraConfig = ''
+      # ${user_js}
+      # '';
     };
 
   };
