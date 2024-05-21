@@ -8,7 +8,7 @@ in
 
   programs.firefox = {
     enable = true;
-    profiles."shiva" = {
+    profiles."Shiva" = {
       userChrome = ''
       ${user_chrome_css}
       '';
