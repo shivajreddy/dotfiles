@@ -54,7 +54,6 @@
     htop
 
     #   :: BROWSWERS ::
-    min
     # now moved to their own folders
     # firefox-devedition
     # brave
