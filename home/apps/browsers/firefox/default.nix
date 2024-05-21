@@ -14,16 +14,6 @@ in
       '';
     };
 
-     # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-    extensiosn = with pkgs.nur.repos.rycee.firefox-addons; [
-    privacy-badger
-          bitwarden
-          block-origin
-          ponsorblock
-          arkreader
-          ridactyl
-          outube-shorts-block
-        ];
   };
 
 }
