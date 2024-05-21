@@ -2,7 +2,8 @@
 
 let
     # user_chrome_css = builtins.readFile (./userChrome.css);
-    user_chrome_css = builtins.readFile (./myUserChrome.css);
+    # user_chrome_css = builtins.readFile (./myUserChrome.css);
+    user_chrome_css = builtins.readFile (./arc.css);
 in
 
 {
