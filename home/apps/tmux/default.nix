@@ -9,7 +9,7 @@ in
     enable = true;
 
     plugins = with pkgs; [
-      # tmuxPlugins.resurrect
+      tmuxPlugins.resurrect
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
       # tmux-sessionizer is not a plugin, its a package, installed on home/default.nix
