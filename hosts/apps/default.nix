@@ -22,6 +22,7 @@ with pkgs; [
   # Hyprland related
   hyprlock
   hyprpicker
+  hyprcursor
 
   # Must haves
   vim
