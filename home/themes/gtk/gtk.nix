@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
-
+  # 4.1: import the cursor theme that we created
+  # myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
   bibataRosePine = import ../cursors/default.nix {inherit pkgs;};
 
   my_catppuccin_name = "Catppuccin-Mocha-Standard-Lavender-Dark";
@@ -20,7 +20,7 @@ in
   home.pointerCursor = {
     gtk.enable = true;
 
-    # 4. Set the name here or else it wont work
+    # 4.2: Set the name here or else it wont work
     package = bibataRosePine;
     name = "Bibata-RosePine";
   };
