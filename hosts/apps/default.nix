@@ -40,7 +40,7 @@ with pkgs; [
   gnome.nautilus  # explorer
   gnome.dconf-editor
   mojave-gtk-theme
-  catppuccin-cursors.mochaDark
+  # catppuccin-cursors.mochaDark
 
   # Streaming
   # streamlink      # not working in this latest flake update
