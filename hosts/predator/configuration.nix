@@ -112,6 +112,12 @@
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
+  # mysql(mariadb) 
+  services.mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+  };
+
   services.gvfs.enable = true;
 
   # Configure keymap in X11
