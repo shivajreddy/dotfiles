@@ -30,6 +30,9 @@ with pkgs; [
   git
   gvfs
 
+  # Programming
+  mysql
+
   # Apps
   webcord
   vlc
