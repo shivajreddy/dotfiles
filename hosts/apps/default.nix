@@ -34,6 +34,9 @@ with pkgs; [
   mysql
   mysql-workbench
 
+  # secrets
+  sops
+
   # Apps
   webcord
   vlc
