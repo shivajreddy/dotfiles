@@ -112,7 +112,7 @@
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
-  # mysql(mariadb) 
+  # mysql(mariadb)
   services.mysql = {
       enable = true;
       package = pkgs.mariadb;

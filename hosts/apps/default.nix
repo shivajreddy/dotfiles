@@ -32,6 +32,7 @@ with pkgs; [
 
   # Programming
   mysql
+  mysql-workbench
 
   # Apps
   webcord
