@@ -23,6 +23,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Mange secrets
+    agenix.url = "github:ryantm/agenix";
+
   };
 
   outputs = {
@@ -50,6 +53,7 @@
         inherit system;
         modules = [
           (./. + "/hosts/predator/configuration.nix")
+          inputs.agenix.nixosModules.default
         ];
       };
 
@@ -59,6 +63,7 @@
         inherit system;
         modules = [
           (./. + "/hosts/tars/configuration.nix")
+          inputs.agenix.nixosModules.default
         ];
       };
     };
