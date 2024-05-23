@@ -21,10 +21,10 @@ in
     gtk.enable = true;
 
     # 4.2: Set the name here or else it wont work
-    # package = bibataRosePine;
-    # name = "Bibata-RosePine";
-    package = bibataMochaBlue;
-    name = "Bibata-Mocha-Blue";
+    package = bibataRosePine;
+    name = "Bibata-RosePine";
+    # package = bibataMochaBlue;
+    # name = "Bibata-Mocha-Blue";
   };
 
 
@@ -41,10 +41,10 @@ in
     # Cursors
     cursorTheme = {
       # 5. Finally set it here too
-      # package = bibataRosePine;
-      # name = "Bibata-RosePine";
-      package = bibataMochaBlue;
-      name = "Bibata-Mocha-Blue";
+      # package = bibataMochaBlue;
+      # name = "Bibata-Mocha-Blue";
+      package = bibataRosePine;
+      name = "Bibata-RosePine";
     };
 
     # Icons
