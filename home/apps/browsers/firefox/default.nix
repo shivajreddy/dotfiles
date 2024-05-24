@@ -14,7 +14,7 @@ in
 
   programs.firefox = {
     enable = true;
-    profiles."shiva" = {
+    profiles."shiv" = {
 
       userChrome = ''
       ${bottomtabs_css}
