@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    # ../apps/xremap
+    ../apps/xremap
   ];
 
 
