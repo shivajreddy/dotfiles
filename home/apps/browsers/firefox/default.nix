@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}:
+{ ... }:
 
 let
     bottomtabs_css = builtins.readFile (./bottomtabs.css);
@@ -16,6 +16,7 @@ in
     enable = true;
     profiles."shiv" = {
 
+      # enable this by about:config > search 'userprof' > toolkit.legacyUserProfileCustomizations.stylesheets
       userChrome = ''
       ${bottomtabs_css}
       '';
