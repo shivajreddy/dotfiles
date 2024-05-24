@@ -2,8 +2,8 @@
 
 let
   # 4.1: import the cursor theme that we created
-  # myBibataMocha = import ../cursors/default.nix {inherit pkgs;};
-  bibataRosePine = import ../cursors/default.nix {inherit pkgs;};
+  bibataMochaBlue = import ../cursors/Bibata-Mocha-Blue.nix {inherit pkgs;};
+  bibataRosePine = import ../cursors/Bibata-RosePine.nix {inherit pkgs;};
 
   my_catppuccin_name = "Catppuccin-Mocha-Standard-Lavender-Dark";
   my_catppuccin = pkgs.catppuccin-gtk.override {
@@ -23,6 +23,8 @@ in
     # 4.2: Set the name here or else it wont work
     package = bibataRosePine;
     name = "Bibata-RosePine";
+    # package = bibataMochaBlue;
+    # name = "Bibata-Mocha-Blue";
   };
 
 
@@ -39,10 +41,10 @@ in
     # Cursors
     cursorTheme = {
       # 5. Finally set it here too
+      # package = bibataMochaBlue;
+      # name = "Bibata-Mocha-Blue";
       package = bibataRosePine;
       name = "Bibata-RosePine";
-      # package = myBibataMocha;
-      # name = "Bibata-Mocha-Blue";
     };
 
     # Icons
