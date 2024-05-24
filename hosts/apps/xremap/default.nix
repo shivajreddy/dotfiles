@@ -1,4 +1,4 @@
-{inputs, config, ... }:
+{inputs, ... }:
 
 let
       yamlConfiguration = builtins.readFile(./config.yml);

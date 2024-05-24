@@ -1,6 +1,6 @@
 
-keymap:
+modmap:
   - name: main remaps;
-      remap:
-        super-':
-          launch: ["firefox"]
+    remap:
+      super-KEY_APOSTROPHE:
+      launch: ["firefox"]
