@@ -3,5 +3,5 @@
 keymap:
   - name: launch firefox
     remap:
-      Super-i:
+      CTRL-i:
         launch: ["firefox"]
