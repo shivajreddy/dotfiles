@@ -2,5 +2,5 @@
 modmap:
   - name: main remaps;
     remap:
-      super-i:
+      Super-i:
       launch: ["firefox"]
