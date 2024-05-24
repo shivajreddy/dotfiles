@@ -1,11 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ../apps/xremap
   ];
 
 

@@ -1,0 +1,6 @@
+
+keymap:
+  - name: main remaps;
+      remap:
+        super-':
+          launch: ["firefox"]

@@ -26,6 +26,9 @@
     # Mange secrets
     agenix.url = "github:ryantm/agenix";
 
+    # keymapper
+    xremap-flake.url = "github:xremap/nix-flake";
+
   };
 
   outputs = {
@@ -53,7 +56,6 @@
         inherit system;
         modules = [
           (./. + "/hosts/predator/configuration.nix")
-          inputs.agenix.nixosModules.default
         ];
       };
 
@@ -63,7 +65,6 @@
         inherit system;
         modules = [
           (./. + "/hosts/tars/configuration.nix")
-          inputs.agenix.nixosModules.default
         ];
       };
     };
