@@ -1,6 +1,6 @@
 
-modmap:
-  - name: main remaps;
-    remap:
-      C-i:
-        launch: ["firefox"]
+
+keymap:
+  - name: launch firefox
+    super-KEY_APOSTROPHE:
+      launch: ["firefox"]
