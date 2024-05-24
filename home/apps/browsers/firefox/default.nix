@@ -17,9 +17,9 @@ in
     profiles."shiv" = {
 
       # enable this by about:config > search 'userprof' > toolkit.legacyUserProfileCustomizations.stylesheets
-      userChrome = ''
-      ${bottomtabs_css}
-      '';
+      # userChrome = ''
+      # ${bottomtabs_css}
+      # '';
 
       # extraConfig = ''
       # ${user_js}
