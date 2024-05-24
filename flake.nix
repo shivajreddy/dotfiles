@@ -53,7 +53,7 @@
 
       # T A R S
       tars = lib.nixosSystem {
-        extraSpecialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
         inherit system;
         modules = [
           (./. + "/hosts/tars/configuration.nix")
