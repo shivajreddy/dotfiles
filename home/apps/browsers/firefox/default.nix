@@ -1,7 +1,7 @@
 {pkgs, inputs, ...}:
 
 let
-    # user_chrome_css = builtins.readFile (./userChrome.css);
+    bottomtabs_css = builtins.readFile (./bottomtabs.css);
     # user_chrome_css = builtins.readFile (./myUserChrome.css);
     # user_chrome_css = builtins.readFile (./arc.css);
 
@@ -16,9 +16,9 @@ in
     enable = true;
     profiles."shiva" = {
 
-      # userChrome = ''
-      # ${user_chrome_css}
-      # '';
+      userChrome = ''
+      ${bottomtabs_css}
+      '';
 
       # extraConfig = ''
       # ${user_js}
