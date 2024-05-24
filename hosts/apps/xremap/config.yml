@@ -4,4 +4,4 @@ keymap:
   - name: launch firefox
     remap:
       CTRL-i:
-        launch: ["firefox"]
+        launch: ["bash", "-c", "firefox"]
