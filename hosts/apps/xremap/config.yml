@@ -3,5 +3,5 @@
 keymap:
   - name: launch firefox
     remap:
-      super-i:
+      Super-i:
         launch: ["firefox"]
