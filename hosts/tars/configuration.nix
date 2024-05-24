@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     inputs.xremap-flake.nixosModules.default
