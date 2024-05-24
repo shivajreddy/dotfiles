@@ -10,7 +10,7 @@ in
 
     config.services.xremap = {
         withWlroots = true;
-        userName = "shiva";
+        # userName = "shiva";
         yamlConfig = ''
         ${yamlConfiguration}
         '';
