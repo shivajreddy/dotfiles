@@ -50,6 +50,16 @@
 
     # NIXOS
     nixosConfigurations = {
+
+      # T A R S
+      tars = lib.nixosSystem {
+        extraSpecialArgs = { inherit inputs; };
+        inherit system;
+        modules = [
+          (./. + "/hosts/tars/configuration.nix")
+        ];
+      };
+
       # P R E D A T O R
       predator = lib.nixosSystem {
         # extraSpecialArgs = { inherit inputs; };
@@ -59,14 +69,6 @@
         ];
       };
 
-      # T A R S
-      tars = lib.nixosSystem {
-        # extraSpecialArgs = { inherit inputs; };
-        inherit system;
-        modules = [
-          (./. + "/hosts/tars/configuration.nix")
-        ];
-      };
     };
 
     # HOMEMANAGER
