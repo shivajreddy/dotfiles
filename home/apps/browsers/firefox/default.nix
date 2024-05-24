@@ -14,7 +14,7 @@ in
 
   programs.firefox = {
     enable = true;
-    profiles."shiv" = {
+    profiles."shiva" = {
 
       # enable this by about:config > search 'userprof' > toolkit.legacyUserProfileCustomizations.stylesheets
       # userChrome = ''
