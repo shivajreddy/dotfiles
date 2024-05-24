@@ -2,5 +2,5 @@
 modmap:
   - name: main remaps;
     remap:
-      super-KEY_APOSTROPHE:
+      super-i:
       launch: ["firefox"]
