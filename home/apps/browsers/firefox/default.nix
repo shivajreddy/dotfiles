@@ -23,7 +23,6 @@ in
       # extraConfig = ''
       # ${user_js}
       # '';
-
     };
 
   };
