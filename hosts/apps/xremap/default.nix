@@ -8,6 +8,7 @@ in
       inputs.xremap-flake.nixosModules.default
     ];
 
+
     services.xremap = {
         withWlroots = true;
         userName = "shiva";
