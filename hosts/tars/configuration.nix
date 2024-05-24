@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../apps/xremap
     inputs.xremap-flake.nixosModules.default
+    ../apps/xremap
   ];
 
 
