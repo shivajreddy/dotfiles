@@ -3,5 +3,5 @@
 keymap:
   - name: launch firefox
     remap:
-      super-KEY_APOSTROPHE:
+      super-i:
         launch: ["firefox"]
