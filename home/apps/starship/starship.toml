@@ -82,12 +82,21 @@ continuation_prompt = '[>](bold subtext0) '
 # palette = "catppuccin_mocha"
 palette = "gruvbox_dark"
 
+# [character]
+# # success_symbol = '[λ](bold text)'
+# # error_symbol = '[λ](bold red)'
+# success_symbol = '[󱄅](bold text)'
+# error_symbol = '[󱄅](bold red)'
+# vimcmd_symbol = '[](bold cyan)'
+
 [character]
-# success_symbol = '[λ](bold text)'
-# error_symbol = '[λ](bold red)'
-success_symbol = '[󱄅](bold text)'
-error_symbol = '[󱄅](bold red)'
-vimcmd_symbol = '[](bold cyan)'
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
 
 [time]
 format = ' [$time]($style) '
