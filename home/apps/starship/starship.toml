@@ -105,11 +105,13 @@ disabled = true
 
 [directory]
 format = '[$path ]($style)[($read_only)]($read_only_style)'
-style = 'fg:red italic'
+style = 'fg:color_blue italic'
 read_only = ' '
-read_only_style = 'fg:red'
-truncate_to_repo = true
-use_os_path_sep = false
+read_only_style = 'fg:color_red'
+truncate_to_repo = false
+use_os_path_sep = true
+# truncate_to_repo = true
+# use_os_path_sep = false
 
 [username]
 format = '[$user ]($style)'
