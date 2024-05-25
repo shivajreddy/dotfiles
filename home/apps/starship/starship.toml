@@ -76,8 +76,7 @@ $line_break\
 $shell\
 $character"""
 
-# add_newline = true
-add_newline = false
+add_newline = true
 continuation_prompt = '[>](bold subtext0) '
 # palette = "catppuccin_mocha"
 palette = "gruvbox_dark"
