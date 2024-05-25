@@ -62,7 +62,7 @@
 
       # P R E D A T O R
       predator = lib.nixosSystem {
-        # extraSpecialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
         inherit system;
         modules = [
           (./. + "/hosts/predator/configuration.nix")
