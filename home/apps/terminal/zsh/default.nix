@@ -7,6 +7,8 @@
   # My shell aliases
   myAliases = {
     ls = "eza --icons -l -T -L=1";
+    l="ls -l";
+    ll="ls -alh";
     vi = "nvim";
     files = "nautilus";
     gaa = "git add .";
