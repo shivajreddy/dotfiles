@@ -2,8 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # inputs.xremap-flake.nixosModules.default
-    ../apps/xremap
+    # ../apps/xremap
   ];
 
 
