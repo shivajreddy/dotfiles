@@ -4,4 +4,5 @@ keymap:
   - name: launch firefox
     remap:
       CTRL-i:
-        launch: ["bash", "-c", "firefox"]
+        launch: ["hyprctl", "dispatch", "exec", "firefox"]
+
