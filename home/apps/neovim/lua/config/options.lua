@@ -9,3 +9,5 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.o.scrolloff = 8
 
 vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
