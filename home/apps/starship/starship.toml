@@ -1,7 +1,10 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
+# how to get nice new line
+# [╭](surface2)\  # this is the first line of format
+# [╰](surface2)\  # this will come before the $character""" (which is the last line)
+
 format = """
-[╭](surface2)\
 $directory\
 $username\
 $hostname\
@@ -71,7 +74,6 @@ $terraform)\
 $line_break\
 \
 $shell\
-[╰](surface2)\
 $character"""
 
 # add_newline = true
