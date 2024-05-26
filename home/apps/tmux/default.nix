@@ -23,6 +23,8 @@ in
 
   };
 
+  # copy the scripts folder
+  xdg.configFile."scripts".source = ./scripts;
   # xdg.configFile."tms".source = ./tms;
 
 }
