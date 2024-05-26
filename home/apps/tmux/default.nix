@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
-  main_tmux_conf = builtins.readFile ./tmux.conf;
+  tmux_rose_pine = builtins.readFile ./tmux.conf;
+  tmux_gruvbox = builtins.readFile ./tmux.conf;
 in
 {
   imports = [];
@@ -17,7 +18,7 @@ in
     ];
 
     extraConfig = ''
-      ${main_tmux_conf}
+      ${tmux_gruvbox}
     '';
 
   };
