@@ -18,9 +18,9 @@ in
     profiles."shiva" = {
 
       # enable this by about:config > search 'userprof' > toolkit.legacyUserProfileCustomizations.stylesheets
-      userChrome = ''
-      ${arc_css}
-      '';
+      # userChrome = ''
+      # ${arc_css}
+      # '';
 
       # extraConfig = ''
       # ${user_js}
