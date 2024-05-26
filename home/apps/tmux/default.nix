@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
   tmux_rose_pine = builtins.readFile ./tmux.conf;
-  tmux_gruvbox = builtins.readFile ./tmux.conf;
+  tmux_gruvbox = builtins.readFile ./tmux_gruvbox.conf;
 in
 {
   imports = [];
