@@ -14,6 +14,8 @@
 
     (./. + "/apps/bins")
 
+    (./. + "/apps/cli")
+
     (./. + "/apps/browsers")
 
     (./. + "/apps/terminal")
