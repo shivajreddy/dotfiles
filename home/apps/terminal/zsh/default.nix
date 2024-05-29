@@ -16,6 +16,7 @@
     gst = "git status .";
     uxplay = "~/dotfiles/home/apps/uxplay/uxplay-script.bash";
     gitsave = "gaa && gcmsg '.' && ggpush";
+    py="python3";
   };
 in {
 
