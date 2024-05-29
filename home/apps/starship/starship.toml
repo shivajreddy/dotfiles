@@ -90,7 +90,7 @@ palette = "gruvbox_dark"
 
 [character]
 disabled = false
-success_symbol = '[\$](bold fg:color_green)'
+success_symbol = '[\$](fg:color_green)'
 error_symbol = '[\$](bold fg:color_red)'
 vimcmd_symbol = '[\$](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[\$](bold fg:color_purple)'
@@ -137,7 +137,7 @@ style = 'fg:red'
 format = '[$symbol$branch ]($style)'
 style = 'fg:peach'
 symbol = ' '
-ignore_branches = ['main', 'master']
+# ignore_branches = ['main', 'master']
 
 [hg_branch]
 format = '[$symbol$branch ]($style)'
