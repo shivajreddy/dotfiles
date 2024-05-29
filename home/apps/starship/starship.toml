@@ -137,7 +137,7 @@ style = 'fg:red'
 format = '[$symbol$branch ]($style)'
 style = 'fg:peach'
 symbol = ' '
-ignore_branches = ['main', 'master']
+# ignore_branches = ['main', 'master']
 
 [hg_branch]
 format = '[$symbol$branch ]($style)'
