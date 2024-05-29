@@ -23,7 +23,7 @@ savedots() {
 
     git add .
     git commit -m "$commit_message"
-    git push origin main
+    git push
 
     echo " :::::: Changing back to current_dir :::::: "
     cd "$current_dir"  # Return to the original directory
