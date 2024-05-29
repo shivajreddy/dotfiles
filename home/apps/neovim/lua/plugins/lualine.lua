@@ -37,6 +37,7 @@ return {
 				lualine_a = { { "mode", separator = { left = "█" }, right_padding = 1 } },
 				-- lualine_b = { "branch" },
 				lualine_b = {
+					"branch",
 					LazyVim.lualine.root_dir(),
 				},
 
