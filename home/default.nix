@@ -115,6 +115,7 @@
     python311Packages.pip
     nodejs
     gcc
+    entr
     gnumake
     go
 
