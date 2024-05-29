@@ -21,9 +21,23 @@ savedots() {
     local commit_message="${1:-Update dotfiles}"
     echo " :::::: Commit Message: ${commit_message} :::::: "
 
+    # get the hostname and use that to set the branch
+    local host_name
+    host_name=$(hostname)
+    echo ":::::: Host:${host_name} ::::::"
+    local branch_name
+    if [[ "$host_name" == "tars" ]]; then
+      branch_name="tars"
+    elif [[ "$host_name" == "predator" ]]; then
+      branch_name="predator"
+    else
+      branch_name="main"
+    fi
+    echo ":::::: Git-Branch:${host_name} ::::::"
+
     git add .
     git commit -m "$commit_message"
-    git push
+    git push --set-upstream origin "$branch_name"
 
     echo " :::::: Changing back to current_dir :::::: "
     cd "$current_dir"  # Return to the original directory
