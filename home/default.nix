@@ -116,6 +116,7 @@
     nodejs
     gcc
     entr
+    cmake
     gnumake
     go
 
