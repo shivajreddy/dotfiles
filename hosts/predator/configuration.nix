@@ -130,9 +130,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    env = [
-            "WLR_NO_HARDWARE_CURSORS,1"
-    ];
   };
 
   # Fonts
