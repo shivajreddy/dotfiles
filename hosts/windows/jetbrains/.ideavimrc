@@ -1,0 +1,126 @@
+" vim:ft=vim:fenc=utf-8:fdm=marker
+""" map leader to <space> ----------------------------------------------------
+let mapleader=" "
+
+""" emulated plugins
+" use 'c|d|yia' to c|d|y inner arguments
+set argtextobj
+" enable gcc / gc+motion to toggle comments
+set commentary
+" jump around text easier, with <space> as leader
+set easymotion
+" highlight yank. duh.
+set highlightedyank
+" vim navigation for the dir tree view
+set NERDTree
+set ReplaceWithRegister
+set surround
+set hlsearch
+set textobj-entire
+set clipboard=unnamedplus,unnamed,ideaput " integrate with system clipboard
+
+
+""" Common settings ----------------------------------------------------------
+" '_' is a word separator
+" set iskeyword-=_
+set relativenumber
+set number
+set showcmd
+set showmode
+" scroll offset
+set scrolloff=5
+set sidescrolloff=5
+set colorcolumn=80
+" don't use Ex mode, use Q for formatting.
+map Q gq
+
+""" IDEA-specific settings ---------------------------------------------------
+set ideamarks
+set ideajoin
+set ideastatusicon=gray
+
+""" Mappings -----------------------------------------------------------------
+" IDEA binds ---------
+" Clear search with <esc>
+" Escape clears highlights
+nnoremap <Esc> :noh<CR><Esc>
+
+" make Y behave like D and C, yanking till end of line
+map Y y$
+
+nmap L :action NextTab<CR>
+nmap H :action PreviousTab<CR>
+
+" leader+y or leader+Y to yank to clipboard, and y,Y to yank with in vim
+nnoremap <Leader>y "+y
+vnoremap <Leader>y "+y
+nnoremap <Leader>Y "+Y
+" vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+" vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+map <q> <nop>
+map <Q> <nop>
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+map <leader>a <Action>(Annotate)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>rn <Action>(RenameElement)
+" preserve copy buffer, when you paster over highlighted 
+xnoremap <leader>p "_dP
+" delete to void register 
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+nnoremap <leader>aa gg<S-v>G
+" dont change cursor position when using J
+nnoremap J  mzJ`z
+" half page jumping with centering screen
+nnoremap <C-d>  <C-d>zz
+nnoremap <C-u>  <C-u>zz
+" searching with n, N will also center the screen
+nnoremap n  nzzzv
+nnoremap N  Nzzzv
+
+
+" plugin binds
+map <C-N> :NERDTreeToggle<CR>
+map <leader>J <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-f)
+
+" Window Navigation
+nnoremap <leader>w' :action SplitVertically<CR>
+nnoremap <leader>w" :action SplitHorizontally<CR>
+
+" easier split navigation
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+sethandler <C-D> a:vim
+sethandler <C-U> a:vim
+sethandler <C-R> n:ide
+
+" map <A-c> <Action>(NewScratchFile)
+" map <A-x> <Action>(CloseContent)
+
+" Zen mode
+map <leader>zz <Action>(ToggleZenMode)
+
+" File navigation
+map <leader>fd <Action>(GotoFile)
+map <leader>fg <Action>(FindInPath)
+map <leader>fl <Action>(RecentLocations)
+
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
+
+map [c <Action>VcsShowPrevChangeMarker
+map [c <Action>VcsShowNextChangeMarker
+
+" show hoverdoc
+map I <Action>(ShowErrorDescription)
