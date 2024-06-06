@@ -55,11 +55,31 @@ nmap H :action PreviousTab<CR>
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
 nnoremap <Leader>Y "+Y
-" vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-" vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-map <q> <nop>
-map <Q> <nop>
+" remove q, Q cuz they are the worst
+map q <Esc>
+map Q <Esc>
+
+" rename a symbol
+map <leader>rr <Action>(RenameElement)
+
+" ** List of all ActionId's-> https://centic9.github.io/IntelliJ-Action-IDs/
+" Toggle Line numbers
+map <leader>tl <Action>(EditorGutterToggleGlobalLineNumbers)
+
+" Toggle status bar
+map <leader>ts <Action>(ViewStatusBar)
+
+" Toggle git in gutter
+map <leader>tg <Action>(Vcs.ShowDiffChangedLines)
+
+" Toggle inlay hints
+map <leader>ti <Action>(ToggleInlayHintsGloballyAction)
+" the below is the same action for multiple things, like param names,
+" author name, and stuff, so better to manually set it on settings
+" map <leader>tih <Action>(ToggleInlineHintsAction)
+" toggle git changes in gutter
+map <leader>tg <Action>()
 
 " don't lose selection when indenting
 vnoremap < <gv
