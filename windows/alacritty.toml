@@ -1,0 +1,87 @@
+# import = ['C:\Program Files\Alacritty\Themes\gruvbox.toml']
+import = ['C:\Program Files\Alacritty\Themes\rosepine.toml']
+working_directory='\\wsl.localhost\Ubuntu\root'
+
+[debug]
+log_level = "Info"
+print_events = true
+
+
+[shell]
+program = "wsl"
+args = ["zellij"]
+# args = ["tmux attach || tmux"]
+
+[env]
+TERM = "xterm-256color"
+
+
+# [shell]
+# program = 'Ubuntu'
+# args = ["run", "tmux"]
+# program = 'powershell'
+
+# [keyboard]
+# bindings = [
+# {key = "K", mods = "Control", chars = "\u0008" }
+# ]
+
+
+
+[window]
+opacity = 1
+# opacity = 0.95
+dynamic_title = false
+# title = "🦀"
+title = ""
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[mouse]
+hide_when_typing = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 12
+
+[font.normal]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+
+[font.italic]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+
+[font.bold]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
