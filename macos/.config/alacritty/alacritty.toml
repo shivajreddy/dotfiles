@@ -1,0 +1,75 @@
+# import = ["~/.config/alacritty/themes/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/themes/rosepine.toml"]
+
+live_config_reload = true
+
+# [[keyboard.bindings]]
+# key = "L"
+# mods = "Control|Shift"
+# action = "ClearHistory"
+# action = "ClearLogNotice"
+
+[shell]
+program = "zellij"
+# program = "/bin/zsh"
+# args = ["-l", "-c", "tmux"] # creates new session every time
+# this will keep attaching to old session, so you can only have 1 session
+# args = ["-l", "-c", "tmux attach || tmux"]
+
+[env]
+TERM = "xterm-256color"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 16
+
+[font.offset]
+x = 1
+y = 1
+
+[font.normal]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Regular"
+
+[font.italic]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Italic"
+
+[font.bold]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Bold"
+
+[font.bold_italic]
+family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Bold Italic"
+
+
+[mouse]
+hide_when_typing = true
+
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+# auto_scroll = true
+
+
+[window]
+opacity = 0.9
+blur = true
+decorations = "Buttonless"
+dynamic_padding = false
+
+padding.x = 10
+padding.y = 10
+
+startup_mode = "Maximized"
+
+class.general = "Alacritty"
+class.instance = "Alacritty"
+
