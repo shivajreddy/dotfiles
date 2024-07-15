@@ -2,6 +2,34 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- custom keymaps to run c file
+vim.api.nvim_create_user_command("MakeRun", "!term make run", {})
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rr",
+  ":term make run<CR>",
+  { noremap = true, silent = true, desc = "Exec `make run`" }
+)
+
+--[[
+-- https://www.reddit.com/r/neovim/comments/15a7wyt/is_it_possible_to_scroll_horizontally_with_the/
+noremap <C-ScrollWheelDown> 10zl
+noremap <C-2-ScrollWheelDown> 10zl
+noremap <C-3-ScrollWheelDown> 10zl
+noremap <C-4-ScrollWheelDown> 10zl
+noremap <C-ScrollWheelUp> 10zh
+noremap <C-2-ScrollWheelUp> 10zh
+noremap <C-3-ScrollWheelUp> 10zh
+noremap <C-4-ScrollWheelUp> 10zh
+--]]
+-- vim.keymap.set("n", "<S-ScrollWheelUp>", zH, {})
+-- vim.keymap.set("n", "<S-ScrollWheelDown>", zL, {})
+vim.keymap.set("n", "<S-ScrollWheelUp>", "10zh", {})
+vim.keymap.set("n", "<S-ScrollWheelDown>", "10zL", {})
+vim.keymap.set("n", "<S-2-ScrollWheelDown>", "10zL", {})
+vim.keymap.set("n", "<S-3-ScrollWheelDown>", "10zL", {})
+vim.keymap.set("n", "<S-4-ScrollWheelDown>", "10zL", {})
+
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- Autosave toggle
