@@ -11,3 +11,6 @@ vim.o.scrolloff = 8
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 10

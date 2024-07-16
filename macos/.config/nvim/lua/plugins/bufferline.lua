@@ -7,9 +7,36 @@ return {
   event = "VeryLazy",
   opts = {
     options = {
+      -- diagnostics = "nvim_lsp",
+      -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      --   local icon = level:match("error") and "󰅙 " or " "
+      --   return " " .. icon .. count
+      -- end,
+      themable = true,
+      separator_style = "thick",
+      -- indicator = {
+      --   style = "underline",
+      -- },
       always_show_bufferline = true,
+      -- style_preset = bufferline.style_preset.default,
       style_preset = bufferline.style_preset.no_italic,
-      show_buffer_close_icons = false,
+      show_buffer_close_icons = true,
+      -- separator_style = "slant",
+    },
+
+    highlights = {
+      buffer_selected = {
+        bg = "#2a273f",
+      },
+      tab_separator = {
+        bg = "#2a273f",
+      },
+      tab_separator_selected = {
+        bg = "#2a273f",
+      },
+      close_button_selected = {
+        bg = "#2a273f",
+      },
     },
 
     --[[
