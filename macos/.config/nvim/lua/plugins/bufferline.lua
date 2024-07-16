@@ -25,16 +25,64 @@ return {
     },
 
     highlights = {
-      buffer_selected = {
+      tab_separator = {
         bg = "#2a273f",
       },
-      tab_separator = {
+      tab_selected = {
         bg = "#2a273f",
       },
       tab_separator_selected = {
         bg = "#2a273f",
       },
       close_button_selected = {
+        bg = "#2a273f",
+      },
+      buffer_selected = {
+        bg = "#2a273f",
+      },
+      numbers_selected = {
+        bg = "#2a273f",
+      },
+      diagnostic_selected = {
+        bg = "#2a273f",
+      },
+      hint_selected = {
+        bg = "#2a273f",
+      },
+      hint_diagnostic_selected = {
+        bg = "#2a273f",
+      },
+      info_selected = {
+        bg = "#2a273f",
+      },
+      info_diagnostic_selected = {
+        bg = "#2a273f",
+      },
+      warning_selected = {
+        bg = "#2a273f",
+      },
+      warning_diagnostic_selected = {
+        bg = "#2a273f",
+      },
+      error_selected = {
+        bg = "#2a273f",
+      },
+      error_diagnostic_selected = {
+        bg = "#2a273f",
+      },
+      modified_selected = {
+        bg = "#2a273f",
+      },
+      duplicate_selected = {
+        bg = "#2a273f",
+      },
+      separator_selected = {
+        bg = "#2a273f",
+      },
+      indicator_selected = {
+        bg = "#2a273f",
+      },
+      pick_selected = {
         bg = "#2a273f",
       },
     },
