@@ -274,7 +274,11 @@ theme "rose-pine"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "compact"
+// default_layout "compact"
+default_layout "shiva_default"
+// below command will print the compact layout
+// $ zellij setup --dump-layout compact
+
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -336,7 +340,8 @@ default_layout "compact"
 
 // The folder in which Zellij will look for layouts
 //
-// layout_dir "./my_layouts"
+// this cant be ~/.layouts i.e., relative path it has to be full absolute path
+layout_dir "/home/shiva/.config/zellij/layouts/"
 
 // The folder in which Zellij will look for themes
 //
