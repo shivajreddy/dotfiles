@@ -1,3 +1,5 @@
+
+
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true {
 	normal {
@@ -173,6 +175,12 @@ plugins {
 	compact-bar { path "compact-bar"; }
 }
 
+ui {
+    pane_frames {
+        hide_session_name true
+      }
+}
+
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
 // Options:
@@ -261,7 +269,7 @@ theme "rose-pine"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -323,7 +331,7 @@ theme "rose-pine"
 
 // The folder in which Zellij will look for layouts
 //
-// layout_dir "/path/to/my/layout_dir"
+// layout_dir "./my_layouts"
 
 // The folder in which Zellij will look for themes
 //
