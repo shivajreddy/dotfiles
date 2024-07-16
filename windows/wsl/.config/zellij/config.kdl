@@ -1,4 +1,9 @@
 
+// opens new tab with this layout, in the current directory
+// zellij action new-tab -l ~/.config/zellij/my_layouts/shiva_c.kdl
+
+// increasing pane sizes using: ctrl+n then +/-
+// floating pane: ctrl+p+w
 
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true {
