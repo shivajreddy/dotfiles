@@ -9,7 +9,7 @@ export TERM=tmux-256color
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # syntax highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zoxide - z (cd replacement)
 eval "$(zoxide init zsh)"
