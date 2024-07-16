@@ -1,0 +1,12 @@
+// This is the layout for c-programming
+layout {
+    pane split_direction="vertical" {
+      pane
+      pane split_direction="horizontal" {
+        pane command="make" {
+            args "run"
+        }
+      }
+    }
+}
+
