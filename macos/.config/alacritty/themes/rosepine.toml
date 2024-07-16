@@ -3,7 +3,11 @@
 
 [colors.primary]
 foreground = "#e0def4"
-background = "#191724"
+# background = "#191724"
+# background = "#061111"
+background = "#111019"      # good without opacity
+# background = "#121018"
+# background = "#09080C"    # good with opacity
 dim_foreground = "#908caa"
 bright_foreground = "#e0def4"
 

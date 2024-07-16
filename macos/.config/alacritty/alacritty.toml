@@ -1,7 +1,7 @@
 import = [
   # "~/.config/alacritty/themes/catppuccin-mocha.toml"
   "~/.config/alacritty/themes/rosepine.toml",
-  "./keymaps.toml"
+  # "./keymaps.toml"
 ]
 
 live_config_reload = true
@@ -62,7 +62,7 @@ text = "#191724"
 cursor = "#ebbcba"
 
 [font]
-size = 16
+size = 18
 
 [font.offset]
 x = 1
