@@ -275,7 +275,7 @@ theme "rose-pine"
 // Default: "default"
 //
 // default_layout "compact"
-default_layout "shiva_default"
+default_layout "shiva_home"
 // below command will print the compact layout
 // $ zellij setup --dump-layout compact
 

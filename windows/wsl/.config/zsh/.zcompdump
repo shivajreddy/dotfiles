@@ -1,8 +1,7 @@
-#files: 954	version: 5.8
+#files: 959	version: 5.8.1
 
 _comps=(
 '-' '_precommand'
-'-*-' '_bootctl'
 '-array-value-' '_value'
 '-assign-parameter-' '_assign'
 '-brace-parameter-' '_brace_parameter'
@@ -92,6 +91,7 @@ _comps=(
 'Mail' '_mail'
 'Mosaic' '_webbrowser'
 'SuSEconfig' '_SUSEconfig'
+'_gh' '_gh'
 'a2dismod' '_a2utils'
 'a2dissite' '_a2utils'
 'a2enmod' '_a2utils'
@@ -348,6 +348,7 @@ _comps=(
 'debfoster' '_debfoster'
 'deborphan' '_deborphan'
 'debsign' '_debsign'
+'debsnap' '_debsnap'
 'debuild' '_debuild'
 'declare' '_typeset'
 'defaults' '_defaults'
@@ -391,6 +392,7 @@ _comps=(
 'dpkg-buildpackage' '_dpkg-buildpackage'
 'dpkg-cross' '_dpkg-cross'
 'dpkg-deb' '_dpkg'
+'dpkg-parsechangelog' '_dpkg-parsechangelog'
 'dpkg-query' '_dpkg'
 'dpkg-reconfigure' '_dpkg'
 'dpkg-repack' '_dpkg-repack'
@@ -399,6 +401,7 @@ _comps=(
 'drill' '_drill'
 'dropdb' '_postgresql'
 'dropuser' '_postgresql'
+'dscverify' '_dscverify'
 'dsh' '_dsh'
 'dtrace' '_dtrace'
 'dtruss' '_dtruss'
@@ -453,7 +456,6 @@ _comps=(
 'express' '_webbrowser'
 'extcheck' '_java'
 'extractres' '_psutils'
-'eza' '_eza'
 'fakeroot' '_fakeroot'
 'false' '_nothing'
 'fc' '_fc'
@@ -567,6 +569,7 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
+'gh' '_gh'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
 'ghostview' '_pspdf'
@@ -1010,6 +1013,7 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
+'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1317,7 +1321,6 @@ _comps=(
 'sha512sum' '_md5sum'
 'sha512t256' '_cksum'
 'shasum' '_shasum'
-'shell-script' '_bootctl'
 'shift' '_arrays'
 'show' '_mh'
 'showchar' '_psutils'
@@ -1419,6 +1422,7 @@ _comps=(
 'systemd-inhibit' '_systemd-inhibit'
 'systemd-machine-id-setup' '_systemd'
 'systemd-notify' '_systemd'
+'systemd-path' '_systemd-path'
 'systemd-resolve' '_resolvectl'
 'systemd-run' '_systemd-run'
 'systemd-tmpfiles' '_systemd-tmpfiles'
@@ -1823,49 +1827,50 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bootctl _busctl _curl _eza _hostnamectl \
-            _journalctl _kernel-install _localectl _loginctl _networkctl \
-            _resolvectl _rg _sd_hosts_or_user_at_host _sd_outputmodes _sd_unit_files \
-            _snap _systemctl _systemd _systemd-analyze _systemd-delta \
-            _systemd-inhibit _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
-            _cdr _floppy _logical_volumes _lscfg _lsdev \
-            _lslv _lspv _lsvg _object_classes _physical_volumes \
-            _smit _volume_groups _bsd_disks _bsd_pkg _bsdconfig \
-            _bsdinstall _chflags _csup _cu _cvsup \
-            _fbsd_architectures _fbsd_device_types _fetch _file_flags _freebsd-update \
-            _fstat _fw_update _gstat _jail _jails \
-            _jexec _jls _jot _kld _ldap \
-            _mixerctl _nbsd_architectures _obsd_architectures _pfctl _pkgin \
-            _portaudit _portlint _portmaster _portsnap _powerd \
-            _procstat _rcctl _signify _sockstat _sysrc \
-            _systat _vmctl _watch-snoop _all_labels _all_matches \
-            _alternative _approximate _arg_compile _arguments _bash_completions \
-            _cache_invalid _call_function _combination _comp_locale _complete \
-            _complete_debug _complete_help _complete_help_generic _complete_tag _correct \
-            _correct_filename _correct_word _describe _description _dispatch \
-            _expand _expand_alias _expand_word _extensions _external_pwds \
-            _generic _guard _history _history_complete_word _ignored \
-            _list _main_complete _match _menu _message \
-            _most_recent_file _multi_parts _next_label _next_tags _normal \
-            _nothing _oldlist _pick_variant _prefix _read_comp \
-            _regex_arguments _regex_words _requested _retrieve_cache _sep_parts \
-            _sequence _set_command _setup _store_cache _sub_commands \
-            _tags _user_expand _values _wanted _cygcheck \
-            _cygpath _cygrunsrv _cygserver _cygstart _dumper \
-            _getclip _mkshortcut _mkzsh _pscp _putclip \
-            _readshortcut _caffeinate _defaults _fink _fs_usage \
-            _hdiutil _mac_applications _mac_files_for_application _mdfind _mdls \
-            _mdutil _networksetup _nvram _open _osascript \
-            _otool _pbcopy _plutil _qtplay _retrieve_mac_apps \
-            _say _sc_usage _scselect _scutil _softwareupdate \
-            _sw_vers _system_profiler _trash _xcode-select _a2utils \
-            _apt _apt-file _apt-move _apt-show-versions _aptitude \
-            _auto-apt _axi-cache _bts _bug _cdbs-edit-patch \
-            _dak _dchroot _dchroot-dsa _dcut _deb_architectures \
-            _deb_codenames _deb_files _deb_packages _debbugs_bugnumber _debchange \
-            _debcheckout _debdiff _debfoster _deborphan _debsign \
-            _debuild _dlocate _dpatch-edit-patch _dpkg _dpkg-buildpackage \
-            _dpkg-cross _dpkg-repack _dpkg_source _dput _dupload \
+autoload -Uz _bootctl _busctl _curl _dpkg-parsechangelog _gh \
+            _hostnamectl _journalctl _kernel-install _localectl _loginctl \
+            _networkctl _ninja _resolvectl _rg _sd_hosts_or_user_at_host \
+            _sd_outputmodes _sd_unit_files _snap _systemctl _systemd \
+            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-path _systemd-run \
+            _systemd-tmpfiles _timedatectl _udevadm _cdr _floppy \
+            _logical_volumes _lscfg _lsdev _lslv _lspv \
+            _lsvg _object_classes _physical_volumes _smit _volume_groups \
+            _bsd_disks _bsd_pkg _bsdconfig _bsdinstall _chflags \
+            _csup _cu _cvsup _fbsd_architectures _fbsd_device_types \
+            _fetch _file_flags _freebsd-update _fstat _fw_update \
+            _gstat _jail _jails _jexec _jls \
+            _jot _kld _ldap _mixerctl _nbsd_architectures \
+            _obsd_architectures _pfctl _pkgin _portaudit _portlint \
+            _portmaster _portsnap _powerd _procstat _rcctl \
+            _signify _sockstat _sysrc _systat _vmctl \
+            _watch-snoop _all_labels _all_matches _alternative _approximate \
+            _arg_compile _arguments _bash_completions _cache_invalid _call_function \
+            _combination _comp_locale _complete _complete_debug _complete_help \
+            _complete_help_generic _complete_tag _correct _correct_filename _correct_word \
+            _describe _description _dispatch _expand _expand_alias \
+            _expand_word _extensions _external_pwds _generic _guard \
+            _history _history_complete_word _ignored _list _main_complete \
+            _match _menu _message _most_recent_file _multi_parts \
+            _next_label _next_tags _normal _nothing _oldlist \
+            _pick_variant _prefix _read_comp _regex_arguments _regex_words \
+            _requested _retrieve_cache _sep_parts _sequence _set_command \
+            _setup _store_cache _sub_commands _tags _user_expand \
+            _values _wanted _cygcheck _cygpath _cygrunsrv \
+            _cygserver _cygstart _dumper _getclip _mkshortcut \
+            _mkzsh _pscp _putclip _readshortcut _caffeinate \
+            _defaults _fink _fs_usage _hdiutil _mac_applications \
+            _mac_files_for_application _mdfind _mdls _mdutil _networksetup \
+            _nvram _open _osascript _otool _pbcopy \
+            _plutil _qtplay _retrieve_mac_apps _say _sc_usage \
+            _scselect _scutil _softwareupdate _sw_vers _system_profiler \
+            _trash _xcode-select _a2utils _apt _apt-file \
+            _apt-move _apt-show-versions _aptitude _auto-apt _axi-cache \
+            _bts _bug _cdbs-edit-patch _dak _dchroot \
+            _dchroot-dsa _dcut _deb_architectures _deb_codenames _deb_files \
+            _deb_packages _debbugs_bugnumber _debchange _debcheckout _debdiff \
+            _debfoster _deborphan _debsign _debsnap _debuild \
+            _dlocate _dpatch-edit-patch _dpkg _dpkg-buildpackage _dpkg-cross \
+            _dpkg-repack _dpkg_source _dput _dscverify _dupload \
             _git-buildpackage _grep-excuses _invoke-rc.d _lighttpd _lintian \
             _madison _make-kpkg _members _mergechanges _module-assistant \
             _pbuilder _piuparts _reprepro _sbuild _schroot \

@@ -17,6 +17,7 @@ vim.keymap.set("n", "<Leader>w'", "<cmd>split<CR>")
 vim.keymap.set("n", '<Leader>w"', "<cmd>vs<CR>")
 
 -- Close
+vim.keymap.set("n", "<Leader>wq", "<cmd>bdelete<CR>")
 vim.keymap.set("n", "<Leader>x", "<cmd>bdelete<CR>")
 -- vim.keymap.set("n", "<Leader>wq", "<cmd>wq<CR>")
 -- vim.keymap.set("n", "<Leader>wx", "<cmd>q<CR>")
@@ -31,8 +32,8 @@ end, { desc = "LazyTerm with Border", silent = false })
 -- All Text Controls
 function YankEntireBuffer()
   local cursor_pos = vim.api.nvim_win_get_cursor(0) -- Save cursor position
-  vim.cmd(":%yank")                                 -- Yank the entire buffer
-  vim.api.nvim_win_set_cursor(0, cursor_pos)        -- Restore cursor position
+  vim.cmd(":%yank") -- Yank the entire buffer
+  vim.api.nvim_win_set_cursor(0, cursor_pos) -- Restore cursor position
 end
 
 vim.keymap.set("n", "<Leader>ay", [[:lua YankEntireBuffer()<CR>]], { desc = "Yank all" })

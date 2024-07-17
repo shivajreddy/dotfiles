@@ -1,13 +1,25 @@
-## Add locations to 'Path' variable
+#-----------------------------------------------------------|
+#   Author: Shiva                                           |
+#   Updated on: 2024-July-17                                |
+#   License: LOL                                            |
+#-----------------------------------------------------------|
+
+########################### PATHS ###########################
+# Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
+# Paths of my shell scripts
+# this seems to be not working
+export PATH="$HOME/.config/zsh/scripts:$PATH"
+
+# for getting colors properly on tmux
 export TERM=tmux-256color
-# bindkey '^ ' autosuggest-accept
 
 
-## PLUGINS
+########################### PLUGINS ###########################
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # syntax highlighting
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -17,7 +29,9 @@ eval "$(zoxide init zsh)"
 # starship prompt
 eval "$(starship init zsh)"
 
-# aliases
+
+########################### ALIASES ###########################
+# Common
 alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
@@ -30,5 +44,20 @@ alias gst="git status ."
 alias gitsave="gaa && gcmsg '.' && ggpush"
 alias gpull="git pull"
 alias gpush="git push"
+alias python="python3"
 alias py="python3"
+
+# Zellij related aliases
+alias zc="zellij action new-tab -l c"
+alias zcpp="zellij action new-tab -l cpp"
+alias zrust="zellij action new-tab -l rust"
+# alias znc="zellij action new-tab -l shiva_c"
+# alias zncp="zellij action new-tab -l shiva_cpp"
+# alias znr="zellij action new-tab -l shiva_rust"
+
+# Shell scripts
+alias show="$HOME/.config/zsh/scripts/show.sh"
+
+# other/common/misc.
+alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 
