@@ -73,7 +73,7 @@ layout {
 
 
 
-  tab name="CPP"{
+  tab name=""{
 
     pane split_direction="vertical" {
       pane
