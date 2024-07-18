@@ -1,4 +1,0 @@
-[ZoneTransfer]
-ZoneId=3
-ReferrerUrl=https://github.com/dj95/zjstatus/releases/tag/v0.17.0
-HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/685187099/6f5cab45-8be7-4a57-a642-ace198ee1937?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240716%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240716T200955Z&X-Amz-Expires=300&X-Amz-Signature=226ae435acccf02226e8e13dbf5fb21f5ef11cc6410b03c336aa2b594a6f5aee&X-Amz-SignedHeaders=host&actor_id=59872081&key_id=0&repo_id=685187099&response-content-disposition=attachment%3B%20filename%3Dzjstatus.wasm&response-content-type=application%2Foctet-stream
