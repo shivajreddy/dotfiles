@@ -7,7 +7,8 @@ layout {
   default_tab_template cwd="~" {
       children
       pane size=2 borderless=true{
-          plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+          // plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+          plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
             format_left   "{tabs}"
             format_center ""
             format_right  "{mode}{datetime}"
