@@ -6,8 +6,7 @@ layout {
   default_tab_template cwd="~" {
       children
       pane size=2 borderless=true{
-          // plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
-          plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+          plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
             format_left   "{tabs}"
             format_center ""
             format_right  "{mode}{datetime}"
@@ -18,9 +17,9 @@ layout {
             format_precedence "crl"
 
             border_enabled  "true"    // only works if pane size is 2
-            border_char     " "
-            border_format   ""
-            // border_format   "#[fg=#232136]{char}"
+            border_char     ""
+            // border_format   ""
+            border_format   "#[fg=#232136]{char}"
             border_position "top"
 
             hide_frame_for_single_pane "false"
@@ -72,7 +71,7 @@ layout {
   }
 
 
-  tab name="C"{
+  tab name=""{
     pane split_direction="vertical" {
       pane
       pane split_direction="horizontal" {
