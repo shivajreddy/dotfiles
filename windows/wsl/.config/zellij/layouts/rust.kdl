@@ -18,9 +18,9 @@ layout {
             format_precedence "crl"
 
             border_enabled  "true"    // only works if pane size is 2
-            border_char     " "
-            border_format   ""
-            // border_format   "#[fg=#232136]{char}"
+            border_char     ""
+            // border_format   ""
+            border_format   "#[fg=#232136]{char}"
             border_position "top"
 
             hide_frame_for_single_pane "false"
