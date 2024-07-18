@@ -1,0 +1,1001 @@
+ll
+clear
+cclear
+clear
+ls
+clear
+ls
+source ./venv/bin/activate
+clear
+clear
+ls
+py watch.py
+pip install requirements.txt
+pip
+pip install -r requirements.txt
+py watch.py
+exit
+cd zsh
+vi .zshrc
+source .zshrc
+clear
+exit
+ls
+gaa
+clear
+exit
+exit
+cd
+cd zell
+cd skhd
+vi skhdrc
+skhd --restart-service
+clear
+exit
+cd
+git clone https://github.com/shivajreddy/dotfiles.git
+open .
+git status .
+cd dotfiles
+git status .
+clear
+gaa
+git status .
+clear
+git commit -m "new direcotries"
+git push
+clear
+vi .gitignore
+gaa
+gcmsg "added mac dots"
+git push
+pva
+clear
+py watch.py
+cd play
+cd python
+ls
+clear
+vi .
+exit
+brew install node
+vi .
+vi .
+clear
+exit
+exit
+cd
+clear
+ls
+clear
+cd ala
+ls
+vi alacritty.toml
+ls
+clear
+exit
+/Volumes/PDF\ Expert\ 3.10.4/Open\ Gatekeeper\ friendly ; exit;
+cd yabai
+cd config
+cd yabai
+cd
+cd yabai
+ls
+vi yabairc
+vi yabairc
+yabai --restart-service
+clear
+ls
+exit
+skhd --restart-service
+yabai --restart-service
+clear
+exit
+cd yabai
+vi yabairc
+yabai --restart-service
+clear
+exit
+exit
+brew update yabai
+brew upgrade yabai
+brew upgrade skhd
+clear
+exit
+yabai --restart-service
+exit
+skhd --stop-service
+skhd --restart-service
+skhd --start-service
+yabai --restart-service
+exit
+exit
+py main.py
+py main.py
+clear
+py main.py
+py main.py
+clear
+exit
+clear
+ls
+clear
+l
+clear
+cargo install slint
+cargo add slint
+cargo add slint-build
+clear
+clear && cargo run
+clear && cargo run
+clear && cargo run
+clear && cargo run
+jj
+asdfj
+clear
+exit
+clear
+clear && cargo run
+clear && cargo run
+clear && cargo run
+clear && cargo run
+clear && cargo run
+cargo run
+cargo run
+clear
+exit
+exit
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+exit
+cargo install cargo-generate
+clear
+cd desk
+ls
+clear
+ls
+cargo new memory
+clear
+cd memory
+vi .
+vi .
+ls
+vi ui/appwindow.slint
+vi .
+clear
+vi .
+vi .
+vi .
+vi .
+vi .
+vi .
+clear
+exit
+cd nvim
+vi .
+vi .
+vi .
+vi .
+vi .
+vi .
+exit
+cd ..
+vi test.slint
+exit
+brew install llvm
+g++
+g++ main.cpp
+./a.out
+clear
+g++ main.cpp
+./a.out
+clear && g++ main.cpp&& ./a.out
+clear && g++ main.cpp&& ./a.out
+clear && g++ main.cpp&& ./a.out
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+pva
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+exit
+clear
+pva
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+ls
+clear
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+pva
+deactivate
+python3 -m venv venv
+python3
+python3 -m venv
+python3 -m venv venv
+ls
+clear
+cd ..
+ls
+cd nexus
+ls
+python3 -m venv venv
+pva
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+py app/main.py
+clear
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+ll
+clear
+cp .env.development .env.dev
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+ls
+git status .
+git branch -v
+git branch --h
+clear
+git branch v2
+git checkout v2
+clear
+git add .
+git commit -m "new branch v2, this is for updating database schema and migrating"
+git push origin main
+git push
+git push origin v2
+clear
+git checkout main
+clear
+ls
+clear
+clear
+git status .
+git add .
+git commit -m "set main branch to original main"
+git push origin main
+clear
+cd ..
+deactivate
+clear
+cd nexus
+ls
+rm -rf venv
+python3 -m venv venv
+pva
+pip install -r requirements.txt
+pip install --upgrade pip
+clear
+ls
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+exit
+exit
+git clone https://github.com/shivajreddy/nexus.git
+clea
+clear
+ls
+clear
+cd nexus
+clear
+cd backend
+ls
+cd nexus
+ls
+pva
+python3 -m venv venv
+source ./venv/bin/activate
+pva
+clear
+pip install -r requirements.txt
+pip install -r requirements.txt
+pip install --upgrade pip
+pip install -r requirements.txt
+clear
+vi requirements.txt
+clear
+pip install -r requirements.txt
+deactivate
+clear
+rm -rf venv
+python3 -m venv venv
+pva
+git status .
+gaa
+gcmsg "updated backend requirements.txt file"
+gpush
+git push
+clear
+pip install -r requirements.txt
+pip install --upgrade pip
+clear
+clear
+ls
+git status .
+clear
+ls
+ll
+cd ..
+cd ..
+ls
+ll
+vi .gitignore
+git status .
+git add .
+git commit -m "updated gitignore"
+git push
+clear
+ls
+clear
+cd backend
+ls
+cd nexus
+ls
+ll
+clear
+ll
+python3 app/main.py
+vi .
+ls
+pip install -r requirements.txt
+clear
+python3 app/main.py
+uvicorn app/main.py
+clear
+vi .
+clear
+vi .
+cd ..
+ls
+cd nexus
+ls
+vi .
+clear
+clear
+clear
+clear
+vi .
+cd ..
+cd ..
+vi .
+exit
+npm run dev
+npm i
+npm run dev
+npm run dev
+npm start
+npm run
+npm run dev
+git status .
+git reset frontend/nexus/vite.config.ts
+git status .
+git reset --hard
+clear
+git add .
+git status .
+git commit -m "updated epc columns, now shows 'Contract-Type'"
+git push
+clear
+exit
+pva
+clear
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+clear
+gaa
+git commit -m "removed jwt from main branch"
+git commit -m "removed jwt from main branch. Main branch works 100%"
+git push origin main
+clear
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+exit
+ls
+clear
+exit
+cd skhd
+vi skhdrc
+clear
+ls
+clear
+ll
+clear
+l
+cler
+l
+clear
+l
+cd
+clear
+exit
+brew update
+brew upgrade
+clear
+ls
+exit
+exit
+cd ala
+ls
+vi .
+vi
+clear
+ls
+vi alacritty
+vi .
+clear
+exit
+ clear
+clear
+cd
+clear
+ls
+rm -rf Movies
+ls
+clear
+ls
+rm -rf Music
+sudo rm -rf Music
+ls
+clear
+ls
+cd Public
+ls
+cd ..
+rm -rf Public
+sudo rm -rf Public
+ls
+clear
+ls
+open .
+cd projects
+ls
+clear
+cd playground
+ls
+gaa
+gcmsg "."
+gpush
+git push
+clear
+ls
+cd rust
+ls
+clear
+ls
+cargo new hello-rocket --bin
+ls
+cd hello-rocket
+vi .
+clear
+ls
+gaa
+gcmsg "rocket playground project"
+gpush
+clear
+git push
+clear
+ls
+clear
+gpush
+source ~/.config/zsh/.zshrc
+clear
+gpush
+clear
+asldfj
+clear
+clear
+exit
+cargo add rocket
+clear
+cargo run
+cargo run
+cargo watch -c -x run
+cargo watch
+cargo watch run
+cargo watch -x -c run
+cargo watch -c run
+cargo watch run
+cargo watch -x run
+exit
+exit
+exit
+exit
+open .
+exit
+cd nvim
+ls
+vi .
+vi
+vi
+vi
+vi
+vi
+exit
+ls
+sqlite3 chinook.db
+ls
+sqlite3 chinook.db
+sqlite3 chinook.db
+clear
+open .
+open .
+ls
+cd src
+ls
+clear
+sqlite3 chinook.db
+open .
+clear
+clear
+exit
+clear
+clear
+clear
+clear
+cd ..
+cd ..
+ls
+clear
+ls
+cd sql
+ls
+clear
+sqlite
+brew install sqlite
+sqlite
+sqlite3 --version
+clear
+mkdir sqlite
+cd sqlite
+sqlite3 test.db
+ls
+clear
+sqlite3 pilot.db
+ls
+sqlite3 pilot.db
+files .
+open .
+sqlite3 chinook.db
+clear
+gaa
+gcmsg "testing sqlite"
+gpush
+gaa
+gcmsg "testing sqlite"
+cd ..
+cd ..
+gaa
+gcmsg "testing sqlite"
+gpush
+gpush
+source ~/.config/zsh/.zshrc
+gpush
+clear
+cd sql/sqlite
+ls
+clear
+sqlite3 chinook.db
+clear
+ls
+ls
+clear
+clear
+ls
+sqlite3 chinook.db
+clear
+exit
+cd al
+clear
+ls
+vi .
+cd zsh
+ls
+vi .
+source .zshrc
+clear
+cd rust
+clear
+ls
+cd playground
+ls
+cd ..
+cd hello-rocket
+clear
+ls
+clear
+cd ..
+cargo new tasks --bin
+clear
+ls
+cd tasks
+ls
+cargo add rocket
+clear
+ls
+gaa
+gcmsg "tasks repo for todo app with rust stack"
+gpush
+clear
+vi .
+gaa
+cd ..
+cd ..
+gaa
+gcmsg "tasks- make sqlite statements"
+gpush
+clear
+ls
+clear
+clear
+exit
+cargo watch -x run
+cargo watch -c -x run
+cargo add rusqlite
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+clear
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+exit
+cd
+clear
+yabai --restart-service
+clear
+ls
+clear
+exit
+exit
+exit
+clera
+cargo watch -c -x run
+exit
+exit
+yabai --restart-service
+clear
+ls
+cd tasks
+clear
+clear
+clear
+clear
+exit
+exit
+clear
+cargo add rocket_contrib
+clear
+cargo add rocket_contrib
+clear
+clear
+rustup update
+rustup component add clippy
+cargo clippy
+cd ..
+ls
+cd hello-rocket
+cargo clippy
+vi .
+vi
+cd tasks
+clear
+gaa
+cd rust
+gaa
+cd ..
+gaa
+cd ..
+gaa
+cd playground
+gaa
+gcmsg "."
+gpush
+clear
+cd tasks
+clear
+yabai --restart-service
+clear
+clear
+ls
+sqlite3 tasks.db
+clear
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\
+
+brew update
+brew upgrade
+clear
+brew install postgresql
+clear
+brew services start postgresql
+ls
+createdb mydb
+ls
+exit
+cd tasks
+cargo watch -c -x run
+clear
+cargo watch -c -x run
+clear
+ls
+cargo run
+cargo run
+clear
+cargo run
+rustup install nightly
+clear
+cargo watch -c -x run
+rustup override set nightly
+cargo run
+cargo run
+cargo run
+cargo watch -c -x run
+exit
+cd
+cd /usr/local
+ls
+ll
+cd /var
+ll
+clear
+ll
+cd /usr/local/var/postgresql@14
+ll
+clear
+ll
+cd global
+ll
+cd
+clear
+cd -
+ll
+cd ..
+ll
+lf
+brew install lf
+clear
+lf
+lf
+exit
+ll
+clear
+exit
+clear
+ll
+clear
+ll
+clear
+exit
+exit
+exit
+ls
+clear
+cd ..
+ls
+cargo new todo --bin
+cargo add rocket
+cd todo
+cargo add rocket
+cargo add tokio
+cargo add postgres
+clear
+gaa
+gcmsg "new project todo: testing postgres and tokio"
+gpush
+clear
+cd yabai
+vi yabairc
+yabai --restart-service
+clear
+cd todo
+clear
+cd zell
+ll
+vi .
+exit
+cargo watch -c -x run
+cargo watch -c -x run
+ll
+clear
+cd src
+ll
+clear
+cd ..
+cargo watch -c -x run
+exit
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+exit
+exit
+d
+cd
+cd pla
+cd ..
+vi demo.py
+rm demo.py
+exit
+python3 demo.py
+python3 demo.py
+exit
+cargo watch -c -x run
+exit
+cd rust
+ls
+cd playground
+vi .
+clear
+vi .
+vi .
+vi .
+vi .
+clear
+exirt
+exit
+cd projects/my_c
+gaa
+gcmsg "repo in xcode"
+gpush
+clear
+exit
+./run.sh
+ls
+ls
+clear
+./run.sh
+./run.sh
+make run
+make run
+make run
+make run
+make
+clear
+make run
+make run
+clear
+make run
+make run
+make run
+make run
+exit
+cd nvim
+vi .
+exit
+cd nvim
+clear
+l
+vi .
+vi
+vi
+vi
+vi .
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+clear
+exit
+cd nvim
+vi .
+exit
+exit
+cd c pilot
+clear
+ls
+gaa
+gcmsg "just files using nvim"
+gpush
+cd ..
+gaa
+gcmsg "just files using nvim"
+gpush
+clear
+ls
+clear
+cd pilot
+clear
+vi .
+chmod +x run.sh
+vi .
+vi .
+vi .
+vi .
+vi
+clear
+vi
+vi
+vi
+clear
+clear
+cd
+git clone https://github.com/shivajreddy/dotfiles.git
+cd dotfiles
+git reset --hard
+git pull
+clear
+open .
+gaa
+gst
+gcmsg "update macos dotfiles"
+gpush
+gaa
+gst
+gcmsg "."
+gpush
+clear
+exit
+kj
+clear
+clear
+clear
+ls
+clear
+ll
+clear
+exit
+exit
+cd ala
+vi .
+exit
+exit
+cd zell
+vi .
+exit
+exit
+cd nvim
+vi .
+vi
+open .
+cd
+cd dotfiles
+gaa
+gst
+gcmsg "set bufferline bg for everything"
+gpush
+clear
+exit
+cd my_c pilot
+vi .
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+exit
+files .
+cd
+cd dotfiles
+gaa
+gcmsg "added alacritty"
+gpush
+clear
+exit
+cd nvim
+vi .
+exit
+cd ala
+vi .
+exit
+zellij
+zellij

@@ -5,9 +5,9 @@
 #-----------------------------------------------------------|
 
 ########################### PATHS ###########################
-# Add locations to 'Path' variable
-export PATH="$HOME/.local/bin:$PATH"
+############# Linux #############
 
+########## WINDOWS-WSL ##########
 # Paths of my shell scripts
 # this seems to be not working
 export PATH="$HOME/.config/zsh/scripts:$PATH"
@@ -15,19 +15,36 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
+############# MacOS #############
+# PATH="/Library/Frameworks/SDL2.framework/./:${PATH}"
+# export PATH
+#
+# LIBRARY_PATH="/Library/Frameworks/SDL2.framework/:${LIBRARY_PATH}"
+# export LIBRARY_PATH
+#
+# CPLUS_INCLUDE_PATH="/Library/Frameworks/SDL2.framework/Headers/:$CPLUS_INCLUDE_PATH"
+# export CPLUS_INCLUDE_PATH
+#
+# CPATH="/Library/Frameworks/SDL2.framework/Headers:$CPATH"
+# export CPATH
+#
+# LIBRARY_PATH="/Library/Frameworks/SDL2.framework:$LIBRARY_PATH"
+# export LIBRARY_PATH
+
 
 ########################### PLUGINS ###########################
-# auto suggestions
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# syntax highlighting
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # zoxide - z (cd replacement)
 eval "$(zoxide init zsh)"
-
 # starship prompt
 eval "$(starship init zsh)"
+# auto suggestions
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax highlighting
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 
 ########################### ALIASES ###########################
@@ -60,4 +77,7 @@ alias show="$HOME/.config/zsh/scripts/show.sh"
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 
