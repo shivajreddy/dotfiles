@@ -1,0 +1,1004 @@
+clear
+exit
+exit
+clear
+cargo add rocket_contrib
+clear
+cargo add rocket_contrib
+clear
+clear
+rustup update
+rustup component add clippy
+cargo clippy
+cd ..
+ls
+cd hello-rocket
+cargo clippy
+vi .
+vi
+cd tasks
+clear
+gaa
+cd rust
+gaa
+cd ..
+gaa
+cd ..
+gaa
+cd playground
+gaa
+gcmsg "."
+gpush
+clear
+cd tasks
+clear
+yabai --restart-service
+clear
+clear
+ls
+sqlite3 tasks.db
+clear
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\
+
+brew update
+brew upgrade
+clear
+brew install postgresql
+clear
+brew services start postgresql
+ls
+createdb mydb
+ls
+exit
+cd tasks
+cargo watch -c -x run
+clear
+cargo watch -c -x run
+clear
+ls
+cargo run
+cargo run
+clear
+cargo run
+rustup install nightly
+clear
+cargo watch -c -x run
+rustup override set nightly
+cargo run
+cargo run
+cargo run
+cargo watch -c -x run
+exit
+cd
+cd /usr/local
+ls
+ll
+cd /var
+ll
+clear
+ll
+cd /usr/local/var/postgresql@14
+ll
+clear
+ll
+cd global
+ll
+cd
+clear
+cd -
+ll
+cd ..
+ll
+lf
+brew install lf
+clear
+lf
+lf
+exit
+ll
+clear
+exit
+clear
+ll
+clear
+ll
+clear
+exit
+exit
+exit
+ls
+clear
+cd ..
+ls
+cargo new todo --bin
+cargo add rocket
+cd todo
+cargo add rocket
+cargo add tokio
+cargo add postgres
+clear
+gaa
+gcmsg "new project todo: testing postgres and tokio"
+gpush
+clear
+cd yabai
+vi yabairc
+yabai --restart-service
+clear
+cd todo
+clear
+cd zell
+ll
+vi .
+exit
+cargo watch -c -x run
+cargo watch -c -x run
+ll
+clear
+cd src
+ll
+clear
+cd ..
+cargo watch -c -x run
+exit
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+cargo watch -c -x run
+exit
+exit
+d
+cd
+cd pla
+cd ..
+vi demo.py
+rm demo.py
+exit
+python3 demo.py
+python3 demo.py
+exit
+cargo watch -c -x run
+exit
+cd rust
+ls
+cd playground
+vi .
+clear
+vi .
+vi .
+vi .
+vi .
+clear
+exirt
+exit
+cd projects/my_c
+gaa
+gcmsg "repo in xcode"
+gpush
+clear
+exit
+./run.sh
+ls
+ls
+clear
+./run.sh
+./run.sh
+make run
+make run
+make run
+make run
+make
+clear
+make run
+make run
+clear
+make run
+make run
+make run
+make run
+exit
+cd nvim
+vi .
+exit
+cd nvim
+clear
+l
+vi .
+vi
+vi
+vi
+vi .
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+clear
+exit
+cd nvim
+vi .
+exit
+exit
+cd c pilot
+clear
+ls
+gaa
+gcmsg "just files using nvim"
+gpush
+cd ..
+gaa
+gcmsg "just files using nvim"
+gpush
+clear
+ls
+clear
+cd pilot
+clear
+vi .
+chmod +x run.sh
+vi .
+vi .
+vi .
+vi .
+vi
+clear
+vi
+vi
+vi
+clear
+clear
+cd
+git clone https://github.com/shivajreddy/dotfiles.git
+cd dotfiles
+git reset --hard
+git pull
+clear
+open .
+gaa
+gst
+gcmsg "update macos dotfiles"
+gpush
+gaa
+gst
+gcmsg "."
+gpush
+clear
+exit
+kj
+clear
+clear
+clear
+ls
+clear
+ll
+clear
+exit
+exit
+cd ala
+vi .
+exit
+exit
+cd zell
+vi .
+exit
+exit
+cd nvim
+vi .
+vi
+open .
+cd
+cd dotfiles
+gaa
+gst
+gcmsg "set bufferline bg for everything"
+gpush
+clear
+exit
+cd my_c pilot
+vi .
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+exit
+files .
+cd
+cd dotfiles
+gaa
+gcmsg "added alacritty"
+gpush
+clear
+exit
+cd nvim
+vi .
+exit
+cd ala
+vi .
+exit
+zellij
+zellij
+exit
+vi .
+vi .
+ls
+clear
+cd ..
+clear
+ls
+mkdir chapter_4
+clear
+vi main.c
+clear
+clear
+cd
+git clone https://github.com/williamgherman/c-solutions.git
+cd c-solutions
+rm -rf .git
+ls
+clear
+ls
+clear
+ls
+cd ..
+mv c-solutions solutions
+mv solutions ~/projects/my_c
+vi run.sh
+rm run.sh
+clear
+vi .
+cd ..
+vi .
+vi .
+brew update
+brew upgrade
+clear
+exit
+cd
+clear
+cd Desktop
+clear
+ls
+clear
+git clone https://github.com/dneilroth/Breakout-in-C.git
+clear
+cd Breakout-in-C
+clear
+ls
+./breakout
+sudo ./breakout
+chmod +x breakout
+ls
+./breakout
+vi .
+exit
+exit
+clang main.c -o output && ./output
+cd zsh
+vi .
+source .zshrc
+clear
+exit
+clang main.c -o output -framework SDL2
+clang main.c -o output -framework SDL2
+clang main.c -o output -lSDL2
+clang main.c -o output -lSDL2
+clang main.c -o output -lSDL2
+clang main.c -o output -lSDL2
+clea
+clear
+clang main.c -o output -lSDL2
+./output
+exit
+clang main.c -o output && ./output
+clang main.c -o output && ./output
+export CPATH=/Library/Frameworks/SDL2.framework/Headers:$CPATH\
+export LIBRARY_PATH=/Library/Frameworks/SDL2.framework:$LIBRARY_PATH\
+
+echo $CPATH
+cd 
+cd /Library/Frameworks
+ls
+cd SDL2.framework
+ls
+clear
+ls
+cd Headers
+ls
+clear
+cd ..
+clear
+ls
+ls
+vi .
+source ~/.config/zsh/.zshrc
+clear
+echo $CPATH
+brew install sdl2
+clear
+exit
+clear
+cd
+cd Desktop
+clear
+cd shivasdl
+mkdir shivasdl
+cd shivasdl
+vi .
+vi .
+vi .
+source ~/.config/zsh/.zshrc
+vi .
+vi .
+vi .
+vi .
+\:q
+exit
+cd
+cd zsh
+ls
+vi .
+source .zshrc
+clear
+cd /Library/Preferences
+cd mkdir clangd
+mkdir clangd
+sudo mkdir clangd
+cd clangd
+sudo vi config.yaml
+echo | clang++ -E -v -
+exit
+cd nvim
+vi .
+exit
+clear
+ls
+cd projects/my_c
+ls
+git fetch
+clear
+git pull
+clear
+git branch smbp
+git checkout origin/teclab
+git checkout main
+git merge origin/teclab
+vi .
+gaa
+gcmsg "merged"
+git push
+clear
+git checkout smbp
+git pull
+git merge origin
+vi .
+clear
+zellij --h
+zellij -h
+zellij action new-tab -l shiva_c
+cd pilot
+zellij action new-tab -l shiva_c
+clear
+cd ..
+clear
+cd chapter_4
+clear
+gaa
+gcmsg "refactor"
+gpush
+cd ..
+gaa
+gcmsg "refactor"
+gpush
+clear
+cd chapter_
+clear
+zellij action new-tab -l shiva_c
+cd ..
+cp chapter_1/run.sh chapter_4
+clear
+cd chapter_4
+clear
+cd ..
+ls
+clear
+ls
+gaa
+gcmsg "added solutions"
+gpush
+clear
+git checkout main
+git merge smbp
+clear
+git commit -m "merted, added solutions"
+gpush
+clear
+git checkout sm
+git checkout smbp
+clear
+cd chapter_4
+clear
+cd ..
+cd chapter_8
+zellij action new-tab -l shiva_c
+cd ..
+cp chapter_1/run.sh chapter_8
+cp solutions/08 chapter_8
+cp -r solutions/08 chapter_8
+clear
+cd chapter_8
+zellij action new-tab -l shiva_c
+clear
+exit
+i .
+vi .
+vi .
+vi .
+gaa
+git checkout main
+git merge smbp
+gaa
+gcmsg "merged"
+gpush
+clear
+git checkout smbp
+clear
+vi .
+vi .
+clear
+ls
+clear
+vi .
+vi .
+cd chapter_8
+zellij action new-tab -l shiva_c
+cd ..
+ls
+mkdir chapter_9
+rm -rf chapter_9
+ls
+cp chapter_8 chapter_9
+cp -v chapter_8 chapter_9
+cp -r chapter_8 chapter_9
+ls
+clear
+ls
+vi main.c
+rm main.c
+clear
+ls
+gaa
+gcmsg "."
+clear
+cd chapter_9
+vi .
+cd ..
+ls
+clear
+gaa
+gcmsg "refactor and chapter 9 start"
+gpush
+clear
+ls
+clear
+ls
+git checkout main
+git merge smbp
+gaa
+gcmsg "refactor and chapter 9 start"
+gpush
+clear
+git checkout smbp
+clear
+cd ch9
+cd ch 9
+clear
+ls
+clear
+zellij action new-tab -l shiva_c
+cd
+clear
+cd ala
+vi .
+clear
+cd
+clear
+cd ch 9
+zellij action new-tab -l shiva_c
+cd
+clear
+cd dot
+clear
+git status .
+git reset --hard
+ls
+clear
+git status .
+gst
+git pull
+git status .
+git diff --name-only origin/main..main
+git diff --name-only main..origin/main
+git pull origin main --force
+git status .
+git reset --hard
+git pull origin main --force
+git add .
+git status .
+git pull origin main --rebase
+git status .
+clear
+clear
+ls
+clear
+ll
+vi .
+open .
+cd config zsh
+vi .
+source .zshrc
+sourcezsh
+clear
+cd ch 9
+zc
+zc
+cd dot
+cd windows/wsl/.config/zsh
+vi .
+gaa
+cd dot
+vi .
+cd
+cd .config zell
+vi .
+zellij
+clear
+ls
+cd ch 9
+zc
+cd dot
+gst
+gaa
+gcmsg "added local mac files to repo"
+gpush
+clear
+ls
+clear
+exit
+cd $HOME/Library/Caches
+ls
+rm -rf org.Zellij-Contributors.Zellij
+ll
+ll | grep "pip"
+ll | grep "ell"
+sudo rm -rf org.Zellij-Contributors.Zellij
+sudo rm -rf org.Zellij-Contributors.Zellij/
+ll
+cd
+cd dotfiles
+clear
+cd macos/.config/zellij
+ls
+files .
+open .
+ls
+zellij
+zellij
+zellij
+[A
+zellij
+zellij
+zellij
+zellij
+zellij
+zellij
+zellij
+zellij
+clear
+vi .
+zellij
+zellij
+zellij
+clear
+ls
+clear
+zellij
+clear
+cd .config zell
+vi .
+cd dot zell
+cd dot
+cd windows/wsl/.config/zellij
+vi .
+cd -
+cd -
+cd -
+cd zell
+vi .
+ls
+vi .
+clear
+exit
+cd .config zell
+vi .
+files .
+open .
+exit
+exit
+zellij
+zellij
+zellij
+zellij
+zellij
+exit
+cd dots
+cd dotfiles
+clear
+git pull
+clear
+ls
+clear
+ls
+clear
+ls
+clear
+ll
+clear
+vi .
+clear
+ls
+clear
+ll
+clear
+cd config zell
+vi .
+zellij delete-all-sessions -y
+zellij delete-all-sessions -y
+clear
+ls
+clear
+ll
+clear
+ls
+clear
+ll
+clear
+ll
+clear
+l
+l
+l
+clear
+l
+rm -rf Movies
+rm -rf Music
+clear
+l
+clear
+clea
+clear
+clear
+ls
+clear
+cd my c
+clear
+git status .
+git reset --hard
+clear
+gaa
+gst
+git checkout main
+git pull
+clear
+git checkout smbp
+git merge main
+clear
+gaa
+gcmsg "."
+gpush 
+clear
+git checkout main
+git merge smbp
+gaa
+gcmsg "."
+clear
+gpush
+clear
+ll
+lf
+l
+ls
+clear
+lf
+ll
+l
+cd 12
+cd chapter_12
+clear
+zc
+cd zell
+vi .
+clear
+clear
+cd 
+cd dotfiles
+vi .
+zellij -l welcome
+cd
+cd ala
+vi .
+cd chapter_12
+clear
+zc
+cd
+cd dotfiles
+cp -r ~/.config/zellij ~/dotfiles/macos/.config
+gaa
+gst
+cd 
+cd .config/zsh
+vi .
+cp ~/.config/zsh/.zshrc ~/dotfiles/macos/.config/zsh
+cd
+cd dotfiles
+gaa
+gst
+clear
+gcmsg "."
+gpush
+clear
+cd
+cd config zell
+vi .
+zellij -l welcome
+vi .
+cd ala
+vi .
+exit
+htop
+btop
+brew install htop
+clear
+htop
+clear
+cd config zell
+vi .
+neofetch
+clear
+vi todo.md
+vi .
+exit
+vi .
+\
+
+vi .
+vi
+vi .
+vi .
+/Users/smbp/Desktop/shivasdl/output ; exit;
+vi .
+zellij action run -- ./run.sh
+zellij run -- ./run.sh
+exit
+vi .
+clear
+ls
+cd
+clear
+zellij -v
+zellij --version
+zellij --help
+lear
+clear
+cd ch 12
+zc
+cd
+clear
+cd ch 12
+zc
+clear
+cd
+clear
+cd ala
+vi .
+cd
+cd ch 12
+cd ..
+ls
+cp chapter_12 chapter_13
+cp -r chapter_12 chapter_13
+clear
+zc
+cd
+clear
+cd ch 13
+cd ch 12
+cd .
+cd ..
+cd chapter_13
+zc
+clear
+cd
+clear
+cd chapter_13
+zc
+cd
+cd config zell
+vi .
+cd chapter_13
+zc
+cd
+clear
+cd chapter_13
+lf
+cd
+clear
+vi
+clear
+cd chapter_13
+zc
+clear
+cd
+clear
+ls
+clear
+cd config zell
+vi .
+cd
+cd ala
+vi .
+cd ch 13
+zc
+cd
+clear
+cd nvim
+vi .
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+clear
+vi
+vi
+vi
+vi
+vi
+vi
+exit
+zellij run -- ./run.sh
+zellij run -- ./run.sh
+show
+show zsh
+show zellij
+show
+show note
+clear
+vi .
+vi .
+vi .
+ls
+clear
+exit
+exit
+exit
+zellij
+zellij
+zellij
