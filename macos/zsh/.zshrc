@@ -80,5 +80,5 @@ alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 # todo.md on $HOME
-alias todo="cd ~ && vi todo.md"
+alias todo="cd ~/todo && vi todo.md"
 
