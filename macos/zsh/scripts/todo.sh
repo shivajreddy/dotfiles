@@ -3,7 +3,7 @@
 todo() {
   local current_dir=$(pwd)
   cd ~/todo
-  vi todo.md
+  nvim todo.md
   cd "$current_dir"
 }
 
