@@ -74,11 +74,10 @@ alias zpy="zellij action new-tab -l python"
 
 # Shell scripts
 alias show="$HOME/.config/zsh/scripts/show.sh"
+alias todo="$HOME/.config/zsh/scripts/todo.sh"
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-# todo.md on $HOME
-alias todo="cd ~/todo && vi todo.md"
 
