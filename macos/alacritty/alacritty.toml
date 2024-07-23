@@ -2,43 +2,14 @@ import = [
   # "~/.config/alacritty/themes/catppuccin-mocha.toml",
   "~/.config/alacritty/themes/rosepine.toml",
   # "~/.config/alacritty/themes/rosepine-dawn.toml",
-  "./keymaps.toml"
+  "~/.config/alacritty/keymaps.toml"
 ]
 
 live_config_reload = true
 
-# [[keyboard.bindings]]
-# chars = "\u001Bj"
-# key = "J"
-# mods = "Alt"
-
-[[keyboard.bindings]]
-key = "H"
-mods = "Alt"
-chars = "\u001Bh"
-
-[[keyboard.bindings]]
-key = "J"
-mods = "Alt"
-chars = "\u001Bj"
-
-[[keyboard.bindings]]
-key = "K"
-mods = "Alt"
-chars = "\u001Bk"
-
-[[keyboard.bindings]]
-key = "L"
-mods = "Alt"
-chars = "\u001Bl"
-
-# [[keyboard.bindings]]
-# key = "L"
-# mods = "Control|Shift"
-# action = "ClearHistory"
-# action = "ClearLogNotice"
 
 [shell]
+
 program = "zellij"
 # args = ["-l", "shiva_welcome"]
 # program = "/bin/zsh"

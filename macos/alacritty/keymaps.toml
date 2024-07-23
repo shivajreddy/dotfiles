@@ -1,7 +1,16 @@
+# New binding for Command + S to Ctrl + S
+[[keyboard.bindings]]
+chars = "\u0013"  # Ctrl + S
+key = "S"
+mods = "Command"
+
 # [[keyboard.bindings]]
-# key = "F"
+# chars = "\u0016" # Ctrl + V
+# key = "V"
 # mods = "Command"
-# action = "ToggleFullscreen"
-
-
-
+#
+#
+# [[keyboard.bindings]]
+# chars = "\u001C" # Ctrl + \
+# key = "\\"
+# mods = "Command"

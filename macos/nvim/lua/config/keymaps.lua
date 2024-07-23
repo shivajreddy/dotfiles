@@ -60,9 +60,10 @@ vim.keymap.set("n", "<S-4-ScrollWheelDown>", "10zL", {})
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- For Mac users, map Command+S to save
-vim.api.nvim_set_keymap("n", "S", ":w<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("i", "S", "<Esc>:w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "S", "<Esc>:w<CR>", { noremap = true, silent = true })
+-- zellij doesn't detect command key, so we remapped at alacritty level
+-- so when cmd+s is pressed alacritty treats as ctrl+s
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-s>", "<C-o>:w<CR>", { noremap = true, silent = true })
 
 -- Autosave toggle
 vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", {})
