@@ -5,9 +5,9 @@
 #-----------------------------------------------------------|
 
 ########################### PATHS ###########################
-############# Linux #############
+# Add locations to 'Path' variable
+export PATH="$HOME/.local/bin:$PATH"
 
-########## WINDOWS-WSL ##########
 # Paths of my shell scripts
 # this seems to be not working
 export PATH="$HOME/.config/zsh/scripts:$PATH"
@@ -15,36 +15,19 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
-############# MacOS #############
-# PATH="/Library/Frameworks/SDL2.framework/./:${PATH}"
-# export PATH
-#
-# LIBRARY_PATH="/Library/Frameworks/SDL2.framework/:${LIBRARY_PATH}"
-# export LIBRARY_PATH
-#
-# CPLUS_INCLUDE_PATH="/Library/Frameworks/SDL2.framework/Headers/:$CPLUS_INCLUDE_PATH"
-# export CPLUS_INCLUDE_PATH
-#
-# CPATH="/Library/Frameworks/SDL2.framework/Headers:$CPATH"
-# export CPATH
-#
-# LIBRARY_PATH="/Library/Frameworks/SDL2.framework:$LIBRARY_PATH"
-# export LIBRARY_PATH
-
 
 ########################### PLUGINS ###########################
-# zoxide - z (cd replacement)
-eval "$(zoxide init zsh)"
-# starship prompt
-eval "$(starship init zsh)"
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # syntax highlighting
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# zoxide - z (cd replacement)
+eval "$(zoxide init zsh)"
+
+# starship prompt
+eval "$(starship init zsh)"
 
 
 ########################### ALIASES ###########################
@@ -63,21 +46,25 @@ alias gpull="git pull"
 alias gpush="git push"
 alias python="python3"
 alias py="python3"
+alias pva="source ./venv/bin/activate"
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
 alias zcpp="zellij action new-tab -l cpp"
 alias zrust="zellij action new-tab -l rust"
+alias zrustv="zellij action new-tab -l rust_vertical"
+alias zpy="zellij action new-tab -l python"
+alias zpyv="zellij action new-tab -l python_vertical"
 # alias znc="zellij action new-tab -l shiva_c"
 # alias zncp="zellij action new-tab -l shiva_cpp"
 # alias znr="zellij action new-tab -l shiva_rust"
 
 # Shell scripts
 alias show="$HOME/.config/zsh/scripts/show.sh"
+alias todo="$HOME/.config/zsh/scripts/todo.sh"
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
 

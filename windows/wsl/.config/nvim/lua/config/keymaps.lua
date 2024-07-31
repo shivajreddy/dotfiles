@@ -4,6 +4,9 @@
 
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
+-- Diagnostics
+vim.keymap.set("n", "I", vim.diagnostic.open_float, { desc = "Line Diagnostics", silent = true })
+
 -- Autosave toggle
 vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", {})
 -- GitSigns toggle

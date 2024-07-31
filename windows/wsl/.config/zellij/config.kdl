@@ -5,7 +5,13 @@
 // increasing pane sizes using: ctrl+n then +/-
 // floating pane: ctrl+p+w
 
-layout_dir "/home/shiva/.config/zellij/layouts/"
+// This has to be an absolute path
+// MACOS
+// layout_dir "/Users/smbp/.config/zellij/layouts/light/"  // light theme
+// layout_dir "/Users/smbp/.config/zellij/layouts/"
+// WSL
+// layout_dir "/home/shiva/.config/zellij/wsl_layouts/light/" // light theme
+layout_dir "/home/shiva/.config/zellij/wsl_layouts/"
 
 default_layout "shiva_home"
 
@@ -21,6 +27,7 @@ on_force_close "detach"
 // Resurrection
 session_serialization true
 pane_viewport_serialization true
+// scrollback_lines_to_serialize 0
 
 ui {
     pane_frames {
@@ -89,7 +96,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl g" { SwitchToMode "Normal"; }
 	}
 	resize {
-		bind "Ctrl n" { SwitchToMode "Normal"; }
+		bind "Ctrl r" { SwitchToMode "Normal"; }
 		bind "h" "Left" { Resize "Increase Left"; }
 		bind "j" "Down" { Resize "Increase Down"; }
 		bind "k" "Up" { Resize "Increase Up"; }
@@ -115,9 +122,10 @@ keybinds clear-defaults=true {
 		bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "f" { TogglePaneFrames; SwitchToMode "Normal"; }
 		bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-		bind "Ctrl p" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+		bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 		bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+    bind "m" { SwitchToMode "Resize"; }
 	}
 	tab {
 		bind "Ctrl t" { SwitchToMode "Normal"; }
@@ -240,8 +248,10 @@ keybinds clear-defaults=true {
 	shared_except "pane" "locked" {
 		bind "Ctrl p" { SwitchToMode "Pane"; }
 	}
+
+  // not working for somereason, tried in other terminal too
 	shared_except "resize" "locked" {
-		bind "Ctrl n" { SwitchToMode "Resize"; }
+    bind "Alt r" { SwitchToMode "Resize"; }
 	}
 	shared_except "scroll" "locked" {
 		bind "Alt s" { SwitchToMode "Scroll"; }
@@ -253,9 +263,10 @@ keybinds clear-defaults=true {
 		bind "Ctrl t" { SwitchToMode "Tab"; }
 	}
 	shared_except "renametab" "locked" {
-		bind "Alt r" { SwitchToMode "RenameTab"; }
+	  bind "Alt r" { SwitchToMode "RenameTab"; }
 	}
 	shared_except "tmux" "locked" {
 		bind "Ctrl b" { SwitchToMode "Tmux"; }
 	}
 }
+

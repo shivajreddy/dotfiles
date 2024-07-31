@@ -17,7 +17,7 @@ return {
       -- indicator = {
       --   style = "underline",
       -- },
-      always_show_bufferline = true,
+      always_show_bufferline = false,
       -- style_preset = bufferline.style_preset.default,
       style_preset = bufferline.style_preset.no_italic,
       show_buffer_close_icons = true,
