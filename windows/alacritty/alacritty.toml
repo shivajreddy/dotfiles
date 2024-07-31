@@ -1,5 +1,9 @@
 # import = ['C:\Program Files\Alacritty\Themes\gruvbox.toml']
-import = ['C:\Program Files\Alacritty\Themes\rosepine.toml']
+import = [
+  'C:\Program Files\Alacritty\Themes\rosepine.toml',
+  'C:\Program Files\Alacritty\keymaps.toml'
+]
+
 working_directory='\\wsl.localhost\Ubuntu\root'
 
 [debug]
@@ -27,21 +31,29 @@ TERM = "xterm-256color"
 # ]
 
 
-
 [window]
 opacity = 1
-# opacity = 0.95
+# opacity = 0.98
 dynamic_title = false
-# title = "🦀"
+# title = "simple_colon"
 title = ""
+# dynamic_padding = true
+# decorations = "None"
+
+[window.dimensions]
+columns = 80
+lines = 24
+
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 0
+x = 4
 y = 0
+# x = 10
+# y = 10
 
 [scrolling]
 history = 10000
@@ -58,11 +70,22 @@ draw_bold_text_with_bright_colors = true
 
 [font]
 size = 12
+builtin_box_drawing = false
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
 
 [font.normal]
 family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
 style = "Regular"
 
 
@@ -70,6 +93,8 @@ style = "Regular"
 family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
 style = "Italic"
 
 
@@ -77,11 +102,15 @@ style = "Italic"
 family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
 family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
 style = "Bold Italic"
 
