@@ -76,7 +76,7 @@ layout {
 
     tab name=""{
 
-      pane split_direction="horizontal" {
+      pane split_direction="vertical" {
         pane
         pane command="./zellij_run.sh"{
           start_suspended true
