@@ -2,6 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- General
+-- vim.api.nvim_set_keymap("n", "I", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "I", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
 -- custom keymaps to run c file
 vim.api.nvim_create_user_command("MakeRun", "!term make run", {})
 vim.api.nvim_set_keymap(

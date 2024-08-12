@@ -19,3 +19,17 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 vim.api.nvim_create_autocmd("BufWinEnter", {
   command = "set formatoptions-=cro",
 })
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+-- Create an autogroup named "autoupdate"
+local autoupdate_group = augroup("autoupdate", { clear = true })
+
+-- Define an autocommand that runs when Vim enters
+autocmd("VimEnter", {
+  group = autoupdate_group,
+  callback = function()
+    require("lazy").update({ show = false })
+  end,
+})
