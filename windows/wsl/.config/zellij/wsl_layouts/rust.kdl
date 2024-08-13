@@ -75,7 +75,6 @@ layout {
 
   tab name=""{
 
-    // pane split_direction="vertical" {
     pane split_direction="horizontal" {
       pane cwd="."
       pane

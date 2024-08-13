@@ -28,21 +28,23 @@ show_help() {
   echo "  -h, --help    Show this help message."
 }
 
-# Check the argument passed to the script
-case "$1" in
-zsh)
-  show_file "$ZSHRC_PATH"
-  ;;
-zellij)
-  show_file "$ZELLIJ_CONFIG_PATH"
-  ;;
--h | --help)
-  show_help
-  ;;
-note | notes)
-  show_file "$SHIVAS_NOTE"
-  ;;
-*)
-  show_help
-  ;;
-esac
+function show() {
+  # Check the argument passed to the script
+  case "$1" in
+  zsh)
+    show_file "$ZSHRC_PATH"
+    ;;
+  zellij)
+    show_file "$ZELLIJ_CONFIG_PATH"
+    ;;
+  -h | --help)
+    show_help
+    ;;
+  note | notes)
+    show_file "$SHIVAS_NOTE"
+    ;;
+  *)
+    show_help
+    ;;
+  esac
+}

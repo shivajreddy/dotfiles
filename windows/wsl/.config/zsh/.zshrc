@@ -8,6 +8,9 @@
 # Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
+export BROWSER='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe'
+
+
 # Paths of my shell scripts
 # this seems to be not working
 export PATH="$HOME/.config/zsh/scripts:$PATH"
@@ -32,7 +35,7 @@ eval "$(starship init zsh)"
 
 ########################### ALIASES ###########################
 # Common
-alias cd="z"
+# alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
@@ -59,9 +62,11 @@ alias zpyv="zellij action new-tab -l python_vertical"
 # alias zncp="zellij action new-tab -l shiva_cpp"
 # alias znr="zellij action new-tab -l shiva_rust"
 
+
 # Shell scripts
-alias show="$HOME/.config/zsh/scripts/show.sh"
-alias todo="$HOME/.config/zsh/scripts/todo.sh"
+source ~/.config/zsh/scripts/cargo.sh
+source ~/.config/zsh/scripts/show.sh
+source ~/.config/zsh/scripts/todo.sh
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
