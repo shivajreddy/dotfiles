@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- Launching Programs
--- config.default_prog = { "wsl", "--cd", "/home/shiva" }
-config.default_prog = { "zellij" }
+config.default_prog = { "wsl", "--cd", "/home/shiva" }
+-- config.default_prog = { "zellij" }
 
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -11,7 +11,8 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.window_decorations = "RESIZE"
 config.window_decorations = "TITLE | RESIZE"
 require("wezterm").on("format-window-title", function()
-	return "simple_colon"
+	-- return "simple_colon"
+	return ""
 end)
 require("wezterm").on("format-tab-title", function()
 	return ""
@@ -28,7 +29,7 @@ config.colors = {
 	cursor_bg = "#ebbcba",
 }
 
-config.font_size = 16.0
+config.font_size = 12.0
 
 config.font = wezterm.font_with_fallback({
 	{
