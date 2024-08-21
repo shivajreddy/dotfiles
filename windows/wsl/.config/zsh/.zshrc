@@ -18,9 +18,6 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
-########################### ENV VARIABLES ###########################
-. "$HOME/.cargo/env"
-
 
 ########################### PLUGINS ###########################
 # auto suggestions
@@ -75,5 +72,4 @@ source ~/.config/zsh/scripts/todo.sh
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
 
