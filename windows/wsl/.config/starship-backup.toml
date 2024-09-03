@@ -1,9 +1,15 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
+# how to get nice new line
+# [╭](surface2)\  # this is the first line of format
+# [╰](surface2)\  # this will come before the $character""" (which is the last line)
+
+
+# $username\
+# $cmd_duration\
+
 format = """
-[┌](gray)\
 $directory\
-$username\
 $hostname\
 $container\
 \
@@ -15,7 +21,6 @@ $git_metrics\
 $hg_branch\
 $vcsh\
 \
-$cmd_duration\
 $jobs\
 $sudo\
 $shlvl\
@@ -70,73 +75,78 @@ $terraform)\
 \
 $line_break\
 \
-[└](gray)\
+$shell\
 $character"""
 
 add_newline = false
-continuation_prompt = '[>](bold gray) '
-palette = "milspec_dark"
+continuation_prompt = '[>](bold subtext0) '
+# palette = "catppuccin_mocha"
+# palette = "gruvbox_dark"
+palette = "rose_pine"
 
 [character]
-success_symbol = '[λ](bold fg)'
-error_symbol = '[λ](bold red)'
-# success_symbol = '[\$](bold fg)'
-# error_symbol = '[\$](bold red)'
-vimcmd_symbol = '[](bold turquoise)'
-
+disabled = false
+success_symbol = '[\$](fg:rose)'
+error_symbol = '[\$](bold fg:love)'
+vimcmd_symbol = '[\$](bold fg:foam)'
+vimcmd_replace_one_symbol = '[\$](bold fg:iris)'
+vimcmd_replace_symbol = '[\$](bold fg:iris)'
+vimcmd_visual_symbol = '[\$](bold fg:gold)'
 
 [time]
 format = ' [$time]($style) '
-style = 'fg:gray'
+style = 'fg:subtext0'
 disabled = true
 
 [directory]
 format = '[$path ]($style)[($read_only)]($read_only_style)'
-style = 'fg:red'
+style = 'fg:iris italic'
 read_only = ' '
-read_only_style = 'fg:red'
-truncate_to_repo = true
-use_os_path_sep = false
+read_only_style = 'fg:love'
+truncate_to_repo = false
+use_os_path_sep = true
+# truncate_to_repo = true
+# use_os_path_sep = false
 
 [username]
 format = '[$user ]($style)'
-style_root = 'fg:red'
-style_user = 'fg:red'
+style_root = 'fg:love'
+style_user = 'fg:love'
 
 [hostname]
 format = '[$ssh_symbol$hostname ]($style)'
-style = 'fg:red'
+style = 'fg:love'
 ssh_symbol = '@'
 
 [container]
 format = '[$hostname ]($style)'
-style = 'fg:red'
+style = 'fg:rose'
 
 ### VCS
 [git_branch]
 format = '[$symbol$branch ]($style)'
-style = 'fg:orange'
+style = 'fg:gold'
 symbol = ' '
-ignore_branches = ['main', 'master']
+# ignore_branches = ['main', 'master']
 
 [hg_branch]
 format = '[$symbol$branch ]($style)'
-style = 'fg:orange'
+style = 'fg:rose'
 
 [git_commit]
 format = '[$tag ]($style)'
-style = 'fg:orange'
+style = 'fg:rose'
 tag_disabled = false
 tag_symbol = ' '
 
 [git_state]
 format = '[\[$state($progress_current/$progress_total)\] ]($style)'
-style = 'fg:orange'
+style = 'fg:rose'
 disabled = false
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-style = 'fg:orange'
+style = 'fg:rose'
 ahead = ' '
 behind = ' '
 conflicted = '󰩌 '
@@ -149,12 +159,12 @@ staged = '󱧳 '
 stashed = '󱧶 '
 disabled = false
 
-### SHELL STATUS
-[cmd_duration]
-format = '[ $duration ]($style)'
-style = 'fg:gold'
-show_milliseconds = false
-min_time = 2000
+## SHELL STATUS
+ [cmd_duration]
+ format = '[ $duration ]($style)'
+ style = 'fg:gold'
+ show_milliseconds = false
+ min_time = 2000
 
 [jobs]
 disabled = false
@@ -179,11 +189,11 @@ symbol = '󰌑 '
 map_symbol = false
 disabled = true
 
-[sudo]
-disabled = false
-format = '[$symbol ]($style)'
-style = 'fg:gold'
-symbol = ' '
+# [sudo]
+# disabled = false
+# format = '[$symbol ]($style)'
+# style = 'fg:yellow'
+# symbol = ''
 
 ### LANGUAGE VERSION INDICATORS
 [buf]
@@ -392,37 +402,37 @@ symbol = '󰗹 '
 [aws]
 disabled = false
 format = '[$symbol($profile)(\($region\))(\[$duration\]) ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = ' '
 
 [azure]
 disabled = true
 format = '[$symbol($subscription)]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = ' '
 
 [docker_context]
 disabled = false
 format = '[$symbol$context ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = ' '
 
 [gcloud]
 disabled = false
 format = '[$symbol$account(@$domain)(\($region\)) ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = ' '
 
 [kubernetes]
 disabled = false
 format = '[$symbol($cluster/$namespace) ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = '󱃾 '
 
 [openstack]
 disabled = false
 format = '[$symbol$cloud(\($project\)) ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = ' '
 
 [pulumi]
@@ -433,50 +443,66 @@ style = 'fg:blue'
 [terraform]
 disabled = false
 format = '[$symbol$workspace ]($style)'
-style = 'fg:violet'
+style = 'fg:mauve'
 symbol = '󱁢 '
 
 ### COLOR PALETTES
-[palettes.milspec_light]
-fg = "#111418"
-bg = "#f6f7f9"
-gray = "#5f6b7c"
-bgGray = "#d3d8de"
-fgGray = "#404854"
-core = "#ffffff"
-blue = "#2d72d2"
-green = "#238551"
-orange = "#c87619"
-red = "#cd4246"
-vermilion = "#d33d17"
-rose = "#db2c6f"
-violet = "#9d3f9d"
-indigo = "#7961db"
-cerulean = "#147eb3"
-turquoise = "#00a396"
-forest = "#29a634"
-lime = "#8eb125"
-gold = "#d1980b"
-sepia = "#946638"
+[palettes.rose_pine]
+base = "#191724"
+surface ="#1f1d2e"
+overlay = "#26233a"
+muted = "#6e6a86"
+subtle = "#908caa"
+text = "#e0def4"
+love = "#eb6f92"
+gold =  "#f6c177"
+rose = "#ebbcba"
+pine = "#31748f"
+foam = "#9ccfd8"
+iris = "#c4a7e7"
+highlight_low = "#21202e"
+highlight_med = "#403d52"
+highlight_high = "#524f67"
 
-[palettes.milspec_dark]
-fg = "#ffffff"
-bg = "#1c2127"
-gray = "#c5cbd3"
-bgGray = "#404854"
-fgGray = "#d3d8de"
-core = "#111418"
-blue = "#8abbff"
-green = "#72ca9b"
-orange = "#fbb360"
-red = "#fa999c"
-vermilion = "#ff9980"
-rose = "#ff66a1"
-violet = "#d69fd6"
-indigo = "#bdadff"
-cerulean = "#68c1ee"
-turquoise = "#7ae1d8"
-forest = "#62d96b"
-lime = "#d4f17e"
-gold = "#fbd065"
-sepia = "#d0b090"
+[palettes.catppuccin_mocha]
+rosewater = '#f5e0dc'
+flamingo = '#f2cdcd'
+pink = '#f5c2e7'
+mauve = '#cba6f7'
+red = '#f38ba8'
+maroon = '#eba0ac'
+peach = '#fab387'
+yellow = '#f9e2af'
+green = '#a6e3a1'
+teal = '#94e2d5'
+sky = '#89dceb'
+sapphire = '#74c7ec'
+blue = '#89b4fa'
+lavender = '#b4befe'
+text = '#cdd6f4'
+subtext1 = '#bac2de'
+subtext0 = '#a6adc8'
+overlay2 = '#9399b2'
+overlay1 = '#7f849c'
+overlay0 = '#6c7086'
+surface2 = '#585b70'
+surface1 = '#45475a'
+surface0 = '#313244'
+base = '#1e1e2e'
+mantle = '#181825'
+crust = '#11111b'
+contrast = '#000000'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+
