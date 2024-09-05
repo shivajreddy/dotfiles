@@ -56,10 +56,6 @@ for i = 1, 9 do
 end
 map("0", { "LEADER", "ALT" }, act.ActivateTab(-1))
 -- 'hjkl' to move between panes
--- map("h", { "LEADER", "ALT" }, act.ActivatePaneDirection("Left"))
--- map("j", { "LEADER", "ALT" }, act.ActivatePaneDirection("Down"))
--- map("k", { "LEADER", "ALT" }, act.ActivatePaneDirection("Up"))
--- map("l", { "LEADER", "ALT" }, act.ActivatePaneDirection("Right"))
 map("h", { "LEADER", "ALT" }, act.ActivatePaneDirection("Left"))
 map("j", { "LEADER", "ALT" }, act.ActivatePaneDirection("Down"))
 map("k", { "LEADER", "ALT" }, act.ActivatePaneDirection("Up"))
@@ -73,15 +69,16 @@ map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 -- spawn & close
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
-map("t", { "SHIFT|CTRL", "ALT" }, act.SpawnTab("CurrentPaneDomain"))
-map("w", { "SHIFT|CTRL", "ALT" }, act.CloseCurrentTab({ confirm = true }))
-map("n", { "SHIFT|CTRL", "ALT" }, act.SpawnWindow)
+map("t", { "SHIFT|ALT" }, act.SpawnTab("CurrentPaneDomain"))
+map("w", { "SHIFT|ALT" }, act.CloseCurrentTab({ confirm = true }))
+map("n", { "SHIFT|ALT" }, act.SpawnWindow)
 -- zoom states
 map("z", { "LEADER", "ALT" }, act.TogglePaneZoomState)
 map("Z", { "LEADER", "ALT" }, toggleTabBar)
 -- copy & paste
 map("v", "LEADER", act.ActivateCopyMode)
 map("c", { "SHIFT|CTRL", "ALT" }, act.CopyTo("Clipboard"))
+
 map("v", { "SHIFT|CTRL", "ALT" }, act.PasteFrom("Clipboard"))
 map("f", { "SHIFT|CTRL", "ALT" }, act.Search({ CaseInSensitiveString = "" }))
 -- rotation

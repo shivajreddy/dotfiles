@@ -18,6 +18,14 @@ c.command_palette_font_size = c.font_size * 1.1
 -- c.window_background_opacity = 0.95
 -- c.macos_window_background_blur = 20
 
+require("wezterm").on("format-window-title", function()
+	-- return "simple_colon"
+	return ""
+end)
+-- require("wezterm").on("format-tab-title", function()
+-- 	return ""
+-- end)
+
 c.default_prog = { "wsl", "--cd", "/home/shiva" }
 
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
@@ -42,7 +50,7 @@ c.window_frame = { font = wezterm.font("IBM Plex Sans"), font_size = 10 }
 c.window_padding = { left = 0, right = 0, top = 20, bottom = 00 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
-c.inactive_pane_hsb = { brightness = 0.40 }
+c.inactive_pane_hsb = { brightness = 0.6, saturation = 0.1 }
 
 -- Theme
 c.color_scheme = "catppuccin-mocha"
@@ -50,7 +58,8 @@ c.colors = {
 	-- background = "#111019",
 	-- background = "#101018",
 	-- background = "#0D0D13",
-	background = "#08080C",
+	-- background = "#111019",
+	background = "#09080C",
 	cursor_fg = "#191724",
 	cursor_bg = "#ebbcba",
 }
