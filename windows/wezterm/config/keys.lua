@@ -33,6 +33,16 @@ local openUrl = act.QuickSelectArgs({
 	end),
 })
 
+local renameTab = act.PromptInputLine({
+	-- Function to handle renaming the tab
+	description = "Enter new name for tab",
+	action = wezterm.action_callback(function(window, _, line)
+		if line then
+			window:active_tab():set_title(line)
+		end
+	end),
+})
+
 --[[
 -- NOTE
 
@@ -77,27 +87,30 @@ map("z", { "LEADER", "ALT" }, act.TogglePaneZoomState)
 map("Z", { "LEADER", "ALT" }, toggleTabBar)
 -- copy & paste
 map("v", "LEADER", act.ActivateCopyMode)
-map("c", { "SHIFT|CTRL", "ALT" }, act.CopyTo("Clipboard"))
+map("c", { "SHIFT|CTRL" }, act.CopyTo("Clipboard"))
 
-map("v", { "SHIFT|CTRL", "ALT" }, act.PasteFrom("Clipboard"))
-map("f", { "SHIFT|CTRL", "ALT" }, act.Search({ CaseInSensitiveString = "" }))
+map("v", { "SHIFT|CTRL" }, act.PasteFrom("Clipboard"))
+map("f", { "ALT" }, act.Search({ CaseInSensitiveString = "" }))
 -- rotation
 map("e", { "LEADER", "ALT" }, act.RotatePanes("Clockwise"))
 -- pickers
 map(" ", "LEADER", act.QuickSelect)
 map("o", { "LEADER", "ALT" }, openUrl) -- https://github.com/shivajreddy
 map("p", { "LEADER", "ALT" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
-map("R", { "LEADER", "ALT" }, act.ReloadConfiguration)
+-- map("R", { "LEADER", "ALT" }, act.ReloadConfiguration)
 map("u", "SHIFT|CTRL", act.CharSelect)
 map("p", { "SHIFT|CTRL", "SHIFT|ALT" }, act.ActivateCommandPalette)
 -- view
 map("Enter", "ALT", act.ToggleFullScreen)
-map("-", { "CTRL", "ALT" }, act.DecreaseFontSize)
-map("=", { "CTRL", "ALT" }, act.IncreaseFontSize)
-map("0", { "CTRL", "ALT" }, act.ResetFontSize)
+map("-", { "ALT" }, act.DecreaseFontSize)
+map("=", { "ALT" }, act.IncreaseFontSize)
+map("0", { "ALT" }, act.ResetFontSize)
+
+-- rename tab
+map("r", { "SHIFT|ALT" }, renameTab)
 
 -- debug
-map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
+map("l", "SHIFT|ALT", act.ShowDebugOverlay)
 
 map(
 	"r",
