@@ -45,7 +45,7 @@ c.window_frame = {
 }
 c.window_frame = { font = wezterm.font("IBM Plex Sans"), font_size = 10 }
 
-c.window_padding = { left = 0, right = 0, top = 20, bottom = 00 }
+c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.inactive_pane_hsb = { brightness = 0.6, saturation = 0.1 }
