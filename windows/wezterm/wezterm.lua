@@ -32,7 +32,7 @@
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 
-require("./config.keys").apply(c)
+require("config.keys").apply(c)
 
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
