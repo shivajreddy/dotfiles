@@ -1,10 +1,18 @@
 
+; Arc browser settings
+/*
 F8::
     HandlePiPWindow(-112, 23) ; Minimize button (X offset = -112, Y offset = +23)
 return
 
 F9::
     HandlePiPWindow(-44, 23) ; Close button (X offset = -44, Y offset = +23)
+return
+*/
+
+; Chrome browser
+F8::
+    HandlePiPWindow(-34, 23) ; Close button (X offset = -44, Y offset = +23)
 return
 
 ; Function to handle PiP window and click at the specified offset
@@ -18,8 +26,8 @@ HandlePiPWindow(XOffset, YOffset)
         this_id := id%A_Index%
         WinGetTitle, this_title, ahk_id %this_id%
 
-        ; Check if the window title contains "picture in picture" (case-insensitive)
-        if InStr(this_title, "picture in picture", true)
+        ; Check if the window title contains "picture in picture" or "Picture in Picture" (case-insensitive)
+        if (InStr(this_title, "picture in picture", true) or InStr(this_title, "Picture in picture", true))
         {
             ; Get the position and size of the PiP window
             WinGetPos, X, Y, Width, Height, ahk_id %this_id%
