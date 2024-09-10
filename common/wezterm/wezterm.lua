@@ -49,7 +49,7 @@ c.font = wezterm.font_with_fallback({
 	"Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
-c.font_size = 12
+c.font_size = 15
 c.harfbuzz_features = { "calt=1", "ss01=1" }
 
 -- c.window_background_opacity = 0.95
@@ -65,6 +65,7 @@ end)
 -- Set default_prog only if the OS is Windows
 if wezterm.os_name == "Windows" then
 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+	c.font_size = 12
 end
 
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de

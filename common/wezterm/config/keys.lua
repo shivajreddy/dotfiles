@@ -141,13 +141,29 @@ for k, _ in pairs(key_tables) do
 	table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
 end
 
+-- MAC spesific
+-- in mac, wezterm.os_name is 'nil'
+if wezterm.os_name ~= "Windows" then
+	map("s", { "CMD" }, act.SendKey({ key = "s", mods = "CTRL" }))
+end
+
 local M = {}
 M.apply = function(c)
-	c.leader = {
-		key = "s",
-		mods = "ALT",
-		timeout_milliseconds = math.maxinteger,
-	}
+	if wezterm.os_name == "Windows" then
+		c.leader = {
+			key = "s",
+			mods = "ALT",
+			timeout_milliseconds = math.maxinteger,
+		}
+	end
+	if wezterm.os_name ~= "Windows" then
+		c.leader = {
+			key = "t",
+			mods = "CMD",
+			timeout_milliseconds = math.maxinteger,
+		}
+	end
+
 	c.debug_key_events = true
 	c.keys = shortcuts
 	c.disable_default_key_bindings = true
