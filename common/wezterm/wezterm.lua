@@ -62,7 +62,10 @@ end)
 -- 	return ""
 -- end)
 
-c.default_prog = { "wsl", "--cd", "/home/shiva" }
+-- Set default_prog only if the OS is Windows
+if wezterm.os_name == "Windows" then
+	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+end
 
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
 -- c.window_decorations = "NONE"
