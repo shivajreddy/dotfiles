@@ -63,10 +63,14 @@ end)
 -- end)
 
 -- Set default_prog only if the OS is Windows
-if wezterm.os_name == "Windows" then
+if wezterm.target_triple:find("windows") ~= nil then
 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
 	c.font_size = 12
 end
+
+print(wezterm.target_triple:find("windows"))
+print(wezterm.target_triple:find("darwin"))
+print(wezterm.target_triple:find("linux"))
 
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
 -- c.window_decorations = "NONE"
