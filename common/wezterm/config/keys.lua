@@ -2,6 +2,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local utils = require("config.utils")
+
 local shortcuts = {}
 
 ---@param key string
@@ -143,20 +145,20 @@ end
 
 -- MAC spesific
 -- in mac, wezterm.os_name is 'nil'
-if wezterm.os_name ~= "Windows" then
+if utils.is_darwin() then
 	map("s", { "CMD" }, act.SendKey({ key = "s", mods = "CTRL" }))
 end
 
 local M = {}
 M.apply = function(c)
-	if wezterm.os_name == "Windows" then
+	if utils.is_windows() then
 		c.leader = {
 			key = "s",
 			mods = "ALT",
 			timeout_milliseconds = math.maxinteger,
 		}
 	end
-	if wezterm.os_name ~= "Windows" then
+	if utils.is_darwin() then
 		c.leader = {
 			key = "t",
 			mods = "CMD",

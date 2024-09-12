@@ -34,6 +34,8 @@ local c = wezterm.config_builder()
 
 require("config.keys").apply(c)
 
+local utils = require("config.utils")
+
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
 -- Use the absolute path to require the module
@@ -63,7 +65,7 @@ end)
 -- end)
 
 -- Set default_prog only if the OS is Windows
-if wezterm.target_triple:find("windows") ~= nil then
+if utils.is_windows() then
 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
 	c.font_size = 12
 end
