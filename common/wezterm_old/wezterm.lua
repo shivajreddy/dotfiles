@@ -32,15 +32,9 @@
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 
-local utils = require("config.utils")
+require("config.keys").apply(c)
 
--- Set keymappings based on os
-if utils.is_darwin() then
-	require("config.mac_keys").apply(c)
-end
-if utils.is_windows() then
-	require("config.win_keys").apply(c)
-end
+local utils = require("config.utils")
 
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
