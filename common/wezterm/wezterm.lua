@@ -50,7 +50,8 @@ end
 -- config_keys.apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Berkeley Mono",
+	"JetBrains Mono",
+	-- "Berkeley Mono",
 	-- "Cascadia Code",
 	-- "IBM Plex Mono",
 	-- "Comic Code Ligatures",
@@ -58,7 +59,7 @@ c.font = wezterm.font_with_fallback({
 })
 c.front_end = "WebGpu"
 c.font_size = 15
-c.harfbuzz_features = { "calt=1", "ss01=1" }
+-- c.harfbuzz_features = { "calt=1", "ss01=1" }
 
 -- c.window_background_opacity = 0.95
 -- c.macos_window_background_blur = 20
