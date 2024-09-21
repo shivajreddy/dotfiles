@@ -17,7 +17,7 @@
     For specifying a configuration file:
     Variable name: XDG_CONFIG_HOME
     Variable value: <path of the folder that has wezterm/wezterm.lua>
-    for tars the value is: \\wsl.localhost\Ubuntu\home\shiva\dotfiles\windows\
+    for tars the value is: \\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\
 
     - the documentation says we can set either WEZTERM_CONFIG_FILE or 
       XDG_CONFIG_HOME, i chose later cuz we use relative paths for importing
