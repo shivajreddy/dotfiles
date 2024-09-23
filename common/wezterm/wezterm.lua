@@ -89,8 +89,8 @@ c.font = wezterm.font_with_fallback({
 c.front_end = "WebGpu"
 -- c.harfbuzz_features = { "calt=1", "ss01=1" }
 
-c.window_background_opacity = 0.80
-c.macos_window_background_blur = 70
+c.window_background_opacity = 0.60
+-- c.macos_window_background_blur = 70
 
 require("wezterm").on("format-window-title", function()
 	return ""
