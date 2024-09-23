@@ -1,3 +1,23 @@
+<#
+
+1 - First create a profile for the windows user if not already using the following
+command
+(https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
+
+if (!(Test-Path -Path $PROFILE)) {
+  New-Item -ItemType File -Path $PROFILE -Force
+}
+
+2 - open the profile that you created, use the 
+echo $Profile
+to see where your user profile file lives at
+
+3 - Now manually copy the contents of dotfiles/windows/powershell/shiva_profile.ps1
+and paste into the windows user's profile file
+
+4 - reopen powershell
+
+#>
 
 # ### Set where the profile file for pwsh exists
 $PROFILE = "C:\Program Files (x86)\PowerShell\7\Profile.ps1"
