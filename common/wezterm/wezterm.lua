@@ -45,9 +45,11 @@ local utils = require("config.utils")
 -- Set keymappings based on os
 if utils.is_darwin() then
 	mac_keys.apply(c)
+	c.font_size = 18
 end
 if utils.is_windows() then
 	win_keys.apply(c)
+	c.font_size = 12
 end
 
 -- Set the wsl as the domain when using windows
@@ -82,7 +84,6 @@ c.font = wezterm.font_with_fallback({
 	"Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
-c.font_size = 15
 -- c.harfbuzz_features = { "calt=1", "ss01=1" }
 
 c.window_background_opacity = 0.80
@@ -117,7 +118,7 @@ c.window_frame = {
 	button_hover_fg = "#ffffff",
 	button_hover_bg = "#3b3052",
 }
-c.window_frame = { font = wezterm.font("IBM Plex Sans"), font_size = 10 }
+-- c.window_frame = { font = wezterm.font("IBM Plex Sans"), font_size = 10 }
 
 c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false
