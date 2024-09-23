@@ -82,6 +82,7 @@ map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
 map("t", { "SHIFT|ALT" }, act.SpawnTab("CurrentPaneDomain"))
+
 -- map("w", { "SHIFT|ALT" }, act.CloseCurrentTab({ confirm = true }))
 map("n", { "SHIFT|ALT" }, act.SpawnWindow)
 -- zoom states

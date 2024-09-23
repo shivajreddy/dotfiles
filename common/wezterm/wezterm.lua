@@ -50,6 +50,22 @@ if utils.is_windows() then
 	win_keys.apply(c)
 end
 
+-- Set the wsl as the domain when using windows
+-- This table will hold the configuration.
+-- https://wezfurlong.org/wezterm/config/lua/WslDomain.html
+c.wsl_domains = {
+	{
+		name = "WSL:Ubuntu",
+		distribution = "Ubuntu",
+		default_cwd = "~",
+	},
+}
+c.default_domain = "WSL:Ubuntu"
+-- Set default_prog only if the OS is Windows
+-- if utils.is_windows() then
+-- 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+-- end
+
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
 -- Use the absolute path to require the module
@@ -78,12 +94,6 @@ end)
 -- require("wezterm").on("format-tab-title", function()
 -- 	return ""
 -- end)
-
--- Set default_prog only if the OS is Windows
-if utils.is_windows() then
-	c.default_prog = { "wsl", "--cd", "/home/shiva" }
-	c.font_size = 12
-end
 
 c.hide_tab_bar_if_only_one_tab = false
 c.tab_bar_at_bottom = true
