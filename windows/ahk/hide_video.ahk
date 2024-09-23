@@ -1,3 +1,4 @@
+#NoTrayIcon
 
 ; Arc browser settings
 /*
