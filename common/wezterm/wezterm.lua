@@ -52,6 +52,7 @@ if utils.is_windows() then
 	c.font_size = 12
 end
 
+--[[
 -- Set the wsl as the domain when using windows
 -- This table will hold the configuration.
 -- https://wezfurlong.org/wezterm/config/lua/WslDomain.html
@@ -63,10 +64,12 @@ c.wsl_domains = {
 	},
 }
 c.default_domain = "WSL:Ubuntu"
+--]]
+
 -- Set default_prog only if the OS is Windows
--- if utils.is_windows() then
--- 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
--- end
+if utils.is_windows() then
+	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+end
 
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
