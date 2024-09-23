@@ -1,46 +1,34 @@
-# This will remove the background color for directories in 'ls'
-$PSStyle.FileInfo.Directory = ""
 
-Set-Alias -Name vi -Value nvim
-Set-Alias -Name files -Value "explorer.exe"
+# ### Set where the profile file for pwsh exists
+$PROFILE = "C:\Program Files (x86)\PowerShell\7\Profile.ps1"
 
 
-try {
-    Remove-Item Alias:clear -ErrorAction Stop
-} catch {
-    Write-Host "Could not remove the existing alias 'clear'. It might have the AllScope option."
-}
-Set-Alias -Name clear -Value cls
+# ####	ZOXIDE    ####
+Set-Alias z zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 
-# # Remove existing alias or function for ls
-if (Test-Path Function:\ls) {
-    Remove-Item Function:\ls
-}
-
-# Define custom ls function
-function l {
-    eza --icons -l -T -L=1
-}
-function ls {
-    eza --icons -l -T -L=1
-}
-
-# Define custom l function
-function ll {
-    eza --icons -al -T -L=1
-}
-
-
+# ####	STARSHIP    ####
+# Location of starship configuration
+$ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\starship\starship.toml"
 Invoke-Expression (&starship init powershell)
 
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
+
+# ####	ALIASES   ####
+Set-Alias -Name vi -Value nvim
+Set-Alias nf neofetch
+
+Function ListEza {eza --icons -T -L=1}
+New-Alias -Force -Name ls -Value ListEza
+
+Function ListPermissionsEza {eza --icons -l -T -L=1}
+New-Alias -Force -Name ll -Value ListPermissionsEza
+
+Set-Alias l ll
+
+# ####	MISC.    ####
+# when using dir, hide the ugly text background color
+$PSStyle.FileInfo.Directory = ""
+
+
 
