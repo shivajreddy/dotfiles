@@ -33,7 +33,6 @@ Invoke-Expression (&starship init powershell)
 
 # ####	ALIASES   ####
 Set-Alias -Name vi -Value nvim
-Set-Alias nf neofetch
 
 Function ListEza {eza --icons -T -L=1}
 New-Alias -Force -Name ls -Value ListEza
