@@ -2,6 +2,9 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- Resurrect plugin
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+
 local utils = require("config.utils")
 
 local shortcuts = {}
@@ -47,15 +50,12 @@ local renameTab = act.PromptInputLine({
 
 --[[
 -- NOTE
-
 - Leader key is any thing that we set, see below to see what it is set to
 map("t", { "SHIFT|CTRL", "ALT" }, act.SpawnTab("CurrentPaneDomain"))
 
 this means that you can exucute this command in two ways:
 1- shift+ctrl+t
 2- alt+t
-
-
 ]]
 
 -- use 'Backslash' to split horizontally
@@ -121,6 +121,54 @@ map(
 		name = "resize_mode",
 		one_shot = false,
 	})
+)
+
+-- Resurrect keymapbindings
+map(
+	"w",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+	end)
+)
+
+map("W", "ALT", resurrect.window_state.save_window_action())
+
+map(
+	"s",
+	"SHIFT|ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+		resurrect.window_state.save_window_action()
+	end)
+)
+
+map(
+	"l",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.fuzzy_load(win, pane, function(id, label)
+			local type = string.match(id, "^([^/]+)") -- match before '/'
+			id = string.match(id, "([^/]+)$") -- match after '/'
+			id = string.match(id, "(.+)%..+$") -- remove file extension
+			local state
+			if type == "workspace" then
+				state = resurrect.load_state(id, "workspace")
+				resurrect.workspace_state.restore_workspace(state, {
+					relative = true,
+					restore_text = true,
+					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+				})
+			elseif type == "window" then
+				state = resurrect.load_state(id, "window")
+				resurrect.window_state.restore_window(pane:window(), state, {
+					relative = true,
+					restore_text = true,
+					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+				})
+			end
+		end)
+	end)
 )
 
 local key_tables = {

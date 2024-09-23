@@ -30,6 +30,7 @@
 --]]
 
 local wezterm = require("wezterm")
+
 local c = wezterm.config_builder()
 
 local utils = require("config.utils")
