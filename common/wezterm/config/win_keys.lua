@@ -82,7 +82,7 @@ map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
 map("t", { "SHIFT|ALT" }, act.SpawnTab("CurrentPaneDomain"))
-map("w", { "SHIFT|ALT" }, act.CloseCurrentTab({ confirm = true }))
+-- map("w", { "SHIFT|ALT" }, act.CloseCurrentTab({ confirm = true }))
 map("n", { "SHIFT|ALT" }, act.SpawnWindow)
 -- zoom states
 map("z", { "LEADER", "ALT" }, act.TogglePaneZoomState)
@@ -199,6 +199,10 @@ end
 
 local M = {}
 M.apply = function(c)
+	if not c then
+		error("Configuration 'c' is nil. Please pass a valid config.")
+	end
+
 	if utils.is_windows() then
 		c.leader = {
 			key = "s",
