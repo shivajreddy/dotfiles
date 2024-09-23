@@ -80,4 +80,15 @@ function M.apply(c)
 	}
 end
 
+wezterm.on("update-right-status", function(window, _)
+	-- Get the current time in hh:mm AM/PM format and the date in mm-dd-yyyy format
+	local time = wezterm.strftime("%I:%M %p") -- 12-hour format with AM/PM
+	local date = wezterm.strftime("%m-%d-%Y") -- Date in mm-dd-yyyy format
+
+	-- Set the right status with the formatted time and date
+	window:set_right_status(wezterm.format({
+		{ Text = time .. "  " .. date },
+	}))
+end)
+
 return M

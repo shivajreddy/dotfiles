@@ -37,6 +37,7 @@ local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
 local theme_settings = require("config.theme")
 
+-- set the theme settings from config/theme.lua
 theme_settings.apply(c)
 
 local utils = require("config.utils")
@@ -44,11 +45,9 @@ local utils = require("config.utils")
 -- Set keymappings based on os
 if utils.is_darwin() then
 	mac_keys.apply(c)
-	-- require("config.mac_keys").apply(c)
 end
 if utils.is_windows() then
 	win_keys.apply(c)
-	-- require("config.win_keys").apply(c)
 end
 
 -- Get the directory of the wezterm.lua file
