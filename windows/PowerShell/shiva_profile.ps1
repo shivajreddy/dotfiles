@@ -19,9 +19,6 @@ and paste into the windows user's profile file
 
 #>
 
-# ### Set where the profile file for pwsh exists
-$PROFILE = "C:\Program Files (x86)\PowerShell\7\Profile.ps1"
-
 
 # ####	ZOXIDE    ####
 Set-Alias z zoxide
@@ -30,7 +27,7 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # ####	STARSHIP    ####
 # Location of starship configuration
-$ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\starship\starship.toml"
+$ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\starship\starship-windows.toml"
 Invoke-Expression (&starship init powershell)
 
 
