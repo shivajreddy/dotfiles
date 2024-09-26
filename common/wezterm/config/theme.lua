@@ -4,7 +4,9 @@ local M = {}
 
 function M.apply(c)
 	c.colors = {
-		background = "#09080C",
+		-- background = "#09080C",
+		-- background = "#191724",
+		background = "#111019",
 		cursor_fg = "#191724",
 		cursor_bg = "#ebbcba",
 
