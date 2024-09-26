@@ -15,6 +15,8 @@ export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 # this seems to be not working
 export PATH="$HOME/.config/zsh/scripts:$PATH"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
