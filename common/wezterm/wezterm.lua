@@ -91,7 +91,7 @@ c.font = wezterm.font_with_fallback({
 c.front_end = "OpenGL"
 -- c.front_end = "WebGpu"
 
-c.window_background_opacity = 0.85
+-- c.window_background_opacity = 0.85
 c.macos_window_background_blur = 80
 
 require("wezterm").on("format-window-title", function()
