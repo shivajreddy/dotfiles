@@ -6,23 +6,12 @@
     https://wezfurlong.org/wezterm/config/files.html#quick-start
 
     -- Windows
-    Open the Start menu, search for "Environment Variables," and select
-    Edit the system environment variables.
 
-    In the System Properties window, click the Environment Variables button.
+    This is how you create a symlink
+    mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
 
-    Under User variables (or System variables, depending on your preference),
-    click New and create one of the following variables:
-
-    For specifying a configuration file:
-    Variable name: XDG_CONFIG_HOME
-    Variable value: <path of the folder that has wezterm/wezterm.lua>
-    for tars the value is: \\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\
-
-    - the documentation says we can set either WEZTERM_CONFIG_FILE or 
-      XDG_CONFIG_HOME, i chose later cuz we use relative paths for importing
-      keys and utils lua files, and if we used WEZTERM_CONFIG_FILE wezterm will
-      check for keys.lua file in windows folder but not relatively
+    so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
+    because thats where wezterm will look for config
 
     -- Mac & Linux
     set env variables as usual
@@ -52,7 +41,7 @@ if utils.is_windows() then
 	c.font_size = 12
 end
 
--- Set the wsl as the domain when using windows
+--[[ Set the wsl as the domain when using windows
 -- This table will hold the configuration.
 -- https://wezfurlong.org/wezterm/config/lua/WslDomain.html
 c.wsl_domains = {
@@ -63,14 +52,13 @@ c.wsl_domains = {
 	},
 }
 c.default_domain = "WSL:Ubuntu"
---[[
 --]]
 
 --[[ Set default_prog only if the OS is Windows
+--]]
 if utils.is_windows() then
 	c.default_prog = { "wsl", "--cd", "/home/shiva" }
 end
---]]
 
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir
