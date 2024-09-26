@@ -8,16 +8,12 @@
 # Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
-export STARSHIP_CONFIG="$HOME/dotfiles/common/starship/starship.toml"
-
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 # export BROWSER='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe'
-
 
 # Paths of my shell scripts
 # this seems to be not working
 export PATH="$HOME/.config/zsh/scripts:$PATH"
-
 
 # for getting colors properly on tmux
 export TERM=tmux-256color
@@ -42,7 +38,7 @@ eval "$(starship init zsh)"
 # alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
-alias l="ls -1"
+alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
 alias gaa="git add ."
@@ -54,9 +50,6 @@ alias gpush="git push"
 alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
-
-# For wsl stuff
-alias pwsh="pwsh.exe -nologo"
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
@@ -79,6 +72,4 @@ source ~/.config/zsh/scripts/todo.sh
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-
 
