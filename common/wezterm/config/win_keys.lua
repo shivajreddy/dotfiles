@@ -2,9 +2,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
--- Resurrect plugin
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-
 local utils = require("config.utils")
 
 local shortcuts = {}
@@ -124,6 +121,10 @@ map(
 	})
 )
 
+--[[ Resurrect plugin
+
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+
 -- Resurrect keymapbindings
 map(
 	"w",
@@ -172,6 +173,8 @@ map(
 	end)
 )
 
+--]]
+
 local key_tables = {
 	resize_mode = {
 		{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
@@ -206,7 +209,7 @@ M.apply = function(c)
 
 	if utils.is_windows() then
 		c.leader = {
-			key = "s",
+			key = "t",
 			mods = "ALT",
 			timeout_milliseconds = math.maxinteger,
 		}
