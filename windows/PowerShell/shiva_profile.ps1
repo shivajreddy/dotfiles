@@ -19,18 +19,25 @@ and paste into the windows user's profile file
 
 #>
 
+Set-Location ~
+
 
 # ####	ZOXIDE    ####
 Set-Alias z zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
 
 # ####	STARSHIP    ####
 # Location of starship configuration
 $ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\starship\starship-windows.toml"
 Invoke-Expression (&starship init powershell)
 
+
 # ####	ALIASES   ####
 Set-Alias -Name vi -Value nvim
+
+Set-Alias -Name python -Value py
+Set-Alias -Name python3 -Value py
 
 Function ListEza {eza --icons -T -L=1}
 New-Alias -Force -Name ls -Value ListEza
@@ -43,4 +50,8 @@ Set-Alias l ll
 # ####	MISC.    ####
 # when using dir, hide the ugly text background color
 $PSStyle.FileInfo.Directory = ""
+
+
+
+
 
