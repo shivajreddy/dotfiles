@@ -16,3 +16,13 @@ vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = false
 
 vim.opt.clipboard:append("unnamedplus")
+
+-- vim.o.list = true -- Enable displaying of hidden characters
+-- vim.o.listchars = "tab:»·,trail:·,extends:>,precedes:<,eol:↴"
+
+vim.opt.list = true -- Enable displaying of hidden characters
+vim.opt.listchars = {
+  tab = "> ",
+  trail = "-",
+  nbsp = "+",
+}

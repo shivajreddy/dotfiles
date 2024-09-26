@@ -12,6 +12,9 @@ return {
         hide_by_name = {
           "Cargo.lock", -- Add Cargo.lock to the list of hidden files
           "target",
+          "venv",
+          "_requirements.txt",
+          "_watch.py",
         },
       },
     },
