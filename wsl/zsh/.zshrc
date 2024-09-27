@@ -8,7 +8,7 @@
 # Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
-export STARSHIP_CONFIG="$HOME/dotfiles/common/starship/starship.toml"
+# export STARSHIP_CONFIG="$HOME/dotfiles/common/starship/starship.toml"
 
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 # export BROWSER='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe'
