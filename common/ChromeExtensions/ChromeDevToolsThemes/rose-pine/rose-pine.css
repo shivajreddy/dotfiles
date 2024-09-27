@@ -1,0 +1,52 @@
+:root {
+  --text-disabled: #908caa !important;
+  --color-text-secondary: #908caa !important;
+
+  --sys-color-base: #191724 !important;
+  --sys-color-base-container: #1f1d2e !important;
+  --sys-color-cdt-base-container: #1f1d2e !important;
+  --sys-color-neutral-container: #191724 !important;
+  --sys-color-divider: #26233a !important;
+
+  --sys-color-tonal-container: color-mix(in oklab, #1f1d2e, #31748f 30%) !important;
+  --sys-color-surface: #1f1d2e !important;
+  --sys-color-surface1: #26233a !important;
+  --sys-color-surface2: #403d52 !important;
+  --sys-color-surface3: #524f67 !important;
+
+  --sys-color-on-surface: #e0def4 !important;
+  --sys-color-on-tonal-container: #e0def4 !important;
+  --sys-color-on-surface-subtle: #908caa !important;
+  --sys-color-token-subtle: #908caa !important;
+
+  --sys-color-primary: color-mix(in oklab, #e0def4, #eb6f92 30%) !important;
+  --sys-color-primary-bright: #eb6f92 !important;
+
+  --sys-color-token-tag: color-mix(in oklab, #9ccfd8, blue 20%) !important;
+  --sys-color-token-attribute: color-mix(in oklab, #c4a7e7, lightblue 20%) !important;
+  --sys-color-token-attribute-value: color-mix(in oklab, #ebbcba, red 20%) !important;
+  --sys-color-on-error-container: #e0def4 !important;
+  --sys-color-surface-error: color-mix(in oklab, #1f1d2e, #eb6f92 15%) !important;
+  --sys-color-error-bright: #eb6f92 !important;
+
+  --sys-color-surface-yellow: color-mix(in oklab, #1f1d2e, #f6c177 10%) !important;
+  --sys-color-error-bright: #eb6f92 !important;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  background-color: color-mix(in oklab, #1f1d2e, #ebbcba 10%);
+  accent-color: #e0def4;
+  border: solid 1px #908caa;
+  position: relative;
+
+  &:checked {
+    background-color: color-mix(in oklab, #eb6f92, #e0def4 10%);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="radio"] {
+  border-radius: 100%;
+}

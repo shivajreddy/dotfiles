@@ -1,0 +1,47 @@
+! Author: Shiva
+! Paste these filters on ublock-chorme-plugin/My Filters
+! Date: 2024-10-15
+
+! 2024-02-19 https://outlook.live.com
+outlook.live.com##.LBktY > .GssDD > .z0duZ
+outlook.live.com##.LBktY > .GssDD
+outlook.live.com##.syTot
+! 2022-06-09 https://outlook.live.com
+outlook.live.com##.AK_my > .pBKjV > .PQ3t8
+outlook.live.com##.AK_my > .pBKjV
+outlook.live.com##.tTgHI
+! 2022-06-10 https://outlook.live.com
+outlook.live.com##.DSIyc.PQ3t8 > .rcJn4
+outlook.live.com##.DSIyc.PQ3t8
+outlook.live.com##.cKMOD.pBKjV
+! 2022-10-12 https://outlook.live.com
+outlook.live.com##.LBktY > .GssDD > .z0duZ
+outlook.live.com##.LBktY > .GssDD
+outlook.live.com##.Soq5F
+! 2022-12-19 https://outlook.live.com
+outlook.live.com##.YCnM1.z0duZ > .sW3_9
+outlook.live.com##.YCnM1.z0duZ
+outlook.live.com##.Gd_12.GssDD
+! Sep 9, 2024 https://outlook.live.com
+outlook.live.com##.OooOp > .GssDD > .z0duZ
+outlook.live.com##.OooOp > .GssDD
+! Sep 9, 2024 https://outlook.live.com
+outlook.live.com##.OooOp > .GssDD > .z0duZ
+outlook.live.com##.OooOp > .GssDD
+
+
+! 2024-02-24 https://leetcode.com
+leetcode.com##.font-typo.lg\:inline-block.hover\:bg-\[\#ffa11633\].transition-colors.leading-8.text-center.bg-\[\#ffa1161f\].rounded-\[8px\].cursor-pointer.w-\[84px\].h-8.display-none
+
+
+! Sep 15, 2024 https://braintool.org
+||braintool.org/versions/1.0.2/extension/images/BrainTool48.png$image
+||braintool.org/versions/1.0.2/app/resources/backgroundLogo.svg$image
+braintool.org###messageContainer
+braintool.org###settingsSubscription
+
+
+! 2024-04-30 https://www.revitapidocs.com
+||raw.githubusercontent.com/ErikFrits/ef-ads/main/Docs/Docs%20Ad%20(Small).png$image
+
+

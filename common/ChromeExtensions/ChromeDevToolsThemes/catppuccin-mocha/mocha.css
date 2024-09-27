@@ -1,0 +1,215 @@
+:root {
+  --text-disabled: #a6adc8 !important;
+  --color-text-secondary: #a6adc8 !important;
+
+  --sys-color-base: #1e1e2e !important;
+  --sys-color-base-container: #181825 !important;
+  --sys-color-cdt-base-container: #181825 !important;
+  --sys-color-neutral-container: #313244 !important;
+  --sys-color-tonal-container: #3e4b6b !important;
+  --sys-color-surface: #313244 !important;
+  --sys-color-surface1: #45475a !important;
+  --sys-color-surface2: #45475a !important;
+  --sys-color-surface3: #585b70 !important;
+  --sys-color-surface-variant: #45475a !important;
+  --sys-color-surface-error: #34293a !important;
+
+  --sys-color-divider: #6c7086 !important;
+  --sys-color-neutral-outline: #6c7086 !important;
+  --sys-color-neutral-bright: #a6adc8 !important;
+  --sys-color-tonal-outline: #89b4fa !important;
+
+  --sys-color-on-surface: #cdd6f4 !important;
+  --sys-color-on-tonal-container: #cdd6f4 !important;
+  --sys-color-on-surface-subtle: #a6adc8 !important;
+  --sys-color-token-subtle: #a6adc8 !important;
+
+  --sys-color-primary: #89b4fa !important;
+  --sys-color-primary-bright: #89b4fa !important;
+  --sys-color-on-primary: #1e1e2e !important;
+
+  --sys-color-tertiary: #a6e3a1 !important;
+
+  --sys-color-token-tag: #89b4fa !important;
+  --sys-color-token-attribute: #74c7ec !important;
+  --sys-color-token-attribute-value: #fab387 !important;
+  --sys-color-token-property-special: #89dceb !important;
+  --sys-color-token-variable: #cdd6f4 !important;
+  --sys-color-token-property: #b4befe !important;
+  --sys-color-token-string: #a6e3a1 !important;
+  --sys-color-token-string-special: #a6e3a1 !important;
+  --sys-color-token-number: #fab387 !important;
+  --sys-color-token-keyword: #cba6f7 !important;
+  --sys-color-token-meta: #7f849c !important;
+  --sys-color-token-comment: #9399b2 !important;
+  --sys-color-token-declaration: #cdd6f4 !important;
+
+  --sys-color-property-special: #89dceb !important;
+
+  --sys-color-state-disabled: #6c7086 !important;
+  --sys-color-state-focus-ring: #89b4fa !important;
+  --sys-color-state-hover-on-subtle: #89b4fa33 !important;
+  --sys-color-state-ripple-neutral-on-subtle: #89b4fa4d !important;
+  --sys-color-state-hover-on-prominent: #89b4fa33 !important;
+  --sys-color-state-ripple-neutral-on-prominent: #89b4fa4d !important;
+
+  --sys-color-on-error-container: #cdd6f4 !important;
+  --sys-color-error-bright: #f38ba8 !important;
+
+  --sys-color-surface-yellow: #4a4548 !important;
+  --sys-color-surface-yellow-high: #605955 !important;
+  --sys-color-on-surface-yellow: #cdd6f4 !important;
+
+  --sys-color-orange: #fab387 !important;
+  --sys-color-orange-bright: #fab387 !important;
+  --sys-color-green: #a6e3a1 !important;
+  --sys-color-green-bright: #a6e3a1 !important;
+  --sys-color-purple: #cba6f7 !important;
+  --sys-color-purple-bright: #cba6f7 !important;
+
+  --lighthouse-red: #f38ba8 !important;
+  --lighthouse-yellow: #f9e2af !important;
+  --lighthouse-green: #a6e3a1 !important;
+
+  --issue-color-red: #f38ba8 !important;
+  --issue-color-yellow: #f9e2af !important;
+  --issue-color-blue: #89b4fa !important;
+
+  --drop-shadow: 0 0 0 0 #fff !important;
+  --drop-shadow-depth-1: 0 0 0 0 #fff !important;
+  --drop-shadow-depth-2: 0 0 0 0 #fff !important;
+  --drop-shadow-depth-3: 0 0 0 0 #fff !important;
+  --drop-shadow-depth-4: 0 0 0 0 #fff !important;
+  --drop-shadow-depth-5: 0 0 0 0 #fff !important;
+
+  --color-background-elevation-dark-only: #313244 !important;
+  --app-color-navigation-drawer-background-selected: #89b4fa !important;
+
+  .lh-root {
+    --report-background-color: #1e1e2e;
+    --report-text-color: #cdd6f4;
+    --report-text-color-secondary: #a6adc8;
+
+    --link-color: #89b4fa;
+    --snippet-color: #89dceb;
+
+    --color-fail: #f38ba8;
+    --color-fail-secondary: #f38ba8;
+    --color-average: #f9e2af;
+    --color-average-secondary: #f9e2af;
+    --color-pass: #a6e3a1;
+    --color-pass-secondary: #a6e3a1;
+    --color-gray-700: #a6adc8;
+    --color-gray-600: #9399b2;
+    --color-gray-500: #6c7086;
+    --color-gray-200: #313244;
+    --color-blue-primary: #89b4fa;
+    --color-white: #1e1e2e;
+
+    --topbar-background-color: #181825;
+
+    --toplevel-warning-background-color: #605955;
+    --toplevel-warning-message-text-color: #cdd6f4;
+    --toplevel-warning-text-color: #cdd6f4;
+
+    --env-item-background-color: #313244;
+
+    --table-group-header-background-color: #313244;
+
+    --pwa-installable-gray-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="nonzero"><circle fill="%23313244" cx="12" cy="12" r="12"/><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm3.5 7.7h-2.8v2.8h-1.4v-2.8H8.5v-1.4h2.8V8.5h1.4v2.8h2.8v1.4z" fill="%23cdd6f4"/></g></svg>');
+    --pwa-optimized-gray-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="nonzero"><circle fill="%23313244" cx="12" cy="12" r="12"/><path d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm3.5 7.7h-2.8v2.8h-1.4v-2.8H8.5v-1.4h2.8V8.5h1.4v2.8h2.8v1.4z" fill="%23cdd6f4"/></g></svg>');
+
+    .lighthouse-help-text {
+      color: #f38ba8 !important;
+    }
+
+    .lh-tools__dropdown {
+      box-shadow: 1px 1px 3px #6c7086;
+    }
+
+    .lh-tooltip {
+      background-color: #313244;
+      color: #cdd6f4;
+      &::before {
+        border-bottom-color: #313244;
+      }
+    }
+
+    .lh-report-icon::before {
+      filter: invert(78%) sepia(32%) saturate(181%) hue-rotate(190deg) brightness(105%) contrast(91%);
+    }
+
+    .lh-gauge--pwa__wrapper:not(.lh-badged--all) .lh-gauge--pwa__logo > path {
+      fill: #cdd6f4;
+    }
+
+    .lh-gauge--pwa__wrapper:not([class*='lh-badged--']) .lh-gauge--pwa__na-line {
+      fill: #cdd6f4 !important;
+    }
+
+    summary:focus {
+      box-shadow: 0 0 0 1px #89b4fa;
+    }
+  }
+}
+
+.metrics {
+  --override-box-model-text-color: #1e1e2e !important;
+  --override-box-model-separator-color: #1e1e2e !important;
+  [jslog*="MetricsBox"].highlighted {
+    &.margin {
+      background-color: #fab387 !important;
+    }
+    &.border {
+      background-color: #f9e2af !important;
+    }
+    &.padding {
+      background-color: #a6e3a1 !important;
+    }
+    &.content {
+      background-color: #89b4fa !important;
+    }
+  }
+}
+
+.event-listener-button {
+  background-color: #313244 !important;
+}
+
+.lighthouse-progress-bar.errored {
+  background: #f38ba8 !important;
+}
+
+devtools-record-menu-title {
+  --override-color-accent-red: #f38ba8 !important;
+}
+
+:host-context(.-theme-with-dark-background) .arrow {
+  filter: invert(7%) sepia(7%) saturate(3407%) hue-rotate(201deg) brightness(101%) contrast(94%);
+}
+
+input[type="checkbox"], input[type="radio"] {
+  appearance: none;
+  background-color: #313244;
+  border: solid 1px #6c7086;
+  border-radius: 2px;
+  width: 12px;
+  height: 12px;
+  position: relative;
+
+  &:checked {
+    background-color: #89b4fa;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="radio"] {
+  border-radius: 100%;
+}
+
+.filtered-list-widget-item-wrapper .tag {
+  background-color: #89b4fa !important;
+  color: #1e1e2e !important;
+}

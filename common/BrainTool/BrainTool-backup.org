@@ -1,0 +1,241 @@
+#+PROPERTY: BTVersion 106
+* 📌 PINS
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+** [[https://chatgpt.com/][ChatGPT]]
+
+** [[https://claude.ai/new][Claude]]
+
+** [[https://mail.google.com/mail/u/0/#inbox][Gmail]]
+
+** [[https://outlook.live.com/mail/0/][Mail-ShivJay]]
+
+** [[https://outlook.office.com/mail/][Mail-Shiva-Eagle]]
+
+** [[https://outlook.office.com/calendar/view/week][Calendar-Shiva-Eagle]]
+
+* 🏡 Home
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+** [[https://ww4.fmovies.co/film/the-office-season-7-7715/][FMovies]]
+
+** [[http://192.168.5.19/#/][CASAOS]]
+
+** [[http://192.168.5.19:8123/dashboard-dashboard/mine][CASA]]
+
+** [[chrome://downloads/][Downloads]]
+
+** [[https://www.youtube.com/][YouTube]]
+
+* 🚀 LeetCode
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+** Amazon
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://aonecode.com/amazon-online-assessment-questions#][Amazon Online Assessment Questions 2024]]
+
+*** [[https://github.com/perixtar/2024-Tech-OA/blob/master/README.md][2024-Tech-OA/README.md at master · perixtar/2024-Tech-OA]]
+
+*** [[https://docs.google.com/document/d/1wckaFP8ygKGlWJDJ26D8QgiROjLcRVOL429hHMPuLgQ/edit#heading=h.obj5gcqmmt8r][Shiva Notes - Google Docs]]
+
+*** [[https://docs.google.com/spreadsheets/d/17SBjcYf6PBpYXqpHFQ3pbva0e8zIu8rsEXrR7yJVJOQ/edit?gid=0#gid=0][Amazon LC Tracking - Google Sheets]]
+
+*** [[https://drive.google.com/drive/u/0/folders/1G1rlNDeF4RgYI8bO_3Ze5GRMza2oqyDB][Interview Prep - Google Drive]]
+
+** System Design
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://docs.google.com/document/d/14O8NDia0u-C5kbV5qofnbRDADC7e5z-KuX_dbbZmfKI/edit][System Design - Google Docs]]
+
+*** [[https://interviewing.io/guides/system-design-interview/part-four#what-s-next-for-the-team-that-made-this-guide][System Design Examples: 4 Problems & Solutions]]
+
+*** [[https://github.com/donnemartin/system-design-primer][donnemartin/system-design-primer: Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.]]
+
+*** [[https://medium.com/javarevisited/how-to-crack-system-design-interviews-in-2022-tips-questions-and-resources-fcad05e2dab][How to Crack System Design Interviews in 2024? Preparation Tips, Questions and Resources | by javinpaul | Javarevisited | Medium]]
+
+*** [[https://coachable.almanac.io/folders/student-handbook-t8oSpg/system-design-study-guide-vET3bvfpTCmJzWPlYw8V77ZJqMdSbyPP][System Design Study Guide]]
+
+*** [[https://www.youtube.com/watch?v=Zi0pPkiFemE&t=5s][Two Ex-Google System Design Experts Compete: Who will design the better system? [Part 1] - YouTube]]
+
+*** [[https://bytebytego.com/courses/system-design-interview/scale-from-zero-to-millions-of-users][ByteByteGo | Technical Interview Prep]]
+
+** Jobs
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://simplify.jobs/dashboard][simplify.jobs/dashboard]]
+
+*** [[https://www.trueup.io/myjobs][Jobs for You - TrueUp]]
+
+*** [[https://app.otta.com/][Otta - The better way to find a job in tech]]
+
+*** [[https://www.linkedin.com/in/kshivareddy/][Shiva Reddy | LinkedIn]]
+
+*** [[https://docs.google.com/document/d/1zvy_k0yEpMqD8X3RhCgQrkRG4-03U3obkfLIFAHXMR4/edit?pli=1][New_Resume - Google Docs]]
+
+*** [[https://docs.google.com/document/d/1RdVYjVhu2EX658ArSfbsZ7OybBfAKIN8TeLlXwoIgzw/edit][Job Hunting Notes - Google Docs]]
+
+** Coachable
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://app.slack.com/client/TH0NSDBC3/C04NGDRCRGF?selected_team_id=TH0NSDBC3][adelson-int-bt-shiva-reddy (Channel) - Coachable - Slack]]
+
+*** [[https://learn.coachable.dev/student/my-assignments][Coachable]]
+
+*** [[https://www.loom.com/looms/videos][Library | Loom]]
+
+*** [[https://coachable.almanac.io/docs/coding-interviews-overview-FXeMP6AvFtsTMMu8zfibSEgtpH2C2E8h][Coding Interviews Overview]]
+
+** Resources
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[file:///users/smbp/desktop/books/Elements%20of%20Programming%20Interviews.pdf][file:///users/smbp/desktop/books/Elements%20of%20Programming%20Interviews.pdf]]
+
+*** [[https://projecteuler.net/about][About - Project Euler]]
+
+*** [[https://www.youtube.com/watch?v=Tw1k46ywN6E&t=1s][10. Dynamic Programming: Advanced DP - YouTube]]
+
+*** [[https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/mit6_046js15_lec10/][Class on Design and Analysis of Algorithms, Lecture 10 Notes | Design and Analysis of Algorithms | Electrical Engineering and Computer Science | MIT OpenCourseWare]]
+
+*** [[https://ocw.mit.edu/search/?f=Lecture%20Videos&l=Graduate&t=Computer%20Science&type=course][Search | MIT OpenCourseWare | Free Online Course Materials]]
+
+*** [[https://cp-algorithms.com/][Main Page - Algorithms for Competitive Programming]]
+
+*** [[file:///C:/Users/sreddy/books/Elements%20of%20Programming%20Interviews.pdf][Elements of Programming Interviews.pdf]]
+
+** Misc
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://learn.cantrill.io/courses/enrolled/1101194][AWS Course - cantrill]]
+
+** IDE
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://replit.com/@shivajreddy/Python][Replit-Python]]
+
+*** [[https://www.online-python.com/][Python-IDE]]
+
+*** [[https://replit.com/@shivajreddy/Rust][Replit-Rust]]
+
+* 🌱 Learn
+
+** Rust
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[file://docs.rs/https://doc.rust-lang.org/stable/book/https://rust-book.cs.brown.edu/https://doc.rust-lang.org/rust-by-example/https://www.youtube.com/playlist?list=PLLqEtX6ql2EyPAZ1M2_C0GgVd4A-_L4_5https://www.youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOahttps://www.youtube.com/playlist?list=PLqbS7AVVErFgMPqz5irpWbBInR6hxDbYihttps://rust-unofficial.github.io/too-many-lists/https://www.youtube.com/playlist?list=PLBXgRZVxj8YnIgUXkdSWGomJxF0XgXgyQhttps://doc.rust-lang.org/std/index.htmlhttps://veykril.github.io/tlborm/https://www.youtube.com/playlist?list=PLqbS7AVVErFgwC_HByFYblghsDsD5wZDvhttps://ratatui.rs/introduction/https://github.com/gabdube/native-windows-guihttps://docs.rs/native-windows-gui/latest/native_windows_gui/index.htmlhttps://gabdube.github.io/native-windows-gui/native-windows-docs/index.html][file:///Users/smbp/Desktop/Jon%20Gjengset%20-%20Rust%20for%20Rustaceans_%20Idiomatic%20Programming%20for%20Experienced%20Developers-No%20Starch%20Press%20(2021).pdfhttps://marabos.nl/atomics/file:///Users/smbp/Desktop/books/Jim%20Blandy,%20Jason%20Orendorff,%20Leonora%20Tindall%20-%20Programming%20Rust_%20Fast,%20Safe%20Systems%20Development-O'Reilly%20Media%20(2021).pdffile:///C:/Users/sreddy/books/Jim%20Blandy,%20Jason%20Orendorff,%20Leonora%20Tindall%20-%20Programming%20Rust_%20Fast,%20Safe%20Systems%20Development-O'Reilly%20Media%20(2021).pdffile:///C:/Users/sreddy/books/Jon%20Gjengset%20-%20Rust%20for%20Rustaceans_%20Idiomatic%20Programming%20for%20Experienced%20Developers-No%20Starch%20Press%20(2021).pdfhttps://doc.rust-lang.org/std/all.htmlhttps://docs.rs/https://doc.rust-lang.org/stable/book/https://rust-book.cs.brown.edu/https://doc.rust-lang.org/rust-by-example/https://www.youtube.com/playlist?list=PLLqEtX6ql2EyPAZ1M2_C0GgVd4A-_L4_5https://www.youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOahttps://www.youtube.com/playlist?list=PLqbS7AVVErFgMPqz5irpWbBInR6hxDbYihttps://rust-unofficial.github.io/too-many-lists/https://www.youtube.com/playlist?list=PLBXgRZVxj8YnIgUXkdSWGomJxF0XgXgyQhttps://doc.rust-lang.org/std/index.htmlhttps://veykril.github.io/tlborm/https://www.youtube.com/playlist?list=PLqbS7AVVErFgwC_HByFYblghsDsD5wZDvhttps://ratatui.rs/introduction/https://github.com/gabdube/native-windows-guihttps://docs.rs/native-windows-gui/latest/native_windows_gui/index.htmlhttps://gabdube.github.io/native-windows-gui/native-windows-docs/index.html]]
+
+*** [[https://docs.rs/native-windows-gui/latest/native_windows_gui/index.html][native_windows_gui - Rust]]
+
+*** [[https://github.com/gabdube/native-windows-gui][gabdube/native-windows-gui: A light windows GUI toolkit for rust]]
+
+*** [[https://www.youtube.com/playlist?list=PLqbS7AVVErFgwC_HByFYblghsDsD5wZDv][Procedural Macros - YouTube]]
+
+*** [[https://veykril.github.io/tlborm/][Introduction - The Little Book of Rust Macros]]
+
+*** [[https://doc.rust-lang.org/std/index.html][std - Rust]]
+
+*** [[https://www.youtube.com/playlist?list=PLBXgRZVxj8YnIgUXkdSWGomJxF0XgXgyQ][Rust-SmartPointers - YouTube]]
+
+*** [[https://rust-unofficial.github.io/too-many-lists/][Introduction - Learning Rust With Entirely Too Many Linked Lists]]
+
+*** [[https://www.youtube.com/playlist?list=PLqbS7AVVErFgMPqz5irpWbBInR6hxDbYi][Advanced topics in Rust - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa][Crust of Rust - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8][The Rust Lang Book - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLLqEtX6ql2EyPAZ1M2_C0GgVd4A-_L4_5][Rust Tutorial - YouTube]]
+
+*** [[https://doc.rust-lang.org/rust-by-example/][Introduction - Rust By Example]]
+
+*** [[https://rust-book.cs.brown.edu/][Experiment Introduction - The Rust Programming Language]]
+
+*** [[https://doc.rust-lang.org/stable/book/][The Rust Programming Language - The Rust Programming Language]]
+
+*** [[https://docs.rs/][Docs.rs]]
+
+*** [[https://doc.rust-lang.org/std/all.html][List of all items in this crate]]
+
+*** [[file:///C:/Users/sreddy/books/Jon%20Gjengset%20-%20Rust%20for%20Rustaceans_%20Idiomatic%20Programming%20for%20Experienced%20Developers-No%20Starch%20Press%20(2021).pdf][Rust for Rustaceans]]
+
+*** [[file:///C:/Users/sreddy/books/Jim%20Blandy,%20Jason%20Orendorff,%20Leonora%20Tindall%20-%20Programming%20Rust_%20Fast,%20Safe%20Systems%20Development-O'Reilly%20Media%20(2021).pdf][Programming Rust]]
+
+*** [[file:///Users/smbp/Desktop/books/Jim%20Blandy,%20Jason%20Orendorff,%20Leonora%20Tindall%20-%20Programming%20Rust_%20Fast,%20Safe%20Systems%20Development-O'Reilly%20Media%20(2021).pdf][file:///Users/smbp/Desktop/books/Jim%20Blandy,%20Jason%20Orendorff,%20Leonora%20Tindall%20-%20Programming%20Rust_%20Fast,%20Safe%20Systems%20Development-O'Reilly%20Media%20(2021).pdf]]
+
+*** [[https://marabos.nl/atomics/][Rust Atomics and Locks by Mara Bos]]
+
+*** [[file:///Users/smbp/Desktop/Jon%20Gjengset%20-%20Rust%20for%20Rustaceans_%20Idiomatic%20Programming%20for%20Experienced%20Developers-No%20Starch%20Press%20(2021).pdf][file:///Users/smbp/Desktop/Jon%20Gjengset%20-%20Rust%20for%20Rustaceans_%20Idiomatic%20Programming%20for%20Experienced%20Developers-No%20Starch%20Press%20(2021).pdf]]
+
+*** [[https://ratatui.rs/][Ratatui | Ratatui]]
+
+*** [[https://github.com/rust-lang-ua/rustcamp][rust-lang-ua/rustcamp: Getting ready for prod]]
+
+*** [[https://google.github.io/comprehensive-rust/][Welcome to Comprehensive Rust 🦀 - Comprehensive Rust 🦀]]
+
+*** [[https://www.youtube.com/][YouTube]]
+
+** C Lang
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+*** [[https://www.learncpp.com/][Learn C++ – Skill up with our free tutorials]]
+
+*** [[https://www.youtube.com/watch?v=zuegQmMdy8M&t=358s][Pointers in C / C++ [Full Course] - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb][C++ - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLnuhp3Xd9PYTt6svyQPyRO_AAuMWGxPzU][Handmade Hero Complete - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLBXgRZVxj8YlUYOZPBvsLRmuy2NvkEFWN][C - YouTube]]
+
+*** [[https://medium.com/@jalal92][oceanO – Medium]]
+
+*** [[https://pythontutor.com/render.html#mode=edit][Python Tutor code visualizer: Visualize code in Python, JavaScript, C, C++, and Java]]
+
+*** [[https://github.com/shivajreddy/obsidianvault/blob/main/DEV/C/resources.md][obsidianvault/DEV/C/resources.md at main · shivajreddy/obsidianvault]]
+
+* 🦅 Eagle
+  :PROPERTIES:
+  :VISIBILITY: folded
+  :END:
+
+** [[https://outlook.office.com/mail/][Mail - Shiva Reddy - Outlook]]
+
+** [[https://appriver3651010804-my.sharepoint.com/my][My files - OneDrive]]
+
+** [[https://remotedesktop.google.com/access/?pli=1][Remote Access - Chrome Remote Desktop]]
+
+** [[https://www.youtube.com/][YouTube]]
+
+** [[https://www.revitapidocs.com/2024/][Revit API 2024]]
+
+** [[https://www.notion.so/shivareddy/919c340e48474fb3b69a3921180c11ad?v=c2176d8e63ef4cf6b24c6d1f7c64b695][EK24 : Task Management Board | Enter Data]]
+
+** [[https://sflix.to/watch-tv/free-the-office-hd-39383.4891921][Watch The Office Season 3 Episode 2: The Convention full HD on SFlix Free]]
+
+** [[https://ww4.fmovies.co/film/the-office-season-7-7715/][Watch The Office - Season 7 Full Movie on FMovies.to]]
+
+* 🗄️ Archive
