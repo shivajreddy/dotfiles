@@ -8,6 +8,8 @@
 # Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
+export STARSHIP_CONFIG="$HOME/dotfiles/common/starship/starship.toml"
+
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 # export BROWSER='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe'
 
@@ -52,6 +54,9 @@ alias gpush="git push"
 alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
+
+# For wsl stuff
+alias pwsh="pwsh.exe -nologo"
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
