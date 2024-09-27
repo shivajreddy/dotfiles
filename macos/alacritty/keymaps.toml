@@ -34,10 +34,10 @@ key = "E"
 mods = "Alt"
 chars = "\u001Be"
 
-[[keyboard.bindings]]
-key = "F"
-mods = "Alt"
-chars = "\u001Bf"
+# [[keyboard.bindings]]
+# key = "F"
+# mods = "Alt"
+# chars = "\u001Bf"
 
 [[keyboard.bindings]]
 key = "G"
@@ -104,10 +104,10 @@ key = "S"
 mods = "Alt"
 chars = "\u001Bs"
 
-[[keyboard.bindings]]
-key = "T"
-mods = "Alt"
-chars = "\u001Bt"
+# [[keyboard.bindings]]
+# key = "T"
+# mods = "Alt"
+# chars = "\u001Bt"
 
 [[keyboard.bindings]]
 key = "U"

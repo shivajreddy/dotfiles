@@ -47,9 +47,10 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 
+
 ########################### ALIASES ###########################
 # Common
-alias cd="z"
+# alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
@@ -75,6 +76,11 @@ alias zpy="zellij action new-tab -l python"
 # Shell scripts
 alias show="$HOME/.config/zsh/scripts/show.sh"
 alias todo="$HOME/.config/zsh/scripts/todo.sh"
+
+# Shell scripts
+source ~/.config/zsh/scripts/cargo.sh
+source ~/.config/zsh/scripts/show.sh
+source ~/.config/zsh/scripts/todo.sh
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"

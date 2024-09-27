@@ -1,0 +1,1013 @@
+zpy
+cd
+clear
+neofetch
+clear
+ls
+clear
+neofetch
+clear
+brew update
+brew upgrade
+ls
+clear
+cd dotfiles
+vi .
+cd
+cd .config zell
+vi .
+vi .
+cd
+todo
+todo
+cargo watch -c -x run
+cargo add rand
+cargo watch -c -x run
+vi .
+clear
+ls
+cd ..
+ls
+clear
+ls
+cd ..
+cd ..
+cd my rust
+ls
+clear
+gpull
+clear
+ls
+vi .
+ls
+gaa
+gst
+ls
+clear
+ls
+clear
+ls
+gaa
+gcmsg "."
+gpush
+gpull
+clear
+ls
+clear
+vi .
+cd books
+ls
+cd rust_for_rustaceans
+ls
+cd chapter_01
+zrust
+clear
+cargo watch -c -x run
+cd ground
+ls
+git pull
+clear
+ls
+cd python
+ls
+cd ground
+vi .
+zpy
+cd
+clear
+cd ..
+cd ground rust
+ls
+cd playground
+ls
+vi .
+zrust
+vi .
+cargo watch -c -x run
+pva && py watch.py
+pva && py watch.py
+pva && py watch.py
+clear
+pva && py watch.py
+exit
+vi .
+clear
+ls
+vi .
+pva && py watch.py
+pva && py watch.py
+vi .
+vi .
+git pull
+vi .
+ls
+clear
+cargo watch -c -x run
+clear
+cargo watch -c -x 'test'
+cargo check
+cargo watch -c -x check
+cargo watch -c -x 'test --test referances'
+cargo watch -c -x 'test --test referances'
+cargo watch -c -x 'test --test referances.rs'
+cargo watch -c -x 'test --test referances.rs'
+cargo watch -c -x 'test --test referances.rs'
+cargo watch -c -x 'test --test referances'
+todo
+exit
+ls
+clear
+cd play2
+cd ground
+ls
+cd rust/playground2
+clear
+zrust
+cd
+clear
+clera
+clear
+ls
+clear
+clear
+ls
+clear
+exit
+ls
+clear
+vi .wezterm.lua
+ls
+ll
+vi .wezterm.lua
+cd dotfiles
+gpull
+clear
+vi .
+cd
+cd ala
+vi .
+ls
+clear
+ll
+clear
+ls
+vi .wezterm.lua
+vi .wezterm.lua
+cd 
+vi .wezterm.lua
+clear
+ls
+clear
+exit
+vi .wezterm.lua
+vi .wezterm.lua
+cmake --version
+cmake -S . -B out/build
+cmake -S . -B out/build
+make out/build
+make out/build/Makefile
+cd out/build
+make
+make --help
+cd ..
+cd ..
+cmake -S . -B out/build
+cmake -S . -B out/build
+make -C out/build
+./out/build/PILOT
+./out/build/PILOT
+./out/build/PILOT
+cmake -S . -B out/build
+make -C out/build
+./out/build/pilot
+cd
+clear
+cmake
+brew install cmake
+brew update
+brew upgrade
+cd projects
+clear
+ls
+mkdir my_cmake
+cd my_cmake
+git init
+git commit -m "."
+wgit remote add origin https://github.com/shivajreddy/my_cmake.git
+git remote add origin https://github.com/shivajreddy/my_cmake.git
+gpush
+git push -u origin main
+gaa
+gcmsg "."
+gpush
+git push -u origin main
+git branch -M main
+git push -u origin main
+git remote add origin https://github.com/shivajreddy/my_cmake.git
+git push -u origin main
+vi readme.md
+gaa
+gcmsg "."
+gpush
+git push --set-upstream origin main
+gpush
+clear
+ls
+mkdir pilot
+vi makefile
+vi main.cpp
+vi main.cpp
+vi main.cpp
+vi
+vi
+ll
+make
+ls
+make makefile
+vi makefile
+make
+vi makefile
+make
+ls
+./out
+mv main.cpp ./pilot
+mv makefile ./pilot
+rm readme.md
+rm out
+ll
+cd pilot
+clear
+ls
+make
+ll
+./out
+ls
+vi CMakeLists.txt
+ll
+rm makefile out
+ls
+vi CMakeLists.txt
+ls
+mkdir build
+ls
+rm -rf build
+mkdir out/build/
+mkdir /out/build/
+mkdir out
+mkdir out/build
+ls
+cd out
+ls
+cd ..
+cd
+clear
+cd cmake
+ls
+clear
+cd pilot
+ls
+clear
+ls
+cmake -S . -B out/build
+vi CMakeLists.txt
+cmake -S . -B out/build
+ls
+cd out
+ls
+cd build
+ls
+cd CMakeFiles
+ls
+cd ..
+vi Makefile
+cd .. ..
+cd ..
+ls
+clear
+ls
+cd .
+cd ..
+clear
+ls
+vi .
+vi .
+cd
+cd my cpp
+ls
+ls
+cd proj
+ls
+git clone https://github.com/shivajreddy/my_cpp.git
+cd 
+cd desk
+ls
+cd mycpp
+ls
+cd ..
+rm -rf mycpp
+cd pilot
+ls
+cd ..
+rm -rf mycpp
+rm -rf pilot
+ls
+clear
+cd my cpp
+cd proj
+cd my_cpp
+ls
+mkdir cherno
+cd cherno
+mkdir classes
+cd classes
+vi main.cpp
+ls
+cd ..
+zcpp
+cd
+clear
+cd desk
+cd wxWidgets-3.2.5/build
+./upmake
+vi .
+cd ..
+vi .
+cd ..
+mkdir build-cocoa-debug\
+cd build-cocoa-debug\
+../configure --enable-debug\
+make
+zellij
+vi .
+vi .
+cd cmake
+ls
+vi .
+exit
+zellij
+brew install wezterm
+brew install wezterm
+brew remove wezterm
+brew install wezterm
+exit
+zellij
+zellij
+clear
+ls
+clear
+ll
+clear
+clear
+cmake -S . -B out/build
+cmake -D out/build
+cmake --build -D out/build
+cmake -D out/build --build
+cmake --build out/build
+cd out/build
+clear
+cmake --build 
+cmake --build .
+cmake --build . && ./classes
+cmake --build . && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+zellij command 
+zellij run
+zellij run --help
+zellij run 'cmake'
+zellij run cmake
+zellij run cmake
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+brew install clang-format
+clang-format -style=google -dump-config > .clang-format\
+
+ls
+ll
+mv .clang-format .. ..
+clang-format -style=google -dump-config > .clang-format\
+
+ll
+rm .clang-format
+cmake --build . && clear && ./classes
+cmake --build . && clear && ./classes
+ls
+cd ..
+cd ..
+ls
+clear
+ls
+cmake -S . -B out/build
+cmake --build ./out/build
+./out/build/classes
+ls
+clear
+ls
+vi CMakeLists.txt
+vi
+gaa
+git status .
+git graph
+git show graph
+git log --graph --all
+clear
+vi .
+clear
+gpull
+clear
+vi .
+vi .
+git reset --hard
+gpull
+clear
+v i.
+vi .
+vi
+cargo watch -c -x run
+cargo add tokio
+cargo watch -c -x run
+clear
+cd zell
+vi .
+clear
+exit
+ls
+zellij
+ls
+clear
+ls
+cd zell
+vi .
+vi .
+vi
+cd
+exit
+exit
+vi .
+clear
+cd
+clear
+cd
+exit
+brew postgres status
+brew status
+brew status --help
+brew service
+brew --help
+brew status
+postgres
+postgres status
+postgres -h
+postgres --help
+brew services status postgres
+brew services list
+brew services stop postgresql
+clear
+brew services status postgresql
+brew services status postgresql@14
+brew services status postgresql@14
+clear
+zellij
+cmake --build ./out/build
+cmake --build ./out/build && clear && ./out/build/classes
+cmake --build ./out/build && clear && ./out/build/classes
+vi .
+g++ src/main
+g++ src/main.cpp
+g++ src/main.cpp
+g++ src/main.cpp
+g++ src/main.cpp
+g++ src/*.cpp
+g++ src/*.cpp
+g++ src/*.cpp
+g++ src/*.cpp
+g++ -std=c++11 src/*.cpp\
+
+g++ -std=c++17 src/*.cpp\
+
+g++ -std=c++17 src/*.cpp\
+
+cmake -S . -B out/build
+cmake --build ./out/build && clear && ./out/build/classes
+g++ -std=c++17 src/*.cpp\
+
+cmake -S . -B out/build
+cmake --build ./out/build && clear && ./out/build/classes
+cmake --build ./out/build && clear && ./out/build/classes
+cmake -S . -B out/build
+cmake --build ./out/build
+./out/build/classes
+exit
+vi .
+g++ -std=c++17 src/*.cpp\
+
+./a.out
+exit
+cd zell
+vi .
+exit
+cd nvim
+vi .
+cd
+exit
+cd nvim
+vi .
+/Users/smbp/projects/my_cpp/cherno/classes/out/build/classes ; exit;
+chmod +x ./cpp/groud/run.sh
+clear
+exit
+cd class
+vi .
+cd
+clear
+exit
+vi .
+vi .
+vi .
+vi
+exit
+vi .
+cd cpp ground
+ls
+clear
+cmake -S src -B out/build
+cmake -S . -B out/build
+exit
+vi .
+cmake -S . -B out/build
+cmake -S . -B out/build
+cmake --build ./out/build
+./out/build/ground2
+./out/build/ground2
+exit
+cmake 
+cmake .
+exit
+make
+make
+cd src
+make
+./main
+./main
+./main
+clear
+exit
+cmake -S ./src -B out/build
+cmake -S . -B out/build
+clear
+exit
+vi .
+vi
+vi
+cd ..
+rm -rf dyndispatch
+clear
+ls
+clear
+exit
+cargo watch -c -x run
+cargo test
+cargo test
+cargo run --sections s1
+cargo run -- --sections s1
+cargo run --example
+cargo run --example e1
+cargo run --bin sections
+cargo run --bin sections
+cargo run --bin sections
+cargo run --bin sections
+cargo run --bin sections
+cargo run --example e1
+cargo watch -q -c -x "run --example e1"
+cargo watch -q -c -x "run --example s1/s1"
+cargo watch -q -c -x "run --example s1/s1.rs"
+cargo watch -q -c -x "run --example s1.rs"
+cargo watch -q -c -x "run --example ./s1/s1.rs"
+cargo watch -q -c -x "run --example s1 -q"
+exit
+vi .
+exit
+cd class
+zcpp
+zcpp
+cd
+clear
+cd projects
+ls
+cd playground
+ls
+cd cpp
+ls
+mkdir groud
+cd groud
+ls
+clear
+mkdir src out
+cd ..
+cd ..
+vi .
+gaa
+gcmsg "added playground for cpp"
+clear
+gpush
+clear
+ls
+clear
+cd gr
+cd ..
+cd ..
+cd cpp/groud
+zcpp
+cd zell
+vi .
+cd -
+zcpp
+cd
+clear
+clear
+cd ground cpp ground
+cd play cpp ground
+cd play cpp
+cd groud
+cd
+cd cpp ground
+cd projects/playground/cpp/groud
+cd ..
+mv groud ground
+ls
+clear
+cd ground
+cd
+cd cpp ground
+zcpp
+cd zellij
+vi
+cd
+clear
+cd cpp ground
+zcpp
+cd play rust
+ls
+cargo new ground
+cd ground
+zrust
+clear
+cd ..
+cd ..
+cd python
+ls
+cd ground
+ls
+zpy
+cd projects
+ls
+cd my_rust
+ls
+clear
+ls
+cd projects
+ls
+cargo new tinyrenderer
+cd tinyrenderer
+zrust
+cd cpp ground
+cd ..
+cd ground2
+zcpp
+clear
+cd ..
+cd ..
+cd rust
+ls
+cargo new ground3
+cd ground3
+cd
+cd desk
+ls
+cargo new dyndispatch
+cd dyndispatch
+zrust
+cd
+clear
+cd nvim
+vi .
+vi
+vi
+vi
+cd dotf
+vi .
+cd
+vi .
+cd
+clear
+exit
+vi .
+vi .
+exit
+vi .
+gaa
+gcmsg "."
+gpush
+clear
+cargo watch -c -x run
+vi .
+pva && py watch.py
+vi .
+cargo watch -c -x run
+clear
+brew update
+brew upgrade
+yabai --restart-service
+yabai --restart-service
+yabai --restart-service
+ls
+clear
+ll
+clear
+neofetch
+ls
+cd
+cd alsdfj
+unalias cd
+clear
+cd alkdjf
+clear
+cd .config/zsh
+vi .
+cd
+vi .
+clar
+clear
+exit
+ls
+clear
+ls
+ll
+clear
+show
+exit
+zellij
+clear
+zellij
+exit
+yabai --restart-service
+skhd --restart-service
+skhd --restart-service
+exit
+ls
+clear
+ll
+zellij
+clear
+clear
+ls
+clear
+zellij
+ls
+clear
+ll
+clear
+ls
+clear
+ls
+clear
+ll
+ls
+clear
+ls
+ll
+neofetch
+clear
+zellij
+zellij
+vi .
+vi .
+cwe dyn_basics_intro
+csrutil status
+yabai --restart-service
+skhd --restart-service
+echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+yabai --restart-service
+ls
+clear
+ll
+clear
+neofetch
+clear
+ls
+zellij
+sudo pmset -a displaysleep 0
+sudo pmset -a sleep 0\
+
+z desk
+git clone https://github.com/shivajreddy/plaground.git
+git clone https://github.com/shivajreddy/my_playground.git
+git clone https://github.com/shivajreddy/playground.git
+clear
+cd playground
+cd python/amazon_oa
+z
+z oa
+clear
+ls
+vi .
+z nvim
+vi .
+z wez
+z config
+ls
+ll
+cd ..
+vi .wezterm.lua
+z projects
+git clone https://github.com/shivajreddy/amazon_oa.git
+cd ama
+cd amazon_oa
+clear
+ls
+zellij
+exit
+z
+clear
+ping google.com
+ping delta.com
+ping youtube.com
+brew status
+brew
+brew update
+clear
+wifi-cli
+wifi
+clear
+exit
+l
+clear
+exit
+exit
+l
+clear
+exit
+exit
+l
+clear
+z
+cd .config
+ls
+cd ..
+l
+ll
+vi .wezterm.lua 
+mv .wezterm.lua .wezterm-mac-backup.lua
+clear
+echo $XDG_CONFIG_HOME
+ls
+exit
+l
+clear
+z projects
+ls
+wget
+git clone https://github.com/shivajreddy/amazon_lc.git
+z amazon_lc
+l
+clear
+vi .
+ls
+clear
+gaa
+gst
+gst
+gcmsg "Jump Game"
+gpush
+clear
+l
+clear
+z
+z dot
+gpull
+clear
+nmtui
+nmtui
+brew install nmtui
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s\
+
+wdutil
+wdutil info
+open /System/Library/CoreServices/Wireless\ Diagnostics.app\
+
+sudo wdutil
+man wdutil
+network-manager
+brew install network-manager
+brew install network-manager
+ifconfig
+ifconfig | grep "delta"
+ifconfig | grep "elta"
+nmcli
+brew install nmcli
+ifconfig get-summary
+ifconfig getsummary en0
+ipconfig
+ipconfig getsummary 
+ipconfig getsummary en0
+ipconfig getsummary en0
+clear
+ipconfig getsummary en0
+vi .
+z
+clear
+echo $XDG_CONFIG_HOME
+z zsh
+vi .
+sourcezsh
+vi .
+ls
+clear
+vi .
+sourcezsh
+vi .
+ls
+echo XDG_CONFIG_HOME
+echo $XDG_CONFIG_HOME
+set XDG_CONFIG_HOME="~/dotfiles/common/wezterm"
+export XDG_CONFIG_HOME="~/dotfiles/common/wezterm"
+echo $XDG_CONFIG_HOME
+ls
+unset XDG_CONFIG_HOME
+echo $XDG_CONFIG_HOME
+export XDG_CONFIG_HOME="~/dotfiles/common"
+ls
+clear
+ls
+z
+cd ~/dotfiles/common
+l
+sourcezsh
+cd $XDG_CONFIG_HOME
+pwd
+exit
+l
+clear
+cp ~/dotfiles/common/wezterm ~/.config
+cp -r ~/dotfiles/common/wezterm ~/.config
+mv ~/.config/wezterm/wezterm.lua ~/.wezterm.lua
+ls
+clear
+exit
+exit
+vi .wezterm.lua
+mv .wezterm.lua ~/.config/wezterm
+exit
+ls
+pwd $HOME
+echo $HOME
+echo $XDG_CONFIG_HOME
+echo $WEZTERM_CONFIG_FILE
+ls
+ll
+z config
+clear
+l
+cd wezterm
+ls
+cp ~/dotfiles/common/wezterm/wezterm.lua .
+ls
+clear
+exit
+ls
+clear
+z
+clear
+ls
+z yabai
+vi .
+yabai --restart-service
+vi .
+vi .
+yabai --restart-service
+clear
+ls
+clear
+ls
+clear
+z config wez
+vi .
+clear
+cd ..
+rm wezterm
+rm -rf wezterm
+ln -s ~/dotfiles/common/wezterm wezterm
+ls
+clear
+ll
+cd .config/wezterm
+vi .
