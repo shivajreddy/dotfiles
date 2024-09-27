@@ -30,6 +30,10 @@ vim.keymap.set("n", "<Leader>x", "<cmd>bdelete<CR>")
 -- vim.keymap.set("n", "<Leader>wq", "<cmd>wq<CR>")
 -- vim.keymap.set("n", "<Leader>wx", "<cmd>q<CR>")
 
+-- Unmap Ctrl+/
+vim.api.nvim_del_keymap("n", "<c-/>")
+vim.api.nvim_del_keymap("n", "<c-_>") -- This is for the alternative keybinding that may map to the same key
+
 -- LazyTerm
 --[[
 vim.keymap.set("n", "<C-/>", function()
