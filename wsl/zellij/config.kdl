@@ -39,7 +39,8 @@ pane_frames false
 
 simplified_ui false
 
-theme "rose-pine"
+theme "catppuccin-mocha"
+// theme "rose-pine"
 
 themes {
 	rose-pine {
@@ -55,6 +56,19 @@ themes {
 		black "#26233a"
 		white "#e0def4"
 	}
+  catppuccin-mocha {
+    bg "#585b70" // Surface2
+    fg "#cdd6f4" // Text
+    red "#f38ba8"
+    green "#a6e3a1"
+    blue "#89b4fa"
+    yellow "#f9e2af"
+    magenta "#f5c2e7" // Pink
+    orange "#fab387" // Peach
+    cyan "#89dceb" // Sky
+    black "#181825" // Mantle
+    white "#cdd6f4" // Text
+  }
   gruvbox-dark {
     fg "#D5C4A1"
     bg "#282828"
@@ -95,6 +109,7 @@ keybinds clear-defaults=true {
 	locked {
 		bind "Ctrl g" { SwitchToMode "Normal"; }
 	}
+  // This is how to resize: go to reseize mode, press 
 	resize {
 		bind "Ctrl r" { SwitchToMode "Normal"; }
 		bind "h" "Left" { Resize "Increase Left"; }
