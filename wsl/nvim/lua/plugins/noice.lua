@@ -2,7 +2,13 @@ return {
   "folke/noice.nvim",
   opts = {
 
+    --@type NoiceRouteConfig[]
     routes = {
+      {
+
+        filter = { event = "notify", find = "^.*WARNING.*vim.treesitter.get_parser.*$" },
+        opts = { skip = true },
+      },
       {
         filter = {
           event = "notify",
