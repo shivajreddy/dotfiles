@@ -39,9 +39,6 @@ end
 if utils.is_windows() then
 	win_keys.apply(c)
 	c.font_size = 12
-	require("wezterm").on("format-window-title", function()
-		return ""
-	end)
 end
 
 --[[ Set the wsl as the domain when using windows
@@ -86,6 +83,9 @@ c.front_end = "OpenGL"
 -- c.window_background_opacity = 0.85
 c.macos_window_background_blur = 80
 
+require("wezterm").on("format-window-title", function()
+	return ""
+end)
 -- require("wezterm").on("format-tab-title", function()
 -- 	return ""
 -- end)
