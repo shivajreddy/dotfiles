@@ -18,3 +18,6 @@ vim.opt.relativenumber = false
 vim.opt.clipboard:append("unnamedplus")
 
 vim.opt.list = false
+
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 10
