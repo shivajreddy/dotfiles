@@ -1,5 +1,6 @@
 # Common
 **/.zsh_sessions/
+**/nvim/lazy-lock.json
 **/lazy-lock.json
 
 # Nix OS
