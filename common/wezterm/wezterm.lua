@@ -38,7 +38,7 @@ if utils.is_darwin() then
 end
 if utils.is_windows() then
 	win_keys.apply(c)
-	c.font_size = 12
+	c.font_size = 13
 end
 
 --[[ Set the wsl as the domain when using windows
@@ -117,7 +117,7 @@ c.window_frame = {
 c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
-c.inactive_pane_hsb = { brightness = 0.6, saturation = 0.1 }
+-- c.inactive_pane_hsb = { brightness = 0.6, saturation = 0.1 }
 
 -- Theme
 c.color_scheme = "catppuccin-mocha"
