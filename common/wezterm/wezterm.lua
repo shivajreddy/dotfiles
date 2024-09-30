@@ -38,7 +38,7 @@ if utils.is_darwin() then
 end
 if utils.is_windows() then
 	win_keys.apply(c)
-	c.font_size = 12
+	c.font_size = 13
 end
 
 --[[ Set the wsl as the domain when using windows
