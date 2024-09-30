@@ -12,3 +12,6 @@
 # Windows
 *.Identifier
 **/gh/
+
+# WSL
+**/.zcompdump
