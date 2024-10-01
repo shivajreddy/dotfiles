@@ -57,39 +57,39 @@ if utils.is_darwin() then
 	c.font_size = 18
 	c.macos_window_background_blur = 80
 
-	-- c.front_end = "OpenGL"
-	c.front_end = "WebGpu"
+	c.front_end = "OpenGL"
+	-- c.front_end = "WebGpu"
 end
 
 -- :::::::::::    WINDOWS  Setttings    :::::::::::
 if utils.is_windows() then
-	-- :::::::::::    Startup stuff    :::::::::::
-	--[[
+	-- ::::::  Startup stuff  ::::::
 	c.wsl_domains = {
 		{
 			name = "WSL:Ubuntu",
-			-- Valid entry from your `wsl -l -v` output
 			distribution = "Ubuntu",
+			default_cwd = "~",
 		},
 	}
 	c.default_domain = "WSL:Ubuntu"
-  --]]
+
 	--Set default_prog only if the OS is Windows
-	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+	-- c.default_prog = { "wsl", "--cd", "/home/shiva" }
+
+	-- c.front_end = "WebGpu"
+	c.front_end = "OpenGL"
 
 	win_keys.apply(c)
 	c.font_size = 12
 
-	c.window_background_opacity = 0.4
+	c.window_background_opacity = 0.91
 	-- c.text_background_opacity = 0.3
 
 	c.window_decorations = "RESIZE"
-	c.win32_system_backdrop = "Mica" -- Acrylic  Auto Mica Tabbed
-	c.max_fps = 144
-	c.animation_fps = 60
+	c.win32_system_backdrop = "Acrylic" -- Acrylic  Auto Mica Tabbed
+	-- c.max_fps = 144
+	-- c.animation_fps = 60
 	-- c.cursor_blink_rate = 250
-
-	c.front_end = "WebGpu"
 
 	wezterm.on("format-window-title", function()
 		return ""
