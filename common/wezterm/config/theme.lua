@@ -18,7 +18,8 @@ function M.apply(c)
 		tab_bar = {
 			-- The color of the strip that goes along the top of the window
 			-- (does not apply when fancy tab bar is in use)
-			background = "#1f1d2e",
+			-- background = "#1f1d2e",
+			background = "#000000",
 			-- background = "#121018",
 
 			-- The active tab is the one that has focus in the window

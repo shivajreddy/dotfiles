@@ -38,7 +38,7 @@ if utils.is_darwin() then
 end
 if utils.is_windows() then
 	win_keys.apply(c)
-	c.font_size = 13
+	c.font_size = 12
 end
 
 --[[ Set the wsl as the domain when using windows
@@ -70,9 +70,7 @@ end
 c.font = wezterm.font_with_fallback({
 	"Berkeley Mono",
 	"JetBrains Mono",
-	-- "Cascadia Code",
 	-- "IBM Plex Mono",
-	-- "Comic Code Ligatures",
 	"Symbols Nerd Font",
 })
 c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
@@ -80,8 +78,16 @@ c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
 -- c.front_end = "OpenGL"
 c.front_end = "WebGpu"
 
--- c.window_background_opacity = 0.85
-c.macos_window_background_blur = 80
+-- Theme
+c.color_scheme = "catppuccin-mocha"
+
+c.text_background_opacity = 0.1
+c.window_background_opacity = 0.4
+-- c.win32_system_backdrop = "Acrylic"
+-- c.win32_system_backdrop = "Auto"
+-- c.win32_system_backdrop = "Mica"
+-- c.win32_system_backdrop = "Tabbed"
+-- c.macos_window_background_blur = 80
 
 require("wezterm").on("format-window-title", function()
 	return ""
@@ -100,6 +106,8 @@ c.tab_and_split_indices_are_zero_based = true
 -- c.window_decorations = "TITLE|RESIZE"
 -- c.window_decorations = "TITLE|RESIZE|INTEGRATED_BUTTONS"
 c.window_decorations = "RESIZE"
+
+--[[
 c.window_frame = {
 	inactive_titlebar_bg = "#353535",
 	active_titlebar_bg = "#2b2042",
@@ -112,15 +120,12 @@ c.window_frame = {
 	button_hover_fg = "#ffffff",
 	button_hover_bg = "#3b3052",
 }
--- c.window_frame = { font = wezterm.font("IBM Plex Sans"), font_size = 10 }
+]]
 
 c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 -- c.inactive_pane_hsb = { brightness = 0.6, saturation = 0.1 }
-
--- Theme
-c.color_scheme = "catppuccin-mocha"
 
 local function get_current_working_dir(tab)
 	local current_dir = tab.active_pane.current_working_dir
