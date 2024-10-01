@@ -129,10 +129,16 @@ map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES"
 map(
 	"g",
 	{ "ALT" },
+
+	--[[ Just a quick test for ensuring a keybind works
+	wezterm.action_callback(function(window, pane)
+		window:toast_notification("Action", "hi there", nil, 2000)
+	end)
+  --]]
+
 	wezterm.action_callback(function(window, pane)
 		local projects = {}
 		local wezterm = require("wezterm") -- Ensure wezterm is required within the callback
-
 		-- Adjust the paths below based on your system and project locations
 		local success, stdout, stderr = wezterm.run_child_process({
 			wezterm.home_dir .. "/scoop/shims/fd.exe", -- Path to 'fd.exe' on Windows
