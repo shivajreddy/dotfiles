@@ -26,6 +26,7 @@ local toggleTabBar = wezterm.action_callback(function(window)
 	})
 end)
 
+-- Function to open a current selction in browser
 local openUrl = act.QuickSelectArgs({
 	label = "open url",
 	patterns = { "https?://\\S+" },
@@ -35,8 +36,8 @@ local openUrl = act.QuickSelectArgs({
 	end),
 })
 
+-- Function to handle renaming the tab
 local renameTab = act.PromptInputLine({
-	-- Function to handle renaming the tab
 	description = "Enter new name for tab",
 	action = wezterm.action_callback(function(window, _, line)
 		if line then
@@ -130,22 +131,10 @@ map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES"
 -- local wsl_dotfiles = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\"
 local wsl_dotfiles = "//wsl.localhost/Ubuntu/home/shiva/dotfiles/"
 
-map(
-	"D", -- The key to bind (D)
-	{ "ALT|SHIFT" }, -- Modifiers: Ctrl + Shift
-	wezterm.action.SendString("cd " .. wsl_dotfiles .. "\n")
-)
-
 -- Switch to Workspace via Project Selection with ALT + G
 map(
 	"g",
 	{ "ALT" },
-
-	--[[ Just a quick test for ensuring a keybind works
-	wezterm.action_callback(function(window, pane)
-		window:toast_notification("Action", "hi there", nil, 2000)
-	end)
-  --]]
 
 	wezterm.action_callback(function(window, pane)
 		local projects = {}
@@ -263,57 +252,3 @@ M.apply = function(c)
 	c.key_tables = key_tables
 end
 return M
-
---[[ Resurrect plugin
-
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-
--- Resurrect keymapbindings
-map(
-	"w",
-	"ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-	end)
-)
-
-map("W", "ALT", resurrect.window_state.save_window_action())
-
-map(
-	"s",
-	"SHIFT|ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-		resurrect.window_state.save_window_action()
-	end)
-)
-
-map(
-	"l",
-	"ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.fuzzy_load(win, pane, function(id, label)
-			local type = string.match(id, "^([^/]+)") -- match before '/'
-			id = string.match(id, "([^/]+)$") -- match after '/'
-			id = string.match(id, "(.+)%..+$") -- remove file extension
-			local state
-			if type == "workspace" then
-				state = resurrect.load_state(id, "workspace")
-				resurrect.workspace_state.restore_workspace(state, {
-					relative = true,
-					restore_text = true,
-					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-				})
-			elseif type == "window" then
-				state = resurrect.load_state(id, "window")
-				resurrect.window_state.restore_window(pane:window(), state, {
-					relative = true,
-					restore_text = true,
-					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-				})
-			end
-		end)
-	end)
-)
-
---]]
