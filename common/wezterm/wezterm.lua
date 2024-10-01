@@ -1,20 +1,21 @@
---[[
+--[[ README
 
-  Wezterm config by shiva
+  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  ::::::::::::::::::::     Author: Shiva        ::::::::::::::::::::
+  ::::::::::::::::::::   Date: 10-01-2024       ::::::::::::::::::::
+  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-    how to set up config is at:
-    https://wezfurlong.org/wezterm/config/files.html#quick-start
+  :: How to set up config is at ::
+  https://wezfurlong.org/wezterm/config/files.html#quick-start
 
-    -- Windows
+  :: Windows ::
+  - This is how you create a symlink
+  mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
+  - so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
+  because thats where wezterm will look for config
 
-    This is how you create a symlink
-    mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
-
-    so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
-    because thats where wezterm will look for config
-
-    -- Mac & Linux
-    set env variables as usual
+  :: Mac & Linux ::
+  - set env variables as usual
 
 --]]
 
@@ -22,13 +23,41 @@ local wezterm = require("wezterm")
 
 local c = wezterm.config_builder()
 
+-- Startup stuff
+--#region
+c.wsl_domains = {
+	{
+		-- The name of this specific domain.  Must be unique amonst all types
+		-- of domain in the configuration file.
+		name = "WSL:Ubuntu",
+
+		-- The name of the distribution.  This identifies the WSL distribution.
+		-- It must match a valid distribution from your `wsl -l -v` output in
+		-- order for the domain to be useful.
+		distribution = "Ubuntu",
+	},
+}
+c.default_domain = "WSL:Ubuntu"
+--[[ Set default_prog only if the OS is Windows
+--]]
+if utils.is_windows() then
+	c.default_prog = { "wsl", "--cd", "/home/shiva" }
+end
+--#endregion
+
+-- Load keymappings
+--#region
 local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
+--#endregion
+
+-- Load and apply tab bar settings from config/tabbar.lua
+--#region
 local tabbar_settings = require("config.tabbar")
-
--- set the theme settings from config/tabbar.lua
 tabbar_settings.apply(c)
+--#endregion
 
+-- Load utils from config/utils.lua
 local utils = require("config.utils")
 
 -- Set keymappings based on os
@@ -62,7 +91,6 @@ c.window_background_opacity = 0.8
 -- c.macos_window_background_blur = 80
 c.window_decorations = "RESIZE"
 c.window_background_opacity = opacity
-c.window_close_confirmation = "NeverPrompt"
 c.win32_system_backdrop = "Acrylic"
 c.max_fps = 144
 c.animation_fps = 60
@@ -80,12 +108,6 @@ c.wsl_domains = {
 }
 c.default_domain = "WSL:Ubuntu"
 --]]
-
---[[ Set default_prog only if the OS is Windows
---]]
-if utils.is_windows() then
-	c.default_prog = { "wsl", "--cd", "/home/shiva" }
-end
 
 -- Get the directory of the wezterm.lua file
 -- local config_dir = wezterm.config_dir

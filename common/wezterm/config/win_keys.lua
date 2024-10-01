@@ -125,6 +125,17 @@ map(
 -- Show Workspaces Launcher with ALT + SHIFT + G
 map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }))
 
+-- New keybinding to change directory to dotfiles
+-- Sends the string "cd /home/shiva/dotfiles" followed by Enter
+-- local wsl_dotfiles = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\"
+local wsl_dotfiles = "//wsl.localhost/Ubuntu/home/shiva/dotfiles/"
+
+map(
+	"D", -- The key to bind (D)
+	{ "ALT|SHIFT" }, -- Modifiers: Ctrl + Shift
+	wezterm.action.SendString("cd " .. wsl_dotfiles .. "\n")
+)
+
 -- Switch to Workspace via Project Selection with ALT + G
 map(
 	"g",
@@ -139,19 +150,27 @@ map(
 	wezterm.action_callback(function(window, pane)
 		local projects = {}
 		local wezterm = require("wezterm") -- Ensure wezterm is required within the callback
-		-- Adjust the paths below based on your system and project locations
+
+		local wsl_path = "//wsl$/Ubuntu/home/shiva"
+		local wsl_dotfiles = "//wsl$/Ubuntu/home/shiva/dotfiles"
+
+		-- Define the directories to search for Git repositories
+		local search_dirs = {
+			-- Adjust the paths below based on your system and project locations
+			"/dotfiles",
+			wsl_path,
+			wezterm.home_dir .. "\\home",
+			-- Add more paths here
+		}
+
+		-- Run 'fd.exe' to find '.git' directories
 		local success, stdout, stderr = wezterm.run_child_process({
-			wezterm.home_dir .. "/scoop/shims/fd.exe", -- Path to 'fd.exe' on Windows
-			"-HI",
-			"-td",
-			"^.git$",
-			"--max-depth=4",
-			wezterm.home_dir .. "\\devel",
-			wezterm.home_dir .. "\\icadev",
-			"D:\\devel",
-			"D:\\icadev",
-			-- Add more paths here as needed
-		})
+			"fd.exe", -- Directly call 'fd.exe' assuming it's in PATH
+			"-HI", -- Hidden files, ignore case
+			"-td", -- Type: directory
+			"^.git$", -- Regex to match '.git' directories
+			"--max-depth=4", -- Limit search depth
+		}, search_dirs) -- Pass search_dirs as arguments
 
 		if not success then
 			wezterm.log_error("Failed to run fd: " .. stderr)
@@ -163,7 +182,7 @@ map(
 
 		-- Parse the output from 'fd.exe' and populate projects
 		for line in stdout:gmatch("([^\n]*)\n?") do
-			local project = line:gsub("\\.git\\$", "")
+			local project = line:gsub("\\.git$", "")
 			local label = project
 			local id = project:gsub(".*\\", "")
 			table.insert(projects, { label = tostring(label), id = tostring(id) })
