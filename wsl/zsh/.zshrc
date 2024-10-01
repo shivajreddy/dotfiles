@@ -55,6 +55,8 @@ alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
 
+alias fd="fdfind"
+
 # For wsl stuff
 alias pwsh="pwsh.exe -nologo"
 
