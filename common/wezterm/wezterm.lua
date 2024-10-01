@@ -24,10 +24,10 @@ local c = wezterm.config_builder()
 
 local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
-local theme_settings = require("config.theme")
+local tabbar_settings = require("config.tabbar")
 
--- set the theme settings from config/theme.lua
-theme_settings.apply(c)
+-- set the theme settings from config/tabbar.lua
+tabbar_settings.apply(c)
 
 local utils = require("config.utils")
 

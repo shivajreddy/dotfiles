@@ -13,6 +13,8 @@ function M.apply(c)
 	c.use_fancy_tab_bar = true
 	c.tab_and_split_indices_are_zero_based = true
 
+	-- c.tab_max_width = 16
+
 	-- Fancy tab bar
 	c.window_frame = {
 		font_size = 10.0,
@@ -39,7 +41,8 @@ function M.apply(c)
 	}
 
 	c.colors.tab_bar = {
-		background = "#1f1d2e",
+		-- background = "#1f1d2e",
+		background = "#000000",
 
 		active_tab = {
 			bg_color = "#1f1d2e",
