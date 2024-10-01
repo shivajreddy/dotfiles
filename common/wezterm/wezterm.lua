@@ -96,30 +96,14 @@ end)
 -- 	return ""
 -- end)
 
-c.hide_tab_bar_if_only_one_tab = false
-c.tab_bar_at_bottom = true
-c.use_fancy_tab_bar = false
-c.tab_and_split_indices_are_zero_based = true
-
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
-c.window_decorations = "NONE"
+-- c.window_decorations = "NONE"
 -- c.window_decorations = "TITLE|RESIZE"
 -- c.window_decorations = "TITLE|RESIZE|INTEGRATED_BUTTONS"
--- c.window_decorations = "RESIZE"
+-- c.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+c.window_decorations = "RESIZE"
 
 --[[
-c.window_frame = {
-	inactive_titlebar_bg = "#353535",
-	active_titlebar_bg = "#2b2042",
-	inactive_titlebar_fg = "#cccccc",
-	active_titlebar_fg = "#ffffff",
-	inactive_titlebar_border_bottom = "#2b2042",
-	active_titlebar_border_bottom = "#2b2042",
-	button_fg = "#cccccc",
-	button_bg = "#2b2042",
-	button_hover_fg = "#ffffff",
-	button_hover_bg = "#3b3052",
-}
 ]]
 
 c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
