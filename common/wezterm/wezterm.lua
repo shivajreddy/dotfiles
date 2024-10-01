@@ -81,9 +81,9 @@ c.front_end = "WebGpu"
 -- Theme
 c.color_scheme = "catppuccin-mocha"
 
-c.text_background_opacity = 0.1
-c.window_background_opacity = 0.4
--- c.win32_system_backdrop = "Acrylic"
+-- c.text_background_opacity = 0.1
+c.window_background_opacity = 0.8
+c.win32_system_backdrop = "Acrylic"
 -- c.win32_system_backdrop = "Auto"
 -- c.win32_system_backdrop = "Mica"
 -- c.win32_system_backdrop = "Tabbed"
@@ -102,10 +102,10 @@ c.use_fancy_tab_bar = false
 c.tab_and_split_indices_are_zero_based = true
 
 -- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
--- c.window_decorations = "NONE"
+c.window_decorations = "NONE"
 -- c.window_decorations = "TITLE|RESIZE"
 -- c.window_decorations = "TITLE|RESIZE|INTEGRATED_BUTTONS"
-c.window_decorations = "RESIZE"
+-- c.window_decorations = "RESIZE"
 
 --[[
 c.window_frame = {
