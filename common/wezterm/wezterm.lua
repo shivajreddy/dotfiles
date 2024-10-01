@@ -41,6 +41,33 @@ if utils.is_windows() then
 	c.font_size = 12
 end
 
+-- General
+c.automatically_reload_config = true
+c.window_close_confirmation = "NeverPrompt"
+
+-- Theme
+local opacity = 0.75
+local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
+c.color_scheme = "catppuccin-mocha"
+
+-- c.front_end = "OpenGL"
+c.front_end = "WebGpu"
+
+-- c.text_background_opacity = 0.1
+c.window_background_opacity = 0.8
+-- c.win32_system_backdrop = "Acrylic"
+-- c.win32_system_backdrop = "Auto"
+-- c.win32_system_backdrop = "Mica"
+-- c.win32_system_backdrop = "Tabbed"
+-- c.macos_window_background_blur = 80
+c.window_decorations = "RESIZE"
+c.window_background_opacity = opacity
+c.window_close_confirmation = "NeverPrompt"
+c.win32_system_backdrop = "Acrylic"
+c.max_fps = 144
+c.animation_fps = 60
+c.cursor_blink_rate = 250
+
 --[[ Set the wsl as the domain when using windows
 -- This table will hold the configuration.
 -- https://wezfurlong.org/wezterm/config/lua/WslDomain.html
@@ -75,36 +102,12 @@ c.font = wezterm.font_with_fallback({
 })
 c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
 
--- c.front_end = "OpenGL"
-c.front_end = "WebGpu"
-
--- Theme
-c.color_scheme = "catppuccin-mocha"
-
--- c.text_background_opacity = 0.1
-c.window_background_opacity = 0.8
-c.win32_system_backdrop = "Acrylic"
--- c.win32_system_backdrop = "Auto"
--- c.win32_system_backdrop = "Mica"
--- c.win32_system_backdrop = "Tabbed"
--- c.macos_window_background_blur = 80
-
 require("wezterm").on("format-window-title", function()
 	return ""
 end)
 -- require("wezterm").on("format-tab-title", function()
 -- 	return ""
 -- end)
-
--- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html?h=window_de
--- c.window_decorations = "NONE"
--- c.window_decorations = "TITLE|RESIZE"
--- c.window_decorations = "TITLE|RESIZE|INTEGRATED_BUTTONS"
--- c.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-c.window_decorations = "RESIZE"
-
---[[
-]]
 
 c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false

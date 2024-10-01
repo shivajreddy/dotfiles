@@ -2,11 +2,6 @@ local wezterm = require("wezterm")
 
 local M = {}
 
--- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
 function M.apply(c)
 	c.hide_tab_bar_if_only_one_tab = false
 	c.tab_bar_at_bottom = false
@@ -33,8 +28,6 @@ function M.apply(c)
 	}
 
 	c.colors = {
-		-- background = "#09080C",
-		-- background = "#191724",
 		background = "#111019",
 		cursor_fg = "#191724",
 		cursor_bg = "#ebbcba",
@@ -42,7 +35,7 @@ function M.apply(c)
 
 	c.colors.tab_bar = {
 		-- background = "#1f1d2e",
-		background = "#000000",
+		background = "rgba(0,0,0,0)",
 
 		active_tab = {
 			bg_color = "#1f1d2e",
@@ -77,6 +70,59 @@ function M.apply(c)
 		},
 	}
 end
+
+wezterm.on("update-status", function(window, _)
+	local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
+	local segments = segments_for_right_status(window)
+
+	local color_scheme = window:effective_config().resolved_palette
+	-- Note the use of wezterm.color.parse here, this returns
+	-- a Color object, which comes with functionality for lightening
+	-- or darkening the colour (amongst other things).
+	local bg = wezterm.color.parse(color_scheme.background)
+	local fg = color_scheme.foreground
+
+	-- Each powerline segment is going to be coloured progressively
+	-- darker/lighter depending on whether we're on a dark/light colour
+	-- scheme. Let's establish the "from" and "to" bounds of our gradient.
+	local gradient_to, gradient_from = bg, bg
+	if appearance.is_dark() then
+		gradient_from = gradient_to:lighten(0.2)
+	else
+		gradient_from = gradient_to:darken(0.2)
+	end
+
+	-- Yes, WezTerm supports creating gradients, because why not?! Although
+	-- they'd usually be used for setting high fidelity gradients on your terminal's
+	-- background, we'll use them here to give us a sample of the powerline segment
+	-- colours we need.
+	local gradient = wezterm.color.gradient(
+		{
+			orientation = "Horizontal",
+			colors = { gradient_from, gradient_to },
+		},
+		#segments -- only gives us as many colours as we have segments.
+	)
+
+	-- We'll build up the elements to send to wezterm.format in this table.
+	local elements = {}
+
+	for i, seg in ipairs(segments) do
+		local is_first = i == 1
+
+		if is_first then
+			table.insert(elements, { Background = { Color = "none" } })
+		end
+		table.insert(elements, { Foreground = { Color = gradient[i] } })
+		table.insert(elements, { Text = SOLID_LEFT_ARROW })
+
+		table.insert(elements, { Foreground = { Color = fg } })
+		table.insert(elements, { Background = { Color = gradient[i] } })
+		table.insert(elements, { Text = " " .. seg .. " " })
+	end
+
+	window:set_right_status(wezterm.format(elements))
+end)
 
 wezterm.on("update-right-status", function(window, _)
 	-- Get the current time in hh:mm AM/PM format and the date in mm-dd-yyyy format

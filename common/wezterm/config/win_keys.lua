@@ -121,59 +121,69 @@ map(
 	})
 )
 
---[[ Resurrect plugin
+-- Workspaces Keybindings
+-- Show Workspaces Launcher with ALT + SHIFT + G
+map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }))
 
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-
--- Resurrect keymapbindings
+-- Switch to Workspace via Project Selection with ALT + G
 map(
-	"w",
-	"ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+	"g",
+	{ "ALT" },
+	wezterm.action_callback(function(window, pane)
+		local projects = {}
+		local wezterm = require("wezterm") -- Ensure wezterm is required within the callback
+
+		-- Adjust the paths below based on your system and project locations
+		local success, stdout, stderr = wezterm.run_child_process({
+			wezterm.home_dir .. "/scoop/shims/fd.exe", -- Path to 'fd.exe' on Windows
+			"-HI",
+			"-td",
+			"^.git$",
+			"--max-depth=4",
+			wezterm.home_dir .. "\\devel",
+			wezterm.home_dir .. "\\icadev",
+			"D:\\devel",
+			"D:\\icadev",
+			-- Add more paths here as needed
+		})
+
+		if not success then
+			wezterm.log_error("Failed to run fd: " .. stderr)
+			return
+		end
+
+		-- Add default project
+		table.insert(projects, { label = wezterm.home_dir, id = "default" })
+
+		-- Parse the output from 'fd.exe' and populate projects
+		for line in stdout:gmatch("([^\n]*)\n?") do
+			local project = line:gsub("\\.git\\$", "")
+			local label = project
+			local id = project:gsub(".*\\", "")
+			table.insert(projects, { label = tostring(label), id = tostring(id) })
+		end
+
+		-- Display the project selector
+		window:perform_action(
+			wezterm.action.PromptInputLine({
+				description = "Select Workspace",
+				action = wezterm.action_callback(function(win, _, id, label)
+					if not id and not label then
+						wezterm.log_info("Cancelled")
+					else
+						wezterm.log_info("Selected " .. label)
+						win:perform_action(
+							wezterm.action.SwitchToWorkspace({ name = id, spawn = { cwd = label } }),
+							pane
+						)
+					end
+				end),
+				-- You can customize the selector further if needed
+			}),
+			pane
+		)
 	end)
 )
-
-map("W", "ALT", resurrect.window_state.save_window_action())
-
-map(
-	"s",
-	"SHIFT|ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-		resurrect.window_state.save_window_action()
-	end)
-)
-
-map(
-	"l",
-	"ALT",
-	wezterm.action_callback(function(win, pane)
-		resurrect.fuzzy_load(win, pane, function(id, label)
-			local type = string.match(id, "^([^/]+)") -- match before '/'
-			id = string.match(id, "([^/]+)$") -- match after '/'
-			id = string.match(id, "(.+)%..+$") -- remove file extension
-			local state
-			if type == "workspace" then
-				state = resurrect.load_state(id, "workspace")
-				resurrect.workspace_state.restore_workspace(state, {
-					relative = true,
-					restore_text = true,
-					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-				})
-			elseif type == "window" then
-				state = resurrect.load_state(id, "window")
-				resurrect.window_state.restore_window(pane:window(), state, {
-					relative = true,
-					restore_text = true,
-					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-				})
-			end
-		end)
-	end)
-)
-
---]]
 
 local key_tables = {
 	resize_mode = {
@@ -228,3 +238,57 @@ M.apply = function(c)
 	c.key_tables = key_tables
 end
 return M
+
+--[[ Resurrect plugin
+
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+
+-- Resurrect keymapbindings
+map(
+	"w",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+	end)
+)
+
+map("W", "ALT", resurrect.window_state.save_window_action())
+
+map(
+	"s",
+	"SHIFT|ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+		resurrect.window_state.save_window_action()
+	end)
+)
+
+map(
+	"l",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.fuzzy_load(win, pane, function(id, label)
+			local type = string.match(id, "^([^/]+)") -- match before '/'
+			id = string.match(id, "([^/]+)$") -- match after '/'
+			id = string.match(id, "(.+)%..+$") -- remove file extension
+			local state
+			if type == "workspace" then
+				state = resurrect.load_state(id, "workspace")
+				resurrect.workspace_state.restore_workspace(state, {
+					relative = true,
+					restore_text = true,
+					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+				})
+			elseif type == "window" then
+				state = resurrect.load_state(id, "window")
+				resurrect.window_state.restore_window(pane:window(), state, {
+					relative = true,
+					restore_text = true,
+					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+				})
+			end
+		end)
+	end)
+)
+
+--]]
