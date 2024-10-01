@@ -132,16 +132,74 @@ map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES"
 local wsl_dotfiles = "//wsl.localhost/Ubuntu/home/shiva/dotfiles/"
 
 -- Switch to Workspace via Project Selection with ALT + G
+--[[
+--]]
 map(
-	"g",
-	{ "ALT" },
+	"o",
+	{ "LEADER" },
+	wezterm.action_callback(function(window, pane)
+		-- Here you can dynamically construct a longer list if needed
+		local home = wezterm.home_dir
+		local wsl_path = "//wsl$/Ubuntu/home/shiva"
+		local wsl_dots = "//wsl$/Ubuntu/home/shiva/dotfiles"
+
+		local workspaces = {
+			{ id = wsl_path, label = "WSLHome" },
+			{ id = wsl_dots, label = "WSLdots" },
+			{ id = wsl_path .. "/projects", label = "Projects" },
+			{ id = wsl_path .. "/.config", label = "Config" },
+			{ id = wsl_path .. "/dotfiles", label = "Dotfiles" },
+		}
+		window:perform_action(
+			wezterm.action.InputSelector({
+				action = wezterm.action_callback(function(inner_window, inner_pane, id, label)
+					if not id and not label then
+						wezterm.log_info("cancelled")
+					else
+						wezterm.log_info("id = " .. id)
+						wezterm.log_info("label = " .. label)
+						inner_window:perform_action(
+							wezterm.action.SwitchToWorkspace({
+								name = label,
+								spawn = {
+									label = "Workspace: " .. label,
+									cwd = id,
+								},
+							}),
+							inner_pane
+						)
+					end
+				end),
+				title = "Choose Workspace",
+				choices = workspaces,
+				fuzzy = true,
+				-- Nightly version only: https://wezfurlong.org/wezterm/config/lua/keyassignment/InputSelector.html?h=input+selector#:~:text=These%20additional%20fields%20are%20also%20available%3A
+				-- fuzzy_description = "Fuzzy find and/or make a workspace",
+			}),
+			pane
+		)
+	end)
+)
+
+--[[
+map(
+	"o",
+	{ "LEADER" },
 
 	wezterm.action_callback(function(window, pane)
 		local projects = {}
 		local wezterm = require("wezterm") -- Ensure wezterm is required within the callback
 
+		local home = wezterm.home_dir
 		local wsl_path = "//wsl$/Ubuntu/home/shiva"
 		local wsl_dotfiles = "//wsl$/Ubuntu/home/shiva/dotfiles"
+
+		local workspaces = {
+			{ id = wsl_path, label = "WSLHome" },
+			{ id = wsl_path .. "/projects", label = "Projects" },
+			{ id = wsl_path .. "/.config", label = "Config" },
+			{ id = wsl_path .. "/dotfiles", label = "Dotfiles" },
+		}
 
 		-- Define the directories to search for Git repositories
 		local search_dirs = {
@@ -198,6 +256,7 @@ map(
 		)
 	end)
 )
+--]]
 
 local key_tables = {
 	resize_mode = {
