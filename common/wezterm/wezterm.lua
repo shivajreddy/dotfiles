@@ -120,11 +120,4 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return " " .. title .. " "
 end)
 
-local mux = wezterm.mux
-
-wezterm.on("gui-startup", function()
-	local _, _, window = mux.spawn_window({})
-	window:gui_window():maximize()
-end)
-
 return c
