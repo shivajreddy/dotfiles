@@ -56,6 +56,15 @@ return {
           },
         },
       },
+
+      setup = {
+        -- Setup function to start LSP after configuration
+        after = function()
+          vim.schedule(function()
+            vim.cmd("LspStart")
+          end)
+        end,
+      },
     },
   },
 }
