@@ -27,6 +27,17 @@ local win_keys = require("config.win_keys")
 local utils = require("config.utils")
 local tabbar_settings = require("config.tabbar")
 
+local session_manager = require("config.session_manager")
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
+
 local c = wezterm.config_builder()
 
 tabbar_settings.apply(c)

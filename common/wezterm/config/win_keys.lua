@@ -122,6 +122,10 @@ map(
 	})
 )
 
+map("s", "LEADER", act({ EmitEvent = "save_session" }))
+map("l", "LEADER", act({ EmitEvent = "load_session" }))
+map("r", "LEADER", act({ EmitEvent = "restore_session" }))
+
 -- Workspaces Keybindings
 -- Show Workspaces Launcher with ALT + SHIFT + G
 map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }))
