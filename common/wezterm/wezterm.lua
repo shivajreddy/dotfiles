@@ -68,7 +68,7 @@ if utils.is_windows() then
 		{
 			name = "WSL:Ubuntu",
 			distribution = "Ubuntu",
-			default_cwd = "~",
+			default_cwd = "/home//shiva",
 		},
 	}
 	c.default_domain = "WSL:Ubuntu"
@@ -118,6 +118,13 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		}
 	end
 	return " " .. title .. " "
+end)
+
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+	local _, _, window = mux.spawn_window({})
+	window:gui_window():maximize()
 end)
 
 return c

@@ -73,6 +73,7 @@ alias zpyv="zellij action new-tab -l python_vertical"
 
 
 # Shell scripts
+source ~/.config/zsh/scripts/wezterm.sh
 source ~/.config/zsh/scripts/cargo.sh
 source ~/.config/zsh/scripts/show.sh
 source ~/.config/zsh/scripts/todo.sh
