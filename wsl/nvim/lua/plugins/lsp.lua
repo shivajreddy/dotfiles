@@ -8,7 +8,7 @@ return {
       -- inlay_hints = { enabled = true }, -- this is deprecated, use this instead? inlay_hint.enable(),
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
+        -- pyright = {},
         -- ruff = {},
         clangd = {
           keys = {
