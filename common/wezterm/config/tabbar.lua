@@ -37,7 +37,7 @@ function M.apply(c)
 		background = "rgba(0,0,0,0)",
 
 		active_tab = {
-			bg_color = "#1f1d2e",
+			bg_color = "#1C1825",
 			fg_color = "#ebbcba",
 
 			intensity = "Bold",
@@ -47,7 +47,8 @@ function M.apply(c)
 		},
 
 		inactive_tab = {
-			bg_color = "#1C1825",
+			-- bg_color = "#1f1d2e",
+			bg_color = "rgba(0,0,0,0)",
 			fg_color = "#808080",
 		},
 
