@@ -7,11 +7,10 @@ function M.apply(c)
 	c.tab_bar_at_bottom = false
 	c.use_fancy_tab_bar = true
 	c.tab_and_split_indices_are_zero_based = true
-
 	-- c.tab_max_width = 16
 
-	-- Fancy tab bar
 	c.window_frame = {
+		font = require("wezterm").font("Berkeley Mono"),
 		font_size = 10.0,
 		inactive_titlebar_bg = "#1f1d2e",
 		active_titlebar_bg = "#1f1d2e",
@@ -71,6 +70,163 @@ function M.apply(c)
 	}
 end
 
+--[[
+wezterm.on("update-status", function(window)
+	-- Grab the utf8 character for the "powerline" left facing
+	-- solid arrow.
+	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+
+	-- Grab the current window's configuration, and from it the
+	-- palette (this is the combination of your chosen colour scheme
+	-- including any overrides).
+	local color_scheme = window:effective_config().resolved_palette
+	local bg = color_scheme.background
+	local fg = color_scheme.foreground
+
+	window:set_right_status(wezterm.format({
+		-- First, we draw the arrow...
+		{ Background = { Color = "none" } },
+		{ Foreground = { Color = bg } },
+		{ Text = SOLID_LEFT_ARROW },
+		-- Then we draw our text
+		{ Background = { Color = bg } },
+		{ Foreground = { Color = fg } },
+		{ Text = " " .. wezterm.hostname() .. " " },
+	}))
+end)
+--]]
+
+wezterm.on("update-right-status", function(window, pane)
+	-- Each element holds the text for a cell in a "powerline" style << fade
+	local cells = {}
+
+	-- Figure out the cwd and host of the current pane.
+	-- This will pick up the hostname for the remote host if your
+	-- shell is using OSC 7 on the remote host.
+	local cwd_uri = pane:get_current_working_dir()
+	if cwd_uri then
+		local cwd = ""
+		local hostname = ""
+
+		if type(cwd_uri) == "userdata" then
+			-- Running on a newer version of wezterm and we have
+			-- a URL object here, making this simple!
+
+			cwd = cwd_uri.file_path
+			hostname = cwd_uri.host or wezterm.hostname()
+		else
+			-- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
+			-- which doesn't have the Url object
+			cwd_uri = cwd_uri:sub(8)
+			local slash = cwd_uri:find("/")
+			if slash then
+				hostname = cwd_uri:sub(1, slash - 1)
+				-- and extract the cwd from the uri, decoding %-encoding
+				cwd = cwd_uri:sub(slash):gsub("%%(%x%x)", function(hex)
+					return string.char(tonumber(hex, 16))
+				end)
+			end
+		end
+
+		-- Remove the domain name portion of the hostname
+		local dot = hostname:find("[.]")
+		if dot then
+			hostname = hostname:sub(1, dot - 1)
+		end
+		if hostname == "" then
+			hostname = wezterm.hostname()
+		end
+
+		table.insert(cells, cwd)
+		table.insert(cells, hostname)
+	end
+
+	-- I like my date/time in this style: "Wed Mar 3 08:14"
+	local date = wezterm.strftime("%a %b %-d %H:%M  ")
+	table.insert(cells, { text = date, is_date = true })
+
+	-- An entry for each battery (typically 0 or 1 battery)
+	for _, b in ipairs(wezterm.battery_info()) do
+		table.insert(cells, string.format("%.0f%%", b.state_of_charge * 100))
+	end
+
+	-- The powerline < symbol
+	local LEFT_ARROW = utf8.char(0xe0b3)
+	-- The filled in variant of the < symbol
+	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+
+	-- Color palette for the backgrounds of each cell
+	local colors = {
+		"#101019",
+		"#191724",
+		"#1f1d2e",
+		"#3c1361",
+		"#52307c",
+		"#663a82",
+		"#7c5295",
+		"#b491c8",
+	}
+
+	-- Foreground color for the text across the fade
+	local text_fg = "#c0c0c0"
+	-- Foreground color for the date
+	local date_fg = "#ebbcba"
+
+	-- The elements to be formatted
+	local elements = {}
+	-- How many cells have been formatted
+	local num_cells = 0
+
+	-- Translate a cell into elements
+	--[[
+	function push(text, is_last)
+		local cell_no = num_cells + 1
+		if cell_no == 1 then
+			table.insert(elements, { Foreground = { Color = colors[cell_no] } })
+			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+		end
+		table.insert(elements, { Foreground = { Color = text_fg } })
+		table.insert(elements, { Background = { Color = colors[cell_no] } })
+		table.insert(elements, { Text = " " .. text .. " " })
+		if not is_last then
+			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+		end
+		num_cells = num_cells + 1
+	end
+  --]]
+
+	-- Translate a cell into elements
+	function push(cell, is_last)
+		local cell_no = num_cells + 1
+		local cell_text = cell.text or cell
+
+		-- Set the foreground color based on whether it's the date
+		local fg_color = cell.is_date and date_fg or text_fg
+
+		if cell_no == 1 then
+			table.insert(elements, { Foreground = { Color = colors[cell_no] } })
+			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+		end
+		table.insert(elements, { Foreground = { Color = fg_color } })
+		table.insert(elements, { Background = { Color = colors[cell_no] } })
+		table.insert(elements, { Text = " " .. cell_text .. " " })
+		if not is_last then
+			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+		end
+		num_cells = num_cells + 1
+	end
+
+	while #cells > 0 do
+		local cell = table.remove(cells, 1)
+		push(cell, #cells == 0)
+	end
+
+	window:set_right_status(wezterm.format(elements))
+end)
+
+--[[
 wezterm.on("update-right-status", function(window, _)
 	-- Get the current time in hh:mm AM/PM format and the date in mm-dd-yyyy format
 	local time = wezterm.strftime("%I:%M %p") -- 12-hour format with AM/PM
@@ -81,5 +237,6 @@ wezterm.on("update-right-status", function(window, _)
 		{ Text = time .. "  " .. date },
 	}))
 end)
+--]]
 
 return M
