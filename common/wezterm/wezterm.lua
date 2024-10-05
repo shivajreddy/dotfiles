@@ -65,7 +65,7 @@ c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
 if utils.is_darwin() then
 	-- Set keymappings based on os
 	mac_keys.apply(c)
-	c.font_size = 18
+	c.font_size = 19
 	c.macos_window_background_blur = 80
 
 	c.front_end = "OpenGL"
