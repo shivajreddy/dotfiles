@@ -108,7 +108,7 @@ wezterm.on("update-right-status", function(window, pane)
 		end
 
 		-- Replace the home directory path with ~
-		if cwd:sub(1, 11) == "/home/shiva" then
+		if cwd:sub(1, 11) == "/home/shiva" or "/Users/smbp" then
 			cwd = "~" .. cwd:sub(12)
 		end
 
