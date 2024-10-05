@@ -66,6 +66,7 @@ if utils.is_darwin() then
 	-- Set keymappings based on os
 	mac_keys.apply(c)
 	c.font_size = 19
+	c.window_frame.font_size = 14 -- tab bar font size
 	c.macos_window_background_blur = 80
 
 	c.front_end = "OpenGL"
@@ -92,6 +93,7 @@ if utils.is_windows() then
 
 	win_keys.apply(c)
 	c.font_size = 12
+	c.window_frame.font_size = 10 -- tab bar font size
 
 	c.window_background_opacity = 0.91
 	-- c.text_background_opacity = 0.3

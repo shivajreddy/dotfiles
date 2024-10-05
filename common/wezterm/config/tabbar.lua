@@ -11,7 +11,7 @@ function M.apply(c)
 
 	c.window_frame = {
 		font = require("wezterm").font("Berkeley Mono"),
-		font_size = 14.0,
+		font_size = 11.0,
 		inactive_titlebar_bg = "#1f1d2e",
 		active_titlebar_bg = "#1f1d2e",
 		-- inactive_titlebar_bg = "#353535",
