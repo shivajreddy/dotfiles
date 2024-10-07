@@ -66,6 +66,7 @@ alias gpush="git push"
 alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
+alias ff="fastfetch"
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
