@@ -9,6 +9,8 @@
 # Mac OS
 .DS_Store
 **/.zsh_history
+**/lazy-lock.json
+./macos/nvim/lazy-lock.json
 
 
 # Windows
