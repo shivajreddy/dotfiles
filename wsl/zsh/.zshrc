@@ -54,6 +54,7 @@ alias gpush="git push"
 alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
+alias ff="fastfetch"
 
 alias fd="fdfind"
 
