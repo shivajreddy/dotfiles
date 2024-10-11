@@ -95,7 +95,8 @@ if utils.is_windows() then
 	c.font_size = 12
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	c.window_background_opacity = 0.91
+	-- c.window_background_opacity = 0.91    -- This is good for focus
+	c.window_background_opacity = 0.85
 	-- c.text_background_opacity = 0.3
 
 	c.window_decorations = "RESIZE"
