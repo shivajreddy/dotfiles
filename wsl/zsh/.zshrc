@@ -23,7 +23,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export TERM=tmux-256color
 
 # Go paths
-export GOPATH="$HOME/go"
+export GOROOT=/usr/local/go
+export GOPATH=/home/shiva/go
+export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
 
 
 ########################### PLUGINS ###########################
