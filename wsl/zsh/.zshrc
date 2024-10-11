@@ -22,6 +22,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
+# Go paths
+export GOPATH="$HOME/go"
+
 
 ########################### PLUGINS ###########################
 # auto suggestions
