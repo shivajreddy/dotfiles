@@ -19,6 +19,9 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Add golang to path
+export PATH="/usr/local/go/bin/:$PATH"
+
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
