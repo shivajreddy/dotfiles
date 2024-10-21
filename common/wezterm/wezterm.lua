@@ -54,10 +54,10 @@ c.color_scheme = "catppuccin-mocha"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
-	-- "Berkeley Mono",
+	"Berkeley Mono",
 	-- "JetBrains Mono",
 	-- "IBM Plex Mono",
-	"Iosevka",
+	-- "Iosevka",
 	-- "Iosevka Fixed",
 	"Symbols Nerd Font",
 })
