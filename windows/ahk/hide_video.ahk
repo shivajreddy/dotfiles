@@ -28,7 +28,7 @@ HandlePiPWindow(XOffset, YOffset)
         WinGetTitle, this_title, ahk_id %this_id%
 
         ; Check if the window title contains "picture in picture" or "Picture in Picture" (case-insensitive)
-        if (InStr(this_title, "picture in picture", true) or InStr(this_title, "Picture in picture", true))
+        if (InStr(this_title, "picture in picture", true) or InStr(this_title, "Picture in picture", true)or InStr(this_title, "Picture-in-Picture", true) )
         {
             ; Get the position and size of the PiP window
             WinGetPos, X, Y, Width, Height, ahk_id %this_id%
