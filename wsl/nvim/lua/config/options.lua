@@ -22,7 +22,7 @@ vim.opt.list = false
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
 
--- Disable right-click mouse functionality
+-- Disable right-click mouse functionality (doublicking on right will make a single click)
 vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
