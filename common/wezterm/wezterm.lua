@@ -54,9 +54,11 @@ c.color_scheme = "catppuccin-mocha"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
-	"Berkeley Mono",
-	"JetBrains Mono",
+	-- "Berkeley Mono",
+	-- "JetBrains Mono",
 	-- "IBM Plex Mono",
+	"Iosevka",
+	-- "Iosevka Fixed",
 	"Symbols Nerd Font",
 })
 c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
@@ -92,11 +94,12 @@ if utils.is_windows() then
 	c.front_end = "OpenGL"
 
 	win_keys.apply(c)
-	c.font_size = 12
+	c.font_size = 14
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	-- c.window_background_opacity = 0.91    -- This is good for focus
-	c.window_background_opacity = 0.85
+	-- c.window_background_opacity = 0.91 -- This is good for focus
+	-- c.window_background_opacity = 0.85
+	c.window_background_opacity = 1
 	-- c.text_background_opacity = 0.3
 
 	c.window_decorations = "RESIZE"

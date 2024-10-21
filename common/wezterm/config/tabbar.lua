@@ -25,6 +25,7 @@ function M.apply(c)
 		button_hover_bg = "#3b3052",
 	}
 
+	-- Overrides the themes colors
 	c.colors = {
 		background = "#111019",
 		cursor_fg = "#191724",
