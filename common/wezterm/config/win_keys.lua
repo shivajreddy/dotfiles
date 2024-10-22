@@ -65,17 +65,11 @@ for i = 1, 9 do
 	map(tostring(i), { "LEADER", "ALT" }, act.ActivateTab(i - 1))
 end
 map("0", { "LEADER", "ALT" }, act.ActivateTab(-1))
--- 'hjkl' to move between panes
 map("h", { "LEADER", "ALT" }, act.ActivatePaneDirection("Left"))
 map("j", { "LEADER", "ALT" }, act.ActivatePaneDirection("Down"))
 map("k", { "LEADER", "ALT" }, act.ActivatePaneDirection("Up"))
 map("l", { "LEADER", "ALT" }, act.ActivatePaneDirection("Right"))
 
--- resize
-map("h", "LEADER|SHIFT", act.AdjustPaneSize({ "Left", 5 }))
-map("j", "LEADER|SHIFT", act.AdjustPaneSize({ "Down", 5 }))
-map("k", "LEADER|SHIFT", act.AdjustPaneSize({ "Up", 5 }))
-map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 -- spawn & close
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
@@ -115,152 +109,12 @@ map("l", "SHIFT|ALT", act.ShowDebugOverlay)
 
 map(
 	"r",
-	{ "LEADER", "ALT" },
+	{ "ALT" },
 	act.ActivateKeyTable({
 		name = "resize_mode",
 		one_shot = false,
 	})
 )
-
-map("s", "LEADER", act({ EmitEvent = "save_session" }))
-map("l", "LEADER", act({ EmitEvent = "load_session" }))
-map("r", "LEADER", act({ EmitEvent = "restore_session" }))
-
--- Workspaces Keybindings
--- Show Workspaces Launcher with ALT + SHIFT + G
-map("g", { "ALT|SHIFT" }, wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }))
-
--- New keybinding to change directory to dotfiles
--- Sends the string "cd /home/shiva/dotfiles" followed by Enter
--- local wsl_dotfiles = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\"
-local wsl_dotfiles = "//wsl.localhost/Ubuntu/home/shiva/dotfiles/"
-
--- Switch to Workspace via Project Selection with ALT + G
---[[
---]]
-map(
-	"o",
-	{ "LEADER" },
-	wezterm.action_callback(function(window, pane)
-		-- Here you can dynamically construct a longer list if needed
-		local home = wezterm.home_dir
-		local wsl_path = "//wsl$/Ubuntu/home/shiva"
-		local wsl_dots = "//wsl$/Ubuntu/home/shiva/dotfiles"
-
-		local workspaces = {
-			{ id = wsl_path, label = "WSLHome" },
-			{ id = wsl_dots, label = "WSLdots" },
-			{ id = wsl_path .. "/projects", label = "Projects" },
-			{ id = wsl_path .. "/.config", label = "Config" },
-			{ id = wsl_path .. "/dotfiles", label = "Dotfiles" },
-		}
-		window:perform_action(
-			wezterm.action.InputSelector({
-				action = wezterm.action_callback(function(inner_window, inner_pane, id, label)
-					if not id and not label then
-						wezterm.log_info("cancelled")
-					else
-						wezterm.log_info("id = " .. id)
-						wezterm.log_info("label = " .. label)
-						inner_window:perform_action(
-							wezterm.action.SwitchToWorkspace({
-								name = label,
-								spawn = {
-									label = "Workspace: " .. label,
-									cwd = id,
-								},
-							}),
-							inner_pane
-						)
-					end
-				end),
-				title = "Choose Workspace",
-				choices = workspaces,
-				fuzzy = true,
-				-- Nightly version only: https://wezfurlong.org/wezterm/config/lua/keyassignment/InputSelector.html?h=input+selector#:~:text=These%20additional%20fields%20are%20also%20available%3A
-				-- fuzzy_description = "Fuzzy find and/or make a workspace",
-			}),
-			pane
-		)
-	end)
-)
-
---[[
-map(
-	"o",
-	{ "LEADER" },
-
-	wezterm.action_callback(function(window, pane)
-		local projects = {}
-		local wezterm = require("wezterm") -- Ensure wezterm is required within the callback
-
-		local home = wezterm.home_dir
-		local wsl_path = "//wsl$/Ubuntu/home/shiva"
-		local wsl_dotfiles = "//wsl$/Ubuntu/home/shiva/dotfiles"
-
-		local workspaces = {
-			{ id = wsl_path, label = "WSLHome" },
-			{ id = wsl_path .. "/projects", label = "Projects" },
-			{ id = wsl_path .. "/.config", label = "Config" },
-			{ id = wsl_path .. "/dotfiles", label = "Dotfiles" },
-		}
-
-		-- Define the directories to search for Git repositories
-		local search_dirs = {
-			-- Adjust the paths below based on your system and project locations
-			"/dotfiles",
-			wsl_path,
-			wezterm.home_dir .. "\\home",
-			-- Add more paths here
-		}
-
-		-- Run 'fd.exe' to find '.git' directories
-		local success, stdout, stderr = wezterm.run_child_process({
-			"fd.exe", -- Directly call 'fd.exe' assuming it's in PATH
-			"-HI", -- Hidden files, ignore case
-			"-td", -- Type: directory
-			"^.git$", -- Regex to match '.git' directories
-			"--max-depth=4", -- Limit search depth
-		}, search_dirs) -- Pass search_dirs as arguments
-
-		if not success then
-			wezterm.log_error("Failed to run fd: " .. stderr)
-			return
-		end
-
-		-- Add default project
-		table.insert(projects, { label = wezterm.home_dir, id = "default" })
-
-		-- Parse the output from 'fd.exe' and populate projects
-		for line in stdout:gmatch("([^\n]*)\n?") do
-			local project = line:gsub("\\.git$", "")
-			local label = project
-			local id = project:gsub(".*\\", "")
-			table.insert(projects, { label = tostring(label), id = tostring(id) })
-		end
-
-		-- Display the project selector
-		window:perform_action(
-			wezterm.action.PromptInputLine({
-				description = "Select Workspace",
-				action = wezterm.action_callback(function(win, _, id, label)
-					if not id and not label then
-						wezterm.log_info("Cancelled")
-					else
-						wezterm.log_info("Selected " .. label)
-						win:perform_action(
-							wezterm.action.SwitchToWorkspace({ name = id, spawn = { cwd = label } }),
-							pane
-						)
-					end
-				end),
-				-- You can customize the selector further if needed
-			}),
-			pane
-		)
-	end)
-)
---]]
 
 local key_tables = {
 	resize_mode = {
@@ -282,7 +136,7 @@ for k, _ in pairs(key_tables) do
 	table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
 end
 
--- MAC spesific
+-- MAC specific
 -- in mac, wezterm.os_name is 'nil'
 if utils.is_darwin() then
 	map("s", { "CMD" }, act.SendKey({ key = "s", mods = "CTRL" }))

@@ -2,7 +2,7 @@
 
   ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
   ::::::::::::::::::::     Author: Shiva        ::::::::::::::::::::
-  ::::::::::::::::::::   Date: 10-01-2024       ::::::::::::::::::::
+  ::::::::::::::::::::   Date: 10-22-2024       ::::::::::::::::::::
   ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   :: How to set up config is at ::
@@ -26,17 +26,6 @@ local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
 local utils = require("config.utils")
 local tabbar_settings = require("config.tabbar")
-
-local session_manager = require("config.session_manager")
-wezterm.on("save_session", function(window)
-	session_manager.save_state(window)
-end)
-wezterm.on("load_session", function(window)
-	session_manager.load_state(window)
-end)
-wezterm.on("restore_session", function(window)
-	session_manager.restore_state(window)
-end)
 
 local c = wezterm.config_builder()
 
@@ -135,6 +124,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		}
 	end
 	return " " .. title .. " "
+end)
+
+-- Session Management
+local session_manager = require("wezterm-session-manager/session-manager")
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
 end)
 
 return c
