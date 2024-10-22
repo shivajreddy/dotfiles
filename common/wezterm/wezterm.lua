@@ -104,19 +104,6 @@ end
 
 -- :::::::::::    WINDOW-TITLE    :::::::::::
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	-- print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
-	-- print("🔥window", window)
-	-- print("🔥pane", pane)
-	-- print("🔥pane", wezterm.CurrentPaneDomain)
-	-- print("🔥tab", tab)
-	-- print("🔥tab.tab_title", tab.tab_title)
-	-- print("🔥tab.active_pane.title", tab.active_pane.title)
-	-- print("🔥tabs", tabs)
-	-- print("🔥panes", panes)
-	-- print("🔥config", config)
-	-- print("🔥hover", hover)
-	-- print("🔥max_width", max_width)
-	-- print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
 	local title = utils.tab_title(tab)
 	if tab.is_active then
 		return {
@@ -126,16 +113,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return " " .. title .. " "
 end)
 
--- Session Management
-local session_manager = require("wezterm-session-manager/session-manager")
-wezterm.on("save_session", function(window)
-	session_manager.save_state(window)
-end)
-wezterm.on("load_session", function(window)
-	session_manager.load_state(window)
-end)
-wezterm.on("restore_session", function(window)
-	session_manager.restore_state(window)
-end)
+-- Smart Workspace switcher https://github.com/MLFlexer/smart_workspace_switcher.wezterm
+-- local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+-- workspace_switcher.apply_to_config(c)
+-- c.keys = {
+-- 	{
+-- 		key = "s",
+-- 		mods = "LEADER",
+-- 		action = workspace_switcher.switch_workspace(),
+-- 	},
+-- }
+-- c.default_workspace = "~"
 
 return c

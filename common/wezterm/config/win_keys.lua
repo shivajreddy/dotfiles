@@ -107,6 +107,7 @@ map("r", { "SHIFT|ALT" }, renameTab)
 -- debug
 map("l", "SHIFT|ALT", act.ShowDebugOverlay)
 
+-- Reisze mode
 map(
 	"r",
 	{ "ALT" },
@@ -135,6 +136,9 @@ for k, _ in pairs(key_tables) do
 	table.insert(key_tables[k], { key = "Enter", action = "PopKeyTable" })
 	table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
 end
+
+-- Smart Workspace switcher
+-- map("s", { "LEADER" }, workspace_switcher.switch_workspace())
 
 -- MAC specific
 -- in mac, wezterm.os_name is 'nil'
