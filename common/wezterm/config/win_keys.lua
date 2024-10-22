@@ -138,7 +138,53 @@ for k, _ in pairs(key_tables) do
 end
 
 -- Smart Workspace switcher
--- map("s", { "LEADER" }, workspace_switcher.switch_workspace())
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+map("s", { "ALT" }, workspace_switcher.switch_workspace())
+-- Resurrect
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+map(
+	"w",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+	end)
+)
+map("W", "ALT", resurrect.window_state.save_window_action())
+-- map("T", "ALT", resurrect.tab_state.save_tab_action())
+map(
+	"S",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+		resurrect.window_state.save_window_action()
+	end)
+)
+map(
+	"q",
+	"ALT",
+	wezterm.action_callback(function(win, pane)
+		resurrect.fuzzy_load(win, pane, function(id, label)
+			local type = string.match(id, "^([^/]+)") -- match before '/'
+			id = string.match(id, "([^/]+)$") -- match after '/'
+			id = string.match(id, "(.+)%..+$") -- remove file extension
+			local opts = {
+				relative = true,
+				restore_text = true,
+				on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+			}
+			if type == "workspace" then
+				local state = resurrect.load_state(id, "workspace")
+				resurrect.workspace_state.restore_workspace(state, opts)
+			elseif type == "window" then
+				local state = resurrect.load_state(id, "window")
+				resurrect.window_state.restore_window(pane:window(), state, opts)
+			elseif type == "tab" then
+				local state = resurrect.load_state(id, "tab")
+				resurrect.tab_state.restore_tab(pane:tab(), state, opts)
+			end
+		end)
+	end)
+)
 
 -- MAC specific
 -- in mac, wezterm.os_name is 'nil'

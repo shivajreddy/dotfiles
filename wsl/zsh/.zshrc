@@ -53,16 +53,22 @@ alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
+alias ff="fastfetch"
+
+# Git 
 alias gaa="git add ."
 alias gcmsg="git commit -m"
 alias gst="git status ."
 alias gitsave="gaa && gcmsg '.' && ggpush"
 alias gpull="git pull"
 alias gpush="git push"
+alias gsave="gaa && gcmsg '.' && gpush"
+
+# Python
 alias python="python3"
 alias py="python3"
 alias pva="source ./venv/bin/activate"
-alias ff="fastfetch"
+
 
 alias fd="fdfind"
 

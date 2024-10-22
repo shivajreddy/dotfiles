@@ -109,7 +109,7 @@ wezterm.on("update-right-status", function(window, pane)
 		end
 
 		-- Replace the home directory path with ~
-		if cwd:sub(1, 11) == "/home/shiva" or "/Users/smbp" then
+		if cwd:sub(1, 11) == "/home/shiva" or cwd:sub(1, 11) == "/Users/smbp" then
 			cwd = "~" .. cwd:sub(12)
 		end
 
@@ -178,6 +178,27 @@ wezterm.on("update-right-status", function(window, pane)
 
 	-- Set the right status with the formatted elements
 	window:set_right_status(wezterm.format(elements))
+
+	-- Show the active state of LEADER key
+	local LEFT_ARROW_LEADER = "" -- Renamed to avoid conflict
+	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
+	local prefix = ""
+
+	if window:leader_is_active() then
+		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
+		LEFT_ARROW_LEADER = utf8.char(0xe0b2)
+	end
+
+	if window:active_tab():tab_id() ~= 0 then
+		ARROW_FOREGROUND = { Foreground = { Color = "#1e2030" } }
+	end -- arrow color based on if tab is first pane
+
+	window:set_left_status(wezterm.format({
+		{ Background = { Color = "#b7bdf8" } },
+		{ Text = prefix },
+		ARROW_FOREGROUND,
+		{ Text = LEFT_ARROW_LEADER },
+	}))
 end)
 
 return M

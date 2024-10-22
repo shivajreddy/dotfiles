@@ -103,6 +103,7 @@ if utils.is_windows() then
 end
 
 -- :::::::::::    WINDOW-TITLE    :::::::::::
+--[[
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = utils.tab_title(tab)
 	if tab.is_active then
@@ -112,17 +113,36 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 	return " " .. title .. " "
 end)
+--]]
+
+-- tmux status
+wezterm.on("update-right-status", function(window, _)
+	local SOLID_LEFT_ARROW = ""
+	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
+	local prefix = ""
+
+	if window:leader_is_active() then
+		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
+		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+	end
+
+	if window:active_tab():tab_id() ~= 0 then
+		ARROW_FOREGROUND = { Foreground = { Color = "#1e2030" } }
+	end -- arrow color based on if tab is first pane
+
+	window:set_left_status(wezterm.format({
+		{ Background = { Color = "#b7bdf8" } },
+		{ Text = prefix },
+		ARROW_FOREGROUND,
+		{ Text = SOLID_LEFT_ARROW },
+	}))
+end)
 
 -- Smart Workspace switcher https://github.com/MLFlexer/smart_workspace_switcher.wezterm
--- local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
--- workspace_switcher.apply_to_config(c)
--- c.keys = {
--- 	{
--- 		key = "s",
--- 		mods = "LEADER",
--- 		action = workspace_switcher.switch_workspace(),
--- 	},
--- }
--- c.default_workspace = "~"
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+workspace_switcher.apply_to_config(c)
+c.default_workspace = "~"
+-- Resurrect
+-- local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 
 return c
