@@ -6,15 +6,6 @@
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
-vim.o.scrolloff = 8
-
-vim.opt.updatetime = 50
-
--- vim.opt.colorcolumn = "80"
--- vim.opt.colorcolumn = "100"
-
-vim.opt.relativenumber = false
-
 vim.opt.clipboard:append("unnamedplus")
 
 vim.opt.list = false
@@ -26,3 +17,29 @@ vim.opt.sidescrolloff = 10
 vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
+
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "100"

@@ -2,6 +2,10 @@
 -- https://www.reddit.com/r/neovim/comments/19f7s7e/changing_default_ros%C3%A9_pine_colours/
 return {
   {
+    "erikbackman/brightburn.vim",
+    name = "brightburn",
+  },
+  {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
@@ -9,7 +13,7 @@ return {
         variant = "auto", -- auto, main, moon, or dawn
         styles = {
           bold = true,
-          italic = true,
+          italic = false,
           transparency = true,
         },
         groups = {
@@ -129,7 +133,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "rose-pine",
-      colorscheme = "catppuccin",
+      colorscheme = "rose-pine-moon",
+      -- colorscheme = "catppuccin",
+      -- colorscheme = "brightburn",
     },
   },
 }

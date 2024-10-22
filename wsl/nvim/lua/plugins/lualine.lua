@@ -22,9 +22,9 @@ return {
 
     return {
       options = {
-        -- theme = "auto",
+        theme = "auto",
         --- @usage 'rose-pine' | 'rose-pine-alt'
-        theme = "rose-pine",
+        -- theme = "rose-pine",
         -- theme = "gruvbox",
         globalstatus = true,
         disabled_filetypes = { statusline = { "neo-tree", "dashboard", "alpha", "starter" } },
@@ -104,12 +104,13 @@ return {
         --]]
         },
         lualine_y = {
-          -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          -- { "location", padding = { left = 0, right = 1 } },
+          { "progress", separator = " ", padding = { left = 1, right = 0 } },
+          { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
+          -- Time
           -- function()
-          -- 	return " " .. os.date("%R")
+          --   return " " .. os.date("%R")
           -- end,
         },
       },
