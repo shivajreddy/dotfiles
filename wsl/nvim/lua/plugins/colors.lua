@@ -22,12 +22,14 @@ return {
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
+          -- rosepine burnt background: #0e0a01
           -- Normal = { bg = "#061111" },
           -- ["String"] = { fg = "#27d653" },
           -- ["SignColumn"] = { bg = "#31748f", fg = "#f6c177" },
           -- ["SignColumn"] = { bg = "#31748f" },
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           -- CursorLine = { bg = "#31748f", fg = "#f6c177" },
+          CursorLine = { bg = "NONE" },
         },
       })
     end,
@@ -47,7 +49,7 @@ return {
       },
       transparent_background = true, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-      term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+      term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
         enabled = false, -- dims the background color of inactive window
         shade = "dark",
@@ -73,8 +75,9 @@ return {
       },
       color_overrides = {
         mocha = {
-          base = "#181825",
-          -- base = "#11111b",
+          base = "#000000",
+          mantle = "#000000",
+          crust = "#000000",
         },
       },
       custom_highlights = function()
@@ -133,8 +136,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "rose-pine",
-      -- colorscheme = "rose-pine-moon",
-      colorscheme = "catppuccin",
+      colorscheme = "rose-pine-moon",
+      -- colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "brightburn",
     },
   },
