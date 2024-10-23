@@ -25,11 +25,11 @@ local wezterm = require("wezterm")
 local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
 local utils = require("config.utils")
-local tabbar_settings = require("config.tabbar")
+local ui_settings = require("config.ui")
 
 local c = wezterm.config_builder()
 
-tabbar_settings.apply(c)
+ui_settings.apply(c)
 
 -- :::::::::::    GENERAL    :::::::::::
 c.automatically_reload_config = true
@@ -103,7 +103,6 @@ if utils.is_windows() then
 end
 
 -- :::::::::::    WINDOW-TITLE    :::::::::::
---[[
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = utils.tab_title(tab)
 	if tab.is_active then
@@ -113,7 +112,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 	return " " .. title .. " "
 end)
---]]
 
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
