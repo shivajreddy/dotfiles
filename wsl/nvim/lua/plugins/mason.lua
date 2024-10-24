@@ -4,5 +4,6 @@ return {
     table.insert(opts.ensure_installed, "pyright")
     -- table.insert(opts.ensure_installed, "black")
     table.insert(opts.ensure_installed, "ruff")
+    table.insert(opts.ensure_installed, "prettier")
   end,
 }

@@ -1,3 +1,10 @@
+--[[
+-- Formatting options clang-format
+-- Example: run the following command to set GNU formatting
+~/.local/share/nvim/mason/bin/clang-format --style GNU --dump-config > .config-format
+
+]]
+
 return {
   -- NOTE 5: set up the language's lsp config here
   {
