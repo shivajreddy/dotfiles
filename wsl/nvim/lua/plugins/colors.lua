@@ -22,10 +22,10 @@ return {
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
-          Normal = { bg = "#14110F" },
+          -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
+          Normal = { bg = "#14110F" }, -- smoky black
+          VertSplit = { fg = "muted", bg = "muted" },
           -- Normal = { bg = "#061111" },
-          -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
-          -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
           -- ["String"] = { fg = "#27d653" },
           -- ["SignColumn"] = { bg = "#31748f", fg = "#f6c177" },
           -- ["SignColumn"] = { bg = "#31748f" },
@@ -143,8 +143,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "rose-pine",
-      colorscheme = "rose-pine-moon",
+      colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine-moon",
       -- colorscheme = "catppuccin",
       -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "brightburn",
