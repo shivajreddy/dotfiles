@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Quit all, or leader+qq (comes from lazyvim)
+vim.cmd([[command! Q qall]])
+
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- Diagnostics

@@ -17,7 +17,7 @@ return {
           transparency = true,
         },
         groups = {
-          h1 = "love",
+          -- h1 = "love",
         },
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
