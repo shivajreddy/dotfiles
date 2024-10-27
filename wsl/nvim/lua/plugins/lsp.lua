@@ -1,23 +1,13 @@
---[[
--- Formatting options clang-format
--- Example: run the following command to set GNU formatting
-~/.local/share/nvim/mason/bin/clang-format --style GNU --dump-config > .config-format
-
-]]
-
 return {
-  -- NOTE 5: set up the language's lsp config here
+  -- NOTE: 5 - set up the language's lsp config here
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
       inlay_hints = {},
-      -- inlay_hints = { enabled = true }, -- this is deprecated, use this instead? inlay_hint.enable(),
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        -- pyright = {},
-        -- ruff = {},
-        --[[
+
+        --#region Clangd  Configuration
         clangd = {
           keys = {
             { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -53,9 +43,9 @@ return {
             clangdFileStatus = true,
           },
         },
-        --]]
+        --#endregion
 
-        -- cmake = {},
+        --#region Rust Configuration
         rust_analyzer = {
           -- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/
           tools = {},
@@ -65,6 +55,7 @@ return {
             show_parameter_hints = true,
           },
         },
+        --#endregion
       },
 
       setup = {

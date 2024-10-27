@@ -1,0 +1,37 @@
+#################
+# Author: Shiva
+# This will be used by default for all cpp files
+# NOTE: The file name of this file should be .clang-format
+# Use the following command to make a sym link on your linux home(~) directory
+# ln -s ~/dotfiles/common/code/clang-format .clang-format
+
+# Formatting options clang-format
+# Example: run the following command to set GNU formatting
+# ~/.local/share/nvim/mason/bin/clang-format --style GNU --dump-config > .config-format
+#################
+
+BasedOnStyle: LLVM
+Language:        Cpp
+IndentWidth:     4
+UseTab:          Never
+TabWidth:        4
+BreakBeforeBraces: Attach
+BraceWrapping:
+  AfterClass:              true
+  AfterControlStatement:  true
+  AfterEnum:               true
+  AfterFunction:           true
+  AfterNamespace:          true
+  AfterStruct:             true
+  AfterUnion:              true
+  BeforeCatch:             true
+  BeforeElse:              true
+  IndentBraces:            false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine:       false
+ColumnLimit:      80
+ContinuationIndentWidth: 4
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 1
+AccessModifierOffset: -4
+# IndentAccessModifiers: false  # Optional
