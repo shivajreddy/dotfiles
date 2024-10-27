@@ -33,5 +33,5 @@ ColumnLimit:      80
 ContinuationIndentWidth: 4
 SpaceBeforeParens: ControlStatements
 SpacesBeforeTrailingComments: 1
-AccessModifierOffset: -4
+# AccessModifierOffset: -4
 # IndentAccessModifiers: false  # Optional
