@@ -10,14 +10,7 @@ return {
       PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
       TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      -- Add your custom keyword here
-      CUSTOM = {
-        -- icon = " ",
-        icon = " ",
-        color = "error", -- Can be "error", "warning", "info", "hint", "default", or a color like "#ff0000"
-        alt = { "C.E", "ERROR" }, -- Alternative keywords
-        -- Highlight group for the keyword. You can also specify a color using #RRGGBB
-      },
+      ERROR = { icon = " ", color = "error", alt = { "C.E", "ERROR" } },
     },
     -- Optionally customize the colors
     colors = {
