@@ -12,15 +12,11 @@ return {
       TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       -- Add your custom keyword here
       CUSTOM = {
-        icon = " ",
+        -- icon = " ",
+        icon = " ",
         color = "error", -- Can be "error", "warning", "info", "hint", "default", or a color like "#ff0000"
         alt = { "C.E", "ERROR" }, -- Alternative keywords
         -- Highlight group for the keyword. You can also specify a color using #RRGGBB
-        highlights = {
-          before = "fg", -- The color before the keyword
-          keyword = "wide_fg", -- The color of the keyword
-          after = "fg", -- The color after the keyword
-        },
       },
     },
     -- Optionally customize the colors

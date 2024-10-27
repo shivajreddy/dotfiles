@@ -14,11 +14,17 @@ return {
     | |   ||    | |     |    | |       | |    | |           | /      \ |     | /    | |     | |     | 
     \|___||____|/      |____|/         \|____| |___________|/        \|_____|/      \|_____|\|_____| 
     ]]
-    local logo = [[
-   ┓   •        
-┏  ┣┓  ┓  ┓┏  ┏┓
-┛  ┛┗  ┗  ┗┛  ┗┻
+    local _ = [[
+━━           ┓   •              ━━━━
+━━━━━━    ┏  ┣┓  ┓  ┓┏  ┏┓    ━━━━━━
+━━        ┛  ┛┗  ┗  ┗┛  ┗┻      ━━━━
+                                    
     ]]
+    local logo = [[
+━━━━━━    ┏┓  ┓   •            ━━━━━━
+━━━━━━    ┗┓  ┣┓  ┓  ┓┏  ┏┓    ━━━━━━
+━━━━━━    ┗┛  ┛┗  ┗  ┗┛  ┗┻    ━━━━━━
+        ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
 
@@ -53,7 +59,8 @@ return {
         footer = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          -- return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          return { "" }
         end,
       },
     }
