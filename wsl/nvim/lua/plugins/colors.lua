@@ -24,14 +24,16 @@ return {
         highlight_groups = {
           -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
           Normal = { bg = "#14110F" }, -- smoky black
-          VertSplit = { fg = "muted", bg = "muted" },
+          CursorLine = { bg = "base" },
+          ColorColumn = { bg = "#0e0a01" },
+          -- VertSplit = { fg = "muted", bg = "muted" },
           -- Normal = { bg = "#061111" },
           -- ["String"] = { fg = "#27d653" },
           -- ["SignColumn"] = { bg = "#31748f", fg = "#f6c177" },
           -- ["SignColumn"] = { bg = "#31748f" },
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           -- CursorLine = { bg = "#31748f", fg = "#f6c177" },
-          CursorLine = { bg = "NONE" },
+          -- CursorLine = { bg = "#0e0a01" },
         },
       })
     end,
