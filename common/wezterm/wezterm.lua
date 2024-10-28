@@ -34,7 +34,7 @@ ui_settings.apply(c)
 -- :::::::::::    GENERAL    :::::::::::
 c.automatically_reload_config = true
 c.window_close_confirmation = "NeverPrompt"
-c.window_padding = { left = 10, right = 10, top = 20, bottom = 0 }
+c.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 
