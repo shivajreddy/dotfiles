@@ -110,7 +110,7 @@ map("l", "SHIFT|ALT", act.ShowDebugOverlay)
 -- Reisze mode
 map(
 	"r",
-	{ "ALT" },
+	{ "LEADER" },
 	act.ActivateKeyTable({
 		name = "resize_mode",
 		one_shot = false,
