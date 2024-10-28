@@ -59,7 +59,7 @@ this means that you can exucute this command in two ways:
 -- use 'Backslash' to split horizontally
 map("\\", "LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 -- and 'Minus' to split vertically
-map("-", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+map("`", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 -- map 1-9 to switch to tab 1-9, 0 for the last tab
 for i = 1, 9 do
 	map(tostring(i), { "LEADER", "ALT" }, act.ActivateTab(i - 1))
