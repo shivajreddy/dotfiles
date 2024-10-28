@@ -48,6 +48,7 @@ c.font = wezterm.font_with_fallback({
 	-- "IBM Plex Mono",
 	-- "Iosevka",
 	-- "Iosevka Fixed",
+	"IosevkaNerdFontMono-Regular",
 	"Symbols Nerd Font",
 })
 c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
