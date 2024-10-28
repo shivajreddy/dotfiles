@@ -43,3 +43,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 -- vim.opt.colorcolumn = "100"
+
+vim.opt.foldmethod = "marker"
+vim.opt.foldmarker = "// #region,// #endregion"
