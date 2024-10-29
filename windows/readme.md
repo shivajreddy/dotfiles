@@ -9,6 +9,9 @@
 - install build-essential, cmake
 - install node, nvm, npm
 - install python
+- install golang
+    https://www.cherryservers.com/blog/install-go-ubuntu
+- 
 
 ### Windows
 - install berkeley mono, iosevka, jetbrains mono font
