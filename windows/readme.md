@@ -1,3 +1,23 @@
+# Setting up new Windows machine
+
+### WSL
+- install wsl and ubuntu
+- install wezterm, symlink wezterm folder
+  mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
+- install lazygit
+    https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
+- install build-essential, cmake
+- install node, nvm, npm
+- install python
+
+### Windows
+- install berkeley mono, iosevka, jetbrains mono font
+- install firefox, symlink chrome folder
+- Terminal
+- powershell
+
+
+
 
 ### Make sym links from windows-os to this repo which is inside WSL
 
