@@ -19,6 +19,9 @@
 - Terminal
 - powershell
 
+- set active windows border color
+    https://windowsreport.com/windows-11-change-window-border/
+
 
 
 
