@@ -1,3 +1,42 @@
+/* 
+    Custom toolbar colors to match rosepine 
+    #14110F smoky black
+    #0e0a01 rosepine burnt
+*/
+:root {
+  --custom-smoky-black: #14110F !important;
+  --custom-rosepine-burnt: #0e0a01 !important;
+
+  --toolbar-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+  --toolbar-field-background-color: var(--custom-smoky-black) !important;
+  --toolbar-field-focus-background-color: var(--custom-smoky-black) !important;
+  --tab-selected-bgcolor: var(--custom-rosepine-burnt) !important;
+  --toolbox-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+  --toolbox-non-lwt-bgcolor-inactive: var(--custom-smoky-black) !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --toolbar-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+    --toolbar-field-background-color: var(--custom-smoky-black) !important;
+    --toolbar-field-focus-background-color: var(--custom-smoky-black) !important;
+    --tab-selected-bgcolor: var(--custom-rosepine-burnt) !important;
+    --toolbox-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+    --toolbox-non-lwt-bgcolor-inactive: var(--custom-smoky-black) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --toolbar-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+    --toolbar-field-background-color: var(--custom-smoky-black) !important;
+    --toolbar-field-focus-background-color: var(--custom-smoky-black) !important;
+    --tab-selected-bgcolor: var(--custom-rosepine-burnt) !important;
+    --toolbox-non-lwt-bgcolor: var(--custom-smoky-black) !important;
+    --toolbox-non-lwt-bgcolor-inactive: var(--custom-smoky-black) !important;
+  }
+}
+
 /* Remove the space before tabs */
 .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
     display: none !important;
