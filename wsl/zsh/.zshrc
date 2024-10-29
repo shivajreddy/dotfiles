@@ -70,7 +70,11 @@ alias py="python3"
 alias pva="source ./venv/bin/activate"
 
 
+# Linux Related
 alias fd="fdfind"
+
+# - formats nicely when using the `time` command
+alias time='/usr/bin/time -f "\nreal\t%E\nuser\t%U\nsys\t%S"'
 
 # For wsl stuff
 alias pwsh="pwsh.exe -nologo"
