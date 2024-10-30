@@ -5,7 +5,8 @@
 */
 :root {
   --custom-smoky-black: #14110F !important;
-  --custom-rosepine-burnt: #0e0a01 !important;
+  /* --custom-rosepine-burnt: #0e0a01 !important; */
+  --custom-rosepine-burnt: #26233a !important;
 
   --toolbar-non-lwt-bgcolor: var(--custom-smoky-black) !important;
   --toolbar-field-background-color: var(--custom-smoky-black) !important;
