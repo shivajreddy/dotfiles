@@ -45,14 +45,13 @@ c.color_scheme = "catppuccin-mocha"
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
 	"Berkeley Mono",
-	-- "JetBrains Mono",
-	-- "IBM Plex Mono",
-	-- "Iosevka",
-	-- "Iosevka Fixed",
-	"IosevkaNerdFontMono-Regular",
+	-- "BlexMono Nerd Font",
+	-- "Iosevka Nerd Font",
+	"JetBrainsMono Nerd Font",
 	"Symbols Nerd Font",
 })
-c.harfbuzz_features = { "calt=0", "clig=0", "liga=0", "ss01=0" }
+-- Disable font ligatures => == <=
+c.harfbuzz_features = { "calt=0", "clig=1", "liga=1", "ss01=0" }
 
 -- :::::::::::    MacOS Setttings    :::::::::::
 if utils.is_darwin() then
