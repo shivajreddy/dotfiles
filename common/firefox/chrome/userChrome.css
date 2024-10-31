@@ -3,6 +3,20 @@
     #14110F smoky black
     #0e0a01 rosepine burnt
 */
+
+/* Icons on the URL Bar */
+#page-action-buttons {
+    display: none !important;
+}
+#identity-box {
+    display: none !important;
+}
+#tracking-protection-icon-container {
+    display: none !important;
+}
+
+
+
 :root {
   --custom-smoky-black: #14110F !important;
   /* --custom-rosepine-burnt: #0e0a01 !important; */
