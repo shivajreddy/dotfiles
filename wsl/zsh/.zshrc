@@ -102,3 +102,7 @@ alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+########################### OTHER ###########################
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+
