@@ -88,8 +88,8 @@ gclone() {  # Function to clone a GitHub repository
 }
 
 # Python
-alias python="python3"
-alias py="python3"
+alias python="python3.12"
+alias py="python3.12"
 alias pva="source ./venv/bin/activate"
 
 
