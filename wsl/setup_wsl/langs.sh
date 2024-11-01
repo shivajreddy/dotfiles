@@ -204,7 +204,7 @@ install_python() {
     # Function to clean up temporary files
     cleanup() {
         if [ -d "$TEMP_DIR" ]; then
-            rm -rf "$TEMP_DIR"
+            sudo rm -rf "$TEMP_DIR"
             if [ $? -eq 0 ]; then
                 log "info" "Cleaned up temporary files."
             else
