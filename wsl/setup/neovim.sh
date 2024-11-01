@@ -73,6 +73,13 @@ install_dependencies() {
 install_neovim() {
     log "info" "Downloading and installing Neovim..."
 
+    # Create a temporary directory for Neovim installation
+    local temp_dir=$(mktemp -d)
+    cd "$temp_dir" || {
+        log "error" "Failed to create temporary directory"
+        exit 1
+    }
+
     # Fetch the latest release information
     local release_info=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest)
 
@@ -103,8 +110,9 @@ install_neovim() {
     # Create symlink
     sudo ln -sf /opt/nvim/AppRun /usr/local/bin/nvim
 
-    # Clean up
-    rm nvim.appimage
+    # Clean up temporary directory
+    cd - > /dev/null
+    rm -rf "$temp_dir"
 
     # Verify installation
     if command -v nvim &> /dev/null; then
