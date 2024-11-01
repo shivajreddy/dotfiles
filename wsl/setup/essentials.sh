@@ -26,7 +26,7 @@ echo ""
 
 # Step 3: Install Essential Tools
 echo "🌱 Step 3: Installing essential tools..."
-ESSENTIAL_PACKAGES=("software-properties-common" "vim" "git" "curl" "wget" "g++" "cmake" "pkg-config")
+ESSENTIAL_PACKAGES=("fuse" "libfuse2" "software-properties-common" "vim" "git" "curl" "wget" "g++" "cmake" "pkg-config")
 
 for package in "${ESSENTIAL_PACKAGES[@]}"; do
     if ! dpkg -s "$package" &> /dev/null; then
