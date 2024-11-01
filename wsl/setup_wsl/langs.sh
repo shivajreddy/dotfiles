@@ -169,9 +169,9 @@ install_go() {
 install_python() {
     log "info" "Starting Python installation..."
 
-    # Check if Python is already installed
-    if command -v python3 >/dev/null 2>&1; then
-        log "warn" "Python3 is already installed. Skipping installation."
+    # Check if Python 3.12 is already installed
+    if command -v python3.12 >/dev/null 2>&1; then
+        log "warn" "Python3.12 is already installed. Skipping installation."
         return
     fi
 
@@ -183,43 +183,121 @@ install_python() {
         exit 1
     fi
 
-    # Install Python3
-    log "info" "Installing Python3..."
-    sudo apt install -y python3
+    # Install build dependencies
+    log "info" "Installing build dependencies..."
+    sudo apt install -y build-essential libreadline-dev libncursesw5-dev libssl-dev \
+        libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev zlib1g-dev uuid-dev \
+        libffi-dev libdb-dev wget curl
     if [ $? -ne 0 ]; then
-        log "error" "Failed to install Python3."
+        log "error" "Failed to install build dependencies."
         exit 1
     fi
-    log "info" "Python3 installed successfully."
 
-    # Install Python3-venv
-    log "info" "Installing Python3-venv..."
-    sudo apt install -y python3-venv
-    if [ $? -ne 0 ]; then
-        log "error" "Failed to install Python3-venv."
+    # Create a temporary directory for building Python
+    TEMP_DIR=$(mktemp -d)
+    if [ ! -d "$TEMP_DIR" ]; then
+        log "error" "Failed to create a temporary directory."
         exit 1
     fi
-    log "info" "Python3-venv installed successfully."
+    log "info" "Created temporary directory at $TEMP_DIR."
 
-    # Install pip
-    log "info" "Installing pip..."
-    sudo apt install -y python3-pip
+    # Function to clean up temporary files
+    cleanup() {
+        if [ -d "$TEMP_DIR" ]; then
+            rm -rf "$TEMP_DIR"
+            if [ $? -eq 0 ]; then
+                log "info" "Cleaned up temporary files."
+            else
+                log "warn" "Failed to clean up temporary files at $TEMP_DIR. Please remove them manually."
+            fi
+        fi
+    }
+
+    # Ensure that cleanup is called on script exit, whether successful or due to an error
+    trap cleanup EXIT
+
+    # Navigate to the temporary directory
+    cd "$TEMP_DIR" || {
+        log "error" "Failed to enter temporary directory."
+        exit 1
+    }
+
+    # Download Python 3.12 source tarball
+    log "info" "Downloading Python 3.12 source..."
+    wget https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tgz
     if [ $? -ne 0 ]; then
-        log "error" "Failed to install pip."
+        log "error" "Failed to download Python 3.12."
         exit 1
     fi
-    log "info" "pip installed successfully."
 
-    # Upgrade pip
-    log "info" "Upgrading pip..."
-    python3 -m pip install --upgrade pip
+    # Extract the tarball
+    log "info" "Extracting Python 3.12 source..."
+    tar xzf Python-3.12.0.tgz
     if [ $? -ne 0 ]; then
-        log "error" "Failed to upgrade pip."
+        log "error" "Failed to extract Python 3.12 source."
         exit 1
     fi
-    log "pass" "pip upgraded successfully."
 
-    log "done" "Python installation process completed."
+    # Navigate into the extracted directory
+    cd Python-3.12.0 || {
+        log "error" "Failed to enter Python source directory."
+        exit 1
+    }
+
+    # Configure the build with optimizations
+    log "info" "Configuring the Python build with optimizations..."
+    ./configure --enable-optimizations
+    if [ $? -ne 0 ]; then
+        log "error" "Configuration failed."
+        exit 1
+    fi
+
+    # Compile the source code using all available CPU cores
+    log "info" "Compiling Python 3.12 (this may take a while)..."
+    make -j "$(nproc)"
+    if [ $? -ne 0 ]; then
+        log "error" "Compilation failed."
+        exit 1
+    fi
+
+    # Install Python using altinstall to prevent overwriting the default python3 binary
+    log "info" "Installing Python 3.12..."
+    sudo make altinstall
+    if [ $? -ne 0 ]; then
+        log "error" "Installation failed."
+        exit 1
+    fi
+
+    # Verify the Python installation
+    log "info" "Verifying Python 3.12 installation..."
+    if python3.12 --version >/dev/null 2>&1; then
+        log "info" "Python 3.12 installed successfully! Version: $(python3.12 --version)"
+    else
+        log "error" "Python 3.12 installation failed."
+        exit 1
+    fi
+
+    # Install pip for Python 3.12
+    log "info" "Installing pip for Python 3.12..."
+    curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    if [ $? -ne 0 ]; then
+        log "error" "Failed to download get-pip.py."
+        exit 1
+    fi
+    sudo python3.12 get-pip.py
+    if [ $? -ne 0 ]; then
+        log "error" "Failed to install pip for Python 3.12."
+        exit 1
+    fi
+    log "info" "pip installed successfully for Python 3.12."
+
+    # Optional: Create a symbolic link for pip3.12 (if desired)
+    # sudo ln -s /usr/local/bin/pip3.12 /usr/local/bin/pip3.12
+
+    # Skip upgrading system pip to avoid PEP 668 issues
+    log "warn" "Skipping system pip upgrade to avoid conflicts."
+
+    log "done" "Python installation process completed successfully."
 }
 
 #############################################
@@ -315,11 +393,11 @@ verify_npm() {
 
 # Function to install all components
 install_all() {
-    install_go
+    # install_go
     install_python
-    install_nvm
-    install_node
-    verify_npm
+    # install_nvm
+    # install_node
+    # verify_npm
     log "done" "All installations completed successfully."
 }
 
