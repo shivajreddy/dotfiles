@@ -17,21 +17,21 @@ log() {
     local color=$NC
 
     case $type in
-        "info")
-            color=$GREEN
-            prefix="[ℹ]"
-            ;;
-        "warn")
-            color=$YELLOW
-            prefix="[⚠]"
-            ;;
-        "error")
-            color=$RED
-            prefix="[✖]"
-            ;;
-        *)
-            prefix="[*]"
-            ;;
+    "info")
+        color=$GREEN
+        prefix="[ℹ]"
+        ;;
+    "warn")
+        color=$YELLOW
+        prefix="[⚠]"
+        ;;
+    "error")
+        color=$RED
+        prefix="[✖]"
+        ;;
+    *)
+        prefix="[*]"
+        ;;
     esac
 
     echo -e "${color}${prefix} ${message}${NC}"
@@ -44,7 +44,7 @@ validate_system() {
     # Check for required tools
     local required_tools=("curl" "wget" "git")
     for tool in "${required_tools[@]}"; do
-        if ! command -v "$tool" &> /dev/null; then
+        if ! command -v "$tool" &>/dev/null; then
             log "error" "$tool is not installed. Please install it first."
             exit 1
         fi
@@ -54,10 +54,10 @@ validate_system() {
 # Install dependencies
 install_dependencies() {
     log "info" "Installing Neovim dependencies..."
-    
-    local dependencies=("fuse" "libfuse2" "unzip" "gzip")
+
+    local dependencies=("fuse" "libfuse2" "unzip" "gzip" "ripgrep" "lazygit")
     for dep in "${dependencies[@]}"; do
-        if ! dpkg -s "$dep" &> /dev/null; then
+        if ! dpkg -s "$dep" &>/dev/null; then
             sudo apt-get install -y "$dep" || {
                 log "error" "Failed to install $dep"
                 exit 1
@@ -99,7 +99,7 @@ install_neovim() {
     chmod +x nvim.appimage
 
     # Try extraction
-    ./nvim.appimage --appimage-extract > /dev/null 2>&1 || {
+    ./nvim.appimage --appimage-extract >/dev/null 2>&1 || {
         log "error" "Failed to extract AppImage"
         exit 1
     }
@@ -111,11 +111,11 @@ install_neovim() {
     sudo ln -sf /opt/nvim/AppRun /usr/local/bin/nvim
 
     # Clean up temporary directory
-    cd - > /dev/null
+    cd - >/dev/null
     rm -rf "$temp_dir"
 
     # Verify installation
-    if command -v nvim &> /dev/null; then
+    if command -v nvim &>/dev/null; then
         log "info" "Neovim $(nvim --version | head -n 1) installed successfully!"
     else
         log "error" "Neovim installation failed"
@@ -123,11 +123,10 @@ install_neovim() {
     fi
 }
 
-
 # Clean up old Neovim configurations
 cleanup_old_config() {
     log "info" "Cleaning up old Neovim configurations..."
-    
+
     local dirs=(
         ~/.local/share/nvim
         ~/.local/state/nvim
@@ -146,13 +145,13 @@ cleanup_old_config() {
 # Setup LazyVim
 setup_lazyvim() {
     log "info" "Setting up LazyVim starter template..."
-    
+
     # Clone LazyVim starter template
     git clone https://github.com/LazyVim/starter ~/.config/nvim
-    
+
     # Remove .git directory to make it your own
     rm -rf ~/.config/nvim/.git
-    
+
     log "info" "LazyVim starter template installed. First run will install plugins."
 }
 
@@ -197,14 +196,14 @@ create_symlink() {
 main() {
     clear
     echo -e "${GREEN}🔥 Neovim and LazyVim Installation Script${NC}"
-    
+
     validate_system
     install_dependencies
     cleanup_old_config
     install_neovim
     setup_lazyvim
     create_symlink
-    
+
     log "info" "Installation complete! Run 'nvim' to start setup."
 }
 
