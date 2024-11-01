@@ -7,6 +7,9 @@
 # Check "NOTE" comments before running
 #############################################
 
+# Exit on any error
+set -e
+
 # Color codes for better output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -165,185 +168,141 @@ install_go() {
 # Python Installation Functions
 #############################################
 
-# Function to install Python
-# Function to install Python
+# Function to check if running as root
+check_root() {
+    if [ "$EUID" -ne 0 ]; then
+        log "error" "Please run as root"
+        exit 1
+    fi
+    log "pass" "Running with root privileges"
+}
+
+# Function to detect OS
+detect_os() {
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        OS=$ID
+        VERSION_ID=$VERSION_ID
+        log "info" "Detected OS: $OS $VERSION_ID"
+        return 0
+    else
+        log "error" "Cannot detect OS"
+        exit 1
+    fi
+}
+
+# Function to install Python on Debian
+install_python_debian() {
+    log "info" "Installing Python on Debian..."
+
+    # Enable backports for latest Python
+    if ! grep -q "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" /etc/apt/sources.list; then
+        log "info" "Adding backports repository..."
+        echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" >>/etc/apt/sources.list
+    fi
+
+    log "info" "Updating package lists..."
+    apt-get update
+
+    log "info" "Installing build dependencies..."
+    apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+
+    # Try to install from backports first
+    if apt-cache -t ${VERSION_CODENAME}-backports search "^python3\.[0-9]+$" >/dev/null 2>&1; then
+        LATEST_PYTHON=$(apt-cache -t ${VERSION_CODENAME}-backports search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
+        log "info" "Installing Python from backports: $LATEST_PYTHON"
+        apt-get -t ${VERSION_CODENAME}-backports install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
+    else
+        # If not available in backports, install the latest from main repo
+        LATEST_PYTHON=$(apt-cache search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
+        log "info" "Installing Python from main repository: $LATEST_PYTHON"
+        apt-get install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
+    fi
+
+    return 0
+}
+
+# Function to install Python on Ubuntu
+install_python_ubuntu() {
+    log "info" "Installing Python on Ubuntu..."
+
+    log "info" "Installing prerequisites..."
+    apt-get install -y software-properties-common
+
+    log "info" "Adding deadsnakes PPA..."
+    add-apt-repository -y ppa:deadsnakes/ppa
+
+    log "info" "Updating package lists..."
+    apt-get update
+
+    LATEST_PYTHON=$(apt-cache search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
+    log "info" "Installing latest Python: $LATEST_PYTHON"
+    apt-get install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
+
+    return 0
+}
+
+# Function to setup pip and aliases
+setup_pip_and_aliases() {
+    local LATEST_PYTHON=$1
+
+    log "info" "Installing pip..."
+    curl -sS https://bootstrap.pypa.io/get-pip.py | ${LATEST_PYTHON}
+    log "pass" "Pip installation complete"
+
+    # Extract version number (e.g., 3.10)
+    PYTHON_VERSION=$(echo $LATEST_PYTHON | sed 's/python//')
+
+    # Create alternatives for python and python3
+    log "info" "Setting up alternatives..."
+    update-alternatives --install /usr/bin/python python /usr/bin/$LATEST_PYTHON 1
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/$LATEST_PYTHON 1
+    log "pass" "Alternatives configured"
+
+    # Create aliases
+    log "info" "Setting up aliases..."
+    cat >/etc/profile.d/python-aliases.sh <<EOF
+alias py='python${PYTHON_VERSION}'
+alias python='python${PYTHON_VERSION}'
+EOF
+
+    log "info" "Making aliases executable..."
+    chmod +x /etc/profile.d/python-aliases.sh
+    log "pass" "Aliases configured"
+}
+
+# Installation function
 install_python() {
-    log "info" "Starting Python installation..."
+    log "info" "Updating package lists..."
+    apt-get update
 
-    # Define Python version variables
-    PYTHON_VERSION="3.12.0"
-    PYTHON_TGZ="Python-${PYTHON_VERSION}.tgz"
-    PYTHON_SRC_DIR="Python-${PYTHON_VERSION}"
-    PYTHON_URL="https://www.python.org/ftp/python/${PYTHON_VERSION}/${PYTHON_TGZ}"
-    PYTHON_BIN="/usr/local/bin/python3.12"
-
-    # Check if Python 3.12 is already installed
-    if command -v python3.12 >/dev/null 2>&1; then
-        log "warn" "Python3.12 is already installed. Skipping installation."
-    else
-        # Update package list
-        log "info" "Updating package list..."
-        sudo apt update
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to update package list."
-            exit 1
-        fi
-
-        # Install build dependencies
-        log "info" "Installing build dependencies..."
-        sudo apt install -y build-essential libreadline-dev libncursesw5-dev libssl-dev \
-            libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev zlib1g-dev uuid-dev \
-            libffi-dev libdb-dev wget curl
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to install build dependencies."
-            exit 1
-        fi
-
-        # Create a temporary directory for building Python
-        TEMP_DIR=$(mktemp -d)
-        if [ ! -d "$TEMP_DIR" ]; then
-            log "error" "Failed to create a temporary directory."
-            exit 1
-        fi
-        log "info" "Created temporary directory at $TEMP_DIR."
-
-        # Function to clean up temporary files
-        cleanup() {
-            if [ -d "$TEMP_DIR" ]; then
-                rm -rf "$TEMP_DIR"
-                if [ $? -eq 0 ]; then
-                    log "info" "Cleaned up temporary files."
-                else
-                    log "warn" "Failed to clean up temporary files at $TEMP_DIR. Please remove them manually."
-                fi
-            fi
-        }
-
-        # Ensure that cleanup is called on script exit, whether successful or due to an error
-        trap cleanup EXIT
-
-        # Navigate to the temporary directory
-        cd "$TEMP_DIR" || {
-            log "error" "Failed to enter temporary directory."
-            exit 1
-        }
-
-        # Download Python 3.12 source tarball
-        log "info" "Downloading Python ${PYTHON_VERSION} source..."
-        wget "$PYTHON_URL"
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to download Python ${PYTHON_VERSION}."
-            exit 1
-        fi
-
-        # Extract the tarball
-        log "info" "Extracting Python ${PYTHON_VERSION} source..."
-        tar xzf "$PYTHON_TGZ"
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to extract Python ${PYTHON_VERSION} source."
-            exit 1
-        fi
-
-        # Navigate into the extracted directory
-        cd "$PYTHON_SRC_DIR" || {
-            log "error" "Failed to enter Python source directory."
-            exit 1
-        }
-
-        # Configure the build with optimizations
-        log "info" "Configuring the Python build with optimizations..."
-        ./configure --enable-optimizations
-        if [ $? -ne 0 ]; then
-            log "error" "Configuration failed."
-            exit 1
-        fi
-
-        # Compile the source code using all available CPU cores
-        log "info" "Compiling Python ${PYTHON_VERSION} (this may take a while)..."
-        make -j "$(nproc)"
-        if [ $? -ne 0 ]; then
-            log "error" "Compilation failed."
-            exit 1
-        fi
-
-        # Install Python using altinstall to prevent overwriting the default python3 binary
-        log "info" "Installing Python ${PYTHON_VERSION}..."
-        sudo make altinstall
-        if [ $? -ne 0 ]; then
-            log "error" "Installation failed."
-            exit 1
-        fi
-
-        # Verify the Python installation
-        log "info" "Verifying Python ${PYTHON_VERSION} installation..."
-        if "$PYTHON_BIN" --version >/dev/null 2>&1; then
-            log "info" "Python ${PYTHON_VERSION} installed successfully! Version: $($PYTHON_BIN --version)"
-        else
-            log "error" "Python ${PYTHON_VERSION} installation failed."
-            exit 1
-        fi
-
-        # Install pip for Python 3.12
-        log "info" "Installing pip for Python ${PYTHON_VERSION}..."
-        curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to download get-pip.py."
-            exit 1
-        fi
-        sudo "$PYTHON_BIN" get-pip.py
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to install pip for Python ${PYTHON_VERSION}."
-            exit 1
-        fi
-        log "info" "pip installed successfully for Python ${PYTHON_VERSION}."
-
-        # Skip upgrading system pip to avoid PEP 668 issues
-        log "warn" "Skipping system pip upgrade to avoid conflicts."
-    fi
-
-    # Set Python 3.12 as the default python3
-    log "info" "Setting Python ${PYTHON_VERSION} as the default python3..."
-
-    # Check if update-alternatives is already managing python3
-    if update-alternatives --list python3 >/dev/null 2>&1; then
-        log "info" "update-alternatives is already managing python3."
-    else
-        log "info" "Configuring update-alternatives for python3..."
-        sudo update-alternatives --install /usr/bin/python3 python3 "$PYTHON_BIN" 2
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to configure update-alternatives for python3."
-            exit 1
-        fi
-    fi
-
-    # Register the system's default python3 (if different from python3.12)
-    SYSTEM_PYTHON=$(which python3 | grep -v "$PYTHON_BIN" || true)
-    if [ -n "$SYSTEM_PYTHON" ] && [ "$SYSTEM_PYTHON" != "$PYTHON_BIN" ]; then
-        sudo update-alternatives --install /usr/bin/python3 python3 "$SYSTEM_PYTHON" 1
-        if [ $? -ne 0 ]; then
-            log "error" "Failed to add system's python3 to update-alternatives."
-            exit 1
-        fi
-    fi
-
-    # Set python3 to point to python3.12
-    sudo update-alternatives --set python3 "$PYTHON_BIN"
-    if [ $? -ne 0 ]; then
-        log "error" "Failed to set Python ${PYTHON_VERSION} as the default python3."
+    case $OS in
+    "debian")
+        install_python_debian
+        ;;
+    "ubuntu")
+        install_python_ubuntu
+        ;;
+    *)
+        log "error" "Unsupported operating system: $OS"
         exit 1
-    fi
+        ;;
+    esac
 
-    # Verify the default python3
-    log "info" "Verifying the default python3 version..."
-    DEFAULT_PYTHON=$(python3 --version 2>&1)
-    if echo "$DEFAULT_PYTHON" | grep -q "${PYTHON_VERSION}"; then
-        log "info" "python3 is now set to ${DEFAULT_PYTHON}."
-    else
-        log "error" "python3 is not set to Python ${PYTHON_VERSION}."
-        exit 1
-    fi
+    LATEST_PYTHON=$(ls /usr/bin/python3.* | grep -v "config\|m$" | sort -V | tail -n1 | xargs basename)
+    setup_pip_and_aliases $LATEST_PYTHON
 
-    log "done" "Python installation and configuration completed successfully."
+    log "done" "Installation complete!"
+    log "warn" "Please log out and log back in for the aliases to take effect."
+    log "info" "Installed Python version: $(python3 --version)"
+}
+
+# Main Installation function
+main_install_python() {
+    log "info" "Starting Python installation script..."
+    check_root
+    detect_os
+    install_python
 }
 
 #############################################
@@ -440,7 +399,7 @@ verify_npm() {
 # Function to install all components
 install_all() {
     # install_go
-    install_python
+    main_install_python
     # install_nvm
     # install_node
     # verify_npm
