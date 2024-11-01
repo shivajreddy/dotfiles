@@ -86,70 +86,57 @@ check_root() {
     log "pass" "Running with root privileges"
 }
 
-# Function to detect OS
-detect_os() {
-    if [ -f /etc/os-release ]; then
-        . /etc/os-release
-        OS=$ID
-        VERSION_ID=$VERSION_ID
-        VERSION_CODENAME=$VERSION_CODENAME
-        log "info" "Detected OS: $OS $VERSION_ID ($VERSION_CODename)"
-        return 0
+install_python3_12() {
+    log "info" "Installing Python 3.12..."
+
+    # Create a temporary directory
+    local temp_dir=$(mktemp -d)
+    cd "$temp_dir" || {
+        log "error" "Failed to create temporary directory"
+        exit 1
+    }
+
+    # Download Python 3.12 source
+    PYTHON_VERSION="3.12.0"
+    curl -Lo python.tar.xz "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.xz"
+
+    # Extract and navigate to source directory
+    tar -xf python.tar.xz
+    cd "Python-${PYTHON_VERSION}" || {
+        log "error" "Failed to enter Python source directory"
+        exit 1
+    }
+
+    # Install dependencies for building Python
+    sudo apt update
+    sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
+        libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev
+
+    # Configure and compile
+    ./configure --enable-optimizations
+    make -j "$(nproc)"
+
+    # Install Python
+    sudo make altinstall
+
+    # Verify installation
+    if python3.12 --version &>/dev/null; then
+        log "info" "Python 3.12 installed successfully!"
     else
-        log "error" "Cannot detect OS"
+        log "error" "Python 3.12 installation failed"
         exit 1
     fi
-}
 
-# Function to install Python on Debian
-install_python_debian() {
-    log "info" "Installing Python on Debian..."
+    # Clean up
+    cd - >/dev/null
+    rm -rf "$temp_dir"
 
-    # Enable backports for latest Python
-    if ! grep -q "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" /etc/apt/sources.list; then
-        log "info" "Adding backports repository..."
-        echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" >>/etc/apt/sources.list
-    fi
+    # Set up alternatives and alias for python3
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.12 1
+    log "info" "Python 3.12 set as the default Python 3 version."
 
-    log "info" "Updating package lists..."
-    apt-get update -y
-
-    log "info" "Installing build dependencies..."
-    apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
-
-    # Try to install from backports first
-    if apt-cache -t ${VERSION_CODENAME}-backports search "^python3\.[0-9]+$" >/dev/null 2>&1; then
-        LATEST_PYTHON=$(apt-cache -t ${VERSION_CODENAME}-backports search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
-        log "info" "Installing Python from backports: $LATEST_PYTHON"
-        apt-get -t ${VERSION_CODENAME}-backports install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
-    else
-        # If not available in backports, install the latest from main repo
-        LATEST_PYTHON=$(apt-cache search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
-        log "info" "Installing Python from main repository: $LATEST_PYTHON"
-        apt-get install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
-    fi
-
-    return 0
-}
-
-# Function to install Python on Ubuntu
-install_python_ubuntu() {
-    log "info" "Installing Python on Ubuntu..."
-
-    log "info" "Installing prerequisites..."
-    apt-get install -y software-properties-common
-
-    log "info" "Adding deadsnakes PPA..."
-    add-apt-repository -y ppa:deadsnakes/ppa
-
-    log "info" "Updating package lists..."
-    apt-get update
-
-    LATEST_PYTHON=$(apt-cache search "^python3\.[0-9]+$" | tail -n1 | cut -d' ' -f1)
-    log "info" "Installing latest Python: $LATEST_PYTHON"
-    apt-get install -y $LATEST_PYTHON ${LATEST_PYTHON}-venv ${LATEST_PYTHON}-distutils
-
-    return 0
+    # Verify final version
+    python3 --version
 }
 
 # Function to setup pip and aliases
@@ -181,38 +168,6 @@ EOF
     log "pass" "Aliases configured"
 }
 
-# Installation function
-install_python() {
-    log "info" "Updating package lists..."
-    apt-get update -y
-
-    case $OS in
-    "debian")
-        install_python_debian
-        ;;
-    "ubuntu")
-        install_python_ubuntu
-        ;;
-    *)
-        log "error" "Unsupported operating system: $OS"
-        exit 1
-        ;;
-    esac
-
-    # Determine the installed Python version
-    LATEST_PYTHON=$(ls /usr/bin/python3.* 2>/dev/null | grep -v "config\|m$" | sort -V | tail -n1 | xargs basename)
-    if [ -z "$LATEST_PYTHON" ]; then
-        log "error" "Failed to determine the installed Python version."
-        exit 1
-    fi
-
-    setup_pip_and_aliases $LATEST_PYTHON
-
-    log "done" "Installation complete!"
-    log "warn" "Please log out and log back in for the aliases to take effect."
-    log "info" "Installed Python version: $(python3 --version)"
-}
-
 #############################################
 # Execute Installation
 #############################################
@@ -222,9 +177,8 @@ main() {
 
     log "info" "Starting Python installation script..."
     check_root
-    detect_os
 
-    install_python
+    install_python3_12
 
     log "done" "All installations completed successfully."
 }

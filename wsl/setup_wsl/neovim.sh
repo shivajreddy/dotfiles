@@ -37,7 +37,6 @@ log() {
     echo -e "${color}${prefix} ${message}${NC}"
 }
 
-
 # Install lazygit
 install_lazygit() {
 
@@ -89,7 +88,7 @@ validate_system() {
 install_dependencies() {
     log "info" "Installing Neovim dependencies..."
 
-    local dependencies=("fuse" "libfuse2" "unzip" "gzip" "ripgrep" )
+    local dependencies=("fuse" "libfuse2" "unzip" "gzip" "ripgrep" "xclip")
     for dep in "${dependencies[@]}"; do
         if ! dpkg -s "$dep" &>/dev/null; then
             sudo apt-get install -y "$dep" || {
