@@ -119,17 +119,45 @@ else
 fi
 echo ""
 
-# Step 9: Make sym link to dotfiles
-echo "🌱 Step 9: sym linking dotfiles to .config" 
-# Create the symbolic link
-ln -s ~/dotfiles/wsl ~/.config
 
-# Confirmation message
-if [ $? -eq 0 ]; then
-    echo "✅ Symbolic link created successfully: ~/.config -> ~/dotfiles/common/wsl"
-else
-    echo "❌ Failed to create symbolic link. Please check if the paths are correct."
-fi
+# Step 9: Make symbolic links to dotfiles
+echo "🌱 Step 9: Making sym links to dotfiles"
+
+# Function to create a symbolic link and provide confirmation
+create_symlink() {
+    local source_path="$1"
+    local target_path="$2"
+    
+    echo "🌱 Creating symbolic link: $target_path -> $source_path"
+    ln -s "$source_path" "$target_path"
+    
+    if [ $? -eq 0 ]; then
+        echo "✅ Symbolic link created successfully: $target_path -> $source_path"
+    else
+        echo "❌ Failed to create symbolic link for $target_path. Please check if the paths are correct."
+    fi
+}
+
+# Define source and target paths (update these to use absolute paths)
+declare -A links=(
+    ["$HOME/dotfiles/wsl/nvim"]="$HOME/.config/nvim"
+    ["$HOME/dotfiles/wsl/zellij"]="$HOME/.config/zellij"
+    ["$HOME/dotfiles/wsl/zsh"]="$HOME/.zshrc"
+    ["$HOME/dotfiles/wsl/htop"]="$HOME/.config/htop"
+    ["$HOME/dotfiles/wsl/starship.toml"]="$HOME/.config/starship.toml"
+)
+
+# Iterate over each entry in the links array and create symlinks
+for source_path in "${!links[@]}"; do
+    # Remove existing link or directory if it exists to avoid errors
+    [ -L "${links[$source_path]}" ] && rm "${links[$source_path]}"
+    [ -d "${links[$source_path]}" ] && rm -r "${links[$source_path]}"
+    
+    create_symlink "$source_path" "${links[$source_path]}"
+done
+
+echo "🎉 sym links created"
+
 
 
 # Completion Message
