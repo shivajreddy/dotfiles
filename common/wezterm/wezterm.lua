@@ -11,6 +11,8 @@
   :: Windows ::
   - This is how you create a symlink
   mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
+  (or)
+  mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Debian\home\shiva\dotfiles\common\wezterm"
   - so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
   because thats where wezterm will look for config
 
