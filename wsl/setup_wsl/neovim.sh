@@ -37,6 +37,40 @@ log() {
     echo -e "${color}${prefix} ${message}${NC}"
 }
 
+
+# Install lazygit
+install_lazygit() {
+
+    log "info" "Installing lazygit..."
+
+    # Create a temporary directory
+    local temp_dir=$(mktemp -d)
+    cd "$temp_dir" || {
+        log "error" "Failed to create temporary directory"
+        exit 1
+    }
+
+    # Fetch the latest lazygit version and download
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+
+    # Extract and install lazygit
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit /usr/local/bin
+
+    # Clean up
+    cd - >/dev/null
+    rm -rf "$temp_dir"
+
+    # Verify installation
+    if command -v lazygit &>/dev/null; then
+        log "info" "Lazygit installed successfully!"
+    else
+        log "error" "Lazygit installation failed"
+        exit 1
+    fi
+}
+
 # Validate system requirements
 validate_system() {
     log "info" "Checking system requirements..."
@@ -55,7 +89,7 @@ validate_system() {
 install_dependencies() {
     log "info" "Installing Neovim dependencies..."
 
-    local dependencies=("fuse" "libfuse2" "unzip" "gzip" "ripgrep" "lazygit")
+    local dependencies=("fuse" "libfuse2" "unzip" "gzip" "ripgrep" )
     for dep in "${dependencies[@]}"; do
         if ! dpkg -s "$dep" &>/dev/null; then
             sudo apt-get install -y "$dep" || {
@@ -127,7 +161,7 @@ install_neovim() {
 cleanup_old_config() {
     log "info" "Cleaning up old Neovim configurations..."
 
-    local dirs=(
+    local dilrs=(
         ~/.local/share/nvim
         ~/.local/state/nvim
         ~/.cache/nvim
@@ -199,6 +233,7 @@ main() {
 
     validate_system
     install_dependencies
+    install_lazygit
     cleanup_old_config
     install_neovim
     setup_lazyvim
