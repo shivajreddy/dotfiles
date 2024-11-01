@@ -78,7 +78,7 @@ ensure_sudo() {
 #############################################
 
 # Variables
-# NOTE: Make sure this is the latest go lang version, or else nvim lsp will 🥹
+# NOTE: Make sure to use latest version, or else nvim's lsp will cry
 GO_VERSION="go1.23.2.linux-amd64.tar.gz"
 GO_URL="https://dl.google.com/go/$GO_VERSION"
 PROFILE_FILE="$HOME/.profile"
@@ -183,8 +183,11 @@ install_go() {
     remove_existing_go
     download_go
     extract_go
+
+    # update path variables
     update_path
     apply_path
+
     verify_go
     cleanup
     log "done" "Go installation process completed."
