@@ -38,6 +38,13 @@ export NVM_DIR="$HOME/.nvm"
 
 
 ########################### PLUGINS ###########################
+
+# lf
+LFCD=~/dotfiles/wsl/lf/lfcd.sh
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
+
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -60,6 +67,7 @@ alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
 alias ff="fastfetch"
+
 
 # Git 
 alias gaa="git add ."
