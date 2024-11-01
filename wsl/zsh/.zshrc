@@ -63,6 +63,15 @@ alias gitsave="gaa && gcmsg '.' && ggpush"
 alias gpull="git pull"
 alias gpush="git push"
 alias gsave="gaa && gcmsg '.' && gpush"
+gclone() {  # Function to clone a GitHub repository
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: gclone <github-username> <repository-name>"
+        return 1
+    fi
+    local username="$1"
+    local repo="$2"
+    git clone "https://github.com/${username}/${repo}.git"
+}
 
 # Python
 alias python="python3"
