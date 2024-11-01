@@ -4,7 +4,9 @@
 #   License: LOL                                            |
 #-----------------------------------------------------------|
 
+
 ########################### PATHS ###########################
+
 # Add locations to 'Path' variable
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -13,14 +15,11 @@ export PATH="$HOME/.local/bin:$PATH"
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 # export BROWSER='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser/Application/brave.exe'
 
-# Paths of my shell scripts
-# this seems to be not working
+# Add my shell scripts to PATH
 export PATH="$HOME/.config/zsh/scripts:$PATH"
 
+# Add Cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Add golang to path
-export PATH="/usr/local/go/bin/:$PATH"
 
 # for getting colors properly on tmux
 export TERM=tmux-256color
@@ -29,6 +28,13 @@ export TERM=tmux-256color
 export GOROOT=/usr/local/go
 export GOPATH=/home/shiva/go
 export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
+export PATH="/usr/local/go/bin/:$PATH"
+
+# NVM & NPM paths
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 
 ########################### PLUGINS ###########################
