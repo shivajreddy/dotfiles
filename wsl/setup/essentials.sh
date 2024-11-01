@@ -26,7 +26,7 @@ echo ""
 
 # Step 3: Install Essential Tools
 echo "🌱 Step 3: Installing essential tools..."
-ESSENTIAL_PACKAGES=("software-properties-common" "git" "curl" "wget" "g++" "cmake" "pkg-config")
+ESSENTIAL_PACKAGES=("software-properties-common" "vim" "git" "curl" "wget" "g++" "cmake" "pkg-config")
 
 for package in "${ESSENTIAL_PACKAGES[@]}"; do
     if ! dpkg -s "$package" &> /dev/null; then
@@ -48,36 +48,7 @@ echo ""
 
 
 
-# Step 5: Install Neovim and Set Up LazyVim Starter
-echo "🌱 Step 5: Installing Neovim and Setting Up LazyVim Starter..."
-
-# Function to install Neovim if not already installed
-install_neovim() {
-    if ! command -v nvim &> /dev/null; then
-        echo "🔧 Adding Neovim PPA..."
-        sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null 2>&1
-        echo "⏳ Updating package list..."
-        sudo apt update -qq
-        echo "⏳ Installing Neovim..."
-        sudo apt install -y -qq neovim && echo "✅ Neovim installed successfully."
-    else
-        echo "🌊 Neovim is already installed."
-    fi
-}
-
-install_neovim
-
-# Clear Neovim-related cache, data, and state
-echo "🚮 Removing old Neovim cache, data, and state..."
-rm -rf ~/.local/share/nvim{,.bak} && echo "✅ Removed old Neovim data."
-rm -rf ~/.local/state/nvim{,.bak} && echo "✅ Removed old Neovim state."
-rm -rf ~/.cache/nvim{,.bak} && echo "✅ Removed old Neovim cache."
-
-echo "🎉 Neovim setup cleanup complete! Ready to set up LazyVim."
-
-
-
-# Step 6: Install Fastfetch
+# Step 5: Install Fastfetch
 echo "🌱 Step 6: Installing Fastfetch..."
 if ! command -v fastfetch &> /dev/null; then
     echo "🔧 Adding Fastfetch PPA..."
@@ -92,8 +63,8 @@ echo ""
 
 
 
-# Step 7: Install Starship
-echo "🌱 Step 7: Installing Starship prompt..."
+# Step 6: Install Starship
+echo "🌱 Step 6: Installing Starship prompt..."
 if ! command -v starship &> /dev/null; then
     curl -sS https://starship.rs/install.sh | sh && echo "✅ Starship installed successfully."
 else
@@ -103,8 +74,8 @@ echo ""
 
 
 
-# Step 8: Install Eza
-echo "🌱 Step 8: Installing Eza..."
+# Step 7: Install Eza
+echo "🌱 Step 7: Installing Eza..."
 if ! command -v eza &> /dev/null; then
     echo "🔧 Setting up Eza repository and GPG key..."
     sudo apt install -y -qq gpg
@@ -120,8 +91,8 @@ fi
 echo ""
 
 
-# Step 9: Make symbolic links to dotfiles
-echo "🌱 Step 9: Making sym links to dotfiles"
+# Step 8: Make symbolic links to dotfiles
+echo "🌱 Step 8: Making sym links to dotfiles"
 
 # Function to create a symbolic link and provide confirmation
 create_symlink() {
