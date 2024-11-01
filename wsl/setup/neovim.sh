@@ -129,8 +129,8 @@ cleanup_old_config() {
 
     for dir in "${dirs[@]}"; do
         if [ -d "$dir" ]; then
-            mv "$dir" "${dir}.bak"
-            log "warn" "Backed up $dir to ${dir}.bak"
+            rm -rf "$dir"
+            log "warn" "Deleted $dir"
         fi
     done
 }
@@ -148,6 +148,43 @@ setup_lazyvim() {
     log "info" "LazyVim starter template installed. First run will install plugins."
 }
 
+# Make sym links to my nvim dotfiles
+# Make sym links to my nvim dotfiles
+create_symlink() {
+    log "info" "Creating symlinks for Neovim configuration..."
+
+    # Define the nvim path
+    local NVIM_CONFIG_PATH="$HOME/.config/nvim"
+    local DOTFILES_NVIM_PATH="$HOME/dotfiles/wsl/nvim"
+
+    # Check if dotfiles nvim path exists
+    if [ ! -d "$DOTFILES_NVIM_PATH" ]; then
+        log "error" "Dotfiles Neovim path not found: $DOTFILES_NVIM_PATH"
+        exit 1
+    fi
+
+    # Check if current nvim config is a symlink
+    if [ -L "$NVIM_CONFIG_PATH" ]; then
+        log "warn" "Existing symlink found. Removing current symlink."
+        unlink "$NVIM_CONFIG_PATH"
+    # Check if current nvim config is a directory
+    elif [ -d "$NVIM_CONFIG_PATH" ]; then
+        log "warn" "Existing Neovim config found. Deleting ${NVIM_CONFIG_PATH}"
+        rm -rf "$NVIM_CONFIG_PATH"
+    fi
+
+    # Create symlink
+    ln -sf "$DOTFILES_NVIM_PATH" "$NVIM_CONFIG_PATH"
+
+    # Verify symlink
+    if [ -L "$NVIM_CONFIG_PATH" ]; then
+        log "info" "Symlink created successfully: $NVIM_CONFIG_PATH -> $DOTFILES_NVIM_PATH"
+    else
+        log "error" "Failed to create symlink"
+        exit 1
+    fi
+}
+
 # Main execution
 main() {
     clear
@@ -158,6 +195,7 @@ main() {
     cleanup_old_config
     install_neovim
     setup_lazyvim
+    create_symlink
     
     log "info" "Installation complete! Run 'nvim' to start setup."
 }

@@ -63,19 +63,52 @@ else
     echo "🌊 .zshenv already exists. No changes made."
 fi
 
-# Step 5: Source .zshenv to load into current shell session
+# Step 5: Create symlinks for .zshenv and zsh folder
+echo "🔗 Step 5: Creating symlinks for .zshenv and zsh folder"
+
+# Define the target path for the zsh configuration folder
+ZSH_CONFIG_PATH="$HOME/.config/zsh"
+
+# Check if the zsh configuration directory exists, create if it doesn't
+if [[ ! -d "$ZSH_CONFIG_PATH" ]]; then
+    mkdir -p "$ZSH_CONFIG_PATH"
+    echo "✅ Created $ZSH_CONFIG_PATH directory."
+else
+    echo "🌊 $ZSH_CONFIG_PATH directory already exists."
+fi
+
+# Create a symbolic link for .zshenv if not already linked
+if [[ ! -L "$HOME/.zshenv" ]]; then
+    ln -sf "$ZSHENV_PATH" "$HOME/.zshenv"
+    echo "✅ Symlink created for .zshenv -> $ZSHENV_PATH"
+else
+    echo "🌊 Symlink for .zshenv already exists."
+fi
+
+# Create a symbolic link for the zsh configuration folder if not already linked
+if [[ ! -L "$ZSH_CONFIG_PATH" ]]; then
+    ln -sf "$HOME/dotfiles/wsl/zsh" "$ZSH_CONFIG_PATH"
+    echo "✅ Symlink created for zsh configuration folder -> $ZSH_CONFIG_PATH"
+else
+    echo "🌊 Symlink for zsh configuration folder already exists."
+fi
+echo "🎉 Step 5 complete: All symlinks created successfully."
+
+
+# Step 6: Source .zshenv & .zshrc to load into current shell session
+# Source .zshenv
 echo "🔄 Sourcing .zshenv to apply changes in the current session..."
 source "$ZSHENV_PATH"
 echo "✅ .zshenv sourced successfully."
 echo ""
-# Source .zshrc to load into current shell session
+# Source .zshrc
 echo "🔄 Sourcing .zshrc to apply changes in the current session..."
 source "$HOME/.config/zsh/.zshrc"
 echo "✅ .zshrc sourced successfully."
 echo ""
 
 
-# Step 6: Final Instructions
+# Step 7: Final Instructions
 echo "🎉 Zsh setup is complete!"
 echo "To start using Zsh, please open a new terminal session."
 echo "You can verify by running 'echo \$SHELL' in the new session."

@@ -26,7 +26,6 @@ create_symlink() {
 declare -A links=(
   ["$HOME/dotfiles/wsl/nvim"]="$HOME/.config/nvim"
   ["$HOME/dotfiles/wsl/zellij"]="$HOME/.config/zellij"
-  ["$HOME/dotfiles/wsl/zsh"]="$HOME/.zshrc"
   ["$HOME/dotfiles/wsl/htop"]="$HOME/.config/htop"
   ["$HOME/dotfiles/wsl/starship.toml"]="$HOME/.config/starship.toml"
 )
