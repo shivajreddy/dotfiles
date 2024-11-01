@@ -91,7 +91,12 @@ gclone() {  # Function to clone a GitHub repository
 alias python="python3.12"
 alias py="python3.12"
 alias pva="source ./venv/bin/activate"
-
+# Use entr to watch. 
+# Example: pywatch some_file.py some_file.py
+# Example: pywatch "*.py" ./src/company/microsoft/course_schedule_II.py
+pywatch() {
+  find . -name "$1" | entr -c sh -c "python $2"
+}
 
 # Linux Related
 alias fd="fdfind"
