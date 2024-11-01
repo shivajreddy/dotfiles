@@ -54,6 +54,26 @@ log() {
 }
 
 #############################################
+# Run this script as root user
+#############################################
+
+# Function to ensure script runs with sudo privileges
+ensure_sudo() {
+    if [ "$EUID" -ne 0 ]; then
+        log "warn" "This script needs sudo privileges to run"
+        if ! sudo -v; then
+            log "error" "Failed to obtain sudo privileges"
+            exit 1
+        fi
+
+        # Re-run the script with sudo
+        log "info" "Restarting script with sudo..."
+        exec sudo "$0" "$@"
+    fi
+    log "pass" "Running with root privileges"
+}
+
+#############################################
 # Go Lang Installation Functions
 #############################################
 
@@ -183,7 +203,8 @@ detect_os() {
         . /etc/os-release
         OS=$ID
         VERSION_ID=$VERSION_ID
-        log "info" "Detected OS: $OS $VERSION_ID"
+        VERSION_CODENAME=$VERSION_CODENAME
+        log "info" "Detected OS: $OS $VERSION_ID ($VERSION_CODename)"
         return 0
     else
         log "error" "Cannot detect OS"
@@ -202,7 +223,7 @@ install_python_debian() {
     fi
 
     log "info" "Updating package lists..."
-    apt-get update
+    apt-get update -y
 
     log "info" "Installing build dependencies..."
     apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
@@ -246,11 +267,11 @@ install_python_ubuntu() {
 setup_pip_and_aliases() {
     local LATEST_PYTHON=$1
 
-    log "info" "Installing pip..."
-    curl -sS https://bootstrap.pypa.io/get-pip.py | ${LATEST_PYTHON}
+    log "info" "Installing pip using apt..."
+    apt-get install -y python3-pip
     log "pass" "Pip installation complete"
 
-    # Extract version number (e.g., 3.10)
+    # Extract version number (e.g., 3.11)
     PYTHON_VERSION=$(echo $LATEST_PYTHON | sed 's/python//')
 
     # Create alternatives for python and python3
@@ -274,7 +295,7 @@ EOF
 # Installation function
 install_python() {
     log "info" "Updating package lists..."
-    apt-get update
+    apt-get update -y
 
     case $OS in
     "debian")
@@ -289,7 +310,13 @@ install_python() {
         ;;
     esac
 
-    LATEST_PYTHON=$(ls /usr/bin/python3.* | grep -v "config\|m$" | sort -V | tail -n1 | xargs basename)
+    # Determine the installed Python version
+    LATEST_PYTHON=$(ls /usr/bin/python3.* 2>/dev/null | grep -v "config\|m$" | sort -V | tail -n1 | xargs basename)
+    if [ -z "$LATEST_PYTHON" ]; then
+        log "error" "Failed to determine the installed Python version."
+        exit 1
+    fi
+
     setup_pip_and_aliases $LATEST_PYTHON
 
     log "done" "Installation complete!"
@@ -398,6 +425,7 @@ verify_npm() {
 
 # Function to install all components
 install_all() {
+    ensure_sudo
     # install_go
     main_install_python
     # install_nvm
