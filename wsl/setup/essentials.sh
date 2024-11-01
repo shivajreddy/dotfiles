@@ -12,13 +12,17 @@ echo "      📦 Essential Package Installer     "
 echo "========================================="
 echo ""
 
-# Step 1: Update and Upgrade Packages
+
+
+# Step 1,2: Update and Upgrade Packages
 echo "⌛ Step 1: Updating package list..."
 sudo apt update -qq && echo "✅ Package list updated."
 
 echo "⌛ Step 2: Upgrading existing packages..."
 sudo apt upgrade -y -qq && echo "✅ System packages upgraded."
 echo ""
+
+
 
 # Step 3: Install Essential Tools
 echo "🌱 Step 3: Installing essential tools..."
@@ -42,17 +46,36 @@ else
 fi
 echo ""
 
-# Step 5: Install Neovim
-echo "🌱 Step 5: Installing Neovim..."
-if ! command -v nvim &> /dev/null; then
-    echo "🔧 Adding Neovim PPA..."
-    sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null 2>&1
-    sudo apt update -qq
-    sudo apt install -y -qq neovim && echo "✅ Neovim installed successfully."
-else
-    echo "🌊 Neovim is already installed."
-fi
-echo ""
+
+
+# Step 5: Install Neovim and Set Up LazyVim Starter
+echo "🌱 Step 5: Installing Neovim and Setting Up LazyVim Starter..."
+
+# Function to install Neovim if not already installed
+install_neovim() {
+    if ! command -v nvim &> /dev/null; then
+        echo "🔧 Adding Neovim PPA..."
+        sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null 2>&1
+        echo "⏳ Updating package list..."
+        sudo apt update -qq
+        echo "⏳ Installing Neovim..."
+        sudo apt install -y -qq neovim && echo "✅ Neovim installed successfully."
+    else
+        echo "🌊 Neovim is already installed."
+    fi
+}
+
+install_neovim
+
+# Clear Neovim-related cache, data, and state
+echo "🚮 Removing old Neovim cache, data, and state..."
+rm -rf ~/.local/share/nvim{,.bak} && echo "✅ Removed old Neovim data."
+rm -rf ~/.local/state/nvim{,.bak} && echo "✅ Removed old Neovim state."
+rm -rf ~/.cache/nvim{,.bak} && echo "✅ Removed old Neovim cache."
+
+echo "🎉 Neovim setup cleanup complete! Ready to set up LazyVim."
+
+
 
 # Step 6: Install Fastfetch
 echo "🌱 Step 6: Installing Fastfetch..."
@@ -67,6 +90,8 @@ else
 fi
 echo ""
 
+
+
 # Step 7: Install Starship
 echo "🌱 Step 7: Installing Starship prompt..."
 if ! command -v starship &> /dev/null; then
@@ -75,6 +100,8 @@ else
     echo "🌊 Starship is already installed."
 fi
 echo ""
+
+
 
 # Step 8: Install Eza
 echo "🌱 Step 8: Installing Eza..."
