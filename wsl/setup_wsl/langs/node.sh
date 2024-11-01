@@ -3,7 +3,7 @@
 #############################################
 # Script for installing: Node, NPM, NVM
 # Author: Shiva
-# Version: 1.0
+# Version: 1.1
 # Check "NOTE" comments before running
 #############################################
 
@@ -54,23 +54,15 @@ log() {
 }
 
 #############################################
-# Run this script as root user
+# Run this script as a non-root user
 #############################################
 
-# Function to ensure script runs with sudo privileges
-ensure_sudo() {
-    if [ "$EUID" -ne 0 ]; then
-        log "warn" "This script needs sudo privileges to run"
-        if ! sudo -v; then
-            log "error" "Failed to obtain sudo privileges"
-            exit 1
-        fi
-
-        # Re-run the script with sudo
-        log "info" "Restarting script with sudo..."
-        exec sudo "$0" "$@"
+# Function to ensure script does NOT run with sudo privileges
+ensure_non_sudo() {
+    if [ "$EUID" -eq 0 ]; then
+        log "error" "Please do NOT run this script with sudo or as root."
+        exit 1
     fi
-    log "pass" "Running with root privileges"
 }
 
 #############################################
@@ -96,13 +88,36 @@ install_nvm() {
     fi
     log "pass" "NVM installation script executed successfully."
 
-    # Load NVM into current shell
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    if [ $? -ne 0 ]; then
-        log "error" "Failed to load NVM."
-        exit 1
-    fi
+    # Detect the user's default shell
+    USER_SHELL=$(basename "$SHELL")
+    case $USER_SHELL in
+    "bash")
+        SHELL_RC="$HOME/.bashrc"
+        ;;
+    "zsh")
+        SHELL_RC="$HOME/.zshrc"
+        ;;
+    *)
+        log "warn" "Unsupported shell: $USER_SHELL. Please source NVM manually."
+        return
+        ;;
+    esac
+
+    # Load NVM into current shell by appending to shell rc file
+    log "info" "Configuring NVM in $SHELL_RC..."
+    {
+        echo ""
+        echo "# NVM Configuration"
+        echo 'export NVM_DIR="$HOME/.nvm"'
+        echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm'
+        echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion'
+    } >>"$SHELL_RC"
+
+    log "pass" "NVM configuration added to $SHELL_RC."
+
+    # Source the shell rc file to make NVM available in the current session
+    log "info" "Loading NVM into the current shell..."
+    source "$SHELL_RC"
 
     # Verify NVM installation
     if command -v nvm >/dev/null 2>&1; then
@@ -146,7 +161,7 @@ install_node() {
 }
 
 #############################################
-# NPM Installation Functions
+# NPM Verification Functions
 #############################################
 
 # Function to verify NPM installation
@@ -165,18 +180,19 @@ verify_npm() {
 #############################################
 
 main() {
-    ensure_sudo
+    ensure_non_sudo
 
-    log "info" "Starting nvm installation..."
+    log "info" "Starting NVM installation..."
     install_nvm
 
-    log "info" "Starting node installation..."
+    log "info" "Starting Node.js installation..."
     install_node
 
-    log "info" "Starting npm installation..."
+    log "info" "Starting NPM verification..."
     verify_npm
 
-    log "done" "node, nvm, npm installations completed successfully."
+    log "done" "Node.js, NVM, and NPM installations completed successfully."
+    log "warn" "Please restart your terminal or run 'source ~/.bashrc' or 'source ~/.zshrc' to apply changes."
 }
 
 main
