@@ -1,35 +1,54 @@
 #!/bin/bash
 
-echo "Step 1: Adding Zsh to /etc/shells if not already present."
+# Improved Zsh Setup Script
 
-# Check if Zsh is installed
+echo "========================================="
+echo "     Zsh Setup and Default Shell Switch  "
+echo "========================================="
+echo ""
+
+# Step 1: Check if Zsh is Installed
+echo "Checking if Zsh is installed..."
 if ! command -v zsh &> /dev/null; then
-    echo "Zsh is not installed. Please install it first, then run this script again."
+    echo "⚠️  Zsh is not installed. Please install it first (e.g., 'sudo apt install zsh'), then run this script again."
     exit 1
-fi
-
-# Locate the Zsh executable
-ZSH_PATH=$(command -v zsh)
-
-# Display the current shell for reference
-echo "Current shell: $SHELL"
-
-# Check if Zsh is already in /etc/shells
-if ! grep -Fxq "$ZSH_PATH" /etc/shells; then
-    echo "Adding $ZSH_PATH to /etc/shells..."
-    echo "$ZSH_PATH" | sudo tee -a /etc/shells
 else
-    echo "Zsh is already listed in /etc/shells."
+    echo "✅ Zsh is installed."
 fi
+echo ""
 
-echo "Step 2: Changing the default shell to Zsh."
+# Step 2: Locate Zsh and Check /etc/shells
+ZSH_PATH=$(command -v zsh)
+echo "Zsh location: $ZSH_PATH"
 
-# Change the default shell to Zsh
-sudo chsh -s "$ZSH_PATH" "$USER"
+echo "Checking if Zsh is listed in /etc/shells..."
+if ! grep -Fxq "$ZSH_PATH" /etc/shells; then
+    echo "⚠️  Zsh is not in /etc/shells. Adding it now..."
+    echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+    echo "✅ Zsh has been added to /etc/shells."
+else
+    echo "✅ Zsh is already listed in /etc/shells."
+fi
+echo ""
 
-# Confirm the default shell change
-echo "Your default shell is now set to:"
-echo "$SHELL"
+# Step 3: Display Current Shell and Prompt for Change
+echo "Current default shell: $SHELL"
+read -p "Would you like to switch your default shell to Zsh? (y/n): " -n 1 -r
+echo ""
 
-echo "Script completed. Please open a new terminal session to start using Zsh."
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Switching default shell to Zsh for user $USER..."
+    sudo chsh -s "$ZSH_PATH" "$USER"
+    echo "✅ Default shell changed to Zsh."
+else
+    echo "❌ Default shell change canceled by user."
+    exit 0
+fi
+echo ""
+
+# Step 4: Confirm and Prompt for Restart
+echo "To start using Zsh, please open a new terminal session."
+echo "You can verify by running 'echo \$SHELL' in the new session."
+echo "Script completed successfully! 🎉"
+echo "========================================="
 
