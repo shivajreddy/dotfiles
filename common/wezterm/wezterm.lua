@@ -22,8 +22,8 @@
 --]]
 
 local wezterm = require("wezterm")
-
 -- Load keymaps, utils, tabbar from config folder
+
 local mac_keys = require("config.mac_keys")
 local win_keys = require("config.win_keys")
 local utils = require("config.utils")
@@ -70,7 +70,7 @@ end
 -- :::::::::::    WINDOWS  Setttings    :::::::::::
 if utils.is_windows() then
 	-- ::::::  Startup stuff  ::::::
-	-- Ubuntu
+	--[[ Ubuntu
 	c.wsl_domains = {
 		{
 			name = "WSL:Ubuntu",
@@ -79,7 +79,8 @@ if utils.is_windows() then
 		},
 	}
 	c.default_domain = "WSL:Ubuntu"
-	--[[ DEBIAN
+    --]]
+	-- DEBIAN
 	c.wsl_domains = {
 		{
 			name = "WSL:Debian",
@@ -88,7 +89,6 @@ if utils.is_windows() then
 		},
 	}
 	c.default_domain = "WSL:Debian"
-    --]]
 
 	--Set default_prog only if the OS is Windows
 	-- c.default_prog = { "wsl", "--cd", "/home/shiva" }
