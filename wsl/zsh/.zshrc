@@ -105,7 +105,8 @@ alias fd="fdfind"
 alias time='/usr/bin/time -f "\nreal\t%E\nuser\t%U\nsys\t%S"'
 
 # For wsl stuff
-alias pwsh="pwsh.exe -nologo"
+# alias pwsh="pwsh.exe -nologo"
+alias pwsh="powershell.exe -nolog"
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
