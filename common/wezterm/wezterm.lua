@@ -63,7 +63,7 @@ if utils.is_darwin() then
 	c.window_frame.font_size = 14 -- tab bar font size
 	c.macos_window_background_blur = 80
 
-	c.window_decorations = "RESIZE"
+	-- c.window_decorations = "RESIZE"
 
 	c.front_end = "OpenGL"
 	-- c.front_end = "WebGpu"
