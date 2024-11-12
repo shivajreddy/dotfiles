@@ -46,10 +46,10 @@ c.color_scheme = "catppuccin-mocha"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
-	"Berkeley Mono",
+	-- "Berkeley Mono",
 	-- "BlexMono Nerd Font",
-	-- "Iosevka Nerd Font",
-	"JetBrainsMono Nerd Font",
+	"Iosevka Nerd Font",
+	-- "JetBrainsMono Nerd Font",
 	"Symbols Nerd Font",
 })
 -- Disable font ligatures => == <=
