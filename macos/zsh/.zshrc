@@ -68,6 +68,10 @@ alias py="python3"
 alias pva="source ./venv/bin/activate"
 alias ff="fastfetch"
 
+pywatch() {
+  find . -name "$1" | entr -c sh -c "python3 $2"
+}
+
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
 alias zcpp="zellij action new-tab -l cpp"
