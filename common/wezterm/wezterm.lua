@@ -102,16 +102,14 @@ if utils.is_windows() then
 	}
 	c.default_domain = "WSL:Ubuntu"
 	--[[ DEBIAN
-	-- ::::::  Startup stuff  ::::::
-	--[[Ubuntu
 	c.wsl_domains = {
 		{
-			name = "WSL:Ubuntu",
-			distribution = "Ubuntu",
+			name = "WSL:Debian",
+			distribution = "Debian",
 			default_cwd = "/home//shiva",
 		},
 	}
-	c.default_domain = "WSL:Ubuntu"
+	c.default_domain = "WSL:Debian"
     --]]
 
 	--Set default_prog only if the OS is Windows
