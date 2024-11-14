@@ -23,8 +23,8 @@ Set-Location ~
 
 
 # ####	ZOXIDE    ####
-Set-Alias z zoxide
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+# Set-Alias z zoxide
+# Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 
 # ####	STARSHIP    ####
