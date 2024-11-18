@@ -53,10 +53,12 @@ c.front_end = "OpenGL"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
-	-- "Berkeley Mono",
 	-- "BlexMono Nerd Font",
-	"Iosevka Nerd Font",
+	-- { family="Iosevka Nerd Font" },
+	{ family = "Iosevka", weight = "Regular" },
+	{ family = "Iosevka", stretch = "Expanded", weight = "Regular" },
 	-- "JetBrainsMono Nerd Font",
+	"Berkeley Mono",
 	"Symbols Nerd Font",
 })
 -- Disable font ligatures => == <=
