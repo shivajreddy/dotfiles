@@ -4,6 +4,7 @@
 # NOTE: The file name of this file should be .clang-format
 # Use the following command to make a sym link on your linux home(~) directory
 # ln -s ~/dotfiles/common/code/clang-format .clang-format
+# New-Item -ItemType SymbolicLink -Path "C:\Users\shiva\.clang-format" -Target "\\wsl$\Ubuntu\home\shiva\dotfiles\common\code\clang-format"
 
 # Formatting options clang-format
 # Example: run the following command to set GNU formatting
@@ -15,18 +16,19 @@ Language:        Cpp
 IndentWidth:     4
 UseTab:          Never
 TabWidth:        4
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterClass:              true
-  AfterControlStatement:  true
-  AfterEnum:               true
-  AfterFunction:           true
-  AfterNamespace:          true
-  AfterStruct:             true
-  AfterUnion:              true
-  BeforeCatch:             true
-  BeforeElse:              true
-  IndentBraces:            false
+  AfterClass:               true
+  AfterFunction:            true
+  SplitEmptyFunction:       false
+  AfterNamespace:           false
+  AfterEnum:                false
+  AfterControlStatement:    false
+  AfterStruct:              true
+  AfterUnion:               true
+  BeforeCatch:              true
+  BeforeElse:               false
+  IndentBraces:             false
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine:       false
 ColumnLimit:      80
@@ -35,3 +37,7 @@ SpaceBeforeParens: ControlStatements
 SpacesBeforeTrailingComments: 1
 AccessModifierOffset: -4
 IndentAccessModifiers: false  # Optional
+
+SpacesInCStyleCastParentheses: false
+SpacesInAngles: false
+SpaceBeforeCpp11BracedList: true
