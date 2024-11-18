@@ -10,7 +10,12 @@
 
   :: Windows ::
   - This is how you create a symlink
+  Command Prompt:
   mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Ubuntu\home\shiva\dotfiles\common\wezterm"
+
+  Power Shell:
+  New-Item -ItemType SymbolicLink -Path "C:\LinkFolder\MyLink.txt" -Target "C:\OriginalFolder\OriginalFile.txt"
+
   (or)
   mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Debian\home\shiva\dotfiles\common\wezterm"
   - so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
