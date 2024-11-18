@@ -41,3 +41,4 @@ IndentAccessModifiers: false  # Optional
 SpacesInCStyleCastParentheses: false
 SpacesInAngles: false
 SpaceBeforeCpp11BracedList: true
+
