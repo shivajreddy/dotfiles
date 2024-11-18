@@ -12,9 +12,11 @@ return
 */
 
 ; Chrome browser
+/*
 F8::
     HandlePiPWindow(-34, 23) ; Close button (X offset = -44, Y offset = +23)
 return
+*/
 
 ; Function to handle PiP window and click at the specified offset
 HandlePiPWindow(XOffset, YOffset)

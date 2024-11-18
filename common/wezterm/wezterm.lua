@@ -97,7 +97,7 @@ end
 -- :::::::::::    WINDOWS  Setttings    :::::::::::
 if utils.is_windows() then
 	-- ::::::  Startup stuff  ::::::
-	--[[ Ubuntu
+	-- Ubuntu
 	c.wsl_domains = {
 		{
 			name = "WSL:Ubuntu",
@@ -106,8 +106,9 @@ if utils.is_windows() then
 		},
 	}
 	c.default_domain = "WSL:Ubuntu"
-    --]]
-	-- DEBIAN
+	--]]
+
+	--[[ DEBIAN
 	c.wsl_domains = {
 		{
 			name = "WSL:Debian",
@@ -116,6 +117,7 @@ if utils.is_windows() then
 		},
 	}
 	c.default_domain = "WSL:Debian"
+    --]]
 
 	--Set default_prog only if the OS is Windows
 	-- c.default_prog = { "wsl", "--cd", "/home/shiva" }
