@@ -1,0 +1,3 @@
+return {
+  "lmburns/lf.nvim",
+}

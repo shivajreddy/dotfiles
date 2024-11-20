@@ -16,7 +16,9 @@
   Power Shell:
   New-Item -ItemType SymbolicLink -Path "C:\LinkFolder\MyLink.txt" -Target "C:\OriginalFolder\OriginalFile.txt"
 
-  (or)
+  (Here is the actual command i used)
+  New-Item -ItemType SymbolicLink -Path "C:\Users\sreddy\.config\wezterm" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\wezterm\"
+  New-Item -ItemType SymbolicLink -Path "C:\Users\sreddy\.config\wezterm" -Target "\\wsl`$\Ubuntu\home\shiva\dotfiles\common\wezterm\"
   mklink /D "C:\Users\sreddy\.config\wezterm" "\\wsl$\Debian\home\shiva\dotfiles\common\wezterm"
   - so create a symlink to this `wezterm` director from the %HOME%/.config folder of windows-OS,
   because thats where wezterm will look for config
