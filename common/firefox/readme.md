@@ -15,6 +15,7 @@
     New-Item -ItemType SymbolicLink -D -Path "<copied-path-from-above>\chrome" -Target "\\wsl`$\Ubuntu\home\shiva\dotfiles\common\firefox\chrome"
     Example:
     New-Item -ItemType SymbolicLink -D -Path "C:\Users\sreddy\AppData\Roaming\Mozilla\Firefox\Profiles\8vanq41s.default-release\chrome" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\firefox\chrome"
+    New-Item -ItemType SymbolicLink -D -Path "C:\Users\sreddy\AppData\Roaming\Mozilla\Firefox\Profiles\50dhcs5t.default-release-1732108027851\chrome" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\firefox\chrome"
     ```
     - MacOS & Linux
     ```
