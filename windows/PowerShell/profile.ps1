@@ -1,26 +1,11 @@
 <#
 
-1 - Create a system wide profile for Powershell-7
-    - To look at the location of system wide profile file use, run the following on powershell
-      $PSHOME
-2 - Go to that directory. Or simply do `cd $PSHOME`
-3 - Copy the contents of this file
+System Wide Powershell-7 profile
 
-1 - First create a profile for the windows user if not already using the following
-command
-(https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
-
-if (!(Test-Path -Path $PROFILE)) {
-  New-Item -ItemType File -Path $PROFILE -Force
-}
-
-2 - open the profile that you created, use the 
-echo $Profile
-to see where your user profile file lives at
-
-3 - Now manually copy the contents of dotfiles/windows/powershell/shiva_profile.ps1
-and paste into the windows user's profile file
-
+1 - It should be named 'profile.ps1'
+2 - It should be located at '$PSHOME'
+3- So make a sym link to the profile.ps1 file 
+New-Item -ItemType SymbolicLink -Path "$PSHOME\profile.ps1" -Target "\\wsl`$\Debian\home\shiva\dotfiles\windows\PowerShell\profile.ps1"
 4 - reopen powershell
 
 #>
@@ -60,8 +45,4 @@ Set-Alias l ll
 # ####	MISC.    ####
 # when using dir, hide the ugly text background color
 # $PSStyle.FileInfo.Directory = ""
-
-
-
-
 
