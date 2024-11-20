@@ -9,6 +9,12 @@ The order to run the setup scripts
 3. neovim.sh
 4. symlinks.sh
 
+Misc:
+1. Lazygit 
+Go to https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation,
+for both Ubuntu and Debian follow the instructions under Ubuntu
+2. Install Go
+
 
 ## TODO:
 - Create a script to install languaes and package managers - py, pip, node, npm, nvm
