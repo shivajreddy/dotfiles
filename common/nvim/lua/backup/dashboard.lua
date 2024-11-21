@@ -2,7 +2,7 @@ return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
   opts = function()
-    local logo = [[
+    local _ = [[
                 _____          __     __          ____________   _______    ______      _____         
           _____\    \        /  \   /  \        /            \  \      |  |      |   /      |_       
           /    / \    |      /   /| |\   \      |\___/\  \\___/|  |     /  /     /|  /         \      
@@ -14,6 +14,17 @@ return {
     | |   ||    | |     |    | |       | |    | |           | /      \ |     | /    | |     | |     | 
     \|___||____|/      |____|/         \|____| |___________|/        \|_____|/      \|_____|\|_____| 
     ]]
+    local _ = [[
+━━           ┓   •              ━━━━
+━━━━━━    ┏  ┣┓  ┓  ┓┏  ┏┓    ━━━━━━
+━━        ┛  ┛┗  ┗  ┗┛  ┗┻      ━━━━
+                                    
+    ]]
+    local logo = [[
+━━━━━━    ┏┓  ┓   •            ━━━━━━
+━━━━━━    ┗┓  ┣┓  ┓  ┓┏  ┏┓    ━━━━━━
+━━━━━━    ┗┛  ┛┗  ┗  ┗┛  ┗┻    ━━━━━━
+        ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
 
@@ -22,7 +33,7 @@ return {
       hide = {
         -- this is taken care of by lualine
         -- enabling this messes up the actual laststatus setting after loading a file
-        statusline = false,
+        statusline = true,
       },
       config = {
         header = vim.split(logo, "\n"),
@@ -48,7 +59,8 @@ return {
         footer = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          -- return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          return { "" }
         end,
       },
     }
