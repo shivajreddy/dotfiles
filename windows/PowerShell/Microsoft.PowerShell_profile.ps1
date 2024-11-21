@@ -1,29 +1,3 @@
-<#
-
-1 - Create a system wide profile for Powershell-7
-    - To look at the location of system wide profile file use, run the following on powershell
-      $PSHOME
-2 - Go to that directory. Or simply do `cd $PSHOME`
-3 - Copy the contents of this file
-
-1 - First create a profile for the windows user if not already using the following
-command
-(https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
-
-if (!(Test-Path -Path $PROFILE)) {
-  New-Item -ItemType File -Path $PROFILE -Force
-}
-
-2 - open the profile that you created, use the 
-echo $Profile
-to see where your user profile file lives at
-
-3 - Now manually copy the contents of dotfiles/windows/powershell/shiva_profile.ps1
-and paste into the windows user's profile file
-
-4 - reopen powershell
-
-#>
 
 Set-Location ~
 
@@ -35,7 +9,7 @@ Set-Location ~
 
 # ####	STARSHIP    ####
 # Location of starship configuration
-$ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\windows\starship.toml"
+# $ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\windows\starship.toml"
 Invoke-Expression (&starship init powershell)
 
 
@@ -59,9 +33,5 @@ Set-Alias l ll
 
 # ####	MISC.    ####
 # when using dir, hide the ugly text background color
-# $PSStyle.FileInfo.Directory = ""
-
-
-
-
+$PSStyle.FileInfo.Directory = ""
 
