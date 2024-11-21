@@ -27,7 +27,9 @@ function M.apply(c)
 
 	-- Overrides the themes colors
 	c.colors = {
-		background = "#111019",
+		-- background = "#111019", -- catpuccin black
+		background = "#14110F", -- smoky black
+		-- background = "#0e0a01", -- rosepine burnt
 		cursor_fg = "#191724",
 		cursor_bg = "#ebbcba",
 	}
