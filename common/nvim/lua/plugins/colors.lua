@@ -22,8 +22,8 @@ return {
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
-          -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
-          Normal = { bg = "#14110F" }, -- smoky black
+          Normal = { bg = "#0e0a01" }, -- rosepine burnt background
+          -- Normal = { bg = "#14110F" }, -- smoky black
           CursorLine = { bg = "base" },
           ColorColumn = { bg = "#0e0a01" },
           -- VertSplit = { fg = "muted", bg = "muted" },
