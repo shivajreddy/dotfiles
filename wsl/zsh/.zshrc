@@ -98,6 +98,9 @@ pywatch() {
   find . -name "$1" | entr -c sh -c "python3 $2"
 }
 
+# CHATGPT
+export OPENAI_KEY=
+
 # Linux Related
 alias fd="fdfind"
 

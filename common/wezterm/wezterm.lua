@@ -57,7 +57,7 @@ end
 -- :::::::::::    Linux Setttings    :::::::::::
 if utils.is_linux() then
 	win_keys.apply(c)
-	c.font_size = 14
+	c.font_size = 18
 	c.window_frame.font_size = 10 -- tab bar font size
 
 	-- c.window_background_opacity = 0.91 -- This is good for focus
