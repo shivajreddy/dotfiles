@@ -33,12 +33,18 @@ AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine:       false
 ColumnLimit:      80
 ContinuationIndentWidth: 4
-SpaceBeforeParens: ControlStatements
+# SpaceBeforeParens: ControlStatements
 SpacesBeforeTrailingComments: 1
 AccessModifierOffset: -4
 IndentAccessModifiers: false  # Optional
 
-SpacesInCStyleCastParentheses: false
 SpacesInAngles: false
-SpaceBeforeCpp11BracedList: true
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInContainerLiterals: true
+Cpp11BracedListStyle: false
+SpacesInCStyleCastParentheses: false
+SpaceBeforeCpp11BracedList: true    # Ensures space before opening brace
+SpaceBeforeAssignmentOperators: true
 
