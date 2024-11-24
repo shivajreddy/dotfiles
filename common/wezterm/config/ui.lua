@@ -32,6 +32,10 @@ function M.apply(c)
 		-- background = "#0e0a01", -- rosepine burnt
 		cursor_fg = "#191724",
 		cursor_bg = "#ebbcba",
+
+		-- Same as Visual Studio
+		cursor_fg = "#0e0a01",
+		cursor_bg = "#EA9D34",
 	}
 
 	c.colors.tab_bar = {

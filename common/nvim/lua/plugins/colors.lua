@@ -22,6 +22,7 @@ return {
         highlight_groups = {
           Normal = { bg = "#0e0a01" }, -- rosepine burnt background
           CursorLine = { bg = "base" },
+          -- CursorLine = { bg = "#0e0a01" },
           ColorColumn = { bg = "#0e0a01" },
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
