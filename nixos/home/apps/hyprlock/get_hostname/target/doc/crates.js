@@ -1,1 +1,0 @@
-window.ALL_CRATES = ["get_hostname"];

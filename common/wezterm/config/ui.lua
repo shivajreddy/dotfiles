@@ -10,13 +10,13 @@ function M.apply(c)
 	-- c.tab_max_width = 16
 
 	c.window_frame = {
-		font = require("wezterm").font("Berkeley Mono"),
-		inactive_titlebar_bg = "#1f1d2e",
-		active_titlebar_bg = "#1f1d2e",
-		-- inactive_titlebar_bg = "#353535",
-		-- active_titlebar_bg = "#2b2042",
+		font = require("wezterm").font("Iosevka", { weight = "Bold" }),
+		-- font = require("wezterm").font("Berkeley Mono"),
+		inactive_titlebar_bg = "#14110F",
+		-- inactive_titlebar_fg = "#2b2042",
+		active_titlebar_bg = "#14110F",
+		-- active_titlebar_fg = "#2b2042",
 		inactive_titlebar_fg = "#cccccc",
-		active_titlebar_fg = "#ffffff",
 		inactive_titlebar_border_bottom = "#2b2042",
 		active_titlebar_border_bottom = "#2b2042",
 		button_fg = "#cccccc",
@@ -39,8 +39,9 @@ function M.apply(c)
 		background = "rgba(0,0,0,0)",
 
 		active_tab = {
-			bg_color = "#1C1825",
-			fg_color = "#ebbcba",
+			-- bg_color = "#1C1825",
+			bg_color = "#ea9d34",
+			fg_color = "#0e0a01",
 
 			intensity = "Bold",
 			underline = "None",

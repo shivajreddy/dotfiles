@@ -36,6 +36,8 @@ return {
             "--completion-style=detailed",
             "--function-arg-placeholders",
             "--fallback-style=llvm",
+            "--enable-config",
+            "--compile-commands-dir=.",
           },
           init_options = {
             usePlaceholders = true,

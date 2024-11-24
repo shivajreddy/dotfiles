@@ -1,5 +1,3 @@
--- rose useful link
--- https://www.reddit.com/r/neovim/comments/19f7s7e/changing_default_ros%C3%A9_pine_colours/
 return {
   {
     "erikbackman/brightburn.vim",
@@ -27,7 +25,7 @@ return {
           ColorColumn = { bg = "#0e0a01" },
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
-          CursorLineNr = { fg = "#816b5f" },
+          CursorLineNr = { fg = "#908caa" }, -- rosepine subtle
         },
       })
     end,
