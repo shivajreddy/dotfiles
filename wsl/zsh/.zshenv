@@ -2,3 +2,4 @@
 # The zsh.sh setup script, creates a sym link from $HOME/.zshenv to this file
 export ZDOTDIR=~/.config/zsh
 
+. "$HOME/.cargo/env"
