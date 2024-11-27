@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json",
+  "htmlPath": "./shiva_bar.html",
+  "zOrder": "normal",
+  "shownInTaskbar": false,
+  "focused": false,
+  "resizable": false,
+  "transparent": true,
+  "presets": [
+    {
+      "name": "default",
+      "anchor": "top_center",
+      "offsetX": "0px",
+      "offsetY": "0px",
+      "width": "80%",
+      "height": "28px",
+      "monitorSelection": {
+        "type": "all"
+      },
+      "dockToEdge": {
+        "enabled": true,
+        "edge": null,
+        "windowMargin": "0px"
+      }
+    }
+  ]
+}
