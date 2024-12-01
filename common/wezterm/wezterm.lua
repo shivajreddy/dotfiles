@@ -28,7 +28,7 @@ c.selection_word_boundary = "{}[]()\"'`.,;:"
 -- :::::::::::    THEME    :::::::::::
 c.color_scheme = "catppuccin-mocha"
 
-c.front_end = "OpenGL"
+-- c.front_end = "OpenGL"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
@@ -108,23 +108,23 @@ if utils.is_windows() then
 	c.font_size = 14
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	-- c.window_background_opacity = 0.91 -- This is good for focus
-	-- c.window_background_opacity = 0.85
-	c.window_background_opacity = 1
+	c.window_background_opacity = 0.91 -- This is good for focus
+	-- c.window_background_opacity = 1
 	-- c.text_background_opacity = 0.3
 
 	c.window_decorations = "RESIZE"
-	c.win32_system_backdrop = "Acrylic" -- Acrylic  Auto Mica Tabbed
+	c.win32_system_backdrop = "Acrylic" -- Acrylic, Auto, Mica, Tabbed
 	-- c.max_fps = 144
 	-- c.animation_fps = 60
 	-- c.cursor_blink_rate = 250
 
-	wezterm.on("format-window-title", function()
-		return ""
-	end)
+	-- wezterm.on("format-window-title", function()
+	-- 	return ""
+	-- end)
 end
 
 -- :::::::::::    WINDOW-TITLE    :::::::::::
+--[[
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = utils.tab_title(tab)
 	if tab.is_active then
@@ -134,6 +134,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 	return " " .. title .. " "
 end)
+--]]
 
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
