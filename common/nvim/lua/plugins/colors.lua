@@ -14,9 +14,6 @@ return {
           italic = false,
           transparency = true,
         },
-        groups = {
-          -- h1 = "love",
-        },
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
@@ -35,10 +32,6 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "rose-pine",
-      -- colorscheme = "rose-pine-moon",
-      -- colorscheme = "catppuccin",
-      -- colorscheme = "catppuccin-mocha",
-      -- colorscheme = "brightburn",
     },
   },
 }
