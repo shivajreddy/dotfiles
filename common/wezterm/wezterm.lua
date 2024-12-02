@@ -108,10 +108,10 @@ if utils.is_windows() then
 	c.font_size = 14
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	c.win32_system_backdrop = "Tabbed" -- Acrylic, Auto, Mica, Tabbed
+	c.win32_system_backdrop = "Auto" -- Acrylic, Auto, Mica, Tabbed
 
 	-- c.window_background_opacity = 0.95 -- This is good for focus
-	c.window_background_opacity = 0
+	c.window_background_opacity = 0.6
 	-- c.window_background_opacity = 1
 	-- c.text_background_opacity = 0.3
 
