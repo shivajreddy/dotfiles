@@ -19,7 +19,7 @@ return {
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
           -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
-          CursorLine = { bg = "#121F2B" }, -- #0e0a01 base  #121F2B
+          CursorLine = { bg = "none" }, -- #0e0a01 base  #121F2B none
           ColorColumn = { bg = "#121F2B" }, -- #0e0a01
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
