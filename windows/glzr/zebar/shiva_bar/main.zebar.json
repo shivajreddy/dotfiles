@@ -9,17 +9,17 @@
   "presets": [
     {
       "name": "default",
-      "anchor": "top_center",
+      "anchor": "bottom_left",
       "offsetX": "0px",
       "offsetY": "0px",
-      "width": "80%",
-      "height": "28px",
+      "width": "100%",
+      "height": "34px",
       "monitorSelection": {
         "type": "all"
       },
       "dockToEdge": {
         "enabled": true,
-        "edge": "top",
+        "edge": "bottom",
         "windowMargin": "0px"
       }
     }

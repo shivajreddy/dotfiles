@@ -3,7 +3,6 @@
     "startupConfigs": [
         {
             "path": "shiva_bar/main.zebar.json",
-            "__path": "starter/with-glazewm.zebar.json",
             "preset": "default"
         }
     ]

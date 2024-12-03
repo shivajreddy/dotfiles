@@ -41,6 +41,7 @@
 
         function App() {
             const [output, setOutput] = useState(providers.outputMap);
+        console.log("output", output);
 
             useEffect(() => {
                 providers.onOutput(() => setOutput(providers.outputMap));
@@ -49,9 +50,6 @@
             return (
                 <div className="app">
                     <div className="left">
-                    </div>
-
-                    <div className="center">
                         {output.glazewm && (
                             <div className="workspaces">
                                 {output.glazewm.currentWorkspaces.map(workspace => (
@@ -69,9 +67,7 @@
                                 ))}
                             </div>
                         )}
-        </div>
 
-                    <div className="right">
                         {output.glazewm && (
                             <>
                                 {output.glazewm.bindingModes.map(bindingMode => (
@@ -117,11 +113,17 @@
                             </div>
                         )}
 
-        <div id="date-time">
-        {output.date?.formatted}
-        </div>
-
+			<div id="date-time">
+			    {output.date?.formatted}
+			</div>
                     </div>
+
+                    <div className="center">
+		    </div>
+
+                    <div className="right">
+                    </div>
+
                 </div>
             );
         }
