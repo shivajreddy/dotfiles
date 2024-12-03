@@ -1,4 +1,3 @@
---[[
 return {
   {
     "erikbackman/brightburn.vim",
@@ -29,17 +28,6 @@ return {
       })
     end,
   },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "rose-pine",
-    },
-  },
-}
-]]
-
-return {
   {
     "metalelf0/base16-black-metal-scheme",
     name = "metalelf0",
@@ -69,7 +57,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "base16-black-metal-venom",
+      -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk
+      colorscheme = "rose-pine",
     },
   },
 }

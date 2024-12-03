@@ -28,7 +28,7 @@ c.selection_word_boundary = "{}[]()\"'`.,;:"
 -- :::::::::::    THEME    :::::::::::
 c.color_scheme = "catppuccin-mocha"
 
--- c.front_end = "OpenGL"
+c.front_end = "OpenGL"
 
 -- :::::::::::    FONT    :::::::::::
 c.font = wezterm.font_with_fallback({
@@ -105,14 +105,14 @@ if utils.is_windows() then
 	-- c.default_prog = { "wsl", "--cd", "/home/shiva" }
 
 	win_keys.apply(c)
-	c.font_size = 14
+	c.font_size = 18
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	c.win32_system_backdrop = "Mica" -- Acrylic, Auto, Mica, Tabbed
+	-- c.win32_system_backdrop = "Mica" -- Acrylic, Auto, Mica, Tabbed
 
-	c.window_background_opacity = 0.95 -- This is good for focus
+	-- c.window_background_opacity = 0.95 -- This is good for focus
 	-- c.window_background_opacity = 0
-	-- c.window_background_opacity = 1
+	c.window_background_opacity = 1
 	-- c.text_background_opacity = 0.3
 
 	c.window_decorations = "RESIZE"
