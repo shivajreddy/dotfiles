@@ -60,26 +60,38 @@ this means that you can exucute this command in two ways:
 map("\\", "LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 -- and 'Minus' to split vertically
 map("`", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+
 -- map 1-9 to switch to tab 1-9, 0 for the last tab
+--[[
 for i = 1, 9 do
-	map(tostring(i), { "LEADER", "ALT" }, act.ActivateTab(i - 1))
+	map(tostring(i), { "LEADER", "CTRL" }, act.ActivateTab(i - 1))
 end
+]]
+
+-- Map CTRL + !@#$%^&*( to switch tabs 1-9, 0 for the last tab
+local symbols = { "!", "@", "#", "$", "%", "^", "&", "*", "(", ")" }
+for i, symbol in ipairs(symbols) do
+	map(symbol, { "SHIFT|CTRL" }, act.ActivateTab(i - 1))
+end
+
+--[[
 map("0", { "LEADER", "ALT" }, act.ActivateTab(-1))
 map("h", { "LEADER", "ALT" }, act.ActivatePaneDirection("Left"))
 map("j", { "LEADER", "ALT" }, act.ActivatePaneDirection("Down"))
 map("k", { "LEADER", "ALT" }, act.ActivatePaneDirection("Up"))
 map("l", { "LEADER", "ALT" }, act.ActivatePaneDirection("Right"))
+]]
 
 -- spawn & close
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
-map("t", { "SHIFT|ALT" }, act.SpawnTab("CurrentPaneDomain"))
+map("t", { "SHIFT|CTRL" }, act.SpawnTab("CurrentPaneDomain"))
 
--- map("w", { "SHIFT|ALT" }, act.CloseCurrentTab({ confirm = true }))
-map("n", { "SHIFT|ALT" }, act.SpawnWindow)
+-- map("w", { "SHIFT|CTRL" }, act.CloseCurrentTab({ confirm = true }))
+map("n", { "SHIFT|CTRL" }, act.SpawnWindow)
 -- zoom states
-map("z", { "LEADER", "ALT" }, act.TogglePaneZoomState)
-map("Z", { "LEADER", "ALT" }, toggleTabBar)
+map("z", { "LEADER", "SHIFT|CTRL" }, act.TogglePaneZoomState)
+map("Z", { "LEADER", "SHIFT|CTRL" }, toggleTabBar)
 -- copy & paste
 map("v", "LEADER", act.ActivateCopyMode)
 map("c", { "SHIFT|CTRL" }, act.CopyTo("Clipboard"))
@@ -87,25 +99,32 @@ map("c", { "SHIFT|CTRL" }, act.CopyTo("Clipboard"))
 map("v", { "SHIFT|CTRL" }, act.PasteFrom("Clipboard"))
 map("f", { "ALT" }, act.Search({ CaseInSensitiveString = "" }))
 -- rotation
-map("e", { "LEADER", "ALT" }, act.RotatePanes("Clockwise"))
+map("e", { "LEADER", "SHIFT|CTRL" }, act.RotatePanes("Clockwise"))
 -- pickers
 map(" ", "LEADER", act.QuickSelect)
-map("o", { "LEADER", "ALT" }, openUrl) -- https://github.com/shivajreddy
-map("p", { "LEADER", "ALT" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
+map("o", { "LEADER", "SHIFT|CTRL" }, openUrl) -- https://github.com/shivajreddy
+-- map("p", { "LEADER", "SHIFT|CTRL" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
+
+map("p", { "SHIFT|CTRL", "SHIFT|CTRL" }, act.ActivateCommandPalette)
+
 -- map("R", { "LEADER", "ALT" }, act.ReloadConfiguration)
+--[[
 map("u", "SHIFT|CTRL", act.CharSelect)
-map("p", { "SHIFT|CTRL", "SHIFT|ALT" }, act.ActivateCommandPalette)
+]]
+
 -- view
+--[[
 map("Enter", "ALT", act.ToggleFullScreen)
 map("-", { "ALT" }, act.DecreaseFontSize)
 map("=", { "ALT" }, act.IncreaseFontSize)
 map("0", { "ALT" }, act.ResetFontSize)
+]]
 
 -- rename tab
-map("r", { "SHIFT|ALT" }, renameTab)
+map("r", { "SHIFT|CTRL" }, renameTab)
 
 -- debug
-map("l", "SHIFT|ALT", act.ShowDebugOverlay)
+map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
 
 -- Reisze mode
 map(
@@ -151,8 +170,8 @@ M.apply = function(c)
 
 	if utils.is_windows() then
 		c.leader = {
-			key = "t",
-			mods = "ALT",
+			key = "K",
+			mods = "CTRL",
 			timeout_milliseconds = math.maxinteger,
 		}
 	end

@@ -20,7 +20,7 @@ ui_settings.apply(c)
 -- :::::::::::    GENERAL    :::::::::::
 c.automatically_reload_config = true
 c.window_close_confirmation = "NeverPrompt"
-c.window_padding = { left = 10, right = 10, top = 10, bottom = 10 }
+c.window_padding = { left = 14, right = 14, top = 14, bottom = 10 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.selection_word_boundary = "{}[]()\"'`.,;:"
@@ -127,6 +127,10 @@ if utils.is_windows() then
 	-- end)
 end
 
+-- c.show_close_tab_button_in_tabs = false
+c.show_new_tab_button_in_tab_bar = false
+-- c.show_tabs_in_tab_bar = false
+
 -- :::::::::::    WINDOW-TITLE    :::::::::::
 --[[
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
@@ -139,16 +143,77 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return " " .. title .. " "
 end)
 --]]
+-- The filled in variant of the < symbol
+local SOLID_BLANK = wezterm.nerdfonts.md_checkbox_blank
+local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
+-- The filled in variant of the > symbol
+local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+
+local SOLID_LEFT_HALF_CIRCLE = wezterm.nerdfonts.ple_left_half_circle_thick
+local SOLID_RIGHT_HALF_CIRCLE = wezterm.nerdfonts.ple_right_half_circle_thick
+
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+function tab_title(tab_info)
+	local title = tab_info.tab_title
+	-- if the tab title is explicitly set, take that
+	if title and #title > 0 then
+		return title
+	end
+	-- Otherwise, use the title from the active pane
+	-- in that tab
+	return tab_info.active_pane.title
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	-- local edge_background = "#0b0022"
+	local edge_background = "#0e0a01"
+
+	local background = "rgba(0,0,0,0)"
+	local foreground = "#808080"
+
+	if tab.is_active then
+		background = "#ea9d34"
+		foreground = "#0e0a01"
+	elseif hover then
+		background = "#3b3052"
+		foreground = "#909090"
+	end
+
+	local edge_foreground = background
+
+	local title = tab_title(tab)
+
+	-- ensure that the titles fit in the available space,
+	-- and that we have room for the edges.
+	title = wezterm.truncate_right(title, max_width - 2)
+
+	return {
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		-- { Text = SOLID_BLANK },
+		{ Text = SOLID_LEFT_HALF_CIRCLE },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		-- { Text = SOLID_BLANK },
+		{ Text = SOLID_RIGHT_HALF_CIRCLE },
+	}
+end)
 
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
-	local SOLID_LEFT_ARROW = ""
+	local LEFT_ARROW = ""
 	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
 
 	if window:leader_is_active() then
 		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
-		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+		LEFT_ARROW = utf8.char(0xe0b2)
 	end
 
 	if window:active_tab():tab_id() ~= 0 then
@@ -159,7 +224,7 @@ wezterm.on("update-right-status", function(window, _)
 		{ Background = { Color = "#b7bdf8" } },
 		{ Text = prefix },
 		ARROW_FOREGROUND,
-		{ Text = SOLID_LEFT_ARROW },
+		{ Text = LEFT_ARROW },
 	}))
 end)
 

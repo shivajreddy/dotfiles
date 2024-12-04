@@ -38,6 +38,12 @@ function M.apply(c)
 		cursor_bg = "#EA9D34",
 	}
 
+	-- The filled in variant of the < symbol
+	local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
+
+	-- The filled in variant of the > symbol
+	local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+
 	c.colors.tab_bar = {
 		-- background = "#1f1d2e",
 		background = "rgba(0,0,0,0)",
