@@ -31,7 +31,7 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -45,5 +45,5 @@ vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 vim.opt.colorcolumn = "100"
 
-vim.opt.foldmethod = "marker"
-vim.opt.foldmarker = "// #region,// #endregion"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

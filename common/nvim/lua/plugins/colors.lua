@@ -32,12 +32,18 @@ return {
     "metalelf0/base16-black-metal-scheme",
     name = "metalelf0",
   },
+  {
+    "wtfox/jellybeans.nvim",
+    name = "jellybeans",
+  },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk
+      -- colorscheme = "base16-black-metal-immortal", -- venom nile  mayhem  marduk
+      -- colorscheme = "jellybeans",
       colorscheme = "rose-pine",
+      -- colorscheme = "brightburn",
     },
   },
 }
