@@ -60,7 +60,7 @@ window_effects:
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
     hide_title_bar:
-      enabled: false
+      enabled: true
 
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
@@ -75,7 +75,7 @@ window_effects:
       enabled: false
       color: '#a1a1a1'
     hide_title_bar:
-      enabled: false
+      enabled: true
     corner_style:
       enabled: true
       style: 'small_rounded'
