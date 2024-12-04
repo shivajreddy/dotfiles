@@ -129,6 +129,7 @@ end
 
 -- c.show_close_tab_button_in_tabs = false
 c.show_new_tab_button_in_tab_bar = false
+c.show_close_tab_button_in_tabs = false
 -- c.show_tabs_in_tab_bar = false
 
 -- :::::::::::    WINDOW-TITLE    :::::::::::

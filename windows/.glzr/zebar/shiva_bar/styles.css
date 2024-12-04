@@ -82,6 +82,8 @@ body,
     border-bottom: 1px solid var(--rp-highlight-low);
     background: linear-gradient(#0e0a01, var(--rp-moon-base));
     border-radius: 4px;
+
+    /* border: 1px solid yellow; */
 }
 
 .app {
@@ -104,18 +106,47 @@ body,
 }
 
 .right {
+    /* border: 1px solid red; */
     justify-self: end;
+    min-width: 300px;
+    margin-right: 220px;
 }
 
-.logo,
-.binding-mode,
-.tiling-direction,
-.network,
-.memory,
-.cpu,
-.battery {
-    margin-right: 20px;
+#pauseanddirection {
+    /* border: 1px solid green; */
+  width: 120px; /* For fixed Size */
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Align items vertically center (if needed) */
+  justify-content: space-between; /* Push elements to opposite sides */
 }
+
+.binding-mode {
+    margin-right: 0px; /* Add some spacing between binding-mode buttons */
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+
+    background: #eb6f92;
+    color: #191724;
+    border-radius: 2px;
+    line-height: 1;
+    padding: 4px 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.tiling-direction {
+    margin-left: auto; /* Push the tiling-direction button to the far right */
+    background: rgb(255 255 255 / 15%);
+    color: rgb(255 255 255 / 90%);
+    border-radius: 2px;
+    line-height: 1;
+    padding: 4px 6px;
+    border: 0;
+    cursor: pointer;
+}
+
 
 .workspaces {
     display: flex;
@@ -125,7 +156,7 @@ body,
 .workspace {
     background: var(--rp-base);
     margin-right: 8px;
-    padding: 1px 8px;
+    padding: 4px 8px;
     color: rgb(255 255 255 / 90%);
     border: none;
     border-radius: 2px;
@@ -145,20 +176,7 @@ body,
     }
 }
 
-.binding-mode,
-.tiling-direction {
-    background: rgb(255 255 255 / 15%);
-    color: rgb(255 255 255 / 90%);
-    border-radius: 2px;
-    line-height: 1;
-    padding: 4px 8px;
-    border: 0;
-    cursor: pointer;
-}
 
-.binding-mode {
-    margin-right: 4px;
-}
 
 .cpu .high-usage {
     color: #900029;
@@ -177,6 +195,5 @@ body,
 
 #date-time {
     margin-left:12px;
-    /* margin-right : 10px; */
-    /* margin-right : 10px; */
+    font-size: 16px;
 }

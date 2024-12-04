@@ -32,9 +32,7 @@
 
         const providers = zebar.createProviderGroup({
             glazewm: {type: 'glazewm'},
-            cpu: {type: 'cpu'},
             date: {type: 'date', formatting: 'EEE d MMM t'},
-            memory: {type: 'memory'},
         });
 
         createRoot(document.getElementById('root')).render(<App />);
@@ -50,6 +48,8 @@
             return (
                 <div className="app">
                     <div className="left">
+
+
                         {output.glazewm && (
                             <div className="workspaces">
                                 {output.glazewm.currentWorkspaces.map(workspace => (
@@ -68,8 +68,16 @@
                             </div>
                         )}
 
+
+                    </div>
+
+                    <div className="center">
+                    </div>
+
+                    <div className="right">
+
                         {output.glazewm && (
-                            <>
+                            <div id="pauseanddirection">
                                 {output.glazewm.bindingModes.map(bindingMode => (
                                     <button
                                         className="binding-mode"
@@ -90,38 +98,12 @@
                                         output.glazewm.runCommand('toggle-tiling-direction')
                                     }
                                 ></button>
-                            </>
-                        )}
-
-                        {output.memory && (
-                            <div className="memory">
-                                <i className="nf nf-fae-chip"></i>
-                                {Math.round(output.memory.usage)}%
                             </div>
                         )}
 
-                        {output.cpu && (
-                            <div className="cpu">
-                                <i className="nf nf-oct-cpu"></i>
-
-                                {/* Change the text color if the CPU usage is high. */}
-                                <span
-                                    className={output.cpu.usage > 85 ? 'high-usage' : ''}
-                                >
-                                    {Math.round(output.cpu.usage)}%
-                                </span>
-                            </div>
-                        )}
-
-			<div id="date-time">
-			    {output.date?.formatted}
-			</div>
-                    </div>
-
-                    <div className="center">
-		    </div>
-
-                    <div className="right">
+                        <div id="date-time">
+                            {output.date?.formatted}
+                        </div>
                     </div>
 
                 </div>
