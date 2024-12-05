@@ -81,6 +81,11 @@ map("j", { "LEADER", "ALT" }, act.ActivatePaneDirection("Down"))
 map("k", { "LEADER", "ALT" }, act.ActivatePaneDirection("Up"))
 map("l", { "LEADER", "ALT" }, act.ActivatePaneDirection("Right"))
 ]]
+-- map("0", { "LEADER", "ALT" }, act.ActivateTab(-1))
+map("h", { "LEADER", "SHIFT|CTRL" }, act.ActivatePaneDirection("Left"))
+map("j", { "LEADER", "SHIFT|CTRL" }, act.ActivatePaneDirection("Down"))
+map("k", { "LEADER", "SHIFT|CTRL" }, act.ActivatePaneDirection("Up"))
+map("l", { "LEADER", "SHIFT|CTRL" }, act.ActivatePaneDirection("Right"))
 
 -- spawn & close
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
@@ -97,7 +102,8 @@ map("v", "LEADER", act.ActivateCopyMode)
 map("c", { "SHIFT|CTRL" }, act.CopyTo("Clipboard"))
 
 map("v", { "SHIFT|CTRL" }, act.PasteFrom("Clipboard"))
-map("f", { "ALT" }, act.Search({ CaseInSensitiveString = "" }))
+-- map("f", { "ALT" }, act.Search({ CaseInSensitiveString = "" }))
+
 -- rotation
 map("e", { "LEADER", "SHIFT|CTRL" }, act.RotatePanes("Clockwise"))
 -- pickers
@@ -124,7 +130,7 @@ map("0", { "ALT" }, act.ResetFontSize)
 map("r", { "SHIFT|CTRL" }, renameTab)
 
 -- debug
-map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
+map("d", "SHIFT|CTRL", act.ShowDebugOverlay)
 
 -- Reisze mode
 map(
@@ -170,7 +176,7 @@ M.apply = function(c)
 
 	if utils.is_windows() then
 		c.leader = {
-			key = "K",
+			key = "T",
 			mods = "CTRL",
 			timeout_milliseconds = math.maxinteger,
 		}
