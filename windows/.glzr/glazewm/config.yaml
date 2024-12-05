@@ -111,11 +111,11 @@ workspaces:
     bind_to_monitor: 0
   - name: '2'
     display_name: "2 🌟"
-    keep_alive: true
+    # keep_alive: true
     bind_to_monitor: 0
   - name: '3'
     display_name: "3 🚀"
-    keep_alive: true
+    # keep_alive: true
     bind_to_monitor: 0
   - name: '4'
     display_name: "4 🎵"
@@ -123,12 +123,11 @@ workspaces:
   - name: '6'
     display_name: "6 🕹️"
     bind_to_monitor: 0
-    keep_alive: true
+    # keep_alive: true
   - name: '7'
   - name: '8'
   - name: '9'
     display_name: " 9 📝 "
-    keep_alive: true
     bind_to_monitor: 0
 
 window_rules:
@@ -148,6 +147,9 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
+
+      # Ignores Dota 2
+      - window_title: { equals : 'Dota 2' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
