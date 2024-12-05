@@ -44,6 +44,11 @@ function M.apply(c)
 	-- The filled in variant of the > symbol
 	local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
+	c.inactive_pane_hsb = {
+		saturation = 1,
+		brightness = 1,
+	}
+
 	c.colors.tab_bar = {
 		-- background = "#1f1d2e",
 		background = "rgba(0,0,0,0)",
