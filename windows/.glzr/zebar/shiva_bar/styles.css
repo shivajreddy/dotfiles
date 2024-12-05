@@ -64,7 +64,7 @@ i {
 
 body {
     color: rgb(255 255 255 / 90%);
-    font-family: "Iosevka";
+    font-family: "Iosevka Nerd Font";
     /* font-family: ui-monospace, monospace; */
     font-size: 14px;
     overflow: hidden;
@@ -76,14 +76,22 @@ body,
     height: 100%;
 }
 
-#root {
-    /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
-    /* background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%)); */
-    border-bottom: 1px solid var(--rp-highlight-low);
-    background: linear-gradient(#0e0a01, var(--rp-moon-base));
-    border-radius: 4px;
+.frosted-glass {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for subtle definition */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    padding: 20px; /* Optional padding for inner content */
+    color: white; /* Adjust text color for contrast */
+}
 
+#root {
     /* border: 1px solid yellow; */
+    background-color: rgba(64, 61, 82, 0.35);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
 .app {
@@ -195,7 +203,7 @@ body,
 }
 
 .workspace {
-    background: var(--rp-base);
+    background: var(--rp-overlay);
     margin-right: 8px;
     padding: 4px 8px;
     color: rgb(255 255 255 / 90%);
