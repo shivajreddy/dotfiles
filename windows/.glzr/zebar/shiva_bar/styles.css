@@ -109,7 +109,7 @@ body,
     /* border: 1px solid red; */
     justify-self: end;
     min-width: 300px;
-    margin-right: 220px;
+    /* margin-right: 220px; */
 }
 
 #pauseanddirection {
@@ -166,14 +166,21 @@ body,
         background: var(--rp-base);
     }
 
+    
     &:hover {
-        background: var(--rp-burnt);
+        /* background: var(--rp-burnt); */
+        background: #8caaee;
+        color: #0e0a01;
+        font-weight: bold;
     }
 
     &.focused {
-        background: var(--rp-burnt);
+        /* background: var(--rp-burnt); */
+        background: #7287fd;
+        color: #0e0a01;
         font-weight: bold;
     }
+
 }
 
 
@@ -194,6 +201,6 @@ body,
 }
 
 #date-time {
-    margin-left:12px;
+    margin-left: 20px;
     font-size: 16px;
 }
