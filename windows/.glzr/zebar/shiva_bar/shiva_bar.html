@@ -33,22 +33,46 @@
         const providers = zebar.createProviderGroup({
             glazewm: {type: 'glazewm'},
             date: {type: 'date', formatting: 'EEE d MMM t'},
+            media: {type: 'media'}
         });
 
         createRoot(document.getElementById('root')).render(<App />);
 
         function App() {
             const [output, setOutput] = useState(providers.outputMap);
-        console.log("output", output);
 
             useEffect(() => {
                 providers.onOutput(() => setOutput(providers.outputMap));
             }, []);
 
+
+            const handlePlayPause = () => {
+                if (output.media?.currentSession?.isPlaying) {
+                    output.media.pause();
+                } else {
+                    output.media.play();
+                }
+            };
+
             return (
                 <div className="app">
 
                     <div className="left">
+                        <div id="media">
+                            {output.media?.currentSession?.title && (
+                                <div className="media-controls">
+                                    <div className="media-buttons">
+                                        <button
+                                            className={`nf ${output.media.currentSession?.isPlaying ? 'nf-fa-pause' : 'nf-fa-play'}`}
+                                            onClick={handlePlayPause}
+                                        ></button>
+                                    </div>
+                                    <div className="media-info">
+                                        {output.media.currentSession?.title || "N/A"}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className="center">

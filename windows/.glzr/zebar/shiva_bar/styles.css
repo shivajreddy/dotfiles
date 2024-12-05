@@ -101,6 +101,47 @@ body,
     align-items: center;
 }
 
+#media {
+    /* border: 1px solid red; */
+    height: 14px;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space out items evenly */
+    gap: 20px; /* Add spacing between child elements */
+    padding: 0px;
+    border-radius: 5px;
+}
+
+.media-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0px;
+}
+
+.media-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.media-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.media-buttons button {
+    background: rgb(255 255 255 / 15%);
+    color: rgb(255 255 255 / 90%);
+    border-radius: 2px;
+    line-height: 1;
+    padding: 4px 6px;
+    border: 0;
+    cursor: pointer;
+}
+
+
 .center {
     justify-self: center;
 }
@@ -182,7 +223,6 @@ body,
     }
 
 }
-
 
 
 .cpu .high-usage {
