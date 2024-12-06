@@ -49,9 +49,11 @@ if utils.is_darwin() then
 	mac_keys.apply(c)
 	c.font_size = 19
 	c.window_frame.font_size = 14 -- tab bar font size
-	c.macos_window_background_blur = 80
 
-	-- c.window_decorations = "RESIZE"
+	c.window_background_opacity = 0.90
+	c.macos_window_background_blur = 85
+
+	c.window_decorations = "RESIZE"
 end
 
 -- :::::::::::    Linux Setttings    :::::::::::
