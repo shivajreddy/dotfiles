@@ -62,12 +62,13 @@ if utils.is_linux() then
 	c.font_size = 18
 	c.window_frame.font_size = 10 -- tab bar font size
 
-	c.window_background_opacity = 0.985 -- This is good for focus
+	c.window_background_opacity = 0.95 -- This is good for focus
 	-- c.window_background_opacity = 0.85
 	-- c.window_background_opacity = 1
+	-- c.window_background_opacity = 0.5
 	-- c.text_background_opacity = 0.3
 
-	c.window_decorations = "NONE"
+	-- c.window_decorations = "NONE"
 	-- c.max_fps = 144
 	-- c.animation_fps = 60
 	-- c.cursor_blink_rate = 250
