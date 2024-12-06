@@ -55,7 +55,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#FFFFFF'
+      color: '#ea9d34'
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -72,8 +72,8 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: false
-      color: '#a1a1a1'
+      enabled: true
+      color: '#0e0a01'
     hide_title_bar:
       enabled: false
     corner_style:
@@ -111,11 +111,11 @@ workspaces:
     bind_to_monitor: 0
   - name: '2'
     display_name: "2 🌟"
-    keep_alive: true
+    # keep_alive: true
     bind_to_monitor: 0
   - name: '3'
     display_name: "3 🚀"
-    keep_alive: true
+    # keep_alive: true
     bind_to_monitor: 0
   - name: '4'
     display_name: "4 🎵"
@@ -123,12 +123,11 @@ workspaces:
   - name: '6'
     display_name: "6 🕹️"
     bind_to_monitor: 0
-    keep_alive: true
+    # keep_alive: true
   - name: '7'
   - name: '8'
   - name: '9'
     display_name: " 9 📝 "
-    keep_alive: true
     bind_to_monitor: 0
 
 window_rules:
@@ -148,6 +147,9 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
+
+      # Ignores Dota 2
+      - window_title: { equals : 'Dota 2' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -194,20 +196,20 @@ keybindings:
     bindings: ['alt+shift+j', 'alt+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
-  # - commands: ['resize --width -2%']
-  #   bindings: ['alt+u']
-  # - commands: ['resize --width +2%']
-  #   bindings: ['alt+p']
-  # - commands: ['resize --height +2%']
-  #   bindings: ['alt+o']
-  # - commands: ['resize --height -2%']
-  #   bindings: ['alt+i']
+  - commands: ['resize --width -2%']
+    bindings: ['alt+u']
+  - commands: ['resize --width +2%']
+    bindings: ['alt+p']
+  - commands: ['resize --height +2%']
+    bindings: ['alt+o']
+  - commands: ['resize --height -2%']
+    bindings: ['alt+i']
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+r']
+  # - commands: ['wm-enable-binding-mode --name resize']
+    # bindings: ['alt+r']
 
   # Disables all keybindings until alt+shift+p is pressed again.
   - commands: ['wm-enable-binding-mode --name pause']
