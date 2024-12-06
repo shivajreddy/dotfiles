@@ -15,6 +15,15 @@ set $mod Mod1
 ##### UI #######
 font pango:Iosevka 8
 
+# Set border styles
+default_border pixel 3
+default_floating_border pixel 3
+
+# class                     border  backgr. text    indicator child_border
+client.focused              #020887 #285577 #ffffff #020887   #285577
+client.focused_workspace    #c4a7e7 #000000 #ffffff
+# client.active_workspace     #285577 #16a085 #292F34
+
 ##### STARTUP APPS #######
 exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
 
