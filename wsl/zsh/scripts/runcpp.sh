@@ -51,4 +51,4 @@ fi
 # Monitor the file for changes using find and entr
 echo "Watching '$CPP_FILE' for changes. Press Ctrl+C to stop."
 find "$DIR" -wholename "$CPP_FILE" | entr -c sh -c \
-    "g++ -std=c++17 $CPP_FILE -o $OUT_FILE && echo 'Compiled successfully!' && $OUT_FILE"
+    "g++ -std=c++17 $CPP_FILE -o $OUT_FILE && $OUT_FILE"
