@@ -135,6 +135,11 @@ wezterm.on("update-right-status", function(window, pane)
 		table.insert(cells, hostname)
 	end
 
+	-- TODO: workspace
+	-- print the workspace name at the upper right
+	-- window:set_right_status(window:active_workspace())
+	table.insert(cells, { text = window:active_workspace() })
+
 	-- Date/Time in the style: "Wed Mar 3 08:14"
 	local date = wezterm.strftime("%a %b %-d %H:%M  ")
 	table.insert(cells, { text = date, is_date = true })

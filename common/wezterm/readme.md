@@ -37,3 +37,12 @@ ln -s ~/dotfiles/common/wezterm ~/.config/wezterm
     Most common situation: the dots have default domain of wezterm set to wsl distro debian, if you installed Ubuntu  
     then comment the debian settings block and uncomment ubuntu settings block under 'wezterm.lua'
 
+
+# Workspaces
+
+- This dude's config finally showed how to use the plugin
+    - https://fredrikaverpil.github.io/blog/2024/10/20/session-management-in-wezterm-without-tmux/
+    - https://github.com/fredrikaverpil/dotfiles/blob/main/wezterm.lua
+
+    - I have workspace switcher loaded and set up under win_keys.lua
+   - TODO: I have to move this main wezterm.lua so that, it works on mac too

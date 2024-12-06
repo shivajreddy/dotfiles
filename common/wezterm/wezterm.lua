@@ -229,11 +229,4 @@ wezterm.on("update-right-status", function(window, _)
 	}))
 end)
 
--- Smart Workspace switcher https://github.com/MLFlexer/smart_workspace_switcher.wezterm
-local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-workspace_switcher.apply_to_config(c)
-c.default_workspace = "~"
--- Resurrect
--- local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-
 return c

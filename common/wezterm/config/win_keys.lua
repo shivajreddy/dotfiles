@@ -168,6 +168,31 @@ if utils.is_darwin() then
 	map("s", { "CMD" }, act.SendKey({ key = "s", mods = "CTRL" }))
 end
 
+-- TODO:
+-- This finally fixed the workspaces
+-- https://fredrikaverpil.github.io/blog/2024/10/20/session-management-in-wezterm-without-tmux/
+-- load plugin
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+-- set path to zoxide
+workspace_switcher.zoxide_path = "C:/Users/shiva/.cargo/bin/zoxide.exe"
+
+wezterm.on("gui-startup", function(cmd)
+	local dotfiles_path = wezterm.home_dir .. "/dotfiles"
+	local tab, build_pane, window = wezterm.mux.spawn_window({
+		workspace = "dotfiles",
+		cwd = dotfiles_path,
+		args = args,
+	})
+	-- build_pane:send_text("nvim\n")
+	wezterm.mux.set_active_workspace("dotfiles")
+end)
+
+-- keymaps
+map("s", { "SHIFT|CTRL" }, workspace_switcher.switch_workspace())
+map("y", { "SHIFT|CTRL" }, act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
+map("u", { "SHIFT|CTRL" }, act.SwitchWorkspaceRelative(1))
+map("i", { "SHIFT|CTRL" }, act.SwitchWorkspaceRelative(-1))
+
 local M = {}
 M.apply = function(c)
 	if not c then
