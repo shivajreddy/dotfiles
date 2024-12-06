@@ -136,6 +136,7 @@ wezterm.on("update-right-status", function(window, pane)
 		-- FIX: use current workspace as the 1st cell, instead of cwd
 		-- print the workspace name at the upper right
 		-- window:set_right_status(window:active_workspace())
+		-- table.insert(cells, { Foreground = { Color = "#ea9d34" } })
 		table.insert(cells, { text = window:active_workspace() })
 
 		table.insert(cells, hostname)
@@ -165,9 +166,19 @@ wezterm.on("update-right-status", function(window, pane)
 		"#7c5295",
 		"#b491c8",
 	}
+	local foregroundColors = {
+		"#ea9d34",
+		"#c0c0c0",
+		"#c0c0c0",
+		"#c0c0c0",
+		"#c0c0c0",
+		"#c0c0c0",
+		"#c0c0c0",
+	}
 
 	-- Foreground colors
-	local text_fg = "#c0c0c0"
+	-- local text_fg = "#c0c0c0"
+	-- local text_fg = "#ea9d34"
 	local date_fg = "#ebbcba"
 
 	-- Elements to be formatted
@@ -178,15 +189,16 @@ wezterm.on("update-right-status", function(window, pane)
 	function push(cell, is_last)
 		local cell_no = num_cells + 1
 		local cell_text = cell.text or cell
-		local fg_color = cell.is_date and date_fg or text_fg
+		-- local fg_color = cell.is_date and date_fg or text_fg
 
 		if cell_no == 1 then
 			table.insert(elements, { Foreground = { Color = colors[cell_no] } })
 			table.insert(elements, { Text = SOLID_LEFT_ARROW })
 		end
-		table.insert(elements, { Foreground = { Color = fg_color } })
+		table.insert(elements, { Foreground = { Color = foregroundColors[cell_no] } })
 		table.insert(elements, { Background = { Color = colors[cell_no] } })
 		table.insert(elements, { Text = " " .. cell_text .. " " })
+
 		if not is_last then
 			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
 			table.insert(elements, { Text = SOLID_LEFT_ARROW })

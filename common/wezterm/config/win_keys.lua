@@ -95,7 +95,7 @@ map("t", { "SHIFT|CTRL" }, act.SpawnTab("CurrentPaneDomain"))
 -- map("w", { "SHIFT|CTRL" }, act.CloseCurrentTab({ confirm = true }))
 map("n", { "SHIFT|CTRL" }, act.SpawnWindow)
 -- zoom states
-map("z", { "LEADER", "SHIFT|CTRL" }, act.TogglePaneZoomState)
+map("F", { "LEADER", "SHIFT|CTRL" }, act.TogglePaneZoomState)
 map("Z", { "LEADER", "SHIFT|CTRL" }, toggleTabBar)
 -- copy & paste
 map("v", "LEADER", act.ActivateCopyMode)
