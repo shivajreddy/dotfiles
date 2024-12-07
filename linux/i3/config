@@ -28,6 +28,10 @@ client.focused_workspace    #c4a7e7 #000000 #ffffff
 # exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
 exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
 
+# set mouse speed
+exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
+
+
 exec --no-startup-id feh --bg-scale ~/Pictures/space_saturn.png
 
 
@@ -67,6 +71,7 @@ tiling_drag modifier titlebar
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec kitty "tmux"
+bindsym $mod+Shift+Return exec kitty
 # bindsym $mod+Return exec wezterm
 
 # kill focused window
@@ -192,4 +197,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        # status_command i3blocks
 }
