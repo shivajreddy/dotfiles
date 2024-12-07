@@ -199,3 +199,12 @@ bar {
         status_command i3status
         # status_command i3blocks
 }
+
+# Custom mode for pausing keybindings
+mode "paused" {
+    bindsym $mod+Shift+p mode "default"
+}
+
+# Keybinding to toggle pausing
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/toggle-pause.sh
+
