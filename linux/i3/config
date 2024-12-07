@@ -26,7 +26,9 @@ client.focused_workspace    #c4a7e7 #000000 #ffffff
 
 ##### STARTUP APPS #######
 # exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
-exec_always --no-startup-id picom --experimental-backends --blur-method dual_kawase
+exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
+
+exec --no-startup-id feh --bg-scale ~/Pictures/space_saturn.png
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
