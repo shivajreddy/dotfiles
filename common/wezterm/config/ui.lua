@@ -25,6 +25,8 @@ function M.apply(c)
 		button_hover_bg = "#3b3052",
 	}
 
+	c.window_background_opacity = 0.90
+
 	-- Overrides the themes colors
 	c.colors = {
 		-- background = "#111019", -- catpuccin black
