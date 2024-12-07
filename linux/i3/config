@@ -25,7 +25,8 @@ client.focused_workspace    #c4a7e7 #000000 #ffffff
 # client.active_workspace     #285577 #16a085 #292F34
 
 ##### STARTUP APPS #######
-exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
+# exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
+exec_always --no-startup-id picom --experimental-backends --blur-method dual_kawase
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
