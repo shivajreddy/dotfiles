@@ -70,9 +70,12 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty -e tmux
+bindsym $mod+Shift+Return exec alacritty
 # bindsym $mod+Return exec wezterm
-bindsym $mod+Return exec kitty "tmux -f $TMUX_CONF"
-bindsym $mod+Shift+Return exec kitty
+# bindsym $mod+Return exec wezterm cli spawn --new-window --workspace HOME
+# bindsym $mod+Return exec kitty "tmux -f $TMUX_CONF"
+# bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -97,9 +100,8 @@ bindsym $mod+t floating toggle
 
 # split in horizontal orientation
 # bindsym $mod+h split h
-
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -192,6 +194,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Media bindings    (Mod4 = LeftWindows, use `xmodmap -pm`)
+bindsym Mod4+8 exec playerctl play-pause
+# Decrease volume
+bindsym Mod4+6 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Increase volume
+bindsym Mod4+7 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
