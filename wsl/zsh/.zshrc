@@ -21,6 +21,7 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # Add Cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+
 # for getting colors properly on tmux
 export TERM=tmux-256color
 
