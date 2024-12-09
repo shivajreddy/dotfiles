@@ -11,6 +11,8 @@
 
 set $mod Mod1
 
+set $PATH $HOME/.cargo/bin:$PATH
+
 
 ##### UI #######
 font pango:Iosevka 8
