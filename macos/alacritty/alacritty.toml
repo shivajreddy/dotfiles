@@ -72,11 +72,11 @@ multiplier = 3
 [window]
 opacity = 0.95
 blur = true
-decorations = "Transparent" # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "Buttonless" # "Full" | "None" | "Transparent" | "Buttonless"
 dynamic_padding = false
 dynamic_title = false
 title = "simple_colon"
-startup_mode = "Maximized"  # "Fullscreen"  "Maximized"
+startup_mode = "Maximized" # "Fullscreen"  "Maximized"
 
 padding.x = 10
 padding.y = 10
