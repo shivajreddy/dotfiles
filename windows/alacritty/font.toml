@@ -1,11 +1,6 @@
 [font]
-<<<<<<< HEAD
-size = 20
-builtin_box_drawing = false
-=======
 size = 14
 builtin_box_drawing = true
->>>>>>> refs/remotes/origin/main
 
 [font.offset]
 x = 0
@@ -16,8 +11,8 @@ x = 0
 y = 0
 
 [font.normal]
-family = "Iosevka"
-# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Iosevka Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
@@ -27,8 +22,8 @@ style = "Regular"
 
 
 [font.italic]
-family = "Iosevka"
-# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Iosevka Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
@@ -38,13 +33,8 @@ style = "Italic"
 
 
 [font.bold]
-<<<<<<< HEAD
 # family = "Iosevka"
 family = "Iosevka Nerd Font"
-=======
-family = "Iosevka"
-# family = "Iosevka Nerd Font"
->>>>>>> refs/remotes/origin/main
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
@@ -53,13 +43,8 @@ family = "Iosevka"
 style = "Bold"
 
 [font.bold_italic]
-<<<<<<< HEAD
 # family = "Iosevka"
 family = "Iosevka Nerd Font"
-=======
-family = "Iosevka"
-# family = "Iosevka Nerd Font"
->>>>>>> refs/remotes/origin/main
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
