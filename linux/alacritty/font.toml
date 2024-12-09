@@ -1,5 +1,5 @@
 [font]
-size = 18
+size = 20
 builtin_box_drawing = false
 
 [font.offset]
@@ -33,7 +33,8 @@ style = "Italic"
 
 
 [font.bold]
-family = "Iosevka"
+# family = "Iosevka"
+family = "Iosevka Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
@@ -42,7 +43,8 @@ family = "Iosevka"
 style = "Bold"
 
 [font.bold_italic]
-family = "Iosevka"
+# family = "Iosevka"
+family = "Iosevka Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
