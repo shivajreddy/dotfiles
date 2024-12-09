@@ -10,8 +10,8 @@ bright_foreground = "#e0def4"
 [colors.cursor]
 # text = "#e0def4"
 # cursor = "#524f67"
-text = "#191724"
-cursor = "#ebbcba"
+text = "#000000"   # "#191724"
+cursor = "#ea9d34" #"#ebbcba"
 
 [colors.vi_mode_cursor]
 text = "#191724"

@@ -1,6 +1,6 @@
 [font]
-size = 16
-builtin_box_drawing = false
+size = 14
+builtin_box_drawing = true
 
 [font.offset]
 x = 0
