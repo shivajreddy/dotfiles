@@ -1,21 +1,15 @@
+[general]
 import = [
-  # "~/.config/alacritty/themes/catppuccin-mocha.toml",
-  "~/.config/alacritty/themes/rosepine.toml",
-  # "~/.config/alacritty/themes/rosepine-dawn.toml",
-  "~/.config/alacritty/keymaps.toml"
+    # "~/.config/alacritty/themes/catppuccin-mocha.toml",
+    "~/.config/alacritty/themes/rosepine.toml",
+    # "~/.config/alacritty/themes/rosepine-dawn.toml",
+    "~/.config/alacritty/keymaps.toml",
 ]
-
 live_config_reload = true
 
 
-[shell]
-
-program = "zellij"
-# args = ["-l", "shiva_welcome"]
-# program = "/bin/zsh"
-# args = ["-l", "-c", "tmux"] # creates new session every time
-# this will keep attaching to old session, so you can only have 1 session
-# args = ["-l", "-c", "tmux attach || tmux"]
+[terminal.shell]
+program = "tmux"
 
 [env]
 TERM = "xterm-256color"
@@ -27,8 +21,8 @@ draw_bold_text_with_bright_colors = true
 [colors.cursor]
 # text = "#e0def4"      # light theme
 # cursor = "#524f67"    # light theme
-text = "#191724"    # dark theme
-cursor = "#ebbcba"  # dark theme
+text = "#191724"   # dark theme
+cursor = "#ebbcba" # dark theme
 
 [colors.vi_mode_cursor]
 text = "#191724"
@@ -42,19 +36,23 @@ x = 1
 y = 1
 
 [font.normal]
-family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 style = "Regular"
 
 [font.italic]
-family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 style = "Italic"
 
 [font.bold]
-family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 style = "Bold"
 
 [font.bold_italic]
-family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 style = "Bold Italic"
 
 
@@ -72,15 +70,13 @@ multiplier = 3
 
 
 [window]
-# opacity = 0.9
-opacity = 1
+opacity = 0.95
 blur = true
-# decorations = "Full" | "None" | "Transparent" | "Buttonless"
-decorations = "None"
+decorations = "Buttonless" # "Full" | "None" | "Transparent" | "Buttonless"
 dynamic_padding = false
 dynamic_title = false
 title = "simple_colon"
-startup_mode = "Maximized"  # "Fullscreen"  "Maximized"
+startup_mode = "Maximized" # "Fullscreen"  "Maximized"
 
 padding.x = 10
 padding.y = 10
@@ -88,4 +84,3 @@ padding.y = 10
 
 class.general = "Alacritty"
 class.instance = "Alacritty"
-
