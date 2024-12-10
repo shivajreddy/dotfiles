@@ -1,6 +1,6 @@
 [font]
 size = 14
-builtin_box_drawing = false
+builtin_box_drawing = true
 
 [font.offset]
 x = 0
@@ -11,6 +11,7 @@ x = 0
 y = 0
 
 [font.normal]
+style = "Regular"
 family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
@@ -18,10 +19,10 @@ family = "Iosevka Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-style = "Regular"
 
 
 [font.italic]
+style = "Italic"
 family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
@@ -29,10 +30,10 @@ family = "Iosevka Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-style = "Italic"
 
 
 [font.bold]
+style = "Bold"
 family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
@@ -41,9 +42,9 @@ family = "Iosevka Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-style = "Bold"
 
 [font.bold_italic]
+style = "Bold Italic"
 family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
@@ -52,4 +53,3 @@ family = "Iosevka Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-style = "Bold Italic"
