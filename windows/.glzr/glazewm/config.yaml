@@ -39,7 +39,7 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '4px'
+  inner_gap: '0px'
 
   # Gap between windows and the screen edge.
   outer_gap:
@@ -67,7 +67,7 @@ window_effects:
     corner_style:
       enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'small_rounded'
+      style: 'square'
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -78,7 +78,7 @@ window_effects:
       enabled: false
     corner_style:
       enabled: true
-      style: 'small_rounded'
+      style: 'square'
 
 window_behavior:
   # New windows are created in this state whenever possible.
