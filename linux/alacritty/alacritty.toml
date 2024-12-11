@@ -36,7 +36,7 @@ dynamic_title = false
 # title = "simple_colon"
 # title = ""
 # dynamic_padding = true
-decorations = "None"
+decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
@@ -47,7 +47,7 @@ general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 0
+x = 5
 y = 0
 
 [scrolling]
