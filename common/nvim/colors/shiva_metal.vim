@@ -1,19 +1,3 @@
-" vi:syntax=vim
-
-" base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
-" Black Metal (Burzum) scheme by metalelf0 (https://github.com/metalelf0)
-
-" This enables the coresponding base16-shell script to run so that
-" :colorscheme works in terminals supported by base16-shell scripts
-" User must set this variable in .vimrc
-"   let g:base16_shell_path=base16-builder/output/shell/
-if !has('gui_running')
-  if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-black-metal-burzum.sh"
-  endif
-endif
-
 " GUI color definitions
 let s:gui00        = "000000"
 let g:base16_gui00 = "000000"
@@ -35,10 +19,17 @@ let s:gui08        = "5f8787"
 let g:base16_gui08 = "5f8787"
 let s:gui09        = "aaaaaa"
 let g:base16_gui09 = "aaaaaa"
-let s:gui0A        = "99bbaa"
-let g:base16_gui0A = "99bbaa"
-let s:gui0B        = "ddeecc"
-let g:base16_gui0B = "ddeecc"
+
+" let s:gui0A        = "a06666"
+" let g:base16_gui0A = "a06666"
+let s:gui0A        = "ffd900"
+let g:base16_gui0A = "ffd900"
+
+" let s:gui0B        = "dd9999"
+" let g:base16_gui0B = "dd9999"
+let s:gui0B        = "ffdd33"
+let g:base16_gui0B = "ffdd33"
+
 let s:gui0C        = "aaaaaa"
 let g:base16_gui0C = "aaaaaa"
 let s:gui0D        = "888888"
@@ -101,16 +92,16 @@ endif
 if has("nvim")
   let g:terminal_color_0 =  "#000000"
   let g:terminal_color_1 =  "#5f8787"
-  let g:terminal_color_2 =  "#ddeecc"
-  let g:terminal_color_3 =  "#99bbaa"
+  let g:terminal_color_2 =  "#dd9999"
+  let g:terminal_color_3 =  "#a06666"
   let g:terminal_color_4 =  "#888888"
   let g:terminal_color_5 =  "#999999"
   let g:terminal_color_6 =  "#aaaaaa"
   let g:terminal_color_7 =  "#c1c1c1"
   let g:terminal_color_8 =  "#333333"
   let g:terminal_color_9 =  "#5f8787"
-  let g:terminal_color_10 = "#ddeecc"
-  let g:terminal_color_11 = "#99bbaa"
+  let g:terminal_color_10 = "#dd9999"
+  let g:terminal_color_11 = "#a06666"
   let g:terminal_color_12 = "#888888"
   let g:terminal_color_13 = "#999999"
   let g:terminal_color_14 = "#aaaaaa"
