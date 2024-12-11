@@ -6,6 +6,23 @@ return {
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
 
+        palette = {
+          main = {
+            -- base = "#191724",
+            -- surface = "#1f1d2e",
+            -- overlay = "#26233a",
+            -- muted = "#6e6a85",
+            -- subtle = "#908caa",
+            -- text = "#e0def4",
+            -- love = "#f43841", --"#ffdd33",
+            -- gold = "#cc8c3c", -- #95a99f,
+            -- rose = "#ffdd33",
+            pine = "#ffdd33",
+            foam = "#e0def4",
+            -- iris = "#ffdd33",
+          },
+        },
+
         styles = {
           bold = true,
           italic = false,
@@ -20,6 +37,7 @@ return {
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
           CursorLineNr = { fg = "#908caa" }, -- rosepine subtle
+          -- String = { fg = "#73d936" },
         },
       })
     end,
@@ -33,9 +51,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "rose-pine",
+      colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
-      colorscheme = "shiva_metal",
+      -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
     },
   },
