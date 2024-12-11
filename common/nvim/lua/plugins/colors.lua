@@ -16,7 +16,7 @@ return {
             -- text = "#e0def4",
             -- love = "#f43841", --"#ffdd33",
             -- gold = "#cc8c3c", -- #95a99f,
-            -- rose = "#ffdd33",
+            rose = "#ff4f58", --"#ffdd33",
             pine = "#ffdd33",
             foam = "#e0def4",
             -- iris = "#ffdd33",
@@ -37,7 +37,7 @@ return {
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
           CursorLineNr = { fg = "#908caa" }, -- rosepine subtle
-          -- String = { fg = "#73d936" },
+          String = { fg = "#95a99f" },
         },
       })
     end,
