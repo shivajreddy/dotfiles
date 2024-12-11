@@ -23,18 +23,12 @@ args = ["tmux attach || tmux"]
 # args = ["run", "tmux"]
 # program = 'powershell'
 
-# [keyboard]
-# bindings = [
-# {key = "K", mods = "Control", chars = "\u0008" }
-# ]
+[keyboard]
+bindings = [{ key = "l", mods = "Control|Shift", action = "ClearHistory" }]
 
 
 [window]
-<<<<<<< HEAD
-opacity = 1           # 0.98
-=======
-opacity = 0.99        # 0.98
->>>>>>> refs/remotes/origin/main
+opacity = 0.98        # 0.98
 blur = true
 dynamic_title = false
 # title = "simple_colon"
