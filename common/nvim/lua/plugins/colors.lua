@@ -1,9 +1,5 @@
 return {
   {
-    "erikbackman/brightburn.vim",
-    name = "brightburn",
-  },
-  {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
@@ -28,22 +24,19 @@ return {
       })
     end,
   },
-  {
-    "metalelf0/base16-black-metal-scheme",
-    name = "metalelf0",
-  },
-  {
-    "wtfox/jellybeans.nvim",
-    name = "jellybeans",
-  },
+
+  -- {
+  --   "metalelf0/base16-black-metal-scheme",
+  --   name = "metalelf0",
+  -- },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "base16-black-metal-immortal", -- venom nile  mayhem  marduk
-      -- colorscheme = "jellybeans",
-      colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
+      colorscheme = "shiva_metal",
+      -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
     },
   },
 }
