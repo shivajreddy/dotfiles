@@ -4,8 +4,7 @@ import = [
     '~\dotfiles\windows\alacritty\font.toml',
 ]
 live_config_reload = true
-working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
-# working_directory = '\\wsl.localhost\Ubuntu\root'
+# working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
 
 [env]
 TERM = "xterm-256color"
@@ -31,11 +30,15 @@ args = ["tmux attach || tmux"]
 
 
 [window]
+<<<<<<< HEAD
 opacity = 1           # 0.98
+=======
+opacity = 0.99        # 0.98
+>>>>>>> refs/remotes/origin/main
 blur = true
 dynamic_title = false
 # title = "simple_colon"
-decorations = "None"
+decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
@@ -47,8 +50,8 @@ general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 10
-y = 10
+x = 5
+y = 0
 
 [scrolling]
 history = 10000
