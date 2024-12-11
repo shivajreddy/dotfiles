@@ -3,4 +3,4 @@ require("config.lazy")
 
 -- Set the color scheme
 -- vim.cmd([[colorscheme brightburn]])
-vim.cmd([[colorscheme shiva_metal]])
+-- vim.cmd([[colorscheme shiva_metal]])

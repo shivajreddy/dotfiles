@@ -1,7 +1,7 @@
 return {
   {
     "rose-pine/neovim",
-    name = "rose-pine",
+    colorscheme = "simple-colon",
     config = function()
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
@@ -33,9 +33,10 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
+      colorscheme = "simple-colon",
       -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
-      colorscheme = "shiva_metal",
+      -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
     },
   },
