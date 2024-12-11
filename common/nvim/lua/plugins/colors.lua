@@ -51,12 +51,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-<<<<<<< HEAD
-      colorscheme = "simple-colon",
-      -- colorscheme = "rose-pine",
-=======
       colorscheme = "rose-pine",
->>>>>>> 697b67ff3383f9d564a0277b1c8cbd65482a938e
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
