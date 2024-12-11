@@ -11,7 +11,7 @@ bright_foreground = "#e0def4"
 # text = "#e0def4"
 # cursor = "#524f67"
 text = "#000000"   # "#191724"
-cursor = "#ea9d34" #"#ebbcba"
+cursor = "#ffdd33" # "#ea9d34" #"#ebbcba"
 
 [colors.vi_mode_cursor]
 text = "#191724"
@@ -47,30 +47,30 @@ background = "#403d52"
 
 [colors.normal]
 black = "#26233a"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
 magenta = "#c4a7e7"
 cyan = "#ebbcba"
 white = "#e0def4"
 
 [colors.bright]
 black = "#6e6a86"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
 magenta = "#c4a7e7"
 cyan = "#ebbcba"
 white = "#e0def4"
 
 [colors.dim]
 black = "#6e6a86"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
 magenta = "#c4a7e7"
 cyan = "#ebbcba"
 white = "#e0def4"

@@ -1,7 +1,7 @@
 return {
   {
     "rose-pine/neovim",
-    colorscheme = "simple-colon",
+    name = "rose-pine",
     config = function()
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
@@ -42,11 +42,6 @@ return {
       })
     end,
   },
-
-  -- {
-  --   "metalelf0/base16-black-metal-scheme",
-  --   name = "metalelf0",
-  -- },
 
   {
     "LazyVim/LazyVim",
