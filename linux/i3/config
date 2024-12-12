@@ -133,6 +133,12 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# SCRATCH WORKSPACE (used as minimizing apps)
+# set $ws "scratchpad"
+# bindsym $mod+m move workspace 10
+bindsym $mod+m bar hidden_state hide
+# bindsym $mod+shift+m move workspace number 2
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
