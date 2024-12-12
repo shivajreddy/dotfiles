@@ -29,14 +29,14 @@
   endif
 "}}}
 " {{{ Colors
-  let s:gruberFG=['#E0DEF4', '253']
-  " let s:gruberFG=['#e4e4ef', '253']
+  " let s:gruberFG=['#E0DEF4', '253']
+  let s:gruberFG=['#e4e4ef', '253']
   let s:gruberFG1=['#f4f4ff', '254']
   let s:gruberFG2=['#f5f5ff', '240']
   let s:gruberFG3=['#65737e', '243']
   let s:gruberWhite=['#ffffff', '15']
   let s:gruberBlack=['#000000', '0']
-  let s:gruberBG=['NONE', '233']
+  let s:gruberBG=['NONE', 'NONE']
   " let s:gruberBG=['#0E0A01', '233']
   " let s:gruberBG=['#181818', '233'] " original
   let s:gruberBG1=['#282828', '235']
@@ -45,7 +45,8 @@
   let s:gruberRed=['#f43841', '160']
   let s:gruberNiagara=['#96a6c8', '147']
   let s:gruberQuartz=['#95a99f', '108']
-  let s:gruberGreen=['#73c936', '70']
+  let s:gruberGreen=['#a6d189', '70']
+  " let s:gruberGreen=['#73c936', '70']
   let s:gruberMain=['#ffdd33', '220']
   let s:gruberBrown=['#cc8c3c', '172']
   let s:gruberPurple=['#9e95c7', '98']
@@ -56,6 +57,7 @@
 
   let s:rosepineBase=['#191724', 'NONE']
   let s:rosepineSurface=['#1F1D2E', 'NONE']
+  let s:rosepineOverlay=['#26233A', 'NONE']
   let s:rosepineMuted=['#6e6a86', 'NONE']
 
 " {{{ Highlight function
@@ -106,16 +108,16 @@ call <sid>hi('WildMenu',      s:gruberBlack,      s:gruberMain,  '',        '')
 call <sid>hi('Title',         s:gruberQuartz,     '',            '',        '')
 call <sid>hi('Conceal',       s:gruberFG,         s:gruberBG,    '',        '')
 call <sid>hi('Cursor',        s:gruberBG,         s:gruberFG,    '',        '')
-call <sid>hi('NonText',       s:gruberFG2,        '',            '',        '')
+" used by inlay hints and stuff
+call <sid>hi('NonText',       s:rosepineOverlay,        '',            '',        '') 
 call <sid>hi('EndOfBuffer',   s:gruberFG,         s:gruberBG,    '',        '')
 call <sid>hi('Normal',        s:gruberFG,         s:gruberBG,    '',        '') 
-" call <sid>hi('SignColumn',    s:none,             s:none,        '',        '')
-" call <sid>hi('LineNr',        s:gruberFG,         s:gruberBG,    '',        '')
+call <sid>hi('SignColumn', '', s:none, '', '')
 call <sid>hi('LineNr',        s:rosepineSurface,         s:gruberBG,    '',        '')
-" call <sid>hi('VertSplit',     s:gruberFG2,        s:gruberBG1,   '',        '')
+call <sid>hi('VertSplit', s:gruberFG2, s:none, '', '')
 call <sid>hi('ColorColumn',   '',                 s:gruberBG2,   '',        '')
 call <sid>hi('CursorColumn',  '',                 s:gruberBG2,   '',        '')
-call <sid>hi('CursorLine',    '',                 s:gruberBG2,   'NONE',    '')
+call <sid>hi('CursorLine', '', ['#000000', 'NONE'], 'NONE', '')
 call <sid>hi('CursorLineNr',  s:gruberMain,       s:gruberBG,    '',        '')
 call <sid>hi('PMenu',         s:gruberFG,         s:gruberBG1,   '',        '')
 call <sid>hi('PMenuSel',      s:gruberFG,         s:gruberBG2,   '',        '')
@@ -123,21 +125,13 @@ call <sid>hi('PmenuSbar',     '',                 s:gruberBG,    '',        '')
 call <sid>hi('PmenuThumb',    '',                 s:gruberBG,    '',        '')
 call <sid>hi('helpExample',   s:gruberMain,       '',            '',        '')
 call <sid>hi('helpCommand',   s:gruberMain,       '',            '',        '')
-
-" CUSTOM COLORS
-" call <sid>hi('Normal',        s:gruberFG,         s:rosepineBase,    '',        '') 
-call <sid>hi('CursorLine', '', ['#000000', 'NONE'], 'NONE', '')
-call <sid>hi('SignColumn', '', s:none, '', '')
-" call <sid>hi('LineNr', ['#6A6A86', 'NONE'], s:none, '', '')
-call <sid>hi('VertSplit', s:gruberFG2, s:none, '', '')
-" call <sid>hi('Whitespace', ['#191724', 'NONE'], s:none, '', '')
 call <sid>hi('Whitespace',       s:rosepineBase,      s:none,            '',    '')
-call <sid>hi('Comment',       s:rosepineMuted,      s:none,            s:italic,    '')
+
 
 " Standard syntax highlighting
 call <sid>hi('Boolean',       s:gruberQuartz,     '',            '',          '')
 call <sid>hi('Character',     s:gruberGreen,      '',            '',          '')
-" call <sid>hi('Comment',       s:gruberBrown,      '',            s:italic,    '')
+call <sid>hi('Comment',       s:rosepineMuted,      s:none,      s:italic,    '')
 call <sid>hi('Conditional',   s:gruberMain,       '',            '',          '')
 call <sid>hi('Constant',      s:gruberQuartz,     '',            '',          '')
 call <sid>hi('Define',        s:gruberMain,       '',            '',          '')
@@ -159,17 +153,13 @@ call <sid>hi('StorageClass',  s:gruberMain,       '',            '',          ''
 call <sid>hi('String',        s:gruberGreen,      '',            '',          '')
 call <sid>hi('Structure',     s:gruberMain,       '',            '',          '')
 call <sid>hi('Todo',          s:gruberBG,         s:gruberMain,  '',          '')
-call <sid>hi('Type',          s:gruberQuartz,     '',            '',          '')
+call <sid>hi('Type',          s:gruberQuartz,     '',            s:italic,    '')
 call <sid>hi('Typedef',       s:gruberQuartz,     '',            '',          '')
 
 call <sid>hi('SpellBad',      '',                 '',            'undercurl', '')
 call <sid>hi('SpellLocal',    '',                 '',            'undercurl', '')
 call <sid>hi('SpellCap',      '',                 '',            'undercurl', '')
 call <sid>hi('SpellRare',     '',                 '',            'undercurl', '')
-
-" C++ Highlighting
-call <sid>hi('Type',          s:gruberFG,    '',  s:italic,  '')
-call <sid>hi('cppType',       s:gruberFG,    '',  s:italic,  '')
 
 
 " Haskell Highlighting

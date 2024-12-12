@@ -46,36 +46,11 @@ return {
       })
     end,
   },
-  --[[
-  {
-    "blazkowolf/gruber-darker.nvim",
-    name = "gruber-darker",
-    config = function()
-      require("gruber-darker").setup({
-        bold = true,
-        invert = {
-          signs = false,
-          tabline = false,
-          visual = false,
-        },
-        italic = {
-          strings = false,
-          comments = false,
-          operators = true,
-          folds = true,
-        },
-        undercurl = true,
-        underline = true,
-      })
-    end,
-  },
-    ]]
 
   {
     "LazyVim/LazyVim",
     opts = {
 
-      -- colorscheme = "gruber-darker",
       colorscheme = "GruberDarker",
       -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
