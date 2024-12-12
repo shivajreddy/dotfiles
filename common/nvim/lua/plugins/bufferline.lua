@@ -8,7 +8,7 @@ return {
   event = "VeryLazy",
   opts = {
     options = {
-      diagnostics = "nvim_lsp",
+      -- diagnostics = "nvim_lsp",
       -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
       --   local icon = level:match("error") and "󰅙 " or " "
       --   return " " .. icon .. count
@@ -22,10 +22,8 @@ return {
       show_buffer_close_icons = false,
     },
 
-    -- Customize Catppuccin colors
-    -- https://github.com/catppuccin/nvim?tab=readme-ov-file
     highlights = require("catppuccin.groups.integrations.bufferline").get({
-      styles = { "italic", "bold" },
+      styles = { "bold" },
       custom = {
         all = {
           fill = { bg = "#000000" },
