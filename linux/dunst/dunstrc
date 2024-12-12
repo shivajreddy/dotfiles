@@ -57,21 +57,21 @@
 
 [urgency_low]
     background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    foreground = "#FFDD33"  
+    highlight = "#FFDD33"
     frame_color = "#181825"
     timeout = 5
 
 [urgency_normal]
     background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    foreground = "#FFDD33"
+    highlight = "#FFDD33"
     frame_color = "#181825"
     timeout = 5
 
 [urgency_critical]
     background = "#181825"
-    foreground = "#CDD6F4"
+    foreground = "#FFDD33"
     frame_color = "#f38ba8"
     timeout = 1000
 
