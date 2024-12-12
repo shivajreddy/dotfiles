@@ -21,6 +21,8 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # Add Cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Library paths for c/c++
+LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # for getting colors properly on tmux
 export TERM=tmux-256color
