@@ -3,7 +3,7 @@
 
 [colors.primary]
 foreground = "#e0def4"
-background = "#131012"        # "#191724" 0E0A01
+background = "#181818"        # "#191724" 0E0A01  131012
 dim_foreground = "#908caa"
 bright_foreground = "#e0def4"
 
