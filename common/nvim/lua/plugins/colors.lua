@@ -46,11 +46,22 @@ return {
       })
     end,
   },
+  {
+    "blazkowolf/gruber-darker.nvim",
+    name = "gruber-darker",
+    opts = {
+      bold = false,
+      italic = {
+        strings = false,
+      },
+    },
+  },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "gruber-darker",
+      -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
