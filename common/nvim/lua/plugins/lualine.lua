@@ -35,27 +35,26 @@ return {
         -- lualine_a = { { "mode", right_padding = 1 } },
         -- lualine_a = { { "mode", separator = { left = "" }, right_padding = 1 } },
         lualine_a = { { "mode", separator = { left = "█" }, right_padding = 1 } },
-        -- lualine_b = { "branch" },
-        lualine_b = {
-          "branch",
-          LazyVim.lualine.root_dir(),
-        },
+        lualine_b = { "branch" },
+        -- lualine_b = {
+        --   "branch",
+        --   LazyVim.lualine.root_dir(),
+        -- },
 
-        --
-        -- lualine_c = {
-        -- LazyVim.lualine.root_dir(),
-        -- {
-        -- 	"diagnostics",
-        -- 	symbols = {
-        -- 		error = icons.diagnostics.Error,
-        -- 		warn = icons.diagnostics.Warn,
-        -- 		info = icons.diagnostics.Info,
-        -- 		hint = icons.diagnostics.Hint,
-        -- 	},
-        -- },
-        -- { LazyVim.lualine.pretty_path() },
-        -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        -- },
+        lualine_c = {
+          LazyVim.lualine.root_dir(),
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
+          },
+          { LazyVim.lualine.pretty_path() },
+          -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        },
 
         lualine_x = {
           --[[

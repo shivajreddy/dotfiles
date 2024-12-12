@@ -49,12 +49,24 @@ return {
   {
     "blazkowolf/gruber-darker.nvim",
     name = "gruber-darker",
-    opts = {
-      bold = false,
-      italic = {
-        strings = false,
-      },
-    },
+    config = function()
+      require("gruber-darker").setup({
+        bold = true,
+        invert = {
+          signs = false,
+          tabline = false,
+          visual = false,
+        },
+        italic = {
+          strings = false,
+          comments = false,
+          operators = true,
+          folds = true,
+        },
+        undercurl = true,
+        underline = true,
+      })
+    end,
   },
 
   {
