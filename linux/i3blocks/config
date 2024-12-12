@@ -1,0 +1,12 @@
+# Block with a fixed width
+[aligned]
+full_text=Here.
+min_width=100
+align=center
+
+[clickme]
+align=center
+full_text=h
+Click me!
+min_width=Button=? x=? y=?
+command=exec pavucontrol

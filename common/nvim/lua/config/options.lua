@@ -9,8 +9,6 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.clipboard = "unnamedplus"
 -- vim.opt.clipboard:append("unnamedplus")
 
-vim.opt.list = false
-
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
 
@@ -47,3 +45,14 @@ vim.opt.updatetime = 50
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- White Space
+vim.opt.list = true
+vim.opt.listchars = {
+  space = ".", -- Show spaces as dots
+  -- tab = "»·", -- Show tabs with a special character and space
+  -- trail = "·", -- Show trailing spaces
+  -- extends = "→", -- Show character for text that extends beyond the window
+  -- precedes = "←", -- Show character for text that precedes the window
+  -- nbsp = "␣", -- Show non-breaking space
+}

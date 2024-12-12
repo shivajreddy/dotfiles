@@ -24,7 +24,7 @@ return {
         },
 
         styles = {
-          bold = true,
+          bold = false,
           italic = false,
           transparency = true, -- Must not set any color
         },
@@ -36,8 +36,12 @@ return {
           ColorColumn = { bg = "#121F2B" }, -- #0e0a01
           SignColumn = { bg = "#31748f", fg = "#f6c177" },
           LineNr = { fg = "#413630" },
-          CursorLineNr = { fg = "#908caa" }, -- rosepine subtle
-          String = { fg = "#95a99f" },
+          CursorLineNr = { fg = "#FFDD33" }, -- 908caa
+          String = { fg = "#5A9132" }, -- 95a99f    73d936  5cbc24  43891a  70964A
+          -- Set the search highlight background color
+          Search = { bg = "#FFD700", fg = "#000000" }, -- Golden background with black text
+          IncSearch = { bg = "#FFA500", fg = "#000000" }, -- Orange background for incremental search
+          Whitespace = { fg = "#191724" },
         },
       })
     end,
