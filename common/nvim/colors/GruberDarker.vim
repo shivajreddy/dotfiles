@@ -36,7 +36,8 @@
   let s:gruberFG3=['#65737e', '243']
   let s:gruberWhite=['#ffffff', '15']
   let s:gruberBlack=['#000000', '0']
-  let s:gruberBG=['#0E0A01', '233']
+  let s:gruberBG=['NONE', '233']
+  " let s:gruberBG=['#0E0A01', '233']
   " let s:gruberBG=['#181818', '233'] " original
   let s:gruberBG1=['#282828', '235']
   let s:gruberBG2=['#453d41', '238']
@@ -52,7 +53,9 @@
   let s:gruberBlue=['#0000d7', '20']
   let s:gruberGold=['#d7af00', '178']
   let s:none=['NONE', 'NONE']
+
   let s:rosepineBase=['#191724', 'NONE']
+  let s:rosepineSurface=['#1F1D2E', 'NONE']
   let s:rosepineMuted=['#6e6a86', 'NONE']
 
 " {{{ Highlight function
@@ -82,7 +85,8 @@ call <sid>hi('Directory',     s:gruberLightBlue,  '',           '',        '')
 call <sid>hi('ErrorMsg',      s:gruberWhite,      s:gruberRed,  '',        '')
 call <sid>hi('Exception',     s:gruberBrown,      '',           '',        '')
 call <sid>hi('FoldColumn',    s:gruberBrown,      s:gruberFG2,  '',        '')
-call <sid>hi('Folded',        s:gruberBrown,      s:gruberFG2,  s:italic,  '')
+" call <sid>hi('Folded',        s:gruberBrown,      s:gruberFG2,  s:italic,  '')
+call <sid>hi('Folded',        s:gruberBrown,      s:rosepineBase,  s:italic,  '')
 call <sid>hi('IncSearch',     s:gruberBlack,      s:gruberFG2,  'NONE',    '')
 call <sid>hi('Italic',        '',                 '',           s:italic,  '')
 
@@ -107,6 +111,7 @@ call <sid>hi('EndOfBuffer',   s:gruberFG,         s:gruberBG,    '',        '')
 call <sid>hi('Normal',        s:gruberFG,         s:gruberBG,    '',        '') 
 " call <sid>hi('SignColumn',    s:none,             s:none,        '',        '')
 " call <sid>hi('LineNr',        s:gruberFG,         s:gruberBG,    '',        '')
+call <sid>hi('LineNr',        s:rosepineSurface,         s:gruberBG,    '',        '')
 " call <sid>hi('VertSplit',     s:gruberFG2,        s:gruberBG1,   '',        '')
 call <sid>hi('ColorColumn',   '',                 s:gruberBG2,   '',        '')
 call <sid>hi('CursorColumn',  '',                 s:gruberBG2,   '',        '')
@@ -123,7 +128,7 @@ call <sid>hi('helpCommand',   s:gruberMain,       '',            '',        '')
 " call <sid>hi('Normal',        s:gruberFG,         s:rosepineBase,    '',        '') 
 call <sid>hi('CursorLine', '', ['#000000', 'NONE'], 'NONE', '')
 call <sid>hi('SignColumn', '', s:none, '', '')
-call <sid>hi('LineNr', ['#6A6A86', 'NONE'], s:none, '', '')
+" call <sid>hi('LineNr', ['#6A6A86', 'NONE'], s:none, '', '')
 call <sid>hi('VertSplit', s:gruberFG2, s:none, '', '')
 " call <sid>hi('Whitespace', ['#191724', 'NONE'], s:none, '', '')
 call <sid>hi('Whitespace',       s:rosepineBase,      s:none,            '',    '')
