@@ -46,6 +46,7 @@ return {
       })
     end,
   },
+  --[[
   {
     "blazkowolf/gruber-darker.nvim",
     name = "gruber-darker",
@@ -68,11 +69,14 @@ return {
       })
     end,
   },
+    ]]
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruber-darker",
+
+      -- colorscheme = "gruber-darker",
+      colorscheme = "GruberDarker",
       -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
