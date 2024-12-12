@@ -4,7 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      inlay_hints = {},
+      inlay_hints = { enabled = false }, -- at starts sets them off
       servers = {
 
         --#region Clangd  Configuration

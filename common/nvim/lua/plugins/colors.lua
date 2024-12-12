@@ -46,12 +46,37 @@ return {
       })
     end,
   },
+  {
+    "blazkowolf/gruber-darker.nvim",
+    config = function()
+      require("gruber-darker").setup({
+        bold = false,
+        italic = {
+          strings = false,
+          comments = false,
+          operators = true,
+          folds = true,
+        },
+        undercurl = false,
+        underline = false,
+      })
+
+      -- Apply custom highlights after setting the colorscheme
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "gruber-darker",
+        callback = function()
+          vim.api.nvim_set_hl(0, "Comment", { fg = "#65737e" })
+          vim.api.nvim_set_hl(0, "Whitespace", { fg = "#282828" })
+        end,
+      })
+    end,
+  },
 
   {
     "LazyVim/LazyVim",
     opts = {
-
-      colorscheme = "GruberDarker",
+      -- colorscheme = "GruberDarker",
+      colorscheme = "gruber-darker",
       -- colorscheme = "rose-pine",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",

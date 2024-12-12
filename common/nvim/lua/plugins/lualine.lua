@@ -22,7 +22,7 @@ return {
 
     return {
       options = {
-        theme = "codedark", --https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+        theme = "auto", --https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
         --- @usage 'rose-pine' | 'rose-pine-alt'
         -- theme = "rose-pine",
         -- theme = "gruvbox",
