@@ -23,11 +23,10 @@ default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border
 client.focused              #020887 #285577 #ffffff #020887   #285577
-client.focused_workspace    #c4a7e7 #000000 #ffffff
+client.focused_workspace    #000000 #000000 #ffffff #e0def4   #000000
 # client.active_workspace     #285577 #16a085 #292F34
 
 ##### STARTUP APPS #######
-# exec_always --no-startup-id picom --backend glx --blur-method dual_kawase
 exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
 
 # set mouse speed
@@ -35,11 +34,6 @@ exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 
 
 exec --no-startup-id feh --bg-scale ~/Pictures/space_saturn.png
-
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -83,7 +77,7 @@ bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run -fn "Iosevka-20"
+bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "Iosevka-24" -sb "#FFDD33" -sf "#000000" -nb "#0e0a01" -nf "#ffffff"
 
 # change focus
 bindsym $mod+h focus left
