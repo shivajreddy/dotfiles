@@ -1,8 +1,8 @@
 
 [general]
 import = [
-    "/home/shiva/dotfiles/linux/alacritty/rosepine.toml",
-    "/home/shiva/dotfiles/linux/alacritty/font.toml",
+    "/home/smpl/dotfiles/linux/alacritty/rosepine.toml",
+    "/home/smpl/dotfiles/linux/alacritty/font.toml",
 ]
 live_config_reload = true
 
