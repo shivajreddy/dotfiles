@@ -15,14 +15,14 @@ set $PATH $HOME/.cargo/bin:$PATH
 
 
 ##### UI #######
-font pango:Iosevka 8
+font pango:Iosevka Bold 8
 
 # Set border styles
 default_border pixel 3
 default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border
-client.focused              #020887 #285577 #ffffff #020887   #285577
+# client.focused              #020887 #285577 #ffffff #020887   #285577
 client.focused_workspace    #000000 #000000 #ffffff #e0def4   #000000
 # client.active_workspace     #285577 #16a085 #292F34
 
@@ -44,7 +44,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -115,7 +115,7 @@ bindsym $mod+Shift+space floating toggle
 
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -209,6 +209,13 @@ bindsym Mod4+7 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bar {
         status_command i3status
         # status_command i3blocks
+        colors {
+            background          #0E0A01
+            focused_workspace   #FFDD33 #FFDD33 #000000
+            active_workspace    #333333 #333333 #888888
+            inactive_workspace  #333333 #333333 #f1f1f1
+            urgent_workspace    #eb709b #eb709b #ffffff
+        }
 }
 
 # Custom mode for pausing keybindings

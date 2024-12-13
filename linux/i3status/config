@@ -9,7 +9,9 @@
 general {
         colors = true
         interval = 5
+        color_good = "#FFDD33"
 }
+
 
 # order += "ipv6"
 # order += "cpu_temperature 0"
@@ -19,6 +21,7 @@ general {
 # order += "battery all"
 # order += "load"
 order += "tztime local"
+
 
 cpu_temperature 0 {
         format = "Tea: %degrees °C"
