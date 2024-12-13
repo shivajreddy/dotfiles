@@ -5,9 +5,8 @@ return {
   enabled = true,
   event = "VeryLazy",
   keys = {
-    -- 👇 in this section, choose your own keymappings!
     {
-      "<leader>e",
+      "<leader>z",
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
