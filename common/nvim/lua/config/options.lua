@@ -9,6 +9,9 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.clipboard = "unnamedplus"
 -- vim.opt.clipboard:append("unnamedplus")
 
+-- Disable options
+vim.g.snacks_animate = false
+
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
 
