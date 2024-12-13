@@ -225,7 +225,7 @@ body,
 
     &.focused {
         /* background: var(--rp-burnt); */
-        background: #7287fd;
+        background: #FFDD33;/* 7287fd */
         color: #0e0a01;
         font-weight: bold;
     }
