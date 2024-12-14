@@ -10,12 +10,11 @@ font pango:Iosevka Bold 8
 
 # Set border styles
 # default_border pixel 3
-# default_floating_border pixel 3
+default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border
-# client.focused              #020887 #285577 #ffffff #020887   #285577
-# client.focused_workspace    #000000 #000000 #ffffff #e0def4   #000000
-# client.active_workspace     #285577 #16a085 #292F34
+client.focused_workspace    #000000 #000000 #ffffff #e0def4   #000000
+client.focused              #020887 #285577 #ffffff #020887   #285577
 
 ##### STARTUP APPS #######
 # Start XDG autostart .desktop files using dex. See also
