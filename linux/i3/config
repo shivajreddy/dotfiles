@@ -9,12 +9,14 @@ set $PATH $HOME/.cargo/bin:$PATH
 font pango:Iosevka Bold 8
 
 # Set border styles
-# default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 1
+# default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border
-client.focused_workspace    #000000 #000000 #ffffff #e0def4   #000000
-client.focused              #020887 #285577 #ffffff #020887   #285577
+client.focused              #95a99f #0e0a01 #ffffff #2e9ef4   #95a99f
+client.focused_inactive     #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused            #333333 #5f676a #ffffff #484e50   #5f676a
+
 
 ##### STARTUP APPS #######
 # Start XDG autostart .desktop files using dex. See also
