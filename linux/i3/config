@@ -9,7 +9,7 @@ set $PATH $HOME/.cargo/bin:$PATH
 font pango:Iosevka Bold 8
 
 # Set border styles
-default_border pixel 1
+# default_border pixel 1    # this will disable the title bar
 # default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border
