@@ -23,7 +23,7 @@ client.unfocused            #333333 #5f676a #ffffff #484e50   #5f676a
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # Picom compositor
-exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
+# exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
