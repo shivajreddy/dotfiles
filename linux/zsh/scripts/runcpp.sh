@@ -56,11 +56,11 @@ OUT_FILE="$DIR/out"
 
 # Remove the existing output file if it exists
 if [ -f "$OUT_FILE" ]; then
-    echo "Removing existing output file: $OUT_FILE"
+    echo "Removing existing output file: $OUT sh -c \
+    "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE && $OUT_FILE"_FILE"
     rm "$OUT_FILE"
 fi
 
 # Monitor the file for changes using find and entr
 echo "Watching '$CPP_FILE' for changes. Press Ctrl+C to stop."
-find "$DIR" -wholename "$CPP_FILE" | entr -c sh -c \
-    "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE && $OUT_FILE"
+find "$DIR" -wholename "$CPP_FILE" | entr -c
