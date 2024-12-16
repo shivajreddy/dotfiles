@@ -1,11 +1,11 @@
 #!/bin/bash
-
 # ############################################################
 # ###################  Author: Shiva    ######################
 # ###################  Date: 12-6-2024  ######################
 # ############################################################
 
 # #################  Description  ############################
+
 # This script monitors a specified C++ file for changes.
 # When changes are detected, it compiles and runs the file.
 
@@ -15,19 +15,31 @@
 # 3. Checks if 'out' already exists next to it
 #      - if so, delete it
 # 4. Use find & entr to watch this cpp file,
-#    and whenever there is changes to it, compile it
+#    and whenever changes occur, compile it
 #    to 'out' and run 'out'
-# Example: find ./ -wholename './2024/cpp/day-05/part-02/main.cpp' | entr -c sh -c 'g++ -std=c++17 $(find ./ -wholename "./2024/cpp/day-05/part-02/main.cpp") -o ./2024/cpp/day-05/part-02/out && ./2024/cpp/day-05/part-02/out'
+#
+# Usage:
+#   ./script.sh path/to/file.cpp [cpp-standard-version]
+
+#
+# If the cpp-standard-version is not provided, defaults to C++17.
 ###################################
 
 # Check if the script received a file path as an argument
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <path-to-cpp-file>"
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <path-to-cpp-file> [cpp-version]"
     exit 1
 fi
 
-# Path of the single cpp file
+# First argument: path to cpp file
 CPP_FILE="$1"
+
+# Second argument is optional, C++ standard version
+if [ $# -ge 2 ]; then
+    CPP_VERSION="$2"
+else
+    CPP_VERSION="17"
+fi
 
 # Check if the file exists
 if [ ! -f "$CPP_FILE" ]; then
@@ -51,4 +63,4 @@ fi
 # Monitor the file for changes using find and entr
 echo "Watching '$CPP_FILE' for changes. Press Ctrl+C to stop."
 find "$DIR" -wholename "$CPP_FILE" | entr -c sh -c \
-    "g++ -std=c++17 $CPP_FILE -o $OUT_FILE && $OUT_FILE"
+    "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE && $OUT_FILE"
