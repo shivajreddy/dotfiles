@@ -32,7 +32,7 @@ opacity = 0.98        # 0.98
 blur = true
 dynamic_title = false
 # title = "simple_colon"
-decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None" # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
