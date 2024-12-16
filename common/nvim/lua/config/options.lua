@@ -12,7 +12,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Disable options
 
 -- Animations
--- vim.g.snacks_animate = false
+vim.g.snacks_animate = false
 
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
