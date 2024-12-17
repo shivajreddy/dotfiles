@@ -141,3 +141,5 @@ alias sudo='sudo '
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 
+
+export PATH=$PATH:/home/smpl/.spicetify

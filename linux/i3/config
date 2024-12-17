@@ -54,6 +54,10 @@ bindsym Mod4+7 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Set Pavucontrol to always float
+for_window [class="Pavucontrol"] floating enable
+
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 # tiling_drag modifier titlebar
@@ -94,11 +98,11 @@ bindsym $mod+t floating toggle
 # bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+w layout tabbed
 # bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
