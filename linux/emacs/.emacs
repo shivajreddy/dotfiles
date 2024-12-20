@@ -8,6 +8,12 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; Misc
+;;disable splash screen and startup message
+(setq inhibit-startup-message t) 
+(setq initial-scratch-message nil)
+
+
 ;; UI
 (menu-bar-mode 0)
 (tool-bar-mode 0)
