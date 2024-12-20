@@ -10,11 +10,12 @@ font pango:Iosevka Bold 8
 
 # Set border styles
 # (setting the value to 1 will disable the title bar)
-default_border pixel 1
+default_border pixel 2
 # default_floating_border pixel 3
 
-# class                     border  backgr. text    indicator child_border
-client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #9e95c7
+# class                     border  backgr. text    indicator child_border(all 4sides border color)
+client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
+# client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #9e95c7
 # client.focused_inactive     #333333 #5f676a #ffffff #484e50   #5f676a
 # client.unfocused            #333333 #5f676a #ffffff #484e50   #5f676a
 

@@ -3,11 +3,17 @@
 ;; instead of emacs saving the config into this file .emacs
 (setq custom-file "~/.emacs.custom")
 
+;; Enable Ido Everywhere
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 ;; UI
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (column-number-mode 1)
+(blink-cursor-mode 0)
 
 ;; Enable relative line numbers
 (setq display-line-numbers-type 'relative)
