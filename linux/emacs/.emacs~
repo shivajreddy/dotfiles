@@ -1,0 +1,20 @@
+
+;; Let Emacs use the custom file for it to save config,
+;; instead of emacs saving the config into this file .emacs
+(setq custom-file "~/.emacs.custom")
+
+;; UI
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 1)
+(column-number-mode 1)
+(global-display-line-numbers-mode)
+
+;; Font
+(add-to-list 'default-frame-alist `(font . "Iosevka 14"))
+
+;; Theme
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+;; (load-theme 'gruber-darker t)
