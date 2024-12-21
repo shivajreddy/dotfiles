@@ -31,10 +31,15 @@
 (global-set-key (kbd "C-b") 'backward-word)
 
 ;; Font
-(set-frame-font "Iosevka-16" nil t)
+;; (set-frame-font "Iosevka-16" nil t)
+(set-frame-font "IosevkaNerdFont-16" nil t)
 
 ;; Theme
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (load-theme 'gruber-darker t)
+
+;; Compiling
+(setq compile-command "g++ -o out main.cpp")
+

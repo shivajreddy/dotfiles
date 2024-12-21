@@ -55,9 +55,9 @@ bindsym Mod4+7 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Set Pavucontrol to always float
+# Set Windows to always float
 for_window [class="Pavucontrol"] floating enable
-
+for_window [class="Blueman" instance="blueman-manager"] floating enable
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
