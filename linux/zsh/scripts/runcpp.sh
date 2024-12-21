@@ -3,12 +3,9 @@
 # ###################  Author: Shiva    ######################
 # ###################  Date: 12-6-2024  ######################
 # ############################################################
-
 # #################  Description  ############################
-
 # This script monitors a specified C++ file for changes.
 # When changes are detected, it compiles and runs the file.
-
 ###################################
 # 1. Takes the path of a cpp file
 # 2. Checks if the file exists
@@ -20,7 +17,6 @@
 #
 # Usage:
 #   ./script.sh path/to/file.cpp [cpp-standard-version]
-
 #
 # If the cpp-standard-version is not provided, defaults to C++17.
 ###################################
@@ -56,11 +52,10 @@ OUT_FILE="$DIR/out"
 
 # Remove the existing output file if it exists
 if [ -f "$OUT_FILE" ]; then
-    echo "Removing existing output file: $OUT sh -c \
-    "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE && $OUT_FILE"_FILE"
+    echo "Removing existing output file: $OUT_FILE"
     rm "$OUT_FILE"
 fi
 
 # Monitor the file for changes using find and entr
 echo "Watching '$CPP_FILE' for changes. Press Ctrl+C to stop."
-find "$DIR" -wholename "$CPP_FILE" | entr -c
+find "$DIR" -name "$(basename "$CPP_FILE")" | entr -c sh -c "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE && $OUT_FILE"
