@@ -25,7 +25,7 @@ client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # Picom compositor
-# exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
+exec --no-startup-id picom --experimental-backends --blur-method dual_kawase
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
@@ -71,6 +71,18 @@ for_window [class="Blueman" instance="blueman-manager"] floating enable
 # bindsym $mod+Return exec wezterm cli spawn --new-window --workspace HOME
 bindsym $mod+Return exec kitty "tmux"
 bindsym $mod+Shift+Return exec kitty
+# bindsym $mod+Shift+f exec ~/dotfiles/linux/kitty/floating-kitty/script.sh
+bindsym $mod+Shift+f exec kitty --config ~/dotfiles/linux/kitty/floating-kitty/kitty.conf --class floatingkitty
+for_window [class="floatingkitty"] floating enable
+
+# Scratchpad config
+for_window [class="scratchpad"] floating enable
+for_window [class="scratchpad"] move scratchpad
+for_window [class="Clock"] move scratchpad
+for_window [class="Com.github.jmoerman.go-for-it"] move scratchpad
+for_window [class="Variety"] move scratchpa
+
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
