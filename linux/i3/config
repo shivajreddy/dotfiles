@@ -38,6 +38,10 @@ exec --no-startup-id nm-applet
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# GAPS
+# gaps inner 2
+
+# GROUPS
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
