@@ -12,6 +12,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
+export PATH=$PATH:/snap/bin
+
 export STARSHIP_CONFIG="$HOME/dotfiles/common/starship.toml"
 
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
