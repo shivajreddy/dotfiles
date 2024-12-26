@@ -1,23 +1,19 @@
 #!/bin/bash
 
-# Check if a project name argument is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <project_name>"
-    exit 1
-fi
+# Get the current folder name as the project name
+PROJECT_NAME=$(basename "$PWD")
 
-PROJECT_NAME=$1
+# Print the project name
+echo "Project name is: $PROJECT_NAME"
 
 # Create and configure the build directory
 echo "Configuring project $PROJECT_NAME..."
-cmake -B build/ -DPROJECT_NAME=$PROJECT_NAME
+cmake -B build/ -DPROJECT_NAME="$PROJECT_NAME"
 
 # Build the project
 echo "Building project $PROJECT_NAME..."
 cmake --build build/
 
-# Monitor the file for changes using find and entr
+# Monitor the file for changes
 echo "Watching CPP/H files for changes. Press Ctrl+C to stop."
-# find . -type f \( -name "*.cpp" -o -name "*.h" \) | entr -c sh -c "./build/visualize"
-
 find . -type f \( -name "*.cpp" -o -name "*.h" \) | entr -c sh -c "cmake --build build/ && clear && ./build/$PROJECT_NAME"
