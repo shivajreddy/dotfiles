@@ -16,9 +16,6 @@ return {
             -- text = "#e0def4",
             -- love = "#f43841", --"#ffdd33",
             -- gold = "#cc8c3c", -- #95a99f,
-            rose = "#ffffff", -- "#ff4f58" "#ffdd33",
-            pine = "#ffdd33",
-            foam = "#e0def4",
             -- iris = "#ffdd33",
           },
         },
@@ -31,6 +28,7 @@ return {
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
+          --[[
           -- Normal = { bg = "#0e0a01" }, -- rosepine burnt background
           CursorLine = { bg = "#000000" }, -- #0e0a01 base  #121F2B none   #6e6a86
           ColorColumn = { bg = "#121F2B" }, -- #0e0a01
@@ -42,6 +40,7 @@ return {
           Search = { bg = "#FFD700", fg = "#000000" }, -- Golden background with black text
           IncSearch = { bg = "#FFA500", fg = "#000000" }, -- Orange background for incremental search
           Whitespace = { fg = "#191724" },
+                    --]]
         },
       })
     end,
@@ -73,21 +72,14 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
-    opts = {
-      -- custom options here
-    },
-    config = function(_, opts)
-      require("tokyodark").setup(opts) -- calling setup is optional
-      vim.cmd([[colorscheme tokyodark]])
-    end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "GruberDarker",
-      -- colorscheme = "rose-pine",
-      -- colorscheme = "tokyodark",
       -- colorscheme = "gruber-darker",
+      -- colorscheme = "GruberDarker",
+      colorscheme = "rose-pine",
+      -- colorscheme = "tokyodark",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
