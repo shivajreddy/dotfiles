@@ -73,14 +73,17 @@ $line_break\
 [└](gray)\
 $character"""
 
-add_newline = true
+add_newline = false
 continuation_prompt = '[>](bold gray) '
 palette = "milspec_dark"
 
 [character]
 success_symbol = '[λ](bold fg)'
 error_symbol = '[λ](bold red)'
+# success_symbol = '[\$](bold fg)'
+# error_symbol = '[\$](bold red)'
 vimcmd_symbol = '[](bold turquoise)'
+
 
 [time]
 format = ' [$time]($style) '
@@ -150,7 +153,7 @@ disabled = false
 [cmd_duration]
 format = '[ $duration ]($style)'
 style = 'fg:gold'
-show_milliseconds = true
+show_milliseconds = false
 min_time = 2000
 
 [jobs]
@@ -462,11 +465,11 @@ bg = "#1c2127"
 gray = "#c5cbd3"
 bgGray = "#404854"
 fgGray = "#d3d8de"
-core = "#111418"
+core = "#ffdd33"      # 111418
 blue = "#8abbff"
-green = "#72ca9b"
-orange = "#fbb360"
-red = "#fa999c"
+green = "#95a99f"     # 72ca9b
+orange = "#ffeb85"    # fbb360
+red = "#ffdd33"       # ff4f58    fa999c
 vermilion = "#ff9980"
 rose = "#ff66a1"
 violet = "#d69fd6"
@@ -475,5 +478,33 @@ cerulean = "#68c1ee"
 turquoise = "#7ae1d8"
 forest = "#62d96b"
 lime = "#d4f17e"
-gold = "#fbd065"
+gold = "#6e6a86"      # fbd065
 sepia = "#d0b090"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
