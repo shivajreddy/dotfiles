@@ -71,13 +71,23 @@ return {
       })
     end,
   },
-
+  {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      -- custom options here
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts) -- calling setup is optional
+      vim.cmd([[colorscheme tokyodark]])
+    end,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "GruberDarker",
-      colorscheme = "gruber-darker",
+      colorscheme = "GruberDarker",
       -- colorscheme = "rose-pine",
+      -- colorscheme = "tokyodark",
+      -- colorscheme = "gruber-darker",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
