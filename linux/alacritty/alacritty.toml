@@ -1,4 +1,5 @@
 
+##############################  GENERAL  ##############################
 live_config_reload = true
 
 [env]
@@ -8,7 +9,18 @@ TERM = "xterm-256color"
 log_level = "Info"
 print_events = true
 
+[scrolling]
+history = 10000
+multiplier = 3
 
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+
+##############################  STARTUP  ##############################
 # [terminal.shell]
 # program = "wsl"
 # args = ["tmux attach || tmux"]
@@ -25,7 +37,6 @@ print_events = true
 # ]
 
 ##############################  WINDOW  ##############################
-
 [window]
 opacity = 0.98
 blur = true
@@ -47,15 +58,6 @@ instance = "Alacritty"
 x = 0
 y = 0
 
-[scrolling]
-history = 10000
-multiplier = 3
-
-[selection]
-save_to_clipboard = true
-
-[mouse]
-hide_when_typing = true
 
 
 ############################## FONT ##############################
@@ -121,12 +123,10 @@ family = "TX-02 Bold Condensed Oblique"
 
 
 ############################## THEME ##############################
-
 [colors]
 draw_bold_text_with_bright_colors = true
 
 # https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
-
 [colors.primary]
 foreground = "#e0def4"
 background = "#0E0A01"        # "#191724"
