@@ -25,6 +25,8 @@ export PATH="$HOME/.config/zsh/scripts:$PATH"
 # Add Cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export PATH=$PATH:/usr/local/zig
+
 # Library paths for c/c++
 LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
