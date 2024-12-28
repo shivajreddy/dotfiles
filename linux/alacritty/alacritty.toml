@@ -156,8 +156,8 @@ y = 0
 
 [font.normal]
 style = "Regular"
-family = "TX02 Nerd Font Condensed"
-# family = "TX-02 Condensed"
+# family = "TX02 Nerd Font Condensed"
+family = "TX-02 Condensed"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
