@@ -1,9 +1,4 @@
 
-[general]
-import = [
-    "/home/smpl/dotfiles/linux/alacritty/rosepine.toml",
-    "/home/smpl/dotfiles/linux/alacritty/font.toml",
-]
 live_config_reload = true
 
 [env]
@@ -12,6 +7,7 @@ TERM = "xterm-256color"
 [debug]
 log_level = "Info"
 print_events = true
+
 
 # [terminal.shell]
 # program = "wsl"
@@ -28,6 +24,7 @@ print_events = true
 # {key = "K", mods = "Control", chars = "\u0008" }
 # ]
 
+##############################  WINDOW  ##############################
 
 [window]
 opacity = 0.98
@@ -60,5 +57,147 @@ save_to_clipboard = true
 [mouse]
 hide_when_typing = true
 
+
+############################## FONT ##############################
+[font]
+size = 14
+builtin_box_drawing = true
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+style = "Regular"
+family = "TX-02 Condensed"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.italic]
+style = "Italic"
+family = "TX-02 Condensed Oblique"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.bold]
+style = "Bold"
+family = "TX-02 Bold Condensed"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+[font.bold_italic]
+style = "Bold Italic"
+family = "TX-02 Bold Condensed Oblique"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+############################## THEME ##############################
+
 [colors]
 draw_bold_text_with_bright_colors = true
+
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
+
+[colors.primary]
+foreground = "#e0def4"
+background = "#0E0A01"        # "#191724"
+dim_foreground = "#908caa"
+bright_foreground = "#e0def4"
+
+[colors.cursor]
+# text = "#e0def4"
+# cursor = "#524f67"
+text = "#000000"   # "#191724"
+cursor = "#ebbcba" # ea9d34 ebbcba ffdd33
+
+[colors.vi_mode_cursor]
+text = "#191724"
+cursor = "#ebbcba"
+
+[colors.search.matches]
+foreground = "#908caa"
+background = "#26233a"
+
+[colors.search.focused_match]
+foreground = "#191724"
+background = "#ebbcba"
+
+[colors.hints.start]
+foreground = "#908caa"
+background = "#1f1d2e"
+
+[colors.hints.end]
+foreground = "#6e6a86"
+background = "#1f1d2e"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#e0def4"
+background = "#1f1d2e"
+
+[colors.selection]
+text = "#e0def4"
+background = "#403d52"
+
+[colors.normal]
+black = "#26233a"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
+magenta = "#c4a7e7"
+cyan = "#ebbcba"
+white = "#e0def4"
+
+[colors.bright]
+black = "#6e6a86"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
+magenta = "#c4a7e7"
+cyan = "#ebbcba"
+white = "#e0def4"
+
+[colors.dim]
+black = "#6e6a86"
+red = "#e0def4"     # eb6f92  ff4f58
+green = "#95a99f"   # 31748f
+yellow = "#ffdd33"  # f6c177
+blue = "#e0def4"    # 9ccfd8
+magenta = "#c4a7e7"
+cyan = "#ebbcba"
+white = "#e0def4"
+
