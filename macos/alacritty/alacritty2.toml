@@ -1,0 +1,86 @@
+[general]
+import = [
+    # "~/.config/alacritty/themes/catppuccin-mocha.toml",
+    "~/.config/alacritty/themes/rosepine.toml",
+    # "~/.config/alacritty/themes/rosepine-dawn.toml",
+    "~/.config/alacritty/keymaps.toml",
+]
+live_config_reload = true
+
+
+[terminal.shell]
+program = "tmux"
+
+[env]
+TERM = "xterm-256color"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+
+[colors.cursor]
+# text = "#e0def4"      # light theme
+# cursor = "#524f67"    # light theme
+text = "#191724"   # dark theme
+cursor = "#ebbcba" # dark theme
+
+[colors.vi_mode_cursor]
+text = "#191724"
+cursor = "#ebbcba"
+
+[font]
+size = 18
+
+[font.offset]
+x = 1
+y = 1
+
+[font.normal]
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Regular"
+
+[font.italic]
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Italic"
+
+[font.bold]
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+style = "Bold Italic"
+
+
+[mouse]
+hide_when_typing = true
+
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+# auto_scroll = true
+
+
+[window]
+opacity = 0.95
+blur = true
+decorations = "Buttonless" # "Full" | "None" | "Transparent" | "Buttonless"
+dynamic_padding = false
+dynamic_title = false
+title = "simple_colon"
+startup_mode = "Maximized" # "Fullscreen"  "Maximized"
+
+padding.x = 10
+padding.y = 10
+
+
+class.general = "Alacritty"
+class.instance = "Alacritty"
