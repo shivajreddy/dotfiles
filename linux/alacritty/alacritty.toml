@@ -38,7 +38,7 @@ hide_when_typing = true
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.98
+opacity = 1
 blur = true
 dynamic_title = false
 # title = "simple_colon"
@@ -134,7 +134,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 14
+size = 15
 builtin_box_drawing = true
 
 [font.offset]
