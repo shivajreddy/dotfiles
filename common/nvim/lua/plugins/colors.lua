@@ -22,7 +22,7 @@ return {
 
         styles = {
           -- bold = false,
-          -- italic = false,
+          italic = false,
           transparency = true, -- Must not set any color
         },
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
