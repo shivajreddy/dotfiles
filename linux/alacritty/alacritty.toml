@@ -147,8 +147,8 @@ y = 0
 
 [font.normal]
 style = "Regular"
-# family = "TX02 Nerd Font Condensed"
-family = "TX-02 Condensed"
+family = "TX02 Nerd Font Condensed"
+# family = "TX-02 Condensed"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
@@ -160,8 +160,8 @@ family = "TX-02 Condensed"
 
 [font.italic]
 style = "Italic"
-# family = "TX02 Nerd Font Condensed Oblique"
-family = "TX-02 Condensed Oblique"
+family = "TX02 Nerd Font Condensed"
+# family = "TX-02 Condensed Oblique"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
@@ -173,8 +173,8 @@ family = "TX-02 Condensed Oblique"
 
 [font.bold]
 style = "Bold"
-# family = "TX02 Nerd Font Condensed Bold"
-family = "TX-02 Bold Condensed"
+family = "TX02 Nerd Font Condensed"
+# family = "TX-02 Bold Condensed"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
@@ -186,8 +186,8 @@ family = "TX-02 Bold Condensed"
 
 [font.bold_italic]
 style = "Bold Italic"
-# family = "TX02 Nerd Font Bold Condensed Oblique"
-family = "TX-02 Bold Condensed Oblique"
+family = "TX02 Nerd Font Condensed"
+# family = "TX-02 Bold Condensed Oblique"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
