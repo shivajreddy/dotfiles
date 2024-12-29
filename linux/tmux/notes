@@ -1,0 +1,16 @@
+
+# NOTE: below are my notes, for how the right-status is being created
+# Session Module.
+# if client_prefix i.e., ctrl+t is pressed
+#[fg=#eb6f92 bg=default]#[fg=#26233a bg=#eb6f92]#S#[fg=#eb6f92 bg=default]
+# if client_prefix i.e., ctrl+t is NOT pressed
+#[fg=#26233a bg=default]#[fg=#eb6f92 bg=#26233a]#S#[fg=#26233a bg=default]
+# Host module
+#[fg=#26233a,bg=default]#[fg=#ebbcba,bg=#26233a]#H#[fg=#26233a,bg=default]
+# Time module
+#[fg=#26233a,bg=default]#[fg=#6e6a86,bg=#26233a]%I:%M %p#[fg=#26233a,bg=default]
+
+# Right Modules: session + host + time
+# set -g status-right '#{?client_prefix, #S,  #S  #(whoami)@#H  }'
+# set -g status-right '#{?client_prefix,#[fg=#ffdd33 bg=default]#[fg=#26233a bg=#ffdd33]#S#[fg=#ffdd33 bg=default],#[fg=#26233a bg=default]#[fg=#ffdd33 bg=#26233a]#S#[fg=#26233a bg=default]}'
+# set -g status-right '#{?client_prefix,#[fg=#eb6f92 bg=default]#[fg=#26233a bg=#eb6f92]#S#[fg=#eb6f92 bg=default],#[fg=#26233a bg=default]#[fg=#eb6f92 bg=#26233a]#S#[fg=#26233a bg=default]} #[fg=#26233a,bg=default]#[fg=#ebbcba,bg=#26233a]#H#[fg=#26233a,bg=default] #[fg=#26233a,bg=default]#[fg=#908caa,bg=#26233a]%I:%M %p#[fg=#26233a,bg=default]'
