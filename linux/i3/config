@@ -10,7 +10,7 @@ font pango:Iosevka Bold 8
 
 # Set border styles
 # (setting the value to 1 will disable the title bar)
-default_border pixel 2
+default_border pixel 4
 # default_floating_border pixel 3
 
 # class                     border  backgr. text    indicator child_border(all 4sides border color)
@@ -39,7 +39,7 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # GAPS
-# gaps inner 2
+gaps inner 4
 
 # GROUPS
 
