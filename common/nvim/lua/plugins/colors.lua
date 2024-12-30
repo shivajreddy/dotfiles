@@ -8,7 +8,7 @@ return {
 
         palette = {
           main = {
-            -- base = "#191724",
+            base = "#121018", --191724  0e0a01
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
@@ -22,13 +22,14 @@ return {
 
         styles = {
           -- bold = false,
-          italic = false,
-          transparency = true, -- Must not set any color
+          italic = true,
+          -- transparency = true, -- Must not set any color
+          extend_background_behind_borders = true,
         },
         -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
         -- contains all the highlight group names, under the variable `default_highlights`
         highlight_groups = {
-          Normal = { bg = "#0e0a01" }, -- rosepine burnt background
+          -- Normal = { bg = "#121018" }, -- rosepine burnt background  0e0a01
           --[[
           CursorLine = { bg = "#000000" }, -- #0e0a01 base  #121F2B none   #6e6a86
           ColorColumn = { bg = "#121F2B" }, -- #0e0a01
