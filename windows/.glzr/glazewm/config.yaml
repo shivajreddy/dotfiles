@@ -118,7 +118,7 @@ workspaces:
     # keep_alive: true
     bind_to_monitor: 0
   - name: '4'
-    display_name: "4 🎵"
+    # display_name: "4 🎵"
   - name: '5'
   - name: '6'
     # display_name: "6 🕹️"
@@ -127,7 +127,7 @@ workspaces:
   - name: '7'
   - name: '8'
   - name: '9'
-    display_name: " 9 📝 "
+    # display_name: " 9 📝 "
     bind_to_monitor: 0
 
 window_rules:
@@ -141,8 +141,8 @@ window_rules:
 
 
       # Ignores picture-in-picture windows for browsers.
-      # - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-        # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
       # Ignore rules for various 3rd-party apps.
       - window_process: { equals: 'PowerToys' }
