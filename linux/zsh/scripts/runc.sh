@@ -50,5 +50,6 @@ fi
 
 # Monitor the file for changes using find and entr
 echo "Watching '$C_FILE' for changes. Press Ctrl+C to stop."
-find "$DIR" -wholename "$C_FILE" | entr -c sh -c \
-    "g++ -std=c++17 $C_FILE -o $OUT_FILE && $OUT_FILE"
+
+find "$DIR" -name "$(basename "$C_FILE")" | entr -c sh -c \
+    "gcc $C_FILE -o $OUT_FILE && $OUT_FILE"
