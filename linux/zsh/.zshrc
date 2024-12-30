@@ -53,7 +53,6 @@ LFCD=~/dotfiles/wsl/lf/lfcd.sh
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
-
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
