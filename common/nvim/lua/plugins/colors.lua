@@ -21,8 +21,8 @@ return {
         },
 
         styles = {
-          -- bold = false,
-          italic = true,
+          bold = true,
+          italic = false,
           -- transparency = true, -- Must not set any color
           extend_background_behind_borders = true,
         },
