@@ -8,7 +8,7 @@ return {
 
         palette = {
           main = {
-            base = "#121018", --191724  0e0a01
+            base = "#181818", --191724  0e0a01  121018
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
