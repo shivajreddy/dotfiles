@@ -8,7 +8,9 @@ return {
 
         palette = {
           main = {
-            base = "#181818", --191724  0e0a01  121018
+            base = "#141414", --191724  0e0a01  121018  181818
+            pine = "#7287fd",
+            -- foam = "#8caaee",
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
@@ -73,14 +75,35 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
+    name = "tokyodark",
+    config = function()
+      require("tokyodark").setup({
+        transparent_background = true, -- set background to transparent
+        gamma = 1.00, -- adjust the brightness of the theme
+        styles = {
+          comments = { italic = true }, -- style for comments
+          keywords = { italic = false }, -- style for keywords
+          identifiers = { italic = false }, -- style for identifiers
+          functions = {}, -- style for functions
+          variables = {}, -- style for variables
+        },
+        custom_highlights = {} or function(highlights, palette)
+          return {}
+        end, -- extend highlights
+        custom_palette = {} or function(palette)
+          return {}
+        end, -- extend palette
+        terminal_colors = true, -- enable terminal colors
+      })
+    end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "tokyodark",
+      -- colorscheme = "rose-pine",
       -- colorscheme = "gruber-darker",
       -- colorscheme = "GruberDarker",
-      -- colorscheme = "tokyodark",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
       -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
