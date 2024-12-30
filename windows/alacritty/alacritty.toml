@@ -56,8 +56,8 @@ bindings = [{ key = "l", mods = "Control|Shift", action = "ClearHistory" }]
 opacity = 0.98
 blur = true
 dynamic_title = false
-# title = "simple_colon"
-# title = ""
+# title = "smpl;"
+title = ""
 # dynamic_padding = true
 decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
 
@@ -149,7 +149,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 15
+size = 18
 builtin_box_drawing = true
 
 [font.offset]
