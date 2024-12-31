@@ -22,6 +22,10 @@ client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
 # client.focused_inactive     #333333 #5f676a #ffffff #484e50   #5f676a
 # client.unfocused            #333333 #5f676a #ffffff #484e50   #5f676a
 
+##### UBUNTU STARTUP SETTINGS #######
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
 
 ##### STARTUP APPS #######
 # Start XDG autostart .desktop files using dex. See also
