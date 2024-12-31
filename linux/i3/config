@@ -6,7 +6,8 @@ set $mod Mod1
 set $PATH $HOME/.cargo/bin:$PATH
 
 ##### UI #######
-font pango:Iosevka Bold 8
+font pango:TX02 Nerd Font Bold 10
+# font pango:Iosevka Bold 8
 
 
 # Set border styles
@@ -94,7 +95,8 @@ for_window [class="Variety"] move scratchpa
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "Iosevka-24" -sb "#FFDD33" -sf "#000000" -nb "#0e0a01" -nf "#ffffff"
+bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "TX02 Nerd Font-24" -sb "#8839ef" -sf "#11111b" -nb "#0e0a01" -nf "#8c8fa1"
+# bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "Iosevka-24" -sb "#FFDD33" -sf "#000000" -nb "#0e0a01" -nf "#ffffff"
 
 # change focus
 bindsym $mod+h focus left
