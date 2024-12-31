@@ -6,7 +6,6 @@ return {
     opts = {
       inlay_hints = { enabled = false }, -- at starts sets them off
       servers = {
-
         --#region Clangd  Configuration
         clangd = {
           keys = {
@@ -45,6 +44,11 @@ return {
             clangdFileStatus = true,
           },
         },
+        --#endregion
+
+        --#region Go Configuration
+        -- https://github.com/ray-x/go.nvim
+        gopls = {},
         --#endregion
 
         --#region Rust Configuration
