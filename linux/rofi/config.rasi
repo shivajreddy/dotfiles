@@ -1,0 +1,147 @@
+/*config*/
+
+configuration {
+    show-icons:                 true;
+    drun-display-format:        "{name}";
+}
+
+
+* {
+    font: "TX02 Nerd Font Bold 20";
+    /* font: "JetBrainsMono NF Bold 12"; */
+    /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
+    /* font: "IBM Plex Mono Bold 14"; */
+    /* font: "Inter Bold 14"; */
+
+    /* Define color palette here */
+    /* Mocha */
+    bg-col:  #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #1e1e2e;
+    selected-col: #1e1e2e;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+
+    /* RosePine */
+    base:            #191724;
+    surface:         #1f1d2e;
+    overlay:         #26233a;
+    muted:           #6e6a86;
+    subtle:          #908caa;
+    text:            #e0def4;
+    love:            #eb6f92;
+    gold:            #f6c177;
+    rose:            #ebbcba;
+    pine:            #31748f;
+    foam:            #9ccfd8;
+    iris:            #c4a7e7;
+    highlightLow:    #21202e;
+    highlightMed:    #403d52;
+    highlightHigh:   #524f67;
+}
+
+
+/*window*/
+window {
+    width: 1400px;
+    height: 800px;
+    /* opacity: 1; */
+
+    border: 2px solid;
+    border-color: @rose;
+    border-radius: 12px;
+
+    background-color: @surface;
+    padding: 10px;
+}
+
+
+/*container!*/
+mainbox {
+    spacing: 10px;
+    padding: 20px;
+    children: [ "inputbar", "listview" ];
+}
+
+
+/*inputbar*/
+
+/*-conteiner inputbar*/
+inputbar {
+    spacing: 10px;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: @base;
+    text-color: @text;
+    children: [ "textbox-prompt-colon", "entry" ];
+}
+
+/*-icons*/
+textbox-prompt-colon {
+    expand: false;
+    str: " 🔍 ";
+    /* str: "  "; */
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+/*-promt*/
+entry {
+    background-color: inherit;
+    text-color: inherit;
+    /* placeholder: "Search..."; */
+    placeholder: "";
+    placeholder-color: @muted;
+}
+
+/*list elemens*/
+listview {
+    columns: 2;
+    lines: 6;
+    scrollbar: false;
+    spacing: 10px;
+    text-color: @text;
+    background-color: transparent;
+    border: 0px;
+}
+
+
+/*elements*/
+element {
+    spacing: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #11111b;
+    text-color:#cdd6f4;
+}
+
+element.normal.normal {
+    background-color: #1e1e2e;
+    text-color:#cdd6f4;
+}
+
+
+element.alternate.normal {
+    background-color: @surface;
+    text-color: @text;
+}
+
+element.selected.normal {
+    background-color: @rose;
+    text-color: @base;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 32px;
+}
+element-text {
+    background-color: transparent;
+    text-color:  inherit;
+    vertical-align: 0.5;
+}
+
