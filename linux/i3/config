@@ -8,10 +8,12 @@ set $PATH $HOME/.cargo/bin:$PATH
 ##### UI #######
 font pango:Iosevka Bold 8
 
+
 # Set border styles
 # (setting the value to 1 will disable the title bar)
-default_border pixel 4
-# default_floating_border pixel 3
+# new_window pixel 1
+default_border pixel 1
+default_floating_border pixel 4
 
 # class                     border  backgr. text    indicator child_border(all 4sides border color)
 client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
@@ -29,7 +31,7 @@ exec --no-startup-id picom --experimental-backends
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/space_saturn.png
+exec --no-startup-id feh --bg-scale ~/Pictures/boat-pastel-mocha.png
 # NetworkManager, system tray GUI for it
 exec --no-startup-id nm-applet
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
