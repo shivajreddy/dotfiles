@@ -35,7 +35,7 @@ export TERM=tmux-256color
 
 # Go paths
 export GOROOT=/usr/local/go
-export GOPATH=/home/shiva/go
+export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
 export PATH="/usr/local/go/bin/:$PATH"
 
