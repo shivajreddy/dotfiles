@@ -31,6 +31,9 @@ export CPATH
 LIBRARY_PATH="/Library/Frameworks/SDL2.framework:$LIBRARY_PATH"
 export LIBRARY_PATH
 
+# NVM
+source $(brew --prefix nvm)/nvm.sh
+
 
 ########################### PLUGINS ###########################
 # zoxide - z (cd replacement)
