@@ -34,6 +34,11 @@ export LIBRARY_PATH
 # NVM
 source $(brew --prefix nvm)/nvm.sh
 
+# Go paths
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH
+export PATH="/usr/local/go/bin/:$PATH"
 
 ########################### PLUGINS ###########################
 # zoxide - z (cd replacement)
