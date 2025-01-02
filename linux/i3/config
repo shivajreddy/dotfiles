@@ -37,7 +37,7 @@ exec --no-startup-id picom --experimental-backends
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/boat-pastel-mocha.png
+exec --no-startup-id feh --bg-scale ~/Pictures/macos-monterey.jpeg
 # NetworkManager, system tray GUI for it
 exec --no-startup-id nm-applet
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -47,7 +47,7 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # GAPS
-gaps inner 4
+gaps inner 1
 
 # GROUPS
 
@@ -178,6 +178,12 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+
+smart_borders on
+workspace 2 gaps outer 40
+workspace 2 gaps inner 40
+workspace 9 gaps outer 40
+workspace 9 gaps inner 40
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
