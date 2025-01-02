@@ -22,7 +22,6 @@ general {
 # order += "load"
 order += "tztime local"
 
-
 cpu_temperature 0 {
         format = "Tea: %degrees °C"
 }
@@ -45,8 +44,7 @@ battery all {
 }
 
 tztime local {
-        format = "  %Y-%m-%d  %I:%M %p"
-        # format = "%Y-%m-%d  %H:%M:%S"
+        format = "  %I:%M %p     %Y-%m-%d  "
 }
 
 load {
