@@ -98,7 +98,7 @@ vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Hover documentation
-vim.api.nvim_set_keymap("n", "I", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-I>", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 -- Symbol references
 vim.api.nvim_set_keymap("n", "<leader>r", ":lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
