@@ -1,0 +1,15 @@
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Linux Specific
+gtk-tabs-location = hidden
+gtk-titlebar = false
+
+
+font-family = "TX-02 Condensed"
+font-size = 20
+
+# background-opacity = 0.5
+
+theme = "catppuccin-mocha"
+background = "#181825"
