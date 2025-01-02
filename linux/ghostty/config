@@ -4,6 +4,7 @@ shell-integration-features = no-cursor
 # Linux Specific
 gtk-tabs-location = hidden
 gtk-titlebar = false
+window-decoration = false
 
 
 font-family = "TX-02 Condensed"
