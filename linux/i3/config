@@ -6,7 +6,8 @@ set $mod Mod1
 set $PATH $HOME/.cargo/bin:$PATH
 
 ##### UI #######
-font pango:TX02 Nerd Font Bold 10
+font pango:SF Pro Display 8
+# font pango:TX02 Nerd Font Bold 10
 # font pango:Iosevka Bold 8
 
 

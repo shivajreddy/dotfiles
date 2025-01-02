@@ -7,7 +7,8 @@ configuration {
 
 
 * {
-    font: "TX02 Nerd Font Bold 20";
+    font: "SF Pro Display 20";
+    /* font: "TX02 Nerd Font Bold 20"; */
     /* font: "JetBrainsMono NF Bold 12"; */
     /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
     /* font: "IBM Plex Mono Bold 14"; */
