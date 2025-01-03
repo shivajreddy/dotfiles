@@ -1,54 +1,4 @@
 {
-    "appearance": {
-        "messages": {
-            "lastMessageColor": "#f5c2e7",
-            "showLastMessageIndicator": true
-        },
-        "theme": {
-            "name": "mocha-pink.json"
-        },
-        "currentFontFamily": "IBM Plex Mono",
-        "currentFontSize": 14,
-        "tabVisibility": 1,
-        "showTabCloseButton": false,
-        "hideUserButton": true,
-        "showTabLiveButton": true,
-        "hideReplyContext": false,
-        "splitheader": {
-            "showUptime": false,
-            "showTitle": false,
-            "showViewerCount": true
-        },
-        "hidePreferencesButton": false,
-        "tabDirection": 3
-    },
-    "highlighting": {
-        "highlights": [
-          /*
-            {
-                "pattern": ".*",
-                "showInMentions": true,
-                "alert": true,
-                "sound": true,
-                "regex": true,
-                "case": false,
-                "soundUrl": "file:///home/shiva/Music/pop-up-something-160353.mp3",
-                "color": "#7f7f3f49"
-            }
-            */
-        ],
-        "elevatedMessageHighlight": {
-            "color": "#3cf9e2af"
-        },
-        "firstMessageHighlightColor": "#3ca6e3a1",
-        "redeemedHighlightColor": "#3c94e2d5",
-        "selfHighlightColor": "#7ff38ba8",
-        "selfMessageHighlight": {
-            "color": "#fff5c2e7"
-        },
-        "subHighlightColor": "#64cba6f7",
-        "threadHighlightColor": "#3cf38ba8"
-    },
     "hotkeys": {
         "addedDefaults": [
             "change channel",
@@ -607,20 +557,11 @@
         }
     },
     "misc": {
-        "currentVersion": "2.4.6",
+        "currentVersion": "2.5.1",
         "lockNotebookLayout": false
     },
-    "accounts": {
-        "uid1020512549": {
-            "username": "leetguru",
-            "userID": "1020512549",
-            "clientID": "g5zg0400k4vhrx2g6xi4hgveruamlv",
-            "oauthToken": "v9tbp5o8imtanb17xwz5wymlft8ixk"
-        },
-        "current": "leetguru"
-    },
-    "ui": {
-        "lastSelectChannelTab": 0,
-        "lastSelectIrcConn": -1
+    "appearance": {
+        "currentFontFamily": "SF Pro",
+        "currentFontSize": 20
     }
 }
