@@ -7,11 +7,10 @@
 ########################### PATHS ###########################
 ############# Linux #############
 
-########## WINDOWS-WSL ##########
-# # Paths of my shell scripts
-# # this seems to be not working
-# export PATH="$HOME/.config/zsh/scripts:$PATH"
-#
+
+# Add my shell scripts to PATH
+export PATH="$HOME/.config/zsh/scripts:$PATH"
+
 # # for getting colors properly on tmux
 # export TERM=tmux-256color
 
@@ -25,6 +24,7 @@ export LIBRARY_PATH
 CPLUS_INCLUDE_PATH="/Library/Frameworks/SDL2.framework/Headers/:$CPLUS_INCLUDE_PATH"
 export CPLUS_INCLUDE_PATH
 
+export CPATH=/usr/local/include
 CPATH="/Library/Frameworks/SDL2.framework/Headers:$CPATH"
 export CPATH
 
@@ -63,22 +63,40 @@ alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
 alias ll="ls -alh"
-alias files="open"
-# alias files="explorer.exe"
+alias files="explorer.exe"
+alias ff="fastfetch"
+
+# Git 
 alias gaa="git add ."
 alias gcmsg="git commit -m"
 alias gst="git status ."
 alias gitsave="gaa && gcmsg '.' && ggpush"
 alias gpull="git pull"
 alias gpush="git push"
-alias python="python3"
-alias py="python3"
-alias pva="source ./venv/bin/activate"
-alias ff="fastfetch"
+alias gsave="gaa && gcmsg '.' && gpush"
+gclone() {  # Function to clone a GitHub repository
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: gclone <github-username> <repository-name>"
+        return 1
+    fi
+    local username="$1"
+    local repo="$2"
+    git clone "https://github.com/${username}/${repo}.git"
+}
 
+# Python
+alias python="python3.12"
+alias py="python3.12"
+alias pva="source ./venv/bin/activate"
+# Use entr to watch. 
+# Example: pywatch some_file.py some_file.py
+# Example: pywatch "*.py" ./src/company/microsoft/course_schedule_II.py
 pywatch() {
   find . -name "$1" | entr -c sh -c "python3 $2"
 }
+
+# CHATGPT
+export OPENAI_KEY=
 
 # Zellij related aliases
 alias zc="zellij action new-tab -l c"
@@ -90,10 +108,6 @@ alias zpy="zellij action new-tab -l python"
 alias show="$HOME/.config/zsh/scripts/show.sh"
 alias todo="$HOME/.config/zsh/scripts/todo.sh"
 
-# Shell scripts
-source ~/.config/zsh/scripts/cargo.sh
-source ~/.config/zsh/scripts/show.sh
-source ~/.config/zsh/scripts/todo.sh
 
 # other/common/misc.
 alias sourcezsh="source $HOME/.config/zsh/.zshrc"

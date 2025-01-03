@@ -76,7 +76,6 @@ alias ll="ls -alh"
 alias files="explorer.exe"
 alias ff="fastfetch"
 
-
 # Git 
 alias gaa="git add ."
 alias gcmsg="git commit -m"
