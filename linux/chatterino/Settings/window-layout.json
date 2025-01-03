@@ -1,0 +1,17 @@
+{
+    "windows": [
+        {
+            "emotePopup": {
+                "x": 0,
+                "y": 0
+            },
+            "height": 814,
+            "tabs": [
+            ],
+            "type": "main",
+            "width": 814,
+            "x": 805,
+            "y": 1018
+        }
+    ]
+}
