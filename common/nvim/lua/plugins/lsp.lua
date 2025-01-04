@@ -13,6 +13,8 @@ return {
           },
           root_dir = function(fname)
             return require("lspconfig.util").root_pattern(
+              ".clang-format",
+              ".git",
               "Makefile",
               "configure.ac",
               "configure.in",

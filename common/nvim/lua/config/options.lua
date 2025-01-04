@@ -25,10 +25,15 @@ vim.opt.sidescrolloff = 10
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- General indentation settings
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 4
+-- vim.opt.shiftwidth = 4
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.tabstop = 2 -- Width of a tab character
+vim.opt.shiftwidth = 2 -- Indentation level
+vim.opt.softtabstop = 2 -- Tab key behaves like inserting 2 spaces
+vim.opt.autoindent = true -- Maintain indentation on new lines
 
 vim.opt.smartindent = true
 
