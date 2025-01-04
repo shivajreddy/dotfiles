@@ -6,9 +6,10 @@ gtk-tabs-location = hidden
 gtk-titlebar = false
 window-decoration = false
 
-
-font-family = "TX-02 Condensed"
+font-family = "Iosevka"
+# font-family = "TX-02 Condensed"
 font-size = 20
+class = "float"
 
 # background-opacity = 0.5
 
