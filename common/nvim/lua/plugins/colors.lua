@@ -17,7 +17,7 @@ return {
             base = "#141414", --191724  0e0a01  121018  181818
             pine = "#7287fd",
             -- pine = "#7287fd",
-            foam = "#e4e4ef", -- e4e4ef  8caaee
+            -- foam = "#e4e4ef", -- e4e4ef  8caaee
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
