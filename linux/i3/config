@@ -62,19 +62,7 @@ for_window [class="Blueman" instance="blueman-manager"] floating enable
 # TERMINAL
 bindsym $mod+Return exec kitty "tmux"
 bindsym $mod+Shift+Return exec kitty
-bindsym $mod+Shift+f exec kitty --config ~/dotfiles/linux/kitty/floating-kitty/kitty.conf --class floatingkitty
 
-for_window [class="floatingkitty"] floating enable
-for_window [class="floatingkitty"] resize set 1800  1000
-for_window [class="floatingkitty"] move scratchpad
-for_window [class="floatingkitty"] border pixel 0
-
-# Scratchpad config
-for_window [class="scratchpad"] floating enable
-for_window [class="scratchpad"] move scratchpad
-for_window [class="Clock"] move scratchpad
-for_window [class="Com.github.jmoerman.go-for-it"] move scratchpad
-for_window [class="Variety"] move scratchpa
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -129,46 +117,52 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-# set $ws9 "9:media"
-# set $ws10 "10:term"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
 
 # Hide bar when $mod+m is pressed
 bindsym $mod+m bar hidden_state hide
 
-# Switch to workspaces
+# Switch to workspaces(i removed 5,6,7,8 because 4 is more than enough)
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-# bindsym $mod+9 workspace number $ws9
 
+################# SCRATCHPAD  #################
+# Start apps that go into scratchpad
+exec --no-startup-id kitty --config ~/dotfiles/linux/kitty-scratchpad/kitty.conf --class kitty-floating
+exec --no-startup-id kitty --config ~/dotfiles/linux/kitty-zen/kitty.conf --class kitty-zen
+# Scratchpad Terminal - Floating
+for_window [class="kitty-floating"] move scratchpad
+for_window [class="kitty-floating"] floating enable
+for_window [class="kitty-floating"] resize set 2800  1800
+for_window [class="kitty-floating"] move scratchpad
+for_window [class="kitty-floating"] border pixel 0
+# Scratchpad Terminal - Note Taking
+for_window [class="kitty-zen"] move scratchpad
+for_window [class="kitty-zen"] floating enable
+for_window [class="kitty-zen"] resize set 2800  1800
+for_window [class="kitty-zen"] move scratchpad
+for_window [class="kitty-zen"] border pixel 1
+# Scratchpad Media - config
+for_window [class="Spotify"] move scratchpad
+for_window [class="discord"] move scratchpad
 # Scratchpad bindings
-# Media scratchpad (multiple windows)
-bindsym $mod+9 [instance="media"] scratchpad show
-for_window [instance="media"] move scratchpad
-
-# Terminal scratchpad (single window)
-bindsym $mod+0 scratchpad show
-for_window [class="floatingkitty"] move scratchpad
+bindsym $mod+6 [class="^(Spotify|discord)$"] scratchpad show
+bindsym $mod+8 [class="kitty-zen"] scratchpad show move position center
+bindsym $mod+0 [class="kitty-floating"] scratchpad show move position center
 
 # Move focused container to workspaces
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 mark "media", move scratchpad
+bindsym $mod+Shift+6 mark "media", move scratchpad
 
 # Specific window rules
 # Move kitty with specific class to scratchpad

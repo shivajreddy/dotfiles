@@ -14,6 +14,7 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export PATH=$PATH:/snap/bin
 
+# export KITTY_CONFIG_DIRECTORY="$HOME/dotfiles/linux/kitty/main-kitty"
 export STARSHIP_CONFIG="$HOME/dotfiles/common/starship.toml"
 
 export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
