@@ -15,15 +15,16 @@ return {
         palette = {
           main = {
             -- base = "#0E0A01", --191724  0E0A01  121018  181818  141414
-            pine = "#73c936", --7287fd  89B4FA
-            foam = "#e4e4ef", -- 8caaee
+            -- pine = "#73c936", --7287fd  89B4FA
+            -- foam = "#e4e4ef", -- 8caaee
+            -- rose = "#cc8c3c",
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
             -- subtle = "#908caa",
             -- text = "#e0def4",
             -- love = "#f43841", --ffdd33
-            gold = "#FFDD33", -- 95a99f  cc8c3c
+            -- gold = "#FFDD33", -- 95a99f  cc8c3c
             -- iris = "#ffdd33",
           },
         },
@@ -133,8 +134,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "tokyodark",
-      colorscheme = "rose-pine",
-      -- colorscheme = "gruber-darker",
+      -- colorscheme = "rose-pine",
+      colorscheme = "gruber-darker",
       -- colorscheme = "GruberDarker",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
