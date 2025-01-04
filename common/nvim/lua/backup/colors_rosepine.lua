@@ -32,7 +32,7 @@ return {
         styles = {
           bold = true,
           italic = true,
-          transparency = true, -- Must not set any color, true means use terminal color
+          -- transparency = true, -- Must not set any color
         },
         groups = {
           border = "muted",
