@@ -11,20 +11,19 @@ return {
         },
         variant = "main", -- auto, main, moon, or dawn
         dark_variant = "moon",
-        dim_inactive_windows = true,
+        dim_inactive_windows = false,
         palette = {
           main = {
-            base = "#141414", --191724  0e0a01  121018  181818
-            pine = "#7287fd",
-            -- pine = "#7287fd",
-            -- foam = "#8caaee",
+            -- base = "#0E0A01", --191724  0E0A01  121018  181818  141414
+            pine = "#73c936", --7287fd  89B4FA
+            foam = "#e4e4ef", -- 8caaee
             -- surface = "#1f1d2e",
             -- overlay = "#26233a",
             -- muted = "#6e6a85",
             -- subtle = "#908caa",
             -- text = "#e0def4",
-            -- love = "#f43841", --"#ffdd33",
-            -- gold = "#cc8c3c", -- #95a99f,
+            -- love = "#f43841", --ffdd33
+            gold = "#FFDD33", -- 95a99f  cc8c3c
             -- iris = "#ffdd33",
           },
         },
@@ -64,29 +63,13 @@ return {
           h5 = "pine",
           h6 = "foam",
         },
-        -- in repo: https://github.dev/rose-pine/neovim, the file: rose-pine.lua
-        -- contains all the highlight group names, under the variable `default_highlights`
-        highlight_groups = {
-          --[[
-          -- Normal = { bg = "#121018" }, -- rosepine burnt background  0e0a01
-          CursorLine = { bg = "#000000" }, -- #0e0a01 base  #121F2B none   #6e6a86
-          ColorColumn = { bg = "#121F2B" }, -- #0e0a01
-          SignColumn = { bg = "#31748f", fg = "#f6c177" },
-          LineNr = { fg = "#413630" },
-          CursorLineNr = { fg = "#FFDD33" }, -- 908caa
-          String = { fg = "#5A9132" }, -- 95a99f    73d936  5cbc24  43891a  70964A
-          -- Set the search highlight background color
-          Search = { bg = "#FFD700", fg = "#000000" }, -- Golden background with black text
-          IncSearch = { bg = "#FFA500", fg = "#000000" }, -- Orange background for incremental search
-          Whitespace = { fg = "#191724" },
-        --]]
-        },
+        highlight_groups = {},
 
         before_highlight = function(group, highlight, palette)
           -- Disable all undercurls
-          -- if highlight.undercurl then
-          --     highlight.undercurl = false
-          -- end
+          if highlight.undercurl then
+            highlight.undercurl = false
+          end
           --
           -- Change palette colour
           -- if highlight.fg == palette.pine then
