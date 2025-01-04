@@ -9,20 +9,27 @@ set $PATH $HOME/.cargo/bin:$PATH
 
 # FONT
 font pango:SF Pro Display 8
+# font pango:TX02 Nerd Font Bold 10
+# font pango:Iosevka Bold 8
 
 # GAPS
 gaps inner 1
-workspace 6 gaps outer 40
-workspace 6 gaps inner 40
+workspace 2 gaps outer 40
+workspace 2 gaps inner 40
 workspace 9 gaps outer 40
 workspace 9 gaps inner 40
 
 # BORDERS
+# (setting the value to 1 will disable the title bar)
+# new_window pixel 1
 default_border pixel 1
 default_floating_border pixel 4
 smart_borders on
 # class                     border  backgr. text    indicator child_border(all 4sides border color)
 client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
+# client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #9e95c7
+# client.focused_inactive     #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused            #333333 #5f676a #ffffff #484e50   #5f676a
 
 ##### UBUNTU STARTUP SETTINGS #######
 exec --no-startup-id xset s off
@@ -31,6 +38,7 @@ exec --no-startup-id xset s noblank
 
 ##### STARTUP APPS #######
 # Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # Picom compositor
 exec --no-startup-id picom --experimental-backends
@@ -40,6 +48,11 @@ exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 exec --no-startup-id feh --bg-scale ~/Pictures/macos-monterey.jpeg
 # NetworkManager, system tray GUI for it
 exec --no-startup-id nm-applet
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # GROUPS
 
@@ -49,25 +62,47 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Play/Pause found this keyname using `xev`
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# Decrease volume
+bindsym Mod4+6 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Increase volume
+bindsym Mod4+7 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Set Windows to always float
+# for_window [class="Pavucontrol"] floating enable
 for_window [class="org.gnome.Nautilus"] floating enable
 for_window [class="chatterino"] floating enable
 for_window [class="Blueman" instance="blueman-manager"] floating enable
 
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+# tiling_drag modifier titlebar
+
 # TERMINAL
+# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec alacritty -e tmux
+# bindsym $mod+Shift+Return exec alacritty
+# bindsym $mod+Return exec wezterm
+# bindsym $mod+Return exec wezterm cli spawn --new-window --workspace HOME
 bindsym $mod+Return exec kitty "tmux"
 bindsym $mod+Shift+Return exec kitty
+# bindsym $mod+Shift+f exec ~/dotfiles/linux/kitty/floating-kitty/script.sh
 bindsym $mod+Shift+f exec kitty --config ~/dotfiles/linux/kitty/floating-kitty/kitty.conf --class floatingkitty
-
 for_window [class="floatingkitty"] floating enable
 for_window [class="floatingkitty"] resize set 1800  1000
 for_window [class="floatingkitty"] move scratchpad
-for_window [class="floatingkitty"] border pixel 0
+for_window [class="floatingkitty"] border pixel 5
+# bindsym $mod+Shift+f exec ghostty
+# bindsym $mod+Shift+f exec ghostty --x11-instance-name=floatingghostty
+# for_window [class="com.mitchellh.ghostty"] floating enable
+# for_window [class="com.mitchellh.ghostty"] resize set 1800  1000
+# for_window [class="com.mitchellh.ghostty"] move scratchpad
+# for_window [class="com.mitchellh.ghostty"] border pixel 5
+
 
 # Scratchpad config
 for_window [class="scratchpad"] floating enable
@@ -76,11 +111,16 @@ for_window [class="Clock"] move scratchpad
 for_window [class="Com.github.jmoerman.go-for-it"] move scratchpad
 for_window [class="Variety"] move scratchpa
 
+
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# ROFI, app launcher
+# start dmenu (a program launcher)
+
 bindsym $mod+space exec rofi -show drun
+# bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "TX02 Nerd Font-24" -sb "#8839ef" -sf "#11111b" -nb "#0e0a01" -nf "#8c8fa1"
+# bindsym $mod+space exec --no-startup-id dmenu_run -b -l 5 -fn "Iosevka-24" -sb "#FFDD33" -sf "#000000" -nb "#0e0a01" -nf "#ffffff"
 
 # change focus
 bindsym $mod+h focus left
@@ -133,13 +173,16 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-# set $ws9 "9:media"
-# set $ws10 "10:term"
+set $ws9 "9"
+# set $ws10 "10"
 
-# Hide bar when $mod+m is pressed
+# SCRATCH WORKSPACE (used as minimizing apps)
+set $ws "scratchpad"
+# bindsym $mod+m move workspace 10
 bindsym $mod+m bar hidden_state hide
+# bindsym $mod+shift+m move workspace number 2
 
-# Switch to workspaces
+# switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -149,17 +192,12 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 # bindsym $mod+9 workspace number $ws9
-
-# Scratchpad bindings
-# Media scratchpad (multiple windows)
+# bindsym $mod+0 workspace number $ws10
 bindsym $mod+9 [instance="media"] scratchpad show
-for_window [instance="media"] move scratchpad
-
-# Terminal scratchpad (single window)
 bindsym $mod+0 scratchpad show
-for_window [class="floatingkitty"] move scratchpad
 
-# Move focused container to workspaces
+
+# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -168,12 +206,8 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 mark "media", move scratchpad
-
-# Specific window rules
-# Move kitty with specific class to scratchpad
-for_window [class="floatingkitty"] move scratchpad
-for_window [instance="media"] move to workspace $ws9
+bindsym $mod+Shift+9 move container to [instance="media"] workspace number $ws9
+# bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -184,6 +218,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # bindsym h resize shrink width 2 px or 2 ppt
+        # bindsym k resize grow height 2 px or 2 ppt
+        # bindsym j resize shrink height 2 px or 2 ppt
+        # bindsym l resize grow width 2 px or 2 ppt
         bindsym h resize shrink width 10 px
         bindsym k resize grow height 10 px
         bindsym j resize shrink height 10 px
@@ -202,9 +241,17 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        # colors {
+        #     background          #0E0A01
+        #     focused_workspace   #FFDD33 #FFDD33 #000000
+        #     active_workspace    #333333 #333333 #888888
+        #     inactive_workspace  #333333 #333333 #f1f1f1
+        #     urgent_workspace    #eb709b #eb709b #ffffff
+        # }
 }
 
-# PAUSE : custom mode for pausing i3 keybindings
+###### PAUSE i3 keybindings
+# Custom mode for pausing keybindings
 mode "paused" {
     bindsym $mod+Shift+p mode "default"
 }
