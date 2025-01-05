@@ -32,7 +32,7 @@ return {
         styles = {
           bold = true,
           italic = false,
-          -- transparency = true, -- Must not set any color
+          transparency = true, -- Must not set any color
         },
         groups = {
           border = "muted",

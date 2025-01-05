@@ -6,6 +6,7 @@ gtk-tabs-location = hidden
 gtk-titlebar = false
 window-decoration = false
 
+# font-family = "SF Pro"
 font-family = "Iosevka"
 # font-family = "TX-02 Condensed"
 font-size = 20
