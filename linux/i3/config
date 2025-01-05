@@ -37,7 +37,7 @@ exec --no-startup-id picom --experimental-backends
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/macos-monterey.jpeg
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/blue_distortion_2.jpg
 # NetworkManager, system tray GUI for it
 exec --no-startup-id nm-applet
 
