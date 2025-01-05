@@ -11,7 +11,7 @@ return {
         },
         variant = "main", -- auto, main, moon, or dawn
         dark_variant = "moon",
-        dim_inactive_windows = true,
+        dim_inactive_windows = false,
         palette = {
           main = {
             base = "#141414", --191724  0e0a01  121018  181818
