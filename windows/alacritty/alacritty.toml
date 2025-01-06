@@ -68,12 +68,10 @@ lines = 24
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
-
 [window.padding]
+
 x = 0
 y = 0
-
-
 
 
 ############################## THEME ##############################
@@ -81,14 +79,14 @@ y = 0
 draw_bold_text_with_bright_colors = true
 
 [colors.primary]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
+# background = "#1e1e2e"
+# foreground = "#cdd6f4"
 dim_foreground = "#7f849c"
 bright_foreground = "#cdd6f4"
 
 [colors.cursor]
 text = "#000000"
-cursor = "#ea9d34"
+cursor = "#ffffff"
 
 [colors.vi_mode_cursor]
 text = "#1e1e2e"
@@ -216,4 +214,3 @@ family = "TX02 Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-
