@@ -81,6 +81,7 @@ alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
+alias y="yazi"
 
 # Git 
 alias gaa="git add ."
