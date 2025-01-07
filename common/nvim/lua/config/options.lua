@@ -56,9 +56,6 @@ vim.opt.updatetime = 50
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
--- Hide all marks
-vim.g.vsvim_hidemarks = "<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
 -- White Space
 vim.opt.list = false
 -- vim.opt.listchars = {
