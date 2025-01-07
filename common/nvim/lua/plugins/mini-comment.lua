@@ -7,6 +7,7 @@ return {
       comment_visual = "<Leader>/",
       comment_line = "<Leader>/",
       textobject = "<Leader>/",
+
       --[[
       comment = "<C-/>",
       comment_line = "<C-/>",
