@@ -75,7 +75,7 @@ eval "$(starship init zsh)"
 
 ########################### ALIASES ###########################
 # Common
-# alias cd="z"
+alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
