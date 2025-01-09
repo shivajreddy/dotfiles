@@ -158,14 +158,17 @@ y = 0
 x = 0
 y = 0
 
+
 [font.normal]
-# style = "Regular"
-family = "TX02 Nerd Font"
-# family = "SFMono Nerd Font"
-# family = "TX-02"
-# family = "TX-02 Condensed"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
+family = "Berkeley Mono"
+# style = "Condensed"
+style = "ExtraCondensed"
+# style = "UltraCondensed"
+# family = "TX02 Nerd Font"
+# family = "SFMono Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus MaterialDesign Icons Plus Weather Icons"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
@@ -174,10 +177,12 @@ family = "TX02 Nerd Font"
 
 
 [font.italic]
-# style = "Italic"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Berkeley Mono"
+# style = "Condensed"
+style = "ExtraCondensed Oblique"
 # family = "SFMono Nerd Font"
-family = "TX02 Nerd Font"
-# family = "TX-02 Condensed Oblique"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
@@ -188,10 +193,13 @@ family = "TX02 Nerd Font"
 
 
 [font.bold]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Berkeley Mono"
+# style = "Condensed"
+style = "ExtraCondensed Bold"
 # style = "Bold"
 # family = "SFMono Nerd Font"
-family = "TX02 Nerd Font"
-# family = "TX-02 Bold Condensed"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
@@ -202,10 +210,13 @@ family = "TX02 Nerd Font"
 # family = "BlexMono Nerd Font"
 
 [font.bold_italic]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Berkeley Mono"
+# style = "Condensed"
+style = "ExtraCondensed Bold Oblique"
 # style = "Bold Italic"
 # family = "SFMono Nerd Font"
-family = "TX02 Nerd Font"
-# family = "TX-02 Bold Condensed Oblique"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
