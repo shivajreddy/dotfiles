@@ -162,8 +162,8 @@ y = 0
 [font.normal]
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
-# family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+family = "Berkeley Mono"
+# family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
 style = "ExtraCondensed"
 # style = "UltraCondensed"
