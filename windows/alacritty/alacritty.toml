@@ -2,6 +2,13 @@
 [general]
 live_config_reload = true
 
+[keyboard]
+bindings = [
+  { key = "Tab", mods = "Control", chars = "\x1b[27;5;9~" },
+  { key = "Tab", mods = "Control|Shift", chars = "\x1b[27;6;9~" }
+]
+
+
 # working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
 
 [env]

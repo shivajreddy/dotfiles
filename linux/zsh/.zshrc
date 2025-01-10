@@ -75,7 +75,7 @@ eval "$(starship init zsh)"
 
 ########################### ALIASES ###########################
 # Common
-# alias cd="z"
+alias cd="z"
 alias vi="nvim"
 alias ls="eza --icons -l -T -L=1"
 alias l="ls -l"
@@ -138,7 +138,6 @@ alias zpyv="zellij action new-tab -l python_vertical"
 
 
 # Shell scripts
-source ~/.config/zsh/scripts/wezterm.sh
 source ~/.config/zsh/scripts/cargo.sh
 source ~/.config/zsh/scripts/show.sh
 source ~/.config/zsh/scripts/todo.sh

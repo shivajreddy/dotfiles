@@ -4,15 +4,24 @@ shell-integration-features = no-cursor
 # Linux Specific
 gtk-tabs-location = hidden
 gtk-titlebar = false
-window-decoration = false
+window-decoration = true
 
 # font-family = "SF Pro"
 # font-family = "Iosevka"
-font-family = "TX-02 Condensed"
+font-family = "Berkeley Mono Condensed"
+# font-family = "TX-02 Condensed"
 font-size = 22
 class = "float"
 
 # background-opacity = 0.5
 
 theme = "catppuccin-mocha"
-background = "#181825"
+background = "#181818"
+
+keybind = ctrl+tab=ignore
+
+# Send Ctrl Tab and Ctrl + Shift + Tab for Tmux navigation
+# Send Ctrl+Tab sequence
+keybind = ctrl+tab=text:\x1b[27;5;9~
+# Send Ctrl+Shift+Tab sequence
+keybind = ctrl+shift+tab=text:\x1b[27;6;9~
