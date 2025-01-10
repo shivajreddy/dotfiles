@@ -139,7 +139,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 20
+size = 19
 builtin_box_drawing = true
 
 [font.offset]
