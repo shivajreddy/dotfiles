@@ -34,8 +34,8 @@ hide_when_typing = true
 
 
 ##############################  STARTUP  ##############################
-[shell]
-program = "tmux"
+# [shell]
+# program = "tmux"
 
 # [shell]
 # program = 'Ubuntu'
@@ -45,7 +45,7 @@ program = "tmux"
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 1
+opacity = 0.5
 blur = true
 dynamic_title = false
 # title = "smpl;"
@@ -139,7 +139,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 16
+size = 22
 builtin_box_drawing = true
 
 [font.offset]
