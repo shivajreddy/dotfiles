@@ -11,6 +11,8 @@ bindings = [
   # {key = "K", mods = "Control", chars = "\u0008" },
   { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
   { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+  # This should send the actual Ctrl+/ character
+  { key = "Slash", mods = "Control", chars = "\u001F" },
 ]
 
 
@@ -34,26 +36,11 @@ save_to_clipboard = true
 hide_when_typing = true
 
 
-[terminal.shell]
-program = "wsl"
-args = ["tmux attach || tmux"]
-
-# [terminal.shell]
-# program = 'Ubuntu'
-# args = ["run", "tmux"]
-# program = 'powershell'
-
-
 ##############################  STARTUP  ##############################
+# WORKS ON WINDOWS
 # [terminal.shell]
 # program = "wsl"
 # args = ["tmux attach || tmux"]
-# args = ["zellij"]
-
-# [shell]
-# program = 'Ubuntu'
-# args = ["run", "tmux"]
-# program = 'powershell'
 
 
 ##############################  WINDOW  ##############################
