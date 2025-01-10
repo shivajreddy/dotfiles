@@ -152,8 +152,9 @@ for_window [class="kitty-zen"] border pixel 1
 # Scratchpad Media - config
 for_window [class="Spotify"] move scratchpad
 for_window [class="discord"] move scratchpad
+for_window [class="Pavucontrol"] move scratchpad
 # Scratchpad bindings
-bindsym $mod+6 [class="^(Spotify|discord)$"] scratchpad show
+bindsym $mod+6 [class="^(Spotify|discord|Pavucontrol)$"] scratchpad show
 bindsym $mod+8 [class="kitty-zen"] scratchpad show move position center
 bindsym $mod+0 [class="kitty-floating"] scratchpad show move position center
 
