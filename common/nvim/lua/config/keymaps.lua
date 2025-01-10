@@ -35,15 +35,12 @@ vim.keymap.set("n", "<Leader>x", "<cmd>bdelete<CR>")
 -- vim.keymap.set("n", "<Leader>wx", "<cmd>q<CR>")
 
 -- Unmap Ctrl+/
-vim.api.nvim_del_keymap("n", "<C-/>")
-vim.api.nvim_del_keymap("n", "<C-_>") -- This is for the alternative keybinding that may map to the same key
+-- vim.api.nvim_del_keymap("n", "<C-/>")
+-- vim.api.nvim_del_keymap("n", "<C-_>") -- This is for the alternative keybinding that may map to the same key
 
--- LazyTerm
---[[
-vim.keymap.set("n", "<C-/>", function()
-  Util.terminal(nil, { border = "rounded" })
-end, { desc = "LazyTerm with Border", silent = false })
---]]
+-- floating terminal
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
 -- All Text Controls
 function YankEntireBuffer()
