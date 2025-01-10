@@ -4,8 +4,13 @@ live_config_reload = true
 
 [keyboard]
 bindings = [
-  { key = "Tab", mods = "Control", chars = "\x1b[27;5;9~" },
-  { key = "Tab", mods = "Control|Shift", chars = "\x1b[27;6;9~" }
+  { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+  { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "L", mods = "Control|Shift", chars = "l" },
+  # {key = "K", mods = "Control", chars = "\u0008" },
+  { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
+  { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
 ]
 
 
@@ -38,9 +43,6 @@ args = ["tmux attach || tmux"]
 # args = ["run", "tmux"]
 # program = 'powershell'
 
-[keyboard]
-bindings = [{ key = "l", mods = "Control|Shift", action = "ClearHistory" }]
-
 
 ##############################  STARTUP  ##############################
 # [terminal.shell]
@@ -53,10 +55,6 @@ bindings = [{ key = "l", mods = "Control|Shift", action = "ClearHistory" }]
 # args = ["run", "tmux"]
 # program = 'powershell'
 
-# [keyboard]
-# bindings = [
-# {key = "K", mods = "Control", chars = "\u0008" }
-# ]
 
 ##############################  WINDOW  ##############################
 [window]
