@@ -4,12 +4,15 @@ live_config_reload = true
 
 [keyboard]
 bindings = [
-  { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+  # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
   # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-  { key = "L", mods = "Control|Shift", chars = "l" },
-  # {key = "K", mods = "Control", chars = "\u0008" },
+  # { key = "L", mods = "Control|Shift", chars = "l" },
+  # { key = "K", mods = "Control", chars = "\u0008" },
+  # Send C-tab and C-Shift-tab
   { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
   { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+  # Send Ctrl+/ 
+  { key = "Slash", mods = "Control", chars = "\u001F" },
 ]
 
 [env]
