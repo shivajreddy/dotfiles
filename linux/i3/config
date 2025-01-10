@@ -138,13 +138,26 @@ bindsym $mod+4 workspace number $ws4
 # Start apps that go into scratchpad
 exec --no-startup-id kitty --config ~/dotfiles/linux/kitty-scratchpad/kitty.conf --class kitty-floating
 exec --no-startup-id kitty --config ~/dotfiles/linux/kitty-zen/kitty.conf --class kitty-zen
+exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-scratch.toml --class alacritty-floating
+exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-zen.toml --class alacritty-zen
+
 # Scratchpad Terminal - Floating
+for_window [class="alacritty-floating"] move scratchpad
+for_window [class="alacritty-floating"] floating enable
+for_window [class="alacritty-floating"] resize set 2800  1800
+for_window [class="alacritty-floating"] move scratchpad
+for_window [class="alacritty-floating"] border pixel 0
 for_window [class="kitty-floating"] move scratchpad
 for_window [class="kitty-floating"] floating enable
 for_window [class="kitty-floating"] resize set 2800  1800
 for_window [class="kitty-floating"] move scratchpad
 for_window [class="kitty-floating"] border pixel 0
 # Scratchpad Terminal - Note Taking
+for_window [class="alacritty-zen"] move scratchpad
+for_window [class="alacritty-zen"] floating enable
+for_window [class="alacritty-zen"] resize set 2800  1800
+for_window [class="alacritty-zen"] move scratchpad
+for_window [class="alacritty-zen"] border pixel 1
 for_window [class="kitty-zen"] move scratchpad
 for_window [class="kitty-zen"] floating enable
 for_window [class="kitty-zen"] resize set 2800  1800
@@ -156,8 +169,13 @@ for_window [class="discord"] move scratchpad
 for_window [class="Pavucontrol"] move scratchpad
 # Scratchpad bindings
 bindsym $mod+6 [class="^(Spotify|discord|Pavucontrol)$"] scratchpad show
-bindsym $mod+8 [class="kitty-zen"] scratchpad show move position center
-bindsym $mod+0 [class="kitty-floating"] scratchpad show move position center
+# bindsym $mod+8 [class="kitty-zen"] scratchpad show move position center
+# bindsym $mod+0 [class="kitty-floating"] scratchpad show move position center
+bindsym $mod+8 [class="alacritty-zen"] scratchpad show move position center
+bindsym $mod+shift+8 exec alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-zen.toml --class alacritty-zen
+bindsym $mod+0 [class="alacritty-floating"] scratchpad show move position center
+bindsym $mod+shift+0 exec alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-scratch.toml --class alacritty-floating
+# exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-zen.toml --class alacritty-zen
 
 # Move focused container to workspaces
 bindsym $mod+Shift+1 move container to workspace number $ws1
