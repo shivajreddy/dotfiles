@@ -16,11 +16,12 @@ end
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/nvim-linux64/bin
 fish_add_path /snap/bin
-fish_add_path $HOME/.config/zsh/scripts
 fish_add_path $HOME/.cargo/bin
 fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
+# Add bash scripts
+fish_add_path $HOME/.config/bash/scripts
 
 # Environment variables
 set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
@@ -52,6 +53,7 @@ alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
 alias y="yazi"
+alias ff="fastfetch"
 
 # Git aliases
 alias gaa="git add ."
@@ -99,7 +101,6 @@ alias zpy="zellij action new-tab -l python"
 alias zpyv="zellij action new-tab -l python_vertical"
 
 # Other aliases
-alias sourcezsh="source $HOME/.config/zsh/.zshrc"
 alias sourcefish="source $HOME/.config/fish/config.fish"
 alias sudo="sudo "
 

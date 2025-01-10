@@ -22,8 +22,8 @@
 
 # Check if the script received a file path as an argument
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 <path-to-c-file>"
-    exit 1
+  echo "Usage: $0 <path-to-c-file>"
+  exit 1
 fi
 
 # Path of the single C file
@@ -31,8 +31,8 @@ C_FILE="$1"
 
 # Check if the file exists
 if [ ! -f "$C_FILE" ]; then
-    echo "Error: File '$C_FILE' does not exist."
-    exit 1
+  echo "Error: File '$C_FILE' does not exist."
+  exit 1
 fi
 
 # Determine the directory and base name of the C++ file
@@ -44,11 +44,11 @@ OUT_FILE="$DIR/out"
 
 # Remove the existing output file if it exists
 if [ -f "$OUT_FILE" ]; then
-    echo "Removing existing output file: $OUT_FILE"
-    rm "$OUT_FILE"
+  echo "Removing existing output file: $OUT_FILE"
+  rm "$OUT_FILE"
 fi
 
 # Monitor the file for changes using find and entr
 echo "Watching '$C_FILE' for changes. Press Ctrl+C to stop."
 find "$DIR" -wholename "$C_FILE" | entr -c sh -c \
-    "g++ -std=c++17 $C_FILE -o $OUT_FILE && $OUT_FILE"
+  "g++ -std=c++17 $C_FILE -o $OUT_FILE && $OUT_FILE"
