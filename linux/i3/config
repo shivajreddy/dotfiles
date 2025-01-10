@@ -60,8 +60,9 @@ for_window [class="chatterino"] floating enable
 for_window [class="Blueman" instance="blueman-manager"] floating enable
 
 # TERMINAL
-bindsym $mod+Return exec kitty "tmux"
-bindsym $mod+Shift+Return exec kitty
+# bindsym $mod+Return exec kitty "tmux"
+# bindsym $mod+Shift+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 
 # kill focused window
