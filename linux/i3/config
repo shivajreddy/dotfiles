@@ -33,7 +33,7 @@ exec --no-startup-id xset s noblank
 # Start XDG autostart .desktop files using dex. See also
 exec --no-startup-id dex --autostart --environment i3
 # Picom compositor
-exec --no-startup-id picom --experimental-backends
+# exec --no-startup-id picom --experimental-backends
 # Mouse Speed
 exec --no-startup-id xinput set-prop 9 "libinput Accel Speed" -0.4
 # Wallpaper
