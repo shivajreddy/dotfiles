@@ -147,6 +147,9 @@ return {
     end,
   },
   {
+    "metalelf0/base16-black-metal-scheme",
+  },
+  {
     "rebelot/kanagawa.nvim",
     name = "kanagawa",
     config = function()
@@ -154,9 +157,9 @@ return {
       require("kanagawa").setup({
         compile = false, -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls
-        commentStyle = { italic = true },
+        commentStyle = { italic = false },
         functionStyle = {},
-        keywordStyle = { italic = true },
+        keywordStyle = { italic = false },
         statementStyle = { bold = true },
         typeStyle = {},
         transparent = false, -- do not set background color
@@ -164,14 +167,25 @@ return {
         terminalColors = true, -- define vim.g.terminal_color_{0,17}
         colors = { -- add/modify theme and palette colors
           palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+          theme = {
+            wave = {},
+            lotus = {},
+            dragon = {},
+            all = {
+              ui = {
+                bg_gutter = "none",
+              },
+            },
+          },
         },
         overrides = function(colors) -- add/modify highlights
-          return {}
+          return {
+            CursorLine = { bg = "none" }, -- #0e0a01 base  #121F2B none   #6e6a86
+          }
         end,
-        theme = "dragon", -- wave dragon lotus
+        theme = "wave", -- wave dragon lotus
         background = { -- map the value of 'background' option to a theme
-          dark = "wave", -- try "dragon" !
+          dark = "dragon", -- try "dragon" !
           light = "lotus",
         },
       })
@@ -187,7 +201,7 @@ return {
       -- colorscheme = "GruberDarker",
       -- colorscheme = "brightburn",
       -- colorscheme = "shiva_metal",
-      -- colorscheme = "base16-black-metal-marduk", -- venom nile  mayhem  marduk  immortal
+      -- colorscheme = "base16-black-metal-mayhem", -- venom nile  mayhem  marduk  immortal  dark-funeral
     },
   },
 }
