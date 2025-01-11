@@ -20,8 +20,14 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
-# Add bash scripts
-fish_add_path $HOME/.config/bash/scripts
+
+# Add fish scripts
+# Automatically source all .fish scripts in ~/.config/fish/scripts/
+for script in $HOME/.config/fish/scripts/*.fish
+    source $script
+end
+
+
 
 # Environment variables
 set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
