@@ -159,9 +159,9 @@ style = "ExtraCondensed Bold Oblique"
 
 ############################## THEME ##############################
 #### MISC.
-[colors.cursor]
-text = "#000000"
-cursor = "#ffffff"
+# [colors.cursor]
+# text = "#000000"
+# cursor = "#ffffff"
 
 # Kanagawa-dragon Alacritty Colors
 [colors]
