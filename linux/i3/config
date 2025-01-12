@@ -170,6 +170,7 @@ bindsym $mod+shift+8 exec alacritty --config-file ~/dotfiles/linux/alacritty/ala
 bindsym $mod+0 [class="alacritty-floating"] scratchpad show move position center
 bindsym $mod+shift+0 exec alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-scratch.toml --class alacritty-floating
 # exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-zen.toml --class alacritty-zen
+bindsym $mod+9 scratchpad show
 
 # Move focused container to workspaces
 bindsym $mod+Shift+1 move container to workspace number $ws1
