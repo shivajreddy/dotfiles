@@ -11,18 +11,19 @@ set $PATH $HOME/.cargo/bin:$PATH
 font pango:SF Pro Display 8
 
 # GAPS
-gaps inner 1
+gaps outer 0
+gaps inner 0
 workspace 6 gaps outer 40
 workspace 6 gaps inner 40
 workspace 9 gaps outer 40
 workspace 9 gaps inner 40
 
 # BORDERS
-default_border pixel 1
-default_floating_border pixel 4
-smart_borders on
+# default_border pixel 4
+# default_floating_border pixel 4
+# smart_borders on
 # class                     border  backgr. text    indicator child_border(all 4sides border color)
-client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
+# client.focused              #9e95c7 #9e95c7 #000000 #95a99f   #ffdd33
 
 ##### UBUNTU STARTUP SETTINGS #######
 exec --no-startup-id xset s off
@@ -141,28 +142,21 @@ exec --no-startup-id kitty --config ~/dotfiles/linux/kitty-zen/kitty.conf --clas
 exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-scratch.toml --class alacritty-floating
 exec --no-startup-id alacritty --config-file ~/dotfiles/linux/alacritty/alacritty-zen.toml --class alacritty-zen
 
+# MAIN ALACRITTY TITLE BAR OFF
+for_window [class="Alacritty"] border pixel 1
+
 # Scratchpad Terminal - Floating
 for_window [class="alacritty-floating"] move scratchpad
 for_window [class="alacritty-floating"] floating enable
 for_window [class="alacritty-floating"] resize set 2800  1800
 for_window [class="alacritty-floating"] move scratchpad
-for_window [class="alacritty-floating"] border pixel 0
-for_window [class="kitty-floating"] move scratchpad
-for_window [class="kitty-floating"] floating enable
-for_window [class="kitty-floating"] resize set 2800  1800
-for_window [class="kitty-floating"] move scratchpad
-for_window [class="kitty-floating"] border pixel 0
+# for_window [class="alacritty-floating"] border pixel 0
 # Scratchpad Terminal - Note Taking
 for_window [class="alacritty-zen"] move scratchpad
 for_window [class="alacritty-zen"] floating enable
 for_window [class="alacritty-zen"] resize set 2800  1800
 for_window [class="alacritty-zen"] move scratchpad
-for_window [class="alacritty-zen"] border pixel 1
-for_window [class="kitty-zen"] move scratchpad
-for_window [class="kitty-zen"] floating enable
-for_window [class="kitty-zen"] resize set 2800  1800
-for_window [class="kitty-zen"] move scratchpad
-for_window [class="kitty-zen"] border pixel 1
+# for_window [class="alacritty-zen"] border pixel 0
 # Scratchpad Media - config
 for_window [class="Spotify"] move scratchpad
 for_window [class="discord"] move scratchpad

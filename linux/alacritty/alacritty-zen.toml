@@ -45,11 +45,11 @@ hide_when_typing = true
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.5
+opacity = 0.6
 blur = true
 dynamic_title = false
 # title = "smpl;"
-title = ""
+title = "ZEN"
 # dynamic_padding = true
 decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
 
@@ -157,8 +157,8 @@ y = 0
 # family = "Berkeley Mono"
 family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
-style = "ExtraCondensed"
-# style = "UltraCondensed"
+# style = "ExtraCondensed"
+style = "UltraCondensed"
 # family = "TX02 Nerd Font"
 # family = "SFMono Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus MaterialDesign Icons Plus Weather Icons"
