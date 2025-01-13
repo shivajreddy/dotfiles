@@ -51,7 +51,7 @@ dynamic_title = false
 # title = "smpl;"
 title = ""
 # dynamic_padding = true
-decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None" # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
