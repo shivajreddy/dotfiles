@@ -60,8 +60,6 @@ x = 0
 y = 0
 
 
-
-
 ############################## THEME ##############################
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -197,4 +195,3 @@ family = "TX-02"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
 # family = "BlexMono Nerd Font"
-
