@@ -51,19 +51,20 @@ dynamic_title = false
 # title = "smpl;"
 title = ""
 # dynamic_padding = true
-decorations = "None" # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
+resize_increments = true
 
 [window.dimensions]
 columns = 80
-lines = 24
+lines = 3
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
-[window.padding]
 
+[window.padding]
 x = 0
-y = 0
+y = 11
 
 
 ############################## THEME ##############################
@@ -139,7 +140,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 20
+size = 19
 builtin_box_drawing = true
 
 [font.offset]
