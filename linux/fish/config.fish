@@ -86,7 +86,8 @@ end
 # Python
 alias python="python3.12"
 alias py="python3.12"
-alias pva="source ./venv/bin/activate"
+alias pva="source ./venv/bin/activate.fish"
+# alias pva="source ./venv/bin/activate"
 
 # Python watch function
 function pywatch
