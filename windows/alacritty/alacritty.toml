@@ -32,8 +32,12 @@ multiplier = 3
 [selection]
 save_to_clipboard = true
 
+mouse = "Right"
+action = "PasteSelection"
+
 [mouse]
 hide_when_typing = true
+bindings = [{ mouse = "Right", action = "None" }]
 
 
 ##############################  STARTUP  ##############################
