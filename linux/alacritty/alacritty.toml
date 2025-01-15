@@ -52,8 +52,8 @@ blur = true
 dynamic_title = true
 # title = "smpl;"
 # title = ""
-# dynamic_padding = true
-decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
+dynamic_padding = true
+decorations = "Full"   # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
@@ -70,7 +70,7 @@ y = 0
 
 ############################## FONT ##############################
 [font]
-size = 16
+size = 15.5
 builtin_box_drawing = true
 
 [font.offset]

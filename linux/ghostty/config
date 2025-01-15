@@ -4,16 +4,25 @@ shell-integration-features = no-cursor
 # Linux Specific
 gtk-tabs-location = hidden
 gtk-titlebar = false
+
 window-decoration = true
+
+window-padding-x = 4,4
+window-padding-y = 0,0
+window-padding-color = extend
+window-inherit-font-size       = true
 
 # font-family = "SF Pro"
 # font-family = "Iosevka"
-font-family = "Berkeley Mono Condensed"
+font-family = "Berkeley Mono UltraCondensed"
 # font-family = "TX-02 Condensed"
 font-size = 22
-class = "float"
+# class = "float"
 
-# background-opacity = 0.5
+shell-integration = fish
+
+
+background-opacity = 1
 
 theme = "catppuccin-mocha"
 background = "#181818"
@@ -25,3 +34,27 @@ keybind = ctrl+tab=ignore
 keybind = ctrl+tab=text:\x1b[27;5;9~
 # Send Ctrl+Shift+Tab sequence
 keybind = ctrl+shift+tab=text:\x1b[27;6;9~
+
+# THEME
+palette = 0=#0d0c0c
+palette = 1=#c4746e
+palette = 2=#8a9a7b
+palette = 3=#c4b28a
+palette = 4=#8ba4b0
+palette = 5=#a292a3
+palette = 6=#8ea4a2
+palette = 7=#c8c093
+palette = 8=#a6a69c
+palette = 9=#e46876
+palette = 10=#87a987
+palette = 11=#e6c384
+palette = 12=#7fb4ca
+palette = 13=#938aa9
+palette = 14=#7aa89f
+palette = 15=#c5c9c5
+
+background = 181616
+foreground = c5c9c5
+cursor-color = c8c093
+selection-background = 2d4f67
+selection-foreground = c8c093
