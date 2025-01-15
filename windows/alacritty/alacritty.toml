@@ -50,7 +50,7 @@ blur = true
 dynamic_title = false
 # title = "smpl;"
 title = ""
-# dynamic_padding = true
+dynamic_padding = true
 decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
 resize_increments = true
 
@@ -64,7 +64,7 @@ instance = "Alacritty"
 
 [window.padding]
 x = 0
-y = 11
+y = 0
 
 
 ############################## THEME ##############################
@@ -140,7 +140,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 19
+size = 18.5
 builtin_box_drawing = true
 
 [font.offset]
