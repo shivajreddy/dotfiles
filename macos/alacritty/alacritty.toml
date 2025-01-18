@@ -21,6 +21,8 @@ hide_when_typing = true
 
 
 ##############################  STARTUP  ##############################
+[terminal.shell]
+program = "tmux"
 # [terminal.shell]
 # program = "wsl"
 # args = ["tmux attach || tmux"]
