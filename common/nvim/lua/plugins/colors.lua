@@ -220,7 +220,7 @@ return {
         keywordStyle = { italic = false },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = false, -- do not set background color
+        transparent = true, -- do not set background color
         dimInactive = false, -- dim inactive window `:h hl-NormalNC`
         terminalColors = true, -- define vim.g.terminal_color_{0,17}
         colors = { -- add/modify theme and palette colors
@@ -238,12 +238,12 @@ return {
         },
         overrides = function(colors) -- add/modify highlights
           return {
-            CursorLine = { bg = "none" }, -- #0e0a01 base  #121F2B none   #6e6a86
+            CursorLine = { bg = "#0D0C0C" }, -- 12120F 0e0a01 base 121F2B none 6e6a86
           }
         end,
         theme = "wave", -- wave dragon lotus
         background = { -- map the value of 'background' option to a theme
-          dark = "dragon", -- try "dragon" !
+          dark = "wave", -- try "dragon" !
           light = "lotus",
         },
       })

@@ -21,6 +21,8 @@ fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
 
+set -x C3_PATH /usr/local/lib/c3
+
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
 for script in $HOME/.config/fish/scripts/*.fish
@@ -84,7 +86,8 @@ end
 # Python
 alias python="python3.12"
 alias py="python3.12"
-alias pva="source ./venv/bin/activate"
+alias pva="source ./venv/bin/activate.fish"
+# alias pva="source ./venv/bin/activate"
 
 # Python watch function
 function pywatch

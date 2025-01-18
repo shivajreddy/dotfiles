@@ -47,13 +47,13 @@ program = "tmux"
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 1
+opacity = 0.98
 blur = true
 dynamic_title = true
 # title = "smpl;"
 # title = ""
-# dynamic_padding = true
-decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
+dynamic_padding = true
+decorations = "Full"   # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
@@ -70,7 +70,7 @@ y = 0
 
 ############################## FONT ##############################
 [font]
-size = 18
+size = 15
 builtin_box_drawing = true
 
 [font.offset]
@@ -83,12 +83,12 @@ y = 0
 
 
 [font.normal]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed"
 # style = "Condensed"
-style = "ExtraCondensed"
 # style = "UltraCondensed"
 # family = "TX02 Nerd Font"
 # family = "SFMono Nerd Font"
@@ -101,12 +101,12 @@ style = "ExtraCondensed"
 
 
 [font.italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Oblique"
 # style = "Condensed"
-style = "ExtraCondensed Oblique"
 # style = "UltraCondensed Oblique"
 # family = "SFMono Nerd Font"
 # family = "Iosevka Nerd Font"
@@ -119,12 +119,12 @@ style = "ExtraCondensed Oblique"
 
 
 [font.bold]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold"
 # style = "Condensed"
-style = "ExtraCondensed Bold"
 # style = "UltraCondensed Bold"
 # style = "Bold"
 # family = "SFMono Nerd Font"
@@ -138,12 +138,12 @@ style = "ExtraCondensed Bold"
 # family = "BlexMono Nerd Font"
 
 [font.bold_italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold Oblique"
 # style = "Condensed"
-style = "ExtraCondensed Bold Oblique"
 # style = "UltraCondensed Bold Oblique"
 # style = "Bold Italic"
 # family = "SFMono Nerd Font"
