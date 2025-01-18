@@ -44,7 +44,7 @@ dynamic_title = false
 # title = "simple_colon"
 # title = ""
 # dynamic_padding = true
-decorations = "Full" # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "Buttonless" # "Full" | "None" | "Transparent" | "Buttonless"
 
 [window.dimensions]
 columns = 80
