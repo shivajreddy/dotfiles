@@ -2,7 +2,7 @@ local bufferline = require("bufferline")
 
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     options = {
       show_buffer_close_icons = false,
