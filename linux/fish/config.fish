@@ -41,6 +41,10 @@ set -gx QT_QPA_PLATFORMTHEME qt5ct
 # Library paths for c/c++
 set -gx LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
 
+# HASKELL
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+set -gx PATH $HOME/.cabal/bin /home/smpl/.ghcup/bin $PATH # ghcup-env
+
 # Terminal settings
 set -gx TERM tmux-256color
 
@@ -138,3 +142,4 @@ fish_vi_key_bindings
 
 # Spicetify path
 fish_add_path $HOME/.spicetify
+
