@@ -138,7 +138,7 @@ color = "#f5e0dc"
 
 ############################## FONT ##############################
 [font]
-size = 22
+size = 21.5
 builtin_box_drawing = true
 
 [font.offset]
@@ -149,15 +149,14 @@ y = 0
 x = 0
 y = 0
 
-
 [font.normal]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
 # style = "ExtraCondensed"
-style = "UltraCondensed"
+# style = "UltraCondensed"
 # family = "TX02 Nerd Font"
 # family = "SFMono Nerd Font"
 # family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus MaterialDesign Icons Plus Weather Icons"
@@ -169,13 +168,12 @@ style = "UltraCondensed"
 
 
 [font.italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Oblique"
-style = "UltraCondensed Oblique"
+# family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
+# style = "ExtraCondensed Oblique"
 # family = "SFMono Nerd Font"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
@@ -187,11 +185,10 @@ style = "UltraCondensed Oblique"
 
 
 [font.bold]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "UlraCondensed Bold"
+# family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
 # style = "ExtraCondensed Bold"
 # style = "Bold"
@@ -206,11 +203,10 @@ style = "UlraCondensed Bold"
 # family = "BlexMono Nerd Font"
 
 [font.bold_italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "UltraCondensed Bold Oblique"
+# family = "BerkeleyMono Nerd Font"
 # style = "Condensed"
 # style = "ExtraCondensed Bold Oblique"
 # style = "Bold Italic"
