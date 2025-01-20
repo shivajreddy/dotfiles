@@ -79,10 +79,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left   40 px
+bindsym $mod+Shift+j move down   40 px
+bindsym $mod+Shift+k move up     40 px
+bindsym $mod+Shift+l move right  40 px
 
 # Toggle a window to float
 bindsym $mod+t floating toggle
@@ -193,10 +193,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 10 px
-        bindsym k resize grow height 10 px
-        bindsym j resize shrink height 10 px
-        bindsym l resize grow width 10 px
+        bindsym h resize shrink width   20 px
+        bindsym k resize grow   height  20 px
+        bindsym j resize shrink height  20 px
+        bindsym l resize grow   width   20 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
