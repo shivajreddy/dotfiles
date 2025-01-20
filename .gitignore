@@ -16,6 +16,7 @@
 # Windows
 *.Identifier
 **/gh/
+**/errors.log
 
 # WSL
 **/.zcompdump
