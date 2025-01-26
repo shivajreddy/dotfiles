@@ -1,14 +1,16 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions": 
+    [
         {
             "command": "paste",
             "id": "User.paste",
             "keys": "ctrl+v"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -16,7 +18,8 @@
             "keys": "ctrl+c"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -35,26 +38,31 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": {
-        "defaults": {
+    "profiles": 
+    {
+        "defaults": 
+        {
             "colorScheme": "rose-pine",
             "cursorShape": "filledBox",
             "elevate": true,
-            "font": {
-                "face": "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons",
-                "size": 12
+            "font": 
+            {
+                "face": "Iosevka Nerd Font",
+                "size": 18
             },
             "opacity": 85,
             "padding": "0, 0, 0, -3",
             "scrollbarState": "hidden",
             "useAcrylic": true
         },
-        "list": [
+        "list": 
+        [
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -78,8 +86,9 @@
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -nologo",
                 "cursorShape": "filledBox",
                 "elevate": true,
-                "font": {
-                    "face": "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+                "font": 
+                {
+                    "face": "Iosevka Nerd Font"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -104,10 +113,28 @@
                 "hidden": false,
                 "name": "Git Bash",
                 "source": "Git"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{af843485-a566-5617-8d2e-17fdae4ac3a3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{525b4392-9d35-539f-abd7-d38b5610268a}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
             "background": "#000000",
             "black": "#0C0C0C",
@@ -235,7 +262,6 @@
             "brightRed": "#EB6F92",
             "brightWhite": "#E0DEF4",
             "brightYellow": "#F6C177",
-            // "cursorColor": "#555169",
             "cursorColor": "#EBBCBA",
             "cyan": "#EBBCBA",
             "foreground": "#E0DEF4",
@@ -250,20 +276,24 @@
     ],
     "showTabsInTitlebar": false,
     "theme": "Catppuccin Mocha",
-    "themes": [
+    "themes": 
+    [
         {
             "name": "Catppuccin Mocha",
-            "tab": {
+            "tab": 
+            {
                 "background": "#1E1E2EFF",
                 "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": {
+            "tabRow": 
+            {
                 "background": "#181825FF",
                 "unfocusedBackground": "#11111BFF"
             },
-            "window": {
+            "window": 
+            {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": false,
                 "frame": null,

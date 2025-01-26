@@ -24,7 +24,6 @@
 
 
 
-
 ### Make sym links from windows-os to this repo which is inside WSL
 
 - 1. Open `Command Prompt` as admin
@@ -46,3 +45,5 @@ Target:
 Final Command:
 mklink /D "C:\Users\sreddy\AppData\Roaming\Mozilla\Firefox\Profiles\t2bgxzq2.default-release\chrome" "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\common\firefox\chrome"
 
+
+-- How to install and setup cl, clang, gcc on windows
