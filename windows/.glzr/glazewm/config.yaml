@@ -139,6 +139,9 @@ window_rules:
       # Ignores any WSL windows
       - window_title : { regex: '.*(Ubuntu)' }
 
+      # Ignores Windows Settings
+      - window_class : { regex: 'ApplicationFrameWindow' }
+
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
