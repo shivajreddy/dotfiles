@@ -15,4 +15,4 @@ ${n.message}`:y,B=[k,t,e].filter(Boolean).join(`
         end repeat
       end if
       ${e}
-    end tell`}async function dn(e){if(await(0,R.closeMainWindow)(),!(await(0,R.getApplications)()).some(n=>n.name==="Spotify")){await(0,R.showHUD)("Spotify is not installed");return}await un(e)}var ps=async()=>{let e=ln("set sound volume to 25");await dn(e)};
+    end tell`}async function dn(e){if(await(0,R.closeMainWindow)({clearRootSearch:!0}),!(await(0,R.getApplications)()).some(n=>n.name==="Spotify")){await(0,R.showHUD)("Spotify is not installed");return}await un(e)}var ps=async()=>{let e=ln("set sound volume to 25");await dn(e)};

@@ -15,7 +15,7 @@ ${n.message}`:g,B=[$,t,e].filter(Boolean).join(`
         end repeat
       end if
       ${e}
-    end tell`}async function fn(e){if(await(0,N.closeMainWindow)(),!(await(0,N.getApplications)()).some(n=>n.name==="Spotify")){await(0,N.showHUD)("Spotify is not installed");return}await Z(e)}var J=require("@raycast/api");async function pn(){(0,J.getPreferenceValues)().nextTrackNotificationEnabled!==!1&&await hs()}async function hs(){let e=`
+    end tell`}async function fn(e){if(await(0,N.closeMainWindow)({clearRootSearch:!0}),!(await(0,N.getApplications)()).some(n=>n.name==="Spotify")){await(0,N.showHUD)("Spotify is not installed");return}await Z(e)}var J=require("@raycast/api");async function pn(){(0,J.getPreferenceValues)().nextTrackNotificationEnabled!==!1&&await hs()}async function hs(){let e=`
       if application "Spotify" is not running then
           return "Not playing"
       end if
