@@ -137,7 +137,7 @@ window_rules:
       - window_process: { equals: 'zebar' }
 
       # Ignores any WSL windows
-      - window_title : { regex: '.*(Ubuntu)' }
+      # - window_title : { regex: '.*(Ubuntu)' }
 
       # Ignores Windows Settings
       - window_class : { regex: 'ApplicationFrameWindow' }
