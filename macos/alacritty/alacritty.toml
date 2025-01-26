@@ -40,7 +40,7 @@ program = "tmux"
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.98
+opacity = 0.94
 blur = true
 dynamic_title = false
 # title = "simple_colon"
