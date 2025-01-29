@@ -1,9 +1,9 @@
 {
-  "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/settings-schema.json",
-  "startupConfigs": [
-    {
-      "path": "starter/with-glazewm.zebar.json",
-      "preset": "vertical"
-    }
-  ]
+    "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/settings-schema.json",
+    "startupConfigs": [
+        {
+            "path": "shiva_bar/main.zebar.json",
+            "preset": "default"
+        }
+    ]
 }
