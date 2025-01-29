@@ -17,6 +17,8 @@
 *.Identifier
 **/gh/
 **/errors.log
+/windows/.glzr/zebar/tmp-*/
+
 
 # WSL
 **/.zcompdump
