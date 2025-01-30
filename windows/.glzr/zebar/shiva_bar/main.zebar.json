@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/glzr-io/zebar/raw/v2.7.0/resources/widget-schema.json",
   "htmlPath": "./shiva_bar.html",
-  "zOrder": "normal",
+  "zOrder": "top_most",
   "shownInTaskbar": false,
   "focused": false,
   "resizable": false,
@@ -20,7 +20,7 @@
       "offsetX": "60px",
       "offsetY": "0px",
       "width": "20%",
-      "height": "40px",
+      "height": "24px",
       "monitorSelection": {
         "type": "all"
       },
