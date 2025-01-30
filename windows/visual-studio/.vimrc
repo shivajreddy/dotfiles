@@ -30,8 +30,13 @@ set smartindent
 set nowrap
 
 " Disable search highlighting, enable incremental search
-set nohlsearch
-set incsearch
+" set nohlsearch
+" set incsearch
+
+" Disable keymaps
+nnoremap <C-f> <Nop>
+inoremap <C-f> <Nop>
+vnoremap <C-f> <Nop>
 
 " Enable true color support
 set termguicolors
