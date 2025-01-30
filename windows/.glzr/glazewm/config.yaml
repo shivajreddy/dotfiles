@@ -130,18 +130,27 @@ workspaces:
     # display_name: " 9 📝 "
     bind_to_monitor: 0
 
+# ########################
+# use winspy from autohotkey to look the names, it shows the 
+# window_title as the only value in the 1st row
+# window_class is the value next to ahk_class
+# window_process is the value next to ahk_exe but don't use .exe, just the value without .exe
+# ########################
 window_rules:
   - commands: ['ignore']
     match:
-      # Ignores any Zebar windows.
+      # Ignores any Zebar windows
       - window_process: { equals: 'zebar' }
+
+      # Ignore Visual Studio related pop-ups
+      - window_process: { equals: 'devenv' }
+        window_title: { regex: 'Add New Item -.*' }
 
       # Ignores any WSL windows
       # - window_title : { regex: '.*(Ubuntu)' }
 
       # Ignores Windows Settings
       - window_class : { regex: 'ApplicationFrameWindow' }
-
 
       # Ignores picture-in-picture windows for browsers.
       # - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
