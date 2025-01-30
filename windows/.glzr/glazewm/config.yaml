@@ -145,6 +145,10 @@ window_rules:
       # Ignore Visual Studio related pop-ups
       - window_process: { equals: 'devenv' }
         window_title: { regex: 'Add New Item -.*' }
+      - window_process: { equals: 'devenv' }
+        window_title: { equals: 'Rename' }
+      - window_process: { equals: 'devenv' }
+        window_title: { equals: 'Search' }
 
       # Ignores any WSL windows
       # - window_title : { regex: '.*(Ubuntu)' }
