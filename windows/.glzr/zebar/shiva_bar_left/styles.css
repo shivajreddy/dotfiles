@@ -31,7 +31,7 @@ body,
 }
 
 #root {
-    /* border: 2px solid yellow; */
+    border: 1px solid yellow;
     /* background-color: rgba(64, 61, 82, 0.35); */
     /* backdrop-filter: blur(5px); */
     /* -webkit-backdrop-filter: blur(10px); /* For Safari */ */
@@ -110,10 +110,6 @@ body,
   display: flex; /* Enable flexbox layout */
   align-items: center; /* Align items vertically center (if needed) */
   justify-content: space-between; /* Push elements to opposite sides */
-}
-
-#pauseanddirection button {
-  padding: 1px 4px;
 }
 
 .binding-mode {

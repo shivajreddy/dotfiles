@@ -58,9 +58,6 @@
                 <div className="app">
 
                     <div className="left">
-                    </div>
-
-                    <div className="center">
                       {output.glazewm && (
                           <div className="workspaces">
                               {output.glazewm.currentWorkspaces.map(workspace => (
@@ -78,9 +75,6 @@
                               ))}
                           </div>
                       )}
-                    </div>
-
-                    <div className="right">
                       {output.glazewm && (
                           <div id="pauseanddirection">
                               {output.glazewm.bindingModes.map(bindingMode => (
@@ -98,6 +92,13 @@
                               ))}
                           </div>
                       )}
+
+                    </div>
+
+                    <div className="center">
+                    </div>
+
+                    <div className="right">
                     </div>
 
                 </div>
