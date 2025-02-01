@@ -13,6 +13,8 @@ bindings = [
   { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
   # Send Ctrl+/ 
   { key = "Slash", mods = "Control", chars = "\u001F" },
+  # Send Ctrl+Enter
+  { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
 ]
 
 

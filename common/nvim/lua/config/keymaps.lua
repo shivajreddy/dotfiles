@@ -2,6 +2,23 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--#region keymap to run a custom command
+vim.keymap.set("n", "<F5>", function()
+  -- Get the current file's directory
+  local current_file = vim.fn.expand("%:p:h")
+
+  -- Change to the directory of the current file
+  vim.cmd("cd " .. current_file)
+
+  -- Run the build.bat file
+  local command = "build.bat"
+  vim.fn.system(command)
+
+  -- Optionally, you can print a message to confirm the build was run
+  print("Build command executed: " .. command)
+end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
+--#endregion
+
 -- Quit all, or leader+qq (comes from lazyvim)
 vim.cmd([[command! Q qall]])
 
