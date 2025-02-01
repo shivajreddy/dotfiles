@@ -139,8 +139,22 @@ workspaces:
 window_rules:
   - commands: ['ignore']
     match:
-      # Ignores any Zebar windows
+      # Ignore any Zebar windows
       - window_process: { equals: 'zebar' }
+
+      # Ignore File Explorer
+      - window_process: { equals: 'explorer' }
+        window_title : {regex: '^.+ - File Explorer$'}
+
+      # Ignores Windows Settings
+      - window_class : { equals : 'ApplicationFrameWindow' }
+        window_process: { equals: 'ApplicationFrameHost' }
+
+      # Ignore Task Manager
+      - window_process: { equals: 'Taskmgr' }
+
+      # Ignore autohotkey window spy
+      - window_title : { equals : 'Window Spy for AHKv2' }
 
       # Ignore Visual Studio related pop-ups
       - window_process: { equals: 'devenv' }
@@ -150,16 +164,12 @@ window_rules:
       - window_process: { equals: 'devenv' }
         window_title: { equals: 'Search' }
 
-      # Ignores Dota 2
+      # Ignore Dota 2
       - window_title: { equals : 'Dota 2' }
 
-      # Ignores any WSL windows
+      # Ignore any WSL windows
       # - window_title : { regex: '.*(Ubuntu)' }
 
-      - window_title : { equals : 'Window Spy for AHKv2' }
-
-      # Ignores Windows Settings
-      - window_class : { regex: 'ApplicationFrameWindow' }
 
       # Ignores picture-in-picture windows for browsers.
       # - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
