@@ -6,7 +6,8 @@ return {
   event = "VeryLazy",
   keys = {
     {
-      "<leader>z",
+      "<leader>e",
+      -- "<leader>z",
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
