@@ -150,8 +150,13 @@ window_rules:
       - window_process: { equals: 'devenv' }
         window_title: { equals: 'Search' }
 
+      # Ignores Dota 2
+      - window_title: { equals : 'Dota 2' }
+
       # Ignores any WSL windows
       # - window_title : { regex: '.*(Ubuntu)' }
+
+      - window_title : { equals : 'Window Spy for AHKv2' }
 
       # Ignores Windows Settings
       - window_class : { regex: 'ApplicationFrameWindow' }
@@ -161,15 +166,13 @@ window_rules:
         # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
       # Ignore rules for various 3rd-party apps.
-      - window_process: { equals: 'PowerToys' }
-        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: 'PowerToys' }
-        window_title: { regex: '.*? - Peek' }
-      - window_process: { equals: 'Lively' }
-        window_class: { regex: 'HwndWrapper' }
+      # - window_process: { equals: 'PowerToys' }
+        # window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      # - window_process: { equals: 'PowerToys' }
+        # window_title: { regex: '.*? - Peek' }
+      # - window_process: { equals: 'Lively' }
+        # window_class: { regex: 'HwndWrapper' }
 
-      # Ignores Dota 2
-      - window_title: { equals : 'Dota 2' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
