@@ -39,14 +39,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '0px'
+  inner_gap: '8px'  # use 2 times the width of tacky-border-width
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '0px'
-    right: '0px'
-    bottom: '0px'
-    left: '0px'
+    top: '6px'
+    right: '6px'
+    bottom: '6px'
+    left: '6px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -54,7 +54,7 @@ window_effects:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
-      enabled: true
+      enabled: false  # using tacky-borders https://github.com/lukeyou05/tacky-borders
       color: '#7160e8'   # 1CB552 ea9d34  FFDD33   98BB6C
 
     # Remove the title bar from the window's frame. Note that this can

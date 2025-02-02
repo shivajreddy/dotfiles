@@ -44,6 +44,9 @@ bindings = [{ mouse = "Right", action = "None" }]
 # program = "wsl"
 # args = ["tmux attach || tmux"]
 
+[terminal.shell]
+program = "pwsh --nologo"
+
 
 ##############################  WINDOW  ##############################
 [window]
@@ -53,7 +56,7 @@ dynamic_title = false
 # title = "smpl;"
 title = ""
 dynamic_padding = true
-decorations = "Full"     # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
 resize_increments = true
 
 [window.dimensions]
