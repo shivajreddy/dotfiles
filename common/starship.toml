@@ -73,7 +73,7 @@ $line_break\
 [└](gray)\
 $character"""
 
-add_newline = true
+add_newline = false
 continuation_prompt = '[>](bold gray) '
 palette = "milspec_dark"
 
