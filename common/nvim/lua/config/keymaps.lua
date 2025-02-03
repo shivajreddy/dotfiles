@@ -10,12 +10,12 @@ vim.keymap.set("n", "<F5>", function()
   -- Change to the directory of the current file
   vim.cmd("cd " .. current_file)
 
-  -- Run the build.bat file
+  -- Command to run in the terminal
   local command = "build.bat"
-  vim.fn.system(command)
 
-  -- Optionally, you can print a message to confirm the build was run
-  print("Build command executed: " .. command)
+  -- map("n", "<c-/>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+  -- end, { desc = "Terminal (Root Dir)" })
 end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
 --#endregion
 
