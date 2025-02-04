@@ -80,3 +80,30 @@ your system variables on windows
 4. then open a new powershell or cmd, and check if you have 'gcc' and 'cc'
 
 
+# Windows C, C++ Compilers setup
+
+To install the GNU Compiler Collection (GCC) on Windows 11, you can use the MSYS2 environment, which provides a Unix-like shell and a package management system for Windows. Here's a step-by-step guide:
+
+Install MSYS2:
+
+1.  Download the MSYS2 installer from the [official website](https://www.msys2.org/)
+- You can install at **C** or other if prefered
+
+2. Update MSYS2:
+- Open the MSYS2 Shell that was installed with the MSYS2 package.
+- Run the following commands to update the package database and core system packages:
+```
+pacman -S mingw-w64-x86_64-toolchain
+```
+- choose all,  This will install the GCC compiler and related tools.
+- This may take some time as it updates the system.
+
+3. Add GCC to the System Path:
+- Once the installation is complete, you need to add the GCC binaries to the system path so that you can run them from any command prompt.
+- Locate the installation directory (default is `C:\msys64`).
+	- Make sure to adjust the path if you installed MSYS2 in a different directory.
+- Add the bin directory to the system path. You can do this by adding the following line to your system or user environment variables: `C:\msys64\mingw64\bin`
+
+4. Verify Installation:
+- Open a new powershell and type the following `gcc` command to verify that GCC is inst
+- `gcc --version`
