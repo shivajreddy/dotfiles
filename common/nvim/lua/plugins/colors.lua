@@ -239,6 +239,7 @@ return {
         overrides = function(colors) -- add/modify highlights
           return {
             CursorLine = { bg = "#0D0C0C" }, -- 12120F 0e0a01 base 121F2B none 6e6a86
+            -- Whitespace = { fg = "#282828" }, -- Add this line to customize the Whitespace highlight group
           }
         end,
         theme = "wave", -- wave dragon lotus
