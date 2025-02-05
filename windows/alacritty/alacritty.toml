@@ -40,12 +40,12 @@ bindings = [{ mouse = "Right", action = "None" }]
 
 ##############################  STARTUP  ##############################
 # WORKS ON WINDOWS
-# [terminal.shell]
-# program = "wsl"
-# args = ["tmux attach || tmux"]
-
 [terminal.shell]
-program = "pwsh --nologo"
+program = "wsl"
+args = ["tmux attach || tmux"]
+
+# [terminal.shell]
+# program = "pwsh --nologo"
 
 
 ##############################  WINDOW  ##############################
