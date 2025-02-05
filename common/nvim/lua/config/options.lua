@@ -12,7 +12,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Disable options
 
 -- Animations
-vim.g.snacks_animate = false
+vim.g.snacks_animate = true
 
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
@@ -57,12 +57,12 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- White Space
-vim.opt.list = false
--- vim.opt.listchars = {
---   space = ".", -- Show spaces as dots
---   tab = "»·", -- Show tabs with a special character and space
---   trail = "·", -- Show trailing spaces
---   extends = "→", -- Show character for text that extends beyond the window
---   precedes = "←", -- Show character for text that precedes the window
---   nbsp = "␣", -- Show non-breaking space
--- }
+vim.opt.list = true
+vim.opt.listchars = {
+  space = ".", -- Show spaces as dots
+  --   tab = "»·", -- Show tabs with a special character and space
+  --   trail = "·", -- Show trailing spaces
+  --   extends = "→", -- Show character for text that extends beyond the window
+  --   precedes = "←", -- Show character for text that precedes the window
+  --   nbsp = "␣", -- Show non-breaking space
+}
