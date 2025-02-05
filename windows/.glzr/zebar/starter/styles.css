@@ -66,7 +66,6 @@ body {
   flex-direction: column;
 }
 
-
 .workspaces {
     display: flex;
     flex-direction: column;
@@ -111,5 +110,12 @@ body {
   text-transform: uppercase; /* Makes text capital */
   padding: 2px;
   margin: 4px;
+}
+
+#vertical-datetime{
+  padding-top: 20px;
+  writing-mode: vertical-rl; /* or vertical-lr */
+  text-orientation: upright;
+  text-transform: uppercase;
 }
 

@@ -140,7 +140,12 @@
               )}
             </div>
 
-            <div className="center">{output.date?.formatted}</div>
+            <div id="vertical-datetime">
+              {output.date?.formatted}
+                {output.date?.formatted.split(' ').map((part, index) => (
+                  <div key={index}>{part}</div>
+                ))}
+            </div>
 
             <div className="right">
               {output.glazewm && (
