@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANTHROPIC_API_KEY:sk\x2dant\x2dapi03\x2dD2rP8Vrc\x2ddUBOlrXmkEY1cWwBoSx9Ha_744U9aYgfYJzs2W0OQ32EHaMnqM6xtHbg_ibR\x2dKaa7Nbpe6BErlJlQ\x2dchrI\x2dQAA
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/smpl/\x2elocal/share/z/data
