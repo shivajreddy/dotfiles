@@ -128,9 +128,9 @@ family = "Iosevka Nerd Font"
 
 ############################## THEME ##############################
 #### MISC.
-# [colors.cursor]
-# text = "#000000"
-# cursor = "#ffffff"
+[colors.cursor]
+text = "#000000"
+cursor = "#C65305"
 
 # Kanagawa-dragon Alacritty Colors
 [colors]
