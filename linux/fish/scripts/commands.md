@@ -9,3 +9,6 @@
 # Rename current workspace
 wezterm.exe cli rename-workspace <new_name>
 ```
+
+- orange
+C65305
