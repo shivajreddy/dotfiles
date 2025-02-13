@@ -89,7 +89,8 @@ body,
 
 #root {
     /* border: 1px solid yellow; */
-    background-color: rgba(64, 61, 82, 0.35);
+    /* background-color: rgba(64, 61, 82, 0.35); */
+    background-color: transparent;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
