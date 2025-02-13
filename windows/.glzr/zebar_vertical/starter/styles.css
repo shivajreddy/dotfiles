@@ -1,0 +1,121 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+  color: rgb(115 130 175 / 95%);
+  margin-right: 7px;
+}
+
+body {
+  color: rgb(255 255 255 / 90%);
+
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
+
+  /* border: 2px solid red; */
+  width: 100%; /* Actual value is set at .json file" */
+  height: 100%; /* Actual value is set at .json file" */
+  position:fixed;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
+  /* background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%)); */
+
+  /* border: 2px solid yellow; */
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  /* border: 2px solid green; */
+  width: 100%;
+  height: 100%;
+}
+
+.top,
+.center,
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.top {
+  justify-self: start;
+}
+
+.center {
+  justify-self: center;
+}
+
+.bottom {
+  justify-self: end;
+  flex-direction: column;
+}
+
+.workspaces {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workspace {
+    background: var(--rp-overlay);
+    margin-right: 8px;
+    padding: 4px 8px;
+    color: rgb(255 255 255 / 90%);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.workspace.displayed {
+    background: var(--rp-base);
+}
+
+.workspace:hover {
+    background: #8caaee;
+    color: #0e0a01;
+    font-weight: bold;
+}
+
+.workspace.focused {
+    background: #7160e8;
+    color: #000000;
+    font-weight: bold;
+}
+
+#pauseanddirection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#pauseanddirection button {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  text-transform: uppercase; /* Makes text capital */
+  padding: 2px;
+  margin: 4px;
+}
+
+#vertical-datetime{
+  padding-top: 20px;
+  writing-mode: vertical-rl; /* or vertical-lr */
+  text-orientation: upright;
+  text-transform: uppercase;
+}
+
