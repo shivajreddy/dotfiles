@@ -58,21 +58,6 @@
                 <div className="app">
 
                     <div className="left">
-                        <div id="media">
-                            {output.media?.currentSession?.title && (
-                                <div className="media-controls">
-                                    <div className="media-buttons">
-                                        <button
-                                            className={`nf ${output.media.currentSession?.isPlaying ? 'nf-fa-pause' : 'nf-fa-play'}`}
-                                            onClick={handlePlayPause}
-                                        ></button>
-                                    </div>
-                                    <div className="media-info">
-                                        {output.media.currentSession?.title || "N/A"}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
                     </div>
 
                     <div className="center">
