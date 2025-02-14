@@ -206,8 +206,8 @@ body,
 .workspace {
     background: var(--rp-overlay);
     margin-right: 8px;
-    font-size: 14px;
-    padding: 0px 6px;
+    font-size: 13px;
+    padding: 1px 4px;
     color: rgb(255 255 255 / 90%);
     border: none;
     border-radius: 2px;
