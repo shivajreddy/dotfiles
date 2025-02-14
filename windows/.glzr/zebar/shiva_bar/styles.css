@@ -206,7 +206,8 @@ body,
 .workspace {
     background: var(--rp-overlay);
     margin-right: 8px;
-    padding: 4px 8px;
+    font-size: 14px;
+    padding: 0px 6px;
     color: rgb(255 255 255 / 90%);
     border: none;
     border-radius: 2px;
@@ -226,7 +227,7 @@ body,
 
     &.focused {
         /* background: var(--rp-burnt); */
-        background: #7160e8  ;/* 1CB552 5F8136 FFDD33 7287fd */
+        background: #C65305;  /* 7160e8 1CB552 5F8136 FFDD33 7287fd */
         color: #000000; /* ffffff 0e0a01 */
         font-weight: bold;
     }
