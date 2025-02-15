@@ -165,7 +165,7 @@ window_rules:
         window_title: { equals: 'Search' }
 
       # Ignore Dota 2
-      - window_title: { equals : 'Dota 2' }
+      # - window_title: { equals : 'Dota 2' }
 
       # Ignore any WSL windows
       # - window_title : { regex: '.*(Ubuntu)' }
