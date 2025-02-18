@@ -2,8 +2,20 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
---#region keymap to run a custom command
 vim.keymap.set("n", "<F5>", function()
+  -- opens the floating terminal
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+  -- Wait for the terminal to open (you might need to adjust the delay)
+  vim.defer_fn(function()
+    -- Type the command and press Enter
+    -- local cmd = "clear && ./build.ps1 && ./build/out.exe"  -- for powershell script
+    local cmd = "clear && ./build.bat && ./build/out.exe" -- for cmd prompt script
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(cmd .. "<CR>", true, true, true), "n", false)
+  end, 100) -- Adjust the delay (in milliseconds) if necessary
+end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
+
+--#region keymap to run a custom command
+vim.keymap.set("n", "<F6>", function()
   -- Get the current file's directory
   local current_file = vim.fn.expand("%:p:h")
 
