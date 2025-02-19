@@ -41,7 +41,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color:
-    colors: ["#C65305", "#C65305"]
+    colors: ["#DA3B01", "#DA3B01"]    #  DA3B01   C65305
     direction: 45deg
 
   inactive_color:
