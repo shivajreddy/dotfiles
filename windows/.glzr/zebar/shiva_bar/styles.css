@@ -96,11 +96,13 @@ body,
 }
 
 .app {
+    /* border: 2px solid red; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     height: 100%;
-    padding: 2px 1.5vw;
+    /* padding: 2px 1.5vw; */
+    padding: 0px;
 }
 
 .left,
@@ -199,14 +201,23 @@ body,
 
 
 .workspaces {
+    /* border: 2px solid yellow !important; */
+    /* all buttons are vertically centered */
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Aligns buttons horizontally */
+    align-items: center; /* Centers buttons horizontally */
+    justify-content: center; /* Centers buttons vertically */
+    height: 100%; /* Ensures the parent takes full height */
+
+    margin-left: 100px;
+    margin-bottom: 4px;
 }
 
 .workspace {
+
     background: var(--rp-overlay);
     margin-right: 8px;
-    font-size: 13px;
+    font-size: 16px;
     padding: 1px 4px;
     color: rgb(255 255 255 / 90%);
     border: none;
