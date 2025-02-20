@@ -39,14 +39,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '4px'  # use 2 times the width of tacky-border-width
+  inner_gap: '2px'  # using 1 times the width of tacky-border-width
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '4px'
-    right: '4px'
-    bottom: '4px'
-    left: '4px'
+    top: '2px'
+    right: '2px'
+    bottom: '2px'
+    left: '2px'
 
 window_effects:
   # Visual effects to apply to the focused window.
