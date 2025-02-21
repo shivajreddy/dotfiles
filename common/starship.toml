@@ -78,7 +78,7 @@ continuation_prompt = '[>](bold gray) '
 palette = "milspec_dark"
 
 [character]
-success_symbol = '[λ](bold #C65305)'
+success_symbol = '[λ](bold #DCD7BA)'  # DCD7BA  C65305
 error_symbol = '[λ](bold red)'
 vimcmd_symbol = '[](bold turquoise)'
 # [character]
