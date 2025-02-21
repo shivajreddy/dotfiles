@@ -31,9 +31,6 @@ vim.keymap.set("n", "<F6>", function()
 end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
 --#endregion
 
--- Quit all, or leader+qq (comes from lazyvim)
-vim.cmd([[command! Q qall]])
-
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- Diagnostics
@@ -118,6 +115,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- <nop> means no operation, so we are disabling Q. cuz by default Q is recording
 vim.keymap.set("n", "Q", "<nop>")
+-- Quit all, or leader+qq (comes from lazyvim)
+vim.cmd([[command! Q qall]])
 
 -- switch projects via tmux
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
