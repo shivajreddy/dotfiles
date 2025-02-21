@@ -163,9 +163,8 @@ window_rules:
         window_title: { equals: 'Rename' }
       - window_process: { equals: 'devenv' }
         window_title: { equals: 'Search' }
-
-      - window_process: { equals: 'WindowsTerminal' }
-        window_title: { equals: 'Microsoft Visual Studio Debug Console' }
+      # - window_process: { equals: 'WindowsTerminal' }
+        # window_title: { equals: 'Microsoft Visual Studio Debug Console' }
 
       # Ignore Dota 2
       # - window_title: { equals : 'Dota 2' }
