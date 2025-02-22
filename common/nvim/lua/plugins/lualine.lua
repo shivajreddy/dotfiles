@@ -216,7 +216,7 @@ ins_right({
     modified = { fg = colors.orange },
     removed = { fg = colors.red },
   },
-  cond = conditions.hide_in_width,
+  -- cond = conditions.hide_in_width,
 })
 
 ins_right({ "location" })
