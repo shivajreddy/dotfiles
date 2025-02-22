@@ -159,6 +159,14 @@ ins_left({
   end,
 })
 
+-- show tabs
+ins_left({
+  "tabs",
+  cond = function()
+    return #vim.fn.gettabinfo() > 1
+  end,
+})
+
 --[[
 ins_left({
   -- Lsp server name .

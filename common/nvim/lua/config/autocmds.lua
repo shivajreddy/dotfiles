@@ -33,3 +33,13 @@ autocmd("VimEnter", {
     require("lazy").update({ show = false })
   end,
 })
+
+-- Set a custom background color of Man pages buffer
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "man",
+  callback = function()
+    vim.wo.winhighlight = "Normal:ManNormal,CursorLine:ManCursorLine"
+    vim.cmd("hi ManNormal guibg=#181818") -- background color
+    vim.cmd("hi ManCursorLine guibg=#282828") -- cursor line color
+  end,
+})
