@@ -1,5 +1,6 @@
 return {
   "romgrk/barbar.nvim",
+  lazy = false,
   dependencies = {
     "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
     "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
@@ -9,9 +10,11 @@ return {
   end,
   opts = {
     -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-    -- animation = true,
-    -- insert_at_start = true,
-    -- …etc.
+    animation = true,
+    -- separator = { left = "▎", right = "" },
+    icons = {
+      separator = { left = "▋", right = "" },
+    },
   },
-  version = "^1.0.0", -- optional: only update when a new 1.x version is released
+  -- version = "^1.0.0", -- optional: only update when a new 1.x version is released
 }
