@@ -66,3 +66,5 @@ vim.opt.listchars = {
   --   precedes = "←", -- Show character for text that precedes the window
   --   nbsp = "␣", -- Show non-breaking space
 }
+
+vim.opt.signcolumn = "no"
