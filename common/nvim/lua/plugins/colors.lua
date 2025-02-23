@@ -240,7 +240,7 @@ return {
           return {
             -- LineNr = { bg = "#181818" },
             -- SignColumn = { bg = "#ffffff", fg = "#1f1f1f" },
-            -- Whitespace = { fg = "#282828" }, -- Add this line to customize the Whitespace highlight group
+            Whitespace = { fg = "#282828" }, -- Add this line to customize the Whitespace highlight group
             WinSeparator = { fg = "#6e6a86", bg = "NONE", bold = true }, -- Customize separator color
           }
         end,
