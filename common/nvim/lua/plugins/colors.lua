@@ -238,9 +238,11 @@ return {
         },
         overrides = function(colors) -- add/modify highlights
           return {
-            -- LineNr = { bg = "#181818" },
+            LineNr = { fg = "#303446" },
+            CursorLineNr = { fg = "#303446" },
+            CursorLine = { bg = "#0D0C0C" }, -- 12120F 0e0a01 base 121F2B none 6e6a86
             -- SignColumn = { bg = "#ffffff", fg = "#1f1f1f" },
-            Whitespace = { fg = "#282828" }, -- Add this line to customize the Whitespace highlight group
+            -- Whitespace = { fg = "#282828" }, -- Add this line to customize the Whitespace highlight group
             WinSeparator = { fg = "#6e6a86", bg = "NONE", bold = true }, -- Customize separator color
           }
         end,

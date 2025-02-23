@@ -22,8 +22,8 @@ vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent =
 vim.api.nvim_set_keymap("i", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 
-vim.opt.number = false -- Disable line numbers
-vim.opt.relativenumber = false -- Disable relative line numbers
+-- vim.opt.number = false -- Disable line numbers
+-- vim.opt.relativenumber = false -- Disable relative line numbers
 
 -- General indentation settings
 -- vim.opt.tabstop = 4
@@ -57,7 +57,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- White Space
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = {
   space = ".", -- Show spaces as dots
   --   tab = "»·", -- Show tabs with a special character and space
@@ -67,5 +67,5 @@ vim.opt.listchars = {
   --   nbsp = "␣", -- Show non-breaking space
 }
 
--- dont show sign column
-vim.opt.signcolumn = "no" -- "yes" "no"
+vim.opt.signcolumn = "no" -- "yes" "no"   signcolumn is used to show the gutter symbols
+vim.opt.statuscolumn = "%l▐" -- adds this bar after the line number
