@@ -134,3 +134,21 @@ vim.api.nvim_set_keymap("n", "<leader>r", ":lua vim.lsp.buf.references()<CR>", {
 
 -- change every occurance of the word under cursor
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- open the current word in man pages
+-- Function to open man page for the word under the cursor
+local function open_man_page()
+  local word = vim.fn.expand("<cword>") -- Get the word under the cursor
+  vim.cmd("Man " .. word) -- Open the man page for the word
+end
+
+-- Create a custom command
+vim.api.nvim_create_user_command("ManUnderCursor", open_man_page, {})
+
+-- Optionally, create a key mapping
+vim.keymap.set(
+  "n",
+  "<leader>m",
+  open_man_page,
+  { noremap = true, silent = true, desc = "Open man page for word under cursor" }
+)

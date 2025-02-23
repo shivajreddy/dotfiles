@@ -143,3 +143,7 @@ fish_vi_key_bindings
 # Spicetify path
 fish_add_path $HOME/.spicetify
 
+# use neovim for man pages
+function vman
+    nvim -c "Man $argv[1]" -c only
+end
