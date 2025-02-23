@@ -55,7 +55,7 @@ blur = true
 dynamic_title = false
 # title = "smpl;"
 title = ""
-dynamic_padding = true
+dynamic_padding = false
 decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
 resize_increments = true
 
