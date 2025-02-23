@@ -68,4 +68,5 @@ vim.opt.listchars = {
 }
 
 vim.opt.signcolumn = "no" -- "yes" "no"   signcolumn is used to show the gutter symbols
-vim.opt.statuscolumn = "%l▐" -- adds this bar after the line number
+-- vim.opt.statuscolumn = "%l▐" -- adds this bar after the line number
+vim.opt.statuscolumn = "%l▕" -- adds this bar after the line number

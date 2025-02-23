@@ -11,9 +11,11 @@ return {
   opts = {
     -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
     animation = true,
-    -- separator = { left = "▎", right = "" },
     icons = {
-      separator = { left = "▋", right = "" },
+      separator = { left = "▎", right = "" },
+      -- separator = { left = "", right = "" },
+      -- right_separator = { left = "", right = "" },
+      -- separator_at_end = false,
     },
   },
   -- version = "^1.0.0", -- optional: only update when a new 1.x version is released
