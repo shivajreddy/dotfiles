@@ -22,8 +22,8 @@ vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent =
 vim.api.nvim_set_keymap("i", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 
--- vim.opt.number = false -- Disable line numbers
--- vim.opt.relativenumber = false -- Disable relative line numbers
+vim.opt.number = true -- line numbers
+vim.opt.relativenumber = true --  relative line numbers
 
 -- General indentation settings
 -- vim.opt.tabstop = 4
