@@ -96,7 +96,7 @@ body,
 }
 
 .app {
-    /* border: 2px solid red; */
+    border: 2px solid red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
