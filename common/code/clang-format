@@ -29,7 +29,7 @@ BraceWrapping:
   BeforeCatch:              true
   BeforeElse:               false
   IndentBraces:             false
-AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: true
 AllowShortLoopsOnASingleLine:       false
 ColumnLimit:      80
 ContinuationIndentWidth: 4
