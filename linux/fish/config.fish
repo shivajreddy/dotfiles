@@ -71,10 +71,10 @@ alias ff="fastfetch"
 alias gaa="git add ."
 alias gcmsg="git commit -m"
 alias gst="git status ."
-alias gitsave="gaa && gcmsg '.' && ggpush"
-alias gpull="git pull"
-alias gpush="git push"
-alias gsave="gaa && gcmsg '.' && gpush"
+# alias gitsave="gaa && gcmsg '.' && ggpush"
+# alias gpull="git pull"
+# alias gpush="git push"
+# alias gsave="gaa && gcmsg '.' && gpush"
 
 # Git clone function
 function gclone
