@@ -18,13 +18,13 @@ UseTab:          Never
 TabWidth:        4
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterClass:               true
-  AfterFunction:            true
+  AfterClass:               false
+  AfterFunction:            false
   SplitEmptyFunction:       false
   AfterNamespace:           false
   AfterEnum:                false
   AfterControlStatement:    false
-  AfterStruct:              true
+  AfterStruct:              false
   AfterUnion:               true
   BeforeCatch:              true
   BeforeElse:               false
