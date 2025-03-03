@@ -68,4 +68,4 @@ vim.opt.listchars = {
 }
 
 vim.opt.signcolumn = "no" -- "yes" "no"   signcolumn is used to show the gutter symbols
--- vim.opt.statuscolumn = "%=" .. "%{printf('%3s', v:relnum ? v:relnum : v:lnum)} ▕"
+vim.opt.statuscolumn = "%=" .. "%{printf('%3s', v:relnum ? v:relnum : v:lnum)} ▕"
