@@ -164,7 +164,7 @@ family = "Iosevka Nerd Font"
 ############################## THEME ##############################
 #### MISC.
 [colors.cursor]
-text = "#000000"
+text = "#181919"
 cursor = "#DA3B01" #   C65305  DA3B01
 
 
