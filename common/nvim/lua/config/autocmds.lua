@@ -43,3 +43,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("hi ManCursorLine guibg=#282828") -- cursor line color
   end,
 })
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "" then
+      vim.opt.list = false -- Disable whitespace highlighting
+    else
+      vim.opt.list = true -- Re-enable whitespace highlighting
+    end
+  end,
+})
