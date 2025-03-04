@@ -60,11 +60,11 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.list = true
 vim.opt.listchars = {
   space = "⋅", -- Show spaces as dots
-  --   tab = "»·", -- Show tabs with a special character and space
-  --   trail = "·", -- Show trailing spaces
-  --   extends = "→", -- Show character for text that extends beyond the window
-  --   precedes = "←", -- Show character for text that precedes the window
-  --   nbsp = "␣", -- Show non-breaking space
+  tab = "»·", -- Show tabs with a special character and space
+  trail = "⋅", -- Show trailing spaces
+  extends = "→", -- Show character for text that extends beyond the window
+  precedes = "←", -- Show character for text that precedes the window
+  nbsp = "␣", -- Show non-breaking space
 }
 
 vim.opt.signcolumn = "no" -- "yes" "no"   signcolumn is used to show the gutter symbols
