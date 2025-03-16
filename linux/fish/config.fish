@@ -140,6 +140,9 @@ fish_vi_key_bindings
 # Word characters (fish handles this differently from zsh)
 # Fish has its own word separation logic that's generally more intuitive
 
+# GO-Lang path
+fish_add_path /usr/local/go/bin
+
 # Spicetify path
 fish_add_path $HOME/.spicetify
 
