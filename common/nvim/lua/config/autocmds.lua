@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable white space in selection mode
 vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = "*",
   callback = function()

@@ -67,5 +67,7 @@ vim.opt.listchars = {
   nbsp = "␣", -- Show non-breaking space
 }
 
-vim.opt.signcolumn = "no" -- "yes" "no"   signcolumn is used to show the gutter symbols
-vim.opt.statuscolumn = "%=" .. "%{printf('%3s', v:relnum ? v:relnum : v:lnum)} ▕"
+-- Show signcolumn(signcolumn is used to show the gutter symbols)
+vim.opt.signcolumn = "no" -- "yes" "no"
+-- Add a gutter line next to line number
+-- vim.opt.statuscolumn = "%=" .. "%{printf('%3s', v:relnum ? v:relnum : v:lnum)} ▕"
