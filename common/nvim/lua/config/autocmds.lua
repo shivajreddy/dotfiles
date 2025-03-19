@@ -55,3 +55,10 @@ vim.api.nvim_create_autocmd("ModeChanged", {
     end
   end,
 })
+
+-- Run BufferOrderByBufferNumber command every time a buffer is open or closed
+vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
+  callback = function()
+    vim.cmd("BufferOrderByBufferNumber")
+  end,
+})
