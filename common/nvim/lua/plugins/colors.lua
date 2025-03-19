@@ -242,7 +242,7 @@ return {
             CursorLineNr = { fg = "#303446" },
             CursorLine = { bg = "#181616" }, -- 0D0C0C 252329 12120F 0e0a01 base 121F2B none 6e6a86
             -- SignColumn = { bg = "#ffffff", fg = "#1f1f1f" },
-            Whitespace = { fg = "#1f1f28" }, --  1f1f28 181921 Add this line to customize the Whitespace highlight group
+            Whitespace = { fg = "#26262C" }, --  1f1f28 181921 Add this line to customize the Whitespace highlight group
             WinSeparator = { fg = "#6e6a86", bg = "NONE", bold = true }, -- Customize separator color
           }
         end,
