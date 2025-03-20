@@ -57,7 +57,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- White Space
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = {
   space = "⋅", -- Show spaces as dots
   tab = "» ", -- Show tabs with a special character and space
