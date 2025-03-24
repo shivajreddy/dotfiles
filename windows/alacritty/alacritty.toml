@@ -50,7 +50,7 @@ bindings = [{ mouse = "Right", action = "None" }]
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 1
+opacity = 0.97
 blur = true
 dynamic_title = false
 # title = "smpl;"
@@ -88,11 +88,11 @@ y = 0
 
 
 [font.normal]
-family = "Iosevka Nerd Font"
+# family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed"
+family = "BerkeleyMono Nerd Font"
+style = "ExtraCondensed"
 # style = "Condensed"
 # style = "UltraCondensed"
 # family = "TX02 Nerd Font"
@@ -106,11 +106,11 @@ family = "Iosevka Nerd Font"
 
 
 [font.italic]
-family = "Iosevka Nerd Font"
+# family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Oblique"
+family = "BerkeleyMono Nerd Font"
+style = "ExtraCondensed Oblique"
 # style = "Condensed"
 # style = "UltraCondensed Oblique"
 # family = "SFMono Nerd Font"
@@ -124,11 +124,11 @@ family = "Iosevka Nerd Font"
 
 
 [font.bold]
-family = "Iosevka Nerd Font"
+# family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Bold"
+family = "BerkeleyMono Nerd Font"
+style = "ExtraCondensed Bold"
 # style = "Condensed"
 # style = "UltraCondensed Bold"
 # style = "Bold"
@@ -143,11 +143,11 @@ family = "Iosevka Nerd Font"
 # family = "BlexMono Nerd Font"
 
 [font.bold_italic]
-family = "Iosevka Nerd Font"
+# family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Bold Oblique"
+family = "BerkeleyMono Nerd Font"
+style = "ExtraCondensed Bold Oblique"
 # style = "Condensed"
 # style = "UltraCondensed Bold Oblique"
 # style = "Bold Italic"
