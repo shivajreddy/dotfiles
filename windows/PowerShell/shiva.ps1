@@ -1,6 +1,8 @@
-
+# echo "This is user profile"
 Set-Location ~
 
+# Turn of the update powershell statement when i open powershell
+$env:POWERSHELL_UPDATECHECK = 'Off'
 
 # ####	ZOXIDE    ####
 # Set-Alias z zoxide
@@ -9,7 +11,7 @@ Set-Location ~
 
 # ####	STARSHIP    ####
 # Location of starship configuration
-# $ENV:STARSHIP_CONFIG = "\\wsl.localhost\Ubuntu\home\shiva\dotfiles\windows\starship.toml"
+$ENV:STARSHIP_CONFIG = "C:\Users\sreddy\dotfiles\windows\starship.toml"
 Invoke-Expression (&starship init powershell)
 
 
@@ -33,5 +35,4 @@ Set-Alias l ll
 
 # ####	MISC.    ####
 # when using dir, hide the ugly text background color
-$PSStyle.FileInfo.Directory = ""
-
+# $PSStyle.FileInfo.Directory = ""
