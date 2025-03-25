@@ -75,7 +75,7 @@ y = 0
 
 ############################## FONT ##############################
 [font]
-size = 18
+size = 18.5
 builtin_box_drawing = true
 
 [font.offset]
