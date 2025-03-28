@@ -19,7 +19,7 @@ User Lever Powershell profile
 2 - It should be located at '$PROFILE'
 3 - so make a sym link to the Microsoft.PowerShell_profile.ps1 file in dotfiles
 ```
-New-Item -ItemType SymbolicLink -Path "$PROFILE" -Target "~\dotfiles\windows\PowerShell\Microsoft.PowerShell_profile.ps1"
+New-Item -ItemType SymbolicLink -Path "$PROFILE" -Target "~\dotfiles\windows\PowerShell\shiva.ps1"
 ```
 
 
