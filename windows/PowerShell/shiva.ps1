@@ -11,11 +11,7 @@ $env:POWERSHELL_UPDATECHECK = 'Off'
 
 # ####	STARSHIP    ####
 # Location of starship configuration
-$Env:STARSHIP_CONFIG = "C:\Users\sreddy\dotfiles\windows\starship.toml"
-# 2. Permanently set for the current user
-[Environment]::SetEnvironmentVariable("STARSHIP_CONFIG", "C:\Users\sreddy\dotfiles\windows\starship.toml", "User")
-# 3. Permanently set for the machine (requires admin rights)
-[Environment]::SetEnvironmentVariable("STARSHIP_CONFIG", "C:\Users\sreddy\dotfiles\windows\starship.toml", "Machine")
+$Env:STARSHIP_CONFIG = "$HOME\dotfiles\windows\starship.toml"
 
 Invoke-Expression (&starship init powershell)
 
