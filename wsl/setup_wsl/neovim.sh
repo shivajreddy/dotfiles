@@ -2,7 +2,7 @@
 
 # Neovim and LazyVim Installation Script
 # Author: Your Name
-# Version: 1.0
+# Version: 1.1
 
 # Color codes for better output
 GREEN='\033[0;32m'
@@ -35,39 +35,6 @@ log() {
   esac
 
   echo -e "${color}${prefix} ${message}${NC}"
-}
-
-# Install lazygit
-install_lazygit() {
-
-  log "info" "Installing lazygit..."
-
-  # Create a temporary directory
-  local temp_dir=$(mktemp -d)
-  cd "$temp_dir" || {
-    log "error" "Failed to create temporary directory"
-    exit 1
-  }
-
-  # Fetch the latest lazygit version and download
-  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-
-  # Extract and install lazygit
-  tar xf lazygit.tar.gz lazygit
-  sudo install lazygit /usr/local/bin
-
-  # Clean up
-  cd - >/dev/null
-  rm -rf "$temp_dir"
-
-  # Verify installation
-  if command -v lazygit &>/dev/null; then
-    log "info" "Lazygit installed successfully!"
-  else
-    log "error" "Lazygit installation failed"
-    exit 1
-  fi
 }
 
 # Validate system requirements
@@ -106,46 +73,17 @@ install_dependencies() {
 install_neovim() {
   log "info" "Downloading and installing Neovim..."
 
-  # Create a temporary directory for Neovim installation
-  local temp_dir=$(mktemp -d)
-  cd "$temp_dir" || {
-    log "error" "Failed to create temporary directory"
-    exit 1
-  }
+  # Download the latest Neovim tarball
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  
+  # Remove old installation
+  sudo rm -rf /opt/nvim
 
-  # Fetch the latest release information
-  local release_info=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest)
-
-  # Extract the download URL for nvim.appimage
-  local download_url=$(echo "$release_info" | grep -o 'https://[^"]*nvim.appimage"' | tr -d '"')
-
-  if [ -z "$download_url" ]; then
-    log "error" "Could not fetch Neovim download URL"
-    exit 1
-  fi
-
-  # Download AppImage
-  log "info" "Downloading Neovim AppImage from: $download_url"
-  curl -L -o nvim.appimage "$download_url"
-
-  # Make executable
-  chmod +x nvim.appimage
-
-  # Try extraction
-  ./nvim.appimage --appimage-extract >/dev/null 2>&1 || {
-    log "error" "Failed to extract AppImage"
-    exit 1
-  }
-
-  # Move extracted files
-  sudo mv squashfs-root /opt/nvim
+  # Extract and move Neovim to /opt
+  sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
   # Create symlink
-  sudo ln -sf /opt/nvim/AppRun /usr/local/bin/nvim
-
-  # Clean up temporary directory
-  cd - >/dev/null
-  rm -rf "$temp_dir"
+  sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
 
   # Verify installation
   if command -v nvim &>/dev/null; then
@@ -160,7 +98,7 @@ install_neovim() {
 cleanup_old_config() {
   log "info" "Cleaning up old Neovim configurations..."
 
-  local dilrs=(
+  local dirs=(
     ~/.local/share/nvim
     ~/.local/state/nvim
     ~/.cache/nvim
@@ -179,44 +117,34 @@ cleanup_old_config() {
 setup_lazyvim() {
   log "info" "Setting up LazyVim starter template..."
 
-  # Clone LazyVim starter template
   git clone https://github.com/LazyVim/starter ~/.config/nvim
-
-  # Remove .git directory to make it your own
   rm -rf ~/.config/nvim/.git
 
   log "info" "LazyVim starter template installed. First run will install plugins."
 }
 
-# Make sym links to my nvim dotfiles
-# Make sym links to my nvim dotfiles
+# Create symlinks for Neovim dotfiles
 create_symlink() {
   log "info" "Creating symlinks for Neovim configuration..."
 
-  # Define the nvim path
   local NVIM_CONFIG_PATH="$HOME/.config/nvim"
   local DOTFILES_NVIM_PATH="$HOME/dotfiles/common/nvim"
 
-  # Check if dotfiles nvim path exists
   if [ ! -d "$DOTFILES_NVIM_PATH" ]; then
     log "error" "Dotfiles Neovim path not found: $DOTFILES_NVIM_PATH"
     exit 1
   fi
 
-  # Check if current nvim config is a symlink
   if [ -L "$NVIM_CONFIG_PATH" ]; then
     log "warn" "Existing symlink found. Removing current symlink."
     unlink "$NVIM_CONFIG_PATH"
-  # Check if current nvim config is a directory
   elif [ -d "$NVIM_CONFIG_PATH" ]; then
     log "warn" "Existing Neovim config found. Deleting ${NVIM_CONFIG_PATH}"
     rm -rf "$NVIM_CONFIG_PATH"
   fi
 
-  # Create symlink
   ln -sf "$DOTFILES_NVIM_PATH" "$NVIM_CONFIG_PATH"
 
-  # Verify symlink
   if [ -L "$NVIM_CONFIG_PATH" ]; then
     log "info" "Symlink created successfully: $NVIM_CONFIG_PATH -> $DOTFILES_NVIM_PATH"
   else
@@ -232,7 +160,6 @@ main() {
 
   validate_system
   install_dependencies
-  install_lazygit
   cleanup_old_config
   install_neovim
   setup_lazyvim
@@ -243,3 +170,4 @@ main() {
 
 # Run the script
 main
+
