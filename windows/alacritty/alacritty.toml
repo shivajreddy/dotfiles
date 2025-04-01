@@ -161,7 +161,7 @@ style = "ExtraCondensed Bold Oblique"
 #### MISC.
 [colors.cursor]
 text = "#181919"
-cursor = "#DA3B01" #   C65305  DA3B01
+cursor = "#DA3B01" #   C65305  DA3B01 (DA3B01-dune)
 
 
 # Kanagawa-dragon Alacritty Colors
