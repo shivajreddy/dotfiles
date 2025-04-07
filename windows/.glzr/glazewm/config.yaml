@@ -110,24 +110,20 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 0
   - name: '2'
-    # display_name: "2 👾"
-    # keep_alive: true
     bind_to_monitor: 0
   - name: '3'
-    # display_name: "3 🚀"
-    # keep_alive: true
     bind_to_monitor: 0
   - name: '4'
-    # display_name: "4 🎵"
-  - name: '5'
-  - name: '6'
-    # display_name: "6 🕹️"
     bind_to_monitor: 0
-    # keep_alive: true
+  - name: '5'
+    bind_to_monitor: 0
+  - name: '6'
+    bind_to_monitor: 1
   - name: '7'
+    bind_to_monitor: 1
   - name: '8'
+    bind_to_monitor: 1
   - name: '9'
-    # display_name: " 9 📝 "
     bind_to_monitor: 0
 
 # ########################
