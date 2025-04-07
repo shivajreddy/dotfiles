@@ -107,7 +107,7 @@ window_behavior:
 workspaces:
   - name: '1'
     # display_name: "1 👥"
-    keep_alive: true
+    # keep_alive: true
     bind_to_monitor: 0
   - name: '2'
     bind_to_monitor: 0
