@@ -88,11 +88,11 @@ y = 0
 
 
 [font.normal]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "ExtraCondensed"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed"
 # style = "Condensed"
 # style = "UltraCondensed"
 # family = "TX02 Nerd Font"
@@ -104,11 +104,11 @@ style = "ExtraCondensed"
 
 
 [font.italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "ExtraCondensed Oblique"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Oblique"
 # style = "Condensed"
 # style = "UltraCondensed Oblique"
 # family = "SFMono Nerd Font"
@@ -121,11 +121,11 @@ style = "ExtraCondensed Oblique"
 
 
 [font.bold]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "ExtraCondensed Bold"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold"
 # style = "Condensed"
 # style = "UltraCondensed Bold"
 # style = "Bold"
@@ -139,11 +139,11 @@ style = "ExtraCondensed Bold"
 # family = "BlexMono Nerd Font"
 
 [font.bold_italic]
-# family = "Iosevka Nerd Font"
+family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Berkeley Mono"
-family = "BerkeleyMono Nerd Font"
-style = "ExtraCondensed Bold Oblique"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold Oblique"
 # style = "Condensed"
 # style = "UltraCondensed Bold Oblique"
 # style = "Bold Italic"
