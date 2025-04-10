@@ -163,7 +163,9 @@ window_rules:
         # window_title: { equals: 'Microsoft Visual Studio Debug Console' }
       - window_title : { equals : 'Ether' }
 
+      # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
+      - window_process : { equals : 'thinkorswim' }
 
       # Ignore Dota 2
       # - window_title: { equals : 'Dota 2' }
