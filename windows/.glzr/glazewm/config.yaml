@@ -161,11 +161,9 @@ window_rules:
         window_title: { equals: 'Search' }
       # - window_process: { equals: 'WindowsTerminal' }
         # window_title: { equals: 'Microsoft Visual Studio Debug Console' }
-<<<<<<< HEAD
-      # Ignore a program (using hard coded title matching)
-=======
->>>>>>> refs/remotes/origin/main
       - window_title : { equals : 'Ether' }
+
+      - window_title : { equals : 'IBKR Desktop' }
 
       # Ignore Dota 2
       # - window_title: { equals : 'Dota 2' }
@@ -281,16 +279,16 @@ keybindings:
     bindings: ['alt+shift+q']
 
   # Kill GlazeWM process safely.
-  - commands: ['wm-exit']
-    bindings: ['alt+shift+e']
+  # - commands: ['wm-exit']
+    # bindings: ['alt+shift+e']
 
   # Re-evaluate configuration file.
-  - commands: ['wm-reload-config']
-    bindings: ['alt+shift+r']
+  # - commands: ['wm-reload-config']
+    # bindings: ['alt+shift+r']
 
   # Redraw all windows.
-  - commands: ['wm-redraw']
-    bindings: ['alt+shift+w']
+  # - commands: ['wm-redraw']
+    # bindings: ['alt+shift+w']
 
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
