@@ -165,7 +165,7 @@ window_rules:
 
       # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
-      - window_process : { equals : 'thinkorswim' }
+      # - window_process : { equals : 'thinkorswim' }
 
       # Ignore Dota 2
       # - window_title: { equals : 'Dota 2' }
