@@ -163,6 +163,9 @@ window_rules:
         # window_title: { equals: 'Microsoft Visual Studio Debug Console' }
       - window_title : { equals : 'Ether' }
 
+      # Windows Commande Palette
+      - window_class: {equals: 'WinUIDesktopWin32WindowClass'}
+
       # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
       # - window_process : { equals : 'thinkorswim' }
@@ -295,8 +298,8 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec cmd']
-    bindings: ['alt+enter']
+  # - commands: ['shell-exec cmd']
+    # bindings: ['alt+enter']
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - commands: ['focus --next-workspace']
