@@ -167,7 +167,7 @@ window_rules:
       - window_class: {equals: 'WinUIDesktopWin32WindowClass'}
 
       # Sierra Chart
-      - window_process: { regex: 'SierraChart*' }
+      # - window_process: { regex: 'SierraChart*' }
 
       # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
