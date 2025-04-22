@@ -143,6 +143,11 @@ window_rules:
     name: "Dota 2"
     enabled: False
 
+  - match: Title
+    name: "Counter-Strike 2"
+    enabled: False
+
+
   # Example rule:
   # - match: Class                   # Match based on Class or Title
   #   name: "MozillaWindowClass"     # Class or title name to match
