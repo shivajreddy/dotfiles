@@ -17,7 +17,7 @@ global:
   #   - Round: Fully rounded corners
   #   - RoundSmall: Slightly rounded corners
   #   - Or specify any numeric value for a custom radius
-  border_radius: Square
+  border_radius: RoundSmall
 
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
@@ -40,15 +40,19 @@ global:
   #             start: [0.0, 1.0]
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
-  active_color:
-    colors: ["#DA3B01", "#DA3B01"]    #  DA3B01   C65305
-    direction: 45deg
 
-  inactive_color:
-    colors: ["#2E0D0F", "#2E0D0F"]
-    direction:
-      start: [0.0, 1.0]
-      end: [1.0, 0.0]
+  active_color: "#DA3B01"
+  inactive_color: "#2E0D0F"
+
+  # active_color:
+  #   colors: ["#DA3B01", "#2E0D0F"]    #  DA3B01   C65305
+  #   direction: 45deg
+  #
+  # inactive_color:
+  #   colors: ["#2E0D0F", "#2E0D0F"]
+  #   direction:
+  #     start: [0.0, 1.0]
+  #     end: [1.0, 0.0]
 
   # komorebi_colors: Additional integration for komorebi's special window kinds.
   #   - active_color is used for komorebi's "Single" window kind.
@@ -83,7 +87,7 @@ global:
   animations:
     active:
       - type: ReverseSpiral
-        duration: 1800
+        duration: 100
         easing: EaseInOutQuad
 
       - type: Fade
