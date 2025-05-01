@@ -4,6 +4,14 @@ return {
   "mikavilpas/yazi.nvim",
   enabled = true,
   event = "VeryLazy",
+  log_level = vim.log.levels.DEBUG,
+  bin = "/home/smpl/.cargo/bin/yazi",
+  socket_dir = "/tmp/yazi-sockets",
+  term = {
+    type = "split", -- Try "split" instead of "float"
+  },
+  -- startup_delay = 500, -- Add a 500ms delay to give Yazi time to start
+  -- args = { "--socket=/tmp/yazi-socket" }, -- Try specifying a socket path
   keys = {
     {
       "<leader>e",
