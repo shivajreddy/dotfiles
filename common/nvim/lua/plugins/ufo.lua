@@ -32,18 +32,47 @@ return {
         },
       },
       provider_selector = function(bufnr, filetype, buftype)
-        -- if you prefer treesitter provider rather than lsp,
-        -- return ftMap[filetype] or {'treesitter', 'indent'}
         return ftMap[filetype]
-        -- refer to ./doc/example.lua for detail
       end,
+      fold_virt_text_handler = nil,
     })
 
     -- Keymaps
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-    vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
+
+    -- Custom paragraph jump that respects folds
+    vim.keymap.set("n", "{", function()
+      -- Save current options
+      local foldopen = vim.opt.foldopen:get()
+
+      -- Temporarily disable opening folds when moving
+      vim.opt.foldopen:remove("block")
+
+      -- Move to previous paragraph
+      vim.cmd("normal! {")
+
+      -- Restore options
+      vim.opt.foldopen = foldopen
+    end, { noremap = true, silent = true })
+
+    vim.keymap.set("n", "}", function()
+      -- Save current options
+      local foldopen = vim.opt.foldopen:get()
+
+      -- Temporarily disable opening folds when moving
+      vim.opt.foldopen:remove("block")
+
+      -- Move to next paragraph
+      vim.cmd("normal! }")
+
+      -- Restore options
+      vim.opt.foldopen = foldopen
+    end, { noremap = true, silent = true })
+
+    -- Peek fold with K
     vim.keymap.set("n", "K", function()
       local winid = require("ufo").peekFoldedLinesUnderCursor()
       if not winid then
