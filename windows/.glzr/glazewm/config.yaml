@@ -110,21 +110,21 @@ workspaces:
     # keep_alive: true
     bind_to_monitor: 0
   - name: '2'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '3'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '4'
-    bind_to_monitor: 0
-  - name: '5'
-    bind_to_monitor: 0
-  - name: '6'
-    bind_to_monitor: 1
-  - name: '7'
-    bind_to_monitor: 1
-  - name: '8'
-    bind_to_monitor: 1
-  - name: '9'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
+  # - name: '5'
+    # bind_to_monitor: 0
+  # - name: '6'
+    # bind_to_monitor: 1
+  # - name: '7'
+    # bind_to_monitor: 1
+  # - name: '8'
+    # bind_to_monitor: 1
+  # - name: '9'
+    # bind_to_monitor: 0
 
 # ########################
 # use winspy from autohotkey to look the names, it shows the 
