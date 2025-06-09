@@ -1,10 +1,20 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    explorer = {
-      -- layout = { layout = { position = "right" } },
-      hidden = true,
-      -- ignored = true,
+    picker = {
+      sources = {
+        explorer = {
+          -- focus = "input",
+          -- auto_close = true,
+          -- layout = { layout = { position = "right" } },
+          include = {
+            ".env*",
+            -- ".gitignore"
+          },
+          -- hidden = true,
+          -- ignored = true,
+        },
+      },
     },
   },
 
