@@ -110,11 +110,11 @@ workspaces:
     # keep_alive: true
     bind_to_monitor: 0
   - name: '2'
-    # bind_to_monitor: 0
+    bind_to_monitor: 0
   - name: '3'
-    # bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '4'
-    # bind_to_monitor: 0
+    bind_to_monitor: 1
   # - name: '5'
     # bind_to_monitor: 0
   # - name: '6'
