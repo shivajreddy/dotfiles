@@ -1,0 +1,42 @@
+#|
+# Run in background and detach from terminal
+sudo nohup kanata -c ~/.config/kanata/kanata.kbd > /dev/null 2>&1 &
+
+# To stop it later, find the process and kill it
+sudo pkill kanata
+|#
+
+
+
+
+;; Configuration for macOS with correct device name
+(defcfg
+  process-unmapped-keys yes
+  macos-dev-names-include ("Apple Internal Keyboard / Trackpad")
+)
+
+;; Define timing variables
+(defvar
+  tap-timeout 200
+  hold-timeout 200
+)
+
+;; Define the keys to remap
+(defsrc
+  caps h j k l
+)
+
+;; Define the default layer
+(deflayer default
+  @caps-layer h j k l
+)
+
+;; Define the arrow layer (activated when holding caps)
+(deflayer arrows
+  _ left down up rght
+)
+
+;; Define tap-hold behavior for caps lock
+(defalias
+  caps-layer (tap-hold-press $tap-timeout $hold-timeout esc (layer-while-held arrows))
+)
