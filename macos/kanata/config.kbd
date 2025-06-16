@@ -1,6 +1,6 @@
 #|
 # Run in background and detach from terminal
-sudo nohup kanata -c ~/.config/kanata/kanata.kbd > /dev/null 2>&1 &
+sudo nohup kanata -c ~/.config/kanata/config.kbd > /dev/null 2>&1 &
 
 # To stop it later, find the process and kill it
 sudo pkill kanata
