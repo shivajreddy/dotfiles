@@ -50,13 +50,13 @@ yabai -m config auto_balance                 on
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Messages$" manage=off
+# yabai -m rule --add app="^Messages$" manage=off
 # yabai -m rule --add app="^FaceTime$" manage=off border=off
-yabai -m rule --add app="^WhatsApp$" manage=off
-yabai -m rule --add app="^Screen Sharing$" manage=off
-yabai -m rule --add label="PyCharm" app="^PyCharm$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
-yabai -m rule --add label="WebStorm" app="^WebStorm$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
-yabai -m rule --add label="RustRover-EAP" app="^RustRover-EAP$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
+# yabai -m rule --add app="^WhatsApp$" manage=off
+# yabai -m rule --add app="^Screen Sharing$" manage=off
+# yabai -m rule --add label="PyCharm" app="^PyCharm$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
+# yabai -m rule --add label="WebStorm" app="^WebStorm$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
+# yabai -m rule --add label="RustRover-EAP" app="^RustRover-EAP$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
 
 
 # BORDERS - removed from yabai, using another package
