@@ -152,3 +152,7 @@ vim.keymap.set(
   open_man_page,
   { noremap = true, silent = true, desc = "Open man page for word under cursor" }
 )
+
+-- Comment toggle
+vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment toggle current line", remap = true })
+vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment toggle selection", remap = true })
