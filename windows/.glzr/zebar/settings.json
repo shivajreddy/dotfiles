@@ -3,7 +3,9 @@
     "startupConfigs": [
         {
             "path": "shiva_bar/main.zebar.json",
-            "preset": "default"
+            "preset": "default",
+            "pack": "shiva_bar",
+            "widget": "main"
         }
     ]
 }
