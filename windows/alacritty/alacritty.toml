@@ -1,4 +1,5 @@
 ##############################  GENERAL  ##############################
+## using properties > compatibility > Run as Administrator
 [general]
 live_config_reload = true
 
@@ -41,12 +42,9 @@ bindings = [{ mouse = "Right", action = "None" }]
 ##############################  STARTUP  ##############################
 # WORKS ON WINDOWS
 [terminal.shell]
-program = "pwsh"
+program = "pwsh -nologo"
 # program = "wsl"
 # args = ["tmux attach || tmux"]
-
-# [terminal.shell]
-# program = "pwsh --nologo"
 
 
 ##############################  WINDOW  ##############################
