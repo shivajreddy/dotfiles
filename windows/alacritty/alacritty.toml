@@ -16,6 +16,8 @@ bindings = [
     { key = "Slash", mods = "Control", chars = "\u001F" },
     # Send Ctrl+Enter
     { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
+    { key = "Enter", mods = "Alt", action = "None" },
+    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
 ]
 
 
