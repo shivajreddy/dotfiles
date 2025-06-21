@@ -37,23 +37,23 @@ general:
 gaps:
   # When only a single window is present
   single_window_outer_gap:
-    top:    '80px'
-    right:  '80px'
-    bottom: '80px'
-    left:   '80px'
+    top:    '16px'
+    right:  '16px'
+    bottom: '16px'
+    left:   '16px'
 
   # Whether to scale the gaps with the DPI of the monitor.
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '2px'  # using 1 times the width of tacky-border-width for no gap
+  inner_gap: '10px'  # using 1 times the width of tacky-border-width for no gap
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top:    '2px'
-    right:  '2px'
-    bottom: '2px'
-    left:   '2px'
+    top:    '16px'
+    right:  '16px'
+    bottom: '16px'
+    left:   '16px'
 
 window_effects:
   # Visual effects to apply to the focused window.
