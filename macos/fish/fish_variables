@@ -42,7 +42,7 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/smpl/\x2espicetify\x1e/Users/smpl/\x2ecargo/bin\x1e/Users/smbp/\x2ecargo/bin\x1e/home/smpl/\x2econfig/fish/scripts\x1e/home/smpl/\x2espicetify\x1e/home/smpl/\x2econfig/bash/scripts\x1e/usr/local/zig\x1e/opt/nvim\x2dlinux64/bin\x1e/usr/local/go/bin\x1e/home/smpl/\x2ecargo/bin\x1e/home/smpl/\x2econfig/zsh/scripts\x1e/snap/bin
+SETUVAR fish_user_paths:/Users/smpl/bin\x1e/Users/smpl/\x2espicetify\x1e/Users/smpl/\x2ecargo/bin\x1e/Users/smbp/\x2ecargo/bin\x1e/home/smpl/\x2econfig/fish/scripts\x1e/home/smpl/\x2espicetify\x1e/home/smpl/\x2econfig/bash/scripts\x1e/usr/local/zig\x1e/opt/nvim\x2dlinux64/bin\x1e/usr/local/go/bin\x1e/home/smpl/\x2ecargo/bin\x1e/home/smpl/\x2econfig/zsh/scripts\x1e/snap/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
