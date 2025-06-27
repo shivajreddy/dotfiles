@@ -36,10 +36,23 @@ program = "/usr/local/bin/fish"
 # args = ["run", "tmux"]
 # program = 'powershell'
 
-# [keyboard]
-# bindings = [
-# {key = "K", mods = "Control", chars = "\u0008" }
-# ]
+[keyboard]
+bindings = [
+    # {key = "K", mods = "Control", chars = "\u0008" }
+    # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+    # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # { key = "L", mods = "Control|Shift", chars = "l" },
+    # {key = "K", mods = "Control", chars = "\u0008" },
+    # Send Ctrl+Tab and Ctrl+Shift+Tab
+    { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
+    { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+    # Send Ctrl+/ 
+    { key = "Slash", mods = "Control", chars = "\u001F" },
+    # Send Ctrl+Enter
+    { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
+    { key = "Enter", mods = "Alt", action = "None" },
+    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+]
 
 ##############################  WINDOW  ##############################
 [window]
