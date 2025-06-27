@@ -52,6 +52,7 @@ bindings = [
     { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
     { key = "Enter", mods = "Alt", action = "None" },
     # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+    { key = "S", mods = "Command", chars = "\u0013" },
 ]
 
 ##############################  WINDOW  ##############################
