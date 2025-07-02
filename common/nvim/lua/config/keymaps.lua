@@ -1,8 +1,40 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
--- CPP, build & run
+--#region CPP, build & run
+vim.keymap.set("n", "<F8>", function()
+  -- vim.notify("Running C++ build & run", vim.log.levels.INFO)
+  local filename = vim.fn.expand("%:t:r") -- Get filename without extension
+  local filepath = vim.fn.expand("%:p") -- Get full path
+  if vim.fn.expand("%:e") ~= "cpp" then
+    vim.notify("Not a C++ file!", vim.log.levels.ERROR)
+    return
+  end
+  -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s'", filepath, filename, filename)
+  -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s' < input.txt", filepath, filename, filename)
+  local cmd = string.format("g++ '%s' -o out && ./out < input.txt", filepath)
 
+  -- Using toggleterm
+  local Terminal = require("toggleterm.terminal").Terminal
+  local cpp_term = Terminal:new({
+    cmd = cmd,
+    direction = "float", -- horizontal, vertical, tab, float
+    float_opts = {
+      border = "double",
+      width = function()
+        return math.floor(vim.o.columns * 0.8)
+      end,
+      height = function()
+        return math.floor(vim.o.lines * 0.8)
+      end,
+    },
+    close_on_exit = false,
+  })
+  cpp_term:toggle()
+end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
+--#endregion
+
+--[[
 vim.keymap.set("n", "<F5>", function()
   -- opens the floating terminal
   Snacks.terminal(nil, { cwd = LazyVim.root() })
@@ -32,6 +64,7 @@ vim.keymap.set("n", "<F6>", function()
   -- end, { desc = "Terminal (Root Dir)" })
 end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
 --#endregion
+--]]
 
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
