@@ -19,7 +19,7 @@ TabWidth:        2
 BreakBeforeBraces: Custom
 BraceWrapping:
   AfterClass:               false
-  AfterFunction:            false
+  AfterFunction:            true
   SplitEmptyFunction:       false
   AfterNamespace:           false
   AfterEnum:                false
