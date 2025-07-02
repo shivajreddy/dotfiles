@@ -68,6 +68,9 @@ end, { noremap = true, silent = true, desc = "RUN CUSTOM COMMAND" })
 --#endregion
 --]]
 
+-- Jump between matching brackets with tab, (default % will still work)
+vim.keymap.set("n", "<Tab>", "%", { noremap = true, silent = true, desc = "Jump to matching bracket" })
+
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>", { desc = "Neotree Toggle" })
 
 -- Diagnostics
