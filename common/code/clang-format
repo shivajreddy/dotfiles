@@ -39,6 +39,8 @@ SpacesBeforeTrailingComments: 1
 AccessModifierOffset: -4
 IndentAccessModifiers: false  # Optional
 
+IndentPPDirectives: AfterHash
+
 SpacesInAngles: false
 SpaceInEmptyParentheses: false
 SpacesInParentheses: false

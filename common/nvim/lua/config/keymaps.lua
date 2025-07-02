@@ -3,6 +3,7 @@
 
 --#region CPP, build & run
 vim.keymap.set("n", "<F8>", function()
+  vim.cmd("write") -- save the current buffer
   -- vim.notify("Running C++ build & run", vim.log.levels.INFO)
   local filename = vim.fn.expand("%:t:r") -- Get filename without extension
   local filepath = vim.fn.expand("%:p") -- Get full path
@@ -18,6 +19,7 @@ vim.keymap.set("n", "<F8>", function()
   local Terminal = require("toggleterm.terminal").Terminal
   local cpp_term = Terminal:new({
     cmd = cmd,
+    dir = vim.fn.expand("%:p:h"), -- set terminal's cwd to current file's folder
     direction = "float", -- horizontal, vertical, tab, float
     float_opts = {
       border = "double",
