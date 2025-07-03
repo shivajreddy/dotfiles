@@ -34,3 +34,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("hi ManCursorLine guibg=#282828") -- cursor line color
   end,
 })
+
+-- Hide line numbers for markdown and text files using BufEnter to match by file extension
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.md", "*.txt" },
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
