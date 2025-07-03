@@ -1,3 +1,4 @@
-#zen-workspaces-button { 
+.zen-workspace-tabs-section.zen-current-workspace-indicator {
     display: none !important;
 }
+

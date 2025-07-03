@@ -16,7 +16,7 @@ Guide: https://www.userchrome.org/how-create-userchrome-css.html
     """
     Example:
     """
-    New-Item -ItemType SymbolicLink -D -Path "C:\Users\shiva\AppData\Roaming\zen\Profiles\bwmqgt7s.Default (release)\chrome\userChrome." -Target "\\wsl$\Ubuntu\home\smpl\dotfiles\common\zenbrowser\userChrome.css"
+    New-Item -ItemType SymbolicLink -D -Path "C:\Users\shiva\AppData\Roaming\zen\Profiles\bwmqgt7s.Default (release)\chrome\userChrome.css" -Target "\\wsl$\Ubuntu\home\smpl\dotfiles\common\zenbrowser\userChrome.css"
     """
     - MacOS & Linux
     ln -s ~/dotfiles/common/firefox/chrome ~/.
@@ -24,8 +24,10 @@ Guide: https://www.userchrome.org/how-create-userchrome-css.html
 4. For debugging firefox just like a webpage
     - In the Firefox Developer Tools settings (found under the three-dot menu in the upper-right corner of the DevTools pane), 
       enable "Enable browser chrome and add-on debugging toolboxes" and "Enable remote debugging
+    - press ctrl+alt+shift+i to open the brower toolbox
+    (or)
     - go to firefox settings(three dots) > More Tools > Browser ToolBox 
 
-
+5. now go to 'Style Editor' tab, top left search for userChrome.css file, and in the editor you can update the css file and see live changes.
 
 
