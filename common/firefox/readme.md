@@ -1,5 +1,7 @@
 ## How to customzie firefox
 
+Guide: https://www.userchrome.org/how-create-userchrome-css.html
+
 # Set Up Chrome folder for customization
 1. open `about:config` in firefox, and accept the risks and uncheck so it doesnt repeat
 2. Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set value to `true`
@@ -8,16 +10,22 @@
     - Copy to clipboard the path that is show next to the 'Open Folder' button
 3. Create SymbolicLink to the Chrome folder from the Profile folder
     - Windows
-    ```
-    For Debian with username 'shiva':
-    New-Item -ItemType SymbolicLink -D -Path "<copied-path-from-above>\chrome" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\firefox\chrome"
-    For Ubuntu with username 'shiva':
+    For Ubuntu with username 'smpl':
+    """
     New-Item -ItemType SymbolicLink -D -Path "<copied-path-from-above>\chrome" -Target "\\wsl`$\Ubuntu\home\shiva\dotfiles\common\firefox\chrome"
+    """
     Example:
-    New-Item -ItemType SymbolicLink -D -Path "C:\Users\sreddy\AppData\Roaming\Mozilla\Firefox\Profiles\8vanq41s.default-release\chrome" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\firefox\chrome"
-    New-Item -ItemType SymbolicLink -D -Path "C:\Users\sreddy\AppData\Roaming\Mozilla\Firefox\Profiles\50dhcs5t.default-release-1732108027851\chrome" -Target "\\wsl`$\Debian\home\shiva\dotfiles\common\firefox\chrome"
-    ```
+    """
+    New-Item -ItemType SymbolicLink -D -Path "C:\Users\shiva\AppData\Roaming\zen\Profiles\bwmqgt7s.Default (release)\chrome\userChrome." -Target "\\wsl$\Ubuntu\home\smpl\dotfiles\common\zenbrowser\userChrome.css"
+    """
     - MacOS & Linux
-    ```
     ln -s ~/dotfiles/common/firefox/chrome ~/.
-    ```
+
+4. For debugging firefox just like a webpage
+    - In the Firefox Developer Tools settings (found under the three-dot menu in the upper-right corner of the DevTools pane), 
+      enable "Enable browser chrome and add-on debugging toolboxes" and "Enable remote debugging
+    - go to firefox settings(three dots) > More Tools > Browser ToolBox 
+
+
+
+
