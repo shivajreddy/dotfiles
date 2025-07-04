@@ -145,6 +145,9 @@ window_rules:
       # Ignore any Zebar windows
       - window_process: { equals: 'zebar' }
 
+      # Ignore Spotify
+      - window_process: { equals: 'Spotify' }
+
       # Ignore File Explorer
       - window_process: { equals: 'explorer' }
         window_title : {regex: '^.+ - File Explorer$'}
