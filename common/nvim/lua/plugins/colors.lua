@@ -1,4 +1,5 @@
 return {
+  -- Kanagawa
   {
     "rebelot/kanagawa.nvim",
     name = "kanagawa",
@@ -53,6 +54,7 @@ return {
       })
     end,
   },
+
   --  catppuccin
   {
     "catppuccin/nvim",
@@ -152,8 +154,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "kanagawa",
-      colorscheme = "catppuccin",
+      colorscheme = "kanagawa",
+      -- colorscheme = "catppuccin",
     },
   },
 }

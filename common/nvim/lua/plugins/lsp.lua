@@ -6,6 +6,7 @@ return {
     opts = {
       inlay_hints = { enabled = false }, -- at starts sets them off
       servers = {
+
         --#region Clangd  Configuration
         clangd = {
           keys = {
@@ -48,21 +49,20 @@ return {
         },
         --#endregion
 
-        --#region Go Configuration
-        -- https://github.com/ray-x/go.nvim
-        -- gopls = {},
+        --#region Go Configuration (https://github.com/ray-x/go.nvim)
+        gopls = {},
         --#endregion
 
         --#region Rust Configuration
-        rust_analyzer = {
-          -- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/
-          tools = {},
-          inlay_hints = {
-            enabled = true,
-            auto = true,
-            show_parameter_hints = true,
-          },
-        },
+        -- rust_analyzer = {
+        --   -- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/
+        --   tools = {},
+        --   inlay_hints = {
+        --     enabled = true,
+        --     auto = true,
+        --     show_parameter_hints = true,
+        --   },
+        -- },
         --#endregion
       },
 
