@@ -19,6 +19,8 @@
 **/errors.log
 /windows/.glzr/zebar/tmp-*/
 **/tacky-borders.log
+windows/glzr/zebar/tmp*/
+
 
 
 # WSL
