@@ -5,20 +5,43 @@
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
--- vim.opt.clipboard = "unnamedplus"    --Works for linux
 -- vim.opt.clipboard:append("unnamedplus")
-vim.g.clipboard = { --Works for wsl
-  name = "win32yank",
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf",
-  },
-  paste = {
-    ["+"] = "win32yank.exe -o --lf",
-    ["*"] = "win32yank.exe -o --lf",
-  },
-  cache_enabled = 0,
-}
+-- vim.opt.clipboard = "unnamedplus" --Works for linux
+-- vim.g.clipboard = { --Works for wsl
+--   name = "win32yank",
+--   copy = {
+--     ["+"] = "win32yank.exe -i --crlf",
+--     ["*"] = "win32yank.exe -i --crlf",
+--   },
+--   paste = {
+--     ["+"] = "win32yank.exe -o --lf",
+--     ["*"] = "win32yank.exe -o --lf",
+--   },
+--   cache_enabled = 0,
+-- }
+
+local is_wsl = vim.fn.has("wsl") == 1
+local sysname = vim.loop.os_uname().sysname
+if is_wsl then
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = 0,
+  }
+elseif sysname == "Linux" then
+  vim.opt.clipboard = "unnamedplus"
+elseif sysname == "Darwin" then
+  vim.opt.clipboard = "unnamedplus" -- or customize for macOS if needed
+else
+  vim.notify("No clipboard integration configured for OS: " .. sysname, vim.log.levels.WARN)
+end
 
 -- Disable options
 
