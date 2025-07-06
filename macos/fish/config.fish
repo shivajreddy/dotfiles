@@ -27,8 +27,6 @@ for script in $HOME/.config/fish/scripts/*.fish
     source $script
 end
 
-
-
 # Environment variables
 set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
 set -gx BROWSER '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
@@ -50,6 +48,10 @@ set -gx GOPATH $HOME/go
 # Install with: fisher install jorgebucaran/nvm.fish
 
 ########################### ALIASES ###########################
+
+# MacOS - g++ fix using alias (comment these on wsl/linux if runcpp wont work)
+# alias g++ 'g++-15'
+# alias gcc gcc-15
 
 # Common
 # alias cd="z"
