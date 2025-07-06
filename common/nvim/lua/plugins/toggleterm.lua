@@ -23,14 +23,14 @@ return {
       })
 
       -- Set keymap for normal mode
-      vim.keymap.set("n", "<F11>", function()
-        require("toggleterm").toggle()
-      end, { desc = "Toggle Terminal", noremap = true, silent = true })
+      -- vim.keymap.set("n", "<F11>", function()
+      --   require("toggleterm").toggle()
+      -- end, { desc = "Toggle Terminal", noremap = true, silent = true })
 
       -- Set keymap for terminal mode to close the terminal
-      vim.keymap.set("t", "<F11>", function()
-        require("toggleterm").toggle()
-      end, { desc = "Toggle Terminal", noremap = true, silent = true })
+      -- vim.keymap.set("t", "<F11>", function()
+      --   require("toggleterm").toggle()
+      -- end, { desc = "Toggle Terminal", noremap = true, silent = true })
     end,
   },
 }
