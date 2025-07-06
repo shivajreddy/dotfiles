@@ -50,8 +50,8 @@ set -gx GOPATH $HOME/go
 ########################### ALIASES ###########################
 
 # MacOS - g++ fix using alias (comment these on wsl/linux if runcpp wont work)
-# alias g++ 'g++-15'
-# alias gcc gcc-15
+alias g++ 'g++-15'
+alias gcc gcc-15
 
 # Common
 # alias cd="z"

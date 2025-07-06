@@ -59,6 +59,8 @@ function runcpp
 
     # Monitor the file for changes using find and entr
     echo "Watching '$CPP_FILE' for changes. Press Ctrl+C to stop."
+    # find $DIR -name (basename $CPP_FILE) | entr -c fish -c \
+    # "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE; and $OUT_FILE"
     find $DIR -name (basename $CPP_FILE) | entr -c fish -c \
-        "g++ -std=c++$CPP_VERSION $CPP_FILE -o $OUT_FILE; and $OUT_FILE"
+        "g++ -std=c++$CPP_VERSION -Wno-deprecated $CPP_FILE -o $OUT_FILE; and $OUT_FILE"
 end

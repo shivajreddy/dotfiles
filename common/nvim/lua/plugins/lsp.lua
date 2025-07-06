@@ -33,13 +33,15 @@ return {
           cmd = {
             "clangd",
             "--background-index",
-            "--clang-tidy",
             "--header-insertion=iwyu",
             "--completion-style=detailed",
             "--function-arg-placeholders",
             "--fallback-style=llvm",
             "--enable-config",
             "--compile-commands-dir=.",
+            -- "--clang-tidy", -- for linux
+            "--clang-tidy=false", -- for macos
+            "--query-driver=/usr/local/Cellar/gcc/15.1.0/bin/g++-15", -- for macos
           },
           init_options = {
             usePlaceholders = true,
