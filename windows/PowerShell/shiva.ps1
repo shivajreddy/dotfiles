@@ -18,6 +18,8 @@ Invoke-Expression (&starship init powershell)
 
 # ####	ALIASES   ####
 Set-Alias -Name vi -Value nvim
+Set-Alias -Name gg -Value lazygit
+Set-Alias -Name c -Value cls
 
 Set-Alias -Name python -Value py
 Set-Alias -Name python3 -Value py
