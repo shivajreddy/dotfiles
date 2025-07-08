@@ -13,3 +13,10 @@ edit = [
 	{ run = "explorer.exe %*",  block = true, for = "windows" },
 ]
 # edit = [ { run = "nvim %*"}, ]
+
+
+# FOR WINDOWS, yazi looks at %APPDATA%/yazi/config so use the following symlinks
+# New-Item -ItemType SymbolicLink -Path "yazi.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\yazi.toml"
+# New-Item -ItemType SymbolicLink -Path "theme.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\theme.toml"
+# New-Item -ItemType SymbolicLink -Path "keymap.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\keymap.toml"
+
