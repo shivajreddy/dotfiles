@@ -22,7 +22,7 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 local is_wsl = vim.fn.has("wsl") == 1
 local sysname = vim.loop.os_uname().sysname
-if is_wsl then
+if is_wsl or sysname == "Windows_NT" then
   vim.g.clipboard = {
     name = "win32yank",
     copy = {
