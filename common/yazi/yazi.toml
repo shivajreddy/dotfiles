@@ -10,7 +10,8 @@ sort_by = "mtime"
 [opener]
 edit = [
 	{ run = 'nvim "$@"', block = true, for = "unix" },
-	{ run = "explorer.exe %*",  block = true, for = "windows" },
+	{ run = "nvim %*",  block = true, for = "windows" },
+	# { run = "explorer.exe %*",  block = true, for = "windows" },
 ]
 # edit = [ { run = "nvim %*"}, ]
 
