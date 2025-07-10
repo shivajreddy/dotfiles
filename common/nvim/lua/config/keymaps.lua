@@ -1,7 +1,38 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
+--#region CPP, build & run & paste into output.txt
+vim.keymap.set("n", "<F8>", function()
+  vim.cmd("write")
+  if vim.fn.expand("%:e") ~= "cpp" then
+    vim.notify("Not a C++ file!", vim.log.levels.ERROR)
+    return
+  end
+
+  local filepath = vim.fn.expand("%:p")
+  local dir = vim.fn.expand("%:p:h")
+  local input_path = dir .. "/input.txt"
+  local output_path = dir .. "/output.txt"
+
+  local cmd = string.format("g++ '%s' -o out && ./out < '%s' > '%s'", filepath, input_path, output_path)
+
+  vim.fn.jobstart(cmd, {
+    cwd = dir,
+    stdout_buffered = true,
+    stderr_buffered = true,
+    on_exit = function(_, code)
+      if code == 0 then
+        vim.notify("Output written to output.txt", vim.log.levels.INFO)
+      else
+        vim.notify("Build or execution failed", vim.log.levels.ERROR)
+      end
+    end,
+  })
+end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
+--#endregion
+
 --#region CPP, build & run
+--[[
 vim.keymap.set("n", "<F8>", function()
   vim.cmd("write") -- save the current buffer
   -- vim.notify("Running C++ build & run", vim.log.levels.INFO)
@@ -34,6 +65,7 @@ vim.keymap.set("n", "<F8>", function()
   })
   cpp_term:toggle()
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
+]]
 --#endregion
 
 --[[
