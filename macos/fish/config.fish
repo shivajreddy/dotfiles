@@ -62,6 +62,7 @@ alias ll="ls -alh"
 alias files="explorer.exe"
 alias y="yazi"
 alias ff="fastfetch"
+alias c="clear"
 
 # Git aliases
 alias gaa="git add ."
