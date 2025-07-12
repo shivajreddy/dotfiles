@@ -52,7 +52,7 @@ return {
         --#endregion
 
         --#region Go Configuration (https://github.com/ray-x/go.nvim)
-        gopls = {},
+        -- gopls = {},
         --#endregion
 
         --#region Rust Configuration
