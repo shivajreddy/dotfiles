@@ -31,6 +31,41 @@ vim.keymap.set("n", "<F8>", function()
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
 --#endregion
 
+--#region RUN CPP main function
+vim.keymap.set("n", "<F9>", function()
+  vim.cmd("write") -- Save the current buffer
+
+  local filename = vim.fn.expand("%:t:r") -- filename without extension
+  local filepath = vim.fn.expand("%:p") -- full path
+
+  if vim.fn.expand("%:e") ~= "cpp" then
+    vim.notify("Not a C++ file!", vim.log.levels.ERROR)
+    return
+  end
+
+  local cmd = string.format("g++ '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
+
+  local Terminal = require("toggleterm.terminal").Terminal
+  local cpp_term = Terminal:new({
+    cmd = cmd,
+    dir = vim.fn.expand("%:p:h"),
+    direction = "float",
+    float_opts = {
+      border = "double",
+      width = function()
+        return math.floor(vim.o.columns * 0.8)
+      end,
+      height = function()
+        return math.floor(vim.o.lines * 0.8)
+      end,
+    },
+    close_on_exit = false,
+  })
+
+  cpp_term:toggle()
+end, { noremap = true, silent = true, desc = "CPP BUILD & RUN (interactive input)" })
+--#endregion
+
 --#region CPP, build & run
 --[[
 vim.keymap.set("n", "<F8>", function()
