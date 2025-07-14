@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 --#region CPP, build & run & paste into output.txt
+--[[
 vim.keymap.set("n", "<F8>", function()
   vim.cmd("write")
   if vim.fn.expand("%:e") ~= "cpp" then
@@ -29,6 +30,7 @@ vim.keymap.set("n", "<F8>", function()
     end,
   })
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
+--]]
 --#endregion
 
 --#region RUN CPP main function
@@ -67,7 +69,6 @@ end, { noremap = true, silent = true, desc = "CPP BUILD & RUN (interactive input
 --#endregion
 
 --#region CPP, build & run
---[[
 vim.keymap.set("n", "<F8>", function()
   vim.cmd("write") -- save the current buffer
   -- vim.notify("Running C++ build & run", vim.log.levels.INFO)
@@ -79,7 +80,8 @@ vim.keymap.set("n", "<F8>", function()
   end
   -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s'", filepath, filename, filename)
   -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s' < input.txt", filepath, filename, filename)
-  local cmd = string.format("g++ '%s' -o out && ./out < input.txt", filepath)
+  local cmd = string.format("g++ -std=c++17 -Wno-cpp '%s' -o out && ./out < input.txt", filepath)
+  -- local cmd = string.format( "g++ -std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-sign-conversion -DONLINE_JUDGE -g '%s' -o out && ./out < input.txt", filepath)
 
   -- Using toggleterm
   local Terminal = require("toggleterm.terminal").Terminal
@@ -100,7 +102,8 @@ vim.keymap.set("n", "<F8>", function()
   })
   cpp_term:toggle()
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
-]]
+--[[
+--]]
 --#endregion
 
 --[[

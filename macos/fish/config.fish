@@ -61,6 +61,7 @@ alias l="ls -l"
 alias ll="ls -alh"
 alias files="explorer.exe"
 alias y="yazi"
+alias gg="lazygit"
 alias ff="fastfetch"
 alias c="clear"
 
