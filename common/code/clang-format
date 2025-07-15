@@ -30,8 +30,8 @@ BraceWrapping:
   BeforeElse:               false
   IndentBraces:             false
 AllowShortIfStatementsOnASingleLine: true
-AllowShortLoopsOnASingleLine:       false
-AllowShortFunctionsOnASingleLine: None  # 
+AllowShortLoopsOnASingleLine:        true
+AllowShortFunctionsOnASingleLine:    None 
 ColumnLimit:      80
 ContinuationIndentWidth: 4
 # SpaceBeforeParens: ControlStatements
