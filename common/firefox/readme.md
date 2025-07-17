@@ -4,7 +4,7 @@ Guide: https://www.userchrome.org/how-create-userchrome-css.html
 
 # Set Up Chrome folder for customization
 1. open `about:config` in firefox, and accept the risks and uncheck so it doesnt repeat
-2. Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set value to `true`
+2. MUST DO THIS: Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set value to `true`
 3. Get the path of the profile folder
     - Click the ` ` > `Help` > `More Troubleshooting Information` > `Profile Folder`
     - Copy to clipboard the path that is show next to the 'Open Folder' button
