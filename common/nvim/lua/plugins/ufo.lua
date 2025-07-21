@@ -40,8 +40,8 @@ return {
       vim = "indent",
       python = { "indent" },
       git = "",
-      cpp = cpp_custom_provider,
-      c = cpp_custom_provider, -- Also apply to C files if needed
+      cpp = { "lsp", cpp_custom_provider },
+      c = { "lsp", cpp_custom_provider }, -- Also apply to C files if needed
     }
 
     require("ufo").setup({
