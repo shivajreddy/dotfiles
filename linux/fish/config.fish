@@ -21,15 +21,11 @@ fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
 
-set -x C3_PATH /usr/local/lib/c3
-
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
 for script in $HOME/.config/fish/scripts/*.fish
     source $script
 end
-
-
 
 # Environment variables
 set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
@@ -40,10 +36,6 @@ set -gx QT_QPA_PLATFORMTHEME qt5ct
 
 # Library paths for c/c++
 set -gx LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
-
-# HASKELL
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-set -gx PATH $HOME/.cabal/bin /home/smpl/.ghcup/bin $PATH # ghcup-env
 
 # Terminal settings
 set -gx TERM tmux-256color
