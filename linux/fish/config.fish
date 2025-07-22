@@ -4,6 +4,15 @@
 # License: LOL
 ######################################################
 
+########################### GENERAL ###########################
+# CURSOR 
+set fish_cursor_default block
+# Set the cursor shapes for the different vi modes.
+set fish_cursor_default block
+set fish_cursor_insert block
+# set fish_cursor_replace_one underscore blink
+set fish_cursor_visual block
+
 set -g fish_greeting ''
 
 if status is-interactive
