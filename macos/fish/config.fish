@@ -64,6 +64,7 @@ alias y="yazi"
 alias gg="lazygit"
 alias ff="fastfetch"
 alias c="clear"
+alias gp="git pull"
 
 # Git aliases
 alias gaa="git add ."
