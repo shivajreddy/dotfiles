@@ -146,7 +146,7 @@ window_rules:
       - window_process: { equals: 'zebar' }
 
       # Ignore Spotify
-      - window_process: { equals: 'Spotify' }
+      # - window_process: { equals: 'Spotify' }
 
       # Ignore File Explorer
       - window_process: { equals: 'explorer' }
