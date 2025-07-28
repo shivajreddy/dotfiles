@@ -9,10 +9,24 @@ sort_by = "mtime"
 
 [opener]
 edit = [
-	{ run = 'nvim "$@"', block = true, for = "unix" },
-	{ run = "nvim %*",  block = true, for = "windows" },
-	# { run = "explorer.exe %*",  block = true, for = "windows" },
+    { run = 'nvim "$@"', block = true, for = "unix" },
+    { run = "nvim %*", block = true, for = "windows" },
+    # { run = "explorer.exe %*",  block = true, for = "windows" },
 ]
+image_viewer = [
+    # { run = 'mspaint.exe "%*"', orphan = true, for = "unix" },
+    # { run = 'feh "%*"', orphan = true, for = "unix" },
+    { run = 'feh "$@"', orphan = true, for = "unix" },
+    { run = 'mspaint.exe "%*"', orphan = true, for = "windows" },
+]
+
+[open]
+prepend_rules = [
+    # This will make JPG/PNG files open with your image_viewer by default
+    { name = "*.{jpg,jpeg,png,JPG,JPEG,PNG}", use = "image_viewer" },
+]
+
+
 # edit = [ { run = "nvim %*"}, ]
 
 
@@ -20,4 +34,3 @@ edit = [
 # New-Item -ItemType SymbolicLink -Path "yazi.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\yazi.toml"
 # New-Item -ItemType SymbolicLink -Path "theme.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\theme.toml"
 # New-Item -ItemType SymbolicLink -Path "keymap.toml" -Target "C:\Users\shiva\dotfiles\common\yazi\keymap.toml"
-
