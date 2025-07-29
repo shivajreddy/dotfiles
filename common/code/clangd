@@ -1,0 +1,41 @@
+# ----------------------------------------
+# Setup on MacOS by symlinking from dotfiles
+# $ ln -s ~/dotfiles/common/code/clangd ~/.clangd
+# ----------------------------------------
+
+
+# ----------------------------------------
+# Clangd Configuration for GCC 15
+# - Sets the custom compiler
+# - Adds necessary include paths
+# - Enables C++17 standard
+# ----------------------------------------
+CompileFlags:
+  Compiler: /usr/local/Cellar/gcc/15.1.0/bin/g++-15
+  Add:
+    - -std=c++17
+    - -I/usr/local/include/c++/15
+    - -I/usr/local/include/c++/15/x86_64-apple-darwin24
+    - -I/usr/local/Cellar/gcc/15.1.0/include/c++/15
+    - -I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin24
+
+
+# ----------------------------------------
+# :::::: PREVIOUS CONFIG ::::::::
+# CompileFlags:
+#   Add: 
+#     - -I/usr/local/include/c++/15
+#     - -I/usr/local/include/c++/15/x86_64-apple-darwin24
+#     - -std=c++17
+# ----------------------------------------
+
+
+# --------------------------------------
+# :::::: CONFIG THAT FIXES NEOVIM ON MAC ::::::::
+# CompileFlags:
+#   Compiler: /usr/local/Cellar/gcc/15.1.0/bin/g++-15
+#   Add:
+#     - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15"
+#     - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin24"
+# --------------------------------------
+
