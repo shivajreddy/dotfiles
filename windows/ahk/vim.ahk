@@ -1,4 +1,5 @@
-#NoTrayIcon
+; uncomment below to hide the tray icon
+; #NoTrayIcon
 
 CapsLock::
     Send {Esc}
