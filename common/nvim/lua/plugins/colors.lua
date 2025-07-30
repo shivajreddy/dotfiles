@@ -6,8 +6,8 @@ return {
     config = function()
       -- Default options:
       require("kanagawa").setup({
-        compile = false, -- enable compiling the colorscheme
-        undercurl = true, -- enable undercurls
+        compile = true, -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls(wavy underline)
         commentStyle = { italic = false },
         functionStyle = {},
         keywordStyle = { italic = false },
@@ -48,8 +48,8 @@ return {
         end,
         theme = "wave", -- wave dragon lotus
         background = { -- map the value of 'background' option to a theme
-          dark = "wave", -- try "dragon" !
-          light = "lotus",
+          -- dark = "dragon", -- wave dragon
+          -- light = "lotus", -- lotus
         },
       })
     end,
@@ -154,8 +154,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "kanagawa",
-      colorscheme = "catppuccin",
+      colorscheme = "kanagawa",
+      -- colorscheme = "catppuccin",
     },
   },
 }
