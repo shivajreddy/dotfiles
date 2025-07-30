@@ -41,9 +41,11 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
 
-  # active_color: "#DA3B01" # dune
-  active_color: "#1DB954"
-  inactive_color: "#2E0D0F"
+  active_color: "#1DB954" # (DA3B01-dune) (1DB954-spotify)
+  # active_color:
+  #   colors: ["#1DB954", "#DA3B01"]
+  #   direction: 45deg
+  inactive_color: "#031208" #(2E0D0F-dune) (031208-spotify)
 
   # active_color:
   #   colors: ["#DA3B01", "#2E0D0F"]    #  DA3B01   C65305
@@ -86,10 +88,12 @@ global:
   #
   # NOTE: Spiral animations may be resource-intensive on low-end systems.
   animations:
+    enabled: False
+    fps: 60
     active:
       - type: ReverseSpiral
-        duration: 100
-        easing: EaseInOutQuad
+        duration: 1800
+        easing: Linear
 
       - type: Fade
         duration: 200
@@ -98,14 +102,11 @@ global:
     inactive:
       - type: Spiral
         duration: 1800
-        easing: EaseInOutQuad
+        easing: Linear
 
       - type: Fade
         duration: 200
         easing: EaseInOutQuad
-
-    fps: 60
-    enabled: False
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window
