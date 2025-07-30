@@ -163,7 +163,7 @@ family = "Iosevka Nerd Font"
 #### MISC.
 [colors.cursor]
 text = "#181919"
-cursor = "#DA3B01" #   C65305  DA3B01 (DA3B01-dune)
+cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
 
 
 # Kanagawa-dragon Alacritty Colors
