@@ -4,7 +4,7 @@ watch_config_changes: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 2
+  border_width: 3
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards
@@ -17,7 +17,7 @@ global:
   #   - Round: Fully rounded corners
   #   - RoundSmall: Slightly rounded corners
   #   - Or specify any numeric value for a custom radius
-  border_radius: RoundSmall
+  border_radius: Square
 
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
@@ -41,7 +41,8 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
 
-  active_color: "#DA3B01"
+  # active_color: "#DA3B01" # dune
+  active_color: "#1DB954"
   inactive_color: "#2E0D0F"
 
   # active_color:
