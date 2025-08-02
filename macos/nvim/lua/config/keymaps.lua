@@ -48,24 +48,28 @@ vim.keymap.set("n", "<F8>", function()
   local cmd = string.format("g++ -std=c++17 -Wno-cpp '%s' -o out && ./out < input.txt", filepath)
   -- local cmd = string.format( "g++ -std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-sign-conversion -DONLINE_JUDGE -g '%s' -o out && ./out < input.txt", filepath)
 
-  -- Using toggleterm
+  --#region Using toggleterm
   local Terminal = require("toggleterm.terminal").Terminal
   local cpp_term = Terminal:new({
     cmd = cmd,
     dir = vim.fn.expand("%:p:h"), -- set terminal's cwd to current file's folder
     direction = "float", -- horizontal, vertical, tab, float
     float_opts = {
-      border = "double",
+      border = "single",
       width = function()
         return math.floor(vim.o.columns * 0.8)
       end,
       height = function()
         return math.floor(vim.o.lines * 0.8)
       end,
+      title_pos = "center",
+      zindex = 20,
     },
+    winbar = { enabled = true },
     close_on_exit = false,
   })
   cpp_term:toggle()
+  --#endregion
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
 --#endregion
 
@@ -265,3 +269,46 @@ vim.keymap.set(
 -- Comment toggle
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment toggle current line", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment toggle selection", remap = true })
+
+--#region Toggle Solution.txt as scratch
+local snacks = require("snacks")
+local util = require("vim.fs")
+
+--- If 'solution.txt' next to current file exists, open it in a snack float;
+--- otherwise toggle a scratch buffer.
+---@returns void
+local function open_solution_or_scratch()
+  -- 1) Get the absolute dir of the current buffer, or fallback to cwd for no-name buffers
+  local bufname = vim.api.nvim_buf_get_name(0)
+  local dir = bufname ~= "" and util.dirname(bufname) or vim.fn.getcwd()
+
+  -- 2) Compute the target path
+  local sol = util.joinpath(dir, "solution.txt")
+
+  -- 3) Check file existence via luv.fs_stat
+  local ok = vim.loop.fs_stat(sol)
+  if ok and ok.type == "file" then
+    -- Open in a new snacks floating window; inherits filetype, cwd, etc.
+    snacks.win({
+      file = sol,
+      cwd = dir,
+      width = 100,
+      height = 30,
+      zindex = 20,
+      backdrop = 20,
+      wo = { winhighlight = "NormalFloat:Normal", wrap = false, spell = false },
+      border = "rounded",
+      title_pos = "center",
+      title = "Solution.txt",
+      footer_pos = "center",
+      on_ready = function(_, buf)
+        vim.bo[buf].modifiable = true
+      end,
+    })
+  else
+    -- Fallback to a regular scratch buffer
+    snacks.scratch()
+  end
+end
+vim.keymap.set("n", "<leader>.", open_solution_or_scratch, { desc = "Toggle Solution.txt", remap = true })
+--#endregion
