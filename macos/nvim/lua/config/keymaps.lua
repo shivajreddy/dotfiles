@@ -81,7 +81,8 @@ vim.keymap.set("n", "<F9>", function()
     return
   end
 
-  local cmd = string.format("g++ '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
+  local cmd = string.format("g++ -std=c++17 -Wno-cpp '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
+  -- local cmd = string.format("g++ '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
 
   local Terminal = require("toggleterm.terminal").Terminal
   local cpp_term = Terminal:new({
