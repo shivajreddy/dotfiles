@@ -1,5 +1,5 @@
 ##############################  GENERAL  ##############################
-# [general]
+[general]
 live_config_reload = true
 
 [keyboard]
@@ -34,7 +34,7 @@ hide_when_typing = true
 
 
 ##############################  STARTUP  ##############################
-[shell]
+[terminal.shell]
 program = "tmux"
 
 # [shell]

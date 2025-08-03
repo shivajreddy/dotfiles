@@ -154,3 +154,5 @@ fish_add_path $HOME/.spicetify
 function vman
     nvim -c "Man $argv[1]" -c only
 end
+
+~/.local/bin/qbittorrent &
