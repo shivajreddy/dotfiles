@@ -66,14 +66,15 @@ for_window [class="Blueman" instance="blueman-manager"] floating enable
 # TERMINAL
 # bindsym $mod+Return exec kitty "tmux"
 # bindsym $mod+Shift+Return exec kitty
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # ROFI, app launcher
-bindsym $mod+space exec rofi -show drun
+bindsym $mod+Return exec rofi -show drun
+# bindsym $mod+space exec rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
