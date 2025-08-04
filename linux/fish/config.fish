@@ -155,4 +155,4 @@ function vman
     nvim -c "Man $argv[1]" -c only
 end
 
-~/.local/bin/qbittorrent &
+# ~/.local/bin/qbittorrent &
