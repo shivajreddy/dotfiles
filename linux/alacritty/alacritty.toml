@@ -1,19 +1,28 @@
 ##############################  GENERAL  ##############################
+## using properties > compatibility > Run as Administrator
 [general]
 live_config_reload = true
 
+
 [keyboard]
 bindings = [
-  # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
-  # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-  # { key = "L", mods = "Control|Shift", chars = "l" },
-  # { key = "K", mods = "Control", chars = "\u0008" },
-  # Send C-tab and C-Shift-tab
-  { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
-  { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
-  # Send Ctrl+/ 
-  { key = "Slash", mods = "Control", chars = "\u001F" },
+    # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+    # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # { key = "L", mods = "Control|Shift", chars = "l" },
+    # {key = "K", mods = "Control", chars = "\u0008" },
+    # Send Ctrl+Tab and Ctrl+Shift+Tab
+    { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
+    { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+    # Send Ctrl+/ 
+    { key = "Slash", mods = "Control", chars = "\u001F" },
+    # Send Ctrl+Enter
+    { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
+    { key = "Enter", mods = "Alt", action = "None" },
+    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
 ]
+
+
+# working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
 
 [env]
 TERM = "xterm-256color"
@@ -31,45 +40,42 @@ save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
-
+bindings = [{ mouse = "Right", action = "None" }]
 
 ##############################  STARTUP  ##############################
 [terminal.shell]
 program = "tmux"
 
-# [shell]
-# program = 'Ubuntu'
-# args = ["run", "tmux"]
-# program = 'powershell'
-
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 1
-# opacity = 0.98
+opacity = 0.97
 blur = true
-dynamic_title = true
+dynamic_title = false
 # title = "smpl;"
 # title = ""
-dynamic_padding = true
-decorations = "Full"   # "Full" | "None" | "Transparent" | "Buttonless"
+title = "Alacritty"
+dynamic_padding = false
+decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
+resize_increments = true
 
 [window.dimensions]
 columns = 80
-lines = 24
+lines = 3
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
-[window.padding]
 
+[window.padding]
 x = 0
 y = 0
 
 
 ############################## FONT ##############################
 [font]
-size = 15
+size = 14 # perfect for kipp
+# size = 18                  # perfect for teclab
 builtin_box_drawing = true
 
 [font.offset]
@@ -91,8 +97,6 @@ family = "Iosevka Nerd Font"
 # style = "UltraCondensed"
 # family = "TX02 Nerd Font"
 # family = "SFMono Nerd Font"
-# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus MaterialDesign Icons Plus Weather Icons"
-# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
@@ -110,7 +114,6 @@ family = "Iosevka Nerd Font"
 # family = "SFMono Nerd Font"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
-# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
@@ -130,7 +133,6 @@ family = "Iosevka Nerd Font"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
-# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
@@ -149,7 +151,6 @@ family = "Iosevka Nerd Font"
 # family = "Iosevka Nerd Font"
 # family = "Iosevka"
 # family = "Iosevka Nerd Font"
-# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
 # family = "Berkeley Mono"
 # family = "JetBrainsMono Nerd Font"
 # family = "IBM Plex Mono"
@@ -158,9 +159,10 @@ family = "Iosevka Nerd Font"
 
 ############################## THEME ##############################
 #### MISC.
-# [colors.cursor]
-# text = "#000000"
-# cursor = "#ffffff"
+[colors.cursor]
+text = "#181919"
+cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
+
 
 # Kanagawa-dragon Alacritty Colors
 [colors]

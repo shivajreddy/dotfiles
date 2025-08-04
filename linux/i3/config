@@ -8,11 +8,12 @@ set $PATH $HOME/.cargo/bin:$PATH
 ##### UI #######
 
 # FONT
-font pango:SF Pro Display 8
+# font pango:SF Pro Display 8
+font pango:Iosevka Nerd Font 10
 
 # GAPS
-gaps outer 0
-gaps inner 0
+gaps outer 10
+gaps inner 4
 workspace 6 gaps outer 40
 workspace 6 gaps inner 40
 workspace 9 gaps outer 40
