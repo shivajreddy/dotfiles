@@ -1,0 +1,65 @@
+############################## FONT ##############################
+[font]
+size = 20.5
+builtin_box_drawing = true
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+# family = "TX02 Nerd Font Condensed"
+# family = "TX-02"
+family = "Iosevka Nerd Font"
+# style = "Condensed"
+# family = "Iosevka"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.italic]
+# family = "TX02 Nerd Font Condensed Oblique"
+# family = "TX-02"
+# style = "Condensed Oblique"
+family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.bold]
+# style = "Bold Condensed"
+# family = "TX02 Nerd Font Condensed Bold"
+# family = "TX-02"
+family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+[font.bold_italic]
+# style = "Bold Bold Condensed Oblique"
+# family = "TX02 Nerd Font Bold Condensed Oblique"
+# family = "TX-02"
+family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "BerkeleyMono Nerd Font Mono Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Power Symbols Plus Codicons Plus Pomicons Plus Font Logos Plus Material Design Icons Plus Weather Icons"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
