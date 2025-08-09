@@ -65,9 +65,9 @@ alias gcc gcc-15
 # Common
 # alias cd="z"
 alias vi="nvim"
-alias ls="eza --icons -l -T -L=1"
-alias l="ls -l"
-alias ll="ls -alh"
+alias ls="eza --icons -alh -L=1"
+alias ll="eza --icons -alh -L=1"
+alias l="eza --icons -alh -L=1"
 alias files="explorer.exe"
 alias y="yazi"
 alias gg="lazygit"
