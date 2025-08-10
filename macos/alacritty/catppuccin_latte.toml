@@ -8,13 +8,9 @@ foreground = "#4c4f69"
 dim_foreground = "#8c8fa1"
 bright_foreground = "#4c4f69"
 
-# [colors.cursor]
-# text = "#eff1f5"
-# cursor = "#dc8a78"
 [colors.cursor]
-text = "#000000"
-cursor = "#C65305"
-
+text = "#181919"
+cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
 # [colors.vi_mode_cursor]
 # text = "#eff1f5"
 # cursor = "#7287fd"

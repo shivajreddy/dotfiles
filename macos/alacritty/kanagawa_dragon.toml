@@ -3,12 +3,11 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.cursor]
-text = "#000000"
-cursor = "#C65305"
-
-[colors.primary]
-background = "#181616"
-foreground = "#c5c9c5"
+text = "#181919"
+cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
+# [colors.vi_mode_cursor]
+# background = "#181616"
+# foreground = "#c5c9c5"
 
 [colors.normal]
 black = "#0d0c0c"
