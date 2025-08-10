@@ -17,11 +17,11 @@ sudo yabai --load-sa
 
 # G E N E R A L   S P A C E   S E T T I N G S
 yabai -m config layout                       bsp    #bsp, float, stack  (defaults to bsp)
-yabai -m config top_padding                  0
-yabai -m config bottom_padding               0
-yabai -m config left_padding                 0
-yabai -m config right_padding                0
-yabai -m config window_gap                   0
+yabai -m config top_padding                  2
+yabai -m config bottom_padding               2
+yabai -m config left_padding                 2
+yabai -m config right_padding                2
+yabai -m config window_gap                   2
 
 # M O U S E
 yabai -m config focus_follows_mouse autoraise
@@ -40,7 +40,7 @@ yabai -m insert_feedback_color               0xffb4befe
 # yabai -m config window_placement             second_child
 yabai -m config window_opacity_duration      0.0
 yabai -m config window_animation_duration    0.0
-yabai -m config window_shadow                on
+yabai -m config window_shadow                off    # on off
 
 yabai -m config menubar_opacity              1.0  # 0.0 will hide permanently
 yabai -m config auto_balance                 on
@@ -61,6 +61,7 @@ yabai -m rule --add app="^Raycast$" manage=off
 
 # BORDERS - removed from yabai, using another package
 # https://github.com/FelixKratz/JankyBorders?tab=readme-ov-file
+borders active_color=0xff1DB954 width=2.0 &
 # borders active_color=0xffb4befe inactive_color=0xff1e1e2e width=5.0 style=square &
 
 # yabai -m config window_border_radius -1.0
