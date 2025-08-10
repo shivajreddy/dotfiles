@@ -3,8 +3,8 @@
 live_config_reload = true
 import = [
     "./font.toml",
-    # "~./kanagawa_dragon.toml",
-    "./catppuccin_latte.toml",
+    "~./kanagawa_dragon.toml",
+    # "./catppuccin_latte.toml",
 ]
 
 [env]
