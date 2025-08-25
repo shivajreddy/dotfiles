@@ -55,6 +55,10 @@ return {
         -- gopls = {},
         --#endregion
 
+        --#region Python Configuration
+        pyright = {},
+        --#endregion
+
         --#region Rust Configuration
         -- rust_analyzer = {
         --   -- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/
