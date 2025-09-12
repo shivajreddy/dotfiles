@@ -1,4 +1,4 @@
-#include "stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 // --- TYPE DEFINITIONS ----
@@ -18,21 +18,24 @@ typedef vector<pii> vpii;
 #define ff first
 #define ss second
 
-void pvi(const vi& a) {
-    for (int num : a) cout << num << " ";
-    cout << endl;
+void pvi(const vi &a) {
+  for (int num : a)
+    cout << num << " ";
+  cout << endl;
 }
 
-void pvb(const vb& a) {
-    for (auto b : a) cout << b << " ";
-    cout << endl;
+void pvb(const vb &a) {
+  for (auto b : a)
+    cout << b << " ";
+  cout << endl;
 }
 
-void pvp(const vpii& a) {
-    for (int i = 0; i < a.size(); i++) {
-        auto p = a[i];
-        if (i != 0) cout << ", ";
-        cout << "{" << p.first << "," << p.second << "}";
-        cout << endl;
-    }
+void pvp(const vpii &a) {
+  for (int i = 0; i < a.size(); i++) {
+    auto p = a[i];
+    if (i != 0)
+      cout << ", ";
+    cout << "{" << p.first << "," << p.second << "}";
+    cout << endl;
+  }
 }

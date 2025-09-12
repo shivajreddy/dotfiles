@@ -1,4 +1,4 @@
-#include "stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 // --- TYPE DEFINITIONS ----
