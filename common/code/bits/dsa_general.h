@@ -39,3 +39,12 @@ void pvp(const vpii &a) {
     cout << endl;
   }
 }
+
+void pumii(const unordered_map<int, int> &hm) {
+  for (auto [k, v] : hm)
+    cout << k << ":" << v << endl;
+}
+void pmii(const map<int, int> &hm) {
+  for (auto [k, v] : hm)
+    cout << k << ":" << v << endl;
+}
