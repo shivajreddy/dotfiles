@@ -9,6 +9,7 @@ typedef pair<ll, ll> pll;
 
 typedef vector<int> vi;
 typedef vector<bool> vb;
+typedef vector<string> vs;
 typedef vector<vector<int>> vvi;
 typedef vector<pii> vpii;
 
