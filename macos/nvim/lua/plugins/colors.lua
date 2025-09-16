@@ -158,12 +158,19 @@ return {
     priority = 1000,
   },
 
+  -- Monotone
+  {
+    "Lokaltog/monotone.nvim",
+    dependencies = { "rktjmp/lush.nvim" },
+  },
+
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
       -- colorscheme = "catppuccin",
       colorscheme = "immortal", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      -- colorscheme = "monotone",
     },
   },
 }
