@@ -3,7 +3,8 @@
 live_config_reload = true
 import = [
     "./font.toml",
-    "~./kanagawa_dragon.toml",
+    # "./kanagawa_dragon.toml",
+    "./black_metal.toml",
     # "./catppuccin_latte.toml",
 ]
 
@@ -62,7 +63,7 @@ bindings = [
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.94
+opacity = 0.75
 blur = true
 dynamic_title = false
 # title = "simple_colon"
@@ -81,9 +82,4 @@ instance = "Alacritty"
 [window.padding]
 x = 0
 y = 0
-
-
-
-############################## THEME ##############################
-#### MISC.
 
