@@ -1,4 +1,17 @@
 # SKHD - Configuration  | use `skhd --observe` for viewing keycodes for any key
+# NOTE: yabai & skhd use the shell to execute commands, since i use fish shell
+# as my default shell, both yabai+skhd will be slow. so edit the plist files 
+# for both yabai and skhd. use 'skhd --install-service' to see the location of 
+# the plist files(https://github.com/koekeishiya/skhd/issues/42), and add the 
+# SHELL environment variable, with its string value as the shell of choice.
+# dash is faster than bash, so if you want dash, install it first.
+# Ex:
+    # <dict>
+    #     (existing key-string entries)
+    #     <key>SHELL</key>
+    #     <string>/bin/dash</string>
+    # </dict>
+#
 
 # change layout of desktop
 # toggle between float and binary-space-partition mode
