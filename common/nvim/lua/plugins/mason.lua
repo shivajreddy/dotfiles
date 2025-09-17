@@ -1,17 +1,3 @@
---[[
-return {
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      -- table.insert(opts.ensure_installed, "pyright")
-      -- table.insert(opts.ensure_installed, "black")
-      -- table.insert(opts.ensure_installed, "ruff")
-      -- table.insert(opts.ensure_installed, "prettier")
-    end,
-  },
-}, { "mason-org/mason-lspconfig.nvim" }
---]]
-
 -- temporary fix to install the specific version
 --[[
 return {
@@ -25,7 +11,8 @@ return {
     "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
-        -- "clangd",
+        "clangd",
+        "black",
       },
     },
   },
