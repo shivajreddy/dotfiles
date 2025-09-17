@@ -2,6 +2,11 @@
 ## using properties > compatibility > Run as Administrator
 [general]
 live_config_reload = true
+import = [
+    "./font.toml",
+    # "./kanagawa_dragon.toml",
+    "./black_metal.toml"
+]
 
 [keyboard]
 bindings = [
@@ -74,135 +79,4 @@ x = 0
 y = 0
 
 
-############################## FONT ##############################
-[font]
-size = 17 # perfect for tars
-# size = 18                  # perfect for teclab
-builtin_box_drawing = true
 
-[font.offset]
-x = 0
-y = 0
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-
-[font.normal]
-family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed"
-# style = "Condensed"
-# style = "UltraCondensed"
-# family = "TX02 Nerd Font"
-# family = "SFMono Nerd Font"
-# family = "Berkeley Mono"
-# family = "JetBrainsMono Nerd Font"
-# family = "IBM Plex Mono"
-# family = "BlexMono Nerd Font"
-
-
-[font.italic]
-family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Oblique"
-# style = "Condensed"
-# style = "UltraCondensed Oblique"
-# family = "SFMono Nerd Font"
-# family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Berkeley Mono"
-# family = "JetBrainsMono Nerd Font"
-# family = "IBM Plex Mono"
-# family = "BlexMono Nerd Font"
-
-
-[font.bold]
-family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Bold"
-# style = "Condensed"
-# style = "UltraCondensed Bold"
-# style = "Bold"
-# family = "SFMono Nerd Font"
-# family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Iosevka Nerd Font"
-# family = "Berkeley Mono"
-# family = "JetBrainsMono Nerd Font"
-# family = "IBM Plex Mono"
-# family = "BlexMono Nerd Font"
-
-[font.bold_italic]
-family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Berkeley Mono"
-# family = "BerkeleyMono Nerd Font"
-# style = "ExtraCondensed Bold Oblique"
-# style = "Condensed"
-# style = "UltraCondensed Bold Oblique"
-# style = "Bold Italic"
-# family = "SFMono Nerd Font"
-# family = "Iosevka Nerd Font"
-# family = "Iosevka"
-# family = "Iosevka Nerd Font"
-# family = "Berkeley Mono"
-# family = "JetBrainsMono Nerd Font"
-# family = "IBM Plex Mono"
-# family = "BlexMono Nerd Font"
-
-
-############################## THEME ##############################
-#### MISC.
-[colors.cursor]
-text = "#181919"
-cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
-
-
-# Kanagawa-dragon Alacritty Colors
-[colors]
-draw_bold_text_with_bright_colors = true
-
-
-[colors.primary]
-background = "#181616"
-foreground = "#c5c9c5"
-
-[colors.normal]
-black = "#0d0c0c"
-red = "#c4746e"
-green = "#8a9a7b"
-yellow = "#c4b28a"
-blue = "#8ba4b0"
-magenta = "#a292a3"
-cyan = "#8ea4a2"
-white = "#C8C093"
-
-[colors.bright]
-black = "#a6a69c"
-red = "#E46876"
-green = "#87a987"
-yellow = "#E6C384"
-blue = "#7FB4CA"
-magenta = "#938AA9"
-cyan = "#7AA89F"
-white = "#c5c9c5"
-
-[colors.selection]
-background = "#2D4F67"
-foreground = "#C8C093"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#b6927b"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#b98d7b"
