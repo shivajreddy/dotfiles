@@ -4,6 +4,13 @@ return {
   dependencies = {
     "kevinhwang91/promise-async",
   },
+}
+--[[
+return {
+  "kevinhwang91/nvim-ufo",
+  dependencies = {
+    "kevinhwang91/promise-async",
+  },
   event = "BufReadPost",
   config = function()
     -- Custom fold provider for C++ files with // { and // } markers
@@ -111,3 +118,4 @@ return {
     end)
   end,
 }
+--]]
