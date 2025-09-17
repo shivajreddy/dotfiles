@@ -100,6 +100,7 @@ body,
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    /* width: 20%; */
     height: 100%;
     /* padding: 2px 1.5vw; */
     padding: 0px;
