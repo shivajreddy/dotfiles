@@ -10,7 +10,7 @@
     {
       "name": "main",
       "htmlPath": "./shiva_bar.html",
-      "zOrder": "top_most",
+      "zOrder": "bottom_most",
       "shownInTaskbar": false,
       "focused": false,
       "resizable": false,
