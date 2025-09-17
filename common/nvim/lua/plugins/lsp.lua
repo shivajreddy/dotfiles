@@ -8,6 +8,7 @@ return {
       servers = {
 
         --#region Clangd  Configuration
+        --[[
         clangd = {
           keys = {
             { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -49,6 +50,7 @@ return {
             clangdFileStatus = true,
           },
         },
+        --]]
         --#endregion
 
         --#region Go Configuration (https://github.com/ray-x/go.nvim)

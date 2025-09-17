@@ -6,10 +6,6 @@ return {
       formatters_by_ft = {
         python = { "black" }, -- or "ruff_format", "yapf", "autopep8"
       },
-      format_on_save = {
-        lsp_fallback = true,
-        timeout_ms = 500,
-      },
     },
   },
 }
