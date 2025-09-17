@@ -156,6 +156,18 @@ return {
     "metalelf0/black-metal-theme-neovim",
     lazy = false,
     priority = 1000,
+    config = function()
+      -- Default options:
+      require("black-metal").setup({
+        -- theme = "immortal", -- blackmetal themes
+        colors = { -- add/modify theme and palette colors
+        },
+        highlights = {
+          -- ["@function"] = { fg = "#ff8800", fmt = "bold" },
+          ColorColumn = { bg = "#0A080C" }, --1b161f  151118
+        },
+      })
+    end,
   },
   -- Monotone
   {
