@@ -160,6 +160,7 @@ return {
       -- Default options:
       require("black-metal").setup({
         -- theme = "immortal", -- blackmetal themes
+        transparent = true,
         colors = { -- add/modify theme and palette colors
         },
         highlights = {
