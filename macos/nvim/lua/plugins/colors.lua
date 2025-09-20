@@ -168,8 +168,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
-      -- colorscheme = "catppuccin",
-      colorscheme = "immortal", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      colorscheme = "catppuccin",
+      -- colorscheme = "immortal", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
   },
