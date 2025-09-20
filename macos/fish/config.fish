@@ -57,6 +57,7 @@ set -gx GOPATH $HOME/go
 # Install with: fisher install jorgebucaran/nvm.fish
 
 ########################### ALIASES ###########################
+alias sk 'sudo kanata-start.sh'
 
 # MacOS - g++ fix using alias (comment these on wsl/linux if runcpp wont work)
 alias g++ 'g++-15'
