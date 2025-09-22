@@ -156,6 +156,19 @@ return {
     "metalelf0/black-metal-theme-neovim",
     lazy = false,
     priority = 1000,
+    config = function()
+      -- Default options:
+      require("black-metal").setup({
+        -- theme = "immortal", -- blackmetal themes
+        transparent = true,
+        colors = { -- add/modify theme and palette colors
+        },
+        highlights = {
+          -- ["@function"] = { fg = "#ff8800", fmt = "bold" },
+          ColorColumn = { bg = "#0A080C" }, --1b161f  151118
+        },
+      })
+    end,
   },
 
   -- Monotone
@@ -167,9 +180,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "kanagawa",
+      colorscheme = "kanagawa",
       -- colorscheme = "catppuccin",
-      colorscheme = "immortal", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      -- colorscheme = "immortal", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
   },

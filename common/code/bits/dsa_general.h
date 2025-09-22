@@ -25,6 +25,12 @@ void pvi(const vi &a) {
   cout << endl;
 }
 
+void pvvi(const vvi &a) {
+  for (auto vec : a) {
+    pvi(vec);
+  }
+}
+
 void pvb(const vb &a) {
   for (auto b : a)
     cout << b << " ";
