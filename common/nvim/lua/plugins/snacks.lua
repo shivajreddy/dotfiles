@@ -1,3 +1,5 @@
+-- using this plugin directly instead of lazyextra because i need custom
+-- config for this plugin
 return {
   "folke/snacks.nvim",
   ---@class snacks.indent.Config
