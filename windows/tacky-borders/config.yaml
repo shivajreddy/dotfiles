@@ -41,7 +41,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
 
-  active_color: "#1DB954" # (DA3B01-dune) (1DB954-spotify)
+  active_color: "#DA3B01" # (DA3B01-dune) (1DB954-spotify)
   # active_color:
   #   colors: ["#1DB954", "#DA3B01"]
   #   direction: 45deg
