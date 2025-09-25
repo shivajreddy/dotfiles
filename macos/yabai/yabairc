@@ -74,7 +74,8 @@ yabai -m rule --add app="^Raycast$" manage=off
 
 # BORDERS - removed from yabai, using another package
 # https://github.com/FelixKratz/JankyBorders?tab=readme-ov-file
-borders active_color=0xff1DB954 width=2.0 &
+# (DA3B01-dune) (1DB954-spotify)
+borders active_color=0xffDA3B01 width=4.0 &
 # borders active_color=0xffb4befe inactive_color=0xff1e1e2e width=5.0 style=square &
 
 # yabai -m config window_border_radius -1.0
