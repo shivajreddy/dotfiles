@@ -1,0 +1,6 @@
+# this file along with clangd options in lsp.lua fixed macos errors for include
+CompileFlags:
+  # Compiler: /usr/local/Cellar/gcc/15.1.0/bin/g++-15
+  Add:
+    # - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15"
+    - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin24"

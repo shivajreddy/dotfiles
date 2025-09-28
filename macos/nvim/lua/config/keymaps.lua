@@ -45,7 +45,7 @@ vim.keymap.set("n", "<F8>", function()
   end
   -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s'", filepath, filename, filename)
   -- local cmd = string.format("g++ '%s' -o '%s' && ./'%s' < input.txt", filepath, filename, filename)
-  local cmd = string.format("g++ -std=c++17 -Wno-cpp '%s' -o out && ./out < input.txt", filepath)
+  local cmd = string.format("g++ -std=c++17 -Wno-deprecated -Wno-cpp '%s' -o out && ./out < input.txt", filepath)
   -- local cmd = string.format( "g++ -std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-sign-conversion -DONLINE_JUDGE -g '%s' -o out && ./out < input.txt", filepath)
 
   -- Using toggleterm
@@ -81,7 +81,7 @@ vim.keymap.set("n", "<F9>", function()
     return
   end
 
-  local cmd = string.format("g++ '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
+  local cmd = string.format("g++ -std=c++17 -Wno-deprecated -Wno-cpp '%s' -o out && ./out", filepath) -- ❌ removed input.txt redirection
 
   local Terminal = require("toggleterm.terminal").Terminal
   local cpp_term = Terminal:new({
