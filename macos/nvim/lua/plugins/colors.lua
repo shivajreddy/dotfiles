@@ -6,8 +6,8 @@ return {
     config = function()
       -- Default options:
       require("kanagawa").setup({
-        compile = false, -- enable compiling the colorscheme
-        undercurl = true, -- enable undercurls
+        compile = true, -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls(wavy underline)
         commentStyle = { italic = false },
         functionStyle = {},
         keywordStyle = { italic = false },
@@ -48,8 +48,8 @@ return {
         end,
         theme = "wave", -- wave dragon lotus
         background = { -- map the value of 'background' option to a theme
-          dark = "wave", -- try "dragon" !
-          light = "lotus",
+          -- dark = "dragon", -- wave dragon
+          -- light = "lotus", -- lotus
         },
       })
     end,
@@ -61,13 +61,13 @@ return {
     lazy = false,
     name = "catppuccin",
     opts = {
-      flavour = "latte", -- latte, frappe, macchiato, mocha
-      -- flavour = "mocha", -- latte, frappe, macchiato, mocha
-      -- background = { -- :h background
-      --   light = "latte",
-      --   dark = "mocha",
-      -- },
-      -- transparent_background = true, -- disables setting the background color.
+      -- flavour = "latte", -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      background = { -- :h background
+        light = "latte",
+        dark = "mocha",
+      },
+      transparent_background = true, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
@@ -75,7 +75,7 @@ return {
         shade = "dark",
         percentage = 0.85, -- percentage of the shade to apply to the inactive window
       },
-      no_italic = true, -- Force no italic
+      no_italic = false, -- Force no italic
       no_bold = false, -- Force no bold
       no_underline = false, -- Force no underline
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
@@ -170,7 +170,6 @@ return {
       })
     end,
   },
-
   -- Monotone
   {
     "Lokaltog/monotone.nvim",
@@ -180,9 +179,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      -- colorscheme = "kanagawa",
       -- colorscheme = "catppuccin",
-      -- colorscheme = "windir", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      colorscheme = "windir", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
   },
