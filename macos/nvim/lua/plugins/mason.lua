@@ -21,7 +21,7 @@ return {
     dependencies = { "mason.nvim" },
     opts = {
       ensure_installed = {
-        -- "clangd",
+        "clangd",
       },
     },
   },
