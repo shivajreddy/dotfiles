@@ -1,0 +1,82 @@
+############################## FONT ##############################
+[font]
+size = 17.5 # perfect for tars
+# size = 18                  # perfect for teclab
+builtin_box_drawing = true
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+
+[font.normal]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Berkeley Mono"
+family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed"
+style = "Condensed"
+# style = "UltraCondensed"
+# family = "SFMono Nerd Font"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.italic]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Berkeley Mono"
+family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Oblique"
+style = "Condensed"
+# style = "UltraCondensed Oblique"
+# family = "SFMono Nerd Font"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+
+[font.bold]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+family = "Berkeley Mono"
+# family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold"
+style = "Condensed"
+# style = "UltraCondensed Bold"
+# style = "Bold"
+# family = "SFMono Nerd Font"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
+
+[font.bold_italic]
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Berkeley Mono"
+family = "BerkeleyMono Nerd Font"
+# style = "ExtraCondensed Bold Oblique"
+style = "Condensed"
+# style = "UltraCondensed Bold Oblique"
+# style = "Bold Italic"
+# family = "SFMono Nerd Font"
+# family = "Iosevka Nerd Font"
+# family = "Iosevka"
+# family = "Iosevka Nerd Font"
+# family = "Berkeley Mono"
+# family = "JetBrainsMono Nerd Font"
+# family = "IBM Plex Mono"
+# family = "BlexMono Nerd Font"
