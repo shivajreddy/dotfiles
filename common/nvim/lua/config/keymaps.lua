@@ -104,6 +104,54 @@ vim.keymap.set("n", "<F9>", function()
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN (interactive input)" })
 --#endregion
 
+--#region RUN ./build.sh script
+vim.keymap.set("n", "<F10>", function()
+  vim.cmd("write") -- save the current buffer
+
+  -- Find project root by looking for build.sh
+  local function find_build_script()
+    local current_file = vim.fn.expand("%:p")
+    local current_dir = vim.fn.expand("%:p:h")
+
+    -- Search upward for build.sh
+    local root = vim.fn.findfile("build.sh", current_dir .. ";")
+    if root ~= "" then
+      return vim.fn.fnamemodify(root, ":p:h")
+    end
+
+    return nil
+  end
+
+  local project_root = find_build_script()
+
+  if not project_root then
+    vim.notify("build.sh not found in project!", vim.log.levels.ERROR)
+    return
+  end
+
+  local cmd = "bash ./build.sh buildrun"
+
+  -- Using toggleterm
+  local Terminal = require("toggleterm.terminal").Terminal
+  local build_term = Terminal:new({
+    cmd = cmd,
+    dir = project_root, -- Use project root, not current file's directory
+    direction = "float",
+    float_opts = {
+      border = "double",
+      width = function()
+        return math.floor(vim.o.columns * 0.8)
+      end,
+      height = function()
+        return math.floor(vim.o.lines * 0.8)
+      end,
+    },
+    close_on_exit = false,
+  })
+  build_term:toggle()
+end, { noremap = true, silent = true, desc = "Run build.sh" })
+--#endregion
+
 --[[
 vim.keymap.set("n", "<F5>", function()
   -- opens the floating terminal
