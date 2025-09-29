@@ -3,8 +3,8 @@
 [general]
 live_config_reload = true
 import = [
-    # "./font_iosevka.toml",
-    "./font_other.toml",
+    "./font_iosevka.toml",
+    # "./font_other.toml",
     # "./kanagawa_dragon.toml",
     "./black_metal.toml",
 ]
