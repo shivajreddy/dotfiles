@@ -7,9 +7,9 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  command = "set formatoptions-=cro",
-})
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   command = "set formatoptions-=cro",
+-- })
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
