@@ -16,6 +16,7 @@ typedef vector<int> vi;
 typedef vector<bool> vb;
 typedef vector<string> vs;
 typedef vector<vector<int>> vvi;
+typedef vector<vector<bool>> vvb;
 typedef vector<pii> vpii;
 
 // --- MACROS ----
@@ -31,15 +32,19 @@ void pvi(const vi &a) {
 }
 
 void pvvi(const vvi &a) {
-  for (auto vec : a) {
+  for (auto vec : a)
     pvi(vec);
-  }
 }
 
 void pvb(const vb &a) {
   for (auto b : a)
     cout << b << " ";
   cout << endl;
+}
+
+void pvvb(const vvb &a) {
+  for (auto vec : a)
+    pvb(vec);
 }
 
 void pvp(const vpii &a) {
