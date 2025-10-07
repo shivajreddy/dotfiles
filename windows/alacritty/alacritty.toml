@@ -57,7 +57,7 @@ program = "pwsh -nologo"
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.93
+opacity = 0.6
 blur = true
 dynamic_title = false
 # title = "smpl;"
