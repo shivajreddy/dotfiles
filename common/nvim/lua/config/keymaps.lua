@@ -312,3 +312,14 @@ vim.keymap.set(
 -- Comment toggle
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment toggle current line", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment toggle selection", remap = true })
+
+-- Keymaps for converting brackets for DSA
+-- Replace [ ] → { }
+vim.keymap.set("n", "<leader>rb", function()
+  vim.cmd([[%s/\[\|\]/\={'[':'{',']':'}'}[submatch(0)]/g]])
+end, { desc = "Replace brackets [ ] → braces { }" })
+
+-- Replace " → '
+vim.keymap.set("n", "<leader>rq", function()
+  vim.cmd([[%s/"/'/g]])
+end, { desc = "Replace double quotes → single quotes" })

@@ -13,9 +13,12 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 typedef vector<int> vi;
+typedef vector<char> vc;
 typedef vector<bool> vb;
 typedef vector<string> vs;
 typedef vector<vector<int>> vvi;
+typedef vector<vector<string>> vvs;
+typedef vector<vector<char>> vvc;
 typedef vector<vector<bool>> vvb;
 typedef vector<pii> vpii;
 
@@ -31,9 +34,31 @@ void pvi(const vi &a) {
   cout << endl;
 }
 
+void pvc(const vc &a) {
+  for (auto c : a)
+    cout << c << " ";
+  cout << endl;
+}
+
+void pvs(const vs &a) {
+  for (auto s : a)
+    cout << s << " ";
+  cout << endl;
+}
+
 void pvvi(const vvi &a) {
   for (auto vec : a)
     pvi(vec);
+}
+
+void pvvc(const vvc &a) {
+  for (auto vc : a)
+    pvc(vc);
+}
+
+void pvvs(const vvs &a) {
+  for (auto vs : a)
+    pvs(vs);
 }
 
 void pvb(const vb &a) {
