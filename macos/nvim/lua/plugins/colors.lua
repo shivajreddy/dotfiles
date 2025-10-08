@@ -67,13 +67,13 @@ return {
     lazy = false,
     name = "catppuccin",
     opts = {
-      -- flavour = "latte", -- latte, frappe, macchiato, mocha
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      flavour = "latte", -- latte, frappe, macchiato, mocha
+      -- flavour = "mocha", -- latte, frappe, macchiato, mocha, auto
       background = { -- :h background
         light = "latte",
         dark = "mocha",
       },
-      transparent_background = true, -- disables setting the background color.
+      transparent_background = false, -- if true disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
@@ -251,8 +251,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
-      colorscheme = "kanagawa-paper",
+      -- colorscheme = "kanagawa-paper",
       -- colorscheme = "catppuccin",
+      colorscheme = "tokyonight-day",
       -- colorscheme = "windir", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
