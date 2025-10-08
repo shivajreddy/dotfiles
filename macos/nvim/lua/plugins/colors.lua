@@ -251,9 +251,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
-      -- colorscheme = "kanagawa-paper",
+      colorscheme = "kanagawa-paper",
+      -- colorscheme = "tokyonight-day",
       -- colorscheme = "catppuccin",
-      colorscheme = "tokyonight-day",
       -- colorscheme = "windir", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
