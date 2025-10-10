@@ -147,6 +147,9 @@ vim.keymap.set("n", "<F10>", function()
       end,
     },
     close_on_exit = false,
+    -- on_exit = function(t, _, _, _)
+    --   t:close()
+    -- end,
   })
   build_term:toggle()
 end, { noremap = true, silent = true, desc = "Run build.sh" })

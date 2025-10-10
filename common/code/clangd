@@ -4,12 +4,15 @@
 # ----------------------------------------
 
 
-# ----------------------------------------
-# Clangd Configuration for GCC 15
+# -----------------------------------
+#  CPP config
+# - Configuration for GCC 15
 # - Sets the custom compiler
 # - Adds necessary include paths
 # - Enables C++17 standard
-# ----------------------------------------
+# -----------------------------------
+If:
+  PathMatch: .*\.cpp$
 CompileFlags:
   Compiler: /usr/local/Cellar/gcc/15.1.0/bin/g++-15
   Add:
@@ -20,22 +23,34 @@ CompileFlags:
     - -I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin24
 
 
-# ----------------------------------------
-# :::::: PREVIOUS CONFIG ::::::::
-# CompileFlags:
-#   Add: 
-#     - -I/usr/local/include/c++/15
-#     - -I/usr/local/include/c++/15/x86_64-apple-darwin24
-#     - -std=c++17
-# ----------------------------------------
+# -----------------------------------
+#  C config
+# -----------------------------------
+If:
+  PathMatch: .*\.c$
+CompileFlags:
+  # Add extra flags to pass to the compiler
+  Add: [
+    "-Wall",            # Show all common warnings
+    "-Wextra",          # Show extra warnings
+    "-std=c23",         # Use latest C standard (you can change to c17 or c11 if needed)
+    "-Iinclude",        # Add your include directory (if you have one)
+  ]
 
+Diagnostics:
+  ClangTidy:
+    Add: [
+      "readability-*",
+      "modernize-*",
+      "bugprone-*",
+      "clang-analyzer-*"
+    ]
+    Remove: [
+      "modernize-use-trailing-return-type"  # Some modernize checks may not apply to C
+    ]
+  UnusedIncludes: Strict  # Highlight unused includes
 
-# --------------------------------------
-# :::::: CONFIG THAT FIXES NEOVIM ON MAC ::::::::
-# CompileFlags:
-#   Compiler: /usr/local/Cellar/gcc/15.1.0/bin/g++-15
-#   Add:
-#     - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15"
-#     - "-I/usr/local/Cellar/gcc/15.1.0/include/c++/15/x86_64-apple-darwin24"
-# --------------------------------------
-
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
