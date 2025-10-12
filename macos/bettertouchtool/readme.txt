@@ -4,7 +4,8 @@
 - license file is in gmail, search for 'better touch tool'
 
 # Import config
-- top right 'Preset:default', then press 'Import' button
+- top right 'Preset:default', then press 'Import' button, then select 
+  the 'smpl.bttpreset' file
 - 
 
 ### How to change default font?
