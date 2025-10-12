@@ -18,7 +18,13 @@ CompileFlags:
     - "-Iinclude"
     - "-Isrc"
     - "-I/usr/include/curl"
-
+Diagnostics:
+  ClangTidy:
+    CheckOptions:
+      readability-identifier-length.MinimumVariableNameLength: '1'
+      readability-identifier-length.MinimumParameterNameLength: '1'
+      readability-identifier-length.MinimumLoopCounterNameLength: '1'
+      readability-identifier-length.MinimumExceptionNameLength: '1'
 # -----------------------------------
 #  C config
 # -----------------------------------
