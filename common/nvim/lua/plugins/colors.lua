@@ -37,11 +37,11 @@ return {
           -- Neovim's color groups
           -- LineNr = { bg = "#12120F", fg = "#303446" }, -- #1D1C19 Remove bg for transparent
           String = { fg = "#76946A" },
-          LineNr = { bg = "None", fg = "#12120F" }, -- #1D1C19 Remove bg for transparent
+          LineNr = { bg = "None", fg = "#262620" }, -- #1D1C19 Remove bg for transparent
           CursorLineNr = { fg = "#737c73" }, --bg = "#737c73" "#12120F",  #303446 --Remove bg for transparent
           CursorLine = { bg = "#181616" }, -- 0D0C0C 252329 12120F 0e0a01 base 121F2B none 6e6a86
           -- CursorLineNr = { fg = palette.sakuraPink, bg = "NONE" },
-          ColorColumn = { bg = "#0A080C", fg = "#0A080C" }, --1b161f  151118
+          ColorColumn = { bg = "#0A080C" }, --1b161f  151118
           -- SignColumn = { bg = "#ffffff", fg = "#1f1f1f" },
           Whitespace = { fg = "#26262C" }, --  1f1f28 181921 Add this line to customize the Whitespace highlight group
           WinSeparator = { fg = "#6e6a86", bg = "NONE", bold = true }, -- Customize separator color
