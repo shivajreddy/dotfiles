@@ -154,6 +154,7 @@ return {
 			})
 		end,
 	},
+	-- Tsoding
 	{
 		"blazkowolf/gruber-darker.nvim",
 		config = function()
