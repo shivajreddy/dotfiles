@@ -158,7 +158,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "B7923151-8B0E-47E9-B29F-088B9CC26FC5",
+  "BTTPresetUUID" : "B55EACB6-F142-43C7-9A7E-7F1E10060244",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "org.alacritty",
@@ -166,21 +166,21 @@
       "BTTAppAutoInvertIcon" : 1,
       "BTTTriggers" : [
         {
-          "BTTLastUpdatedAt" : 1760292643.719245,
+          "BTTLastUpdatedAt" : 1760609825.4165301,
           "BTTTriggerType" : 629,
           "BTTTriggerTypeDescriptionReadOnly" : "Touch Bar button",
           "BTTTriggerTypeDescription" : "F10",
           "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
-          "BTTUUID" : "47918C2A-746C-414B-B250-9A2D8DCAD943",
-          "BTTOrder" : 0,
+          "BTTUUID" : "9A7B1122-751D-4D62-BAB6-C8A13025F4C6",
+          "BTTOrder" : 1,
           "BTTMergeIntoTouchBarGroups" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1760292611.1147571,
-              "BTTTriggerParentUUID" : "47918C2A-746C-414B-B250-9A2D8DCAD943",
+              "BTTLastUpdatedAt" : 1760609825.418134,
+              "BTTTriggerParentUUID" : "9A7B1122-751D-4D62-BAB6-C8A13025F4C6",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
-              "BTTUUID" : "57C63C01-93B3-4165-B417-F460758354E5",
+              "BTTUUID" : "23E1ABB3-11D9-4284-A802-23EFEED86817",
               "BTTPredefinedActionType" : 195,
               "BTTPredefinedActionName" : "Run Apple Script (async in background)",
               "BTTAdditionalActionData" : {
@@ -210,6 +210,67 @@
             "BTTTouchBarButtonHeight" : 15,
             "BTTTouchBarButtonWidth" : 60,
             "BTTTouchBarScriptUpdateInterval" : 5,
+            "BTTTouchBarItemIconHeight" : 22,
+            "BTTTouchBarButtonTextAlignment" : 0,
+            "BTTTouchBarButtonUseFixedWidth" : 1,
+            "BTTTouchBarAlternateBackgroundColor" : "75.323769, 75.323769, 75.323769, 255.000000",
+            "BTTTouchBarAppleScriptUsePath" : 0,
+            "BTTTBWidgetWidth" : 400,
+            "BTTTouchBarBorderColor" : "255.000000, 255.000000, 255.000000, 255.000000",
+            "BTTTouchBarItemIconWidth" : 22,
+            "BTTTouchBarFreeSpaceBeforeButton" : 0,
+            "BTTTouchBarButtonFontSize" : 18,
+            "BTTTouchBarIconTextOffset" : 5,
+            "BTTTouchBarOnlyShowIcon" : false,
+            "BTTTouchBarAppleScriptString" : "tell application \"System Events\" to key code 64",
+            "BTTTouchBarFreeSpaceAfterButton" : 5
+          }
+        },
+        {
+          "BTTLastUpdatedAt" : 1760609830.9708118,
+          "BTTTriggerType" : 629,
+          "BTTTriggerTypeDescriptionReadOnly" : "Touch Bar button",
+          "BTTTriggerTypeDescription" : "F8",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+          "BTTUUID" : "47918C2A-746C-414B-B250-9A2D8DCAD943",
+          "BTTOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1760609867.596607,
+              "BTTTriggerParentUUID" : "47918C2A-746C-414B-B250-9A2D8DCAD943",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+              "BTTUUID" : "57C63C01-93B3-4165-B417-F460758354E5",
+              "BTTPredefinedActionType" : 195,
+              "BTTPredefinedActionName" : "Run Apple Script (async in background)",
+              "BTTAdditionalActionData" : {
+                "BTTAppleScriptRunInBackground" : true,
+                "BTTAIScriptType" : 3,
+                "BTTScriptType" : 0,
+                "BTTAppleScriptString" : "# 109 key is f8 on my macbook\ntell application \"System Events\" to key code 100\n",
+                "SelectedAction" : 195,
+                "BTTAppleScriptUsePath" : false,
+                "BTTScriptLocation" : 0
+              },
+              "BTTInlineAppleScript" : "# 109 key is f8 on my macbook\ntell application \"System Events\" to key code 100\n",
+              "BTTOrder" : 0,
+              "BTTMergeIntoTouchBarGroups" : 0
+            }
+          ],
+          "BTTTouchBarButtonName" : "F8",
+          "BTTTriggerConfig" : {
+            "BTTTouchBarFreeSpaceAfterButton" : 5,
+            "BTTTouchBarButtonColor" : "75.323769, 75.323769, 75.323769, 255.000000",
+            "BTTTouchBarIconInvert" : false,
+            "BTTTouchBarItemPlacement" : 2,
+            "BTTTouchBarAppleScriptStringRunOnInit" : false,
+            "BTTTouchBarAlwaysShowButton" : false,
+            "BTTTouchBarButtonHoverColor" : "248.880000, 146.115000, 128.010000, 181.050000",
+            "BTTScriptType" : 0,
+            "BTTTouchBarButtonHeight" : 15,
+            "BTTTouchBarButtonWidth" : 60,
+            "BTTTouchBarScriptUpdateInterval" : 5,
             "BTTAppleScriptRunInBackground" : true,
             "BTTTouchBarItemIconHeight" : 22,
             "BTTTouchBarButtonTextAlignment" : 0,
@@ -220,13 +281,13 @@
             "BTTTouchBarBorderColor" : "255.000000, 255.000000, 255.000000, 255.000000",
             "BTTTouchBarItemIconWidth" : 22,
             "BTTTouchBarFreeSpaceBeforeButton" : 0,
-            "BTTTouchBarButtonName" : "F10",
+            "BTTTouchBarButtonName" : "F8",
             "BTTTouchBarButtonFontSize" : 18,
             "BTTTouchBarIconTextOffset" : 5,
             "BTTScriptLocation" : 0,
             "BTTTouchBarAppleScriptString" : "tell application \"System Events\" to key code 64",
             "BTTTouchBarOnlyShowIcon" : false,
-            "BTTTouchBarFreeSpaceAfterButton" : 5
+            "BTTTouchBarItemPadding" : 0
           }
         }
       ]
