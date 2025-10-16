@@ -26,19 +26,20 @@ return {
           vim.api.nvim_set_hl(0, "String", { fg = "#76946A" })
 
           -- Make background transparent
-          vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "Folded", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
-          vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" }) --for transparent
+          vim.api.nvim_set_hl(0, "Normal", { bg = "#0A0A0A" })
+          -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#5f5f5f", bg = "NONE", ctermbg = "NONE" }) -- Non-active line numbers
+          -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffdd33", bg = "NONE", bold = true }) -- Active line number          vim.api.nvim_set_hl(0, "Folded", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", ctermbg = "NONE" })
 
           -- Fix indent-blankline highlight groups
-          vim.api.nvim_set_hl(0, "IblIndent", { fg = "#3a3a3a", bg = "NONE" })
-          vim.api.nvim_set_hl(0, "IblScope", { fg = "#5f87af", bg = "NONE" })
-          vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#3a3a3a", bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "IblIndent", { fg = "#3a3a3a", bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "IblScope", { fg = "#5f87af", bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#3a3a3a", bg = "NONE" })
         end,
       })
     end,
