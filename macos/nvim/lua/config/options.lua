@@ -5,6 +5,8 @@
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
+vim.opt.fsync = false -- Disable fsync on macOS
+
 -- vim.opt.clipboard:append("unnamedplus")
 -- vim.opt.clipboard = "unnamedplus" --Works for linux
 -- vim.g.clipboard = { --Works for wsl

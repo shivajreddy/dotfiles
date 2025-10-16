@@ -11,19 +11,19 @@
 --   command = "set formatoptions-=cro",
 -- })
 
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
+-- local augroup = vim.api.nvim_create_augroup
+-- local autocmd = vim.api.nvim_create_autocmd
 
 -- Create an autogroup named "autoupdate"
-local autoupdate_group = augroup("autoupdate", { clear = true })
+-- local autoupdate_group = augroup("autoupdate", { clear = true })
 
 -- Define an autocommand that runs when Vim enters
-autocmd("VimEnter", {
-  group = autoupdate_group,
-  callback = function()
-    require("lazy").update({ show = false })
-  end,
-})
+-- autocmd("VimEnter", {
+--   group = autoupdate_group,
+--   callback = function()
+--     require("lazy").update({ show = false })
+--   end,
+-- })
 
 -- Set a custom background color of Man pages buffer
 -- vim.api.nvim_create_autocmd("FileType", {
@@ -46,4 +46,4 @@ autocmd("VimEnter", {
 
 -- Deletes the autocommand that comes with lazyvim, with the group name "lazyvim_wrap_spell"
 -- this autocommand enables spellcheck for text, markdown files
-vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+-- vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
