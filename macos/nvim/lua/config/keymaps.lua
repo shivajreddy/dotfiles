@@ -34,6 +34,7 @@ end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
 --#endregion
 
 --#region CPP, build & run
+--[[
 vim.keymap.set("n", "<F8>", function()
   vim.cmd("write") -- save the current buffer
   -- vim.notify("Running C++ build & run", vim.log.levels.INFO)
@@ -67,7 +68,23 @@ vim.keymap.set("n", "<F8>", function()
   })
   cpp_term:toggle()
 end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
+--]]
 --#endregion
+
+-- F8 will use the marked tmux pane(ctrl-b h), to run the command
+vim.keymap.set("n", "<F8>", function()
+  local command = "clear && ./build.sh"
+  --[[ Method 1: just use the pane with id 1. see pane id's using ctrl-b q
+  -- Send commandsto tmux pane
+  -- Format: tmux send-keys -t {session}:{window}.{pane} "command" Enter
+  vim.fn.system('tmux send-keys -t :.1 "clear && ./build.sh" Enter')
+    --]]
+
+  --Method 2: on the pane that i want as terminal, look what its id(say 1) is, then run
+  -- tmux select-pane -t :.1 -m -T "build"
+  vim.cmd("write") -- save the current file
+  vim.fn.system('tmux send-keys -t "{marked}" "' .. command .. '" Enter')
+end, { noremap = true, silent = true, desc = "RUN BUILD IN TMUX" })
 
 --#region RUN CPP main function
 vim.keymap.set("n", "<F9>", function()
