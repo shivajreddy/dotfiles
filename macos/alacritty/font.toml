@@ -4,7 +4,7 @@
 #  fc-list : family | grep "Berk"
 
 [font]
-size = 20.5 # good on Iosevka
+size = 21 # good on Iosevka
 # size = 19 # good on Berkeley
 builtin_box_drawing = true
 
