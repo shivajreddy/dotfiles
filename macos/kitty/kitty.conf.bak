@@ -1,7 +1,8 @@
 
 # THEME -----------------------
 include font.conf
-include themes/gruber_darker.conf
+# include themes/gruber_darker.conf
+include themes/eldritch.conf
 # include themes/rosepine.conf
 # include themes/gruvbox_dark.conf
 # include themes/mocha.conf
@@ -12,18 +13,6 @@ map ctrl+shift+c  copy_to_clipboard
 map ctrl+shift+v	paste_from_clipboard
 # map ctrl+v	paste_from_clipboard
 #map ctrl+shift+backspace send_text all \x0c
-# Ctrl+Tab
-map ctrl+tab send_text all \x1b[27;5;9~
-# Ctrl+Shift+Tab
-map ctrl+shift+tab send_text all \x1b[27;6;9~
-# Ctrl+/
-map ctrl+/ send_text all \x1f
-# Ctrl+Enter
-map ctrl+enter send_text all \x1b[13;5u
-# Alt+Enter — ignore (disable default)
-map alt+enter no_op
-# Cmd+S — send Ctrl+S (same as your \u0013)
-map cmd+s send_text all \x13
 
 macos_hide_titlebar yes
 
