@@ -28,6 +28,7 @@ return {
           -- Make background transparent
           -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" }) --for transparent
           vim.api.nvim_set_hl(0, "Normal", { bg = "#181818" }) -- #0A0A0A
+          -- vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#181818", fg = "NONE" })
           -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
           -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
           -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })

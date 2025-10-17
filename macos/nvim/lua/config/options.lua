@@ -86,7 +86,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80" -- traditional
+vim.opt.colorcolumn = "" -- off
+-- vim.opt.colorcolumn = "80" -- traditional
 -- vim.opt.colorcolumn = "100" -- google style guide
 
 vim.opt.foldmethod = "expr"
