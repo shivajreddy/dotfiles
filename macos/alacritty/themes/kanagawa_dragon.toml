@@ -10,7 +10,7 @@ cursor = "#fc4c02" #   C65305  (DA3B01-dune) (1DB954-spotify) (fc4c02-strava)
 # foreground = "#c5c9c5"
 
 [colors.normal]
-black = "#0d0c0c"
+black = "#181818"   #0d0c0c
 red = "#c4746e"
 green = "#8a9a7b"
 yellow = "#c4b28a"
