@@ -55,7 +55,7 @@ yabai -m config window_opacity_duration      0.0
 yabai -m config window_animation_duration    0.0
 yabai -m config window_shadow                off    # on off
 
-yabai -m config menubar_opacity              1.0  # 0.0 will hide permanently
+yabai -m config menubar_opacity              0.6  # 0.0 will hide permanently
 yabai -m config auto_balance                 on
 
 
@@ -75,7 +75,7 @@ yabai -m rule --add app="^Raycast$" manage=off
 # BORDERS - removed from yabai, using another package
 # https://github.com/FelixKratz/JankyBorders?tab=readme-ov-file
 # (DA3B01-dune) (1DB954-spotify)
-borders active_color=0xffDA3B01 width=4.0 &
+borders active_color=0xffDA3B01 width=4.0 & style=round &
 # borders active_color=0xffb4befe inactive_color=0xff1e1e2e width=5.0 style=square &
 
 # yabai -m config window_border_radius -1.0
