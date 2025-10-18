@@ -1,23 +1,36 @@
-[colors.primary]
-background = '#181818'
-foreground = '#e4e4ef'
+# Gruber Darker theme for Alacritty
+[colors]
+transparent_background_colors = true
+
+# [colors.primary]
+# foreground = '#e0def4'
+# background = 'None'
+# background = '#181818' # shouldnt be set for transparent
+
+[colors.cursor]
+text = "#000000"    # bg
+cursor = '#ffdd33'
+
+[colors.selection]
+text = '#e0def4'
+background = '#403d52'
 
 [colors.normal]
-black = '#000000'
-red = '#f43841'
-green = '#73c936'
+black = '#26233a'
+red = '#e0def4'
+green = '#95a99f'
 yellow = '#ffdd33'
-blue = '#5f627f'
-magenta = '#9e95c7'
-cyan = '#5f627f'
-white = '#ffffff'
+blue = '#e0def4'
+magenta = '#c4a7e7'
+cyan = '#ebbcba'
+white = '#e0def4'
 
 [colors.bright]
-black = '#282828'
-red = '#ff4f58'
-green = '#73c936'
+black = '#6e6a86'
+red = '#e0def4'
+green = '#95a99f'
 yellow = '#ffdd33'
-blue = '#96a6c8'
-magenta = '#9e95c7'
-cyan = '#96a6c8'
-white = '#ffffff'
+blue = '#e0def4'
+magenta = '#c4a7e7'
+cyan = '#ebbcba'
+white = '#e0def4'
