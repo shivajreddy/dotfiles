@@ -47,3 +47,12 @@
 -- Deletes the autocommand that comes with lazyvim, with the group name "lazyvim_wrap_spell"
 -- this autocommand enables spellcheck for text, markdown files
 -- vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+--
+
+-- Prevent auto-commenting on new lines
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
