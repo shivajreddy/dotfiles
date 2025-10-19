@@ -138,8 +138,8 @@ alias sudo="sudo "
 # fisher install PatrickF1/fzf.fish # for fzf integration
 # fzf --fish | source
 
-# Starship prompt initialization
-starship init fish | source
+# Starship prompt initialization (dont start in emacs)
+# starship init fish | source
 
 # Set key bindings
 fish_vi_key_bindings
