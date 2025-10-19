@@ -25,7 +25,10 @@
 
 
 ;;; ====================     UI      ====================
-(global-hl-line-mode 1)           ; show current line highlight
+(global-display-line-numbers-mode 1)        ; Line numbers
+(setq display-line-numbers-type 'relative)  ; Relative line numbers
+(global-hl-line-mode 1)                     ; show current line highlight
+(add-hook 'window-setup-hook 'toggle-frame-maximized) ; maximize window on startup
 ; FONT
 (set-face-attribute 'default nil
 		    :font "Iosevka Nerd Font"
@@ -53,13 +56,14 @@
 (global-set-key (kbd "M-v") 'scroll-down-40-percent)
 
 
-;;; ====================     EVIL MODE      ====================
+;;; ====================     PACKAGES      ====================
+;; EVIL
 (use-package evil
   :ensure t
-  :defer t   ;; don’t load immediately
-  :commands (evil-mode)  ;; allow on-demand loading
-  :config
-  (evil-mode 1))  ;; only runs when evil-mode is activated
+  :init
+  (setq evil-want-keybinding nil)  ; Required for evil-collection
+  :commands (evil-mode))  ; Load only when evil-mode is called
+
 (defun toggle-evil-mode ()
   "Toggle evil-mode on and off with status message."
   (interactive)
@@ -67,27 +71,105 @@
   (if evil-mode
       (message "Evil mode ON")
     (message "Evil mode OFF")))
+
 (global-set-key (kbd "C-z") 'toggle-evil-mode)
+
 ;; Window navigation with C-hjkl in evil mode
 (with-eval-after-load 'evil
-  ; Navigate between emacs windows in normal state
+  ;; Navigate between emacs windows in normal state
   (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
   (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
   (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-  ; Scroll up & down
+  ;; Scroll up & down
   (define-key evil-normal-state-map (kbd "C-u") 'scroll-down-40-percent)
-  (define-key evil-normal-state-map (kbd "C-d") 'scroll-up-40-percent)
-  )
+  (define-key evil-normal-state-map (kbd "C-d") 'scroll-up-40-percent))
 
-;;; ====================     PACKAGES      ====================
+;; evil-collection for proper evil bindings
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init))
+
 ;; evil-goggles for visual feedback
 (use-package evil-goggles
   :ensure t
+  :after evil
   :config
   (evil-goggles-mode)
-  (evil-goggles-use-diff-faces))  ; Optional: use different colors for different operations
+  (evil-goggles-use-diff-faces))
+
 ;; GIT (Magit)
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+;; Fuzzy file finder with Ivy/Counsel
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
+
+(use-package counsel
+  :ensure t
+  :bind (("C-x C-f" . counsel-find-file)  ; Fuzzy file finder
+         ("C-c f" . counsel-git)           ; Find file in git repo
+         ("C-c s" . counsel-rg)))          ; Search in files (requires ripgrep)
+
+;; General - Leader key bindings
+(use-package general
+  :ensure t  ; Added - needed to install the package
+  :config
+  (general-evil-setup)
+  ;; set SPACE as leader key
+  (general-create-definer smpl/leader-keys
+    :states '(normal insert visual emacs)
+    :keymaps 'override
+    :prefix "SPC"          ;; set leader
+    :global-prefix "M-SPC" ;; access leader in insert mode
+    )
+  (smpl/leader-keys
+     "b" '(:ignore t :wk "buffer")
+    "b b" '(switch-to-buffer :wk "Switch buffer")
+    "b i" '(ibuffer :wk "Ibuffer")
+    "b k" '(kill-this-buffer :wk "Kill this buffer")
+    "b n" '(next-buffer :wk "Next buffer")
+    "b p" '(previous-buffer :wk "Previous buffer")
+    "b r" '(revert-buffer :wk "Reload buffer"))
+  (smpl/leader-keys
+    "e" '(:ignore t :wk "Evaluate")    
+    "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
+    "e d" '(eval-defun :wk "Evaluate defun containing or after point")
+    "e e" '(eval-expression :wk "Evaluate and elisp expression")
+    "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
+    "e r" '(eval-region :wk "Evaluate elisp in region")) 
+   (smpl/leader-keys
+    "h" '(:ignore t :wk "Help")
+    "h f" '(describe-function :wk "Describe function")
+    "h v" '(describe-variable :wk "Describe variable")
+    "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
+   (smpl/leader-keys
+    "t" '(:ignore t :wk "Toggle")
+    "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
+    "t t" '(visual-line-mode :wk "Toggle truncated lines"))
+)
+
+(use-package which-key
+  :init
+    (which-key-mode 1)
+  :config
+  (setq which-key-side-window-location 'bottom
+	which-key-sort-order #'which-key-key-order-alpha
+	which-key-sort-uppercase-first nil
+	which-key-add-column-padding 1
+	which-key-max-display-columns nil
+	which-key-min-display-lines 6
+	which-key-side-window-slot -10
+	which-key-side-window-max-height 0.25
+	which-key-idle-delay 0.8
+	which-key-max-description-length 25
+	which-key-allow-imprecise-window-fit t
+	which-key-separator " → " ))
