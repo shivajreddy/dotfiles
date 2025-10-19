@@ -21,6 +21,7 @@
 (tool-bar-mode -1)
 (blink-cursor-mode 0)
 (setq ring-bell-function 'ignore)
+(setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
 
 
 ;;; ====================     UI      ====================
