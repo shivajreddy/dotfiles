@@ -9,8 +9,8 @@
      default))
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(counsel evil evil-collection general gruber-darker-theme ivy magit
-	     nov pdf-tools vterm)))
+   '(counsel evil evil-collection format-all general gruber-darker-theme
+	     ivy magit nov pdf-tools vterm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

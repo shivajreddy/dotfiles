@@ -1,11 +1,11 @@
-; ===============================================================
-;                          EMACS CONFIG
-; Author: shiva
-; ===============================================================
+					; ===============================================================
+					;                          EMACS CONFIG
+					; Author: shiva
+					; ===============================================================
 
 
 ;;; ====================     PRE      ====================
-; save all the custom config that emac does into a separate file & load it
+					; save all the custom config that emac does into a separate file & load it
 (setq custom-file "~/.emacs.d/custom-emacs.el")
 (load-file custom-file)
 (require 'package)
@@ -29,7 +29,7 @@
 (setq display-line-numbers-type 'relative)  ; Relative line numbers
 (global-hl-line-mode 1)                     ; show current line highlight
 (add-hook 'window-setup-hook 'toggle-frame-maximized) ; maximize window on startup
-; FONT
+					; FONT
 (set-face-attribute 'default nil
 		    :font "Iosevka Nerd Font"
 		    :height 200)
@@ -37,7 +37,7 @@
 ;; THEME
 (use-package gruber-darker-theme
   :ensure t)
-;(load-theme 'gruber-darker t)
+					;(load-theme 'gruber-darker t)
 (load-theme 'modus-vivendi-tritanopia t)
 (set-face-background 'hl-line "#292929")  ; color of current line
 
@@ -60,8 +60,10 @@
 ;; EVIL
 (use-package evil
   :ensure t
-  :init
+  :init       ; tweak evil before loading with following config
   (setq evil-want-keybinding nil)  ; Required for evil-collection
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
   :commands (evil-mode))  ; Load only when evil-mode is called
 
 (defun toggle-evil-mode ()
@@ -90,6 +92,7 @@
   :ensure t
   :after evil
   :config
+  (setq evil-collection-mode-list '(dashboard dired ibuffer)) ;; enable evil-collection only for these 3 modes
   (evil-collection-init))
 
 ;; evil-goggles for visual feedback
@@ -131,35 +134,64 @@
     :prefix "SPC"          ;; set leader
     :global-prefix "M-SPC" ;; access leader in insert mode
     )
+
   (smpl/leader-keys
-     "b" '(:ignore t :wk "buffer")
-    "b b" '(switch-to-buffer :wk "Switch buffer")
-    "b i" '(ibuffer :wk "Ibuffer")
-    "b k" '(kill-this-buffer :wk "Kill this buffer")
-    "b n" '(next-buffer :wk "Next buffer")
-    "b p" '(previous-buffer :wk "Previous buffer")
-    "b r" '(revert-buffer :wk "Reload buffer"))
+    "." '(find-file :wk "Find file")
+    "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
+    "/" '(comment-line :wk "Comment lines"))
+
   (smpl/leader-keys
-    "e" '(:ignore t :wk "Evaluate")    
+    "b" '(:ignore t :wk "buffer")
+    "bb" '(switch-to-buffer :wk "Switch buffer")
+    "bi" '(ibuffer :wk "Ibuffer")
+    "bk" '(kill-buffer :wk "Kill this buffer")
+    "bn" '(next-buffer :wk "Next buffer")
+    "bp" '(previous-buffer :wk "Previous buffer")
+    "br" '(revert-buffer :wk "Reload buffer"))
+
+  (smpl/leader-keys
+    "e" '(:ignore t :wk "Evaluate")
     "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
     "e d" '(eval-defun :wk "Evaluate defun containing or after point")
     "e e" '(eval-expression :wk "Evaluate and elisp expression")
     "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
-    "e r" '(eval-region :wk "Evaluate elisp in region")) 
-   (smpl/leader-keys
+    "e r" '(eval-region :wk "Evaluate elisp in region"))
+
+  (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
     "h f" '(describe-function :wk "Describe function")
     "h v" '(describe-variable :wk "Describe variable")
     "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
-   (smpl/leader-keys
+
+  (smpl/leader-keys
+    "w" '(:ignore t :wk "window")
+    "w1" '(delete-other-windows :wk "Single window")
+    "w2" '(split-window-below :wk "Horizontal split")
+    "w3" '(split-window-right :wk "Vertical split")
+    "wq" '(delete-window :wk "Close window"))
+
+
+  (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
     "t t" '(visual-line-mode :wk "Toggle truncated lines"))
-)
+
+  (smpl/leader-keys
+    "g" '(:ignore t :wk "git")           ; Define the "g" prefix
+    "gg" '(magit-status :wk "Magit"))    ; Define "gg" under it
+
+  )
+
+;; Auto-formatting
+(use-package format-all
+  :ensure t
+  :commands format-all-mode format-all-buffer
+  :hook (prog-mode . format-all-mode)  ; Auto-format on save
+  :bind (("C-c C-f" . format-all-buffer)))
 
 (use-package which-key
   :init
-    (which-key-mode 1)
+  (which-key-mode 1)
   :config
   (setq which-key-side-window-location 'bottom
 	which-key-sort-order #'which-key-key-order-alpha
