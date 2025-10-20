@@ -12,7 +12,7 @@ general:
   config_reload_commands: []
 
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: true
+  focus_follows_cursor: false
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
@@ -144,6 +144,9 @@ window_rules:
     match:
       # Ignore any Zebar windows
       - window_process: { equals: 'zebar' }
+
+      # Ignore emacs
+      # - window_process: { equals: 'emacs' }
 
       # Ignore Spotify
       # - window_process: { equals: 'Spotify' }
