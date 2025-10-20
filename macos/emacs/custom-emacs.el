@@ -9,9 +9,11 @@
      default))
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(all-the-icons-ivy-rich counsel evil evil-collection format-all
-			    general gruber-darker-theme ivy magit nov
-			    pdf-tools projectile vterm vterm-toggle)))
+   '(all-the-icons-dired all-the-icons-ivy-rich counsel evil
+			 evil-collection format-all general
+			 gruber-darker-theme ivy lsp-mode lsp-ui magit
+			 nov pdf-tools perspective projectile vterm
+			 vterm-toggle)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

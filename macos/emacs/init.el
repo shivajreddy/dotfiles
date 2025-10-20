@@ -45,7 +45,9 @@
 					;(load-theme 'gruber-darker t)
 (load-theme 'modus-vivendi-tritanopia t)
 (set-face-background 'hl-line "#292929")  ; color of current line
-(add-to-list 'default-frame-alist '(alpha-background . V0)) ; For all new frames henceforth
+;; Transparency for both background and text
+(set-frame-parameter nil 'alpha-background 90)  ; Current frame
+(add-to-list 'default-frame-alist '(alpha-background . 90))  ; Future frames
 
 ;;; ====================     KEYMAPS      ====================
 (windmove-default-keybindings) ; Shift + arrow keys move between windows
@@ -160,6 +162,7 @@
   (smpl/leader-keys
     "." '(find-file :wk "Find file")
     "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
+    "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "/" '(comment-line :wk "Comment lines"))
 
   (smpl/leader-keys
@@ -214,6 +217,7 @@
 
 ;; Which-Key
 (use-package which-key
+  :ensure t
   :init
   (which-key-mode 1)
   :config
@@ -234,9 +238,10 @@
 (use-package all-the-icons
   :ensure t
   :if (display-graphic-p))
+(use-package all-the-icons-dired
+  :ensure t
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-;; (use-package all-the-icons-dired
-  ;; :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
 
 ;; Vterm
 (use-package vterm
@@ -266,3 +271,33 @@
 (use-package projectile
   :config
   (projectile-mode 1))
+
+;; Perspective
+(use-package perspective
+  :ensure t
+  :custom
+  ;; NOTE! I have also set 'SCP =' to open the perspective menu.
+  ;; I'm only setting the additional binding because setting it
+  ;; helps suppress an annoying warning message.
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :init 
+  (persp-mode)
+  :config
+  ;; Sets a file to write to when we save states
+  (setq persp-state-default-file "~/.config/emacs/sessions"))
+;; This will group buffers by persp-name in ibuffer.
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (persp-ibuffer-set-filter-groups)
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))))
+;; Automatically save perspective states to file when Emacs exits.
+(add-hook 'kill-emacs-hook #'persp-state-save)
+
+;; LSP
+(use-package lsp-mode
+  :ensure t
+)
+(use-package lsp-ui
+  :ensure t
+)
