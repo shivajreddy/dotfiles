@@ -8,7 +8,7 @@ foreground = "#c1c1c1"  # fg - default text color
 
 [colors.cursor]
 text = "#000000"    # bg
-cursor = "#fc302e"  # type (bright red)
+cursor = "#DA3B01"  # DA3B01(dune) fc302e(bright red) 
 
 [colors.normal]
 black = "#211816"   # alt_bg
