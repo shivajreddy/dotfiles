@@ -1,12 +1,11 @@
-					; ===============================================================
-					;                          EMACS CONFIG
-					; Author: shiva
-					; ===============================================================
+;; ===============================================================
+;;                          EMACS CONFIG
+;; Author: shiva
+;; ===============================================================
 
 
 ;;; ====================     PRE      ====================
-					; save all the custom config that emac does into a separate file & load it
-(setq custom-file "~/.emacs.d/custom-emacs.el")
+(setq custom-file "~/.emacs.d/custom-emacs.el") ; save all the custom config that emac does into a separate file & load it
 (load-file custom-file)
 (require 'package)
 (setq package-archives
@@ -29,18 +28,24 @@
 (setq display-line-numbers-type 'relative)  ; Relative line numbers
 (global-hl-line-mode 1)                     ; show current line highlight
 (add-hook 'window-setup-hook 'toggle-frame-maximized) ; maximize window on startup
-					; FONT
+;; FONT
 (set-face-attribute 'default nil
 		    :font "Iosevka Nerd Font"
 		    :height 200)
+(set-face-attribute 'font-lock-comment-face nil
+		    :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+		    :slant 'italic)
+
 (scroll-bar-mode -1)     ; Disable visible scrollbar
+
 ;; THEME
 (use-package gruber-darker-theme
   :ensure t)
 					;(load-theme 'gruber-darker t)
 (load-theme 'modus-vivendi-tritanopia t)
 (set-face-background 'hl-line "#292929")  ; color of current line
-
+(add-to-list 'default-frame-alist '(alpha-background . V0)) ; For all new frames henceforth
 
 ;;; ====================     KEYMAPS      ====================
 (windmove-default-keybindings) ; Shift + arrow keys move between windows
@@ -108,19 +113,36 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
-;; Fuzzy file finder with Ivy/Counsel
-(use-package ivy
-  :ensure t
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t))
-
 (use-package counsel
+  :after ivy
+  :config (counsel-mode))
+
+;; Ivy & Counsel
+(use-package ivy
+  :bind
+  ;; ivy-resume resumes the last Ivy-based completion.
+  (("C-c C-r" . ivy-resume)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :custom
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
+  :config
+  (ivy-mode))
+(use-package all-the-icons-ivy-rich
   :ensure t
-  :bind (("C-x C-f" . counsel-find-file)  ; Fuzzy file finder
-         ("C-c f" . counsel-git)           ; Find file in git repo
-         ("C-c s" . counsel-rg)))          ; Search in files (requires ripgrep)
+  :init (all-the-icons-ivy-rich-mode 1))
+(use-package ivy-rich
+  :after ivy
+  :ensure t
+  :init (ivy-rich-mode 1) ;; this gets us descriptions in M-x.
+  :custom
+  (ivy-virtual-abbreviate 'full
+   ivy-rich-switch-buffer-align-virtual-buffer t
+   ivy-rich-path-style 'abbrev)
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer
+                               'ivy-rich-switch-buffer-transformer))
 
 ;; General - Leader key bindings
 (use-package general
@@ -164,17 +186,18 @@
     "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
 
   (smpl/leader-keys
-    "w" '(:ignore t :wk "window")
-    "w1" '(delete-other-windows :wk "Single window")
-    "w2" '(split-window-below :wk "Horizontal split")
-    "w3" '(split-window-right :wk "Vertical split")
-    "wq" '(delete-window :wk "Close window"))
-
-
-  (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(visual-line-mode :wk "Toggle truncated lines"))
+    "t t" '(visual-line-mode :wk "Toggle truncated lines")
+    "t v" '(vterm-toggle :wk "Toggle vterm"))
+
+  (smpl/leader-keys
+    "w" '(:ignore t :wk "Windows")
+    ;; Window splits
+    "w c" '(evil-window-delete :wk "Close window")
+    "w n" '(evil-window-new :wk "New window")
+    "w s" '(evil-window-split :wk "Horizontal split window")
+    "w v" '(evil-window-vsplit :wk "Vertical split window"))
 
   (smpl/leader-keys
     "g" '(:ignore t :wk "git")           ; Define the "g" prefix
@@ -189,6 +212,7 @@
   :hook (prog-mode . format-all-mode)  ; Auto-format on save
   :bind (("C-c C-f" . format-all-buffer)))
 
+;; Which-Key
 (use-package which-key
   :init
   (which-key-mode 1)
@@ -205,3 +229,40 @@
 	which-key-max-description-length 25
 	which-key-allow-imprecise-window-fit t
 	which-key-separator " → " ))
+
+;; Icons
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; (use-package all-the-icons-dired
+  ;; :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+
+;; Vterm
+(use-package vterm
+:config
+(setq shell-file-name "/bin/fish"
+      vterm-max-scrollback 5000))
+(use-package vterm-toggle
+  :after vterm
+  :config
+  (setq vterm-toggle-fullscreen-p nil)
+  (setq vterm-toggle-scope 'project)
+  (add-to-list 'display-buffer-alist
+               '((lambda (buffer-or-name _)
+                     (let ((buffer (get-buffer buffer-or-name)))
+                       (with-current-buffer buffer
+                         (or (equal major-mode 'vterm-mode)
+                             (string-prefix-p vterm-buffer-name (buffer-name buffer))))))
+                  (display-buffer-reuse-window display-buffer-at-bottom)
+                  ;;(display-buffer-reuse-window display-buffer-in-direction)
+                  ;;display-buffer-in-direction/direction/dedicated is added in emacs27
+                  ;;(direction . bottom)
+                  ;;(dedicated . t) ;dedicated is supported in emacs27
+                  (reusable-frames . visible)
+                  (window-height . 0.3))))
+
+;; Projectile
+(use-package projectile
+  :config
+  (projectile-mode 1))
