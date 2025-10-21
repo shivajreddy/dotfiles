@@ -17,12 +17,17 @@
 
 ;;; ====================     GENERAL      ====================
 (setq inhibit-startup-message t)          ; Disable splast screen
-(setq-default frame-title-format nil)
+(setq-default frame-title-format nil)     ; Text on the title bar
+(tool-bar-mode 0)       ; Disable tool bar
+(menu-bar-mode 0)       ; Disable menu bar
 (scroll-bar-mode 0)     ; Disable visible scrollbar
-(tool-bar-mode 0)
-(blink-cursor-mode 0)
-(setq ring-bell-function 'ignore)
+(blink-cursor-mode 0)   ; Disable blinking cursor
+(setq ring-bell-function 'ignore) ; Disable the bell sound
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
+(add-to-list
+ 'default-frame-alist
+ '(fullscreen . maximized))
+(setq frame-resize-pixelwise t) ;
 
 
 ;;; ====================     UI      ====================
@@ -40,27 +45,12 @@
 		    :slant 'italic)
 
 ;; THEME
-(use-package gruber-darker-theme
-  :ensure t)
-					;(load-theme 'gruber-darker t)
 (load-theme 'modus-vivendi-tritanopia t)
 (set-face-background 'hl-line "#292929")  ; color of current line
-;; Transparency for both background and text
-(set-frame-parameter nil 'alpha-background 90)  ; Current frame
-(add-to-list 'default-frame-alist '(alpha-background . 90))  ; Future frames
-
-;;; ====================     KEYMAPS      ====================
-(windmove-default-keybindings) ; Shift + arrow keys move between windows
-(defun scroll-up-40-percent ()
-  "Scroll up 40% of the window height."
-  (interactive)
-  (scroll-up-command (floor (* 0.4 (window-body-height)))))
-(defun scroll-down-40-percent ()
-  "Scroll down 40% of the window height."
-  (interactive)
-  (scroll-down-command (floor (* 0.4 (window-body-height)))))
-(global-set-key (kbd "C-v") 'scroll-up-40-percent)
-(global-set-key (kbd "M-v") 'scroll-down-40-percent)
+;; TRANSPARENCY
+(set-frame-parameter nil 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(add-to-list 'default-frame-alist '(background-color . "unspecified-bg"))
 
 
 ;;; ====================     PACKAGES      ====================
@@ -90,16 +80,31 @@
   (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
   (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-  ;; Scroll up & down
-  (define-key evil-normal-state-map (kbd "C-u") 'scroll-down-40-percent)
-  (define-key evil-normal-state-map (kbd "C-d") 'scroll-up-40-percent))
+  ;; Ctrl+S to save, Ctrl+x s for search
+  (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
+  (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
+  (define-key evil-normal-state-map (kbd "C-x s") 'isearch-forward)
+  (define-key evil-insert-state-map (kbd "C-x s") 'isearch-forward)
+  ;; Scroll half page down and center screen
+  (define-key evil-normal-state-map (kbd "C-d")
+	      (lambda ()
+		(interactive)
+		(evil-scroll-down nil)
+		(recenter)))
+  ;; Scroll half page up and center screen
+  (define-key evil-normal-state-map (kbd "C-u")
+	      (lambda ()
+		(interactive)
+		(evil-scroll-up nil)
+		(recenter)))
+  )
 
 ;; evil-collection for proper evil bindings
 (use-package evil-collection
   :ensure t
   :after evil
   :config
-  (setq evil-collection-mode-list '(dashboard dired ibuffer)) ;; enable evil-collection only for these 3 modes
+  (setq evil-collection-mode-list '(dashboard dired ibuffer magit compilation)) ;; enable evil-collection only for these 3 modes
   (evil-collection-init))
 
 ;; evil-goggles for visual feedback
@@ -115,9 +120,6 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
-(use-package counsel
-  :after ivy
-  :config (counsel-mode))
 
 ;; Icons
 ;; (Make sure to install 'Symbols Nerd Font' from nerdfonts)
@@ -148,12 +150,22 @@
   :init (ivy-rich-mode 1) ;; this gets us descriptions in M-x.
   :custom
   (ivy-virtual-abbreviate 'full
-   ivy-rich-switch-buffer-align-virtual-buffer t
-   ivy-rich-path-style 'abbrev)
+			  ivy-rich-switch-buffer-align-virtual-buffer t
+			  ivy-rich-path-style 'abbrev)
   :config
   (ivy-set-display-transformer 'ivy-switch-buffer
                                'ivy-rich-switch-buffer-transformer))
+;; Disable Ivy completion in Dired rename/move
+(with-eval-after-load 'ivy
+  (add-to-list 'ivy-completing-read-handlers-alist
+               '(dired-do-rename . completing-read-default)))
+(use-package counsel
+  :after ivy
+  :ensure t
+  :config (counsel-mode))
 
+;;; ====================     KEYMAPS      ====================
+(windmove-default-keybindings) ; Shift + arrow keys move between windows
 ;; General - Leader key bindings
 (use-package general
   :ensure t  ; Added - needed to install the package
@@ -169,8 +181,8 @@
 
   (smpl/leader-keys
     "." '(find-file :wk "Find file")
-    "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
-    "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
+    "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
+    ;; "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "/" '(comment-line :wk "Comment lines"))
 
   (smpl/leader-keys
@@ -245,9 +257,9 @@
 
 ;; Vterm
 (use-package vterm
-:config
-(setq shell-file-name "/bin/fish"
-      vterm-max-scrollback 5000))
+  :config
+  (setq shell-file-name "/usr/local/bin/fish"
+	vterm-max-scrollback 5000))
 (use-package vterm-toggle
   :after vterm
   :config
@@ -255,22 +267,25 @@
   (setq vterm-toggle-scope 'project)
   (add-to-list 'display-buffer-alist
                '((lambda (buffer-or-name _)
-                     (let ((buffer (get-buffer buffer-or-name)))
-                       (with-current-buffer buffer
-                         (or (equal major-mode 'vterm-mode)
-                             (string-prefix-p vterm-buffer-name (buffer-name buffer))))))
-                  (display-buffer-reuse-window display-buffer-at-bottom)
-                  ;;(display-buffer-reuse-window display-buffer-in-direction)
-                  ;;display-buffer-in-direction/direction/dedicated is added in emacs27
-                  ;;(direction . bottom)
-                  ;;(dedicated . t) ;dedicated is supported in emacs27
-                  (reusable-frames . visible)
-                  (window-height . 0.3))))
+                   (let ((buffer (get-buffer buffer-or-name)))
+                     (with-current-buffer buffer
+                       (or (equal major-mode 'vterm-mode)
+                           (string-prefix-p vterm-buffer-name (buffer-name buffer))))))
+                 (display-buffer-reuse-window display-buffer-at-bottom)
+                 ;;(display-buffer-reuse-window display-buffer-in-direction)
+                 ;;display-buffer-in-direction/direction/dedicated is added in emacs27
+                 ;;(direction . bottom)
+                 ;;(dedicated . t) ;dedicated is supported in emacs27
+                 (reusable-frames . visible)
+                 (window-height . 0.3))))
 
 ;; Projectile
 (use-package projectile
   :config
   (projectile-mode 1))
+;; Bind leader + = to projectile-command-map
+(smpl/leader-keys
+  "=" '(projectile-command-map :wk "Projectile commands"))
 
 ;; Perspective
 (use-package perspective
@@ -280,7 +295,7 @@
   ;; I'm only setting the additional binding because setting it
   ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init 
+  :init
   (persp-mode)
   :config
   ;; Sets a file to write to when we save states
@@ -297,7 +312,51 @@
 ;; LSP
 (use-package lsp-mode
   :ensure t
-)
+  )
 (use-package lsp-ui
   :ensure t
-)
+  )
+
+;; Compilation keybindings
+;; (global-set-key (kbd "<f8>") 'compile)      ; F5 to compile with new command
+;; (global-set-key (kbd "C-<f8>") 'recompile)  ; Ctrl+F5 to recompile
+(defun smpl/compile-and-run ()
+  "Compile and run the program."
+  (interactive)
+  (save-buffer)    ; (save-some-buffers t) for saving all buffers
+  (let ((compile-command "make && make run"))
+    (compile compile-command)))
+
+(defun smpl/compile-only ()
+  "Compile only."
+  (interactive)
+  (save-buffer)    ; (save-some-buffers t) for saving all buffers
+  (let ((compile-command "make"))
+    (compile compile-command)))
+
+;; Keybindings
+(smpl/leader-keys
+  "8" '(smpl/compile-and-run :wk "Compile & Run"))
+
+;; (global-set-key (kbd "<f8>") 'smpl/compile-and-run)   ; F8: build & run
+(global-set-key (kbd "C-<f8>") 'smpl/compile-only)    ; Ctrl+F8: build only
+(global-set-key (kbd "S-<f8>") 'recompile)          ; Shift+F8: repeat last
+
+;; Tell exec-path-from-shell the correct shell
+(setq exec-path-from-shell-shell "/usr/local/bin/fish")
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
+;; Compilation Mode config
+;; Fix bold & colors in compilation mode
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+(setq compilation-environment '("TERM=xterm-256color"))
+;; Disable line numbers in compilation buffers
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+;; Keep search highlights visible until manually cleared

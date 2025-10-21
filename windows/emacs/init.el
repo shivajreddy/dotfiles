@@ -25,9 +25,9 @@
 (setq ring-bell-function 'ignore) ; Disable the bell sound
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
 (add-to-list
-  'default-frame-alist 
-  '(fullscreen . maximized))
-(setq frame-resize-pixelwise t) ; 
+ 'default-frame-alist
+ '(fullscreen . maximized))
+(setq frame-resize-pixelwise t) ;
 
 
 ;;; ====================     UI      ====================
@@ -81,9 +81,6 @@
   (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
   (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-  ;; Scroll up & down
-  (define-key evil-normal-state-map (kbd "C-u") 'scroll-down-40-percent)
-  (define-key evil-normal-state-map (kbd "C-d") 'scroll-up-40-percent)
   ;; Ctrl+S to save, Ctrl+x s for search
   (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
   (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
@@ -119,7 +116,6 @@
   (evil-goggles-mode)
   (evil-goggles-use-diff-faces))
 
-
 ;; GIT (Magit)
 (use-package magit
   :ensure t
@@ -131,14 +127,7 @@
   :config (counsel-mode))
 
 ;; Icons
-;; (use-package all-the-icons
-;;   :ensure t
-;;   :if (display-graphic-p))
-;; (use-package all-the-icons-dired
-;;   :ensure t
-;;   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
-;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-;; ;; Icons (using nerd-icons for Nerd Fonts)
+;; (Make sure to install 'Symbols Nerd Font' from nerdfonts)
 (use-package nerd-icons
   :ensure t)
 (use-package nerd-icons-dired
@@ -157,9 +146,6 @@
   (setq enable-recursive-minibuffers t)
   :config
   (ivy-mode))
-;; (use-package all-the-icons-ivy-rich
-;;   :ensure t
-;;   :init (all-the-icons-ivy-rich-mode 1))
 (use-package nerd-icons-ivy-rich
   :ensure t
   :init (nerd-icons-ivy-rich-mode 1))
@@ -281,7 +267,7 @@
   ;; I'm only setting the additional binding because setting it
   ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init 
+  :init
   (persp-mode)
   :config
   ;; Sets a file to write to when we save states
@@ -298,10 +284,10 @@
 ;; LSP
 (use-package lsp-mode
   :ensure t
-)
+  )
 (use-package lsp-ui
   :ensure t
-)
+  )
 ;; Compilation keybindings
 ;; (global-set-key (kbd "<f8>") 'compile)      ; F5 to compile with new command
 ;; (global-set-key (kbd "C-<f8>") 'recompile)  ; Ctrl+F5 to recompile
