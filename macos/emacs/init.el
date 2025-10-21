@@ -1,6 +1,7 @@
 ;; ===============================================================
-;;                          EMACS CONFIG
-;; Author: shiva
+;; EMACS CONFIG
+;; OS : MACOS
+;; AUTHOR: SMPL
 ;; ===============================================================
 
 
@@ -17,7 +18,8 @@
 ;;; ====================     GENERAL      ====================
 (setq inhibit-startup-message t)          ; Disable splast screen
 (setq-default frame-title-format nil)
-(tool-bar-mode -1)
+(scroll-bar-mode 0)     ; Disable visible scrollbar
+(tool-bar-mode 0)
 (blink-cursor-mode 0)
 (setq ring-bell-function 'ignore)
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
@@ -36,8 +38,6 @@
 		    :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
 		    :slant 'italic)
-
-(scroll-bar-mode -1)     ; Disable visible scrollbar
 
 ;; THEME
 (use-package gruber-darker-theme
@@ -119,6 +119,14 @@
   :after ivy
   :config (counsel-mode))
 
+;; Icons
+;; (Make sure to install 'Symbols Nerd Font' from nerdfonts)
+(use-package nerd-icons
+  :ensure t)
+(use-package nerd-icons-dired
+  :ensure t
+  :hook (dired-mode . nerd-icons-dired-mode))
+
 ;; Ivy & Counsel
 (use-package ivy
   :bind
@@ -131,9 +139,9 @@
   (setq enable-recursive-minibuffers t)
   :config
   (ivy-mode))
-(use-package all-the-icons-ivy-rich
+(use-package nerd-icons-ivy-rich
   :ensure t
-  :init (all-the-icons-ivy-rich-mode 1))
+  :init (nerd-icons-ivy-rich-mode 1))
 (use-package ivy-rich
   :after ivy
   :ensure t
@@ -234,14 +242,6 @@
 	which-key-allow-imprecise-window-fit t
 	which-key-separator " → " ))
 
-;; Icons
-(use-package all-the-icons
-  :ensure t
-  :if (display-graphic-p))
-(use-package all-the-icons-dired
-  :ensure t
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; Vterm
 (use-package vterm
