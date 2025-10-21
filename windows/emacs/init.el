@@ -1,6 +1,8 @@
 ;; ===============================================================
 ;; EMACS CONFIG
 ;; OS : WINDOWS
+;; LOCATION: %appdata%/.emacs.d/init.el
+;; New-Item -ItemType SymbolicLink -Path "$env:APPDATA\.emacs.d\init.el" -Target "$env:USERPROFILE\dotfiles\windows\emacs\init.el"
 ;; Author: SMPL
 ;; ===============================================================
 
@@ -21,13 +23,16 @@
 (tool-bar-mode 0)       ; Disable tool bar
 (menu-bar-mode 0)       ; Disable menu bar
 (scroll-bar-mode 0)     ; Disable visible scrollbar
+(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+;; (add-to-list 'default-frame-alist '(undecorated-round . t)) ; Should work on emacs29, but not working
+(set-fringe-mode 0) ;(Remove fringe on both sides) 0 = no fringe, 1 = minimal
 (blink-cursor-mode 0)   ; Disable blinking cursor
 (setq ring-bell-function 'ignore) ; Disable the bell sound
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
 (add-to-list
- 'default-frame-alist
- '(fullscreen . maximized))
-(setq frame-resize-pixelwise t) ;
+  'default-frame-alist 
+  '(fullscreen . maximized))
+(setq frame-resize-pixelwise t) ; 
 
 
 ;;; ====================     UI      ====================
@@ -81,6 +86,9 @@
   (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
   (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
+  ;; Scroll up & down
+  (define-key evil-normal-state-map (kbd "C-u") 'scroll-down-40-percent)
+  (define-key evil-normal-state-map (kbd "C-d") 'scroll-up-40-percent)
   ;; Ctrl+S to save, Ctrl+x s for search
   (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
   (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
@@ -116,6 +124,7 @@
   (evil-goggles-mode)
   (evil-goggles-use-diff-faces))
 
+
 ;; GIT (Magit)
 (use-package magit
   :ensure t
@@ -127,7 +136,6 @@
   :config (counsel-mode))
 
 ;; Icons
-;; (Make sure to install 'Symbols Nerd Font' from nerdfonts)
 (use-package nerd-icons
   :ensure t)
 (use-package nerd-icons-dired
@@ -258,6 +266,9 @@
   :ensure t
   :config
   (projectile-mode 1))
+;; Bind leader + DEL to projectile-command-map
+(smpl/leader-keys
+  "DEL" '(projectile-command-map :wk "Projectile commands"))
 
 ;; Perspective
 (use-package perspective
@@ -267,7 +278,7 @@
   ;; I'm only setting the additional binding because setting it
   ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init
+  :init 
   (persp-mode)
   :config
   ;; Sets a file to write to when we save states
@@ -281,13 +292,20 @@
 ;; Automatically save perspective states to file when Emacs exits.
 (add-hook 'kill-emacs-hook #'persp-state-save)
 
-;; LSP
+;; --- LSP ---
 (use-package lsp-mode
   :ensure t
-  )
+)
 (use-package lsp-ui
   :ensure t
-  )
+)
+
+;; Disable line numbers in compilation buffers
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+
+
 ;; Compilation keybindings
 ;; (global-set-key (kbd "<f8>") 'compile)      ; F5 to compile with new command
 ;; (global-set-key (kbd "C-<f8>") 'recompile)  ; Ctrl+F5 to recompile
@@ -305,7 +323,88 @@
   (let ((compile-command "make"))
     (compile compile-command)))
 
+(defun smpl/compile-run-from-project-root ()
+  "Run `compile` from project root"
+  (interactive)
+  (save-some-buffers t)    ; (save-buffer) for current buffer (save-some-buffers t) for all buffers
+  (let* ((default-directory
+	  (or (locate-dominating-file default-directory "Makefile")
+	      (locate-dominating-file default-directory "build.sh")
+	      (locate-dominating-file default-directory "build.bat")
+	      (locate-dominating-file default-directory "build.ps")
+	      default-directory))
+	 (compile_command "make run")) ;; the compilation command string
+    (compile compile_command)))
+	      
 ;; Keybindings
-(global-set-key (kbd "<f8>") 'smpl/compile-and-run)   ; F8: build & run
+(global-set-key (kbd "<f8>") 'smpl/compile-run-from-project-root)   ; F8: build & run
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)    ; Ctrl+F8: build only
 (global-set-key (kbd "S-<f8>") 'recompile)          ; Shift+F8: repeat last
+
+
+;; --- ORG MODE SETUP ---
+(use-package org
+  :ensure t
+  :pin melpa
+  :mode ("\\.org\\'" . org-mode)
+  :config
+  ;; visual preferences
+  (setq org-hide-emphasis-markers t     ;; hide *bold*, /italic/ markers
+        org-startup-indented t          ;; pretty indentation
+        org-ellipsis " ▾"               ;; folding symbol
+        org-src-fontify-natively t      ;; syntax highlighting in src blocks
+        org-src-tab-acts-natively t))   ;; tab behaves normally in code blocks
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+(add-hook 'evil-org-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+
+;; --- EVIL ORG MODE ---
+(use-package evil-org
+  :after (org evil)
+  :ensure t
+  :hook (org-mode . evil-org-mode)
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-set-key-theme
+   '(textobjects insert navigation additional shift todo heading))
+  (evil-org-agenda-set-keys))
+;; ORG MODE BULLETS
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode . org-bullets-mode))
+
+
+;; Golden ratio (auto zoom on active buffer)
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1)
+  ;; Optional: exclude certain modes
+  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode" "gdb-locals-mode"
+                                     "gdb-registers-mode" "gdb-breakpoints-mode" "gdb-threads-mode"
+                                     "gdb-frames-mode" "gdb-inferior-io-mode" "gdb-disassembly-mode"
+                                     "gdb-memory-mode" "magit-status-mode")))
+
+;; Compilation Mode config
+;; Fix bold & colors in compilation mode
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+(setq compilation-environment '("TERM=xterm-256color"))
+;; Disable line numbers in compilation buffers
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+
+;; ---- ESHELL ----
+;; Make eshell's point go to top when cleared
+(defun eshell/clear (&rest args)
+  "Clear the eshell buffer and move point to the top."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer))
+  (goto-char (point-min))
+  (eshell-send-input))
