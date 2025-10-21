@@ -360,3 +360,6 @@
           (lambda ()
             (display-line-numbers-mode 0)))
 ;; Keep search highlights visible until manually cleared
+;; Use bash for shell commands in Emacs (fish can cause issues)
+(setq shell-file-name "/bin/bash")
+(setq explicit-shell-file-name "/bin/bash")
