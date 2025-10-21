@@ -45,12 +45,13 @@
 		    :slant 'italic)
 
 ;; THEME
-(load-theme 'modus-vivendi-tritanopia t)
-(set-face-background 'hl-line "#292929")  ; color of current line
+;; (load-theme 'gruber-darker t)
+(load-theme 'modus-vivendi-deuteranopia t)
+;; (set-face-background 'hl-line "#292929")  ; color of current line
 ;; TRANSPARENCY
 (set-frame-parameter nil 'alpha '(90 . 90))
 (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-(add-to-list 'default-frame-alist '(background-color . "unspecified-bg"))
+;; (add-to-list 'default-frame-alist '(background-color . "#181818"))
 
 
 ;;; ====================     PACKAGES      ====================
@@ -181,6 +182,7 @@
 
   (smpl/leader-keys
     "." '(find-file :wk "Find file")
+    "q" '(evil-window-delete :wk "Close Window")
     "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
     ;; "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "/" '(comment-line :wk "Comment lines"))
@@ -309,6 +311,18 @@
 ;; Automatically save perspective states to file when Emacs exits.
 (add-hook 'kill-emacs-hook #'persp-state-save)
 
+;; Golden ratio (auto zoom on active buffer)
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1)
+  ;; Optional: exclude certain modes
+  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode" "gdb-locals-mode"
+                                     "gdb-registers-mode" "gdb-breakpoints-mode" "gdb-threads-mode"
+                                     "gdb-frames-mode" "gdb-inferior-io-mode" "gdb-disassembly-mode"
+                                     "gdb-memory-mode" "magit-status-mode")))
+
+
 ;; LSP
 (use-package lsp-mode
   :ensure t
@@ -334,9 +348,22 @@
   (let ((compile-command "make"))
     (compile compile-command)))
 
+(defun smpl/compile-run-from-project-root ()
+  "Run `compile` from project root"
+  (interactive)
+  (save-some-buffers t)    ; (save-buffer) for current buffer (save-some-buffers t) for all buffers
+  (let* ((default-directory
+	  (or (locate-dominating-file default-directory "Makefile")
+	      (locate-dominating-file default-directory "build.sh")
+	      (locate-dominating-file default-directory "build.bat")
+	      (locate-dominating-file default-directory "build.ps")
+	      default-directory))
+	 (compile_command "make run")) ;; the compilation command string
+    (compile compile_command)))
+
 ;; Keybindings
 (smpl/leader-keys
-  "8" '(smpl/compile-and-run :wk "Compile & Run"))
+  "8" '(smpl/compile-run-from-project-root  :wk "Compile & Run"))
 
 ;; (global-set-key (kbd "<f8>") 'smpl/compile-and-run)   ; F8: build & run
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)    ; Ctrl+F8: build only
@@ -363,3 +390,12 @@
 ;; Use bash for shell commands in Emacs (fish can cause issues)
 (setq shell-file-name "/bin/bash")
 (setq explicit-shell-file-name "/bin/bash")
+
+;; ---- ESHELL ----
+;; Make eshell's point go to top when cleared
+(defun eshell/clear (&rest args)
+  "Clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
