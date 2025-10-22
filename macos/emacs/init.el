@@ -399,3 +399,50 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+
+;;; ====================     ORG MODE      ====================
+;; Set org directory
+(setq org-directory "~/org/")
+(setq org-default-notes-file (concat org-directory "notes.org"))
+
+;; Basic org-mode settings
+(use-package org
+  :ensure t
+  :hook (org-mode . org-indent-mode)  ; Enable indentation
+  :config
+  
+  ;; Visual settings
+  (setq org-startup-folded 'content)           ; Start with content visible
+  (setq org-hide-emphasis-markers t)           ; Hide markup markers (/, *, etc.)
+  (setq org-pretty-entities t)                 ; Show UTF-8 characters
+  (setq org-ellipsis " ▾")                     ; Folding symbol
+  (setq org-cycle-separator-lines 2)           ; Empty lines between sections
+  
+  ;; TODO keywords
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+  )
+;; Enabling Table of Contents
+(use-package toc-org
+    :commands toc-org-enable
+    :init (add-hook 'org-mode-hook 'toc-org-enable))
+;; Org-modern for better visuals (optional but recommended)
+(use-package org-modern
+  :ensure t
+  :hook (org-mode . org-modern-mode)
+  :config
+  (setq org-modern-star '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶"))
+  (setq org-modern-table-vertical 1)
+  (setq org-modern-table-horizontal 0.2))
+;; Diminish Org Indent Mode
+;; Removes “Ind” from showing in the modeline.
+(eval-after-load 'org-indent '(diminish 'org-indent-mode))
+;; Org Level Headers
+(custom-set-faces
+ '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
+ '(org-level-6 ((t (:inherit outline-5 :height 1.2))))
+ '(org-level-7 ((t (:inherit outline-5 :height 1.1)))))
