@@ -20,14 +20,14 @@
 ;;; ====================     GENERAL      ====================
 (setq inhibit-startup-message t)          ; Disable splast screen
 (setq-default frame-title-format nil)     ; Text on the title bar
+(blink-cursor-mode 0)   ; Disable blinking cursor
 (tool-bar-mode 0)       ; Disable tool bar
 (menu-bar-mode 0)       ; Disable menu bar
 (scroll-bar-mode 0)     ; Disable visible scrollbar
-(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-;; (add-to-list 'default-frame-alist '(undecorated-round . t)) ; Should work on emacs29, but not working
-(set-fringe-mode 0) ;(Remove fringe on both sides) 0 = no fringe, 1 = minimal
-(blink-cursor-mode 0)   ; Disable blinking cursor
 (setq ring-bell-function 'ignore) ; Disable the bell sound
+(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+(set-fringe-mode 0) ;(Remove fringe(the padding like bar) on both sides) 0 = no fringe, 1 = minimal
+;; (add-to-list 'default-frame-alist '(undecorated-round . t)) ; Should work on emacs29, but not working
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
 (add-to-list
   'default-frame-alist 
