@@ -1,13 +1,17 @@
-;; ===============================================================
-;; EMACS CONFIG
-;; OS : MACOS
-;; AUTHOR: SMPL
-;; ===============================================================
+;;; ===============================================================
+;;; EMACS CONFIG
+;;; OS: macOS
+;;; AUTHOR: SMPL
+;;; ===============================================================
+(setq compile-command "/usr/bin/make ")
 
+;;; ====================  INITIALIZATION  ====================
 
-;;; ====================     PRE      ====================
-(setq custom-file "~/.emacs.d/custom-emacs.el") ; save all the custom config that emac does into a separate file & load it
+;; Custom file configuration
+(setq custom-file "~/.emacs.d/custom-emacs.el")
 (load-file custom-file)
+
+;; Package management
 (require 'package)
 (setq package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
@@ -15,57 +19,77 @@
 (package-initialize)
 
 
-;;; ====================     GENERAL      ====================
-(setq inhibit-startup-message t)          ; Disable splast screen
-(setq-default frame-title-format nil)     ; Text on the title bar
-(blink-cursor-mode 0)   ; Disable blinking cursor
-(tool-bar-mode 0)       ; Disable tool bar
-(menu-bar-mode 0)       ; Disable menu bar
-(scroll-bar-mode 0)     ; Disable visible scrollbar
-(setq ring-bell-function 'ignore) ; Disable the bell sound
-(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-(set-fringe-mode 0) ;(Remove fringe(the padding like bar) on both sides) 0 = no fringe, 1 = minimal
-(setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
-(add-to-list
- 'default-frame-alist
- '(fullscreen . maximized))
-(setq frame-resize-pixelwise t) ;
+;;; ====================  GENERAL SETTINGS  ====================
 
+(global-auto-revert-mode 1)      ; Revert buffers when the underlying file is changed
+(setq global-auto-revert-non-file-buffers t) ; Revert dired & other buffers to auto refresh
+;; Startup & UI cleanup
+(setq inhibit-startup-message t)              ; Disable splash screen
+(setq-default frame-title-format nil)         ; Text on the title bar
+(blink-cursor-mode 0)                         ; Disable blinking cursor
+(tool-bar-mode 0)                             ; Disable tool bar
+(menu-bar-mode 0)                             ; Disable menu bar
+(scroll-bar-mode 0)                           ; Disable visible scrollbar
+(setq ring-bell-function 'ignore)             ; Disable the bell sound
+(setq use-dialog-box nil)                     ; Disable GUI dialog boxes
 
-;;; ====================     UI      ====================
-(global-display-line-numbers-mode 1)        ; Line numbers
-(setq display-line-numbers-type 'relative)  ; Relative line numbers
-(global-hl-line-mode 1)                     ; show current line highlight
-(add-hook 'window-setup-hook 'toggle-frame-maximized) ; maximize window on startup
-;; FONT
+;; Mini Buffer
+(setq history-length 25)
+(savehist-mode 1)
+
+;; Frame settings
+;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(setq frame-resize-pixelwise t)
+
+;; Fringe configuration
+(set-fringe-mode 0)  ; Remove fringe (0 = no fringe, 1 = minimal)
+
+;; User interaction
+(setq use-short-answers t)  ; Use y/n instead of yes/no (Emacs 28+)
+
+;;; ====================  VISUAL SETTINGS  ====================
+
+;; Line numbers
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+
+;; Current line highlight
+(global-hl-line-mode 1)
+
+;; Maximize window on startup
+;; (add-hook 'window-setup-hook 'toggle-frame-maximized)
+
+;; Font configuration
 (set-face-attribute 'default nil
-		    :font "Iosevka Nerd Font"
-		    :height 200)
+                    :font "Iosevka Nerd Font"
+                    :height 200)
 (set-face-attribute 'font-lock-comment-face nil
-		    :slant 'italic)
+                    :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
-		    :slant 'italic)
+                    :slant 'italic)
 
-;; THEME
-;; (load-theme 'gruber-darker t)
-(load-theme 'modus-vivendi-deuteranopia t)
-;; (set-face-background 'hl-line "#292929")  ; color of current line
-;; TRANSPARENCY
-(set-frame-parameter nil 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-;; (add-to-list 'default-frame-alist '(background-color . "#181818"))
+;; Theme
+(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+;; (load-theme 'modus-operandi-tinted t)         ; light theme
+
+;; Transparency
+;; (set-frame-parameter nil 'alpha '(90 . 90))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 
-;;; ====================     PACKAGES      ====================
-;; EVIL
+;;; ====================  EVIL MODE  ====================
+
+;; Evil - Vim emulation
 (use-package evil
   :ensure t
-  :init       ; tweak evil before loading with following config
-  (setq evil-want-keybinding nil)  ; Required for evil-collection
+  :init
+  (setq evil-want-keybinding nil)   ; Required for evil-collection
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
-  :commands (evil-mode))  ; Load only when evil-mode is called
+  :commands (evil-mode))
 
+;; Toggle evil mode function
 (defun toggle-evil-mode ()
   "Toggle evil-mode on and off with status message."
   (interactive)
@@ -76,119 +100,158 @@
 
 (global-set-key (kbd "C-z") 'toggle-evil-mode)
 
-;; Window navigation with C-hjkl in evil mode
+;; Evil keybindings
 (with-eval-after-load 'evil
-  ;; Navigate between emacs windows in normal state
+  ;; Window navigation
   (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
   (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
   (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-  ;; Ctrl+S to save, Ctrl+x s for search
+
+  ;; Save buffer
   (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
   (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
-  (define-key evil-normal-state-map (kbd "C-x s") 'isearch-forward)
-  (define-key evil-insert-state-map (kbd "C-x s") 'isearch-forward)
-  ;; Scroll half page down and center screen
+
+  ;; Search
+  ;; (define-key evil-normal-state-map (kbd "C-x s") 'isearch-forward)
+  ;; (define-key evil-insert-state-map (kbd "C-x s") 'isearch-forward)
+
+  ;; Scroll half page down and center
   (define-key evil-normal-state-map (kbd "C-d")
 	      (lambda ()
 		(interactive)
 		(evil-scroll-down nil)
 		(recenter)))
-  ;; Scroll half page up and center screen
+
+  ;; Scroll half page up and center
   (define-key evil-normal-state-map (kbd "C-u")
 	      (lambda ()
 		(interactive)
 		(evil-scroll-up nil)
-		(recenter)))
-  )
+		(recenter))))
 
-;; evil-collection for proper evil bindings
+;; Evil collection - proper evil bindings for various modes
 (use-package evil-collection
   :ensure t
   :after evil
   :config
-  (setq evil-collection-mode-list '(dashboard dired ibuffer magit compilation)) ;; enable evil-collection only for these 3 modes
+  (setq evil-collection-mode-list '(dashboard dired ibuffer magit compilation))
   (evil-collection-init))
 
-;; evil-goggles for visual feedback
-(use-package evil-goggles
-  :ensure t
-  :after evil
+;;; ====================  DIRED CONFIGURATION  ====================
+
+;; Dired settings
+(use-package dired
+  :ensure nil  ; Built-in package
+  :commands (dired dired-jump)
   :config
-  (evil-goggles-mode)
-  (evil-goggles-use-diff-faces))
+  (setq dired-listing-switches "-alh"  ; Human-readable file sizes
+        dired-dwim-target t))          ; Guess target for copy/move
 
-;; GIT (Magit)
-(use-package magit
-  :ensure t
-  :bind (("C-x g" . magit-status)))
+;; Evil keybindings for dired
+(with-eval-after-load 'dired
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal dired-mode-map
+      (kbd "r") 'revert-buffer         ; Refresh dired buffer
+      (kbd "h") 'dired-up-directory    ; Go to parent directory
+      (kbd "l") 'dired-find-file)))    ; Open file/directory
 
+;;; ====================  COMPLETION & NAVIGATION  ====================
 
-;; Icons
-;; (Make sure to install 'Symbols Nerd Font' from nerdfonts)
-(use-package nerd-icons
-  :ensure t)
-(use-package nerd-icons-dired
-  :ensure t
-  :hook (dired-mode . nerd-icons-dired-mode))
-
-;; Ivy & Counsel
+;; Ivy - completion framework
 (use-package ivy
-  :bind
-  ;; ivy-resume resumes the last Ivy-based completion.
-  (("C-c C-r" . ivy-resume)
-   ("C-x B" . ivy-switch-buffer-other-window))
+  :ensure t
+  :bind (("C-c C-r" . ivy-resume)
+         ("C-x B" . ivy-switch-buffer-other-window))
   :custom
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq enable-recursive-minibuffers t)
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) ")
+  (enable-recursive-minibuffers t)
   :config
   (ivy-mode))
-(use-package nerd-icons-ivy-rich
+
+;; Counsel - Ivy-enhanced Emacs commands
+(use-package counsel
   :ensure t
-  :init (nerd-icons-ivy-rich-mode 1))
-(use-package ivy-rich
   :after ivy
-  :ensure t
-  :init (ivy-rich-mode 1) ;; this gets us descriptions in M-x.
-  :custom
-  (ivy-virtual-abbreviate 'full
-			  ivy-rich-switch-buffer-align-virtual-buffer t
-			  ivy-rich-path-style 'abbrev)
   :config
-  (ivy-set-display-transformer 'ivy-switch-buffer
-                               'ivy-rich-switch-buffer-transformer))
+  (counsel-mode))
+
 ;; Disable Ivy completion in Dired rename/move
 (with-eval-after-load 'ivy
   (add-to-list 'ivy-completing-read-handlers-alist
                '(dired-do-rename . completing-read-default)))
-(use-package counsel
-  :after ivy
-  :ensure t
-  :config (counsel-mode))
 
-;;; ====================     KEYMAPS      ====================
-(windmove-default-keybindings) ; Shift + arrow keys move between windows
-;; General - Leader key bindings
+;; Ivy Rich - enhanced ivy interface
+(use-package ivy-rich
+  :ensure t
+  :after (ivy counsel)
+  :custom
+  (ivy-virtual-abbreviate 'full)
+  (ivy-rich-switch-buffer-align-virtual-buffer t)
+  (ivy-rich-path-style 'abbrev)
+  :init
+  (ivy-rich-mode 1)
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer
+                               'ivy-rich-switch-buffer-transformer))
+
+;; Nerd Icons for Ivy
+(use-package nerd-icons-ivy-rich
+  :ensure t
+  :after (ivy-rich counsel)
+  :init
+  (nerd-icons-ivy-rich-mode 1))
+
+;; Which-Key - display available keybindings
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode 1)
+  :config
+  (setq which-key-side-window-location 'bottom
+        which-key-sort-order #'which-key-key-order-alpha
+        which-key-sort-uppercase-first nil
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-min-display-lines 6
+        which-key-side-window-slot -10
+        which-key-side-window-max-height 0.25
+        which-key-idle-delay 0.8
+        which-key-max-description-length 25
+        which-key-allow-imprecise-window-fit t
+        which-key-separator " → "))
+
+
+;;; ====================  LEADER KEY BINDINGS  ====================
+
+;; Window movement with Shift + arrow keys
+(windmove-default-keybindings)
+
+;; General - Leader key setup
 (use-package general
-  :ensure t  ; Added - needed to install the package
+  :ensure t
   :config
   (general-evil-setup)
-  ;; set SPACE as leader key
+
+  ;; Set SPACE as leader key
   (general-create-definer smpl/leader-keys
     :states '(normal insert visual emacs)
     :keymaps 'override
-    :prefix "SPC"          ;; set leader
-    :global-prefix "M-SPC" ;; access leader in insert mode
-    )
+    :prefix "SPC"
+    :global-prefix "M-SPC")
 
+  ;; Window operations
+  (smpl/leader-keys
+    "q" '(evil-window-delete :wk "Close Window"))
+
+  ;; File operations
   (smpl/leader-keys
     "." '(find-file :wk "Find file")
-    "q" '(evil-window-delete :wk "Close Window")
     "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
-    ;; "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "/" '(comment-line :wk "Comment lines"))
 
+  ;; Buffer operations
   (smpl/leader-keys
     "b" '(:ignore t :wk "buffer")
     "bb" '(switch-to-buffer :wk "Switch buffer")
@@ -198,253 +261,265 @@
     "bp" '(previous-buffer :wk "Previous buffer")
     "br" '(revert-buffer :wk "Reload buffer"))
 
+  ;; Evaluate elisp
   (smpl/leader-keys
     "e" '(:ignore t :wk "Evaluate")
     "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
     "e d" '(eval-defun :wk "Evaluate defun containing or after point")
-    "e e" '(eval-expression :wk "Evaluate and elisp expression")
+    "e e" '(eval-expression :wk "Evaluate an elisp expression")
     "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "e r" '(eval-region :wk "Evaluate elisp in region"))
 
+  ;; Help
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
     "h f" '(describe-function :wk "Describe function")
     "h v" '(describe-variable :wk "Describe variable")
     "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
 
+  ;; Toggle
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(visual-line-mode :wk "Toggle truncated lines")
-    "t v" '(vterm-toggle :wk "Toggle vterm"))
+    "t t" '(visual-line-mode :wk "Toggle truncated lines"))
 
+  ;; Windows
   (smpl/leader-keys
     "w" '(:ignore t :wk "Windows")
-    ;; Window splits
     "w c" '(evil-window-delete :wk "Close window")
     "w n" '(evil-window-new :wk "New window")
     "w s" '(evil-window-split :wk "Horizontal split window")
     "w v" '(evil-window-vsplit :wk "Vertical split window"))
 
+  ;; Git
   (smpl/leader-keys
-    "g" '(:ignore t :wk "git")           ; Define the "g" prefix
-    "gg" '(magit-status :wk "Magit"))    ; Define "gg" under it
+    "g" '(:ignore t :wk "git")
+    "gg" '(magit-status :wk "Magit"))
 
-  )
-
-;; Auto-formatting
-(use-package format-all
-  :ensure t
-  :commands format-all-mode format-all-buffer
-  :hook (prog-mode . format-all-mode)  ; Auto-format on save
-  :bind (("C-c C-f" . format-all-buffer)))
-
-;; Which-Key
-(use-package which-key
-  :ensure t
-  :init
-  (which-key-mode 1)
-  :config
-  (setq which-key-side-window-location 'bottom
-	which-key-sort-order #'which-key-key-order-alpha
-	which-key-sort-uppercase-first nil
-	which-key-add-column-padding 1
-	which-key-max-display-columns nil
-	which-key-min-display-lines 6
-	which-key-side-window-slot -10
-	which-key-side-window-max-height 0.25
-	which-key-idle-delay 0.8
-	which-key-max-description-length 25
-	which-key-allow-imprecise-window-fit t
-	which-key-separator " → " ))
+  ;; Compilation
+  (smpl/leader-keys
+    "8" '(smpl/compile-run-from-project-root :wk "Compile & Run")))
 
 
-;; Vterm
-(use-package vterm
-  :config
-  (setq shell-file-name "/usr/local/bin/fish"
-	vterm-max-scrollback 5000))
-(use-package vterm-toggle
-  :after vterm
-  :config
-  (setq vterm-toggle-fullscreen-p nil)
-  (setq vterm-toggle-scope 'project)
-  (add-to-list 'display-buffer-alist
-               '((lambda (buffer-or-name _)
-                   (let ((buffer (get-buffer buffer-or-name)))
-                     (with-current-buffer buffer
-                       (or (equal major-mode 'vterm-mode)
-                           (string-prefix-p vterm-buffer-name (buffer-name buffer))))))
-                 (display-buffer-reuse-window display-buffer-at-bottom)
-                 ;;(display-buffer-reuse-window display-buffer-in-direction)
-                 ;;display-buffer-in-direction/direction/dedicated is added in emacs27
-                 ;;(direction . bottom)
-                 ;;(dedicated . t) ;dedicated is supported in emacs27
-                 (reusable-frames . visible)
-                 (window-height . 0.3))))
+;;; ====================  PROJECT MANAGEMENT  ====================
 
-;; Projectile
+;; Projectile - project interaction library
 (use-package projectile
+  :ensure t
   :config
   (projectile-mode 1))
-;; Bind leader + = to projectile-command-map
+
 (smpl/leader-keys
   "=" '(projectile-command-map :wk "Projectile commands"))
 
-;; Perspective
+;; Perspective - workspace management
 (use-package perspective
   :ensure t
   :custom
-  ;; NOTE! I have also set 'SCP =' to open the perspective menu.
-  ;; I'm only setting the additional binding because setting it
-  ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
   :init
   (persp-mode)
   :config
-  ;; Sets a file to write to when we save states
   (setq persp-state-default-file "~/.config/emacs/sessions"))
-;; This will group buffers by persp-name in ibuffer.
+
+;; Group buffers by perspective in ibuffer
 (add-hook 'ibuffer-hook
           (lambda ()
             (persp-ibuffer-set-filter-groups)
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
-;; Automatically save perspective states to file when Emacs exits.
+
+;; Auto-save perspective states on exit
 (add-hook 'kill-emacs-hook #'persp-state-save)
 
-;; Golden ratio (auto zoom on active buffer)
+
+;;; ====================  VERSION CONTROL  ====================
+
+;; Magit - Git interface
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
+
+;;; ====================  ICONS & VISUALS  ====================
+
+;; Nerd Icons (requires 'Symbols Nerd Font' installed)
+(use-package nerd-icons
+  :ensure t)
+
+(use-package nerd-icons-dired
+  :ensure t
+  :hook (dired-mode . nerd-icons-dired-mode))
+
+;; Golden ratio - auto-resize active window
 (use-package golden-ratio
   :ensure t
   :config
   (golden-ratio-mode 1)
-  ;; Optional: exclude certain modes
-  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode" "gdb-locals-mode"
-                                     "gdb-registers-mode" "gdb-breakpoints-mode" "gdb-threads-mode"
-                                     "gdb-frames-mode" "gdb-inferior-io-mode" "gdb-disassembly-mode"
-                                     "gdb-memory-mode" "magit-status-mode")))
+  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
+                                     "gdb-locals-mode" "gdb-registers-mode"
+                                     "gdb-breakpoints-mode" "gdb-threads-mode"
+                                     "gdb-frames-mode" "gdb-inferior-io-mode"
+                                     "gdb-disassembly-mode" "gdb-memory-mode"
+                                     "magit-status-mode")))
 
 
-;; LSP
+;;; ====================  CODE FORMATTING & LSP  ====================
+
+;; Auto-formatting
+(use-package format-all
+  :ensure t
+  :commands format-all-mode format-all-buffer
+  :hook (prog-mode . format-all-mode)
+  :bind (("C-c C-f" . format-all-buffer)))
+
+;; LSP Mode - Language Server Protocol
 (use-package lsp-mode
-  :ensure t
-  )
-(use-package lsp-ui
-  :ensure t
-  )
+  :ensure t)
 
-;; Compilation keybindings
-;; (global-set-key (kbd "<f8>") 'compile)      ; F5 to compile with new command
-;; (global-set-key (kbd "C-<f8>") 'recompile)  ; Ctrl+F5 to recompile
+(use-package lsp-ui
+  :ensure t)
+
+
+;;; ====================  TERMINAL EMULATION  ====================
+
+;; Eshell configuration
+;; Make eshell's point go to top when cleared
+(defun eshell/clear (&rest args)
+  "Clear the eshell buffer and move point to the top."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer))
+  (goto-char (point-min))
+  (eshell-send-input))
+
+;; Disable line numbers in shell and eshell
+(add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0)))
+(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
+
+
+;;; ====================  COMPILATION  ====================
+
+;; Compilation functions
 (defun smpl/compile-and-run ()
   "Compile and run the program."
   (interactive)
-  (save-buffer)    ; (save-some-buffers t) for saving all buffers
+  (save-buffer)
   (let ((compile-command "make && make run"))
     (compile compile-command)))
 
 (defun smpl/compile-only ()
   "Compile only."
   (interactive)
-  (save-buffer)    ; (save-some-buffers t) for saving all buffers
+  (save-buffer)
   (let ((compile-command "make"))
     (compile compile-command)))
 
 (defun smpl/compile-run-from-project-root ()
-  "Run `compile` from project root"
+  "Run `compile` from project root."
   (interactive)
-  (save-some-buffers t)    ; (save-buffer) for current buffer (save-some-buffers t) for all buffers
+  (save-some-buffers t)
   (let* ((default-directory
-	  (or (locate-dominating-file default-directory "Makefile")
-	      (locate-dominating-file default-directory "build.sh")
-	      (locate-dominating-file default-directory "build.bat")
-	      (locate-dominating-file default-directory "build.ps")
-	      default-directory))
-	 (compile_command "make run")) ;; the compilation command string
+          (or (locate-dominating-file default-directory "Makefile")
+              (locate-dominating-file default-directory "build.sh")
+              (locate-dominating-file default-directory "build.bat")
+              (locate-dominating-file default-directory "build.ps")
+              default-directory))
+         (compile_command "make run"))
     (compile compile_command)))
 
-;; Keybindings
-(smpl/leader-keys
-  "8" '(smpl/compile-run-from-project-root  :wk "Compile & Run"))
+;; Compilation keybindings
+(global-set-key (kbd "C-<f8>") 'smpl/compile-only)
+(global-set-key (kbd "S-<f8>") 'recompile)
 
-;; (global-set-key (kbd "<f8>") 'smpl/compile-and-run)   ; F8: build & run
-(global-set-key (kbd "C-<f8>") 'smpl/compile-only)    ; Ctrl+F8: build only
-(global-set-key (kbd "S-<f8>") 'recompile)          ; Shift+F8: repeat last
-
-;; Tell exec-path-from-shell the correct shell
-(setq exec-path-from-shell-shell "/usr/local/bin/fish")
-
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (exec-path-from-shell-initialize))
-
-;; Compilation Mode config
-;; Fix bold & colors in compilation mode
+;; Compilation mode configuration
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (setq compilation-environment '("TERM=xterm-256color"))
+
 ;; Disable line numbers in compilation buffers
 (add-hook 'compilation-mode-hook
           (lambda ()
             (display-line-numbers-mode 0)))
-;; Keep search highlights visible until manually cleared
-;; Use bash for shell commands in Emacs (fish can cause issues)
-(setq shell-file-name "/bin/bash")
-(setq explicit-shell-file-name "/bin/bash")
-
-;; ---- ESHELL ----
-;; Make eshell's point go to top when cleared
-(defun eshell/clear (&rest args)
-  "Clear the eshell buffer."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
 
 
-;;; ====================     ORG MODE      ====================
-;; Set org directory
-(setq org-directory "~/org/")
-(setq org-default-notes-file (concat org-directory "notes.org"))
+;;; ====================  ORG MODE  ====================
 
-;; Basic org-mode settings
+;; Org directory
+(setq org-directory "~/org/"
+      org-default-notes-file (concat org-directory "notes.org"))
+
+;; Basic org mode configuration
 (use-package org
   :ensure t
-  :hook (org-mode . org-indent-mode)  ; Enable indentation
+  :mode ("\\.org\\'" . org-mode)
+  :hook ((org-mode . org-indent-mode)
+         (org-mode . visual-line-mode))
   :config
-  
   ;; Visual settings
-  (setq org-startup-folded 'content)           ; Start with content visible
-  (setq org-hide-emphasis-markers t)           ; Hide markup markers (/, *, etc.)
-  (setq org-pretty-entities t)                 ; Show UTF-8 characters
-  (setq org-ellipsis " ▾")                     ; Folding symbol
-  (setq org-cycle-separator-lines 2)           ; Empty lines between sections
-  
+  (setq org-startup-folded 'content
+        org-hide-emphasis-markers t
+        org-pretty-entities t
+        org-ellipsis " ▾"
+        org-cycle-separator-lines 2
+        org-src-fontify-natively t
+        org-fontify-quote-and-verse-blocks t
+        org-src-tab-acts-natively t
+        org-edit-src-content-indentation 0
+        org-hide-block-startup nil
+        org-startup-with-inline-images t
+        org-startup-indented t)
+
   ;; TODO keywords
   (setq org-todo-keywords
         '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-  )
-;; Enabling Table of Contents
+
+  ;; TODO keyword faces
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "#ff6c6b" :weight bold))
+          ("IN-PROGRESS" . (:foreground "#ECBE7B" :weight bold))
+          ("WAITING" . (:foreground "#a9a1e1" :weight bold))
+          ("DONE" . (:foreground "#98be65" :weight bold))
+          ("CANCELLED" . (:foreground "#5B6268" :weight bold)))))
+
+;; Table of Contents
 (use-package toc-org
-    :commands toc-org-enable
-    :init (add-hook 'org-mode-hook 'toc-org-enable))
-;; Org-modern for better visuals (optional but recommended)
+  :ensure t
+  :after org
+  :hook (org-mode . toc-org-enable))
+
+;; Org Modern - better visuals
 (use-package org-modern
   :ensure t
+  :after org
   :hook (org-mode . org-modern-mode)
   :config
-  (setq org-modern-star '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶"))
-  (setq org-modern-table-vertical 1)
-  (setq org-modern-table-horizontal 0.2))
-;; Diminish Org Indent Mode
-;; Removes “Ind” from showing in the modeline.
-(eval-after-load 'org-indent '(diminish 'org-indent-mode))
-;; Org Level Headers
+  (setq org-modern-star '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶")
+        org-modern-table-vertical 1
+        org-modern-table-horizontal 0.2
+        org-modern-list '((43 . "➤") (45 . "–") (42 . "•"))
+        org-modern-todo t
+        org-modern-tag t
+        org-modern-priority t
+        org-modern-checkbox '((88 . "☑") (45 . "□") (32 . "◻"))
+        org-modern-timestamp t
+        org-modern-statistics t
+        org-modern-keyword t))
+
+;; Org level headers - custom heights
 (custom-set-faces
- '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.7 :weight bold))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.6 :weight semi-bold))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
  '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
- '(org-level-6 ((t (:inherit outline-5 :height 1.2))))
- '(org-level-7 ((t (:inherit outline-5 :height 1.1)))))
+ '(org-level-6 ((t (:inherit outline-6 :height 1.2))))
+ '(org-level-7 ((t (:inherit outline-7 :height 1.1)))))
+
+;; Optional: Diminish org-indent-mode from modeline (requires diminish package)
+;; (use-package diminish :ensure t)
+;; (eval-after-load 'org-indent '(diminish 'org-indent-mode))
+
+;;; ===============================================================
+;;; END OF CONFIG
+;;; ===============================================================

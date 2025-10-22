@@ -55,7 +55,7 @@ yabai -m config window_opacity_duration      0.0
 yabai -m config window_animation_duration    0.0
 yabai -m config window_shadow                off    # on off
 
-yabai -m config menubar_opacity              0.6  # 0.0 will hide permanently
+yabai -m config menubar_opacity              1  # 0.0 will hide permanently
 yabai -m config auto_balance                 on
 
 

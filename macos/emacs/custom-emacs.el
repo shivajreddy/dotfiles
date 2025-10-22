@@ -4,14 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(all-the-icons-dired all-the-icons-ivy-rich counsel evil-collection
-			 evil-goggles exec-path-from-shell format-all
-			 general golden-ratio gruber-darker-theme
-			 lsp-ui magit nerd-icons-dired
-			 nerd-icons-ivy-rich nov org-bullets
-			 org-modern pdf-tools perspective projectile
-			 vterm-toggle)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
