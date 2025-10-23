@@ -1,13 +1,9 @@
 #|
 # Run in background and detach from terminal
 sudo nohup kanata -c ~/.config/kanata/config.kbd > /dev/null 2>&1 &
-
 # To stop it later, find the process and kill it
 sudo pkill kanata
 |#
-
-
-
 
 ;; Configuration for macOS with correct device name
 (defcfg
@@ -24,16 +20,19 @@ sudo pkill kanata
 ;; Define the keys to remap
 (defsrc
   caps h j k l
+  rmet  ;; right command key
 )
 
 ;; Define the default layer
 (deflayer default
   @caps-layer h j k l
+  rctl  ;; remap right command to right control
 )
 
 ;; Define the arrow layer (activated when holding caps)
 (deflayer arrows
   _ left down up rght
+  _  ;; keep right command as control even in arrow layer
 )
 
 ;; Define tap-hold behavior for caps lock

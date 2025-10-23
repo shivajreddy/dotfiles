@@ -37,7 +37,7 @@ for script in $HOME/.config/fish/scripts/*.fish
 end
 
 # Environment variables
-set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
+# set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
 set -gx BROWSER '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 
 # Qt5 variables
@@ -57,8 +57,8 @@ set -gx GOPATH $HOME/go
 # Install with: fisher install jorgebucaran/nvm.fish
 
 ########################### ALIASES ###########################
-alias fdfind 'fd'
-alias sk 'sudo kanata-start.sh'
+# alias fdfind fd
+# alias sk 'sudo kanata-start.sh'
 
 # MacOS - g++ fix using alias (comment these on wsl/linux if runcpp wont work)
 alias g++ 'g++-15'
@@ -85,17 +85,6 @@ alias gitsave="gaa && gcmsg '.' && ggpush"
 alias gpull="git pull"
 alias gpush="git push"
 alias gsave="gaa && gcmsg '.' && gpush"
-
-# Git clone function
-function gclone
-    if test (count $argv) -ne 2
-        echo "Usage: gclone <github-username> <repository-name>"
-        return 1
-    end
-    set username $argv[1]
-    set repo $argv[2]
-    git clone "https://github.com/$username/$repo.git"
-end
 
 # Python
 alias python="python3.12"
