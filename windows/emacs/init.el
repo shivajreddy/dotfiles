@@ -30,9 +30,9 @@
 (setq ring-bell-function 'ignore) ; Disable the bell sound
 (setq use-short-answers t)                ; Use y/n instead of yes/no (Emacs 28+)
 (add-to-list
-  'default-frame-alist 
-  '(fullscreen . maximized))
-(setq frame-resize-pixelwise t) ; 
+ 'default-frame-alist
+ '(fullscreen . maximized))
+(setq frame-resize-pixelwise t) ;
 
 
 ;;; ====================     UI      ====================
@@ -42,16 +42,16 @@
 (add-hook 'window-setup-hook 'toggle-frame-maximized) ; maximize window on startup
 ;; FONT
 (set-face-attribute 'default nil
-		    :font "Iosevka NF"
-		    :weight 'regular
-		    :height 160)
+		            :font "Iosevka NF"
+		            :weight 'regular
+		            :height 160)
 (set-face-attribute 'font-lock-comment-face nil
-		    :slant 'italic)
+		            :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
-		    :slant 'italic)
+		            :slant 'italic)
 
 ;; THEME
-(load-theme 'modus-vivendi-tritanopia t)
+(load-theme 'modus-vivendi-deuteranopia t)
 (set-face-background 'hl-line "#292929")  ; color of current line
 ;; TRANSPARENCY
 (set-frame-parameter nil 'alpha '(90 . 90))
@@ -96,17 +96,16 @@
   (define-key evil-insert-state-map (kbd "C-x s") 'isearch-forward)
   ;; Scroll half page down and center screen
   (define-key evil-normal-state-map (kbd "C-d")
-	      (lambda ()
-		(interactive)
-		(evil-scroll-down nil)
-		(recenter)))
+	          (lambda ()
+		        (interactive)
+		        (evil-scroll-down nil)
+		        (recenter)))
   ;; Scroll half page up and center screen
   (define-key evil-normal-state-map (kbd "C-u")
-	      (lambda ()
-		(interactive)
-		(evil-scroll-up nil)
-		(recenter)))
-  )
+	          (lambda ()
+		        (interactive)
+		        (evil-scroll-up nil)
+		        (recenter))))
 
 ;; evil-collection for proper evil bindings
 (use-package evil-collection
@@ -123,7 +122,6 @@
   :config
   (evil-goggles-mode)
   (evil-goggles-use-diff-faces))
-
 
 ;; GIT (Magit)
 (use-package magit
@@ -163,8 +161,8 @@
   :init (ivy-rich-mode 1) ;; this gets us descriptions in M-x.
   :custom
   (ivy-virtual-abbreviate 'full
-			  ivy-rich-switch-buffer-align-virtual-buffer t
-			  ivy-rich-path-style 'abbrev)
+			              ivy-rich-switch-buffer-align-virtual-buffer t
+			              ivy-rich-path-style 'abbrev)
   :config
   (ivy-set-display-transformer 'ivy-switch-buffer
                                'ivy-rich-switch-buffer-transformer))
@@ -189,7 +187,8 @@
     "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
     ;; "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
     "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
-    "/" '(comment-line :wk "Comment lines"))
+    "/" '(comment-line :wk "Comment lines")
+    "q" '((lambda () (interactive) (delete-window)) :wk "Close Window"))
 
   (smpl/leader-keys
     "b" '(:ignore t :wk "buffer")
@@ -248,17 +247,17 @@
   (which-key-mode 1)
   :config
   (setq which-key-side-window-location 'bottom
-	which-key-sort-order #'which-key-key-order-alpha
-	which-key-sort-uppercase-first nil
-	which-key-add-column-padding 1
-	which-key-max-display-columns nil
-	which-key-min-display-lines 6
-	which-key-side-window-slot -10
-	which-key-side-window-max-height 0.25
-	which-key-idle-delay 0.8
-	which-key-max-description-length 25
-	which-key-allow-imprecise-window-fit t
-	which-key-separator " → " ))
+	    which-key-sort-order #'which-key-key-order-alpha
+	    which-key-sort-uppercase-first nil
+	    which-key-add-column-padding 1
+	    which-key-max-display-columns nil
+	    which-key-min-display-lines 6
+	    which-key-side-window-slot -10
+	    which-key-side-window-max-height 0.25
+	    which-key-idle-delay 0.8
+	    which-key-max-description-length 25
+	    which-key-allow-imprecise-window-fit t
+	    which-key-separator " → " ))
 
 
 ;; Projectile
@@ -278,7 +277,7 @@
   ;; I'm only setting the additional binding because setting it
   ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init 
+  :init
   (persp-mode)
   :config
   ;; Sets a file to write to when we save states
@@ -295,10 +294,27 @@
 ;; --- LSP ---
 (use-package lsp-mode
   :ensure t
-)
+  :hook ((c-mode . lsp)
+         (c++mode . lsp))
+  :commands lsp
+  :config
+  (setq lsp-clients-clangd-args '("--enable-config")) ; Trust .clangd files
+  (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-enable-indentation nil))
 (use-package lsp-ui
   :ensure t
-)
+  :commands lsp-ui-mode
+  )
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default standard-indent 4)
+;; C/C++
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
+(setq lsp-clients-clangd-args '("--compile-commands-dir=." "--log=verbose" "--pretty"))
+
 
 ;; Disable line numbers in compilation buffers
 (add-hook 'compilation-mode-hook
@@ -328,14 +344,14 @@
   (interactive)
   (save-some-buffers t)    ; (save-buffer) for current buffer (save-some-buffers t) for all buffers
   (let* ((default-directory
-	  (or (locate-dominating-file default-directory "Makefile")
-	      (locate-dominating-file default-directory "build.sh")
-	      (locate-dominating-file default-directory "build.bat")
-	      (locate-dominating-file default-directory "build.ps")
-	      default-directory))
-	 (compile_command "make run")) ;; the compilation command string
+	      (or (locate-dominating-file default-directory "Makefile")
+	          (locate-dominating-file default-directory "build.sh")
+	          (locate-dominating-file default-directory "build.bat")
+	          (locate-dominating-file default-directory "build.ps")
+	          default-directory))
+	     (compile_command "make run")) ;; the compilation command string
     (compile compile_command)))
-	      
+
 ;; Keybindings
 (global-set-key (kbd "<f8>") 'smpl/compile-run-from-project-root)   ; F8: build & run
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)    ; Ctrl+F8: build only
@@ -376,7 +392,6 @@
 (use-package org-bullets
   :ensure t
   :hook (org-mode . org-bullets-mode))
-
 
 ;; Golden ratio (auto zoom on active buffer)
 (use-package golden-ratio
