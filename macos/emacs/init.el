@@ -48,6 +48,7 @@
 ;; User interaction
 (setq use-short-answers t)  ; Use y/n instead of yes/no (Emacs 28+)
 
+
 ;;; ====================  VISUAL SETTINGS  ====================
 
 ;; Line numbers
@@ -78,6 +79,7 @@
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 
+
 ;;; ====================  EVIL MODE  ====================
 
 ;; Evil - Vim emulation
@@ -87,7 +89,8 @@
   (setq evil-want-keybinding nil)   ; Required for evil-collection
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
-  :commands (evil-mode))
+  :config
+  (evil-mode 1))  ; Enable evil-mode on startup
 
 ;; Toggle evil mode function
 (defun toggle-evil-mode ()
@@ -102,12 +105,6 @@
 
 ;; Evil keybindings
 (with-eval-after-load 'evil
-  ;; Window navigation
-  (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
-  (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
-  (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
-  (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-
   ;; Save buffer
   (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
   (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
@@ -190,17 +187,16 @@
   (ivy-virtual-abbreviate 'full)
   (ivy-rich-switch-buffer-align-virtual-buffer t)
   (ivy-rich-path-style 'abbrev)
-  :init
-  (ivy-rich-mode 1)
   :config
+  (ivy-rich-mode 1)
   (ivy-set-display-transformer 'ivy-switch-buffer
                                'ivy-rich-switch-buffer-transformer))
 
 ;; Nerd Icons for Ivy
 (use-package nerd-icons-ivy-rich
   :ensure t
-  :after (ivy-rich counsel)
-  :init
+  :after (ivy-rich)
+  :config
   (nerd-icons-ivy-rich-mode 1))
 
 ;; Which-Key - display available keybindings
@@ -223,10 +219,12 @@
         which-key-separator " → "))
 
 
-;;; ====================  LEADER KEY BINDINGS  ====================
+;;; ====================  WINDOW NAVIGATION  ====================
 
-;; Window movement with Shift + arrow keys
-(windmove-default-keybindings)
+;; Native Emacs window navigation with Shift+arrows
+(windmove-default-keybindings)  ; Shift+Left/Right/Up/Down to move between windows
+
+;;; ====================  LEADER KEY BINDINGS  ====================
 
 ;; General - Leader key setup
 (use-package general
@@ -251,15 +249,22 @@
     "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
     "/" '(comment-line :wk "Comment lines"))
 
-  ;; Buffer operations
+  ;; Buffer operations (perspective-aware)
   (smpl/leader-keys
     "b" '(:ignore t :wk "buffer")
     "bb" '(switch-to-buffer :wk "Switch buffer")
     "bi" '(ibuffer :wk "Ibuffer")
     "bk" '(kill-buffer :wk "Kill this buffer")
-    "bn" '(next-buffer :wk "Next buffer")
-    "bp" '(previous-buffer :wk "Previous buffer")
+    "bn" '(persp-next-buffer :wk "Next buffer (in perspective)")
+    "bp" '(persp-prev-buffer :wk "Previous buffer (in perspective)")
     "br" '(revert-buffer :wk "Reload buffer"))
+
+  ;; Eshell
+  ;; (smpl/leader-keys
+  ;;   "e" '(:ignore t :wk "Eshell")
+  ;;   "eb" '(eshell :wk "Eshell buffer")
+  ;;   "eh" '(counsel-esh-history :wk "Eshell history")
+  ;;   "et" '(eshell-toggle :wk "Toggle Eshell"))
 
   ;; Evaluate elisp
   (smpl/leader-keys
@@ -276,6 +281,12 @@
     "h f" '(describe-function :wk "Describe function")
     "h v" '(describe-variable :wk "Describe variable")
     "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
+  
+  ;; Dired
+  (smpl/leader-keys
+    "d" '(:ignore t :wk "Dired")
+    "dd" '(dired :wk "Open dired")
+    "dj" '(dired-jump :wk "Dired jump to current"))
 
   ;; Toggle
   (smpl/leader-keys
@@ -309,10 +320,11 @@
   :config
   (projectile-mode 1))
 
+;; Projectile commands under SPC p
 (smpl/leader-keys
-  "=" '(projectile-command-map :wk "Projectile commands"))
+  "p" '(projectile-command-map :wk "Projectile commands"))
 
-;; Perspective - workspace management
+;; Perspective - workspace management with named sessions
 (use-package perspective
   :ensure t
   :custom
@@ -320,7 +332,26 @@
   :init
   (persp-mode)
   :config
-  (setq persp-state-default-file "~/.config/emacs/sessions"))
+  (setq persp-state-default-file "~/.emacs.d/perspective-sessions")
+  ;; Auto-save perspectives on exit
+  (add-hook 'kill-emacs-hook #'persp-state-save))
+;; To restore: M-x persp-state-load or C-c M-p l
+
+;; Perspective commands under SPC =
+(smpl/leader-keys
+  "=" '(:ignore t :wk "Perspective")
+  "= =" '(persp-switch :wk "Switch perspective")
+  "= c" '(persp-switch :wk "Create/switch perspective")
+  "= k" '(persp-kill :wk "Kill perspective")
+  "= r" '(persp-rename :wk "Rename perspective")
+  "= n" '(persp-next :wk "Next perspective")
+  "= p" '(persp-prev :wk "Previous perspective")
+  "= s" '(persp-state-save :wk "Save all perspectives")
+  "= l" '(persp-state-load :wk "Load perspectives")
+  "= a" '(persp-add-buffer :wk "Add buffer to perspective")
+  "= A" '(persp-set-buffer :wk "Move buffer to perspective")
+  "= i" '(persp-import :wk "Import perspective")
+  "= I" '(persp-ibuffer :wk "IBuffer for perspective"))
 
 ;; Group buffers by perspective in ibuffer
 (add-hook 'ibuffer-hook
@@ -328,10 +359,6 @@
             (persp-ibuffer-set-filter-groups)
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
-
-;; Auto-save perspective states on exit
-(add-hook 'kill-emacs-hook #'persp-state-save)
-
 
 ;;; ====================  VERSION CONTROL  ====================
 
@@ -362,6 +389,19 @@
                                      "gdb-frames-mode" "gdb-inferior-io-mode"
                                      "gdb-disassembly-mode" "gdb-memory-mode"
                                      "magit-status-mode")))
+
+
+;;; ====================  MODE LINE   ====================
+
+(setq-default mode-line-format
+              '("%e" mode-line-front-space
+                (:propertize
+                 ("" mode-line-mule-info mode-line-client mode-line-modified
+                  mode-line-remote)
+                 display (min-width (5.0)))
+                mode-line-frame-identification mode-line-buffer-identification "   "
+                mode-line-position (vc-mode vc-mode) "  " mode-line-modes
+                mode-line-misc-info mode-line-end-spaces))
 
 
 ;;; ====================  CODE FORMATTING & LSP  ====================
