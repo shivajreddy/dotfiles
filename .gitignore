@@ -25,3 +25,35 @@ windows/glzr/zebar/tmp*/
 
 # WSL
 **/.zcompdump
+
+
+.DS_Store
+
+# Emacs temporary files
+*~
+\#*\#
+.\#*
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Emacs backup files
+*~
+*.bak
+
+# Emacs session files
+.session
+session.*
+
+# Emacs auto-save files
+\#*\#
+
+# Emacs lock files
+.#*
+
+# Org-mode
+*.org~
+.org-id-locations
+*_archive
+
