@@ -6,8 +6,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(avy company dap-mode flycheck gruber-darker gruber-darker-theme
-	 helm-lsp helm-xref hydra lsp-mode lsp-treemacs projectile
-	 which-key yasnippet)))
+         helm-lsp helm-xref hydra lsp-mode lsp-treemacs projectile
+         smartparens which-key yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

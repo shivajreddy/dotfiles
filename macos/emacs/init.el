@@ -24,7 +24,6 @@
 (setq global-auto-revert-non-file-buffers t) ; Revert dired & other buffers to auto refresh
 ;; Startup & UI cleanup
 (setq inhibit-startup-message t)              ; Disable splash screen
-(setq-default frame-title-format nil)         ; Text on the title bar
 (blink-cursor-mode 0)                         ; Disable blinking cursor
 (tool-bar-mode 0)                             ; Disable tool bar
 (menu-bar-mode 0)                             ; Disable menu bar
@@ -37,8 +36,10 @@
 (savehist-mode 1)
 
 ;; Frame settings
-;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(setq-default frame-title-format nil)         ; Text on the title bar
+(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+(add-to-list 'default-frame-alist '(fullscreen . maximized)) ; maximized
+;; (add-to-list 'default-frame-alist '(fullscreen . fullboth)) ; fullscreen
 (setq frame-resize-pixelwise t)
 
 ;; Fringe configuration
@@ -71,12 +72,12 @@
 
 ;; Theme
 ;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
-;; (load-theme 'modus-operandi-tinted t)         ; light theme
-(use-package gruber-darker-theme
-  :ensure t
-  :config
-  (load-theme 'gruber-darker t))
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
+(load-theme 'modus-operandi-tinted t)         ; light theme
+;; (use-package gruber-darker-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruber-darker t))
+;; ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
 ;; (load-theme 'kanagawa t)  ;; Replace 'smpl' with your actual theme name
 ;; (use-package catppuccin-theme
 ;;   :ensure t
@@ -162,6 +163,15 @@
       (kbd "r") 'revert-buffer         ; Refresh dired buffer
       (kbd "h") 'dired-up-directory    ; Go to parent directory
       (kbd "l") 'dired-find-file)))    ; Open file/directory
+
+;; Keybindings: Hide(H), back(j), forward(l)
+(with-eval-after-load 'dired
+  (require 'dired-x)
+  (evil-define-key 'normal dired-mode-map 
+    (kbd "h") 'dired-up-directory        ; h = go up to parent
+    ;; (kbd "l") 'dired-find-file           ; l = open file/directory
+    (kbd "H") 'dired-omit-mode))         ; Shift-H = toggle hidden files
+
 
 ;;; ====================  COMPLETION & NAVIGATION  ====================
 
@@ -417,14 +427,7 @@
                 mode-line-misc-info mode-line-end-spaces))
 
 
-;;; ====================  CODE FORMATTING & LSP  ====================
-
-;; LSP packages
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
-    projectile hydra flycheck company avy which-key helm-xref dap-mode))
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
+;;; ====================  CODE FORMATTING   ====================
 
 ;; Auto-formatting
 (use-package format-all
@@ -432,6 +435,30 @@
   :commands format-all-mode format-all-buffer
   :hook (prog-mode . format-all-mode)
   :bind (("C-c C-f" . format-all-buffer)))
+
+;; Indentation
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local tab-width 4)
+            (setq-local standard-indent 4)
+            (setq-local indent-tabs-mode nil)))
+
+;; Auto pairs
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode 1))
+
+
+;;; ====================  LSP  ====================
+
+;; LSP packages
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
+    projectile hydra flycheck company avy which-key helm-xref dap-mode))
+(when (cl-find-if-not #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (mapc #'package-install package-selected-packages))
 
 ;; LSP Mode - Language Server Protocol
 (use-package lsp-mode
