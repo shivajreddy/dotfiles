@@ -4,7 +4,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(catppuccin-theme company-box counsel dap-mode evil-collection
+		      flycheck format-all general golden-ratio
+		      helm-lsp helm-xref lsp-ui magit nerd-icons-dired
+		      nerd-icons-ivy-rich org-modern perspective
+		      projectile toc-org yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

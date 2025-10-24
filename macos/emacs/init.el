@@ -3,7 +3,6 @@
 ;;; OS: macOS
 ;;; AUTHOR: SMPL
 ;;; ===============================================================
-(setq compile-command "/usr/bin/make ")
 
 ;;; ====================  INITIALIZATION  ====================
 
@@ -39,7 +38,7 @@
 
 ;; Frame settings
 ;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq frame-resize-pixelwise t)
 
 ;; Fringe configuration
@@ -71,13 +70,20 @@
                     :slant 'italic)
 
 ;; Theme
-(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
 ;; (load-theme 'modus-operandi-tinted t)         ; light theme
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
+;; (load-theme 'kanagawa t)  ;; Replace 'smpl' with your actual theme name
+(use-package catppuccin-theme
+  :ensure t
+  :init
+  (setq catppuccin-flavor 'mocha) ;; or 'latte, 'macchiato, or 'mocha
+  :config
+  (catppuccin-reload))
 
 ;; Transparency
 ;; (set-frame-parameter nil 'alpha '(90 . 90))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-
 
 
 ;;; ====================  EVIL MODE  ====================
@@ -155,42 +161,34 @@
 
 ;;; ====================  COMPLETION & NAVIGATION  ====================
 
-;; Ivy - completion framework
-(use-package ivy
-  :ensure t
-  :bind (("C-c C-r" . ivy-resume)
-         ("C-x B" . ivy-switch-buffer-other-window))
-  :custom
-  (ivy-use-virtual-buffers t)
-  (ivy-count-format "(%d/%d) ")
-  (enable-recursive-minibuffers t)
-  :config
-  (ivy-mode))
-
-;; Counsel - Ivy-enhanced Emacs commands
 (use-package counsel
   :ensure t
   :after ivy
-  :config
+  :diminish
+  :custom
+  (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
+  :config 
   (counsel-mode))
 
-;; Disable Ivy completion in Dired rename/move
-(with-eval-after-load 'ivy
-  (add-to-list 'ivy-completing-read-handlers-alist
-               '(dired-do-rename . completing-read-default)))
-
-;; Ivy Rich - enhanced ivy interface
-(use-package ivy-rich
+(use-package ivy
   :ensure t
-  :after (ivy counsel)
+  :bind
+  ;; ivy-resume resumes the last Ivy-based completion.
+  (("C-c C-r" . ivy-resume)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :diminish
   :custom
-  (ivy-virtual-abbreviate 'full)
-  (ivy-rich-switch-buffer-align-virtual-buffer t)
-  (ivy-rich-path-style 'abbrev)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
   :config
-  (ivy-rich-mode 1)
-  (ivy-set-display-transformer 'ivy-switch-buffer
-                               'ivy-rich-switch-buffer-transformer))
+  (ivy-mode))
+
+
+;; Disable Ivy completion in Dired rename/move
+;; (with-eval-after-load 'ivy
+;;   (add-to-list 'ivy-completing-read-handlers-alist
+;;                '(dired-do-rename . completing-read-default)))
 
 ;; Nerd Icons for Ivy
 (use-package nerd-icons-ivy-rich
@@ -255,44 +253,47 @@
     "bb" '(switch-to-buffer :wk "Switch buffer")
     "bi" '(ibuffer :wk "Ibuffer")
     "bk" '(kill-buffer :wk "Kill this buffer")
-    "bn" '(persp-next-buffer :wk "Next buffer (in perspective)")
-    "bp" '(persp-prev-buffer :wk "Previous buffer (in perspective)")
+    "bn" '(next-buffer :wk "Next buffer")
+    "bp" '(previous-buffer :wk "Previous buffer")
     "br" '(revert-buffer :wk "Reload buffer"))
 
-  ;; Eshell
-  ;; (smpl/leader-keys
-  ;;   "e" '(:ignore t :wk "Eshell")
-  ;;   "eb" '(eshell :wk "Eshell buffer")
-  ;;   "eh" '(counsel-esh-history :wk "Eshell history")
-  ;;   "et" '(eshell-toggle :wk "Toggle Eshell"))
+  ;; Bookmark operations
+  (smpl/leader-keys
+    "m" '(:ignore t :wk "Bookmark")
+    "mm" '(bookmark-set :wk "Set bookmark")
+    "mj" '(bookmark-jump :wk "Jump to bookmark")
+    "ml" '(bookmark-bmenu-list :wk "List bookmarks")
+    "md" '(bookmark-delete :wk "Delete bookmark"))
 
-  ;; Evaluate elisp
+  ;; Evaluate
   (smpl/leader-keys
     "e" '(:ignore t :wk "Evaluate")
-    "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
-    "e d" '(eval-defun :wk "Evaluate defun containing or after point")
-    "e e" '(eval-expression :wk "Evaluate an elisp expression")
-    "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
-    "e r" '(eval-region :wk "Evaluate elisp in region"))
+    "eb" '(eval-buffer :wk "Evaluate elisp in buffer")
+    "ed" '(eval-defun :wk "Evaluate defun containing or after point")
+    "ee" '(eval-expression :wk "Evaluate an elisp expression")
+    "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
+    "er" '(eval-region :wk "Evaluate elisp in region"))
 
-  ;; Help
+  ;; Help commands
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
-    "h f" '(describe-function :wk "Describe function")
-    "h v" '(describe-variable :wk "Describe variable")
-    "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
-  
+    "hf" '(describe-function :wk "Describe function")
+    "hv" '(describe-variable :wk "Describe variable")
+    "hrr" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
+
   ;; Dired
   (smpl/leader-keys
     "d" '(:ignore t :wk "Dired")
     "dd" '(dired :wk "Open dired")
     "dj" '(dired-jump :wk "Dired jump to current"))
-
-  ;; Toggle
+  
+  ;; Toggle commands
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(visual-line-mode :wk "Toggle truncated lines"))
+    "tt" '(visual-line-mode :wk "Toggle truncate lines")
+    "tl" '(display-line-numbers-mode :wk "Toggle line numbers")
+    ;; "te" '(toggle-evil-mode :wk "Toggle evil mode")
+    )
 
   ;; Windows
   (smpl/leader-keys
@@ -300,31 +301,34 @@
     "w c" '(evil-window-delete :wk "Close window")
     "w n" '(evil-window-new :wk "New window")
     "w s" '(evil-window-split :wk "Horizontal split window")
-    "w v" '(evil-window-vsplit :wk "Vertical split window"))
-
-  ;; Git
-  (smpl/leader-keys
-    "g" '(:ignore t :wk "git")
-    "gg" '(magit-status :wk "Magit"))
-
-  ;; Compilation
-  (smpl/leader-keys
-    "8" '(smpl/compile-run-from-project-root :wk "Compile & Run")))
+    "w v" '(evil-window-vsplit :wk "Vertical split window")))
 
 
-;;; ====================  PROJECT MANAGEMENT  ====================
+;;; ====================  PROJECTS & WORKSPACES  ====================
 
-;; Projectile - project interaction library
+;; Projectile - project management
 (use-package projectile
   :ensure t
+  :init
+  (projectile-mode 1)
   :config
-  (projectile-mode 1))
+  (setq projectile-project-search-path '("~/dev")))
 
-;; Projectile commands under SPC p
+;; Projectile bindings under SPC p
 (smpl/leader-keys
-  "p" '(projectile-command-map :wk "Projectile commands"))
+  "p" '(:ignore t :wk "Projectile")
+  "pp" '(projectile-switch-project :wk "Switch project")
+  "pf" '(projectile-find-file :wk "Find file in project")
+  "ps" '(projectile-save-project-buffers :wk "Save project buffers")
+  "pk" '(projectile-kill-buffers :wk "Kill project buffers")
+  "pr" '(projectile-replace :wk "Replace in project")
+  "pb" '(projectile-switch-to-buffer :wk "Switch to project buffer")
+  "pc" '(projectile-compile-project :wk "Compile project")
+  "pa" '(projectile-add-known-project :wk "Add known project")
+  "pd" '(projectile-remove-known-project :wk "Remove known project")
+  "pR" '(projectile-run-project :wk "Run project"))
 
-;; Perspective - workspace management with named sessions
+;; Perspective - workspace management
 (use-package perspective
   :ensure t
   :custom
@@ -367,6 +371,11 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+;; Magit leader key bindings
+(smpl/leader-keys
+  "g" '(:ignore t :wk "git")
+  "gg" '(magit-status :wk "Magit status"))
+
 
 ;;; ====================  ICONS & VISUALS  ====================
 
@@ -406,6 +415,13 @@
 
 ;;; ====================  CODE FORMATTING & LSP  ====================
 
+;; LSP packages
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
+    projectile hydra flycheck company avy which-key helm-xref dap-mode))
+(when (cl-find-if-not #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (mapc #'package-install package-selected-packages))
+
 ;; Auto-formatting
 (use-package format-all
   :ensure t
@@ -415,11 +431,50 @@
 
 ;; LSP Mode - Language Server Protocol
 (use-package lsp-mode
-  :ensure t)
+  :ensure t
+  :hook ((c-mode . lsp)
+         (c++-mode . lsp))
+  :config
+  (setq gc-cons-threshold (* 100 1024 1024)
+        read-process-output-max (* 1024 1024)
+        lsp-idle-delay 0.1))
 
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :after lsp-mode)
 
+(use-package lsp-treemacs
+  :ensure t
+  :after lsp-mode)
+
+;; Auto complete
+(use-package company
+  :ensure t
+  :defer 2
+  :diminish
+  :custom
+  (company-begin-commands '(self-insert-command))
+  (company-idle-delay 0.0)
+  (company-minimum-prefix-length 1)
+  (company-show-numbers t)
+  (company-tooltip-align-annotations 't)
+  (global-company-mode t))
+
+(use-package company-box
+  :ensure t
+  :after company
+  :diminish
+  :hook (company-mode . company-box-mode))
+
+;; LSP additional configuration
+(with-eval-after-load 'lsp-mode
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (require 'dap-cpptools)
+  (yas-global-mode))
+
+;; LSP keybindings for Evil mode
+(with-eval-after-load 'lsp-mode
+  (evil-define-key 'normal lsp-mode-map (kbd "K") 'lsp-ui-doc-toggle))
 
 ;;; ====================  TERMINAL EMULATION  ====================
 
@@ -469,6 +524,8 @@
     (compile compile_command)))
 
 ;; Compilation keybindings
+(smpl/leader-keys
+  "8" '(smpl/compile-run-from-project-root :wk "Compile & run from root"))
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)
 (global-set-key (kbd "S-<f8>") 'recompile)
 
