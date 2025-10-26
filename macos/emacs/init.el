@@ -90,6 +90,47 @@
 ;; (set-frame-parameter nil 'alpha '(90 . 90))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
+;; Nerd Icons (requires 'Symbols Nerd Font' installed)
+(use-package nerd-icons
+  :ensure t)
+
+(use-package nerd-icons-dired
+  :ensure t
+  :hook (dired-mode . nerd-icons-dired-mode))
+
+;; Golden ratio - auto-resize active window
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1)
+  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
+                                     "gdb-locals-mode" "gdb-registers-mode"
+                                     "gdb-breakpoints-mode" "gdb-threads-mode"
+                                     "gdb-frames-mode" "gdb-inferior-io-mode"
+                                     "gdb-disassembly-mode" "gdb-memory-mode"
+                                     "magit-status-mode")))
+
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  (column-number-mode 1)
+  ;; (display-time-mode 1) ; Required for doom-modeline-time
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-height 30)
+  (doom-modeline-time t)
+  ;; disable all extras
+  (doom-modeline-env-enable-python nil)
+  (doom-modeline-enable-word-count nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-display-default-persp-name nil)
+  (doom-modeline-display-env-version nil))
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
 
 ;;; ====================  EVIL MODE  ====================
 
@@ -181,8 +222,8 @@
   :diminish
   :custom
   (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
-  :config 
-  (counsel-mode))
+  :hook (after-init . counsel-mode))
+
 
 (use-package ivy
   :ensure t
@@ -254,6 +295,12 @@
   ;; Window operations
   (smpl/leader-keys
     "q" '(evil-window-delete :wk "Close Window"))
+
+  ;; Treemacs toggle & Focus
+  (smpl/leader-keys
+    "DEL" '(treemacs :wk "Toggle Treemacs"))
+  (smpl/leader-keys
+    "\\" '(treemacs-select-window :wk "Focus Treemacs"))
 
   ;; File operations
   (smpl/leader-keys
@@ -391,28 +438,6 @@
   "gg" '(magit-status :wk "Magit status"))
 
 
-;;; ====================  ICONS & VISUALS  ====================
-
-;; Nerd Icons (requires 'Symbols Nerd Font' installed)
-(use-package nerd-icons
-  :ensure t)
-
-(use-package nerd-icons-dired
-  :ensure t
-  :hook (dired-mode . nerd-icons-dired-mode))
-
-;; Golden ratio - auto-resize active window
-(use-package golden-ratio
-  :ensure t
-  :config
-  (golden-ratio-mode 1)
-  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
-                                     "gdb-locals-mode" "gdb-registers-mode"
-                                     "gdb-breakpoints-mode" "gdb-threads-mode"
-                                     "gdb-frames-mode" "gdb-inferior-io-mode"
-                                     "gdb-disassembly-mode" "gdb-memory-mode"
-                                     "magit-status-mode")))
-
 
 ;;; ====================  MODE LINE   ====================
 
@@ -429,12 +454,45 @@
 
 ;;; ====================  CODE FORMATTING   ====================
 
-;; Auto-formatting
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?_ "w")))
+
+(use-package f
+  :ensure t)
+
+(use-package clang-format
+  :ensure t)
+
+;; Smart clang-format function
+(defun clang-format-buffer-smart ()
+  "Reformat buffer if .clang-format exists in the projectile root."
+  (when (and (projectile-project-root)
+             (f-exists? (expand-file-name ".clang-format" (projectile-project-root))))
+    (clang-format-buffer)))
+
+(defun clang-format-buffer-smart-on-save ()
+  "Add auto-save hook for clang-format-buffer-smart."
+  (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
+
+;; Apply to C/C++ modes
+(add-hook 'c-mode-hook 'clang-format-buffer-smart-on-save)
+(add-hook 'c++-mode-hook 'clang-format-buffer-smart-on-save)
+
+;; Apply code folding
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
+;; Auto-formatting (for other languages)
 (use-package format-all
   :ensure t
   :commands format-all-mode format-all-buffer
   :hook (prog-mode . format-all-mode)
   :bind (("C-c C-f" . format-all-buffer)))
+
+;; format on save
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'format-all-buffer nil t)))
 
 ;; Indentation
 (add-hook 'prog-mode-hook
@@ -453,43 +511,117 @@
 
 ;;; ====================  LSP  ====================
 
-;; LSP packages
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
-    projectile hydra flycheck company avy which-key helm-xref dap-mode))
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
-
-;; LSP Mode - Language Server Protocol
-(use-package lsp-mode
+(require 'eglot)
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c-or-c++-mode-hook 'eglot-ensure)
+;; Highlights the word/symbol at point and any other occurrences in
+;; view. Also allows to jump to the next or previous occurrence.
+;; https://github.com/nschum/highlight-symbol.el
+(use-package highlight-symbol
   :ensure t
-  :hook ((c-mode . lsp)
-         (c++-mode . lsp))
   :config
-  (setq gc-cons-threshold (* 100 1024 1024)
-        read-process-output-max (* 1024 1024)
-        lsp-idle-delay 0.1))
-
-(use-package lsp-ui
+  (setq highlight-symbol-on-navigation-p t)
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+;; Emacs minor mode that highlights numeric literals in source code.
+;; https://github.com/Fanael/highlight-numbers
+(use-package highlight-numbers
   :ensure t
-  :after lsp-mode)
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+;; .h files to open in c++-mode rather than c-mode.
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp$" . c++-mode))
+(setq c-default-style "stroustrup")
+(setq c-basic-indent 4)
+(setq c-basic-offset 4)
+(require 'flymake)
+(defun my/flymake-toggle-diagnostics-buffer ()
+  (interactive)
+  ;; Check if we are in the diagnostics buffer.
+  (if (string-search "*Flymake diagnostics" (buffer-name))
+      (delete-window)
+    (progn
+      ;; Activate the Flymake diagnostics buffer.
+      ;; and switch to it
+      (flymake-show-buffer-diagnostics)
+      (let ((name (flymake--diagnostics-buffer-name)))
+        (if (get-buffer name)
+            (switch-to-buffer-other-window name)
+          (error "No Flymake diagnostics buffer found")
+          )))))
+(global-set-key [(f7)] #'my/flymake-toggle-diagnostics-buffer)
+;; Additional bindings.
+(global-set-key (kbd "C-c f b") #'flymake-show-buffer-diagnostics)
+(global-set-key (kbd "C-c f p") #'flymake-show-project-diagnostics)
+(use-package treemacs :ensure t)
+(use-package treemacs-projectile :ensure t)
+;; Disable line numbers in treemacs          ; <-- ADD THIS
+(add-hook 'treemacs-mode-hook (lambda () (display-line-numbers-mode 0)))
+(global-set-key [(f12)] #'treemacs-select-window)
 
-(use-package lsp-treemacs
-  :ensure t
-  :after lsp-mode)
+;; keymap to rename variable
+(smpl/leader-keys
+  "c r" '(eglot-rename :wk "Rename variable"))
+
+
+;; ;; LSP packages
+;; (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
+;;     projectile hydra flycheck company avy which-key helm-xref dap-mode))
+;; (when (cl-find-if-not #'package-installed-p package-selected-packages)
+;;   (package-refresh-contents)
+;;   (mapc #'package-install package-selected-packages))
+
+;; ;; LSP Mode - Language Server Protocol
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :hook ((c-mode . lsp)
+;;          (c++-mode . lsp))
+;;   :config
+;;   (setq gc-cons-threshold (* 100 1024 1024)
+;;         read-process-output-max (* 1024 1024)
+;;         lsp-idle-delay 0.1))
+
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :after lsp-mode)
+
+;; (use-package lsp-treemacs
+;;   :ensure t
+;;   :after lsp-mode)
+
+;; ;; LSP additional configuration
+;; (with-eval-after-load 'lsp-mode
+;;   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+;;   (require 'dap-cpptools)
+;;   (yas-global-mode))
+
+;; ;; LSP keybindings for Evil mode
+;; (with-eval-after-load 'lsp-mode
+;;   (evil-define-key 'normal lsp-mode-map (kbd "K") 'lsp-ui-doc-toggle))
 
 ;; Auto complete
+(setq completion-ignore-case  t) ; ignore case sensitivy for suggestions
+(add-hook 'after-init-hook 'global-company-mode) ; use `company' every where
 (use-package company
   :ensure t
   :defer 2
   :diminish
   :custom
   (company-begin-commands '(self-insert-command))
-  (company-idle-delay 0.0)
-  (company-minimum-prefix-length 1)
+(setq company-idle-delay 0.0)  ; Wait 200ms before completing (was 0.0)
+(setq company-minimum-prefix-length 1)
+(setq company-tooltip-limit 20)  ; Limit candidates shown
   (company-show-numbers t)
   (company-tooltip-align-annotations 't)
-  (global-company-mode t))
+  (global-company-mode t)
+  ;; To prevent default down-casing.
+  ;; https://emacs.stackexchange.com/questions/10837/how-to-make-company-mode-be-case-sensitive-on-plain-text
+  ;; (setq company-dabbrev-downcase t)
+  ;; 2023-01-13 From a Reddit post on mixed case issue.
+  ;; (setq company-dabbrev-ignore-case t)
+  ;; (setq company-dabbrev-code-ignore-case t)
+  )
 
 (use-package company-box
   :ensure t
@@ -497,15 +629,6 @@
   :diminish
   :hook (company-mode . company-box-mode))
 
-;; LSP additional configuration
-(with-eval-after-load 'lsp-mode
-  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-  (require 'dap-cpptools)
-  (yas-global-mode))
-
-;; LSP keybindings for Evil mode
-(with-eval-after-load 'lsp-mode
-  (evil-define-key 'normal lsp-mode-map (kbd "K") 'lsp-ui-doc-toggle))
 
 ;;; ====================  TERMINAL EMULATION  ====================
 
