@@ -72,12 +72,12 @@
 
 ;; Theme
 ;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
-(load-theme 'modus-operandi-tinted t)         ; light theme
-;; (use-package gruber-darker-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'gruber-darker t))
-;; ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
+;; (load-theme 'modus-operandi-tinted t)         ; light theme
+(use-package gruber-darker-theme
+  :ensure t
+  :config
+  (load-theme 'gruber-darker t))
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
 ;; (load-theme 'kanagawa t)  ;; Replace 'smpl' with your actual theme name
 ;; (use-package catppuccin-theme
 ;;   :ensure t
