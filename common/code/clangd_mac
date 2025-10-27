@@ -25,6 +25,11 @@ Diagnostics:
       readability-identifier-length.MinimumParameterNameLength: '1'
       readability-identifier-length.MinimumLoopCounterNameLength: '1'
       readability-identifier-length.MinimumExceptionNameLength: '1'
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+
 # -----------------------------------
 #  C config
 # -----------------------------------
