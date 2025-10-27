@@ -73,12 +73,57 @@
                     :slant 'italic)
 
 ;; Theme
-(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
 ;; (load-theme 'modus-operandi-tinted t)         ; light theme
+(use-package gruber-darker-theme
+  :ensure t
+  :config
+  (load-theme 'gruber-darker t))
 
 ;; Transparency
 ;; (set-frame-parameter nil 'alpha '(90 . 90))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+
+;; Nerd Icons (requires 'Symbols Nerd Font' installed)
+(use-package nerd-icons
+  :ensure t)
+
+(use-package nerd-icons-dired
+  :ensure t
+  :hook (dired-mode . nerd-icons-dired-mode))
+
+;; Golden ratio - auto-resize active window
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1)
+  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
+                                     "gdb-locals-mode" "gdb-registers-mode"
+                                     "gdb-breakpoints-mode" "gdb-threads-mode"
+                                     "gdb-frames-mode" "gdb-inferior-io-mode"
+                                     "gdb-disassembly-mode" "gdb-memory-mode"
+                                     "magit-status-mode")))
+
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  (column-number-mode 1)
+  ;; (display-time-mode 1) ; Required for doom-modeline-time
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-height 30)
+  (doom-modeline-time t)
+  ;; disable all extras
+  (doom-modeline-env-enable-python nil)
+  (doom-modeline-enable-word-count nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-display-default-persp-name nil)
+  (doom-modeline-display-env-version nil))
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 
 
 ;;; ====================  EVIL MODE  ====================
@@ -159,45 +204,44 @@
       (kbd "h") 'dired-up-directory    ; Go to parent directory
       (kbd "l") 'dired-find-file)))    ; Open file/directory
 
+;; Keybindings: Hide(H), back(j), forward(l)
+(with-eval-after-load 'dired
+  (require 'dired-x)
+  (evil-define-key 'normal dired-mode-map 
+    (kbd "h") 'dired-up-directory        ; h = go up to parent
+    ;; (kbd "l") 'dired-find-file           ; l = open file/directory
+    (kbd "H") 'dired-omit-mode))         ; Shift-H = toggle hidden files
+
+
 ;;; ====================  COMPLETION & NAVIGATION  ====================
 
-;; Ivy - completion framework
-(use-package ivy
-  :ensure t
-  :bind (("C-c C-r" . ivy-resume)
-         ("C-x B" . ivy-switch-buffer-other-window))
-  :custom
-  (ivy-use-virtual-buffers t)
-  (ivy-count-format "(%d/%d) ")
-  (enable-recursive-minibuffers t)
-  :config
-  (ivy-mode))
-
-;; Counsel - Ivy-enhanced Emacs commands
 (use-package counsel
   :ensure t
   :after ivy
+  :diminish
+  :custom
+  (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
+  :hook (after-init . counsel-mode))
+
+(use-package ivy
+  :ensure t
+  :bind
+  ;; ivy-resume resumes the last Ivy-based completion.
+  (("C-c C-r" . ivy-resume)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :diminish
+  :custom
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
   :config
-  (counsel-mode))
+  (ivy-mode))
 
 ;; Disable Ivy completion in Dired rename/move
-(with-eval-after-load 'ivy
-  (add-to-list 'ivy-completing-read-handlers-alist
-               '(dired-do-rename . completing-read-default)))
+;; (with-eval-after-load 'ivy
+;;   (add-to-list 'ivy-completing-read-handlers-alist
+;;                '(dired-do-rename . completing-read-default)))
 
-;; Ivy Rich - enhanced ivy interface
-(use-package ivy-rich
-  :ensure t
-  :after (ivy counsel)
-  :custom
-  (ivy-virtual-abbreviate 'full)
-  (ivy-rich-switch-buffer-align-virtual-buffer t)
-  (ivy-rich-path-style 'abbrev)
-  :init
-  (ivy-rich-mode 1)
-  :config
-  (ivy-set-display-transformer 'ivy-switch-buffer
-                               'ivy-rich-switch-buffer-transformer))
 
 ;; Nerd Icons for Ivy
 (use-package nerd-icons-ivy-rich
@@ -226,10 +270,13 @@
         which-key-separator " → "))
 
 
-;;; ====================  LEADER KEY BINDINGS  ====================
+;;; ====================  WINDOW NAVIGATION  ====================
 
-;; Window movement with Shift + arrow keys
-(windmove-default-keybindings)
+;; Native Emacs window navigation with Shift+arrows
+(windmove-default-keybindings)  ; Shift+Left/Right/Up/Down to move between windows
+
+
+;;; ====================  LEADER KEY BINDINGS  ====================
 
 ;; General - Leader key setup
 (use-package general
@@ -248,6 +295,12 @@
   (smpl/leader-keys
     "q" '(evil-window-delete :wk "Close Window"))
 
+  ;; Treemacs toggle & Focus
+  (smpl/leader-keys
+    "DEL" '(treemacs :wk "Toggle Treemacs"))
+  (smpl/leader-keys
+    "\\" '(treemacs-select-window :wk "Focus Treemacs"))
+
   ;; File operations
   (smpl/leader-keys
     "." '(find-file :wk "Find file")
@@ -264,57 +317,69 @@
     "bp" '(previous-buffer :wk "Previous buffer")
     "br" '(revert-buffer :wk "Reload buffer"))
 
-  ;; Evaluate elisp
+  ;; Evaluate
   (smpl/leader-keys
     "e" '(:ignore t :wk "Evaluate")
-    "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
-    "e d" '(eval-defun :wk "Evaluate defun containing or after point")
-    "e e" '(eval-expression :wk "Evaluate an elisp expression")
-    "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
-    "e r" '(eval-region :wk "Evaluate elisp in region"))
+    "eb" '(eval-buffer :wk "Evaluate elisp in buffer")
+    "ed" '(eval-defun :wk "Evaluate defun containing or after point")
+    "ee" '(eval-expression :wk "Evaluate an elisp expression")
+    "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
+    "er" '(eval-region :wk "Evaluate elisp in region"))
 
   ;; Help
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
-    "h f" '(describe-function :wk "Describe function")
-    "h v" '(describe-variable :wk "Describe variable")
-    "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
+    "hf" '(describe-function :wk "Describe function")
+    "hv" '(describe-variable :wk "Describe variable")
+    "hrr" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :wk "Reload emacs config"))
+
+  ;; Dired
+  (smpl/leader-keys
+    "d" '(:ignore t :wk "Dired")
+    "dd" '(dired :wk "Open dired")
+    "dj" '(dired-jump :wk "Dired jump to current"))
 
   ;; Toggle
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(visual-line-mode :wk "Toggle truncated lines"))
+    "tl" '(display-line-numbers-mode :wk "Toggle line numbers")
+    "tt" '(toggle-truncate-lines :wk "Toggle truncated lines")
+    ;; "te" '(toggle-evil-mode :wk "Toggle evil mode")
+    )
 
   ;; Windows
   (smpl/leader-keys
     "w" '(:ignore t :wk "Windows")
-    "w c" '(evil-window-delete :wk "Close window")
-    "w n" '(evil-window-new :wk "New window")
-    "w s" '(evil-window-split :wk "Horizontal split window")
-    "w v" '(evil-window-vsplit :wk "Vertical split window"))
-
-  ;; Git
-  (smpl/leader-keys
-    "g" '(:ignore t :wk "git")
-    "gg" '(magit-status :wk "Magit"))
-
-  ;; Compilation
-  (smpl/leader-keys
-    "8" '(smpl/compile-run-from-project-root :wk "Compile & Run")))
+    "wc" '(evil-window-delete :wk "Close window")
+    "wn" '(evil-window-new :wk "New window")
+    "ws" '(evil-window-split :wk "Horizontal split window")
+    "wv" '(evil-window-vsplit :wk "Vertical split window"))
+)
 
 
-;;; ====================  PROJECT MANAGEMENT  ====================
+;;; ====================  PROJECTS & WORKSPACES  ====================
 
-;; Projectile - project interaction library
+;; Projectile - project management
 (use-package projectile
   :ensure t
+  :init
+  (projectile-mode 1)
   :config
-  (projectile-mode 1))
+  (setq projectile-project-search-path '("~/dev")))
 
-;; Projectile commands under SPC p
+;; Projectile bindings under SPC p
 (smpl/leader-keys
-  "p" '(projectile-command-map :wk "Projectile commands"))
+  "p" '(:ignore t :wk "Projectile")
+  "pp" '(projectile-switch-project :wk "Switch project")
+  "pf" '(projectile-find-file :wk "Find file in project")
+  "ps" '(projectile-save-project-buffers :wk "Save project buffers")
+  "pk" '(projectile-kill-buffers :wk "Kill project buffers")
+  "pr" '(projectile-replace :wk "Replace in project")
+  "pb" '(projectile-switch-to-buffer :wk "Switch to project buffer")
+  "pc" '(projectile-compile-project :wk "Compile project")
+  "pa" '(projectile-add-known-project :wk "Add known project")
+  "pd" '(projectile-remove-known-project :wk "Remove known project")
+  "pR" '(projectile-run-project :wk "Run project"))
 
 ;; Perspective - workspace management with named sessions
 (use-package perspective
@@ -359,64 +424,190 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+;; Magit leader key bindings
+(smpl/leader-keys
+  "g" '(:ignore t :wk "git")
+  "gg" '(magit-status :wk "Magit status"))
 
-;;; ====================  ICONS & VISUALS  ====================
 
-;; Nerd Icons (requires 'Symbols Nerd Font' installed)
-(use-package nerd-icons
+;;; ====================  CODE FORMATTING  ====================
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?_ "w")))
+
+;; package to find which file
+(use-package f
   :ensure t)
 
-(use-package nerd-icons-dired
-  :ensure t
-  :hook (dired-mode . nerd-icons-dired-mode))
+(use-package clang-format
+  :ensure t)
 
-;; Golden ratio - auto-resize active window
-(use-package golden-ratio
-  :ensure t
-  :config
-  (golden-ratio-mode 1)
-  (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
-                                     "gdb-locals-mode" "gdb-registers-mode"
-                                     "gdb-breakpoints-mode" "gdb-threads-mode"
-                                     "gdb-frames-mode" "gdb-inferior-io-mode"
-                                     "gdb-disassembly-mode" "gdb-memory-mode"
-                                     "magit-status-mode")))
+;; Smart clang-format function
+(defun clang-format-buffer-smart ()
+  "Reformat buffer if .clang-format exists in the projectile root."
+  (when (and (projectile-project-root)
+             (f-exists? (expand-file-name ".clang-format" (projectile-project-root))))
+    (clang-format-buffer)))
 
+(defun clang-format-buffer-smart-on-save ()
+  "Add auto-save hook for clang-format-buffer-smart."
+  (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
 
-;;; ====================  CODE FORMATTING & LSP  ====================
+;; Apply to C/C++ modes
+(add-hook 'c-mode-hook 'clang-format-buffer-smart-on-save)
+(add-hook 'c++-mode-hook 'clang-format-buffer-smart-on-save)
 
-;; Auto-formatting
+;; Apply code folding
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
+;; Auto-formatting (for other languages)
 (use-package format-all
   :ensure t
   :commands format-all-mode format-all-buffer
   :hook (prog-mode . format-all-mode)
   :bind (("C-c C-f" . format-all-buffer)))
 
-;; LSP Mode - Language Server Protocol
-(use-package lsp-mode
-  :ensure t)
+;; format on save
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'format-all-buffer nil t)))
 
-(use-package lsp-ui
-  :ensure t)
+;; Indentation
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local tab-width 4)
+            (setq-local standard-indent 4)
+            (setq-local indent-tabs-mode nil)))
+
+;; Auto pairs
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode 1))
+
+
+;;; ====================  LSP  ====================
+
+(require 'eglot)
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c-or-c++-mode-hook 'eglot-ensure)
+;; Highlights the word/symbol at point and any other occurrences in
+;; view. Also allows to jump to the next or previous occurrence.
+;; https://github.com/nschum/highlight-symbol.el
+(use-package highlight-symbol
+  :ensure t
+  :config
+  (setq highlight-symbol-on-navigation-p t)
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+;; Emacs minor mode that highlights numeric literals in source code.
+;; https://github.com/Fanael/highlight-numbers
+(use-package highlight-numbers
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+;; .h files to open in c++-mode rather than c-mode.
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp$" . c++-mode))
+(setq c-default-style "stroustrup")
+(setq c-basic-indent 4)
+(setq c-basic-offset 4)
+(require 'flymake)
+(defun my/flymake-toggle-diagnostics-buffer ()
+  (interactive)
+  ;; Check if we are in the diagnostics buffer.
+  (if (string-search "*Flymake diagnostics" (buffer-name))
+      (delete-window)
+    (progn
+      ;; Activate the Flymake diagnostics buffer.
+      ;; and switch to it
+      (flymake-show-buffer-diagnostics)
+      (let ((name (flymake--diagnostics-buffer-name)))
+        (if (get-buffer name)
+            (switch-to-buffer-other-window name)
+          (error "No Flymake diagnostics buffer found")
+          )))))
+(global-set-key [(f7)] #'my/flymake-toggle-diagnostics-buffer)
+;; Additional bindings.
+(global-set-key (kbd "C-c f b") #'flymake-show-buffer-diagnostics)
+(global-set-key (kbd "C-c f p") #'flymake-show-project-diagnostics)
+(use-package treemacs :ensure t)
+(use-package treemacs-projectile :ensure t)
+;; Disable line numbers in treemacs          ; <-- ADD THIS
+(add-hook 'treemacs-mode-hook (lambda () (display-line-numbers-mode 0)))
+(global-set-key [(f12)] #'treemacs-select-window)
+
+;; keymap to rename variable
+(smpl/leader-keys
+  "c r" '(eglot-rename :wk "Rename variable"))
+
+
+;; ;; LSP packages
+;; (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
+;;     projectile hydra flycheck company avy which-key helm-xref dap-mode))
+;; (when (cl-find-if-not #'package-installed-p package-selected-packages)
+;;   (package-refresh-contents)
+;;   (mapc #'package-install package-selected-packages))
+
+;; ;; LSP Mode - Language Server Protocol
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :hook ((c-mode . lsp)
+;;          (c++-mode . lsp))
+;;   :config
+;;   (setq gc-cons-threshold (* 100 1024 1024)
+;;         read-process-output-max (* 1024 1024)
+;;         lsp-idle-delay 0.1))
+
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :after lsp-mode)
+
+;; (use-package lsp-treemacs
+;;   :ensure t
+;;   :after lsp-mode)
+
+;; ;; LSP additional configuration
+;; (with-eval-after-load 'lsp-mode
+;;   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+;;   (require 'dap-cpptools)
+;;   (yas-global-mode))
+
+;; ;; LSP keybindings for Evil mode
+;; (with-eval-after-load 'lsp-mode
+;;   (evil-define-key 'normal lsp-mode-map (kbd "K") 'lsp-ui-doc-toggle))
 
 ;; Auto complete
+(setq completion-ignore-case  t) ; ignore case sensitivy for suggestions
+(add-hook 'after-init-hook 'global-company-mode) ; use `company' every where
 (use-package company
   :ensure t
   :defer 2
   :diminish
   :custom
   (company-begin-commands '(self-insert-command))
-  (company-idle-delay .1)
-  (company-minimum-prefix-length 2)
+(setq company-idle-delay 0.0)  ; Wait 200ms before completing (was 0.0)
+(setq company-minimum-prefix-length 1)
+(setq company-tooltip-limit 20)  ; Limit candidates shown
   (company-show-numbers t)
   (company-tooltip-align-annotations 't)
-  (global-company-mode t))
+  (global-company-mode t)
+  ;; To prevent default down-casing.
+  ;; https://emacs.stackexchange.com/questions/10837/how-to-make-company-mode-be-case-sensitive-on-plain-text
+  ;; (setq company-dabbrev-downcase t)
+  ;; 2023-01-13 From a Reddit post on mixed case issue.
+  ;; (setq company-dabbrev-ignore-case t)
+  ;; (setq company-dabbrev-code-ignore-case t)
+  )
 
 (use-package company-box
   :ensure t
   :after company
   :diminish
   :hook (company-mode . company-box-mode))
+
 
 ;;; ====================  TERMINAL EMULATION  ====================
 
@@ -466,8 +657,36 @@
     (compile compile_command)))
 
 ;; Compilation keybindings
+(smpl/leader-keys
+  "8" '(smpl/compile-run-from-project-root :wk "Compile & Run"))
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)
 (global-set-key (kbd "S-<f8>") 'recompile)
+
+;; Compile & run cpp file
+(defun smpl/compile-run-c-or-cpp-file ()
+  "Compile and run the current C or C++ file using gcc or g++."
+  (interactive)
+  (when buffer-file-name
+    (save-buffer)
+    (let* ((file buffer-file-name)
+           (ext (file-name-extension file))
+           (name (file-name-sans-extension (file-name-nondirectory file)))
+           (output (concat (file-name-directory file) name))
+           (output-exe (if (eq system-type 'windows-nt)
+                           (concat output ".exe")
+                         output))
+           (compiler (cond
+                       ((string= ext "c") "gcc")
+                       ((string= ext "cpp") "g++")
+                       (t nil))))
+      (if (not compiler)
+          (message "Not a C or C++ file!")
+        (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+                           compiler file output output-exe)))
+          (compile cmd))))))
+
+(smpl/leader-keys
+  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)

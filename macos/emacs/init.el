@@ -224,7 +224,6 @@
   (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
   :hook (after-init . counsel-mode))
 
-
 (use-package ivy
   :ensure t
   :bind
@@ -238,7 +237,6 @@
   (setq enable-recursive-minibuffers t)
   :config
   (ivy-mode))
-
 
 ;; Disable Ivy completion in Dired rename/move
 ;; (with-eval-after-load 'ivy
@@ -276,6 +274,7 @@
 
 ;; Native Emacs window navigation with Shift+arrows
 (windmove-default-keybindings)  ; Shift+Left/Right/Up/Down to move between windows
+
 
 ;;; ====================  LEADER KEY BINDINGS  ====================
 
@@ -359,10 +358,10 @@
   ;; Windows
   (smpl/leader-keys
     "w" '(:ignore t :wk "Windows")
-    "w c" '(evil-window-delete :wk "Close window")
-    "w n" '(evil-window-new :wk "New window")
-    "w s" '(evil-window-split :wk "Horizontal split window")
-    "w v" '(evil-window-vsplit :wk "Vertical split window")))
+    "wc" '(evil-window-delete :wk "Close window")
+    "wn" '(evil-window-new :wk "New window")
+    "ws" '(evil-window-split :wk "Horizontal split window")
+    "wv" '(evil-window-vsplit :wk "Vertical split window")))
 
 
 ;;; ====================  PROJECTS & WORKSPACES  ====================
@@ -436,20 +435,6 @@
 (smpl/leader-keys
   "g" '(:ignore t :wk "git")
   "gg" '(magit-status :wk "Magit status"))
-
-
-
-;;; ====================  MODE LINE   ====================
-
-(setq-default mode-line-format
-              '("%e" mode-line-front-space
-                (:propertize
-                 ("" mode-line-mule-info mode-line-client mode-line-modified
-                  mode-line-remote)
-                 display (min-width (5.0)))
-                mode-line-frame-identification mode-line-buffer-identification "   "
-                mode-line-position (vc-mode vc-mode) "  " mode-line-modes
-                mode-line-misc-info mode-line-end-spaces))
 
 
 ;;; ====================  CODE FORMATTING   ====================
