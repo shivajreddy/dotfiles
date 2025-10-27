@@ -341,3 +341,11 @@ end, { desc = "Replace brackets [ ] → braces { }" })
 vim.keymap.set("n", "<leader>rq", function()
   vim.cmd([[%s/"/'/g]])
 end, { desc = "Replace double quotes → single quotes" })
+
+
+--[[ actual commands for cleaning up brackets in dsa
+%s/\{/{/g
+%s/\}/}/g
+%s/'/'/g
+%s/'/'/g
+--]]

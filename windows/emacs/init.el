@@ -50,6 +50,9 @@
 ;; User interaction
 (setq use-short-answers t)  ; Use y/n instead of yes/no (Emacs 28+)
 
+;; Set a custom message for Scratch Buffer
+;; (setq initial-scratch-message ";; Welcome to Emacs!\n;; Happy hacking!\n\n")
+(setq initial-scratch-message nil)
 
 ;;; ====================  VISUAL SETTINGS  ====================
 
