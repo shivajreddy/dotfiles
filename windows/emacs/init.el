@@ -76,12 +76,12 @@
                     :slant 'italic)
 
 ;; Theme
-;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
 ;; (load-theme 'modus-operandi-tinted t)         ; light theme
-(use-package gruber-darker-theme
-  :ensure t
-  :config
-  (load-theme 'gruber-darker t))
+;; (use-package gruber-darker-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruber-darker t))
 
 ;; Transparency
 ;; (set-frame-parameter nil 'alpha '(90 . 90))
