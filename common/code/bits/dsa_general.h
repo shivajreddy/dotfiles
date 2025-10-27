@@ -1,4 +1,14 @@
 /*
+  Mac:
+  - use g++ (gcc is for c files, so just stick with g++)
+  - make sure to install g++ from brew
+  - use the following command (here also using grep to find the target line)
+  - $ g++ -v -E -x c++ - < /dev/null 2>&1 | grep -A 20 "include <...>"
+  - for v15 it was folder "/usr/local/Cellar/gcc/15.2.0/include/c++/15/bits/"
+  - so go to that folder and link this file there
+  - $ cd /usr/local/Cellar/gcc/15.2.0/include/c++/15/bits/
+  - $ sudo ln -s ~/dotfiles/common/code/bits/dsa_general.h . 
+
  Windows:
  - find which g++, and use the following command
  - g++ -v -E -x c++ - < nul
@@ -12,7 +22,6 @@
 ```
 New-Item -ItemType SymbolicLink -Path "C:\msys64\mingw64\include\c++\14.2.0\bits\dsa_general.h" -Target C:\Users\sreddy\dotfiles\common\code\bits\dsa_general.h
 ```
-
  */
 
 // #include "stdc++.h"

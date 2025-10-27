@@ -5,6 +5,9 @@
 ;;; ===============================================================
 
 ;;; ====================  INITIALIZATION  ====================
+;; Ensure Homebrew binaries come first
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (cons "/usr/local/bin" exec-path))
 
 ;; Custom file configuration
 (setq custom-file "~/.emacs.d/custom-emacs.el")
@@ -74,13 +77,13 @@
                     :slant 'italic)
 
 ;; Theme
-;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
 ;; (load-theme 'modus-operandi-tinted t)         ; light theme
-(use-package gruber-darker-theme
-  :ensure t
-  :config
-  (load-theme 'gruber-darker t))
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
+;; (use-package gruber-darker-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruber-darker t))
+;; ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/smpl/")
 ;; (load-theme 'kanagawa t)  ;; Replace 'smpl' with your actual theme name
 ;; (use-package catppuccin-theme
 ;;   :ensure t
@@ -676,6 +679,33 @@
   "8" '(smpl/compile-run-from-project-root :wk "Compile & run from root"))
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)
 (global-set-key (kbd "S-<f8>") 'recompile)
+
+
+;; Compile & run cpp file
+(defun smpl/compile-run-c-or-cpp-file ()
+  "Compile and run the current C or C++ file using gcc or g++."
+  (interactive)
+  (when buffer-file-name
+    (save-buffer)
+    (let* ((file buffer-file-name)
+           (ext (file-name-extension file))
+           (name (file-name-sans-extension (file-name-nondirectory file)))
+           (output (concat (file-name-directory file) name))
+           (output-exe (if (eq system-type 'windows-nt)
+                           (concat output ".exe")
+                         output))
+           (compiler (cond
+                       ((string= ext "c") "gcc")
+                       ((string= ext "cpp") "g++")
+                       (t nil))))
+      (if (not compiler)
+          (message "Not a C or C++ file!")
+        (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+                           compiler file output output-exe)))
+          (compile cmd))))))
+
+(smpl/leader-keys
+  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
