@@ -635,13 +635,11 @@
   "Clear the eshell buffer and move point to the top."
   (interactive)
   (let ((inhibit-read-only t))
-    (erase-buffer))
-  (goto-char (point-min))
-  (eshell-send-input))
+    (erase-buffer)))
 
 ;; Disable line numbers in shell and eshell
-(add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0)))
-(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
+(add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 
 ;;; ====================  COMPILATION  ====================
