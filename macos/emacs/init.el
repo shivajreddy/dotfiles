@@ -160,6 +160,12 @@
 
 ;; Evil keybindings
 (with-eval-after-load 'evil
+  ;; Window navigation
+  (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
+  (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
+
   ;; Save buffer
   (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
   (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
@@ -681,6 +687,12 @@
           (lambda ()
             (display-line-numbers-mode 0)))
 
+;; KeyBind Window Navigation in compilation mode (its not on by default)
+(with-eval-after-load 'compile
+  (define-key compilation-mode-map (kbd "C-h") 'windmove-left)
+  (define-key compilation-mode-map (kbd "C-j") 'windmove-down)
+  (define-key compilation-mode-map (kbd "C-k") 'windmove-up)
+  (define-key compilation-mode-map (kbd "C-l") 'windmove-right))
 
 ;;; ====================  ORG MODE  ====================
 
