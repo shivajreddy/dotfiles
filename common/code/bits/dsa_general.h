@@ -1,3 +1,19 @@
+/*
+ Windows:
+ - find which g++, and use the following command
+ - g++ -v -E -x c++ - < nul
+   Now look for lines `#include <...> search starts here:`
+   you'll see paths like:
+   C:/msys64/mingw64/include/c++/14.2.0
+   C:/msys64/mingw64/include/c++/14.2.0/x86_64-w64-mingw32
+- now based on the above include path, the bits folder for g++ is,
+   C:\msys64\mingw64\include\c++\14.2.0\bits
+- with that as the target folder, link this file with the command
+```
+New-Item -ItemType SymbolicLink -Path "C:\msys64\mingw64\include\c++\14.2.0\bits\dsa_general.h" -Target C:\Users\sreddy\dotfiles\common\code\bits\dsa_general.h
+```
+ */
+
 // #include "stdc++.h"
 #include <bits/stdc++.h>
 #include <iostream>
