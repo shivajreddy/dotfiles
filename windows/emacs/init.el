@@ -138,7 +138,8 @@
   (setq evil-want-keybinding nil)   ; Required for evil-collection
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
-  :commands (evil-mode))
+  :config
+  (evil-mode 1))  ; Enable evil-mode on startup
 
 ;; Toggle evil mode function
 (defun toggle-evil-mode ()
