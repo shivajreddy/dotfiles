@@ -682,8 +682,10 @@
                        (t nil))))
       (if (not compiler)
           (message "Not a C or C++ file!")
-        (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+        (let ((cmd (format "%s \"%s\" -o \"out\" && \"./out\""
                            compiler file output output-exe)))
+        ;; (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+                           ;; compiler file output output-exe)))
           (compile cmd))))))
 
 (smpl/leader-keys

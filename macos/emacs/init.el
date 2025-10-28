@@ -116,6 +116,7 @@
                                      "gdb-disassembly-mode" "gdb-memory-mode"
                                      "magit-status-mode")))
 
+;; ModeLine
 (use-package doom-modeline
   :ensure t
   :init
@@ -137,6 +138,10 @@
   :ensure t
   :hook (after-init . doom-modeline-mode))
 
+;; (setq display-time-24hr-format t)          ; 24-hour format
+;; (setq display-time-day-and-date t)          ; Show date too
+(setq display-time-default-load-average nil) ; Hide load average
+(display-time-mode 1)
 
 ;;; ====================  EVIL MODE  ====================
 
@@ -698,8 +703,10 @@
                        (t nil))))
       (if (not compiler)
           (message "Not a C or C++ file!")
-        (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+        (let ((cmd (format "%s \"%s\" -o \"out\" && \"./out\""
                            compiler file output output-exe)))
+        ;; (let ((cmd (format "%s \"%s\" -o \"%s\" && \"%s\""
+                           ;; compiler file output output-exe)))
           (compile cmd))))))
 
 (smpl/leader-keys
