@@ -107,6 +107,7 @@
                                      "gdb-disassembly-mode" "gdb-memory-mode"
                                      "magit-status-mode")))
 
+;; ModeLine
 (use-package doom-modeline
   :ensure t
   :init
@@ -127,6 +128,11 @@
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode))
+
+;; (setq display-time-24hr-format t)          ; 24-hour format
+;; (setq display-time-day-and-date t)          ; Show date too
+(setq display-time-default-load-average nil) ; Hide load average
+(display-time-mode 1)
 
 
 ;;; ====================  EVIL MODE  ====================
