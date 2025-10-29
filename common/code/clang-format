@@ -52,3 +52,4 @@ SpaceBeforeCpp11BracedList: true    # Ensures space before opening brace
 SpaceBeforeAssignmentOperators: true
 
 PointerAlignment: Left
+

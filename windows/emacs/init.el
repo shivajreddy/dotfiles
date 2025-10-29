@@ -698,6 +698,13 @@
 (smpl/leader-keys
   "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
+(smpl/leader-keys
+  "7" '((lambda ()
+          (interactive)
+          (save-buffer)
+          (call-interactively 'compile))
+        : wk "Save & Compile"))
+
 ;; Compilation mode configuration
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
