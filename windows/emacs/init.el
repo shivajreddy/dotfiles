@@ -723,7 +723,7 @@
   (define-key compilation-mode-map (kbd "C-l") 'windmove-right))
 
 
-;;; ====================  ORG MODE  ====================
+;; ====================  ORG MODE  ====================
 
 ;; Org Mode - basic configuration
 (use-package org
@@ -914,7 +914,7 @@
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("cpp" . "src cpp"))
-(add-to-list 'org-structure-template-alist '("c" . "src c"))
+(add-to-list 'org-structure-template-alist '("cc" . "src c"))
 
 ;; General/Leader keybindings for Org Mode
 (with-eval-after-load 'org

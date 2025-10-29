@@ -729,82 +729,248 @@
   (define-key compilation-mode-map (kbd "C-k") 'windmove-up)
   (define-key compilation-mode-map (kbd "C-l") 'windmove-right))
 
-;;; ====================  ORG MODE  ====================
 
-;; Org directory
-(setq org-directory "~/org/"
-      org-default-notes-file (concat org-directory "notes.org"))
+;; ====================  ORG MODE  ====================
 
-;; Basic org mode configuration
+;; Org Mode - basic configuration
 (use-package org
   :ensure t
-  :mode ("\\.org\\'" . org-mode)
-  :hook ((org-mode . org-indent-mode)
-         (org-mode . visual-line-mode))
+  :hook (org-mode . (lambda () (display-line-numbers-mode -1)))
   :config
+  ;; Org directories
+  (setq org-directory "~/org/")
+  (setq org-default-notes-file (concat org-directory "notes.org"))
+  
   ;; Visual settings
-  (setq org-startup-folded 'content
-        org-hide-emphasis-markers t
-        org-pretty-entities t
-        org-ellipsis " ▾"
-        org-cycle-separator-lines 2
-        org-src-fontify-natively t
-        org-fontify-quote-and-verse-blocks t
-        org-src-tab-acts-natively t
-        org-edit-src-content-indentation 0
-        org-hide-block-startup nil
-        org-startup-with-inline-images t
-        org-startup-indented t)
-
-  ;; TODO keywords
+  (setq org-startup-indented t)           ; Enable indent mode
+  (setq org-hide-emphasis-markers t)      ; Hide markup markers like *bold*
+  (setq org-startup-folded 'content)      ; Start with content view (not fully collapsed)
+  (setq org-adapt-indentation nil)        ; Don't indent content under headings
+  
+  ;; Editing behavior
+  (setq org-return-follows-link t)        ; RET follows links
+  (setq org-catch-invisible-edits 'show-and-error)  ; Prevent accidental edits in folded content
+  (setq org-special-ctrl-a/e t)           ; Smart C-a and C-e behavior on headlines
+  
+  ;; Todo keywords
   (setq org-todo-keywords
         '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+  
+  ;; Log completion time
+  (setq org-log-done 'time)
+  
+  ;; Agenda files (adjust path as needed)
+  (setq org-agenda-files (list org-directory))
+  
+  ;; Source code blocks
+  (setq org-src-fontify-natively t)       ; Syntax highlighting in code blocks
+  (setq org-src-tab-acts-natively t)      ; Tab acts as in the language major mode
+  (setq org-src-preserve-indentation t)   ; Preserve indentation in source blocks
+  (setq org-edit-src-content-indentation 0)  ; No extra indentation in src blocks
+  
+  ;; Better bullet points
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  
+  ;; Prevent line numbers in org mode (cleaner look)
+  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1))))
 
-  ;; TODO keyword faces
-  (setq org-todo-keyword-faces
-        '(("TODO" . (:foreground "#ff6c6b" :weight bold))
-          ("IN-PROGRESS" . (:foreground "#ECBE7B" :weight bold))
-          ("WAITING" . (:foreground "#a9a1e1" :weight bold))
-          ("DONE" . (:foreground "#98be65" :weight bold))
-          ("CANCELLED" . (:foreground "#5B6268" :weight bold)))))
-
-;; Table of Contents
-(use-package toc-org
+;; Org Bullets - prettier heading bullets
+(use-package org-bullets
   :ensure t
-  :after org
-  :hook (org-mode . toc-org-enable))
-
-;; Org Modern - better visuals
-(use-package org-modern
-  :ensure t
-  :after org
-  :hook (org-mode . org-modern-mode)
+  :hook (org-mode . org-bullets-mode)
   :config
-  (setq org-modern-star '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶")
-        org-modern-table-vertical 1
-        org-modern-table-horizontal 0.2
-        org-modern-list '((43 . "➤") (45 . "–") (42 . "•"))
-        org-modern-todo t
-        org-modern-tag t
-        org-modern-priority t
-        org-modern-checkbox '((88 . "☑") (45 . "□") (32 . "◻"))
-        org-modern-timestamp t
-        org-modern-statistics t
-        org-modern-keyword t))
+  (setq org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-;; Org level headers - custom heights
-(custom-set-faces
- '(org-level-1 ((t (:inherit outline-1 :height 1.7 :weight bold))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.6 :weight semi-bold))))
- '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
- '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
- '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
- '(org-level-6 ((t (:inherit outline-6 :height 1.2))))
- '(org-level-7 ((t (:inherit outline-7 :height 1.1)))))
+;; Configure the fonts used in org-mode
+;; Variable pitch = proportional font for text (document-like)
+;; Fixed pitch = monospace font for code/tables (alignment)
 
-;; Optional: Diminish org-indent-mode from modeline (requires diminish package)
-;; (use-package diminish :ensure t)
-;; (eval-after-load 'org-indent '(diminish 'org-indent-mode))
+(set-face-attribute 'variable-pitch nil
+                    :family "SF Pro Text"           ; Windows built-in serif font
+                    :height 180)                ; Slightly larger for readability
+
+(set-face-attribute 'fixed-pitch nil
+                    :family "Iosevka NF"        ; Your existing monospace font
+                    :height 150)                ; Slightly smaller than variable
+
+;; Function to set up beautiful mixed fonts in org-mode
+(defun my/org-font-setup ()
+  "Configure variable pitch fonts for a document-like org-mode experience."
+  ;; Enable variable-pitch-mode (proportional fonts for text)
+  (variable-pitch-mode 1)
+  
+  ;; Add some breathing room between lines
+  (setq-local line-spacing 0.15)
+  
+  ;; Force these elements to stay monospace (fixed-pitch)
+  (dolist (face '(org-table
+                  org-code
+                  org-block
+                  org-block-begin-line
+                  org-block-end-line
+                  org-verbatim
+                  org-formula
+                  org-special-keyword
+                  org-meta-line
+                  org-checkbox
+                  org-date))
+    (set-face-attribute face nil :inherit 'fixed-pitch))
+  
+  ;; Customize heading sizes (using relative scaling)
+  (set-face-attribute 'org-level-1 nil 
+                      :height 1.4           ; 40% larger than base
+                      :weight 'bold)
+  
+  (set-face-attribute 'org-level-2 nil 
+                      :height 1.3           ; 30% larger
+                      :weight 'semi-bold)
+  
+  (set-face-attribute 'org-level-3 nil 
+                      :height 1.2           ; 20% larger
+                      :weight 'semi-bold)
+  
+  (set-face-attribute 'org-level-4 nil 
+                      :height 1.1           ; 10% larger
+                      :weight 'normal)
+  
+  (set-face-attribute 'org-level-5 nil 
+                      :height 1.05)         ; 5% larger
+  
+  ;; Levels 6-8 stay at base size
+  (set-face-attribute 'org-level-6 nil :height 1.0)
+  (set-face-attribute 'org-level-7 nil :height 1.0)
+  (set-face-attribute 'org-level-8 nil :height 1.0)
+  
+  ;; Document title (#+TITLE) - make it prominent
+  (set-face-attribute 'org-document-title nil
+                      :height 1.5
+                      :weight 'bold))
+
+;; Apply font setup when entering org-mode
+(add-hook 'org-mode-hook 'my/org-font-setup)
+
+;; Optional: Toggle function to switch between variable and fixed pitch
+;; Bound to SPC o f (or your leader key + o f)
+(defun my/toggle-org-variable-pitch ()
+  "Toggle between variable-pitch and fixed-pitch fonts in org-mode."
+  (interactive)
+  (if (bound-and-true-p variable-pitch-mode)
+      (progn
+        (variable-pitch-mode -1)
+        (setq-local line-spacing nil)
+        (message "Org: Monospace mode"))
+    (progn
+      (variable-pitch-mode 1)
+      (setq-local line-spacing 0.15)
+      (message "Org: Document mode"))))
+
+;; Add the toggle to your leader keys (add to your smpl/leader-keys section)
+(with-eval-after-load 'org
+  (smpl/leader-keys
+    "o f" '(my/toggle-org-variable-pitch :wk "Toggle Font Mode")))
+
+;; Evil Org - proper evil bindings for org mode
+(use-package evil-org
+  :ensure t
+  :after (evil org)
+  :hook (org-mode . evil-org-mode)
+  :config
+  ;; Enable evil-org-agenda for agenda buffers
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys)
+  
+  ;; Evil org settings
+  (evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+  
+  ;; Additional org mode keybindings that respect evil
+  (with-eval-after-load 'evil-org
+    ;; Make TAB work naturally in org mode
+    (evil-define-key 'normal evil-org-mode-map
+      (kbd "TAB") 'org-cycle
+      (kbd "<tab>") 'org-cycle
+      (kbd "S-TAB") 'org-shifttab
+      
+      ;; Move headings
+      (kbd "M-j") 'org-metadown
+      (kbd "M-k") 'org-metaup
+      (kbd "M-h") 'org-metaleft
+      (kbd "M-l") 'org-metaright
+      
+      ;; Insert heading/item
+      (kbd "M-RET") 'org-meta-return
+      
+      ;; Navigate headings (similar to ]/[ in evil)
+      (kbd "g j") 'org-forward-heading-same-level
+      (kbd "g k") 'org-backward-heading-same-level
+      (kbd "g h") 'outline-up-heading
+      (kbd "g l") 'org-next-visible-heading)
+    
+    ;; Insert mode bindings
+    (evil-define-key 'insert evil-org-mode-map
+      (kbd "M-j") 'org-metadown
+      (kbd "M-k") 'org-metaup
+      (kbd "M-h") 'org-metaleft
+      (kbd "M-l") 'org-metaright
+      (kbd "M-RET") 'org-meta-return)))
+
+;; Org Tempo - quick templates with <s TAB, <e TAB, etc.
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("cpp" . "src cpp"))
+(add-to-list 'org-structure-template-alist '("cc" . "src c"))
+
+;; General/Leader keybindings for Org Mode
+(with-eval-after-load 'org
+  (smpl/leader-keys
+    "o" '(:ignore t :wk "Org Mode")
+    "o a" '(org-agenda :wk "Agenda")
+    "o c" '(org-capture :wk "Capture")
+    "o l" '(org-store-link :wk "Store Link")
+    "o i" '(org-insert-link :wk "Insert Link")
+    "o t" '(org-todo :wk "Toggle TODO")
+    "o s" '(org-schedule :wk "Schedule")
+    "o d" '(org-deadline :wk "Deadline")
+    "o p" '(org-priority :wk "Priority")
+    "o e" '(org-export-dispatch :wk "Export")
+    "o x" '(org-toggle-checkbox :wk "Toggle Checkbox")
+
+    ;; Open Org Directory from anywhere
+    "o o" '(lambda () (interactive) (dired org-directory)) ; open org folder
+    ;; or, to open in system file explorer:
+    ;; "o o" '(lambda () (interactive) (browse-url-of-file org-directory))
+
+    ;; Source code blocks
+    "o b" '(:ignore t :wk "Babel/Blocks")
+    "o b t" '(org-babel-tangle :wk "Tangle")
+    "o b e" '(org-babel-execute-src-block :wk "Execute Block")
+    "o b b" '(org-babel-execute-buffer :wk "Execute Buffer")
+    
+    ;; Org tree/structure
+    "o n" '(:ignore t :wk "Navigate")
+    "o n j" '(org-forward-heading-same-level :wk "Next Heading")
+    "o n k" '(org-backward-heading-same-level :wk "Previous Heading")
+    "o n h" '(outline-up-heading :wk "Parent Heading")
+    "o n l" '(org-next-visible-heading :wk "Next Visible")
+    
+    ;; Org refile and archive
+    "o r" '(org-refile :wk "Refile")
+    "o A" '(org-archive-subtree :wk "Archive Subtree")))
+
+;; Optional: Org capture templates (customize as needed)
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file+headline org-default-notes-file "Notes")
+         "* %?\nEntered on %U\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree (concat org-directory "journal.org"))
+         "* %?\nEntered on %U\n  %i\n  %a")))
+
+;; Disable line numbers in org-agenda
+(add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 ;;; ===============================================================
 ;;; END OF CONFIG
