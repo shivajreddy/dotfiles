@@ -41,7 +41,7 @@
 
 ;; Frame settings
 ;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;; start in maximized
 (setq frame-resize-pixelwise t)
 
 ;; Fringe configuration
