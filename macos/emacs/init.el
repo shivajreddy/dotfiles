@@ -416,7 +416,8 @@
   ;; Toggle commands
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "tt" '(visual-line-mode :wk "Toggle truncate lines")
+    ;; "tt" '(visual-line-mode :wk "Toggle truncate lines")
+    "tt" '(toggle-truncate-lines :wk "Toggle truncated lines")
     "tl" '(display-line-numbers-mode :wk "Toggle line numbers")
     ;; "te" '(toggle-evil-mode :wk "Toggle evil mode")
     )

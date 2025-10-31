@@ -69,7 +69,7 @@
 ;; Font configuration
 (set-face-attribute 'default nil
                     :font "Iosevka NF"
-                    :height 200)
+                    :height 180)
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
@@ -408,7 +408,8 @@
   ;; Toggle commands
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "tt" '(visual-line-mode :wk "Toggle truncate lines")
+    ;; "tt" '(visual-line-mode :wk "Toggle truncate lines")
+    "tt" '(toggle-truncate-lines :wk "Toggle truncated lines")
     "tl" '(display-line-numbers-mode :wk "Toggle line numbers")
     ;; "te" '(toggle-evil-mode :wk "Toggle evil mode")
     )
@@ -793,7 +794,7 @@
           (compile cmd))))))
 
 (smpl/leader-keys
-  "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
+  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
