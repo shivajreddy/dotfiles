@@ -63,6 +63,9 @@
 ;; Current line highlight
 (global-hl-line-mode 1)
 
+;; Truncate Lines
+(setq-default truncate-lines t)
+
 ;; Maximize window on startup
 ;; (add-hook 'window-setup-hook 'toggle-frame-maximized)
 
