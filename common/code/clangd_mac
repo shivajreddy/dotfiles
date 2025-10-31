@@ -26,9 +26,9 @@ Diagnostics:
       readability-identifier-length.MinimumLoopCounterNameLength: '1'
       readability-identifier-length.MinimumExceptionNameLength: '1'
 InlayHints:
-  Enabled: true
-  ParameterNames: true
-  DeducedTypes: true
+  Enabled: false
+  ParameterNames: false
+  DeducedTypes: false
 
 # -----------------------------------
 #  C config
@@ -58,6 +58,6 @@ Diagnostics:
   UnusedIncludes: Strict  # Highlight unused includes
 
 InlayHints:
-  Enabled: true
-  ParameterNames: true
-  DeducedTypes: true
+  Enabled: false
+  ParameterNames: false
+  DeducedTypes: false

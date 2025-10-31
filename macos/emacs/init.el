@@ -76,9 +76,29 @@
 (set-face-attribute 'font-lock-keyword-face nil
                     :slant 'italic)
 
-;; Theme
-(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
-;; (load-theme 'modus-operandi-tinted t)         ; light theme
+;; Theme - Doom Themes
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dark+ t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+;; Alternative themes (uncomment to use):
+;; Modus themes (built-in):
+;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+;; (load-theme 'modus-operandi-tinted t)       ; light theme
+;; Other Doom themes:
+;; (load-theme 'doom-one t)
+;; (load-theme 'doom-molokai t)
+;; (load-theme 'doom-nord t)
+;; (load-theme 'doom-dracula t)
 ;; (use-package gruber-darker-theme
 ;;   :ensure t
 ;;   :config
@@ -194,7 +214,13 @@
 	      (lambda ()
 		(interactive)
 		(evil-scroll-up nil)
-		(recenter))))
+		(recenter)))
+
+  ;; Buffer navigation - next/previous tab behavior
+  (define-key evil-normal-state-map (kbd "C-n") 'next-buffer)
+  (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
+  (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer))
 
 ;; Evil collection - proper evil bindings for various modes
 (use-package evil-collection
@@ -233,14 +259,6 @@
 
 ;;; ====================  COMPLETION & NAVIGATION  ====================
 
-(use-package counsel
-  :ensure t
-  :after ivy
-  :diminish
-  :custom
-  (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
-  :hook (after-init . counsel-mode))
-
 (use-package ivy
   :ensure t
   :bind
@@ -249,11 +267,29 @@
    ("C-x B" . ivy-switch-buffer-other-window))
   :diminish
   :custom
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq enable-recursive-minibuffers t)
-  :config
-  (ivy-mode))
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) ")
+  (enable-recursive-minibuffers t)
+  (ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
+  :init
+  (ivy-mode 1))  ;; Enable ivy-mode early
+
+(use-package counsel
+  :ensure t
+  :after ivy
+  :diminish
+  :init
+  (counsel-mode 1))  ;; Enable counsel-mode early
+
+;; Smart arrow key behavior in ivy
+(with-eval-after-load 'ivy
+  ;; Up arrow: go to previous history item OR navigate up through candidates
+  (define-key ivy-minibuffer-map (kbd "<up>") 'ivy-previous-line-or-history)
+  ;; Down arrow: navigate down through candidates
+  (define-key ivy-minibuffer-map (kbd "<down>") 'ivy-next-line)
+  ;; Keep C-n/C-p for candidate navigation
+  (define-key ivy-minibuffer-map (kbd "C-n") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-p") 'ivy-previous-line))
 
 ;; Disable Ivy completion in Dired rename/move
 ;; (with-eval-after-load 'ivy
@@ -311,6 +347,9 @@
   ;; Window operations
   (smpl/leader-keys
     "q" '(evil-window-delete :wk "Close Window"))
+
+  ;; Bind Control+Tab to toggle between last two buffers
+  (global-set-key (kbd "C-<tab>") 'switch-to-buffer)
 
   ;; Treemacs toggle & Focus
   (smpl/leader-keys
@@ -391,15 +430,22 @@
   :config
   (setq projectile-project-search-path '("~/dev")))
 
+;; Counsel-Projectile - Better integration between counsel and projectile
+(use-package counsel-projectile
+  :ensure t
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode 1))
+
 ;; Projectile bindings under SPC p
 (smpl/leader-keys
   "p" '(:ignore t :wk "Projectile")
   "pp" '(projectile-switch-project :wk "Switch project")
-  "pf" '(projectile-find-file :wk "Find file in project")
+  "pf" '(counsel-projectile-find-file :wk "Find file in project")
   "ps" '(projectile-save-project-buffers :wk "Save project buffers")
   "pk" '(projectile-kill-buffers :wk "Kill project buffers")
   "pr" '(projectile-replace :wk "Replace in project")
-  "pb" '(projectile-switch-to-buffer :wk "Switch to project buffer")
+  "pb" '(counsel-projectile-switch-to-buffer :wk "Switch to project buffer")
   "pc" '(projectile-compile-project :wk "Compile project")
   "pa" '(projectile-add-known-project :wk "Add known project")
   "pd" '(projectile-remove-known-project :wk "Remove known project")
@@ -440,6 +486,24 @@
             (persp-ibuffer-set-filter-groups)
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
+
+;;; ====================  SEARCH  ====================
+
+;; Search bindings - LazyVim/Telescope-like experience
+(smpl/leader-keys
+  "s" '(:ignore t :wk "Search")
+  "sf" '(counsel-projectile-find-file :wk "Find file (project)")
+  "sF" '(counsel-find-file :wk "Find file (global)")
+  "sg" '(counsel-projectile-rg :wk "Grep (project)")
+  "sG" '(counsel-rg :wk "Grep (global)")
+  "sb" '(counsel-switch-buffer :wk "Switch buffer")
+  "ss" '(swiper :wk "Search in current buffer")
+  "sr" '(counsel-recentf :wk "Recent files")
+  "sj" '(counsel-imenu :wk "Jump to symbol"))
+
+;; Additional global keybindings for quick access
+(global-set-key (kbd "C-c s") 'counsel-rg)  ; Quick grep
+;; Note: C-s is already bound to save-buffer in evil mode
 
 ;;; ====================  VERSION CONTROL  ====================
 
@@ -631,8 +695,65 @@
   :diminish
   :hook (company-mode . company-box-mode))
 
+;; Preserve C-n/C-p for company completion navigation
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
 
 ;;; ====================  TERMINAL EMULATION  ====================
+
+;; Eshell configuration
+;; Make eshell's point go to top when cleared
+(defun eshell/clear (&rest args)
+  "Clear the eshell buffer and move point to the top."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
+;; Disable line numbers in shell and eshell
+(add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode -1)))
+
+;;; ====================  TERMINAL EMULATION  ====================
+
+;; Vterm - fast terminal emulator
+(use-package vterm
+  :ensure t
+  :commands vterm
+  :config
+  ;; Set shell (optional - defaults to $SHELL)
+  ;; (setq vterm-shell "/bin/zsh")
+  
+  ;; Maximum scrollback lines
+  (setq vterm-max-scrollback 10000)
+  
+  ;; Kill buffer when vterm process exits
+  (setq vterm-kill-buffer-on-exit t)
+  
+  ;; Disable line numbers in vterm
+  (add-hook 'vterm-mode-hook (lambda () 
+                                (display-line-numbers-mode -1)
+                                ;; Disable hl-line-mode for better performance
+                                (hl-line-mode -1))))
+
+;; Evil keybindings for vterm
+(with-eval-after-load 'vterm
+  (with-eval-after-load 'evil
+    ;; Use emacs state in vterm for better terminal interaction
+    (evil-set-initial-state 'vterm-mode 'emacs)
+    
+    ;; Add some useful evil bindings
+    (evil-define-key 'normal vterm-mode-map
+      (kbd "p") 'vterm-yank
+      (kbd "u") 'vterm-send-C-u)))
+
+;; Leader key bindings for vterm
+(with-eval-after-load 'general
+  (smpl/leader-keys
+    "v" '(:ignore t :wk "Vterm")
+    "vv" '(vterm :wk "Open vterm")
+    "vo" '(vterm-other-window :wk "Vterm other window")))
 
 ;; Eshell configuration
 ;; Make eshell's point go to top when cleared
@@ -710,7 +831,7 @@
           (compile cmd))))))
 
 (smpl/leader-keys
-  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
+  "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
