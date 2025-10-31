@@ -233,7 +233,10 @@
   (define-key evil-normal-state-map (kbd "C-n") 'next-buffer)
   (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
   (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
-  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer))
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer)
+
+  ;; Make Y yank to end of line (like Vim's default)
+  (define-key evil-normal-state-map (kbd "Y") 'evil-yank-line))
 
 ;; Evil collection - proper evil bindings for various modes
 (use-package evil-collection

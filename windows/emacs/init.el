@@ -225,7 +225,10 @@
   (define-key evil-normal-state-map (kbd "C-n") 'next-buffer)
   (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
   (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
-  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer))
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer)
+
+  ;; Make Y yank to end of line (like Vim's default)
+  (define-key evil-normal-state-map (kbd "Y") 'evil-yank-line))
 
 ;; Evil collection - proper evil bindings for various modes
 (use-package evil-collection
@@ -587,12 +590,12 @@
 
 ;; Load custom simpc-mode
 (add-to-list 'load-path "~/.emacs.d/smpl/")
-(require 'simpc-mode)
-;; Use simpc-mode for C/C++ files
-(add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
-(add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
-(add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
-(add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode))
+(when (require 'simpc-mode nil 'noerror)
+  ;; Use simpc-mode for C/C++ files
+  (add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
+  (add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
+  (add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode)))
 
 (require 'eglot)
 (add-hook 'simpc-mode-hook 'eglot-ensure)
