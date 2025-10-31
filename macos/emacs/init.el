@@ -1093,6 +1093,10 @@
 ;; Disable line numbers in org-agenda
 (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode -1)))
 
+
+;;; CHATGPT
+
+
 ;;; ===============================================================
 ;;; END OF CONFIG
 ;;; ===============================================================
