@@ -69,15 +69,35 @@
 ;; Font configuration
 (set-face-attribute 'default nil
                     :font "Iosevka NF"
-                    :height 160)
+                    :height 200)
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
                     :slant 'italic)
 
-;; Theme
-(load-theme 'modus-vivendi-deuteranopia t) ; dark theme
-;; (load-theme 'modus-operandi-tinted t)         ; light theme
+;; Theme - Doom Themes
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dark+ t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+;; Alternative themes (uncomment to use):
+;; Modus themes (built-in):
+;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
+;; (load-theme 'modus-operandi-tinted t)       ; light theme
+;; Other Doom themes:
+;; (load-theme 'doom-one t)
+;; (load-theme 'doom-molokai t)
+;; (load-theme 'doom-nord t)
+;; (load-theme 'doom-dracula t)
 ;; (use-package gruber-darker-theme
 ;;   :ensure t
 ;;   :config
@@ -94,6 +114,16 @@
 (use-package nerd-icons-dired
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
+
+;; Indent guides - vertical lines showing code block indentation
+(use-package indent-bars
+  :ensure t
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-treesit-support t)              ; Enable tree-sitter support if available
+  (setq indent-bars-no-descend-string t)            ; Don't show bars in strings
+  (setq indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (setq indent-bars-prefer-character t))            ; Use characters instead of stipples
 
 ;; Golden ratio - auto-resize active window
 (use-package golden-ratio
@@ -186,7 +216,13 @@
 	      (lambda ()
 		(interactive)
 		(evil-scroll-up nil)
-		(recenter))))
+		(recenter)))
+
+  ;; Buffer navigation - next/previous tab behavior
+  (define-key evil-normal-state-map (kbd "C-n") 'next-buffer)
+  (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
+  (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer))
 
 ;; Evil collection - proper evil bindings for various modes
 (use-package evil-collection
@@ -225,14 +261,6 @@
 
 ;;; ====================  COMPLETION & NAVIGATION  ====================
 
-(use-package counsel
-  :ensure t
-  :after ivy
-  :diminish
-  :custom
-  (setq ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
-  :hook (after-init . counsel-mode))
-
 (use-package ivy
   :ensure t
   :bind
@@ -241,23 +269,40 @@
    ("C-x B" . ivy-switch-buffer-other-window))
   :diminish
   :custom
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq enable-recursive-minibuffers t)
-  :config
-  (ivy-mode))
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) ")
+  (enable-recursive-minibuffers t)
+  (ivy-initial-inputs-alist nil) ;; removes starting ^ regex in M-x
+  :init
+  (ivy-mode 1))  ;; Enable ivy-mode early
+
+(use-package counsel
+  :ensure t
+  :after ivy
+  :diminish
+  :init
+  (counsel-mode 1))  ;; Enable counsel-mode early
+
+;; Smart arrow key behavior in ivy
+(with-eval-after-load 'ivy
+  ;; Up arrow: go to previous history item OR navigate up through candidates
+  (define-key ivy-minibuffer-map (kbd "<up>") 'ivy-previous-line-or-history)
+  ;; Down arrow: navigate down through candidates
+  (define-key ivy-minibuffer-map (kbd "<down>") 'ivy-next-line)
+  ;; Keep C-n/C-p for candidate navigation
+  (define-key ivy-minibuffer-map (kbd "C-n") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-p") 'ivy-previous-line))
 
 ;; Disable Ivy completion in Dired rename/move
 ;; (with-eval-after-load 'ivy
 ;;   (add-to-list 'ivy-completing-read-handlers-alist
 ;;                '(dired-do-rename . completing-read-default)))
 
-
 ;; Nerd Icons for Ivy
 (use-package nerd-icons-ivy-rich
   :ensure t
-  :after (ivy-rich counsel)
-  :init
+  :after (ivy-rich)
+  :config
   (nerd-icons-ivy-rich-mode 1))
 
 ;; Which-Key - display available keybindings
@@ -305,6 +350,9 @@
   (smpl/leader-keys
     "q" '(evil-window-delete :wk "Close Window"))
 
+  ;; Bind Control+Tab to toggle between last two buffers
+  (global-set-key (kbd "C-<tab>") 'switch-to-buffer)
+
   ;; Treemacs toggle & Focus
   (smpl/leader-keys
     "DEL" '(treemacs :wk "Toggle Treemacs"))
@@ -317,7 +365,7 @@
     "f c" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :wk "Edit emacs config")
     "/" '(comment-line :wk "Comment lines"))
 
-  ;; Buffer operations
+  ;; Buffer operations (perspective-aware)
   (smpl/leader-keys
     "b" '(:ignore t :wk "buffer")
     "bb" '(switch-to-buffer :wk "Switch buffer")
@@ -326,6 +374,14 @@
     "bn" '(next-buffer :wk "Next buffer")
     "bp" '(previous-buffer :wk "Previous buffer")
     "br" '(revert-buffer :wk "Reload buffer"))
+
+  ;; Bookmark operations
+  (smpl/leader-keys
+    "m" '(:ignore t :wk "Bookmark")
+    "mm" '(bookmark-set :wk "Set bookmark")
+    "mj" '(bookmark-jump :wk "Jump to bookmark")
+    "ml" '(bookmark-bmenu-list :wk "List bookmarks")
+    "md" '(bookmark-delete :wk "Delete bookmark"))
 
   ;; Evaluate
   (smpl/leader-keys
@@ -336,7 +392,7 @@
     "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "er" '(eval-region :wk "Evaluate elisp in region"))
 
-  ;; Help
+  ;; Help commands
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
     "hf" '(describe-function :wk "Describe function")
@@ -349,11 +405,11 @@
     "dd" '(dired :wk "Open dired")
     "dj" '(dired-jump :wk "Dired jump to current"))
 
-  ;; Toggle
+  ;; Toggle commands
   (smpl/leader-keys
     "t" '(:ignore t :wk "Toggle")
+    "tt" '(visual-line-mode :wk "Toggle truncate lines")
     "tl" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "tt" '(toggle-truncate-lines :wk "Toggle truncated lines")
     ;; "te" '(toggle-evil-mode :wk "Toggle evil mode")
     )
 
@@ -377,15 +433,22 @@
   :config
   (setq projectile-project-search-path '("~/dev")))
 
+;; Counsel-Projectile - Better integration between counsel and projectile
+(use-package counsel-projectile
+  :ensure t
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode 1))
+
 ;; Projectile bindings under SPC p
 (smpl/leader-keys
   "p" '(:ignore t :wk "Projectile")
   "pp" '(projectile-switch-project :wk "Switch project")
-  "pf" '(projectile-find-file :wk "Find file in project")
+  "pf" '(counsel-projectile-find-file :wk "Find file in project")
   "ps" '(projectile-save-project-buffers :wk "Save project buffers")
   "pk" '(projectile-kill-buffers :wk "Kill project buffers")
   "pr" '(projectile-replace :wk "Replace in project")
-  "pb" '(projectile-switch-to-buffer :wk "Switch to project buffer")
+  "pb" '(counsel-projectile-switch-to-buffer :wk "Switch to project buffer")
   "pc" '(projectile-compile-project :wk "Compile project")
   "pa" '(projectile-add-known-project :wk "Add known project")
   "pd" '(projectile-remove-known-project :wk "Remove known project")
@@ -427,6 +490,24 @@
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
 
+;;; ====================  SEARCH  ====================
+
+;; Search bindings - LazyVim/Telescope-like experience
+(smpl/leader-keys
+  "s" '(:ignore t :wk "Search")
+  "sf" '(counsel-projectile-find-file :wk "Find file (project)")
+  "sF" '(counsel-find-file :wk "Find file (global)")
+  "sg" '(counsel-projectile-rg :wk "Grep (project)")
+  "sG" '(counsel-rg :wk "Grep (global)")
+  "sb" '(counsel-switch-buffer :wk "Switch buffer")
+  "ss" '(swiper :wk "Search in current buffer")
+  "sr" '(counsel-recentf :wk "Recent files")
+  "sj" '(counsel-imenu :wk "Jump to symbol"))
+
+;; Additional global keybindings for quick access
+(global-set-key (kbd "C-c s") 'counsel-rg)  ; Quick grep
+;; Note: C-s is already bound to save-buffer in evil mode
+
 ;;; ====================  VERSION CONTROL  ====================
 
 ;; Magit - Git interface
@@ -446,7 +527,6 @@
           (lambda ()
             (modify-syntax-entry ?_ "w")))
 
-;; package to find which file
 (use-package f
   :ensure t)
 
@@ -465,6 +545,7 @@
   (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
 
 ;; Apply to C/C++ modes
+(add-hook 'simpc-mode-hook 'clang-format-buffer-smart-on-save)
 (add-hook 'c-mode-hook 'clang-format-buffer-smart-on-save)
 (add-hook 'c++-mode-hook 'clang-format-buffer-smart-on-save)
 
@@ -500,7 +581,18 @@
 
 ;;; ====================  LSP  ====================
 
+;; Load custom simpc-mode
+(add-to-list 'load-path "~/.emacs.d/smpl/")
+(require 'simpc-mode)
+;; Use simpc-mode for C/C++ files
+(add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode))
+
 (require 'eglot)
+(add-hook 'simpc-mode-hook 'eglot-ensure)
+;; Keep these as fallbacks if you ever use the standard modes
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 (add-hook 'c-or-c++-mode-hook 'eglot-ensure)
@@ -618,6 +710,11 @@
   :diminish
   :hook (company-mode . company-box-mode))
 
+;; Preserve C-n/C-p for company completion navigation
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
 
 ;;; ====================  TERMINAL EMULATION  ====================
 
@@ -666,7 +763,7 @@
 
 ;; Compilation keybindings
 (smpl/leader-keys
-  "8" '(smpl/compile-run-from-project-root :wk "Compile & Run"))
+  "8" '(smpl/compile-run-from-project-root :wk "Compile & run from root"))
 (global-set-key (kbd "C-<f8>") 'smpl/compile-only)
 (global-set-key (kbd "S-<f8>") 'recompile)
 
@@ -696,14 +793,7 @@
           (compile cmd))))))
 
 (smpl/leader-keys
-  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
-
-(smpl/leader-keys
-  "7" '((lambda ()
-          (interactive)
-          (save-buffer)
-          (call-interactively 'compile))
-        : wk "Save & Compile"))
+  "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)

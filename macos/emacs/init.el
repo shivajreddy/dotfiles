@@ -124,6 +124,16 @@
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
 
+;; Indent guides - vertical lines showing code block indentation
+(use-package indent-bars
+  :ensure t
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-treesit-support t)              ; Enable tree-sitter support if available
+  (setq indent-bars-no-descend-string t)            ; Don't show bars in strings
+  (setq indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (setq indent-bars-prefer-character t))            ; Use characters instead of stipples
+
 ;; Golden ratio - auto-resize active window
 (use-package golden-ratio
   :ensure t
@@ -542,6 +552,7 @@
   (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
 
 ;; Apply to C/C++ modes
+(add-hook 'simpc-mode-hook 'clang-format-buffer-smart-on-save)
 (add-hook 'c-mode-hook 'clang-format-buffer-smart-on-save)
 (add-hook 'c++-mode-hook 'clang-format-buffer-smart-on-save)
 
@@ -577,7 +588,18 @@
 
 ;;; ====================  LSP  ====================
 
+;; Load custom simpc-mode
+(add-to-list 'load-path "~/.emacs.d/smpl/")
+(require 'simpc-mode)
+;; Use simpc-mode for C/C++ files
+(add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode))
+
 (require 'eglot)
+(add-hook 'simpc-mode-hook 'eglot-ensure)
+;; Keep these as fallbacks if you ever use the standard modes
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 (add-hook 'c-or-c++-mode-hook 'eglot-ensure)
