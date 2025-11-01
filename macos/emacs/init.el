@@ -93,6 +93,35 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+;; Solaire Mode - visually distinguish real buffers from special buffers
+;; This makes file-editing buffers "brighter" than sidebars/terminals
+(use-package solaire-mode
+  :ensure t
+  :config
+  (solaire-global-mode +1))
+
+;; Custom theme adjustments
+(with-eval-after-load 'doom-themes
+  ;; Make vertical separator between buffers more visible (lighter/whiter)
+  (setq window-divider-default-places t) ; show dividers both on right & bottom
+  (setq window-divider-default-bottom-width 2) ; width of horizontal divider
+  (setq window-divider-default-right-width 2) ; width of vertical divider
+  (set-face-attribute 'vertical-border nil :foreground "#6c7a89")  ; color of the divider
+  (window-divider-mode 1)
+
+;; Dim inactive windows to make active buffer stand out
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "#1c1f24"    ; Darker background for inactive
+                      :foreground "#5c6370")   ; Dimmed text
+)
+
+;; Customize solaire-mode faces after loading
+(with-eval-after-load 'solaire-mode
+  ;; Make "real" buffers (file-editing) have the normal theme background
+  ;; and non-real buffers (like dired, terminals) slightly dimmer
+  (set-face-attribute 'solaire-default-face nil
+                      :background "#1a1d23"))  ; Slightly darker than normal bg
+
 ;; Alternative themes (uncomment to use):
 ;; Modus themes (built-in):
 ;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
@@ -141,40 +170,54 @@
 (use-package golden-ratio
   :ensure t
   :config
-  (golden-ratio-mode 1)
+  (golden-ratio-mode 0)
   (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
                                      "gdb-locals-mode" "gdb-registers-mode"
                                      "gdb-breakpoints-mode" "gdb-threads-mode"
                                      "gdb-frames-mode" "gdb-inferior-io-mode"
                                      "gdb-disassembly-mode" "gdb-memory-mode"
-                                     "magit-status-mode")))
+                                     "magit-status-mode" "pdf-view-mode")))
 
 ;; ModeLine
 (use-package doom-modeline
   :ensure t
   :init
-  (doom-modeline-mode 1)
-  (column-number-mode 1)
-  ;; (display-time-mode 1) ; Required for doom-modeline-time
-  :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-height 30)
-  (doom-modeline-time t)
-  ;; disable all extras
-  (doom-modeline-env-enable-python nil)
-  (doom-modeline-enable-word-count nil)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-display-default-persp-name nil)
-  (doom-modeline-display-env-version nil))
+  ;; Set all customizations BEFORE doom-modeline-mode is enabled
+  (setq doom-modeline-height 30)
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project) ; Truncate file names intelligently
+  (setq doom-modeline-time t)
+  (setq doom-modeline-time-analogue-clock nil) ; Disable analog clock
+  (setq doom-modeline-time-icon nil) ; Disable time icon
+  (setq display-time-default-load-average nil) ; Disable system load average (CPU usage)
+  (setq doom-modeline-project-name nil)
+  (setq doom-modeline-workspace-name nil)
+  (setq doom-modeline-persp-name nil) ; Hide perspective name
+  (setq doom-modeline-display-default-persp-name nil)
+  (setq doom-modeline-persp-icon nil) ; Hide perspective icon
+  (setq doom-modeline-env-enable-python nil)
+  (setq doom-modeline-enable-word-count nil)
+  (setq doom-modeline-buffer-encoding nil)
+  (setq doom-modeline-display-env-version nil)
+  (setq doom-modeline-percent-position nil)
+;; (setq doom-modeline-vcs-icon nil)
+;; (setq doom-modeline-vcs-max-length nil)
 
-(use-package doom-modeline
-  :ensure t
+  ;; (column-number-mode 1)
+  (display-time-mode 1) ; Required for doom-modeline-time
+  (doom-modeline-mode 1)
   :hook (after-init . doom-modeline-mode))
 
-;; (setq display-time-24hr-format t)          ; 24-hour format
-;; (setq display-time-day-and-date t)          ; Show date too
-(setq display-time-default-load-average nil) ; Hide load average
-(display-time-mode 1)
+;; Set font for doom-modeline
+(with-eval-after-load 'doom-modeline
+  (set-face-attribute 'mode-line nil
+                      :family "BerkeleyMono Nerd Font"
+                      :weight 'regular
+                      :height 170)
+  (set-face-attribute 'mode-line-inactive nil
+                      :family "BerkeleyMono Nerd Font"
+                      :weight 'regular
+                      :height 170))
+
 
 ;;; ====================  EVIL MODE  ====================
 
@@ -1124,6 +1167,87 @@
 
 
 ;;; CHATGPT
+
+
+;;; ====================  PDF VIEWER  ====================
+
+;; PDF Tools - superior PDF viewing experience
+(use-package pdf-tools
+  :ensure t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  ;; Initialize pdf-tools
+  (pdf-tools-install :no-query)
+
+  ;; Automatically update PDF buffer when file changes
+  (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+
+  ;; Better default settings
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-view-use-scaling t)
+  (setq pdf-view-use-imagemagick nil)
+
+  ;; Midnight mode (dark mode for PDFs) - adjust colors to match your theme
+  (setq pdf-view-midnight-colors '("#c5c8c6" . "#1d1f21"))
+
+  ;; Disable line numbers in PDF view
+  (add-hook 'pdf-view-mode-hook (lambda ()
+                                   (display-line-numbers-mode -1)
+                                   (hl-line-mode -1))))
+
+;; Evil keybindings for pdf-view-mode
+(with-eval-after-load 'pdf-view
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal pdf-view-mode-map
+      ;; Navigation
+      (kbd "j") 'pdf-view-next-line-or-next-page
+      (kbd "k") 'pdf-view-previous-line-or-previous-page
+      (kbd "J") 'pdf-view-next-page
+      (kbd "K") 'pdf-view-previous-page
+      (kbd "g g") 'pdf-view-first-page
+      (kbd "G") 'pdf-view-last-page
+
+      ;; Scrolling (half page)
+      (kbd "C-d") 'pdf-view-scroll-up-or-next-page
+      (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
+
+      ;; Window navigation
+      (kbd "C-h") 'windmove-left
+      (kbd "C-j") 'windmove-down
+      (kbd "C-k") 'windmove-up
+      (kbd "C-l") 'windmove-right
+
+      ;; Zooming
+      (kbd "+") 'pdf-view-enlarge
+      (kbd "-") 'pdf-view-shrink
+      (kbd "=") 'pdf-view-enlarge
+      (kbd "0") 'pdf-view-scale-reset
+
+      ;; Fit modes
+      (kbd "W") 'pdf-view-fit-width-to-window
+      (kbd "H") 'pdf-view-fit-height-to-window
+      (kbd "P") 'pdf-view-fit-page-to-window
+
+      ;; Search
+      (kbd "/") 'isearch-forward
+      (kbd "?") 'isearch-backward
+      (kbd "n") 'isearch-repeat-forward
+      (kbd "N") 'isearch-repeat-backward
+
+      ;; Goto page
+      (kbd "g p") 'pdf-view-goto-page
+
+      ;; Refresh
+      (kbd "r") 'pdf-view-revert-buffer
+
+      ;; Midnight mode (dark mode)
+      (kbd "m") 'pdf-view-midnight-minor-mode
+
+      ;; Toggle continuous scrolling
+      (kbd "c") 'pdf-view-toggle-continuous
+
+      ;; Quit
+      (kbd "q") 'quit-window)))
 
 
 ;;; ===============================================================

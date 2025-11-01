@@ -92,6 +92,21 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+;; Custom theme adjustments
+(with-eval-after-load 'doom-themes
+  ;; Make vertical separator between buffers more visible (lighter/whiter)
+  (set-face-attribute 'vertical-border nil
+                      :foreground "#6c7a89")  ; Lighter gray, closer to white
+
+  ;; Dim inactive windows to make active buffer stand out
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "#1c1f24"    ; Darker background for inactive
+                      :foreground "#5c6370")   ; Dimmed text
+
+  ;; Ensure active window stays distinct
+  (set-face-attribute 'mode-line nil
+                      :background "#21252b"))  ; Slightly lighter for active
+
 ;; Alternative themes (uncomment to use):
 ;; Modus themes (built-in):
 ;; (load-theme 'modus-vivendi-deuteranopia t) ; dark theme
@@ -1061,6 +1076,92 @@
 
 ;; Disable line numbers in org-agenda
 (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode -1)))
+
+
+;;; ====================  PDF VIEWER  ====================
+
+;; PDF Tools - superior PDF viewing experience
+(use-package pdf-tools
+  :ensure t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  ;; Initialize pdf-tools
+  (pdf-tools-install :no-query)
+
+  ;; Automatically update PDF buffer when file changes
+  (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+
+  ;; Better default settings
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-view-use-scaling t)
+  (setq pdf-view-use-imagemagick nil)
+
+  ;; Midnight mode (dark mode for PDFs) - adjust colors to match your theme
+  (setq pdf-view-midnight-colors '("#c5c8c6" . "#1d1f21"))
+
+  ;; Disable line numbers in PDF view
+  (add-hook 'pdf-view-mode-hook (lambda ()
+                                   (display-line-numbers-mode -1)
+                                   (hl-line-mode -1))))
+
+;; Evil keybindings for pdf-view-mode
+(with-eval-after-load 'pdf-view
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal pdf-view-mode-map
+      ;; Navigation
+      (kbd "j") 'pdf-view-next-line-or-next-page
+      (kbd "k") 'pdf-view-previous-line-or-previous-page
+      (kbd "J") 'pdf-view-next-page
+      (kbd "K") 'pdf-view-previous-page
+      (kbd "g g") 'pdf-view-first-page
+      (kbd "G") 'pdf-view-last-page
+
+      ;; Scrolling (half page)
+      (kbd "C-d") 'pdf-view-scroll-up-or-next-page
+      (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
+
+      ;; Zooming
+      (kbd "+") 'pdf-view-enlarge
+      (kbd "-") 'pdf-view-shrink
+      (kbd "=") 'pdf-view-enlarge
+      (kbd "0") 'pdf-view-scale-reset
+
+      ;; Fit modes
+      (kbd "W") 'pdf-view-fit-width-to-window
+      (kbd "H") 'pdf-view-fit-height-to-window
+      (kbd "P") 'pdf-view-fit-page-to-window
+
+      ;; Search
+      (kbd "/") 'isearch-forward
+      (kbd "?") 'isearch-backward
+      (kbd "n") 'isearch-repeat-forward
+      (kbd "N") 'isearch-repeat-backward
+
+      ;; Goto page
+      (kbd "g p") 'pdf-view-goto-page
+
+      ;; Refresh
+      (kbd "r") 'pdf-view-revert-buffer
+
+      ;; Midnight mode (dark mode)
+      (kbd "m") 'pdf-view-midnight-minor-mode
+
+      ;; Quit
+      (kbd "q") 'quit-window)))
+
+;; PDF Tools leader key bindings
+(with-eval-after-load 'pdf-view
+  (smpl/leader-keys
+    "p" '(:ignore t :wk "PDF")
+    "p m" '(pdf-view-midnight-minor-mode :wk "Toggle dark mode")
+    "p g" '(pdf-view-goto-page :wk "Go to page")
+    "p f" '(pdf-view-fit-page-to-window :wk "Fit page")
+    "p w" '(pdf-view-fit-width-to-window :wk "Fit width")
+    "p h" '(pdf-view-fit-height-to-window :wk "Fit height")
+    "p +" '(pdf-view-enlarge :wk "Zoom in")
+    "p -" '(pdf-view-shrink :wk "Zoom out")
+    "p 0" '(pdf-view-scale-reset :wk "Reset zoom")))
+
 
 ;;; ===============================================================
 ;;; END OF CONFIG
