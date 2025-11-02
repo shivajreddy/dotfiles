@@ -79,6 +79,9 @@
 (set-face-attribute 'font-lock-keyword-face nil
                     :slant 'italic)
 
+;; ==================== THEME CONFIGURATION ====================
+;; Toggle between DARK and LIGHT by commenting/uncommenting sections below
+
 ;; Theme - Doom Themes
 (use-package doom-themes
   :ensure t
@@ -86,7 +89,14 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-dark+ t)
+
+  ;; === CHOOSE ONE: DARK OR LIGHT ===
+  ;; DARK THEME (comment out for light)
+  ;; (load-theme 'doom-dark+ t)
+
+  ;; LIGHT THEME (comment out for dark)
+  (load-theme 'doom-tomorrow-day t)
+  ;; Other light options: 'doom-one-light, 'doom-solarized-light, 'doom-opera-light
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -94,33 +104,55 @@
   (doom-themes-org-config))
 
 ;; Solaire Mode - visually distinguish real buffers from special buffers
-;; This makes file-editing buffers "brighter" than sidebars/terminals
+;; This makes file-editing buffers "brighter/dimmer" than sidebars/terminals
 (use-package solaire-mode
   :ensure t
   :config
   (solaire-global-mode +1))
 
-;; Custom theme adjustments
+;; ==================== THEME-SPECIFIC CUSTOMIZATIONS ====================
+;; Configure colors for window dividers, mode-line, and non-file buffers
+;; based on your chosen theme (DARK or LIGHT)
+
+;; === DARK THEME CUSTOMIZATION ===
+;; Uncomment this section when using a DARK theme
+;; (with-eval-after-load 'doom-themes
+;;   ;; Window divider color (dark theme)
+;;   (setq window-divider-default-places t)
+;;   (setq window-divider-default-bottom-width 2)
+;;   (setq window-divider-default-right-width 2)
+;;   (set-face-attribute 'vertical-border nil :foreground "#6c7a89")
+;;   (window-divider-mode 1)
+;;
+;;   ;; Dim inactive windows (dark theme)
+;;   (set-face-attribute 'mode-line-inactive nil
+;;                       :background "#1c1f24"    ; Darker background for inactive
+;;                       :foreground "#5c6370"))   ; Dimmed text
+;;
+;; ;; Solaire mode colors (dark theme) - for eshell, vterm, minibuffer
+;; (with-eval-after-load 'solaire-mode
+;;   (set-face-attribute 'solaire-default-face nil
+;;                       :background "#1a1d23"))   ; Slightly darker than normal bg
+
+;; === LIGHT THEME CUSTOMIZATION ===
+;; Uncomment this section when using a LIGHT theme
 (with-eval-after-load 'doom-themes
-  ;; Make vertical separator between buffers more visible (lighter/whiter)
-  (setq window-divider-default-places t) ; show dividers both on right & bottom
-  (setq window-divider-default-bottom-width 2) ; width of horizontal divider
-  (setq window-divider-default-right-width 2) ; width of vertical divider
-  (set-face-attribute 'vertical-border nil :foreground "#6c7a89")  ; color of the divider
+  ;; Window divider color (light theme)
+  (setq window-divider-default-places t)
+  (setq window-divider-default-bottom-width 2)
+  (setq window-divider-default-right-width 2)
+  (set-face-attribute 'vertical-border nil :foreground "#c5c8c6")  ; Light gray divider
   (window-divider-mode 1)
 
-;; Dim inactive windows to make active buffer stand out
+  ;; Brighten inactive windows (light theme)
   (set-face-attribute 'mode-line-inactive nil
-                      :background "#1c1f24"    ; Darker background for inactive
-                      :foreground "#5c6370")   ; Dimmed text
-)
+                      :background "#e4e4e4"    ; Light gray for inactive
+                      :foreground "#969896"))   ; Slightly dimmed text
 
-;; Customize solaire-mode faces after loading
+;; Solaire mode colors (light theme) - for eshell, vterm, minibuffer
 (with-eval-after-load 'solaire-mode
-  ;; Make "real" buffers (file-editing) have the normal theme background
-  ;; and non-real buffers (like dired, terminals) slightly dimmer
   (set-face-attribute 'solaire-default-face nil
-                      :background "#1a1d23"))  ; Slightly darker than normal bg
+                      :background "#f5f5f5"))   ; Slightly lighter/different than normal bg
 
 ;; Alternative themes (uncomment to use):
 ;; Modus themes (built-in):
@@ -277,6 +309,12 @@
   (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
   (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
   (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer)
+
+  ;; Perspective navigation - next/previous workspace behavior
+  (define-key evil-normal-state-map (kbd "C-}") 'persp-next)
+  (define-key evil-normal-state-map (kbd "C-{") 'persp-prev)
+  (define-key evil-insert-state-map (kbd "C-}") 'persp-next)
+  (define-key evil-insert-state-map (kbd "C-{") 'persp-prev)
 
   ;; Make Y yank to end of line (like Vim's default)
   (define-key evil-normal-state-map (kbd "Y") (kbd "y$")))
@@ -592,10 +630,8 @@
 
 ;; Smart clang-format function
 (defun clang-format-buffer-smart ()
-  "Reformat buffer if .clang-format exists in the projectile root."
-  (when (and (projectile-project-root)
-             (f-exists? (expand-file-name ".clang-format" (projectile-project-root))))
-    (clang-format-buffer)))
+  "Reformat buffer with clang-format. Uses .clang-format if it exists, otherwise uses defaults."
+  (clang-format-buffer))
 
 (defun clang-format-buffer-smart-on-save ()
   "Add auto-save hook for clang-format-buffer-smart."
@@ -616,10 +652,16 @@
   :hook (prog-mode . format-all-mode)
   :bind (("C-c C-f" . format-all-buffer)))
 
-;; format on save
+;; Disable format-all in C/C++ modes (use clang-format instead)
+(add-hook 'simpc-mode-hook (lambda () (format-all-mode -1)))
+(add-hook 'c-mode-hook (lambda () (format-all-mode -1)))
+(add-hook 'c++-mode-hook (lambda () (format-all-mode -1)))
+
+;; format on save (except C/C++ modes, which use clang-format)
 (add-hook 'prog-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'format-all-buffer nil t)))
+            (unless (derived-mode-p 'simpc-mode 'c-mode 'c++-mode)
+              (add-hook 'before-save-hook 'format-all-buffer nil t))))
 
 ;; Indentation
 (add-hook 'prog-mode-hook
@@ -646,13 +688,15 @@
 (add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.ixx\\'" . simpc-mode))  ; C++20 module interface
+(add-to-list 'auto-mode-alist '("\\.cppm\\'" . simpc-mode)) ; C++20 module interface
 
 (require 'eglot)
 (add-hook 'simpc-mode-hook 'eglot-ensure)
 ;; Keep these as fallbacks if you ever use the standard modes
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-(add-hook 'c-or-c++-mode-hook 'eglot-ensure)
+;; (add-hook 'c-mode-hook 'eglot-ensure)
+;; (add-hook 'c++-mode-hook 'eglot-ensure)
+;; (add-hook 'c-or-c++-mode-hook 'eglot-ensure)
 ;; Highlights the word/symbol at point and any other occurrences in
 ;; view. Also allows to jump to the next or previous occurrence.
 ;; https://github.com/nschum/highlight-symbol.el
@@ -668,8 +712,8 @@
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 ;; .h files to open in c++-mode rather than c-mode.
-(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.hpp$" . c++-mode))
+;; (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+;; (add-to-list 'auto-mode-alist '("\\.hpp$" . c++-mode))
 (setq c-default-style "stroustrup")
 (setq c-basic-indent 4)
 (setq c-basic-offset 4)
@@ -907,13 +951,15 @@
 
 ;; Compilation mode configuration
 (require 'ansi-color)
+
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (setq compilation-environment '("TERM=xterm-256color"))
 
-;; Disable line numbers in compilation buffers
+;; Disable line numbers and enable line wrapping in compilation buffers
 (add-hook 'compilation-mode-hook
           (lambda ()
-            (display-line-numbers-mode 0)))
+            (display-line-numbers-mode 0)
+            (setq truncate-lines nil)))
 
 ;; KeyBind Window Navigation in compilation mode (its not on by default)
 (with-eval-after-load 'compile
