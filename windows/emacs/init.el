@@ -78,6 +78,9 @@
 (set-face-attribute 'font-lock-keyword-face nil
                     :slant 'italic)
 
+;; ==================== THEME CONFIGURATION ====================
+;; Toggle between DARK and LIGHT by commenting/uncommenting sections below
+
 ;; Theme - Doom Themes
 (use-package doom-themes
   :ensure t
@@ -85,27 +88,70 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+  ;; === CHOOSE ONE: DARK OR LIGHT ===
+  ;; DARK THEME (comment out for light)
   (load-theme 'doom-dark+ t)
+
+  ;; LIGHT THEME (comment out for dark)
+  ;; (load-theme 'doom-tomorrow-day t)
+  ;; Other light options: 'doom-one-light, 'doom-solarized-light, 'doom-opera-light
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-;; Custom theme adjustments
-(with-eval-after-load 'doom-themes
-  ;; Make vertical separator between buffers more visible (lighter/whiter)
-  (set-face-attribute 'vertical-border nil
-                      :foreground "#6c7a89")  ; Lighter gray, closer to white
+;; Solaire Mode - visually distinguish real buffers from special buffers
+;; This makes file-editing buffers "brighter/dimmer" than sidebars/terminals
+(use-package solaire-mode
+  :ensure t
+  :config
+  (solaire-global-mode +1))
 
-  ;; Dim inactive windows to make active buffer stand out
+;; ==================== THEME-SPECIFIC CUSTOMIZATIONS ====================
+;; Configure colors for window dividers, mode-line, and non-file buffers
+;; based on your chosen theme (DARK or LIGHT)
+
+;; === DARK THEME CUSTOMIZATION ===
+;; Uncomment this section when using a DARK theme
+(with-eval-after-load 'doom-themes
+  ;; Window divider color (dark theme)
+  (setq window-divider-default-places t)
+  (setq window-divider-default-bottom-width 2)
+  (setq window-divider-default-right-width 2)
+  (set-face-attribute 'vertical-border nil :foreground "#6c7a89")
+  (window-divider-mode 1)
+
+  ;; Dim inactive windows (dark theme)
   (set-face-attribute 'mode-line-inactive nil
                       :background "#1c1f24"    ; Darker background for inactive
-                      :foreground "#5c6370")   ; Dimmed text
+                      :foreground "#5c6370"))   ; Dimmed text
 
-  ;; Ensure active window stays distinct
-  (set-face-attribute 'mode-line nil
-                      :background "#21252b"))  ; Slightly lighter for active
+;; Solaire mode colors (dark theme) - for eshell, vterm, minibuffer
+(with-eval-after-load 'solaire-mode
+  (set-face-attribute 'solaire-default-face nil
+                      :background "#1a1d23"))   ; Slightly darker than normal bg
+
+;; === LIGHT THEME CUSTOMIZATION ===
+;; Uncomment this section when using a LIGHT theme
+;; (with-eval-after-load 'doom-themes
+;;   ;; Window divider color (light theme)
+;;   (setq window-divider-default-places t)
+;;   (setq window-divider-default-bottom-width 2)
+;;   (setq window-divider-default-right-width 2)
+;;   (set-face-attribute 'vertical-border nil :foreground "#c5c8c6")  ; Light gray divider
+;;   (window-divider-mode 1)
+
+;;   ;; Brighten inactive windows (light theme)
+;;   (set-face-attribute 'mode-line-inactive nil
+;;                       :background "#e4e4e4"    ; Light gray for inactive
+;;                       :foreground "#969896"))   ; Slightly dimmed text
+
+;; Solaire mode colors (light theme) - for eshell, vterm, minibuffer
+;; (with-eval-after-load 'solaire-mode
+;;   (set-face-attribute 'solaire-default-face nil
+;;                       :background "#f5f5f5"))   ; Slightly lighter/different than normal bg
 
 ;; Alternative themes (uncomment to use):
 ;; Modus themes (built-in):
@@ -147,40 +193,53 @@
 (use-package golden-ratio
   :ensure t
   :config
-  (golden-ratio-mode 1)
+  (golden-ratio-mode 0)
   (setq golden-ratio-exclude-modes '("ediff-mode" "dired-mode" "gud-mode"
                                      "gdb-locals-mode" "gdb-registers-mode"
                                      "gdb-breakpoints-mode" "gdb-threads-mode"
                                      "gdb-frames-mode" "gdb-inferior-io-mode"
                                      "gdb-disassembly-mode" "gdb-memory-mode"
-                                     "magit-status-mode")))
+                                     "magit-status-mode" "pdf-view-mode")))
 
 ;; ModeLine
 (use-package doom-modeline
   :ensure t
   :init
-  (doom-modeline-mode 1)
-  (column-number-mode 1)
-  ;; (display-time-mode 1) ; Required for doom-modeline-time
-  :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-height 30)
-  (doom-modeline-time t)
-  ;; disable all extras
-  (doom-modeline-env-enable-python nil)
-  (doom-modeline-enable-word-count nil)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-display-default-persp-name nil)
-  (doom-modeline-display-env-version nil))
+  ;; Set all customizations BEFORE doom-modeline-mode is enabled
+  (setq doom-modeline-height 30)
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project) ; Truncate file names intelligently
+  (setq doom-modeline-time t)
+  (setq doom-modeline-time-analogue-clock nil) ; Disable analog clock
+  (setq doom-modeline-time-icon nil) ; Disable time icon
+  (setq display-time-default-load-average nil) ; Disable system load average (CPU usage)
+  (setq doom-modeline-project-name nil)
+  (setq doom-modeline-workspace-name nil)
+  (setq doom-modeline-persp-name nil) ; Hide perspective name
+  (setq doom-modeline-display-default-persp-name nil)
+  (setq doom-modeline-persp-icon nil) ; Hide perspective icon
+  (setq doom-modeline-env-enable-python nil)
+  (setq doom-modeline-enable-word-count nil)
+  (setq doom-modeline-buffer-encoding nil)
+  (setq doom-modeline-display-env-version nil)
+  (setq doom-modeline-percent-position nil)
+;; (setq doom-modeline-vcs-icon nil)
+;; (setq doom-modeline-vcs-max-length nil)
 
-(use-package doom-modeline
-  :ensure t
+  ;; (column-number-mode 1)
+  (display-time-mode 1) ; Required for doom-modeline-time
+  (doom-modeline-mode 1)
   :hook (after-init . doom-modeline-mode))
 
-;; (setq display-time-24hr-format t)          ; 24-hour format
-;; (setq display-time-day-and-date t)          ; Show date too
-(setq display-time-default-load-average nil) ; Hide load average
-(display-time-mode 1)
+;; Set font for doom-modeline
+(with-eval-after-load 'doom-modeline
+  (set-face-attribute 'mode-line nil
+                      :family "BerkeleyMono Nerd Font"
+                      :weight 'regular
+                      :height 170)
+  (set-face-attribute 'mode-line-inactive nil
+                      :family "BerkeleyMono Nerd Font"
+                      :weight 'regular
+                      :height 170))
 
 
 ;;; ====================  EVIL MODE  ====================
@@ -241,6 +300,12 @@
   (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
   (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
   (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer)
+
+  ;; Perspective navigation - next/previous workspace behavior
+  (define-key evil-normal-state-map (kbd "C-}") 'persp-next)
+  (define-key evil-normal-state-map (kbd "C-{") 'persp-prev)
+  (define-key evil-insert-state-map (kbd "C-}") 'persp-next)
+  (define-key evil-insert-state-map (kbd "C-{") 'persp-prev)
 
   ;; Make Y yank to end of line (like Vim's default)
   (define-key evil-normal-state-map (kbd "Y") (kbd "y$")))
@@ -557,10 +622,8 @@
 
 ;; Smart clang-format function
 (defun clang-format-buffer-smart ()
-  "Reformat buffer if .clang-format exists in the projectile root."
-  (when (and (projectile-project-root)
-             (f-exists? (expand-file-name ".clang-format" (projectile-project-root))))
-    (clang-format-buffer)))
+  "Reformat buffer with clang-format. Uses .clang-format if it exists, otherwise uses defaults."
+  (clang-format-buffer))
 
 (defun clang-format-buffer-smart-on-save ()
   "Add auto-save hook for clang-format-buffer-smart."
@@ -581,10 +644,16 @@
   :hook (prog-mode . format-all-mode)
   :bind (("C-c C-f" . format-all-buffer)))
 
-;; format on save
+;; Disable format-all in C/C++ modes (use clang-format instead)
+(add-hook 'simpc-mode-hook (lambda () (format-all-mode -1)))
+(add-hook 'c-mode-hook (lambda () (format-all-mode -1)))
+(add-hook 'c++-mode-hook (lambda () (format-all-mode -1)))
+
+;; format on save (except C/C++ modes, which use clang-format)
 (add-hook 'prog-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'format-all-buffer nil t)))
+            (unless (derived-mode-p 'simpc-mode 'c-mode 'c++-mode)
+              (add-hook 'before-save-hook 'format-all-buffer nil t))))
 
 ;; Indentation
 (add-hook 'prog-mode-hook
@@ -605,12 +674,14 @@
 
 ;; Load custom simpc-mode
 (add-to-list 'load-path "~/.emacs.d/smpl/")
-(when (require 'simpc-mode nil 'noerror)
-  ;; Use simpc-mode for C/C++ files
-  (add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
-  (add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
-  (add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
-  (add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode)))
+(require 'simpc-mode)
+;; Use simpc-mode for C/C++ files
+(add-to-list 'auto-mode-alist '("\\.c\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.ixx\\'" . simpc-mode))  ; C++20 module interface
+(add-to-list 'auto-mode-alist '("\\.cppm\\'" . simpc-mode)) ; C++20 module interface
 
 (require 'eglot)
 (add-hook 'simpc-mode-hook 'eglot-ensure)
@@ -740,6 +811,44 @@
 
 ;;; ====================  TERMINAL EMULATION  ====================
 
+;; Vterm - fast terminal emulator
+(use-package vterm
+  :ensure t
+  :commands vterm
+  :config
+  ;; Set shell (optional - defaults to $SHELL)
+  ;; (setq vterm-shell "/bin/zsh")
+
+  ;; Maximum scrollback lines
+  (setq vterm-max-scrollback 10000)
+
+  ;; Kill buffer when vterm process exits
+  (setq vterm-kill-buffer-on-exit t)
+
+  ;; Disable line numbers in vterm
+  (add-hook 'vterm-mode-hook (lambda ()
+                                (display-line-numbers-mode -1)
+                                ;; Disable hl-line-mode for better performance
+                                (hl-line-mode -1))))
+
+;; Evil keybindings for vterm
+(with-eval-after-load 'vterm
+  (with-eval-after-load 'evil
+    ;; Use emacs state in vterm for better terminal interaction
+    (evil-set-initial-state 'vterm-mode 'emacs)
+
+    ;; Add some useful evil bindings
+    (evil-define-key 'normal vterm-mode-map
+      (kbd "p") 'vterm-yank
+      (kbd "u") 'vterm-send-C-u)))
+
+;; Leader key bindings for vterm
+(with-eval-after-load 'general
+  (smpl/leader-keys
+    "v" '(:ignore t :wk "Vterm")
+    "vv" '(vterm :wk "Open vterm")
+    "vo" '(vterm-other-window :wk "Vterm other window")))
+
 ;; Eshell configuration
 ;; Make eshell's point go to top when cleared
 (defun eshell/clear (&rest args)
@@ -815,17 +924,19 @@
           (compile cmd))))))
 
 (smpl/leader-keys
-  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
+  "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
+
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (setq compilation-environment '("TERM=xterm-256color"))
 
-;; Disable line numbers in compilation buffers
+;; Disable line numbers and enable line wrapping in compilation buffers
 (add-hook 'compilation-mode-hook
           (lambda ()
-            (display-line-numbers-mode -1)))
+            (display-line-numbers-mode 0)
+            (setq truncate-lines nil)))
 
 ;; KeyBind Window Navigation in compilation mode (its not on by default)
 (with-eval-after-load 'compile
@@ -1120,6 +1231,12 @@
       (kbd "C-d") 'pdf-view-scroll-up-or-next-page
       (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
 
+      ;; Window navigation
+      (kbd "C-h") 'windmove-left
+      (kbd "C-j") 'windmove-down
+      (kbd "C-k") 'windmove-up
+      (kbd "C-l") 'windmove-right
+
       ;; Zooming
       (kbd "+") 'pdf-view-enlarge
       (kbd "-") 'pdf-view-shrink
@@ -1146,21 +1263,11 @@
       ;; Midnight mode (dark mode)
       (kbd "m") 'pdf-view-midnight-minor-mode
 
+      ;; Toggle continuous scrolling
+      (kbd "c") 'pdf-view-toggle-continuous
+
       ;; Quit
       (kbd "q") 'quit-window)))
-
-;; PDF Tools leader key bindings
-(with-eval-after-load 'pdf-view
-  (smpl/leader-keys
-    "p" '(:ignore t :wk "PDF")
-    "p m" '(pdf-view-midnight-minor-mode :wk "Toggle dark mode")
-    "p g" '(pdf-view-goto-page :wk "Go to page")
-    "p f" '(pdf-view-fit-page-to-window :wk "Fit page")
-    "p w" '(pdf-view-fit-width-to-window :wk "Fit width")
-    "p h" '(pdf-view-fit-height-to-window :wk "Fit height")
-    "p +" '(pdf-view-enlarge :wk "Zoom in")
-    "p -" '(pdf-view-shrink :wk "Zoom out")
-    "p 0" '(pdf-view-scale-reset :wk "Reset zoom")))
 
 
 ;;; ===============================================================
