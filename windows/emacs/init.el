@@ -72,7 +72,7 @@
 ;; Font configuration
 (set-face-attribute 'default nil
                     :font "Iosevka NF"
-                    :height 180)
+                    :height 160)
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
@@ -235,11 +235,11 @@
   (set-face-attribute 'mode-line nil
                       :family "BerkeleyMono Nerd Font"
                       :weight 'regular
-                      :height 170)
+                      :height 140)
   (set-face-attribute 'mode-line-inactive nil
                       :family "BerkeleyMono Nerd Font"
                       :weight 'regular
-                      :height 170))
+                      :height 140))
 
 
 ;;; ====================  EVIL MODE  ====================
@@ -924,7 +924,7 @@
           (compile cmd))))))
 
 (smpl/leader-keys
-  "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
+  "6" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
@@ -1189,31 +1189,6 @@
 (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 
-;;; ====================  PDF VIEWER  ====================
-
-;; PDF Tools - superior PDF viewing experience
-(use-package pdf-tools
-  :ensure t
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :config
-  ;; Initialize pdf-tools
-  (pdf-tools-install :no-query)
-
-  ;; Automatically update PDF buffer when file changes
-  (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
-
-  ;; Better default settings
-  (setq-default pdf-view-display-size 'fit-page)
-  (setq pdf-view-use-scaling t)
-  (setq pdf-view-use-imagemagick nil)
-
-  ;; Midnight mode (dark mode for PDFs) - adjust colors to match your theme
-  (setq pdf-view-midnight-colors '("#c5c8c6" . "#1d1f21"))
-
-  ;; Disable line numbers in PDF view
-  (add-hook 'pdf-view-mode-hook (lambda ()
-                                   (display-line-numbers-mode -1)
-                                   (hl-line-mode -1))))
 
 ;; Evil keybindings for pdf-view-mode
 (with-eval-after-load 'pdf-view

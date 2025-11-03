@@ -8,15 +8,7 @@
  '(custom-safe-themes
    '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
      default))
- '(package-selected-packages
-   '(clang-format company-box counsel counsel-projectile doom-modeline
-                  doom-themes evil-collection evil-org f format-all
-                  general golden-ratio gruber-darker-theme
-                  highlight-indent-guides highlight-numbers
-                  highlight-symbol indent-bars magit nerd-icons-dired
-                  nerd-icons-ivy-rich org-bullets org-modern
-                  perspective smartparens solaire-mode toc-org
-                  treemacs-projectile vertico-posframe)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
