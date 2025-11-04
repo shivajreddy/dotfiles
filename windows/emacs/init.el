@@ -454,12 +454,13 @@
   ;; Buffer operations (perspective-aware)
   (smpl/leader-keys
     "b" '(:ignore t :wk "buffer")
-    "bb" '(switch-to-buffer :wk "Switch buffer")
-    "bi" '(ibuffer :wk "Ibuffer")
+    "bb" '(persp-switch-to-buffer :wk "Switch buffer")
+    "bi" '(persp-ibuffer :wk "Ibuffer (perspective)")
     "bk" '(kill-buffer :wk "Kill this buffer")
     "bn" '(next-buffer :wk "Next buffer")
     "bp" '(previous-buffer :wk "Previous buffer")
-    "br" '(revert-buffer :wk "Reload buffer"))
+    "br" '(revert-buffer :wk "Reload buffer")
+    "bB" '(switch-to-buffer :wk "Switch buffer (all)"))
 
   ;; Bookmark operations
   (smpl/leader-keys
@@ -541,7 +542,7 @@
   "pd" '(projectile-remove-known-project :wk "Remove known project")
   "pR" '(projectile-run-project :wk "Run project"))
 
-;; Perspective - workspace management with named sessions
+;; Perspective - workspace management
 (use-package perspective
   :ensure t
   :custom
@@ -550,6 +551,19 @@
   (persp-mode)
   :config
   (setq persp-state-default-file "~/.emacs.d/perspective-sessions")
+
+  ;; Make next-buffer/previous-buffer perspective-aware (Emacs 27.1+)
+  ;; This ensures C-n/C-p only cycle through buffers in the current perspective
+  (setq switch-to-prev-buffer-skip
+        (lambda (win buff bury-or-kill)
+          (not (persp-is-current-buffer buff))))
+
+  ;; Improve window management - reuse windows when possible
+  ;; This prevents unwanted window splits and works better with perspectives
+  (customize-set-variable 'display-buffer-base-action
+                          '((display-buffer-reuse-window display-buffer-same-window)
+                            (reusable-frames . t)))
+
   ;; Auto-save perspectives on exit
   (add-hook 'kill-emacs-hook #'persp-state-save))
 ;; To restore: M-x persp-state-load or C-c M-p l
