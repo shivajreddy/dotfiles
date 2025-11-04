@@ -610,10 +610,55 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+;; Quick save with default message
+(defun smpl/magit-quick-save ()
+  "Stage all changes, commit with '[git save]', and push to origin.
+   Stops on any error."
+  (interactive)
+  (let ((default-directory (magit-toplevel)))
+    (condition-case err
+        (progn
+          (magit-call-git "add" ".")
+          (magit-call-git "commit" "-m" "[git save]")
+          (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+          (magit-refresh)
+          (message "Quick save completed!"))
+      (error
+       (message "Quick save failed: %s" (error-message-string err))
+       (magit-refresh)))))
+
+;; Quick save with custom message
+(defun smpl/magit-quick-save-custom ()
+  "Stage all changes, prompt for commit message, and push to origin.
+   Stops on any error."
+  (interactive)
+  (let ((default-directory (magit-toplevel))
+        (commit-msg (read-string "Commit message: ")))
+    (when (and commit-msg (not (string-empty-p commit-msg)))
+      (condition-case err
+          (progn
+            (magit-call-git "add" ".")
+            (magit-call-git "commit" "-m" commit-msg)
+            (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+            (magit-refresh)
+            (message "Quick save completed with message: %s" commit-msg))
+        (error
+         (message "Quick save failed: %s" (error-message-string err))
+         (magit-refresh))))))
+
+;; Bind quick-save functions in magit-status-mode
+(with-eval-after-load 'magit
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal magit-status-mode-map
+      (kbd "S") 'smpl/magit-quick-save              ; S = default "[git save]" message
+      (kbd "C") 'smpl/magit-quick-save-custom)))    ; C = custom message
+
 ;; Magit leader key bindings
 (smpl/leader-keys
   "g" '(:ignore t :wk "git")
-  "gg" '(magit-status :wk "Magit status"))
+  "gg" '(magit-status :wk "Magit status")
+  "gs" '(smpl/magit-quick-save :wk "Quick save & push")
+  "gc" '(smpl/magit-quick-save-custom :wk "Quick save (custom msg)"))
 
 
 ;;; ====================  CODE FORMATTING   ====================
@@ -1108,7 +1153,12 @@
 ;; Add the toggle to your leader keys (add to your smpl/leader-keys section)
 (with-eval-after-load 'org
   (smpl/leader-keys
-    "o f" '(my/toggle-org-variable-pitch :wk "Toggle Font Mode")))
+    "o f" '(my/toggle-org-variable-pitch :wk "Toggle Font Mode"))
+
+  ;; Keybinding for making text bold with C-b
+  (define-key org-mode-map (kbd "C-b") (lambda ()
+                                          (interactive)
+                                          (org-emphasize ?*))))
 
 ;; Evil Org - proper evil bindings for org mode
 (use-package evil-org
