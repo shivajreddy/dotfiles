@@ -616,35 +616,47 @@
    Stops on any error."
   (interactive)
   (let ((default-directory (magit-toplevel)))
-    (condition-case err
-        (progn
-          (magit-call-git "add" ".")
-          (magit-call-git "commit" "-m" "[git save]")
-          (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
-          (magit-refresh)
-          (message "Quick save completed!"))
-      (error
-       (message "Quick save failed: %s" (error-message-string err))
-       (magit-refresh)))))
+    ;; Stage all changes first
+    (magit-call-git "add" ".")
+    ;; Check if there are any changes to commit
+    (if (magit-anything-staged-p)
+        (condition-case err
+            (progn
+              (magit-call-git "commit" "-m" "[git save]")
+              (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+              (magit-refresh)
+              (message "Quick save completed!"))
+          (error
+           (message "Quick save failed: %s" (error-message-string err))
+           (magit-refresh)))
+      (progn
+        (magit-refresh)
+        (message "No new changes")))))
 
 ;; Quick save with custom message
 (defun smpl/magit-quick-save-custom ()
   "Stage all changes, prompt for commit message, and push to origin.
    Stops on any error."
   (interactive)
-  (let ((default-directory (magit-toplevel))
-        (commit-msg (read-string "Commit message: ")))
-    (when (and commit-msg (not (string-empty-p commit-msg)))
-      (condition-case err
-          (progn
-            (magit-call-git "add" ".")
-            (magit-call-git "commit" "-m" commit-msg)
-            (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
-            (magit-refresh)
-            (message "Quick save completed with message: %s" commit-msg))
-        (error
-         (message "Quick save failed: %s" (error-message-string err))
-         (magit-refresh))))))
+  (let ((default-directory (magit-toplevel)))
+    ;; Stage all changes first
+    (magit-call-git "add" ".")
+    ;; Check if there are any changes to commit
+    (if (magit-anything-staged-p)
+        (let ((commit-msg (read-string "Commit message: ")))
+          (when (and commit-msg (not (string-empty-p commit-msg)))
+            (condition-case err
+                (progn
+                  (magit-call-git "commit" "-m" commit-msg)
+                  (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+                  (magit-refresh)
+                  (message "Quick save completed with message: %s" commit-msg))
+              (error
+               (message "Quick save failed: %s" (error-message-string err))
+               (magit-refresh)))))
+      (progn
+        (magit-refresh)
+        (message "No new changes")))))
 
 ;; Bind quick-save functions in magit-status-mode
 (with-eval-after-load 'magit
