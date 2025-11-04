@@ -1093,23 +1093,23 @@
   
   ;; Customize heading sizes (using relative scaling)
   (set-face-attribute 'org-level-1 nil 
-                      :height 1.4           ; 40% larger than base
+                      :height 1.0           ; 40% larger than base
                       :weight 'bold)
   
   (set-face-attribute 'org-level-2 nil 
-                      :height 1.3           ; 30% larger
+                      :height 1.0           ; 30% larger
                       :weight 'semi-bold)
   
   (set-face-attribute 'org-level-3 nil 
-                      :height 1.2           ; 20% larger
+                      :height 1.0           ; 20% larger
                       :weight 'semi-bold)
   
   (set-face-attribute 'org-level-4 nil 
-                      :height 1.1           ; 10% larger
+                      :height 1.0           ; 10% larger
                       :weight 'normal)
   
   (set-face-attribute 'org-level-5 nil 
-                      :height 1.05)         ; 5% larger
+                      :height 1.0)         ; 5% larger
   
   ;; Levels 6-8 stay at base size
   (set-face-attribute 'org-level-6 nil :height 1.0)
@@ -1118,7 +1118,7 @@
   
   ;; Document title (#+TITLE) - make it prominent
   (set-face-attribute 'org-document-title nil
-                      :height 1.5
+                      ;; :height 1.5
                       :weight 'bold))
 
 ;; Apply font setup when entering org-mode
