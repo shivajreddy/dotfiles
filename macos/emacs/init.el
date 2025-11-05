@@ -1024,6 +1024,23 @@
 (smpl/leader-keys
   "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
+;; Compile & run python file
+(defun smpl/run-python-file ()
+  "Run the current Python file using python3."
+  (interactive)
+  (when buffer-file-name
+    (save-buffer)
+    (let* ((file buffer-file-name)
+           (ext (file-name-extension file)))
+      (if (not (string= ext "py"))
+          (message "Not a Python file!")
+        (let ((cmd (format "python3 \"%s\"" file)))
+          (compile cmd))))))
+
+(smpl/leader-keys
+  "9" '(smpl/run-python-file :wk "Run Python file"))
+
+
 ;; Compilation mode configuration
 (require 'ansi-color)
 
