@@ -479,6 +479,18 @@
     "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "er" '(eval-region :wk "Evaluate elisp in region"))
 
+  ;; EMACS Utilties
+  ;; (smpl/leader-keys
+    ;; "ec" '(calendar :wk "Calendar"))
+(smpl/leader-keys
+  "ec" '((lambda () 
+           (interactive)
+           (split-window-below)
+           (other-window 1)
+           (calendar))
+         :wk "Calendar"))
+
+
   ;; Help commands
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
@@ -1016,6 +1028,7 @@
   (define-key compilation-mode-map (kbd "C-k") 'windmove-up)
   (define-key compilation-mode-map (kbd "C-l") 'windmove-right))
 
+;; ====================  MARKDOWN MODE  ====================
 
 ;; ====================  ORG MODE  ====================
 
@@ -1076,11 +1089,11 @@
 
 (set-face-attribute 'variable-pitch nil
                     :family "SF Pro Text"           ; Windows built-in serif font
-                    :height 180)                ; Slightly larger for readability
+                    :height 160)                ; Slightly larger for readability
 
 (set-face-attribute 'fixed-pitch nil
                     :family "Iosevka NF"        ; Your existing monospace font
-                    :height 150)                ; Slightly smaller than variable
+                    :height 160)                ; Slightly smaller than variable
 
 ;; Function to set up beautiful mixed fonts in org-mode
 (defun my/org-font-setup ()
@@ -1132,7 +1145,7 @@
   
   ;; Document title (#+TITLE) - make it prominent
   (set-face-attribute 'org-document-title nil
-                      ;; :height 1.5
+                      :height 1.0
                       :weight 'bold))
 
 ;; Apply font setup when entering org-mode

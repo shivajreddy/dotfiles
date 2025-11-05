@@ -488,6 +488,10 @@
     "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "er" '(eval-region :wk "Evaluate elisp in region"))
 
+  ;; EMACS Utilties
+  (smpl/leader-keys
+    "ec" '(calendar :wk "Calendar"))
+
   ;; Help commands
   (smpl/leader-keys
     "h" '(:ignore t :wk "Help")
