@@ -40,7 +40,7 @@
 
 ;; Frame settings
 (setq-default frame-title-format nil)         ; Text on the title bar
-(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
 (add-to-list 'default-frame-alist '(fullscreen . maximized)) ; maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . fullboth)) ; fullscreen
 (setq frame-resize-pixelwise t)
@@ -487,10 +487,6 @@
     "ee" '(eval-expression :wk "Evaluate an elisp expression")
     "el" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "er" '(eval-region :wk "Evaluate elisp in region"))
-
-  ;; EMACS Utilties
-  (smpl/leader-keys
-    "ec" '(calendar :wk "Calendar"))
 
   ;; Help commands
   (smpl/leader-keys
@@ -1024,23 +1020,6 @@
 (smpl/leader-keys
   "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
 
-;; Compile & run python file
-(defun smpl/run-python-file ()
-  "Run the current Python file using python3."
-  (interactive)
-  (when buffer-file-name
-    (save-buffer)
-    (let* ((file buffer-file-name)
-           (ext (file-name-extension file)))
-      (if (not (string= ext "py"))
-          (message "Not a Python file!")
-        (let ((cmd (format "python3 \"%s\"" file)))
-          (compile cmd))))))
-
-(smpl/leader-keys
-  "9" '(smpl/run-python-file :wk "Run Python file"))
-
-
 ;; Compilation mode configuration
 (require 'ansi-color)
 
@@ -1105,7 +1084,8 @@
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
   
   ;; Prevent line numbers in org mode (cleaner look)
-  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1))))
+  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1)))
+  (add-hook 'org-mode-hook #'org-indent-mode))
 
 ;; Org Bullets - prettier heading bullets
 (use-package org-bullets
@@ -1113,6 +1093,7 @@
   :hook (org-mode . org-bullets-mode)
   :config
   (setq org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 
 ;; Configure the fonts used in org-mode
 ;; Variable pitch = proportional font for text (document-like)
@@ -1151,23 +1132,23 @@
   
   ;; Customize heading sizes (using relative scaling)
   (set-face-attribute 'org-level-1 nil 
-                      :height 1.4           ; 40% larger than base
+                      :height 1.0           ; 40% larger than base
                       :weight 'bold)
   
   (set-face-attribute 'org-level-2 nil 
-                      :height 1.3           ; 30% larger
+                      :height 1.0           ; 30% larger
                       :weight 'semi-bold)
   
   (set-face-attribute 'org-level-3 nil 
-                      :height 1.2           ; 20% larger
+                      :height 1.0           ; 20% larger
                       :weight 'semi-bold)
   
   (set-face-attribute 'org-level-4 nil 
-                      :height 1.1           ; 10% larger
+                      :height 1.0           ; 10% larger
                       :weight 'normal)
   
   (set-face-attribute 'org-level-5 nil 
-                      :height 1.05)         ; 5% larger
+                      :height 1.0)         ; 5% larger
   
   ;; Levels 6-8 stay at base size
   (set-face-attribute 'org-level-6 nil :height 1.0)
@@ -1176,7 +1157,7 @@
   
   ;; Document title (#+TITLE) - make it prominent
   (set-face-attribute 'org-document-title nil
-                      :height 1.5
+                      :height 1.0
                       :weight 'bold))
 
 ;; Apply font setup when entering org-mode
@@ -1251,13 +1232,21 @@
       (kbd "M-l") 'org-metaright
       (kbd "M-RET") 'org-meta-return)))
 
-;; Org Tempo - quick templates with <s TAB, <e TAB, etc.
-(require 'org-tempo)
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
-(add-to-list 'org-structure-template-alist '("cpp" . "src cpp"))
-(add-to-list 'org-structure-template-alist '("cc" . "src c"))
+;; Use org-tempo
+(use-package org-tempo
+  :ensure nil
+  :demand t
+  :config
+  (dolist (item '(("el" . "src emacs-lisp")
+                  ("li" . "src lisp")
+                  ("sc" . "src scheme")
+                  ("ts" . "src typescript")
+                  ("py" . "src python")
+                  ("yaml" . "src yaml")
+                  ("json" . "src json")
+                  ("einit" . "src emacs-lisp :tangle emacs/init.el")
+                  ("emodule" . "src emacs-lisp :tangle emacs/modules/dw-MODULE.el")))
+    (add-to-list 'org-structure-template-alist item)))
 
 ;; General/Leader keybindings for Org Mode
 (with-eval-after-load 'org
