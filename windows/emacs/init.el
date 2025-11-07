@@ -1092,6 +1092,7 @@
   ;; Prevent line numbers in org mode (cleaner look)
   (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1))))
 
+
 ;; Org Bullets - prettier heading bullets
 (use-package org-bullets
   :ensure t

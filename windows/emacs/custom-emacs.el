@@ -14,8 +14,9 @@
 		  general golden-ratio gruber-darker-theme
 		  highlight-numbers highlight-symbol indent-bars magit
 		  nerd-icons-dired nerd-icons-ivy-rich org-bullets
-		  org-modern pdf-tools perspective smartparens
-		  solaire-mode toc-org treemacs-projectile vterm)))
+		  org-download org-modern pdf-tools perspective
+		  smartparens solaire-mode toc-org treemacs-projectile
+		  vterm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
