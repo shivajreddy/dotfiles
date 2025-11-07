@@ -1294,6 +1294,42 @@
 (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 
+;;; ====================  PDF VIEWER  ====================
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PreRequisites for PDF viewer on Windows
+;; `pdf-tools' is the package for viewing pdf, it in turn uses `epdfinfo' binary
+;; on mac & linux, when you do use-package pdf-tools it installs `epdfinfo' binary but on windows,
+;; 1. you have to download this binary from
+;; https://packages.msys2.org/packages/mingw-w64-x86_64-emacs-pdf-tools-server?repo=mingw64
+;; 2. place this `epdfinfo.exe' file at `C:\msys64\mingw64\bin\epdfinfo.exe'
+;; 3. make sure `C:\msys64\mingw64\bin' is in the `PATH' variable
+;; 4. then install the `pdf-tools' with use-package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; PDF Tools - superior PDF viewing experience
+(use-package pdf-tools
+  :ensure t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  ;; Initialize pdf-tools
+  (pdf-tools-install :no-query)
+
+  ;; Automatically update PDF buffer when file changes
+  (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+
+  ;; Better default settings
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-view-use-scaling t)
+  (setq pdf-view-use-imagemagick nil)
+
+  ;; Midnight mode (dark mode for PDFs) - adjust colors to match your theme
+  (setq pdf-view-midnight-colors '("#c5c8c6" . "#1d1f21"))
+
+  ;; Disable line numbers in PDF view
+  (add-hook 'pdf-view-mode-hook (lambda ()
+                                   (display-line-numbers-mode -1)
+                                   (hl-line-mode -1))))
 
 ;; Evil keybindings for pdf-view-mode
 (with-eval-after-load 'pdf-view
