@@ -40,7 +40,7 @@
 
 ;; Frame settings
 (setq-default frame-title-format nil)         ; Text on the title bar
-;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
 (add-to-list 'default-frame-alist '(fullscreen . maximized)) ; maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . fullboth)) ; fullscreen
 (setq frame-resize-pixelwise t)
@@ -1019,6 +1019,22 @@
 
 (smpl/leader-keys
   "0" '(smpl/compile-run-c-or-cpp-file :wk "Compile & Run C/C++ file"))
+
+;; Compile & run python file
+(defun smpl/run-python-file ()
+  "Run the current Python file using python3."
+  (interactive)
+  (when buffer-file-name
+    (save-buffer)
+    (let* ((file buffer-file-name)
+           (ext (file-name-extension file)))
+      (if (not (string= ext "py"))
+          (message "Not a Python file!")
+        (let ((cmd (format "python3 \"%s\"" file)))
+          (compile cmd))))))
+
+(smpl/leader-keys
+  "7" '(smpl/run-python-file :wk "Run Python file"))
 
 ;; Compilation mode configuration
 (require 'ansi-color)
