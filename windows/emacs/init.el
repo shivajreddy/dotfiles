@@ -300,10 +300,10 @@
   (define-key evil-normal-state-map (kbd "C-p") 'previous-buffer)
   (define-key evil-insert-state-map (kbd "C-n") 'next-buffer)
   (define-key evil-insert-state-map (kbd "C-p") 'previous-buffer)
-  (define-key evil-normal-state-map (kbd "C-]") 'next-buffer)
-  (define-key evil-normal-state-map (kbd "C-[") 'previous-buffer)
-  (define-key evil-insert-state-map (kbd "C-]") 'next-buffer)
-  (define-key evil-insert-state-map (kbd "C-[") 'previous-buffer)
+  (define-key evil-normal-state-map (kbd "M-]") 'next-buffer)
+  (define-key evil-normal-state-map (kbd "M-[") 'previous-buffer)
+  (define-key evil-insert-state-map (kbd "M-]") 'next-buffer)
+  (define-key evil-insert-state-map (kbd "M-[") 'previous-buffer)
 
   ;; Perspective navigation - next/previous workspace behavior
   (define-key evil-normal-state-map (kbd "C-}") 'persp-next)
