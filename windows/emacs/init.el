@@ -485,14 +485,16 @@
 
   ;; EMACS Utilties
   ;; (smpl/leader-keys
-    ;; "ec" '(calendar :wk "Calendar"))
-(smpl/leader-keys
-  "ec" '((lambda () 
-           (interactive)
-           (split-window-below)
-           (other-window 1)
-           (calendar))
-         :wk "Calendar"))
+  ;; "ec" '(calendar :wk "Calendar"))
+  (smpl/leader-keys
+    "ec" '((lambda () 
+            (interactive)
+            (split-window-below)
+            (other-window 1)
+            (calendar))
+            :wk "Calendar")
+
+    "eo" '(compile :wk "Compile"))
 
 
   ;; Help commands
@@ -1357,6 +1359,16 @@
       (kbd "C-j") 'windmove-down
       (kbd "C-k") 'windmove-up
       (kbd "C-l") 'windmove-right
+
+      ;; Perspective navigation
+      (kbd "C-}") 'persp-next
+      (kbd "C-{") 'persp-prev
+
+      ;; Buffer navigation
+      (kbd "C-n") 'next-buffer
+      (kbd "C-p") 'previous-buffer
+      (kbd "M-]") 'next-buffer
+      (kbd "M-[") 'previous-buffer
 
       ;; Zooming
       (kbd "+") 'pdf-view-enlarge
