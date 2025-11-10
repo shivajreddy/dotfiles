@@ -64,7 +64,7 @@ dynamic_title = false
 # title = ""
 title = "Alacritty"
 dynamic_padding = false
-decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "Buttonless"     # "Full" | "None" | "Transparent" | "Buttonless"
 resize_increments = true
 
 [window.dimensions]
