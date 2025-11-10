@@ -168,8 +168,8 @@
 ;;   (load-theme 'gruber-darker t))
 
 ;; Transparency
-;; (set-frame-parameter nil 'alpha '(90 . 90))
-;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(set-frame-parameter nil 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 ;; Nerd Icons (requires 'Symbols Nerd Font' installed)
 (use-package nerd-icons
