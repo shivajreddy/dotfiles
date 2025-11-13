@@ -175,8 +175,8 @@
 ;;   (catppuccin-reload))
 
 ;; Transparency
-;; (set-frame-parameter nil 'alpha '(90 . 90))
-;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(set-frame-parameter nil 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; Nerd Icons (requires 'Symbols Nerd Font' installed)
 (use-package nerd-icons
@@ -1055,7 +1055,22 @@
 ;; Compilation mode configuration
 (require 'ansi-color)
 
-(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+;; Custom filter to handle ANSI colors and remove OSC escape sequences (hyperlinks)
+(defun my/compilation-filter ()
+  "Handle ANSI colors and strip OSC 8 hyperlink sequences from compilation output."
+  (let ((inhibit-read-only t))
+    ;; First apply ANSI color handling
+    (ansi-color-apply-on-region compilation-filter-start (point))
+    ;; Then strip OSC 8 (hyperlink) sequences: ESC]8;;URL ESC\ or ]8;;URL \
+    (save-excursion
+      (goto-char compilation-filter-start)
+      (while (re-search-forward "\e\\]8;;[^\e]*\e\\\\" nil t)
+        (replace-match ""))
+      (goto-char compilation-filter-start)
+      (while (re-search-forward "\\]8;;[^\\]*\\\\" nil t)
+        (replace-match "")))))
+
+(add-hook 'compilation-filter-hook 'my/compilation-filter)
 (setq compilation-environment '("TERM=xterm-256color"))
 
 ;; Disable line numbers and enable line wrapping in compilation buffers
