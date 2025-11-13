@@ -73,7 +73,8 @@ end, { noremap = true, silent = true, desc = "CPP BUILD & RUN" })
 
 -- F8 will use the marked tmux pane(ctrl-b h), to run the command
 vim.keymap.set("n", "<leader>8", function()
-  local command = "clear && ./build.sh"
+  -- local command = "clear && ./build.sh"
+  local command = "clear && make run"
   --[[ Method 1: just use the pane with id 1. see pane id's using ctrl-b q
   -- Send commandsto tmux pane
   -- Format: tmux send-keys -t {session}:{window}.{pane} "command" Enter

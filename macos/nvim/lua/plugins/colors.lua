@@ -296,8 +296,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "kanagawa",
-      colorscheme = "gruber-darker",
+      colorscheme = "kanagawa",
+      -- colorscheme = "gruber-darker",
       -- colorscheme = "kanagawa-paper",
       -- colorscheme = "tokyonight-day",
       -- colorscheme = "catppuccin",

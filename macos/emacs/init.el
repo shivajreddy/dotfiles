@@ -92,10 +92,10 @@
 
   ;; === CHOOSE ONE: DARK OR LIGHT ===
   ;; DARK THEME (comment out for light)
-  (load-theme 'doom-dark+ t)
+  ;; (load-theme 'doom-dark+ t)
 
   ;; LIGHT THEME (comment out for dark)
-  ;; (load-theme 'doom-tomorrow-day t)
+  (load-theme 'doom-tomorrow-day t)
   ;; Other light options: 'doom-one-light, 'doom-solarized-light, 'doom-opera-light
 
   ;; Enable flashing mode-line on errors
@@ -115,42 +115,40 @@
 ;; based on your chosen theme (DARK or LIGHT)
 
 ;; === DARK THEME CUSTOMIZATION ===
-;; Uncomment this section when using a DARK theme
-(with-eval-after-load 'doom-themes
-  ;; Window divider color (dark theme)
-  (setq window-divider-default-places t)
-  (setq window-divider-default-bottom-width 2)
-  (setq window-divider-default-right-width 2)
-  (set-face-attribute 'vertical-border nil :foreground "#6c7a89")
-  (window-divider-mode 1)
-  ;; Dim inactive windows (dark theme)
-  (set-face-attribute 'mode-line-inactive nil
-                      :background "#1c1f24"    ; Darker background for inactive
-                      :foreground "#5c6370"))   ; Dimmed text
-
-;; Solaire mode colors (dark theme) - for eshell, vterm, minibuffer
-(with-eval-after-load 'solaire-mode
-  (set-face-attribute 'solaire-default-face nil
-                      :background "#1a1d23"))   ; Slightly darker than normal bg
-
-;; === LIGHT THEME CUSTOMIZATION ===
-;; Uncomment this section when using a LIGHT theme
+;; ;; Uncomment this section when using a DARK theme
 ;; (with-eval-after-load 'doom-themes
-;;   ;; Window divider color (light theme)
+;;   ;; Window divider color (dark theme)
 ;;   (setq window-divider-default-places t)
 ;;   (setq window-divider-default-bottom-width 2)
 ;;   (setq window-divider-default-right-width 2)
-;;   (set-face-attribute 'vertical-border nil :foreground "#c5c8c6")  ; Light gray divider
+;;   (set-face-attribute 'vertical-border nil :foreground "#6c7a89")
 ;;   (window-divider-mode 1)
-;;   ;; Brighten inactive windows (light theme)
+;;   ;; Dim inactive windows (dark theme)
 ;;   (set-face-attribute 'mode-line-inactive nil
-;;                       :background "#e4e4e4"    ; Light gray for inactive
-;;                       :foreground "#969896"))   ; Slightly dimmed text
-
-;; ;; Solaire mode colors (light theme) - for eshell, vterm, minibuffer
+;;                       :background "#1c1f24"    ; Darker background for inactive
+;;                       :foreground "#5c6370"))   ; Dimmed text
+;; ;; Solaire mode colors (dark theme) - for eshell, vterm, minibuffer
 ;; (with-eval-after-load 'solaire-mode
 ;;   (set-face-attribute 'solaire-default-face nil
-;;                       :background "#f5f5f5"))   ; Slightly lighter/different than normal bg
+;;                       :background "#1a1d23"))   ; Slightly darker than normal bg
+
+;; === LIGHT THEME CUSTOMIZATION ===
+;; Uncomment this section when using a LIGHT theme
+(with-eval-after-load 'doom-themes
+  ;; Window divider color (light theme)
+  (setq window-divider-default-places t)
+  (setq window-divider-default-bottom-width 2)
+  (setq window-divider-default-right-width 2)
+  (set-face-attribute 'vertical-border nil :foreground "#c5c8c6")  ; Light gray divider
+  (window-divider-mode 1)
+  ;; Brighten inactive windows (light theme)
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "#e4e4e4"    ; Light gray for inactive
+                      :foreground "#969896"))   ; Slightly dimmed text
+;; Solaire mode colors (light theme) - for eshell, vterm, minibuffer
+(with-eval-after-load 'solaire-mode
+  (set-face-attribute 'solaire-default-face nil
+                      :background "#f5f5f5"))   ; Slightly lighter/different than normal bg
 
 ;; Alternative themes (uncomment to use):
 ;; Modus themes (built-in):
@@ -1052,26 +1050,10 @@
 (smpl/leader-keys
   "7" '(smpl/run-python-file :wk "Run Python file"))
 
-;; Compilation mode configuration
-(require 'ansi-color)
 
-;; Custom filter to handle ANSI colors and remove OSC escape sequences (hyperlinks)
-(defun my/compilation-filter ()
-  "Handle ANSI colors and strip OSC 8 hyperlink sequences from compilation output."
-  (let ((inhibit-read-only t))
-    ;; First apply ANSI color handling
-    (ansi-color-apply-on-region compilation-filter-start (point))
-    ;; Then strip OSC 8 (hyperlink) sequences: ESC]8;;URL ESC\ or ]8;;URL \
-    (save-excursion
-      (goto-char compilation-filter-start)
-      (while (re-search-forward "\e\\]8;;[^\e]*\e\\\\" nil t)
-        (replace-match ""))
-      (goto-char compilation-filter-start)
-      (while (re-search-forward "\\]8;;[^\\]*\\\\" nil t)
-        (replace-match "")))))
-
-(add-hook 'compilation-filter-hook 'my/compilation-filter)
-(setq compilation-environment '("TERM=xterm-256color"))
+;; Compilation mode settings
+(setq compilation-scroll-output t)  ; Auto-scroll compilation output
+(setq compilation-skip-threshold 2)  ; Skip warnings when navigating errors
 
 ;; Disable line numbers and enable line wrapping in compilation buffers
 (add-hook 'compilation-mode-hook
