@@ -1111,7 +1111,8 @@
 ;; Fixed pitch = monospace font for code/tables (alignment)
 
 (set-face-attribute 'variable-pitch nil
-                    :family "SF Pro Text"           ; Windows built-in serif font
+                    :family "Baskervville"
+                    ;; :family "SF Pro Text"           ; Windows built-in serif font
                     :height 160)                ; Slightly larger for readability
 
 (set-face-attribute 'fixed-pitch nil
