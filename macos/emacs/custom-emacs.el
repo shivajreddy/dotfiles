@@ -5,23 +5,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
-     default))
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default))
  '(ignored-local-variable-values
-   '((c-file-offsets (innamespace . 0) (inline-open . 0) (case-label . +))))
+   '((c-file-offsets
+      (innamespace . 0)
+      (inline-open . 0)
+      (case-label . +))))
  '(package-selected-packages
-   '(auto-dim-other-buffers clang-format company-box counsel
-			    counsel-projectile doom-modeline
-			    doom-themes evil-collection evil-org f
-			    format-all general golden-ratio
-			    gruber-darker-theme
-			    highlight-indent-guides highlight-numbers
-			    highlight-symbol indent-bars magit
-			    nerd-icons-dired nerd-icons-ivy-rich
-			    org-bullets org-modern pdf-tools
-			    perspective smartparens solaire-mode
-			    toc-org treemacs-projectile
-			    vertico-posframe vterm)))
+   '(company treemacs projectile ivy evil nerd-icons which-key auto-dim-other-buffers clang-format company-box counsel counsel-projectile doom-modeline doom-themes evil-collection evil-org f format-all general golden-ratio gruber-darker-theme highlight-indent-guides highlight-numbers highlight-symbol indent-bars magit nerd-icons-dired nerd-icons-ivy-rich org-bullets org-modern pdf-tools perspective smartparens solaire-mode toc-org treemacs-projectile vertico-posframe vterm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

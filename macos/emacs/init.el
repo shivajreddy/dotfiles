@@ -9,6 +9,9 @@
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (setq exec-path (cons "/usr/local/bin" exec-path))
 
+;; Map command key to alt, option to meta
+(setq-default mac-command-modifier 'alt mac-option-modifier 'meta)
+
 ;; Custom file configuration
 (setq custom-file "~/.emacs.d/custom-emacs.el")
 (load-file custom-file)
@@ -29,7 +32,8 @@
 (setq inhibit-startup-message t)              ; Disable splash screen
 (blink-cursor-mode 0)                         ; Disable blinking cursor
 (tool-bar-mode 0)                             ; Disable tool bar
-(menu-bar-mode 0)                             ; Disable menu bar
+;; (menu-bar-mode 0)                             ; Disable menu bar
+(menu-bar-mode t)
 (scroll-bar-mode 0)                           ; Disable visible scrollbar
 (setq ring-bell-function 'ignore)             ; Disable the bell sound
 (setq use-dialog-box nil)                     ; Disable GUI dialog boxes
@@ -40,8 +44,8 @@
 
 ;; Frame settings
 (setq-default frame-title-format nil)         ; Text on the title bar
-(add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
-(add-to-list 'default-frame-alist '(fullscreen . maximized)) ; maximized
+;; (add-to-list 'default-frame-alist '(undecorated . t))  ; Hide the title bar
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized)) ; maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . fullboth)) ; fullscreen
 (setq frame-resize-pixelwise t)
 
