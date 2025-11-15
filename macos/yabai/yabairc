@@ -73,6 +73,10 @@ yabai -m rule --add app="^Emacs$" manage=on
 # yabai -m rule --add label="WebStorm" app="^WebStorm$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
 # yabai -m rule --add label="RustRover-EAP" app="^RustRover-EAP$" title=".*(Interpreter|Config|Settings|Delete).*" manage=off
 
+# Music & Comms default leave them floating
+yabai -m rule --add app="Spotify" manage=off
+yabai -m rule --add app="Discord" manage=off
+
 
 # BORDERS - removed from yabai, using another package
 # https://github.com/FelixKratz/JankyBorders?tab=readme-ov-file

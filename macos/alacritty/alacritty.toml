@@ -34,8 +34,8 @@ hide_when_typing = true
 # args = ["zellij"]
 
 [terminal.shell]
-program = "/bin/bash"
-# program = "/usr/local/bin/fish"
+# program = "/bin/bash"
+program = "/usr/local/bin/fish"
 
 # [shell]
 # program = 'Ubuntu'

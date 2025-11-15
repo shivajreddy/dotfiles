@@ -32,19 +32,12 @@ fish_add_path /usr/local/go/bin/
 
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
-for script in $HOME/.config/fish/scripts/*.fish
-    source $script
-end
+# for script in $HOME/.config/fish/scripts/*.fish
+#     source $script
+# end
 
 # Environment variables
 # set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
-set -gx BROWSER '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
-
-# Qt5 variables
-set -gx QT_QPA_PLATFORMTHEME qt5ct
-
-# Library paths for c/c++
-set -gx LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
 
 # Terminal settings
 set -gx TERM tmux-256color
@@ -91,52 +84,9 @@ alias python="python3.12"
 alias py="python3.12"
 alias pva="source ./venv/bin/activate"
 
-# Python watch function
-function pywatch
-    find . -name $argv[1] | entr -c sh -c "python3 $argv[2]"
-end
-
-# Linux Related
-alias fd="fdfind"
-# alias time='/usr/bin/time -f "\nreal\t%E\nuser\t%U\nsys\t%S"'
-
-# WSL
-alias pwsh="pwsh.exe -nologo"
-
-# Zellij related aliases
-alias zc="zellij action new-tab -l c"
-alias zcpp="zellij action new-tab -l cpp"
-alias zrust="zellij action new-tab -l rust"
-alias zrustv="zellij action new-tab -l rust_vertical"
-alias zpy="zellij action new-tab -l python"
-alias zpyv="zellij action new-tab -l python_vertical"
-
 # Other aliases
 alias sourcefish="source $HOME/.config/fish/config.fish"
 alias sudo="sudo "
 
-########################### PLUGINS ###########################
-
-# For plugins, you'll need to install Fisher (plugin manager for fish)
-# curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-
-# Required plugins (install with fisher):
-# fisher install kidonng/zoxide.fish
-# fisher install meaningful-ooo/sponge # for command correction
-# fisher install jorgebucaran/autopair.fish # for auto-pairing brackets
-# fisher install IlanCosman/tide@v5 # a theme (alternative to starship)
-# fisher install PatrickF1/fzf.fish # for fzf integration
-# fzf --fish | source
-
-# Starship prompt initialization (dont start in emacs)
-# starship init fish | source
-
 # Set key bindings
-fish_vi_key_bindings
-
-########################### OTHER ###########################
-# Word characters (fish handles this differently from zsh)
-# Fish has its own word separation logic that's generally more intuitive
-
-# Spicetify path
-fish_add_path $HOME/.spicetify
+# fish_vi_key_bindings
