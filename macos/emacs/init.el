@@ -40,8 +40,8 @@
 (global-hl-line-mode 1) ; Current line highlight
 (setq-default truncate-lines t) ; Truncate Lines
 ;; Transparency
-;; (set-frame-parameter nil 'alpha '(95 . 95))
-;; (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+(set-frame-parameter nil 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 ;; Font
 (set-face-attribute 'default nil
                     :font "Iosevka Nerd Font"
@@ -82,7 +82,7 @@
   (interactive)
   ;; Load theme based on mode
   (if (eq my/theme-mode 'dark)
-      (load-theme 'doom-horizon t)  ; doom solarized dark theme
+      (load-theme 'doom-dark+ t)  ; doom solarized dark theme
     (load-theme 'doom-solarized-light t))  ; doom solarized light theme
 
   ;; Window divider settings
@@ -94,6 +94,21 @@
 ;; Apply theme on startup
 (my/apply-theme)
 
+;; Custom modeline colors from doom-challenger-deep theme
+(with-eval-after-load 'doom-themes
+  (let* ((bg         "#1E1C31")
+         (bg-alt     "#12111E")
+         (base0      "#100E23")
+         (base3      "#4C4B68")
+         (base5      "#858FA5")
+         (violet     "#906CFF")
+         (modeline-bg (doom-darken bg 0.1))
+         (modeline-bg-inactive bg)
+         (modeline-fg-alt base5))
+    (custom-set-faces
+     `(mode-line ((t (:background ,modeline-bg :foreground nil))))
+     `(mode-line-inactive ((t (:background ,modeline-bg-inactive :foreground ,modeline-fg-alt))))
+     `(doom-modeline-bar ((t (:background ,violet)))))))
 
 ;; Nerd Icons (requires 'Symbols Nerd Font' installed)
 (use-package nerd-icons
