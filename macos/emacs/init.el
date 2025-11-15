@@ -231,8 +231,10 @@
   :ensure nil  ; Built-in package
   :commands (dired dired-jump)
   :config
-  (setq dired-listing-switches "-alh"  ; Human-readable file sizes
-        dired-dwim-target t))          ; Guess target for copy/move
+  (setq dired-listing-switches "-alh"      ; Human-readable file sizes
+        dired-dwim-target t                ; Guess target for copy/move
+        dired-recursive-deletes 'always    ; Delete directories recursively without asking
+        dired-recursive-copies 'always))   ; Copy directories recursively without asking
 
 ;; Evil keybindings for dired
 (with-eval-after-load 'dired
@@ -245,6 +247,7 @@
 ;; Keybindings: Hide(H), back(j), forward(l)
 (with-eval-after-load 'dired
   (require 'dired-x)
+  (add-hook 'dired-mode-hook 'dired-omit-mode)  ; Enable omit mode by default
   (evil-define-key 'normal dired-mode-map
     (kbd "h") 'dired-up-directory        ; h = go up to parent
     (kbd "H") 'dired-omit-mode))         ; Shift-H = toggle hidden files
@@ -280,6 +283,25 @@
 ;; Auto-enable Eglot for C/C++ files
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+
+;; C/C++ indentation settings to match .clang-format (4 spaces)
+(setq-default c-basic-offset 4)
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (other . "linux")))  ; Linux style uses c-basic-offset
+
+;; Format C/C++ files on save using clangd via Eglot
+(add-hook 'c-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
+
+;; Enable auto pair brackets
+(electric-pair-mode 1)
 
 ;; AUTO COMPLETION : at-point = corfu, mini-buffer =
 (use-package corfu
