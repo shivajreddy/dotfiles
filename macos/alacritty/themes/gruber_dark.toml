@@ -4,10 +4,11 @@
 # this makes nvim transparent even when you set a background on nvim
 transparent_background_colors = false
 
-# [colors.primary]
-# foreground = '#e0def4'
-# background = 'None'
+[colors.primary]
+foreground = '#e0def4'
+background = '#000000'
 # background = '#181818' # shouldnt be set for transparent
+# background = 'None'
 
 [colors.cursor]
 text = "#000000"    # bg

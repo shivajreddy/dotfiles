@@ -28,7 +28,10 @@ fish_add_path /snap/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
-fish_add_path /usr/local/go/bin/
+fish_add_path /usr/local/go/bin
+fish_add_path $HOME/.emacs.d/bin
+fish_add_path $HOME/.config/emacs/bin
+
 
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/

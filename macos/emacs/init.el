@@ -85,6 +85,12 @@
       (load-theme 'doom-dark+ t)  ; doom solarized dark theme
     (load-theme 'doom-solarized-light t))  ; doom solarized light theme
 
+  ;; Override main background color
+  (set-face-attribute 'default nil :background "#000000")
+  
+  ;; Override solaire (non-code buffers) background
+  (set-face-attribute 'solaire-default-face nil :background "#0A0A0A")
+
   ;; Window divider settings
   (setq window-divider-default-places t
         window-divider-default-bottom-width 2
@@ -800,6 +806,24 @@
 
 ;;; ====================  COMPILATION  ====================
 
+;; Enable fancy-compilation to handle ANSI escape sequences
+(use-package fancy-compilation
+  :ensure t
+  :init
+  ;; Enable fancy-compilation globally
+  (with-eval-after-load 'compile
+    (fancy-compilation-mode)))
+
+;; Strip OSC 8 hyperlink escape sequences from compilation output
+(defun my/strip-osc-hyperlinks ()
+  "Remove OSC 8 hyperlink escape sequences from compilation buffer."
+  (save-excursion
+    (goto-char compilation-filter-start)
+    (while (re-search-forward "\033\\]8;;[^\007\033]*\\(\007\\|\033\\\\\\)" nil t)
+      (replace-match ""))))
+
+(add-hook 'compilation-filter-hook 'my/strip-osc-hyperlinks)
+
 ;; Compilation functions
 (defun my/compile-and-run ()
   "Compile and run the program."
@@ -895,5 +919,4 @@
   ;; Buffer navigation
   (define-key compilation-mode-map (kbd "M-]") 'next-buffer)
   (define-key compilation-mode-map (kbd "M-[") 'previous-buffer))
-
 
