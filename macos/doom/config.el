@@ -1,42 +1,10 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
-
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-symbol-font' -- for symbols
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -229,83 +197,20 @@
 
       ;; Dired
       (:prefix ("d" . "dired")
-       "d" #'dired
-       "j" #'dired-jump)
+               "d" #'dired
+               "j" #'dired-jump)
 
       ;; Workspaces - remap from SPC TAB to SPC =
       (:prefix ("=" . "workspace")
-       "=" #'+workspace/switch-to
-       "n" #'+workspace/new
-       "d" #'+workspace/delete
-       "r" #'+workspace/rename
-       "[" #'+workspace/switch-left
-       "]" #'+workspace/switch-right
-       "s" #'+workspace/save
-       "l" #'+workspace/load))
+               "=" #'+workspace/switch-to
+               "n" #'+workspace/new
+               "d" #'+workspace/delete
+               "r" #'+workspace/rename
+               "[" #'+workspace/switch-left
+               "]" #'+workspace/switch-right
+               "s" #'+workspace/save
+               "l" #'+workspace/load))
 
-;; Git / Magit keybindings - added separately to avoid conflicts
-(map! :leader
-      :desc "Magit status" "g g" #'magit-status
-      :desc "Quick save" "g s" #'my/magit-quick-save
-      :desc "Quick save custom" "g c" #'my/magit-quick-save-custom)
-
-;;; =========================
-;;; Git / Magit functions
-;;; =========================
-
-;; Quick save with default message
-(defun my/magit-quick-save ()
-  "Stage all changes, commit with '[git save]', and push to origin.
-   Stops on any error."
-  (interactive)
-  (let ((default-directory (magit-toplevel)))
-    ;; Stage all changes first
-    (magit-call-git "add" ".")
-    ;; Check if there are any changes to commit
-    (if (magit-anything-staged-p)
-        (condition-case err
-            (progn
-              (magit-call-git "commit" "-m" "[git save]")
-              (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
-              (magit-refresh)
-              (message "Quick save completed!"))
-          (error
-           (message "Quick save failed: %s" (error-message-string err))
-           (magit-refresh)))
-      (progn
-        (magit-refresh)
-        (message "No new changes")))))
-
-;; Quick save with custom message
-(defun my/magit-quick-save-custom ()
-  "Stage all changes, prompt for commit message, and push to origin.
-   Stops on any error."
-  (interactive)
-  (let ((default-directory (magit-toplevel)))
-    ;; Stage all changes first
-    (magit-call-git "add" ".")
-    ;; Check if there are any changes to commit
-    (if (magit-anything-staged-p)
-        (let ((commit-msg (read-string "Commit message: ")))
-          (when (and commit-msg (not (string-empty-p commit-msg)))
-            (condition-case err
-                (progn
-                  (magit-call-git "commit" "-m" commit-msg)
-                  (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
-                  (magit-refresh)
-                  (message "Quick save completed with message: %s" commit-msg))
-              (error
-               (message "Quick save failed: %s" (error-message-string err))
-               (magit-refresh)))))
-      (progn
-        (magit-refresh)
-        (message "No new changes")))))
-
-;; Bind quick-save functions in magit-status-mode
-(after! magit
-  (map! :map magit-status-mode-map
-        :n "S" #'my/magit-quick-save              ; S = default "[git save]" message
-        :n "C" #'my/magit-quick-save-custom))     ; C = custom message
 
 ;;; =========================
 ;;; Compilation mode settings
@@ -314,25 +219,18 @@
 (setq compilation-scroll-output t)     ; Auto-scroll compilation output
 (setq compilation-skip-threshold 2)    ; Skip warnings when navigating errors
 
+
 ;;; =========================
-;;; Company Auto-Completion
+;;; Company mode settings
 ;;; =========================
 
 (after! company
-  (setq company-idle-delay 0.2)              ; Delay before showing completions
-  (setq company-minimum-prefix-length 2)     ; Minimum characters to trigger
-  (setq company-show-quick-access t)         ; Show numbers for quick selection
-  (setq company-selection-wrap-around t)     ; Wrap around when cycling
-  (setq company-tooltip-align-annotations t) ; Align annotations to the right
-  (setq company-require-match nil))          ; Allow typing without selecting
-
-;;; =========================
-;;; LSP Configuration
-;;; =========================
-
-(after! lsp-mode
-  (setq lsp-headerline-breadcrumb-enable t)  ; Show breadcrumb in header
-  (setq lsp-ui-sideline-enable t)            ; Show sideline hints
-  (setq lsp-ui-doc-enable t)                 ; Show documentation popup
-  (setq lsp-ui-doc-position 'at-point)       ; Show docs at point
-  (setq lsp-enable-symbol-highlighting t))   ; Highlight symbol at point
+  (setq company-idle-delay 0.15
+        company-minimum-prefix-length 1
+        company-show-quick-access nil
+        company-selection-wrap-around t
+        company-tooltip-align-annotations t
+        company-tooltip-limit 10
+        company-require-match nil
+        company-dabbrev-downcase nil
+        company-dabbrev-ignore-case nil))
