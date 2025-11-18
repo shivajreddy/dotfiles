@@ -81,6 +81,30 @@
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 20)
       doom-big-font     (font-spec :family "Iosevka Nerd Font" :size 24))
 
+;;; Dashboard
+(setq fancy-splash-image nil)  ; Disable default Doom logo
+(setq +doom-dashboard-banner-padding '(0 . 2))
+
+(defun doom-dashboard-draw-ascii-banner-fn ()
+  (let* ((banner
+          '("███████╗    ███╗   ███╗    ██████╗     ██╗     "
+            "██╔════╝    ████╗ ████║    ██╔══██╗    ██║     "
+            "███████╗    ██╔████╔██║    ██████╔╝    ██║     "
+            "╚════██║    ██║╚██╔╝██║    ██╔═══╝     ██║     "
+            "███████║    ██║ ╚═╝ ██║    ██║         ███████╗"
+            "╚══════╝    ╚═╝     ╚═╝    ╚═╝         ╚══════╝"))
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+
+(setq +doom-dashboard-ascii-banner-fn #'doom-dashboard-draw-ascii-banner-fn)
+
 ;;;  UI Settings
 (setq doom-theme 'doom-dark+)
 (custom-set-faces! '(default :background "#000000"))
@@ -217,13 +241,13 @@
        "[" #'+workspace/switch-left
        "]" #'+workspace/switch-right
        "s" #'+workspace/save
-       "l" #'+workspace/load)
+       "l" #'+workspace/load))
 
-      ;; Git / Magit (override Doom's default git bindings)
-      (:prefix-map ("g" . "git")
-       "g" #'magit-status
-       "s" #'my/magit-quick-save
-       "c" #'my/magit-quick-save-custom))
+;; Git / Magit keybindings - added separately to avoid conflicts
+(map! :leader
+      :desc "Magit status" "g g" #'magit-status
+      :desc "Quick save" "g s" #'my/magit-quick-save
+      :desc "Quick save custom" "g c" #'my/magit-quick-save-custom)
 
 ;;; =========================
 ;;; Git / Magit functions
@@ -289,3 +313,26 @@
 
 (setq compilation-scroll-output t)     ; Auto-scroll compilation output
 (setq compilation-skip-threshold 2)    ; Skip warnings when navigating errors
+
+;;; =========================
+;;; Company Auto-Completion
+;;; =========================
+
+(after! company
+  (setq company-idle-delay 0.2)              ; Delay before showing completions
+  (setq company-minimum-prefix-length 2)     ; Minimum characters to trigger
+  (setq company-show-quick-access t)         ; Show numbers for quick selection
+  (setq company-selection-wrap-around t)     ; Wrap around when cycling
+  (setq company-tooltip-align-annotations t) ; Align annotations to the right
+  (setq company-require-match nil))          ; Allow typing without selecting
+
+;;; =========================
+;;; LSP Configuration
+;;; =========================
+
+(after! lsp-mode
+  (setq lsp-headerline-breadcrumb-enable t)  ; Show breadcrumb in header
+  (setq lsp-ui-sideline-enable t)            ; Show sideline hints
+  (setq lsp-ui-doc-enable t)                 ; Show documentation popup
+  (setq lsp-ui-doc-position 'at-point)       ; Show docs at point
+  (setq lsp-enable-symbol-highlighting t))   ; Highlight symbol at point
