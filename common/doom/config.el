@@ -274,22 +274,31 @@
 ;;; IBuffer - Workspace Aware
 ;;; =========================
 
-;; Group ibuffer by workspace (perspective)
-(after! ibuffer
-  (add-hook 'ibuffer-hook
-            (lambda ()
-              (persp-ibuffer-set-filter-groups)
-              (unless (eq ibuffer-sorting-mode 'alphabetic)
-                (ibuffer-do-sort-by-alphabetic)))))
+;; ;; Custom workspace-aware ibuffer command
+;; (defun my/persp-ibuffer ()
+;;   "Open ibuffer filtered to current workspace buffers."
+;;   (interactive)
+;;   (require 'persp-mode)
+;;   (with-persp-buffer-list () (ibuffer)))
 
-;; Use workspace-aware ibuffer by default
-(map! :leader
-      :desc "IBuffer (workspace)" "b i" #'persp-ibuffer)
+;; ;; Use workspace-aware ibuffer by default
+;; (map! :leader
+;;       (:prefix "b"
+;;        :desc "IBuffer (workspace)" "i" #'my/persp-ibuffer
+;;        :desc "IBuffer (all)" "I" #'ibuffer))
 
 
 ;;; =========================
 ;;; Magit
 ;;; =========================
+
+
+;; Pull from origin
+(defun my/magit-pull-origin ()
+  "Pull from origin/main using Magit's API."
+  (interactive)
+  (magit-pull-from-pushremote "origin" "main"))
+
 
 ;; Quick save with default message
 (defun my/magit-quick-save ()
@@ -339,11 +348,5 @@
 (after! magit
   (map! :map magit-status-mode-map
         :n "S" #'my/magit-quick-save
-        :n "C" #'my/magit-quick-save-custom))
-
-;; Leader key bindings for git (overriding Doom defaults)
-(map! :leader
-      (:prefix "g"
-       :desc "Quick save & push" "s" #'my/magit-quick-save
-       :desc "Quick save (custom msg)" "c" #'my/magit-quick-save-custom))
-
+        :n "C" #'my/magit-quick-save-custom
+        :n "P" #'my/magit-pull-origin))
