@@ -45,9 +45,9 @@
 
 ;;; FONT
 ;;; Fonts
-(setq doom-font         (font-spec :family "Iosevka Nerd Font" :size 20)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 20)
-      doom-big-font     (font-spec :family "Iosevka Nerd Font" :size 24))
+(setq doom-font         (font-spec :family "Iosevka NF" :size 24)
+      doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+      doom-big-font     (font-spec :family "Iosevka NF" :size 28))
 
 ;;; Dashboard
 (setq fancy-splash-image nil)  ; Disable default Doom logo
