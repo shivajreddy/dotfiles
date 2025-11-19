@@ -73,6 +73,14 @@
 
 (setq +doom-dashboard-ascii-banner-fn #'doom-dashboard-draw-ascii-banner-fn)
 
+
+;;; =========================
+;;; General
+;;; =========================
+;; TODO: how to make ibuffer be persp aware
+;; TODO: auto reload workspaces
+
+
 ;;;  UI Settings
 (setq doom-theme 'doom-dark+)
 (custom-set-faces! '(default :background "#000000"))
@@ -107,6 +115,16 @@
 
 ;; Make Y yank to end of line (like Vim's default)
 (map! :n "Y" "y$")
+
+
+;;; =========================
+;;; Code Related
+;;; =========================
+
+;; Disable automatic comment continuation
+(after! evil
+  (setq +evil-want-o/O-to-continue-comments nil))
+
 
 ;;; =========================
 ;;; Compilation functions
@@ -183,6 +201,9 @@
 ;;; =========================
 
 (map! :leader
+      ;; Toggle comment
+      "/" #'comment-line
+
       ;; Compilation & project root
       "8" #'my/compile-run-from-project-root
 
@@ -234,3 +255,8 @@
         company-require-match nil
         company-dabbrev-downcase nil
         company-dabbrev-ignore-case nil))
+
+
+;;; =========================
+;;; Magit
+;;; =========================
