@@ -271,5 +271,79 @@
 
 
 ;;; =========================
+;;; IBuffer - Workspace Aware
+;;; =========================
+
+;; Group ibuffer by workspace (perspective)
+(after! ibuffer
+  (add-hook 'ibuffer-hook
+            (lambda ()
+              (persp-ibuffer-set-filter-groups)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
+
+;; Use workspace-aware ibuffer by default
+(map! :leader
+      :desc "IBuffer (workspace)" "b i" #'persp-ibuffer)
+
+
+;;; =========================
 ;;; Magit
 ;;; =========================
+
+;; Quick save with default message
+(defun my/magit-quick-save ()
+  "Stage all changes, commit with '[git save]', and push to origin.
+   Stops on any error."
+  (interactive)
+  (let ((default-directory (magit-toplevel)))
+    (magit-call-git "add" ".")
+    (if (magit-anything-staged-p)
+        (condition-case err
+            (progn
+              (magit-call-git "commit" "-m" "[git save]")
+              (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+              (magit-refresh)
+              (message "Quick save completed!"))
+          (error
+           (message "Quick save failed: %s" (error-message-string err))
+           (magit-refresh)))
+      (progn
+        (magit-refresh)
+        (message "No new changes")))))
+
+;; Quick save with custom message
+(defun my/magit-quick-save-custom ()
+  "Stage all changes, prompt for commit message, and push to origin.
+   Stops on any error."
+  (interactive)
+  (let ((default-directory (magit-toplevel)))
+    (magit-call-git "add" ".")
+    (if (magit-anything-staged-p)
+        (let ((commit-msg (read-string "Commit message: ")))
+          (when (and commit-msg (not (string-empty-p commit-msg)))
+            (condition-case err
+                (progn
+                  (magit-call-git "commit" "-m" commit-msg)
+                  (magit-call-git "push" "-u" "origin" (magit-get-current-branch))
+                  (magit-refresh)
+                  (message "Quick save completed with message: %s" commit-msg))
+              (error
+               (message "Quick save failed: %s" (error-message-string err))
+               (magit-refresh)))))
+      (progn
+        (magit-refresh)
+        (message "No new changes")))))
+
+;; Bind quick-save functions in magit-status-mode
+(after! magit
+  (map! :map magit-status-mode-map
+        :n "S" #'my/magit-quick-save
+        :n "C" #'my/magit-quick-save-custom))
+
+;; Leader key bindings for git (overriding Doom defaults)
+(map! :leader
+      (:prefix "g"
+       :desc "Quick save & push" "s" #'my/magit-quick-save
+       :desc "Quick save (custom msg)" "c" #'my/magit-quick-save-custom))
+
