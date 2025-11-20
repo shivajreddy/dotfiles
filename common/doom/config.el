@@ -292,7 +292,6 @@
 ;;; Magit
 ;;; =========================
 
-
 ;; Pull from origin (improved)
 (defun my/magit-pull-origin ()
   "Pull current branch from origin and show result."
@@ -312,6 +311,9 @@
    Stops on any error."
   (interactive)
   (let ((default-directory (magit-toplevel)))
+    ;; Save all modified buffers in project
+    (projectile-save-project-buffers)
+
     (magit-call-git "add" ".")
     (if (magit-anything-staged-p)
         (condition-case err
@@ -333,6 +335,9 @@
    Stops on any error."
   (interactive)
   (let ((default-directory (magit-toplevel)))
+    ;; Save all modified buffers in project
+    (projectile-save-project-buffers)
+
     (magit-call-git "add" ".")
     (if (magit-anything-staged-p)
         (let ((commit-msg (read-string "Commit message: ")))
