@@ -1,14 +1,10 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'doom-one)
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -95,9 +91,28 @@
 
 
 ;;;  UI Settings
-(setq doom-theme 'doom-dark+)
-(custom-set-faces! '(default :background "#000000"))
-(custom-set-faces! '(solaire-default-face :background "#0A0A0A"))
+;; (setq doom-theme 'doom-dark+)
+;; (setq doom-theme 'gruber-darker)
+
+(setq catppuccin-flavor 'mocha) ;; or 'latte, 'frappe, 'macchiato
+(setq doom-theme 'catppuccin)
+;; IMPORTANT: Doom users must load theme with these flags before customizing
+(load-theme 'catppuccin t t)
+;; Now you can customize colors
+(catppuccin-set-color 'base "#0A0A0A")
+(catppuccin-set-color 'mantle "#111111")
+;; Add more color overrides as needed
+;; Apply the changes
+(catppuccin-reload)
+;; Override the selection/highlight face for better contrast
+(custom-set-faces!
+  '(vertico-current :background "#313244" :foreground "#89b4fa" :weight bold))
+
+(setq display-line-numbers-type 'relative)
+(setq org-directory "~/org/")
+;; (custom-set-faces! '(default :background "#000000"))
+;; (custom-set-faces! '(solaire-default-face :background "#0A0A0A"))
+
 
 ;; Custom cursor color
 (setq evil-normal-state-cursor '(box "#DA3B01"))
