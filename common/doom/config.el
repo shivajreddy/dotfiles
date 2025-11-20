@@ -293,11 +293,18 @@
 ;;; =========================
 
 
-;; Pull from origin
+;; Pull from origin (improved)
 (defun my/magit-pull-origin ()
-  "Pull from origin main."
+  "Pull current branch from origin and show result."
   (interactive)
-  (magit-call-git "pull" "-u" "origin" "main"))
+  (let ((default-directory (magit-toplevel))
+        (current-branch (magit-get-current-branch)))
+    (condition-case err
+        (progn
+          (magit-run-git "pull" "origin" current-branch)
+          (message "Pulled origin/%s" current-branch))
+      (error
+       (message "Pull failed: %s" (error-message-string err))))))
 
 ;; Quick save with default message
 (defun my/magit-quick-save ()
@@ -347,13 +354,14 @@
 (after! magit
   (map! :map magit-status-mode-map
         :n "S" #'my/magit-quick-save
-        :n "C" #'my/magit-quick-save-custom))
+        :n "C" #'my/magit-quick-save-custom
+        :n "P" #'my/magit-pull-origin))
 
 ;; Leader key bindings for git (using 'q' for quick-save to avoid conflicts)
 ;; SPC g s = stage hunk (Doom default)
 ;; SPC g c = create submenu (Doom default)
 (map! :leader
       (:prefix "g"
-       :desc "Quick save & push" "s" #'my/magit-quick-save
-       :desc "Quick save (custom msg)" "c" #'my/magit-quick-save-custom)
-      :desc "Quick save & push" "p" #'my/magit-quick-save)
+       :desc "Quick save & push" "S" #'my/magit-quick-save
+       :desc "Quick save (custom msg)" "C" #'my/magit-quick-save-custom
+       :desc "Quick pull " "P" #'my/magit-pull-origin))
