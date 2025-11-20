@@ -295,10 +295,9 @@
 
 ;; Pull from origin
 (defun my/magit-pull-origin ()
-  "Pull from origin/main using Magit's API."
+  "Pull from origin main."
   (interactive)
-  (magit-pull-from-pushremote "origin" "main"))
-
+  (magit-call-git "pull" "-u" "origin" "main"))
 
 ;; Quick save with default message
 (defun my/magit-quick-save ()
@@ -348,5 +347,13 @@
 (after! magit
   (map! :map magit-status-mode-map
         :n "S" #'my/magit-quick-save
-        :n "C" #'my/magit-quick-save-custom
-        :n "P" #'my/magit-pull-origin))
+        :n "C" #'my/magit-quick-save-custom))
+
+;; Leader key bindings for git (using 'q' for quick-save to avoid conflicts)
+;; SPC g s = stage hunk (Doom default)
+;; SPC g c = create submenu (Doom default)
+(map! :leader
+      (:prefix "g"
+       :desc "Quick save & push" "s" #'my/magit-quick-save
+       :desc "Quick save (custom msg)" "c" #'my/magit-quick-save-custom)
+      :desc "Quick save & push" "p" #'my/magit-quick-save)
