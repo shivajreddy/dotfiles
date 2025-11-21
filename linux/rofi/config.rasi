@@ -7,7 +7,8 @@ configuration {
 
 
 * {
-    font: "SF Pro Display 20";
+    font: "Iosevka Nerd Font Bold 14";
+    /* font: "SF Pro Display 20"; */
     /* font: "TX02 Nerd Font Bold 20"; */
     /* font: "JetBrainsMono NF Bold 12"; */
     /* font: "BerkeleyMono Nerd Font Mono Bold 14"; */
@@ -46,8 +47,8 @@ configuration {
 
 /*window*/
 window {
-    width: 1400px;
-    height: 800px;
+    width: 900px;
+    height: 500px;
     /* opacity: 1; */
 
     border: 2px solid;
@@ -82,8 +83,8 @@ inputbar {
 /*-icons*/
 textbox-prompt-colon {
     expand: false;
-    str: " 🔍 ";
-    /* str: "  "; */
+    /* str: " 🔍 "; */
+    str: "  ";
     background-color: inherit;
     text-color: inherit;
     vertical-align: 0.5;
