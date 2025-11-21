@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "battery", "clock"],
+    "modules-right": ["pulseaudio", "bluetooth", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -41,5 +41,16 @@
             "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pamixer -t"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
     }
 }
