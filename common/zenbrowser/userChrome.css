@@ -1,6 +1,15 @@
 .zen-workspace-tabs-section.zen-current-workspace-indicator {
     display: none !important;
 }
+vbox.zen-workspace-tabs-section.zen-current-workspace-indicator {
+    display: none !important;
+}
+#zen-current-workspace-indicator-container {
+    display: none !important;
+}
+.zen-current-workspace-indicator {
+    display: none !important;
+}
 
 /* ZEN MINIAL EXIT MENU START */
 .titlebar-buttonbox {
