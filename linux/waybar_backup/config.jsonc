@@ -1,0 +1,148 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 14,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "group/system",
+        "clock",
+        "custom/notification"
+    ],
+
+    "battery": {
+        "format": "{icon}   {capacity}%",
+        "format-alt": "{icon}   {time}",
+        "format-charging": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-plugged": "  {capacity}% ",
+        "states": {
+            "critical": 15,
+            "good": 95,
+            "warning": 30
+        }
+    },
+    "cpu": {
+        "format": "{usage}%",
+        "format-alt": "{avg_frequency} GHz",
+        "interval": 1
+    },
+    "memory": {
+        "format": "{}%",
+        "format-alt": "{used}/{total} GiB",
+        "interval": 5
+    },
+    "group/system": {
+        "orientation": "horizontal",
+        "transition-duration": 300,
+        "modules": ["cpu", "memory"]
+    },
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) - Firefox": "$1",
+            "(.*) - kitty": "[$1]"
+        },
+        "separate-outputs": true
+    },
+    "custom/wlogout": {
+        "tooltip": false,
+        "format": " ",
+        "on-click": "hyprctl dispatch exec wlogout"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚<span foreground='red'><sup></sup></span>",
+            "none": "󰂚",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "clock": {
+        "interval": 30,
+        "format": "{:%I:%M %p}",
+        "format-alt": " {:%a %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#89b4fa'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weekdays": "<span color='#f2cdcd'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "network": {
+        "on-click": "zsh nmtui",
+        "format-disconnected": "󰖪 0% ",
+        "format-ethernet": "󰈀 100% ",
+        "format-linked": "{ifname} (No IP)",
+        "format-wifi": "",
+        "tooltip-format": "{essid} {ifname} {gwaddr}"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "",
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_alias}",
+        "tooltip-format-connected": " {device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}",
+        "tooltip": false,
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol",
+        "format-icons": {
+            "default": [" ", " ", " "],
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": " ",
+            "portable": " ",
+            "car": " "
+        }
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 8
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "on-click": "activate",
+        "format": "{name}"
+    }
+}

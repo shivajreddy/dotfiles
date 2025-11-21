@@ -53,9 +53,9 @@
         doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24)))
 
  ((eq system-type 'gnu/linux) ;; linux
-  (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 20)
-        doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 20)
-        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24))))
+  (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 36)
+        doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 36)
+        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))))
 
 
 ;;; Dashboard
