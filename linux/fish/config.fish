@@ -30,6 +30,7 @@ fish_add_path /usr/local/zig
 fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
 fish_add_path $HOME/.config/emacs/bin
+fish_add_path /opt/go/bin # this is where i moved the go folder to
 
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
@@ -51,8 +52,8 @@ set -gx LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
 set -gx TERM tmux-256color
 
 # Go paths
-set -gx GOROOT /usr/local/go
-set -gx GOPATH $HOME/go
+set -gx GOPATH /opt/go
+set -gx GOROOT /usr/lib/go
 
 # NVM setup (requires fisher and nvm.fish plugin)
 # Install with: fisher install jorgebucaran/nvm.fish
@@ -107,7 +108,7 @@ function pywatch
 end
 
 # Linux Related
-alias fd="fdfind"
+# alias fd="fdfind"
 # alias time='/usr/bin/time -f "\nreal\t%E\nuser\t%U\nsys\t%S"'
 
 # WSL

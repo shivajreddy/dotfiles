@@ -385,3 +385,11 @@
        :desc "Quick save & push" "S" #'my/magit-quick-save
        :desc "Quick save (custom msg)" "C" #'my/magit-quick-save-custom
        :desc "Quick pull " "P" #'my/magit-pull-origin))
+
+(use-package! indent-bars
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-treesit-support t
+        indent-bars-no-descend-string t
+        indent-bars-treesit-ignore-blank-lines-types '("module")
+        indent-bars-prefer-character t))

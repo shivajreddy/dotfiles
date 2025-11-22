@@ -36,7 +36,8 @@ window#waybar {
     box-shadow: none;
     font-weight: bold;
     color: @muted;
-    background: @highlightLow;
+    /* background: @highlightLow; */
+    background: none;
 }
 
 #workspaces button label {
@@ -47,13 +48,14 @@ window#waybar {
 #workspaces button.active {
     border-radius: 0;
     color: @base;
-    background-color: @rose;
+    /* background-color: @rose; */
+    background: #DA3B01;
 }
 
 #pulseaudio,
 #battery,
 #clock {
-    margin: 0 4px;
+    margin: 0 14px;
 }
 
 #battery {
