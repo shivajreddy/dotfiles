@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "bluetooth", "battery", "clock"],
+    "modules-right": ["wlr/taskbar", "pulseaudio", "bluetooth", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -52,5 +52,12 @@
         "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "on-click": "blueman-manager"
-    }
+    },
+
+"wlr/taskbar": {
+    "format": " {icon} ",
+    "on-click": "activate",
+    "on-click-right": "hyprctl dispatch killactivewindow"
+}
+
 }
