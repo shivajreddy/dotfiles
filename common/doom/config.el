@@ -54,8 +54,15 @@
 
  ((eq system-type 'gnu/linux) ;; linux
   (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 36)
-        doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 36)
-        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))))
+        doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
+        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50))))
+
+;; Mixed pitch mode for org-mode (variable pitch for text, monospace for code)
+(use-package! mixed-pitch
+  :hook (org-mode . mixed-pitch-mode)
+  :config
+  (setq mixed-pitch-set-height t)  ; Don't change height, use doom-font size
+  (setq mixed-pitch-variable-pitch-cursor nil))
 
 
 ;;; Dashboard
@@ -393,3 +400,10 @@
         indent-bars-no-descend-string t
         indent-bars-treesit-ignore-blank-lines-types '("module")
         indent-bars-prefer-character t))
+
+;; Typescript support
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)) ;; Angular templates
+(add-hook 'typescript-mode-hook 'eglot-ensure)  ;; enable eglot for ts files
+(add-hook 'web-mode-hook 'eglot-ensure)        ;; html files that contain angular templates

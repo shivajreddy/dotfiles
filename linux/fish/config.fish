@@ -64,7 +64,6 @@ set -gx GOROOT /usr/lib/go
 # alias cd="z"
 alias vi="nvim"
 # alias ls="eza --icons -l -T -L=1"
-alias ls="eza --icons -alh -L=1"
 alias ll="eza --icons -alh -L=1"
 alias l="eza --icons -alh -L=1"
 # alias l="ls -l"
