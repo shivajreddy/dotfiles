@@ -403,7 +403,19 @@
 
 ;; Typescript support
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-jsx-mode))
+(add-hook 'js-jsx-mode-hook 'eglot-ensure)  ;; enable eglot for jsx files
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-hook 'tsx-ts-mode-hook 'eglot-ensure)  ;; enable eglot for tsx files
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)) ;; Angular templates
 (add-hook 'typescript-mode-hook 'eglot-ensure)  ;; enable eglot for ts files
+(add-hook 'typescript-tsx-mode-hook 'eglot-ensure)  ;; enable eglot for tsx/React files
 (add-hook 'web-mode-hook 'eglot-ensure)        ;; html files that contain angular templates
+
+
+;; Tree-sitter grammer sources
+(setq treesit-language-source-alist
+      '((tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master"
+                    "typescript/src")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript")))
