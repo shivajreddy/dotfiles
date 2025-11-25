@@ -113,7 +113,8 @@
 (catppuccin-reload)
 ;; Override the selection/highlight face for better contrast
 (custom-set-faces!
-  '(vertico-current :background "#313244" :foreground "#89b4fa" :weight bold))
+  '(vertico-current :background "#313244" :foreground "#89b4fa" :weight bold)
+  '(+workspace-tab-selected-face :background "#FF6B6B" :foreground "#FFFFFF" :weight bold))
 
 (setq display-line-numbers-type 'relative)
 (setq org-directory "~/org/")
@@ -126,7 +127,11 @@
 (setq evil-insert-state-cursor '(bar "#DA3B01"))
 (setq evil-visual-state-cursor '(box "#DA3B01"))
 
-(setq-default frame-title-format nil)         ; Text on the title bar
+;; Show title bar on Linux, hide on other systems
+(setq-default frame-title-format
+  (if (eq system-type 'gnu/linux)
+      "%b"
+    nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (set-frame-parameter nil 'alpha '(95))
 (add-to-list 'default-frame-alist '(alpha . (95)))
@@ -411,6 +416,15 @@
 (add-hook 'typescript-mode-hook 'eglot-ensure)  ;; enable eglot for ts files
 (add-hook 'typescript-tsx-mode-hook 'eglot-ensure)  ;; enable eglot for tsx/React files
 (add-hook 'web-mode-hook 'eglot-ensure)        ;; html files that contain angular templates
+
+;; Elixir support
+(use-package! eglot
+  :config
+  (add-to-list 'eglot-server-programs
+    '((elixir-mode elixir-ts-mode) . ("elixir-ls" "--release=/usr/lib/elixir-ls"))))
+
+(add-hook 'elixir-mode-hook 'eglot-ensure)
+(add-hook 'elixir-ts-mode-hook 'eglot-ensure)
 
 
 ;; Tree-sitter grammer sources
