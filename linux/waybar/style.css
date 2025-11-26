@@ -17,7 +17,8 @@ window#waybar {
 #workspaces,
 #battery,
 #clock {
-    background: @base;
+    background: none;
+    /* background: @base; */
     /* border-radius: 4px; */
     /* padding: 0px 0px; */
     /* margin: 0px 0px; */
@@ -72,4 +73,8 @@ window#waybar {
 
 #clock {
     color: @text;
+}
+
+#taskbar button {
+    padding-right: 4px;
 }

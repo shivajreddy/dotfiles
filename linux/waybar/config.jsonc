@@ -40,7 +40,8 @@
         "format-icons": {
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "pamixer -t"
+        // "on-click": "pamixer -t" /* toggle mute */
+        "on-click": "pavucontrol"
     },
 
     "bluetooth": {
@@ -54,10 +55,10 @@
         "on-click": "blueman-manager"
     },
 
-"wlr/taskbar": {
-    "format": " {icon} ",
-    "on-click": "activate",
-    "on-click-right": "hyprctl dispatch killactivewindow"
-}
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "hyprctl dispatch killactivewindow"
+    }
 
 }
