@@ -9,6 +9,8 @@
 
 2. Copy the Cursor folder, in this case it is the folder 'Biabata-BlackWhite' that has cursor.theme & index.theme files
 3. Paste it into /usr/share/icons
+`sudo cp -r ~/dotfiles/common/cursors/Bibata-Linux\&Windows/Bibata-BlackWhite/ /usr/share/icons/`
+
 
 4. Verify
 So once you copy, verify by running the following and should show same output  as below
@@ -36,5 +38,28 @@ And the file should look like this
 Inherits=Bibata-BlackWhite
 ```
 
+6.  you should update the gtk settings
+    update 'gtk-3.0/settings.ini' file
+    update 'gtk-4.0/settings.ini' file
+    where both files should have the following
+    `gtk-cursor-theme-name=Bibata-BlackWhite`
 6. Reboot the system
+
+
+
+FUCK THIS SHIT, just `yay -S bibata-cursor-theme` and that will 
+download all the original cursors into /usr/share/icons
+- the one i like is Bibata-Modern-classic, so set this theme using the command
+`hyprctl setcursor Bibata-Modern-Classic 24`
+- and maybe you can remove the other cursor folders 
+- and for xwayland apps, go edit the variables that tell the size of cursor
+- inside hyprland config
+env = XCURSOR_THEME,Bibata-Modern-Classic
+env = XCURSOR_SIZE,32
+env = HYPRCURSOR_THEME,Bibata-Modern-Classic
+env = HYPRCURSOR_SIZE,32
+
+- inside gtk-3.0/settings.ini and gtk-4.0/settings.ini
+gtk-cursor-theme-name=Bibata-Modern-Classic
+gtk-cursor-theme-size=32
 
