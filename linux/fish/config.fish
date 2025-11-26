@@ -61,7 +61,7 @@ set -gx GOROOT /usr/lib/go
 ########################### ALIASES ###########################
 
 # Common
-# alias cd="z"
+alias cd="z"
 alias vi="nvim"
 # alias ls="eza --icons -l -T -L=1"
 alias ll="eza --icons -alh -L=1"

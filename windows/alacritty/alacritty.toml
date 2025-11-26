@@ -57,14 +57,14 @@ program = "pwsh -nologo"
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.75
+opacity = 0.55
 blur = true
 dynamic_title = false
 # title = "smpl;"
 # title = ""
 title = "Alacritty"
 dynamic_padding = false
-decorations = "Buttonless"     # "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
 resize_increments = true
 
 [window.dimensions]
