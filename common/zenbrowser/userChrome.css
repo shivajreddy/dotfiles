@@ -1,3 +1,12 @@
+#zen-toggle-compact-mode-button {
+    display: none !important;
+}
+
+/* Hide the pinned tabs separator */
+.pinned-tabs-container-separator {
+    display: none !important;
+}
+
 .zen-workspace-tabs-section.zen-current-workspace-indicator {
     display: none !important;
 }

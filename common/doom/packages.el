@@ -56,3 +56,5 @@
 
 (package! gruber-darker-theme)
 (package! catppuccin-theme)
+(package! indent-bars)
+(package! mixed-pitch)

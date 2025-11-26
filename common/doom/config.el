@@ -53,9 +53,16 @@
         doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24)))
 
  ((eq system-type 'gnu/linux) ;; linux
-  (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 36)
-        doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 36)
-        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))))
+  (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 38)
+        doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
+        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50))))
+
+;; Mixed pitch mode for org-mode (variable pitch for text, monospace for code)
+(use-package! mixed-pitch
+  :hook (org-mode . mixed-pitch-mode)
+  :config
+  (setq mixed-pitch-set-height t)  ; Don't change height, use doom-font size
+  (setq mixed-pitch-variable-pitch-cursor nil))
 
 
 ;;; Dashboard
@@ -106,7 +113,8 @@
 (catppuccin-reload)
 ;; Override the selection/highlight face for better contrast
 (custom-set-faces!
-  '(vertico-current :background "#313244" :foreground "#89b4fa" :weight bold))
+  '(vertico-current :background "#313244" :foreground "#89b4fa" :weight bold)
+  '(+workspace-tab-selected-face :background "#FF6B6B" :foreground "#FFFFFF" :weight bold))
 
 (setq display-line-numbers-type 'relative)
 (setq org-directory "~/org/")
@@ -119,7 +127,11 @@
 (setq evil-insert-state-cursor '(bar "#DA3B01"))
 (setq evil-visual-state-cursor '(box "#DA3B01"))
 
-(setq-default frame-title-format nil)         ; Text on the title bar
+;; Show title bar on Linux, hide on other systems
+(setq-default frame-title-format
+  (if (eq system-type 'gnu/linux)
+      "%b"
+    nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (set-frame-parameter nil 'alpha '(95))
 (add-to-list 'default-frame-alist '(alpha . (95)))
@@ -385,3 +397,39 @@
        :desc "Quick save & push" "S" #'my/magit-quick-save
        :desc "Quick save (custom msg)" "C" #'my/magit-quick-save-custom
        :desc "Quick pull " "P" #'my/magit-pull-origin))
+
+(use-package! indent-bars
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-treesit-support t
+        indent-bars-no-descend-string t
+        indent-bars-treesit-ignore-blank-lines-types '("module")
+        indent-bars-prefer-character t))
+
+;; Typescript support
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-jsx-mode))
+(add-hook 'js-jsx-mode-hook 'eglot-ensure)  ;; enable eglot for jsx files
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-hook 'tsx-ts-mode-hook 'eglot-ensure)  ;; enable eglot for tsx files
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)) ;; Angular templates
+(add-hook 'typescript-mode-hook 'eglot-ensure)  ;; enable eglot for ts files
+(add-hook 'typescript-tsx-mode-hook 'eglot-ensure)  ;; enable eglot for tsx/React files
+(add-hook 'web-mode-hook 'eglot-ensure)        ;; html files that contain angular templates
+
+;; Elixir support
+(use-package! eglot
+  :config
+  (add-to-list 'eglot-server-programs
+    '((elixir-mode elixir-ts-mode) . ("elixir-ls" "--release=/usr/lib/elixir-ls"))))
+
+(add-hook 'elixir-mode-hook 'eglot-ensure)
+(add-hook 'elixir-ts-mode-hook 'eglot-ensure)
+
+
+;; Tree-sitter grammer sources
+(setq treesit-language-source-alist
+      '((tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master"
+                    "typescript/src")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript")))
