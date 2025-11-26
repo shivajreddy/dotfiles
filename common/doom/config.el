@@ -433,3 +433,10 @@
         (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master"
                     "typescript/src")
         (javascript "https://github.com/tree-sitter/tree-sitter-javascript")))
+
+
+;; Elixir-ls path on windows
+(cond
+ ((eq system-type 'windows-nt)
+  (add-to-list 'eglot-server-programs
+               '(elixir-mode "C:/elixir-ls-v0.30.0/language_server.bat"))))
