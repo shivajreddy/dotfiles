@@ -59,7 +59,8 @@ bindings = [{ mouse = "Right", action = "None" }]
 
 ##############################  WINDOW  ##############################
 [window]
-opacity = 0.70
+opacity = 1
+# opacity = 0.70
 blur = true
 dynamic_title = false
 # title = "smpl;"
