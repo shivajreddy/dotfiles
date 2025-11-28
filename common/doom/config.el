@@ -129,9 +129,9 @@
 
 ;; Show title bar on Linux, hide on other systems
 (setq-default frame-title-format
-  (if (eq system-type 'gnu/linux)
-      "%b"
-    nil))
+              (if (eq system-type 'gnu/linux)
+                  "%b"
+                nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (set-frame-parameter nil 'alpha '(95))
 (add-to-list 'default-frame-alist '(alpha . (95)))
@@ -155,6 +155,25 @@
 
 ;; Make Y yank to end of line (like Vim's default)
 (map! :n "Y" "y$")
+(map! :leader
+      :desc "Paste without overwriting kill-ring"
+      "p" (lambda ()
+            (interactive)
+            (let ((paste (current-kill 0)))
+              (delete-region (region-beginning) (region-end))
+              (insert paste))))
+(map! :leader
+      :desc "Delete without saving to kill-ring"
+      "d" (lambda ()
+            (interactive)
+            (evil-delete (point)
+                         (if (use-region-p) (mark) (evil-end-of-line))
+                         ?_)))
+
+
+(map! :leader
+      :desc "Open Org Notes"
+      "o o" (lambda () (interactive) (dired "~/dev/org/notes.org")))
 
 
 ;;; =========================
@@ -257,7 +276,7 @@
       "e" #'dired-jump
 
       ;; Dired
-      (:prefix ("d" . "dired")
+      (:prefix ("f" . "file")
                "d" #'dired
                "j" #'dired-jump)
 
@@ -421,7 +440,7 @@
 (use-package! eglot
   :config
   (add-to-list 'eglot-server-programs
-    '((elixir-mode elixir-ts-mode) . ("elixir-ls" "--release=/usr/lib/elixir-ls"))))
+               '((elixir-mode elixir-ts-mode) . ("elixir-ls" "--release=/usr/lib/elixir-ls"))))
 
 (add-hook 'elixir-mode-hook 'eglot-ensure)
 (add-hook 'elixir-ts-mode-hook 'eglot-ensure)
