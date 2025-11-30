@@ -53,9 +53,13 @@
         doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24)))
 
  ((eq system-type 'gnu/linux) ;; linux
-  (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 38)
-        doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
-        doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50))))
+  (setq
+   doom-font (font-spec :family "Berkeley Mono Condensed" :size 38)
+   ;; doom-font (font-spec :family "Iosevka Nerd Font" :size 38)
+   doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
+   ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50)
+   doom-big-font (font-spec :family "Berkeley Mono Condensed" :size 50)
+   )))
 
 ;; Mixed pitch mode for org-mode (variable pitch for text, monospace for code)
 (use-package! mixed-pitch
