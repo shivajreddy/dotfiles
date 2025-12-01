@@ -15,7 +15,6 @@ SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_f
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1emeaningful\x2dooo/sponge\x1ejorgebucaran/autopair\x2efish\x1eilancosman/tide\x40v5\x1epatrickf1/fzf\x2efish\x1ekidonng/zoxide\x2efish\x1ejorgebucaran/nvm\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _tide_left_items:\x1d
-SETUVAR _tide_prompt_102394:\x1b\x5b49m\x1e\x1b\x5b49m
 SETUVAR _tide_right_items:\x1d
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr

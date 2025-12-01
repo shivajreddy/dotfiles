@@ -20,6 +20,10 @@ vbox.zen-workspace-tabs-section.zen-current-workspace-indicator {
     display: none !important;
 }
 
+.titlebar-buttonbox {
+    display: none !important;
+}
+
 /* ZEN MINIAL EXIT MENU START */
 .titlebar-buttonbox {
     margin-right: 20px;
