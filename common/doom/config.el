@@ -59,13 +59,11 @@
 
  ((eq system-type 'gnu/linux) ;; linux
   (setq
-   ;; doom-font (font-spec :family "Iosevka Nerd Font" :size 38)
-   ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50)
-   ;; doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
-   doom-font (font-spec :family "Berkeley Mono" :size 38)
-   doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 42)
-   doom-big-font (font-spec :family "Berkeley Mono" :size 50)
-   )))
+   doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 38)
+   doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 50)
+   doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42))
+  ;; Add Iosevka as fallback for missing glyphs in BerkeleyMono
+  (set-fontset-font t 'unicode "Iosevka Nerd Font" nil 'append)))
 
 ;; Mixed pitch mode for org-mode (variable pitch for text, monospace for code)
 (use-package! mixed-pitch
