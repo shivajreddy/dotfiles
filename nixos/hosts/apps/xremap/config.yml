@@ -1,8 +1,0 @@
-
-
-keymap:
-  - name: launch firefox
-    remap:
-      CTRL-i:
-        launch: ["hyprctl", "dispatch", "exec", "firefox"]
-
