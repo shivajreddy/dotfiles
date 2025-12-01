@@ -45,12 +45,12 @@
  ((eq system-type 'windows-nt) ;; windows
   (setq
    ;; doom-font (font-spec :family "Iosevka NF" :size 24)
-        ;; doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-        ;; doom-big-font (font-spec :family "Iosevka NF" :size 30)
+   ;; doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+   ;; doom-big-font (font-spec :family "Iosevka NF" :size 30)
    doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
-        doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
-        doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 30)
-        ))
+   doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
+   doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 30)
+   ))
 
  ((eq system-type 'darwin)  ;; macOS
   (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 20)
@@ -59,11 +59,12 @@
 
  ((eq system-type 'gnu/linux) ;; linux
   (setq
-   doom-font (font-spec :family "Berkeley Mono Condensed" :size 38)
    ;; doom-font (font-spec :family "Iosevka Nerd Font" :size 38)
-   doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
    ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 50)
-   doom-big-font (font-spec :family "Berkeley Mono Condensed" :size 50)
+   ;; doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42)
+   doom-font (font-spec :family "Berkeley Mono" :size 38)
+   doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 42)
+   doom-big-font (font-spec :family "Berkeley Mono" :size 50)
    )))
 
 ;; Mixed pitch mode for org-mode (variable pitch for text, monospace for code)
