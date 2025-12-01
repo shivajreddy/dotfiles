@@ -43,9 +43,14 @@
 ;;; Fonts
 (cond
  ((eq system-type 'windows-nt) ;; windows
-  (setq doom-font (font-spec :family "Iosevka NF" :size 24)
-        doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-        doom-big-font (font-spec :family "Iosevka NF" :size 30)))
+  (setq
+   ;; doom-font (font-spec :family "Iosevka NF" :size 24)
+        ;; doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+        ;; doom-big-font (font-spec :family "Iosevka NF" :size 30)
+   doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
+        doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
+        doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 30)
+        ))
 
  ((eq system-type 'darwin)  ;; macOS
   (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 20)
