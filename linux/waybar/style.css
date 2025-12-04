@@ -1,7 +1,8 @@
 @import url("./rosepine.css");
 
 * {
-    font-family: 'IosevkaNerdFont', 'Iosevka Nerd Font', monospace;
+    /* font-family: 'IosevkaNerdFont', 'Iosevka Nerd Font', monospace; */
+    font-family: 'BerkeleyMono Nerd Font', 'Iosevka Nerd Font', monospace;
     font-size: 14px;
     border: none;
     margin: 0;
@@ -54,9 +55,11 @@ window#waybar {
 }
 
 #pulseaudio,
+#network,
+#bluetooth,
 #battery,
 #clock {
-    margin: 0 14px;
+    margin: 0 5px;
 }
 
 #battery {
