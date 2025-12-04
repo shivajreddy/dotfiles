@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["wlr/taskbar", "pulseaudio", "bluetooth", "battery", "clock"],
+    "modules-right": ["wlr/taskbar", "pulseaudio", "network", "bluetooth", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -42,6 +42,17 @@
         },
         // "on-click": "pamixer -t" /* toggle mute */
         "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format": "󰌙",
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰌐",
+        "format-disconnected": "󰌙",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "disconnected",
+        // "on-click": "nm-connection-editor"
+        "on-click": "iwgtk"
     },
 
     "bluetooth": {
