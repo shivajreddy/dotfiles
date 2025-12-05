@@ -61,7 +61,8 @@
   (setq
    doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 38)
    doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 50)
-   doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42))
+   ;; doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42))
+   doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 42))
   ;; Add Iosevka as fallback for missing glyphs in BerkeleyMono
   (set-fontset-font t 'unicode "Iosevka Nerd Font" nil 'append)))
 
@@ -224,6 +225,7 @@
          (compile-command "make run"))
     (compile compile-command)))
 
+
 ;;; =========================
 ;;; Compile & run C/C++ files
 ;;; =========================
@@ -251,6 +253,55 @@
     (message "No file associated with this buffer!")))
 
 ;;; =========================
+;;; Elixir : Mix
+;;; =========================
+
+(defun my/run-mix-test ()
+  "Run mix test from project root."
+  (interactive)
+  (save-some-buffers t)
+  (let* ((default-directory
+          (or (locate-dominating-file default-directory "mix.exs")
+              default-directory)))
+    (compile "mix test")))
+
+(defun my/run-mix-test-file ()
+  "Run mix test for current file."
+  (interactive)
+  (if (and buffer-file-name (string-match "\\.exs?\\'" buffer-file-name))
+      (progn
+        (save-buffer)
+        (let* ((default-directory
+                (or (locate-dominating-file default-directory "mix.exs")
+                    default-directory)))
+          (compile (format "mix test %s" buffer-file-name))))
+    (message "Not an Elixir file!")))
+
+
+
+
+(defun my/run-mix-build ()
+  "Run mix build from project root."
+  (interactive)
+  (save-some-buffers t)
+  (let* ((default-directory
+          (or (locate-dominating-file default-directory "mix.exs")
+              default-directory)))
+    (compile "mix build")))
+
+(defun my/run-elixir-file ()
+  "Run the current Elixir file with mix run."
+  (interactive)
+  (if (and buffer-file-name (string-match "\\.exs?\\'" buffer-file-name))
+      (progn
+        (save-buffer)
+        (let* ((default-directory
+                (or (locate-dominating-file default-directory "mix.exs")
+                    default-directory)))
+          (compile (format "mix run %s" buffer-file-name))))
+    (message "Not an Elixir file!")))
+
+;;; =========================
 ;;; Run Python files
 ;;; =========================
 
@@ -275,7 +326,13 @@
       "8" #'my/compile-run-from-project-root
 
       ;; C/C++ file compile & run
-      "0" #'my/compile-run-c-or-cpp-file
+      ;; "0" #'my/compile-run-c-or-cpp-file
+
+      ;; exlir : mix project
+      ;; "0" #'my/run-mix-test
+      ;; "0" #'my/run-mix-test-file
+      ;; "0" #'my/run-mix-build
+      "0" #'my/run-elixir-file
 
       ;; Python run
       "7" #'my/run-python-file
@@ -453,6 +510,13 @@
 (add-hook 'elixir-mode-hook 'eglot-ensure)
 (add-hook 'elixir-ts-mode-hook 'eglot-ensure)
 
+;; Treat underscore as part of word globally
+(modify-syntax-entry ?_ "w" (standard-syntax-table))
+
+;; ;; Also apply to Elixir modes specifically
+(add-hook 'elixir-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
+(add-hook 'elixir-ts-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
+
 
 ;; Tree-sitter grammer sources
 (setq treesit-language-source-alist
@@ -467,3 +531,22 @@
  ((eq system-type 'windows-nt)
   (add-to-list 'eglot-server-programs
                '(elixir-mode "C:/elixir-ls-v0.30.0/language_server.bat"))))
+
+
+;;; =========================
+;;; Org-Babel Elixir Support
+;;; =========================
+
+(use-package! ob-elixir
+  :after org
+  :config
+  ;; Load Elixir into org-babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   (append (assoc-delete-all 'elixir org-babel-load-languages)
+           '((elixir . t))))
+
+  ;; Optional: customize ob-elixir behavior
+  (setq ob-elixir-timeout 30))  ; Timeout for code execution in seconds
+
+

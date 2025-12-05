@@ -58,3 +58,5 @@
 (package! catppuccin-theme)
 (package! indent-bars)
 (package! mixed-pitch)
+(package! ob-elixir
+  :recipe (:host github :repo "lambdart/ob-elixir"))
