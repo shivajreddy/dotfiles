@@ -162,6 +162,10 @@
 (map! :n "C-k" #'windmove-up)
 (map! :n "C-l" #'windmove-right)
 
+;; Toggle comment with Control+/
+(map! :n "C-/" #'comment-line)
+(map! :i "C-/" #'comment-line)
+
 ;; Make Y yank to end of line (like Vim's default)
 (map! :n "Y" "y$")
 (map! :leader
@@ -197,6 +201,12 @@
 ;;; =========================
 ;;; Compilation functions
 ;;; =========================
+
+(defun my/run-my-last-compile-command ()
+  "Re-run the last compilation command without prompting."
+  (interactive)
+  (save-some-buffers t)
+  (compile compile-command t))
 
 (defun my/compile-and-run ()
   "Compile and run the program."
@@ -332,7 +342,9 @@
       ;; "0" #'my/run-mix-test
       ;; "0" #'my/run-mix-test-file
       ;; "0" #'my/run-mix-build
-      "0" #'my/run-elixir-file
+      ;; "0" #'my/run-elixir-file
+
+      "0" #'my/run-my-last-compile-command
 
       ;; Python run
       "7" #'my/run-python-file
