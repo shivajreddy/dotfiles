@@ -414,7 +414,7 @@ style = 'fg:violet'
 symbol = ' '
 
 [kubernetes]
-disabled = false
+disabled = true
 format = '[$symbol($cluster/$namespace) ]($style)'
 style = 'fg:violet'
 symbol = '󱃾 '
