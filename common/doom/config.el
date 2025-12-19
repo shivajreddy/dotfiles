@@ -44,12 +44,12 @@
 (cond
  ((eq system-type 'windows-nt) ;; windows
   (setq
-   ;; doom-font (font-spec :family "Iosevka NF" :size 24)
-   ;; doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-   ;; doom-big-font (font-spec :family "Iosevka NF" :size 30)
-   doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
-   doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
-   doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 30)
+   doom-font (font-spec :family "Iosevka NF" :size 24)
+   doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+   doom-big-font (font-spec :family "Iosevka NF" :size 30)
+   ;; doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
+   ;; doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
+   ;; doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 30)
    ))
 
  ((eq system-type 'darwin)  ;; macOS
@@ -142,8 +142,8 @@
                   "%b"
                 nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
-(set-frame-parameter nil 'alpha '(95))
-(add-to-list 'default-frame-alist '(alpha . (95)))
+;; (set-frame-parameter nil 'alpha '(95))
+;; (add-to-list 'default-frame-alist '(alpha . (95)))
 
 ;;; KEYMAPS
 ;; Buffer navigation
