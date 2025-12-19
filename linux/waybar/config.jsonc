@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["wlr/taskbar", "pulseaudio", "network", "bluetooth", "battery", "clock"],
+    "modules-right": ["custom/keymap", "wlr/taskbar", "pulseaudio", "network", "bluetooth", "battery", "clock"],
 
     "hyprland/window": {
         "max-length": 50,
@@ -69,6 +69,13 @@
         "format": "{icon}",
         "on-click": "activate",
         "on-click-right": "hyprctl dispatch killactivewindow"
+    },
+
+    "custom/keymap": {
+        "exec": "~/.config/waybar/scripts/keymap-state.sh",
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch submap pause || hyprctl dispatch submap reset"
     }
 
 }

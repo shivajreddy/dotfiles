@@ -59,10 +59,12 @@
 
  ((eq system-type 'gnu/linux) ;; linux
   (setq
-   doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 38)
-   doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 50)
+                                        ; doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 21)
+                                        ; doom-big-font (font-spec :family "BerkeleyMono Nerd Font Condensed" :size 24)
+   doom-font (font-spec :family "Iosevka Nerd Font" :size 18)
+   doom-big-fonr (font-spec :family "Iosevka Nerd Font" :size 20)
    ;; doom-variable-pitch-font (font-spec :family "Georgia Pro" :size 42))
-   doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 42))
+   doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 24))
   ;; Add Iosevka as fallback for missing glyphs in BerkeleyMono
   (set-fontset-font t 'unicode "Iosevka Nerd Font" nil 'append)))
 
@@ -142,8 +144,33 @@
                   "%b"
                 nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
+<<<<<<< HEAD
 ;; (set-frame-parameter nil 'alpha '(95))
 ;; (add-to-list 'default-frame-alist '(alpha . (95)))
+=======
+
+;;; OS-specific transparency settings
+(cond
+ ;; PGTK (Pure GTK) Emacs on Linux with Wayland/X11
+ ((eq window-system 'pgtk)
+  (set-frame-parameter nil 'alpha-background 100)
+  (add-to-list 'default-frame-alist '(alpha-background . 100)))
+ ;; macOS
+ ((eq system-type 'darwin)
+  (set-frame-parameter nil 'alpha 95)
+  (add-to-list 'default-frame-alist '(alpha . 95)))
+ ;; Windows
+ ((eq system-type 'windows-nt)
+  (set-frame-parameter nil 'alpha 95)
+  (add-to-list 'default-frame-alist '(alpha . 95)))
+ ;; Fallback for other X11 systems
+ (t
+  (set-frame-parameter nil 'alpha 95)
+  (add-to-list 'default-frame-alist '(alpha . 95))))
+
+;; Debug: Print what window system was detected
+(message "[Emacs Config] Window system: %s, System type: %s" window-system system-type)
+>>>>>>> refs/remotes/origin/main
 
 ;;; KEYMAPS
 ;; Buffer navigation
