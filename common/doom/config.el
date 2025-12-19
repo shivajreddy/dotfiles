@@ -144,10 +144,6 @@
                   "%b"
                 nil))
 (add-to-list 'default-frame-alist '(undecorated-round . t))
-<<<<<<< HEAD
-;; (set-frame-parameter nil 'alpha '(95))
-;; (add-to-list 'default-frame-alist '(alpha . (95)))
-=======
 
 ;;; OS-specific transparency settings
 (cond
@@ -167,10 +163,8 @@
  (t
   (set-frame-parameter nil 'alpha 95)
   (add-to-list 'default-frame-alist '(alpha . 95))))
-
 ;; Debug: Print what window system was detected
-(message "[Emacs Config] Window system: %s, System type: %s" window-system system-type)
->>>>>>> refs/remotes/origin/main
+;; (message "[Emacs Config] Window system: %s, System type: %s" window-system system-type)
 
 ;;; KEYMAPS
 ;; Buffer navigation
