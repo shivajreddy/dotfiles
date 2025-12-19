@@ -81,3 +81,13 @@ window#waybar {
 #taskbar button {
     padding-right: 4px;
 }
+
+#custom-keymap {
+    margin: 0 5px;
+    color: @text;
+}
+
+#custom-keymap.paused {
+    color: @love;
+    font-weight: bold;
+}
