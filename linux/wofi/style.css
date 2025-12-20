@@ -1,0 +1,142 @@
+/* ===  Pywal Theme + Slightly Larger === */
+/* Using colors with Pywal aesthetic */
+
+/* Base Colors - Matugen Dynamic Colors */
+@define-color background {{colors.surface.default.hex}};
+@define-color foreground {{colors.on_surface.default.hex}};
+@define-color cursor {{colors.on_surface.default.hex}};
+
+/* Color Palette - Mapped to Matugen semantic colors */
+@define-color color0 {{colors.surface.default.hex}};
+@define-color color1 {{colors.surface_variant.default.hex}};
+@define-color color2 {{colors.secondary_container.default.hex}};
+@define-color color3 {{colors.tertiary_container.default.hex}};
+@define-color color4 {{colors.primary.default.hex}};
+@define-color color5 {{colors.tertiary.default.hex}};
+@define-color color6 {{colors.primary_container.default.hex}};
+@define-color color7 {{colors.on_surface.default.hex}};
+@define-color color8 {{colors.outline.default.hex}};
+@define-color color9 {{colors.surface_variant.default.hex}};
+@define-color color10 {{colors.secondary_container.default.hex}};
+@define-color color11 {{colors.tertiary_container.default.hex}};
+@define-color color12 {{colors.primary.default.hex}};
+@define-color color13 {{colors.tertiary.default.hex}};
+@define-color color14 {{colors.primary_container.default.hex}};
+@define-color color15 {{colors.on_surface.default.hex}};
+
+/* Semantic Colors - Using Matugen tokens */
+@define-color accent {{colors.primary.default.hex}};
+@define-color border {{colors.outline_variant.default.hex}};
+@define-color input-bg {{colors.surface.default.hex}};
+@define-color selection {{colors.secondary_container.default.hex}};
+
+/* === Base Styles === */
+* {
+    all: unset;
+    font-family: 'CodeNewRoman Nerd Font Mono', monospace;
+    font-size: 16px;  /* Slightly larger base font */
+    color: @foreground;
+    background-color: transparent;
+}
+
+/* Window - Updated with better transparency and blur */
+#window {
+    background: alpha(@color0, 0.58);  /* More transparent */
+    margin: auto;
+    padding: 12px;  /* Increased from 8px */
+    border-radius: 12px;  /* Slightly larger radius */
+    border: 1px solid alpha(@color1, 0.2);
+    backdrop-filter: blur(20px) brightness(0.9);  /* Enhanced blur */
+    box-shadow: 0 8px 32px alpha(@color0, 0.3);
+}
+
+/* Outer box - slightly more padding */
+#outer-box {
+    padding: 10px;  /* Increased from 8px */
+}
+
+/* Input Field - Updated with better transparency and blur */
+#input {
+    padding: 8px 12px;  /* Increased padding */
+    margin: 0px 0px 12px 0px;  /* Slightly more margin */
+    border-radius: 8px;  /* Slightly larger radius */
+    background: alpha(@color0, 0.5);  /* More transparent */
+    border: 1px solid alpha(@color2, 0.15);
+    color: @foreground;
+    font-size: 16px;  /* Increased from 14px */
+    backdrop-filter: blur(10px);  /* Added blur */
+}
+
+#input:focus {
+    border: 1px solid alpha(@color4, 0.3);
+    background: alpha(@color0, 0.6);  /* More transparent */
+    box-shadow: 0 0 0 1px alpha(@color4, 0.1);
+}
+
+/* Entries - Updated with better transparency effects */
+#entry {
+    padding: 8px 10px;  /* Increased from 6px 8px */
+    border-radius: 6px;  /* Slightly larger */
+    margin: 2px 0px;  /* Slightly more spacing */
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+#entry:hover {
+    background: alpha(@color1, 0.08);  /* More subtle */
+    border: 1px solid alpha(@color2, 0.08);
+    backdrop-filter: blur(5px);  /* Added blur */
+}
+
+#entry:selected {
+    background: alpha(@color4, 0.12);  /* Better transparency */
+    border: 1px solid alpha(@color4, 0.25);
+    backdrop-filter: blur(8px);  /* Added blur */
+    box-shadow: inset 0 1px 0 alpha(@color4, 0.1);
+}
+
+#entry:selected #text {
+    color: @color7;
+    font-weight: bold;
+    font-size: 16px;  /* Increased from 14px */
+    text-shadow: 0 0 8px alpha(@color4, 0.3);
+}
+
+#entry:selected #img {
+    filter: brightness(1.2) saturate(1.1);  /* Better filter */
+    transform: scale(0.98);
+}
+
+/* Icons - slightly larger */
+#img {
+    margin-right: 6px;  /* Increased from 4px */
+    padding: 0px;
+    min-width: 18px;  /* Increased from 16px */
+    min-height: 18px;  /* Increased from 16px */
+}
+
+/* Text - slightly larger */
+#text {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;  /* Increased from 14px */
+    text-shadow: 0 1px 2px alpha(@background, 0.6);
+}
+
+/* Scrollbar - Updated with better transparency */
+#scroll {
+    margin: 4px 0;  /* Increased from 2px */
+}
+
+#scrollbar slider {
+    background: linear-gradient(alpha(@color4, 0.4), alpha(@color5, 0.4));  /* More transparent */
+    border-radius: 3px;  /* Slightly larger */
+    min-height: 18px;  /* Increased from 16px */
+    backdrop-filter: blur(5px);  /* Added blur */
+}
+
+#scrollbar trough {
+    background: alpha(@color1, 0.1);  /* Added trough styling */
+    border-radius: 3px;
+    backdrop-filter: blur(5px);  /* Added blur */
+}
