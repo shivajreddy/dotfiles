@@ -1,5 +1,6 @@
 # Setting up new Windows machine
 
+
 ### WSL
 - install wsl and ubuntu
 - install wezterm, symlink wezterm folder
@@ -107,3 +108,70 @@ pacman -S mingw-w64-x86_64-toolchain
 4. Verify Installation:
 - Open a new powershell and type the following `gcc` command to verify that GCC is inst
 - `gcc --version`
+
+### EMACS On Windows
+
+1. Make sure to install msys64
+2. Just read over the file at './readme/build_emacs_windows.md'
+3. Now follow that file and finish all the steps, so that now we have all the 
+   dependencies ready to get emacs with native comp on windows.
+4. Go to this official link, https://www.gnu.org/software/emacs/download.html#nonfree
+    it shows the command to install emacs, which is `pacman -S mingw-w64-x86_64-emacs`
+    So run that command in the msys64 terminal, and that will install emacs 
+    in the folder "C:\msys64\mingw64\bin", if msys64 was installed properly then this bin 
+    folder was already included in the system path.
+5. Start emacs using 'runemacs.exe' so that it opens with out a termianl,
+   if emacs.exe opens with out a terminal then great, just use that.
+   but to use 'emacs' from start but not have it open with out the terminal, 
+   right click on emacs from the start, and go to open file location, which will show the 
+   shortcut file at "C:\Users\shiva\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"
+   and Right-click on the shortcut file → Properties → Change "Run" to "Minimized"
+6. config for native emacs will be located at appdata/roaming/.emacs.d folder
+
+### Doom EMACS On Windows
+1. PREREQS
+- official link https://github.com/doomemacs/doomemacs/blob/master/docs/getting_started.org
+- we will be using the third option "With a precompiled binary + Git Bash"
+    - we already have emacs installed, we have to install 'ripgrep' and 'fd' and both to PATH
+    - for both 'ripgrep' and 'fd' use the msvc-x86_64 zip files, unzip them and paste them in C:/bin folder
+    - make sure to add that C:/bin also to path, so that 'rg' and 'fd' are added to the path, and test them on powershell
+
+2. CONFIG
+- doom will look for its config in the appdata/roaming/.doom.d folder, so 
+ symlink .doom.d folder to dotfiles/common/doom by using the following command from the roaming folder
+```
+┌~/AppData/Roaming
+└  New-Item -ItemType SymbolicLink -Path .\.doom.d -Target "C:\Users\shiva\dotfiles\common\doom\"
+```
+
+3. INSTALLING DOOM COMMANDLINE UTILITIES
+- Clone the doomemacs repo into the users appdata/roaming directory with the name .emacs.d
+```
+
+└  pwd
+C:\Users\shiva\AppData\Roaming
+
+┌\C:\Users\shiva\AppData\Roaming
+└  git clone https://github.com/doomemacs/doomemacs.git .emacs.d
+Cloning into '.emacs.d'...
+remote: Enumerating objects: 137033, done.
+remote: Counting objects: 100% (237/237), done.
+remote: Compressing objects: 100% (94/94), done.
+remote: Total 137033 (delta 184), reused 143 (delta 143), pack-reused 136796 (from 3)
+Receiving objects: 100% (137033/137033), 33.91 MiB | 10.45 MiB/s, done.
+Resolving deltas: 100% (95721/95721), done.
+Updating files: 100% (1103/1103), done.
+```
+
+- So basically we want the doomemacs repo to be git clone into the roaming folder with the name .emacs.d,
+  and sym link dotfiles/common/doom to roaming/.doom.d
+
+- the doom command line utilities are now with in the folder roamin/.emacs.d/bin, so add 
+roaming/.emacs.d/bin to PATH
+- after you do this, reopen powershell, and you should be able to type 'doom' command
+- Now we have emacs(with native comp), ripgrep, fd. and all three can be opened from terminal
+- a. run 'doom install' 
+    - now since we already linked the .doom.d folder to dotfiles/common/doom, 
+    it will suggest that skipping the .doom.d folder since there is already that folder
+- b. 'doom sync' and 'doom update' should work as expected
+

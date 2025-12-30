@@ -44,8 +44,8 @@
 (cond
  ((eq system-type 'windows-nt) ;; windows
   (setq
-   doom-font (font-spec :family "Iosevka NF" :size 24)
-   doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+   doom-font (font-spec :family "Iosevka NF" :size 18)
+   doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 18)
    doom-big-font (font-spec :family "Iosevka NF" :size 30)
    ;; doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
    ;; doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)

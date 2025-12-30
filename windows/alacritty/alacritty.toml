@@ -1,3 +1,15 @@
+#######################################################
+# On Windows, the config file will be looked for in:
+# %APPDATA%\alacritty\alacritty.toml
+
+# 1. go to %APPDATA% for me it is C:\Users\shiva\AppData\Roaming
+# 2. make sure there is no 'alacritty' folder already
+# 3. Sym link the 'alacritty' folder so that all the relative paths used below will work
+# ┌~/AppData/Roaming
+# └  New-Item -ItemType SymbolicLink -Path .\alacritty -Target "C:\Users\shiva\dotfiles\windows\alacritty\"
+#######################################################
+
+
 ##############################  GENERAL  ##############################
 ## using properties > compatibility > Run as Administrator
 [general]
@@ -58,7 +70,8 @@ program = "pwsh -nologo"
 ##############################  WINDOW  ##############################
 [window]
 # opacity = 1
-opacity = 0.55
+# opacity = 0.55
+opacity = 0.85
 blur = true
 dynamic_title = false
 # title = "smpl;"
