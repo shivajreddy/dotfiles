@@ -12,7 +12,6 @@ $env:POWERSHELL_UPDATECHECK = 'Off'
 # ####	STARSHIP    ####
 # Location of starship configuration
 $Env:STARSHIP_CONFIG = "$HOME\dotfiles\windows\starship.toml"
-
 Invoke-Expression (&starship init powershell)
 
 
@@ -40,4 +39,7 @@ Set-Alias l ll
 
 # ####	MISC.    ####
 # when using dir, hide the ugly text background color
-# $PSStyle.FileInfo.Directory = ""
+$PSStyle.FileInfo.Directory = ""
+
+# Allow Ctrl+D to exit, instead of typing as ^D
+Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit

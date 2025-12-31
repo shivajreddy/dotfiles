@@ -157,8 +157,8 @@
   (add-to-list 'default-frame-alist '(alpha . 95)))
  ;; Windows
  ((eq system-type 'windows-nt)
-  (set-frame-parameter nil 'alpha 95)
-  (add-to-list 'default-frame-alist '(alpha . 95)))
+  (set-frame-parameter nil 'alpha 100)
+  (add-to-list 'default-frame-alist '(alpha . 100)))
  ;; Fallback for other X11 systems
  (t
   (set-frame-parameter nil 'alpha 95)
