@@ -127,6 +127,7 @@ pacman -S mingw-w64-x86_64-toolchain
    shortcut file at "C:\Users\shiva\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"
    and Right-click on the shortcut file → Properties → Change "Run" to "Minimized"
 6. config for native emacs will be located at appdata/roaming/.emacs.d folder
+7. Emacs needs 'NFM' font besides the Nerd Font, you download the NFM font file via emacs by running `M-x nerd-icons-install-fonts`
 
 ### Doom EMACS On Windows
 1. PREREQS
