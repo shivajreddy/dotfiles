@@ -151,16 +151,16 @@ window_rules:
       # Ignore Spotify
       # - window_process: { equals: 'Spotify' }
 
+      # Ignore Task Manager
+      # - window_process: { equals: 'Taskmgr' }
+
       # Ignore File Explorer
-      - window_process: { equals: 'explorer' }
-        window_title : {regex: '^.+ - File Explorer$'}
+      # - window_process: { equals: 'explorer' }
+        # window_title : {regex: '^.+ - File Explorer$'}
 
       # Ignores Windows Settings
       - window_class : { equals : 'ApplicationFrameWindow' }
         window_process: { equals: 'ApplicationFrameHost' }
-
-      # Ignore Task Manager
-      - window_process: { equals: 'Taskmgr' }
 
       # Ignore autohotkey window spy
       - window_title : { equals : 'Window Spy for AHKv2' }
