@@ -21,6 +21,10 @@ Set-Alias -Name gg -Value lazygit
 Set-Alias -Name y -Value yazi
 Set-Alias -Name c -Value cls
 Set-Alias -Name ff -Value fastfetch
+function wu {
+    winget update --all --include-unknown
+}
+
 
 Set-Alias -Name python -Value py
 Set-Alias -Name python3 -Value py
