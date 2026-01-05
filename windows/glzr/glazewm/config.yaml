@@ -46,14 +46,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '10px'  # using 1 times the width of tacky-border-width for no gap
+  inner_gap: '0px'  # using 1 times the width of tacky-border-width for no gap
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top:    '16px'
-    right:  '16px'
-    bottom: '16px'
-    left:   '16px'
+    top:    '0px'
+    right:  '0px'
+    bottom: '0px'
+    left:   '0px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -74,7 +74,7 @@ window_effects:
     corner_style:
       enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'square'
+      style: 'rounded'
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -151,16 +151,16 @@ window_rules:
       # Ignore Spotify
       # - window_process: { equals: 'Spotify' }
 
+      # Ignore Task Manager
+      # - window_process: { equals: 'Taskmgr' }
+
       # Ignore File Explorer
-      - window_process: { equals: 'explorer' }
-        window_title : {regex: '^.+ - File Explorer$'}
+      # - window_process: { equals: 'explorer' }
+        # window_title : {regex: '^.+ - File Explorer$'}
 
       # Ignores Windows Settings
       - window_class : { equals : 'ApplicationFrameWindow' }
         window_process: { equals: 'ApplicationFrameHost' }
-
-      # Ignore Task Manager
-      - window_process: { equals: 'Taskmgr' }
 
       # Ignore autohotkey window spy
       - window_title : { equals : 'Window Spy for AHKv2' }

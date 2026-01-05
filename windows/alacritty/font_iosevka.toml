@@ -1,6 +1,6 @@
 ############################## FONT ##############################
 [font]
-size = 12 # perfect for tars
+size = 16 # perfect for tars
 # size = 18                  # perfect for teclab
 builtin_box_drawing = true
 

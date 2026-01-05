@@ -44,8 +44,8 @@
 (cond
  ((eq system-type 'windows-nt) ;; windows
   (setq
-   doom-font (font-spec :family "Iosevka NF" :size 24)
-   doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
+   doom-font (font-spec :family "Iosevka NF" :size 20)
+   doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 20)
    doom-big-font (font-spec :family "Iosevka NF" :size 30)
    ;; doom-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
    ;; doom-variable-pitch-font (font-spec :family "BerkeleyMono Nerd Font Condensed Regular" :size 24)
@@ -157,8 +157,8 @@
   (add-to-list 'default-frame-alist '(alpha . 95)))
  ;; Windows
  ((eq system-type 'windows-nt)
-  (set-frame-parameter nil 'alpha 95)
-  (add-to-list 'default-frame-alist '(alpha . 95)))
+  (set-frame-parameter nil 'alpha 100)
+  (add-to-list 'default-frame-alist '(alpha . 100)))
  ;; Fallback for other X11 systems
  (t
   (set-frame-parameter nil 'alpha 95)

@@ -1,3 +1,6 @@
+# Set a longer time out duration(milliseconds, 5seconds)
+scan_timeout = 5000
+
 '$schema' = 'https://starship.rs/config-schema.json'
 
 format = """
@@ -78,8 +81,8 @@ continuation_prompt = '[>](bold gray) '
 palette = "milspec_dark"
 
 [character]
-success_symbol = '[ ](bold fg)'
-error_symbol = '[ ](bold red)'
+success_symbol = '[ ](bold fg)'
+error_symbol = '[ ](bold red)'
 # success_symbol = '[\$](bold fg)'
 # error_symbol = '[\$](bold red)'
 vimcmd_symbol = '[](bold turquoise)'
