@@ -1,3 +1,10 @@
+# LOCATION OF CONFIG FOLDER SHOULD BE IN %userprofile%/.config/tacky-borders/
+#
+# ┌~/.config
+# └  New-Item -ItemType SymbolicLink -Path .\tacky-borders -Target C:\Users\smpl\dotfiles\windows\tacky-borders\
+#
+
+
 # watch_config_changes: Automatically reload borders whenever the config file is modified.
 watch_config_changes: True
 
