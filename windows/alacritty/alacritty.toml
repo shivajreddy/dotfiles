@@ -36,6 +36,8 @@ bindings = [
     { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
     { key = "Enter", mods = "Alt", action = "None" },
     # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+    # Shift+Enter is new line
+    { key = "Return", mods = "Shift", chars = "\u001b\r"},
 ]
 
 

@@ -128,8 +128,8 @@ workspaces:
     bind_to_monitor: 1
   # - name: '7'
     # bind_to_monitor: 1
-  # - name: '8'
-    # bind_to_monitor: 0
+  - name: '8'
+    bind_to_monitor: 0
   # - name: '9'
     # bind_to_monitor: 0
 

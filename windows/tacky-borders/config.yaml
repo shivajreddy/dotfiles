@@ -24,7 +24,7 @@ global:
   #   - Round: Fully rounded corners
   #   - RoundSmall: Slightly rounded corners
   #   - Or specify any numeric value for a custom radius
-  border_radius: Round
+  border_radius: Square
 
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
