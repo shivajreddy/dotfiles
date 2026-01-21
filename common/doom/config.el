@@ -39,6 +39,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;;; Emacs Directory at open
+(when (eq system-type 'windows-nt)
+  (setq default-directory
+        (file-name-as-directory (getenv "USERPROFILE"))))
+
 ;;; FONT
 ;;; Fonts
 (cond
@@ -205,9 +210,20 @@
                          ?_)))
 
 
+;; Helper fn to Open org notes based on the host
+(defun smpl/org-notes-path ()
+  (cond
+   ((string= (system-name) "TARS")
+    "C:/Users/smpl/dev/org/notes.org")
+   ((string= (system-name) "TECLAB-SHIVA")
+    "/home/sreddy/dev/org/notes.org")
+   (t
+    (error "Unknown host: %s" (system-name)))))
 (map! :leader
       :desc "Open Org Notes"
-      "o o" (lambda () (interactive) (dired "~/dev/org/notes.org")))
+      ;; "o o" (lambda () (interactive) (dired "~/dev/org/notes.org"))
+      "o o" (lambda () (interactive) (find-file (smpl/org-notes-path)))
+      )
 
 
 ;;; =========================
