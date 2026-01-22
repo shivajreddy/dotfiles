@@ -43,6 +43,11 @@
 (when (eq system-type 'windows-nt)
   (setq default-directory
         (file-name-as-directory (getenv "USERPROFILE"))))
+;; Set tree-sitter DLL path
+(when (eq system-type 'windows-nt)
+  (add-to-list 'exec-path "C:/msys64/mingw64/bin")
+  (setq treesit-extra-load-path '("C:/msys64/mingw64/bin")))
+
 
 ;;; FONT
 ;;; Fonts

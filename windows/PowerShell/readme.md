@@ -6,7 +6,7 @@ System Wide Powershell-7 profile
 2 - It should be located at '$PSHOME'  
 3- So make a sym link to the profile.ps1 file
 ```
-New-Item -ItemType SymbolicLink -Path "$PSHOME\profile.ps1" -Target "~\dotfiles\windows\PowerShell\shiva.ps1"
+New-Item -ItemType SymbolicLink -Path "$PSHOME\profile.ps1" -Target "~\dotfiles\windows\PowerShell\main_profile.ps1"
 ```
 NOTE: when you paste the above command, make sure just rewrite the target path, so that the '~' expands to 
 the absolute path. If you will get an error like 
