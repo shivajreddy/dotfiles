@@ -127,7 +127,8 @@
 ;; IMPORTANT: Doom users must load theme with these flags before customizing
 (load-theme 'catppuccin t t)
 ;; Now you can customize colors
-(catppuccin-set-color 'base "#0A0A0A")
+;; (catppuccin-set-color 'base "#0A0A0A")
+(catppuccin-set-color 'base "#000000")
 (catppuccin-set-color 'mantle "#111111")
 ;; Add more color overrides as needed
 ;; Apply the changes
@@ -167,8 +168,8 @@
   (add-to-list 'default-frame-alist '(alpha . 95)))
  ;; Windows
  ((eq system-type 'windows-nt)
-  (set-frame-parameter nil 'alpha 100)
-  (add-to-list 'default-frame-alist '(alpha . 100)))
+  (set-frame-parameter nil 'alpha 90)
+  (add-to-list 'default-frame-alist '(alpha . 90)))
  ;; Fallback for other X11 systems
  (t
   (set-frame-parameter nil 'alpha 95)
