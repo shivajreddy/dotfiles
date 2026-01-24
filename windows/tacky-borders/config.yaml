@@ -160,6 +160,10 @@ window_rules:
     name: "Counter-Strike 2"
     enabled: False
 
+  - match: Class
+    name: "Emacs"
+    strategy: Contains
+    follow_native_border: false
 
   # Example rule:
   # - match: Class                   # Match based on Class or Title
