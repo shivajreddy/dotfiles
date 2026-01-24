@@ -216,7 +216,7 @@
    ((string= (system-name) "TARS")
     "C:/Users/smpl/dev/org/notes.org")
    ((string= (system-name) "TECLAB-SHIVA")
-    "/home/sreddy/dev/org/notes.org")
+    "C:/Users/sreddy/dev/org/notes.org")
    (t
     (error "Unknown host: %s" (system-name)))))
 (map! :leader
