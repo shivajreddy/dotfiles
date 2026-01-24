@@ -1,48 +1,19 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-
-
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
-;;   (after! PACKAGE
-;;     (setq x y))
-;;
-;; The exceptions to this rule:
-;;
-;;   - Setting file/directory variables (like `org-directory')
-;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-;; etc).
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
-
 ;;; Emacs Directory at open
 (when (eq system-type 'windows-nt)
   (setq default-directory
         (file-name-as-directory (getenv "USERPROFILE"))))
+;; Set tree-sitter DLL path
+(when (eq system-type 'windows-nt)
+  (add-to-list 'exec-path "C:/msys64/mingw64/bin")
+  (setq treesit-extra-load-path '("C:/msys64/mingw64/bin")))
+
+;;; add another path for treesitter to look for dll's
+(setq treesit-extra-load-path '("C:/bin/tree-sitter-dlls"))
+(setq treesit-language-source-alist
+      '((go "https://github.com/tree-sitter/tree-sitter-go")))
+
 
 ;;; FONT
 ;;; Fonts
@@ -122,7 +93,8 @@
 ;; IMPORTANT: Doom users must load theme with these flags before customizing
 (load-theme 'catppuccin t t)
 ;; Now you can customize colors
-(catppuccin-set-color 'base "#0A0A0A")
+;; (catppuccin-set-color 'base "#0A0A0A")
+(catppuccin-set-color 'base "#000000")
 (catppuccin-set-color 'mantle "#111111")
 ;; Add more color overrides as needed
 ;; Apply the changes
@@ -143,12 +115,16 @@
 (setq evil-insert-state-cursor '(bar "#DA3B01"))
 (setq evil-visual-state-cursor '(box "#DA3B01"))
 
-;; Show title bar on Linux, hide on other systems
+;; Show/hide title bar based on OS
+(add-to-list 'default-frame-alist '(undecorated . t))
+;; (add-to-list 'default-frame-alist '(undecorated-round . t))
+
+
+;; Show text on title bar on Linux, hide on other systems
 (setq-default frame-title-format
               (if (eq system-type 'gnu/linux)
                   "%b"
                 nil))
-(add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;;; OS-specific transparency settings
 (cond
@@ -162,8 +138,8 @@
   (add-to-list 'default-frame-alist '(alpha . 95)))
  ;; Windows
  ((eq system-type 'windows-nt)
-  (set-frame-parameter nil 'alpha 100)
-  (add-to-list 'default-frame-alist '(alpha . 100)))
+  (set-frame-parameter nil 'alpha 90)
+  (add-to-list 'default-frame-alist '(alpha . 90)))
  ;; Fallback for other X11 systems
  (t
   (set-frame-parameter nil 'alpha 95)
