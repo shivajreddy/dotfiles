@@ -4,6 +4,14 @@ set vb t_vb=
 " Set clipboard to unnamedplus for system clipboard integration
 set clipboard=unnamed
 
+" Case-insensitive search
+set ignorecase
+
+" Highlight search matches
+set hlsearch
+" Disable search highlighting, enable incremental search
+" set nohlsearch
+
 " Remove all markers from gutter
 set vsvim_hidemarks=<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
@@ -29,8 +37,6 @@ set smartindent
 " Disable line wrapping
 set nowrap
 
-" Disable search highlighting, enable incremental search
-" set nohlsearch
 " set incsearch
 
 " Disable keymaps

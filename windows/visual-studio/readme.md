@@ -10,9 +10,6 @@ New-Item -ItemType SymbolicLink -Path "C:\LinkFolder\MyLink.txt" -Target "C:\Ori
 
 Example:
 ```
-New-Item -ItemType SymbolicLink -Path "~\.vimrc" -Target "\\wsl`$\Ubuntu\home\smpl\dotfiles\windows\visual-studio\.vimrc"
-```
-```
-New-Item -ItemType SymbolicLink -Path "~\.vimrc" -Target "\\wsl`$\Debian\home\shiva\dotfiles\windows\visual-studio\.vimrc"
+New-Item -ItemType SymbolicLink -Path "~\.vimrc" -Target "C:\Users\smpl\dotfiles\windows\visual-studio\.vimrc"
 ```
 
