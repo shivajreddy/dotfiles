@@ -1,3 +1,5 @@
+" New-Item -ItemType SymbolicLink -Path ~/.vimrc -Target ~\dotfiles\windows\visual-studio\vimrc
+
 " Disable bell
 set vb t_vb=
 
@@ -74,6 +76,14 @@ snoremap <C-s> <Esc>:w<CR>
 nnoremap <Leader>w' :split<CR>
 nnoremap <Leader>w" :vsplit<CR>
 
+" Yank from point to end of line
+nnoremap Y y$
+
+" doesnt work, don't know why
+augroup YankHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="IncSearch", timeout=300 }
+augroup END
 
 " Yank entire buffer
 function! YankEntireBuffer()
