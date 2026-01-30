@@ -165,6 +165,10 @@ window_rules:
       # Ignore autohotkey window spy
       - window_title : { equals : 'Window Spy for AHKv2' }
 
+      # Ignore Revit popup windows
+      - window_process: { equals: 'Revit' }
+        window_class: { regex: '^MessageWindowClass.*' }
+
       # Ignore Visual Studio related pop-ups
       - window_process: { equals: 'devenv' }
         window_title: { regex: 'Add New Item -.*' }
