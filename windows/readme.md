@@ -135,6 +135,9 @@ pacman -S mingw-w64-x86_64-toolchain
 - we will be using the third option "With a precompiled binary + Git Bash"
     - we already have emacs installed, we have to install 'ripgrep' and 'fd' and both to PATH
     - for both 'ripgrep' and 'fd' use the msvc-x86_64 zip files, unzip them and paste them in C:/bin folder
+        - fd: pacman -S mingw-w64-x86_64-fd
+        - ripgrep: pacman -S mingw-w64-x86_64-ripgrep
+        - make sure that 'fd' and 'rg' works in powershell
     - make sure to add that C:/bin also to path, so that 'rg' and 'fd' are added to the path, and test them on powershell
 
 2. CONFIG
