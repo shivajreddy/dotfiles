@@ -15,7 +15,8 @@ local config = wezterm.config_builder()
 
 -- Use PowerShell as default shell on Windows
 if wezterm.target_triple:find("windows") then
-    config.default_prog = { 'pwsh.exe' }
+    config.default_prog = { 'pwsh.exe', '-NoLogo' }  --dont show ps version
+    -- config.default_prog = { 'pwsh.exe' }
 end
 
 -- For example, changing the initial geometry for new windows:

@@ -68,3 +68,6 @@ Function rrr {
     Set-Location $currentLocation
     Write-Host "Re-Located to the current directory" -ForegroundColor Green
 }
+
+# Clear the screen to prevent the powershell version show when opened
+# Clear-Host
