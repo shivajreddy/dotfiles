@@ -60,3 +60,8 @@
 (package! mixed-pitch)
 (package! ob-elixir
   :recipe (:host github :repo "lambdart/ob-elixir"))
+
+;; lsp for .proto files
+(package! protobuf-mode
+  :recipe (:host github :repo "protocolbuffers/protobuf"
+           :files ("editors/protobuf-mode.el")))

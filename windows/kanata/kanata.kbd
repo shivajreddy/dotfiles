@@ -17,5 +17,5 @@
 )
 
 (defalias
-  cap (tap-hold 200 200 esc (layer-toggle nav))
+  cap (tap-hold 150 150 esc (layer-toggle nav))
 )
