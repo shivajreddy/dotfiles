@@ -74,5 +74,22 @@ config.window_frame = {
 }
 
 
+-- Show LEADER indicator in right status bar
+wezterm.on("update-right-status", function(window, pane)
+    local leader = ""
+    if window:leader_is_active() then
+        leader = " LEADER "
+    end
+    window:set_right_status(wezterm.format({
+        { Foreground = { Color = "#000000" } },
+        { Background = { Color = "#f9e2af" } },
+        { Text = leader },
+    }))
+end)
+
+-- Load key bindings
+local win_keys = require("config.win_keys")
+win_keys.apply(config)
+
 -- Finally, return the configuration to wezterm:
 return config

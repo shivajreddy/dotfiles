@@ -21,6 +21,11 @@ Set-Alias -Name gg -Value lazygit
 Set-Alias -Name y -Value yazi
 Set-Alias -Name c -Value cls
 Set-Alias -Name ff -Value fastfetch
+
+
+Set-Alias -Name cc -Value claude
+Set-Alias -Name oo -Value opencode
+
 Function wu {
     winget upgrade --all --include-unknown
 }

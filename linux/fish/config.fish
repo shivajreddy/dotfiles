@@ -160,3 +160,6 @@ function vman
 end
 
 # ~/.local/bin/qbittorrent &
+
+# opencode
+fish_add_path /home/smpl/.opencode/bin

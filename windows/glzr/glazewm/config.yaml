@@ -201,8 +201,8 @@ window_rules:
       # - window_title : { regex: '.*(Ubuntu)' }
 
       # Ignores picture-in-picture windows for browsers.
-      # - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-      #   window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
       # Ignore rules for various 3rd-party apps.
       # - window_process: { equals: 'PowerToys' }

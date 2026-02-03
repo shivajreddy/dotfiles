@@ -16,7 +16,7 @@ SETUVAR _fisher_plugins:jorgebucaran/fisher\x1emeaningful\x2dooo/sponge\x1ejorge
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _tide_left_items:\x1d
 SETUVAR _tide_right_items:\x1d
-SETUVAR fish_user_paths:/opt/go/bin\x1e/home/smpl/go/bin\x1e/home/smpl/\x2econfig/emacs/bin\x1e/home/smpl/\x2elocal/bin\x1e/opt/nvim\x2dlinux\x2dx86_64/bin\x1e/home/smpl/\x2econfig/fish/scripts\x1e/home/smpl/\x2espicetify\x1e/home/smpl/\x2econfig/bash/scripts\x1e/usr/local/zig\x1e/opt/nvim\x2dlinux64/bin\x1e/usr/local/go/bin\x1e/home/smpl/\x2ecargo/bin\x1e/home/smpl/\x2econfig/zsh/scripts\x1e/snap/bin
+SETUVAR fish_user_paths:/home/smpl/\x2eopencode/bin\x1e/opt/go/bin\x1e/home/smpl/go/bin\x1e/home/smpl/\x2econfig/emacs/bin\x1e/home/smpl/\x2elocal/bin\x1e/opt/nvim\x2dlinux\x2dx86_64/bin\x1e/home/smpl/\x2econfig/fish/scripts\x1e/home/smpl/\x2espicetify\x1e/home/smpl/\x2econfig/bash/scripts\x1e/usr/local/zig\x1e/opt/nvim\x2dlinux64/bin\x1e/usr/local/go/bin\x1e/home/smpl/\x2ecargo/bin\x1e/home/smpl/\x2econfig/zsh/scripts\x1e/snap/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
