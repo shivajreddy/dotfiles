@@ -56,11 +56,11 @@ map("'", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 map("Tab", "CTRL", act.ActivateTabRelative(1))
 map("Tab", "SHIFT|CTRL", act.ActivateTabRelative(-1))
 
--- Ctrl+Shift + !@#$%^&*() to switch to tabs 1-10
-local symbols = { "!", "@", "#", "$", "%", "^", "&", "*", "(", ")" }
-for i, symbol in ipairs(symbols) do
-	map(symbol, "SHIFT|CTRL", act.ActivateTab(i - 1))
+-- Ctrl + 1-9 to switch to tabs 1-9, Ctrl+0 for tab 10
+for i = 1, 9 do
+	map(tostring(i), "CTRL", act.ActivateTab(i - 1))
 end
+map("0", "CTRL", act.ActivateTab(9))
 
 -- ===========================================
 -- PANE NAVIGATION
@@ -88,6 +88,8 @@ map("Z", "LEADER", toggleTabBar)
 -- COPY & PASTE
 -- ===========================================
 map("v", "LEADER", act.ActivateCopyMode)
+map("p", "SHIFT|CTRL", act.ActivateCopyMode)
+map("b", "SHIFT|CTRL", act.ScrollToBottom)
 map("c", "SHIFT|CTRL", act.CopyTo("Clipboard"))
 map("v", "SHIFT|CTRL", act.PasteFrom("Clipboard"))
 
@@ -96,7 +98,6 @@ map("v", "SHIFT|CTRL", act.PasteFrom("Clipboard"))
 -- ===========================================
 map(" ", "LEADER", act.QuickSelect)
 map("o", "LEADER", openUrl)
-map("p", "SHIFT|CTRL", act.ActivateCommandPalette)
 map("r", "SHIFT|CTRL", renameTab)
 map("e", "LEADER", act.RotatePanes("Clockwise"))
 map("d", "SHIFT|CTRL", act.ShowDebugOverlay)
