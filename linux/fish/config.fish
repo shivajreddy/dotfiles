@@ -75,6 +75,8 @@ alias gg="lazygit"
 alias c="clear"
 alias gp="git pull"
 
+alias oo="opencode"
+
 # Git aliases
 alias gaa="git add ."
 alias gcmsg="git commit -m"
