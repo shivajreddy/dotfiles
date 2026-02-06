@@ -6,7 +6,7 @@ return {
     ignored_filetypes = {},
     -- Default is to wrap, which will move to wezterm when at actual edge
     -- If you want explicit control, remove this line or use a function
-    -- at_edge = "wrap",
+    at_edge = "stop", -- wrap split stop
   },
   keys = {
     -- stylua: ignore start
