@@ -2,10 +2,14 @@ return {
   "mrjones2014/smart-splits.nvim",
   lazy = false,
   opts = {
-    at_edge = "stop",
+    -- Don't ignore neo-tree (LazyVim's file explorer)
+    ignored_filetypes = {},
+    -- Default is to wrap, which will move to wezterm when at actual edge
+    -- If you want explicit control, remove this line or use a function
+    -- at_edge = "wrap",
   },
   keys = {
-	-- stylua: ignore start
+    -- stylua: ignore start
     { "<C-h>", function() require("smart-splits").move_cursor_left() end, desc = "Move cursor left", },
     { "<C-j>", function() require("smart-splits").move_cursor_down() end, desc = "Move cursor down", },
     { "<C-k>", function() require("smart-splits").move_cursor_up() end, desc = "Move cursor up", },
