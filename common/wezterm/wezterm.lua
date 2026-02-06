@@ -13,6 +13,11 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices.
 
+-- Set TERM_PROGRAM for smart-splits to detect wezterm
+config.set_environment_variables = {
+  TERM_PROGRAM = 'WezTerm',
+}
+
 -- Use PowerShell as default shell on Windows
 if wezterm.target_triple:find("windows") then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }  --dont show ps version
@@ -127,6 +132,16 @@ wezterm.on("update-right-status", function(window, pane)
     
     window:set_right_status(wezterm.format(status))
 end)
+
+-- Load smart-splits plugin (official integration)
+local smart_splits = wezterm.plugin.require('https://github.com/mrjones2014/smart-splits.nvim')
+smart_splits.apply_to_config(config, {
+  direction_keys = { 'h', 'j', 'k', 'l' },
+  modifiers = {
+    move = 'CTRL',
+    resize = 'ALT',
+  },
+})
 
 -- Load key bindings
 local win_keys = require("config.win_keys")

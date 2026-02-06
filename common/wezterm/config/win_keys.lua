@@ -46,6 +46,8 @@ local renameTab = act.PromptInputLine({
 -- ===========================================
 -- SPLITS
 -- ===========================================
+-- Note: smart-splits integration is loaded in wezterm.lua via plugin loader
+-- ===========================================
 map('"', "SHIFT|LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 map("'", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 
@@ -65,6 +67,8 @@ map("0", "CTRL", act.ActivateTab(9))
 -- ===========================================
 -- PANE NAVIGATION
 -- ===========================================
+-- Note: Ctrl+h/j/k/l handled by smart-splits integration above
+-- Leader+h/j/k/l kept as fallback
 map("h", "LEADER", act.ActivatePaneDirection("Left"))
 map("j", "LEADER", act.ActivatePaneDirection("Down"))
 map("k", "LEADER", act.ActivatePaneDirection("Up"))
@@ -168,7 +172,15 @@ M.apply = function(c)
 		c.leader = { key = "t", mods = "CMD", timeout_milliseconds = math.maxinteger }
 	end
 
-	c.keys = shortcuts
+	-- Merge with existing keys (e.g., from smart-splits plugin)
+	if c.keys then
+		for _, key in ipairs(shortcuts) do
+			table.insert(c.keys, key)
+		end
+	else
+		c.keys = shortcuts
+	end
+	
 	c.disable_default_key_bindings = true
 	c.key_tables = key_tables
 	c.show_new_tab_button_in_tab_bar = false
