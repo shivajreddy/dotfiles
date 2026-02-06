@@ -47,9 +47,43 @@ local renameTab = act.PromptInputLine({
 -- SPLITS
 -- ===========================================
 -- Note: smart-splits integration is loaded in wezterm.lua via plugin loader
+-- Custom split actions that inherit CWD from current pane
 -- ===========================================
-map('"', "SHIFT|LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
-map("'", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+
+-- Helper function to convert Unix-style path (/C:/...) to Windows-style (C:\...)
+local function toWindowsPath(path)
+	if path:sub(1, 1) == "/" then
+		path = path:sub(2)
+	end
+	return path:gsub("/", "\\")
+end
+
+-- Helper to get Windows-formatted CWD from pane
+local function getCwd(pane)
+	local cwd = pane:get_current_working_dir()
+	if cwd then
+		return toWindowsPath(cwd.file_path or tostring(cwd))
+	end
+	return nil
+end
+
+map(
+	'"',
+	"SHIFT|LEADER",
+	wezterm.action_callback(function(window, pane)
+		local cwd_path = getCwd(pane)
+		window:perform_action(act.SplitHorizontal({ domain = "CurrentPaneDomain", cwd = cwd_path }), pane)
+	end)
+)
+
+map(
+	"'",
+	"LEADER",
+	wezterm.action_callback(function(window, pane)
+		local cwd_path = getCwd(pane)
+		window:perform_action(act.SplitVertical({ domain = "CurrentPaneDomain", cwd = cwd_path }), pane)
+	end)
+)
 
 -- ===========================================
 -- TAB NAVIGATION
@@ -77,9 +111,15 @@ map("l", "LEADER", act.ActivatePaneDirection("Right"))
 -- ===========================================
 -- SPAWN & CLOSE
 -- ===========================================
-map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
+-- Custom spawn action that inherits CWD from current pane
+local spawnTabInCwd = wezterm.action_callback(function(window, pane)
+	local cwd_path = getCwd(pane)
+	window:perform_action(act.SpawnCommandInNewTab({ cwd = cwd_path }), pane)
+end)
+
+map("c", "LEADER", spawnTabInCwd)
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
-map("t", "SHIFT|CTRL", act.SpawnTab("CurrentPaneDomain"))
+map("t", "SHIFT|CTRL", spawnTabInCwd)
 map("n", "SHIFT|CTRL", act.SpawnWindow)
 
 -- ===========================================
@@ -134,12 +174,10 @@ local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/s
 workspace_switcher.zoxide_path = "C:/Users/shiva/.cargo/bin/zoxide.exe"
 
 wezterm.on("gui-startup", function(cmd)
-	local dotfiles_path = wezterm.home_dir .. "/dotfiles"
 	local tab, build_pane, window = wezterm.mux.spawn_window({
-		workspace = "dotfiles",
-		cwd = dotfiles_path,
+		workspace = "default",
+		cwd = wezterm.home_dir,
 	})
-	wezterm.mux.set_active_workspace("dotfiles")
 end)
 
 map("s", "SHIFT|CTRL", workspace_switcher.switch_workspace())
@@ -180,7 +218,7 @@ M.apply = function(c)
 	else
 		c.keys = shortcuts
 	end
-	
+
 	c.disable_default_key_bindings = true
 	c.key_tables = key_tables
 	c.show_new_tab_button_in_tab_bar = false

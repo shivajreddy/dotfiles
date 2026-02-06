@@ -10,11 +10,11 @@ function M.apply(c)
 	-- c.tab_max_width = 16
 
 	c.window_frame = {
-        font = wezterm.font_with_fallback({
-            { family = "Iosevka", weight = "Bold" },
-            { family = "JetBrains Mono", weight = "Bold" },
-            { family = "Noto Sans Mono", weight = "Bold" },
-        }),
+		font = wezterm.font_with_fallback({
+			{ family = "Iosevka", weight = "Bold" },
+			{ family = "JetBrains Mono", weight = "Bold" },
+			{ family = "Noto Sans Mono", weight = "Bold" },
+		}),
 		inactive_titlebar_bg = "#14110F",
 		-- inactive_titlebar_fg = "#2b2042",
 		active_titlebar_bg = "#14110F",

@@ -1,18 +1,31 @@
 # Use this as system profile, so sym link this file to $PSHOME/profile.ps1
-Set-Location ~
+# Note: Removed "Set-Location ~" to allow WezTerm to spawn tabs in current directory
 
 # Turn of the update powershell statement when i open powershell
 $env:POWERSHELL_UPDATECHECK = 'Off'
 
 # ####	ZOXIDE    ####
-Set-Alias z zoxide
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+# Set-Alias z zoxide
+# Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 
 # ####	STARSHIP    ####
 # Location of starship configuration
 $Env:STARSHIP_CONFIG = "$HOME\dotfiles\windows\starship.toml"
 Invoke-Expression (&starship init powershell)
+
+# ####	OSC 7 - Tell WezTerm the current directory    ####
+# This must come AFTER starship init since starship overrides the prompt function
+# This enables WezTerm to know your CWD for spawning new tabs/panes
+$starshipPrompt = $function:prompt
+function prompt {
+    # First emit OSC 7 with current directory
+    $p = $executionContext.SessionState.Path.CurrentLocation.Path
+    $osc7 = "`e]7;file://localhost/$($p -replace '\\', '/')`e\"
+    [Console]::Write($osc7)
+    # Then call starship prompt
+    & $starshipPrompt
+}
 
 
 # ####	ALIASES   ####
@@ -53,26 +66,3 @@ $PSStyle.FileInfo.Directory = ""
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 
 
-# Helper function to reload environment variables and PowerShell profile without opening a new session
-Function rrr {
-    # Save the current directory location so we can return to it after reloading
-    $currentLocation = Get-Location
-
-    # Rebuild the PATH environment variable by combining System PATH and User PATH
-    # This picks up any changes made to PATH in System Properties > Environment Variables
-    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
-    Write-Host "Environment variables reloaded" -ForegroundColor Green
-
-    # Re-source the PowerShell profile to load any config changes
-    # This re-executes all the commands in the profile (aliases, functions, etc.)
-    . "$PSHOME\profile.ps1"
-    Write-Host "Re-Sourced PowerShell Config" -ForegroundColor Green
-
-    # Return to the directory we were in before reloading
-    # (The profile has "Set-Location ~" which would otherwise change our location)
-    Set-Location $currentLocation
-    Write-Host "Re-Located to the current directory" -ForegroundColor Green
-}
-
-# Clear the screen to prevent the powershell version show when opened
-# Clear-Host
