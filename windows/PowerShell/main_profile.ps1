@@ -66,3 +66,36 @@ $PSStyle.FileInfo.Directory = ""
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 
 
+# ####	FUNCTIONS    ####
+# Delete files with reserved names (nul, con, aux, etc.) that AI tools sometimes create
+function Remove-NulFile {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    $fileName = Split-Path -Leaf $FilePath
+    $directory = Split-Path -Parent $FilePath
+    
+    # If no directory specified, use current directory
+    if ([string]::IsNullOrEmpty($directory)) {
+        $directory = (Get-Location).Path
+    } else {
+        $directory = (Resolve-Path $directory).Path
+    }
+    
+    $fullPath = Join-Path $directory $fileName
+    $tempName = "deletefile_$([System.Guid]::NewGuid().ToString('N').Substring(0,8)).txt"
+    $tempPath = Join-Path $directory $tempName
+    
+    # Use \\.\<path> syntax to access the reserved filename
+    $dosDevicePath = "\\.\$fullPath"
+    
+    cmd /c "rename `"$dosDevicePath`" `"$tempName`" && del `"$tempPath`""
+    
+    if (Test-Path $tempPath) {
+        Write-Error "Failed to delete: $FilePath"
+    } else {
+        Write-Host "Successfully deleted: $FilePath"
+    }
+}
