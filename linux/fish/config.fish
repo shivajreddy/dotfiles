@@ -31,6 +31,7 @@ fish_add_path $HOME/go/bin /usr/local/go/bin
 fish_add_path /usr/local/go/bin/
 fish_add_path $HOME/.config/emacs/bin
 fish_add_path /opt/go/bin # this is where i moved the go folder to
+fish_add_path $HOME/.npm-global/bin
 
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
