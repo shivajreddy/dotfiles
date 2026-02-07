@@ -132,7 +132,8 @@ map("Z", "LEADER", toggleTabBar)
 -- COPY & PASTE
 -- ===========================================
 map("v", "LEADER", act.ActivateCopyMode)
-map("p", "SHIFT|CTRL", act.ActivateCopyMode)
+map("p", "LEADER", act.ActivateCopyMode)
+map("p", "SHIFT|CTRL", act.ActivateCommandPalette)
 map("b", "SHIFT|CTRL", act.ScrollToBottom)
 map("c", "SHIFT|CTRL", act.CopyTo("Clipboard"))
 map("v", "SHIFT|CTRL", act.PasteFrom("Clipboard"))
