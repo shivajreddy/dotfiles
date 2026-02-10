@@ -2,6 +2,8 @@
 
 Cross-platform configuration files for Windows, macOS, and Linux.
 
+> `*` = actively used
+
 ## Structure
 
 ```
@@ -29,11 +31,11 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 
 | Tool | Config | Description |
 |------|--------|-------------|
-| [Neovim](https://neovim.io/) | [`common/nvim`](common/nvim) | LazyVim-based config with LSP, smart-splits, yazi |
+| [Neovim](https://neovim.io/) * | [`common/nvim`](common/nvim) | LazyVim-based config with LSP, smart-splits, yazi |
 | [Doom Emacs](https://github.com/doomemacs/doomemacs) | [`common/doom`](common/doom) | Emacs config with evil-mode |
-| [WezTerm](https://wezfurlong.org/wezterm/) | [`common/wezterm`](common/wezterm) | Terminal with workspaces, smart-splits integration |
-| [Starship](https://starship.rs/) | [`common/starship.toml`](common/starship.toml) | Minimal prompt with git, language info |
-| [Yazi](https://yazi-rs.github.io/) | [`common/yazi`](common/yazi) | Terminal file manager |
+| [WezTerm](https://wezfurlong.org/wezterm/) * | [`common/wezterm`](common/wezterm) | Terminal with workspaces, smart-splits integration |
+| [Starship](https://starship.rs/) * | [`common/starship.toml`](common/starship.toml) | Minimal prompt with git, language info |
+| [Yazi](https://yazi-rs.github.io/) * | [`common/yazi`](common/yazi) | Terminal file manager |
 | [btop](https://github.com/aristocratos/btop) | [`common/btop`](common/btop) | Resource monitor |
 
 ---
@@ -44,7 +46,7 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 
 | Tool | Config | Description |
 |------|--------|-------------|
-| Hyprland | [`linux/hypr`](linux/hypr) | Wayland compositor (keybinds, workspaces, decorations) |
+| [Hyprland](https://hyprland.org/) * | [`linux/hypr`](linux/hypr) | Wayland compositor (keybinds, workspaces, decorations) |
 | [Waybar](https://github.com/Alexays/Waybar) | [`linux/waybar`](linux/waybar) | Status bar |
 | [Rofi](https://github.com/davatorium/rofi) | [`linux/rofi`](linux/rofi) | App launcher |
 | [Dunst](https://dunst-project.org/) | [`linux/dunst`](linux/dunst) | Notifications |
@@ -59,15 +61,13 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 
 ## macOS
 
-**Window Manager:** [AeroSpace](https://github.com/nikitabobko/AeroSpace)
-
 | Tool | Config | Description |
 |------|--------|-------------|
-| AeroSpace | [`macos/aerospace`](macos/aerospace) | i3-like tiling WM |
+| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | [`macos/aerospace`](macos/aerospace) | i3-like tiling WM |
 | [Karabiner](https://karabiner-elements.pqrs.org/) | [`macos/karabiner`](macos/karabiner) | Keyboard remapping |
 | [Kanata](https://github.com/jtroo/kanata) | [`macos/kanata`](macos/kanata) | Advanced key remapping |
 | [skhd](https://github.com/koekeishiya/skhd) | [`macos/skhd`](macos/skhd) | Hotkey daemon |
-| [yabai](https://github.com/koekeishiya/yabai) | [`macos/yabai`](macos/yabai) | Tiling WM (legacy) |
+| [yabai](https://github.com/koekeishiya/yabai) * | [`macos/yabai`](macos/yabai) | Tiling WM |
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | [`macos/kitty`](macos/kitty) | Terminal |
 | [Alacritty](https://alacritty.org/) | [`macos/alacritty`](macos/alacritty) | GPU terminal |
 | [tmux](https://github.com/tmux/tmux) | [`macos/tmux`](macos/tmux) | Terminal multiplexer |
@@ -81,16 +81,17 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 
 | Tool | Config | Description |
 |------|--------|-------------|
-| [PowerShell](https://github.com/PowerShell/PowerShell) | [`windows/PowerShell`](windows/PowerShell) | Shell profile |
+| [PowerShell](https://github.com/PowerShell/PowerShell) * | [`windows/PowerShell`](windows/PowerShell) | Shell profile |
+| [WezTerm](https://wezfurlong.org/wezterm/) * | [`common/wezterm`](common/wezterm) | Terminal (uses common config) |
 | [Windows Terminal](https://github.com/microsoft/terminal) | [`windows/terminal`](windows/terminal) | Terminal settings |
 | [Alacritty](https://alacritty.org/) | [`windows/alacritty`](windows/alacritty) | GPU terminal |
-| [Kanata](https://github.com/jtroo/kanata) | [`windows/kanata`](windows/kanata) | Keyboard remapping |
+| [Kanata](https://github.com/jtroo/kanata) * | [`windows/kanata`](windows/kanata) | Keyboard remapping |
 | [AutoHotkey](https://www.autohotkey.com/) | [`windows/ahk`](windows/ahk) | Automation scripts |
-| [tacky-borders](https://github.com/lukeyou05/tacky-borders) | [`windows/tacky-borders`](windows/tacky-borders) | Window borders |
+| [tacky-borders](https://github.com/lukeyou05/tacky-borders) * | [`windows/tacky-borders`](windows/tacky-borders) | Window borders |
 | [GlazeWM](https://github.com/glzr-io/glazewm) | [`windows/glzr`](windows/glzr) | Tiling WM |
-| [Visual Studio](https://visualstudio.microsoft.com/) | [`windows/visual-studio`](windows/visual-studio) | IDE settings |
-| Neovim | [`windows/nvim`](windows/nvim) | Windows-specific nvim |
-| WSL | [`windows/wsl`](windows/wsl) | WSL configs |
+| [Visual Studio](https://visualstudio.microsoft.com/) * | [`windows/visual-studio`](windows/visual-studio) | IDE settings |
+| [Neovim](https://neovim.io/) * | [`windows/nvim`](windows/nvim) | Windows-specific nvim |
+| [WSL](https://learn.microsoft.com/en-us/windows/wsl/) * | [`windows/wsl`](windows/wsl) | WSL configs |
 
 ---
 
