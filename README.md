@@ -32,11 +32,11 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 | Tool | Config | Description |
 |------|--------|-------------|
 | [Neovim](https://neovim.io/) * | [`common/nvim`](common/nvim) | LazyVim-based config with LSP, smart-splits, yazi |
-| [Doom Emacs](https://github.com/doomemacs/doomemacs) | [`common/doom`](common/doom) | Emacs config with evil-mode |
+| [Doom Emacs](https://github.com/doomemacs/doomemacs) * | [`common/doom`](common/doom) | Emacs config with evil-mode |
 | [WezTerm](https://wezfurlong.org/wezterm/) * | [`common/wezterm`](common/wezterm) | Terminal with workspaces, smart-splits integration |
 | [Starship](https://starship.rs/) * | [`common/starship.toml`](common/starship.toml) | Minimal prompt with git, language info |
 | [Yazi](https://yazi-rs.github.io/) * | [`common/yazi`](common/yazi) | Terminal file manager |
-| [btop](https://github.com/aristocratos/btop) | [`common/btop`](common/btop) | Resource monitor |
+| [btop](https://github.com/aristocratos/btop) * | [`common/btop`](common/btop) | Resource monitor |
 
 ---
 
@@ -88,7 +88,7 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 | [Kanata](https://github.com/jtroo/kanata) * | [`windows/kanata`](windows/kanata) | Keyboard remapping |
 | [AutoHotkey](https://www.autohotkey.com/) | [`windows/ahk`](windows/ahk) | Automation scripts |
 | [tacky-borders](https://github.com/lukeyou05/tacky-borders) * | [`windows/tacky-borders`](windows/tacky-borders) | Window borders |
-| [GlazeWM](https://github.com/glzr-io/glazewm) | [`windows/glzr`](windows/glzr) | Tiling WM |
+| [GlazeWM](https://github.com/glzr-io/glazewm) * | [`windows/glzr`](windows/glzr) | Tiling WM |
 | [Visual Studio](https://visualstudio.microsoft.com/) * | [`windows/visual-studio`](windows/visual-studio) | IDE settings |
 | [Neovim](https://neovim.io/) * | [`windows/nvim`](windows/nvim) | Windows-specific nvim |
 | [WSL](https://learn.microsoft.com/en-us/windows/wsl/) * | [`windows/wsl`](windows/wsl) | WSL configs |
