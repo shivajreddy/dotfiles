@@ -30,6 +30,7 @@ ln -s ~/.dotfiles/common/wezterm ~/.config/wezterm
 | Tool | Config | Description |
 |------|--------|-------------|
 | [Neovim](https://neovim.io/) | [`common/nvim`](common/nvim) | LazyVim-based config with LSP, smart-splits, yazi |
+| [Doom Emacs](https://github.com/doomemacs/doomemacs) | [`common/doom`](common/doom) | Emacs config with evil-mode |
 | [WezTerm](https://wezfurlong.org/wezterm/) | [`common/wezterm`](common/wezterm) | Terminal with workspaces, smart-splits integration |
 | [Starship](https://starship.rs/) | [`common/starship.toml`](common/starship.toml) | Minimal prompt with git, language info |
 | [Yazi](https://yazi-rs.github.io/) | [`common/yazi`](common/yazi) | Terminal file manager |
