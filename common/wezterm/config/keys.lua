@@ -1,14 +1,10 @@
----@type wezterm
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("config.utils")
 
 local shortcuts = {}
 
----@param key string
----@param mods string|string[]
----@param action wezterm.Action
-local map = function(key, mods, action)
+local function map(key, mods, action)
 	if type(mods) == "string" then
 		table.insert(shortcuts, { key = key, mods = mods, action = action })
 	elseif type(mods) == "table" then
@@ -18,13 +14,14 @@ local map = function(key, mods, action)
 	end
 end
 
--- Helper functions
+-- Helper: Toggle tab bar
 local toggleTabBar = wezterm.action_callback(function(window)
 	window:set_config_overrides({
 		enable_tab_bar = not window:effective_config().enable_tab_bar,
 	})
 end)
 
+-- Helper: Open URL under cursor
 local openUrl = act.QuickSelectArgs({
 	label = "open url",
 	patterns = { "https?://\\S+" },
@@ -34,6 +31,7 @@ local openUrl = act.QuickSelectArgs({
 	end),
 })
 
+-- Helper: Rename tab
 local renameTab = act.PromptInputLine({
 	description = "Enter new name for tab",
 	action = wezterm.action_callback(function(window, _, line)
@@ -43,14 +41,7 @@ local renameTab = act.PromptInputLine({
 	end),
 })
 
--- ===========================================
--- SPLITS
--- ===========================================
--- Note: smart-splits integration is loaded in wezterm.lua via plugin loader
--- Custom split actions that inherit CWD from current pane
--- ===========================================
-
--- Helper function to convert Unix-style path (/C:/...) to Windows-style (C:\...)
+-- Helper: Convert Unix path to Windows path
 local function toWindowsPath(path)
 	if path:sub(1, 1) == "/" then
 		path = path:sub(2)
@@ -58,7 +49,7 @@ local function toWindowsPath(path)
 	return path:gsub("/", "\\")
 end
 
--- Helper to get Windows-formatted CWD from pane
+-- Helper: Get CWD from pane
 local function getCwd(pane)
 	local cwd = pane:get_current_working_dir()
 	if cwd then
@@ -67,6 +58,15 @@ local function getCwd(pane)
 	return nil
 end
 
+-- Helper: Spawn tab in current directory
+local spawnTabInCwd = wezterm.action_callback(function(window, pane)
+	local cwd_path = getCwd(pane)
+	window:perform_action(act.SpawnCommandInNewTab({ cwd = cwd_path }), pane)
+end)
+
+-- ===========================================
+-- SPLITS (inherit CWD)
+-- ===========================================
 map(
 	'"',
 	"SHIFT|LEADER",
@@ -88,11 +88,9 @@ map(
 -- ===========================================
 -- TAB NAVIGATION
 -- ===========================================
--- Ctrl+Tab / Ctrl+Shift+Tab to cycle through tabs
 map("Tab", "CTRL", act.ActivateTabRelative(1))
 map("Tab", "SHIFT|CTRL", act.ActivateTabRelative(-1))
 
--- Ctrl + 1-9 to switch to tabs 1-9, Ctrl+0 for tab 10
 for i = 1, 9 do
 	map(tostring(i), "CTRL", act.ActivateTab(i - 1))
 end
@@ -101,8 +99,6 @@ map("0", "CTRL", act.ActivateTab(9))
 -- ===========================================
 -- PANE NAVIGATION
 -- ===========================================
--- Note: Ctrl+h/j/k/l handled by smart-splits integration above
--- Leader+h/j/k/l kept as fallback
 map("h", "LEADER", act.ActivatePaneDirection("Left"))
 map("j", "LEADER", act.ActivatePaneDirection("Down"))
 map("k", "LEADER", act.ActivatePaneDirection("Up"))
@@ -111,12 +107,6 @@ map("l", "LEADER", act.ActivatePaneDirection("Right"))
 -- ===========================================
 -- SPAWN & CLOSE
 -- ===========================================
--- Custom spawn action that inherits CWD from current pane
-local spawnTabInCwd = wezterm.action_callback(function(window, pane)
-	local cwd_path = getCwd(pane)
-	window:perform_action(act.SpawnCommandInNewTab({ cwd = cwd_path }), pane)
-end)
-
 map("c", "LEADER", spawnTabInCwd)
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
 map("t", "SHIFT|CTRL", spawnTabInCwd)
@@ -198,16 +188,11 @@ end
 -- ===========================================
 local M = {}
 
-M.apply = function(c)
-	if not c then
-		error("Configuration 'c' is nil. Please pass a valid config.")
-	end
-
+function M.apply(c)
 	-- Leader key
 	if utils.is_windows() then
 		c.leader = { key = "t", mods = "CTRL", timeout_milliseconds = math.maxinteger }
-	end
-	if utils.is_darwin() then
+	elseif utils.is_darwin() then
 		c.leader = { key = "t", mods = "CMD", timeout_milliseconds = math.maxinteger }
 	end
 
@@ -222,7 +207,6 @@ M.apply = function(c)
 
 	c.disable_default_key_bindings = true
 	c.key_tables = key_tables
-	c.show_new_tab_button_in_tab_bar = false
 end
 
 return M

@@ -3,243 +3,108 @@ local wezterm = require("wezterm")
 local M = {}
 
 function M.apply(c)
-	c.hide_tab_bar_if_only_one_tab = false
-	c.tab_bar_at_bottom = true
-	c.use_fancy_tab_bar = true
-	c.tab_and_split_indices_are_zero_based = true
-	-- c.tab_max_width = 16
+	-- Font configuration
+	c.font_size = 14
+	c.font = wezterm.font_with_fallback({
+		{ family = "Iosevka Nerd Font", weight = "Regular" },
+		{ family = "JetBrains Mono", weight = "Bold" },
+		{ family = "Noto Sans Mono", weight = "Bold" },
+	})
 
+	-- Color scheme base
+	c.color_scheme = "Catppuccin Mocha"
+
+	-- Custom colors
+	c.colors = {
+		background = "#000000",
+		cursor_bg = "#DA3B01",
+		cursor_fg = "#000000",
+		tab_bar = {
+			background = "#111111",
+			active_tab = {
+				bg_color = "#DA3B01",
+				fg_color = "#000000",
+			},
+			inactive_tab = {
+				bg_color = "#1b1b1b",
+				fg_color = "#888888",
+			},
+			inactive_tab_hover = {
+				bg_color = "#222222",
+				fg_color = "#ffffff",
+			},
+		},
+	}
+
+	-- Window appearance
+	c.window_background_opacity = 0.90
+	c.window_decorations = "RESIZE"
+	c.initial_cols = 120
+	c.initial_rows = 28
+
+	-- Window frame (titlebar)
 	c.window_frame = {
 		font = wezterm.font_with_fallback({
-			{ family = "Iosevka", weight = "Bold" },
+			{ family = "Iosevka Nerd Font", weight = "Regular" },
 			{ family = "JetBrains Mono", weight = "Bold" },
 			{ family = "Noto Sans Mono", weight = "Bold" },
 		}),
-		inactive_titlebar_bg = "#14110F",
-		-- inactive_titlebar_fg = "#2b2042",
-		active_titlebar_bg = "#14110F",
-		-- active_titlebar_fg = "#2b2042",
-		inactive_titlebar_fg = "#cccccc",
-		inactive_titlebar_border_bottom = "#2b2042",
-		active_titlebar_border_bottom = "#2b2042",
-		button_fg = "#cccccc",
-		button_bg = "#2b2042",
-		button_hover_fg = "#ffffff",
-		button_hover_bg = "#3b3052",
+		font_size = 11.0,
+		active_titlebar_bg = "#000000",
+		inactive_titlebar_bg = "#000000",
 	}
 
-	c.window_background_opacity = 0.90
+	-- Tab bar
+	c.use_fancy_tab_bar = false
+	c.tab_bar_at_bottom = true
+	c.show_new_tab_button_in_tab_bar = false
 
-	-- Overrides the themes colors
-	c.colors = {
-		-- background = "#111019", -- catpuccin black
-		-- background = "#14110F", -- smoky black
-		background = "#0e0a01", -- rosepine burnt
-		cursor_fg = "#191724",
-		cursor_bg = "#ebbcba",
-
-		-- Same as Visual Studio
-		cursor_fg = "#0e0a01",
-		cursor_bg = "#EA9D34",
-	}
-
-	-- The filled in variant of the < symbol
-	local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-
-	-- The filled in variant of the > symbol
-	local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
+	-- Pane settings
 	c.inactive_pane_hsb = {
 		saturation = 1,
 		brightness = 1,
 	}
-
-	c.colors.tab_bar = {
-		-- background = "#1f1d2e",
-		background = "rgba(0,0,0,0)",
-
-		active_tab = {
-			-- bg_color = "#1C1825",
-			bg_color = "#ea9d34",
-			fg_color = "#0e0a01",
-
-			intensity = "Bold",
-			underline = "None",
-			strikethrough = false,
-			italic = false,
-		},
-
-		inactive_tab = {
-			-- bg_color = "#1f1d2e",
-			bg_color = "rgba(0,0,0,0)",
-			fg_color = "#808080",
-		},
-
-		inactive_tab_hover = {
-			bg_color = "#1C1825",
-			fg_color = "#808080",
-			italic = false,
-		},
-
-		new_tab = {
-			bg_color = "#09080C",
-			fg_color = "#c0c0c0",
-		},
-
-		new_tab_hover = {
-			bg_color = "#09080C",
-			fg_color = "#c0c0c0",
-			italic = false,
-		},
-	}
 end
 
+-- Format tab titles
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = tab.active_pane.title
+	title = title:gsub("^Copy mode: ", "")
+	local tab_number = tab.tab_index + 1
+
+	if tab.is_active then
+		return {
+			{ Attribute = { Intensity = "Bold" } },
+			{ Text = " " .. tab_number .. " " .. title .. " " },
+		}
+	else
+		return {
+			{ Text = " " .. tab_number .. " " .. title .. " " },
+		}
+	end
+end)
+
+-- Status bar (LEADER and COPY MODE indicators)
 wezterm.on("update-right-status", function(window, pane)
-	-- Each element holds the text for a cell in a "powerline" style << fade
-	local cells = {}
+	local status = {}
 
-	-- Figure out the cwd and host of the current pane.
-	local cwd_uri = pane:get_current_working_dir()
-	if cwd_uri then
-		local cwd = ""
-		local hostname = ""
-		local home = wezterm.home_dir
+	table.insert(status, { Attribute = { Intensity = "Bold" } })
 
-		if type(cwd_uri) == "userdata" then
-			-- Running on a newer version of wezterm and we have
-			-- a URL object here, making this simple!
-			cwd = cwd_uri.file_path
-			hostname = cwd_uri.host or wezterm.hostname()
-		else
-			-- Older version of wezterm
-			cwd_uri = cwd_uri:sub(8)
-			local slash = cwd_uri:find("/")
-			if slash then
-				hostname = cwd_uri:sub(1, slash - 1)
-				cwd = cwd_uri:sub(slash):gsub("%%(%x%x)", function(hex)
-					return string.char(tonumber(hex, 16))
-				end)
-			end
-		end
-
-		-- Remove the domain name portion of the hostname
-		local dot = hostname:find("[.]")
-		if dot then
-			hostname = hostname:sub(1, dot - 1)
-		end
-		if hostname == "" then
-			hostname = wezterm.hostname()
-		end
-
-		-- Replace the home directory path with ~
-		if cwd:sub(1, 11) == "/home/shiva" or cwd:sub(1, 11) == "/Users/smbp" then
-			cwd = "~" .. cwd:sub(12)
-		end
-
-		-- table.insert(cells, cwd)
-
-		-- FIX: use current workspace as the 1st cell, instead of cwd
-		-- print the workspace name at the upper right
-		-- window:set_right_status(window:active_workspace())
-		-- table.insert(cells, { Foreground = { Color = "#ea9d34" } })
-		table.insert(cells, { text = window:active_workspace() })
-
-		table.insert(cells, hostname)
+	local name = window:active_key_table()
+	if name then
+		local display_name = name:upper():gsub("_", " ")
+		table.insert(status, { Foreground = { Color = "#000000" } })
+		table.insert(status, { Background = { Color = "#a6e3a1" } })
+		table.insert(status, { Text = " " .. display_name .. " " })
 	end
-
-	-- Date/Time in the style: "Wed Mar 3 08:14"
-	local date = wezterm.strftime("%a %b %-d %H:%M  ")
-	table.insert(cells, { text = date, is_date = true })
-
-	-- Add battery info if available
-	for _, b in ipairs(wezterm.battery_info()) do
-		table.insert(cells, string.format("%.0f%%", b.state_of_charge * 100))
-	end
-
-	-- Powerline symbols
-	local LEFT_ARROW = utf8.char(0xe0b3)
-	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-
-	-- Color palette for the backgrounds of each cell
-	local colors = {
-		"#101019",
-		"#191724",
-		"#1f1d2e",
-		"#3c1361",
-		"#52307c",
-		"#663a82",
-		"#7c5295",
-		"#b491c8",
-	}
-	local foregroundColors = {
-		"#ea9d34",
-		"#c0c0c0",
-		"#c0c0c0",
-		"#c0c0c0",
-		"#c0c0c0",
-		"#c0c0c0",
-		"#c0c0c0",
-	}
-
-	-- Foreground colors
-	-- local text_fg = "#c0c0c0"
-	-- local text_fg = "#ea9d34"
-	local date_fg = "#ebbcba"
-
-	-- Elements to be formatted
-	local elements = {}
-	local num_cells = 0
-
-	-- Translate a cell into elements
-	function push(cell, is_last)
-		local cell_no = num_cells + 1
-		local cell_text = cell.text or cell
-		-- local fg_color = cell.is_date and date_fg or text_fg
-
-		if cell_no == 1 then
-			table.insert(elements, { Foreground = { Color = colors[cell_no] } })
-			table.insert(elements, { Text = SOLID_LEFT_ARROW })
-		end
-		table.insert(elements, { Foreground = { Color = foregroundColors[cell_no] } })
-		table.insert(elements, { Background = { Color = colors[cell_no] } })
-		table.insert(elements, { Text = " " .. cell_text .. " " })
-
-		if not is_last then
-			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
-			table.insert(elements, { Text = SOLID_LEFT_ARROW })
-		end
-		num_cells = num_cells + 1
-	end
-
-	-- Process cells
-	while #cells > 0 do
-		local cell = table.remove(cells, 1)
-		push(cell, #cells == 0)
-	end
-
-	-- Set the right status with the formatted elements
-	window:set_right_status(wezterm.format(elements))
-
-	-- Show the active state of LEADER key
-	local LEFT_ARROW_LEADER = "" -- Renamed to avoid conflict
-	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
-	local prefix = ""
 
 	if window:leader_is_active() then
-		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
-		LEFT_ARROW_LEADER = utf8.char(0xe0b2)
+		table.insert(status, { Foreground = { Color = "#000000" } })
+		table.insert(status, { Background = { Color = "#f9e2af" } })
+		table.insert(status, { Text = " LEADER " })
 	end
 
-	if window:active_tab():tab_id() ~= 0 then
-		ARROW_FOREGROUND = { Foreground = { Color = "#1e2030" } }
-	end -- arrow color based on if tab is first pane
-
-	window:set_left_status(wezterm.format({
-		{ Background = { Color = "#b7bdf8" } },
-		{ Text = prefix },
-		ARROW_FOREGROUND,
-		{ Text = LEFT_ARROW_LEADER },
-	}))
+	window:set_right_status(wezterm.format(status))
 end)
 
 return M
