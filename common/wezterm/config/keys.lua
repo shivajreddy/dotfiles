@@ -1,6 +1,18 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("config.utils")
+local session_manager = require("wezterm-session-manager/session-manager")
+
+-- Session manager event bindings
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
 
 local shortcuts = {}
 
@@ -175,6 +187,55 @@ map("s", "SHIFT|CTRL", workspace_switcher.switch_workspace())
 map("y", "SHIFT|CTRL", act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
 map("u", "SHIFT|CTRL", act.SwitchWorkspaceRelative(1))
 map("i", "SHIFT|CTRL", act.SwitchWorkspaceRelative(-1))
+
+-- ===========================================
+-- SESSION MANAGEMENT (save/load/restore)
+-- ===========================================
+map("S", "LEADER", act.EmitEvent("save_session"))
+map("L", "LEADER", act.EmitEvent("load_session"))
+map("R", "LEADER", act.EmitEvent("restore_session"))
+
+-- ===========================================
+-- WORKSPACE RENAME & DELETE
+-- ===========================================
+-- Rename current workspace
+local renameWorkspace = act.PromptInputLine({
+	description = "Enter new name for workspace",
+	action = wezterm.action_callback(function(window, pane, line)
+		if line then
+			wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+		end
+	end),
+})
+map("$", "LEADER", renameWorkspace) -- Shift+4 = $ (like tmux rename session)
+
+-- Delete/close current workspace (closes all tabs/panes in workspace)
+local deleteWorkspace = wezterm.action_callback(function(window, pane)
+	local current_workspace = window:active_workspace()
+	local workspaces = wezterm.mux.get_workspace_names()
+
+	-- Don't delete if it's the only workspace
+	if #workspaces <= 1 then
+		wezterm.log_info("Cannot delete the only workspace")
+		return
+	end
+
+	-- Switch to another workspace first
+	for _, ws in ipairs(workspaces) do
+		if ws ~= current_workspace then
+			window:perform_action(act.SwitchToWorkspace({ name = ws }), pane)
+			break
+		end
+	end
+
+	-- Close all windows in the old workspace
+	for _, mux_win in ipairs(wezterm.mux.all_windows()) do
+		if mux_win:get_workspace() == current_workspace then
+			mux_win:gui_window():perform_action(act.CloseCurrentTab({ confirm = false }), mux_win:active_pane())
+		end
+	end
+end)
+map("X", "LEADER", deleteWorkspace) -- Shift+x to delete workspace
 
 -- ===========================================
 -- MAC SPECIFIC
