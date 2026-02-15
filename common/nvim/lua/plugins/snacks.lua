@@ -5,6 +5,12 @@ return {
   ---@class snacks.indent.Config
   ---@field enabled? boolean
   opts = {
+    terminal = {
+      shell = { "pwsh", "-NoLogo" },
+      win = {
+        wo = { winbar = "" },
+      },
+    },
     indent = {
       enabled = false, --default is true, disable if using 'indent-blankline' plugin
     },

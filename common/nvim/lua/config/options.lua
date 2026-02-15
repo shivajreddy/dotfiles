@@ -22,6 +22,15 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 local is_wsl = vim.fn.has("wsl") == 1
 local sysname = vim.loop.os_uname().sysname
+
+-- Use pwsh as the terminal shell on Windows
+if sysname == "Windows_NT" then
+  LazyVim.terminal.setup("pwsh")
+end
+
+-- Disable cursor blinking
+vim.opt.guicursor:append("a:blinkon0")
+
 if is_wsl or sysname == "Windows_NT" then
   vim.g.clipboard = {
     name = "win32yank",
