@@ -328,7 +328,7 @@ vim.keymap.set(
 )
 
 -- Terminal position: global default, changed per session via <leader>tp
-vim.g.snacks_terminal_position = "right"
+vim.g.snacks_terminal_position = "bottom"
 
 -- Override C-/ to use the session position
 vim.keymap.set({ "n", "t" }, "<C-/>", function()
@@ -362,7 +362,6 @@ end, { desc = "Replace brackets [ ] → braces { }" })
 vim.keymap.set("n", "<leader>rq", function()
   vim.cmd([[%s/"/'/g]])
 end, { desc = "Replace double quotes → single quotes" })
-
 
 --[[ actual commands for cleaning up brackets in dsa
 %s/\{/{/g
