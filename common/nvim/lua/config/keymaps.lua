@@ -327,6 +327,27 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Open man page for word under cursor" }
 )
 
+-- Terminal position: global default, changed per session via <leader>tp
+vim.g.snacks_terminal_position = "right"
+
+-- Override C-/ to use the session position
+vim.keymap.set({ "n", "t" }, "<C-/>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = vim.g.snacks_terminal_position } })
+end, { desc = "Terminal (Root Dir)" })
+vim.keymap.set({ "n", "t" }, "<C-_>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = vim.g.snacks_terminal_position } })
+end, { desc = "Terminal (Root Dir)" })
+
+-- Pick terminal position for current session
+vim.keymap.set("n", "<leader>tp", function()
+  vim.ui.select({ "right", "bottom", "top", "left" }, { prompt = "Terminal position:" }, function(choice)
+    if choice then
+      vim.g.snacks_terminal_position = choice
+      vim.notify("Terminal position → " .. choice, vim.log.levels.INFO)
+    end
+  end)
+end, { desc = "Pick terminal position" })
+
 -- Comment toggle
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "Comment toggle current line", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Comment toggle selection", remap = true })
