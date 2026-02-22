@@ -134,8 +134,8 @@ workspaces:
     # bind_to_monitor: 1
   - name: '8'
     bind_to_monitor: 0
-  # - name: '9'
-    # bind_to_monitor: 0
+  - name: '9'
+    bind_to_monitor: 0
 
 # ########################
 # use winspy from autohotkey to look the names, it shows the 
@@ -352,8 +352,8 @@ keybindings:
   #   bindings: ['alt+7']
   - commands: ['focus --workspace 8']
     bindings: ['alt+8']
-  # - commands: ['focus --workspace 9']
-  #   bindings: ['alt+9']
+  - commands: ['focus --workspace 9']
+    bindings: ['alt+9']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction
