@@ -238,6 +238,11 @@ end)
 map("X", "LEADER", deleteWorkspace) -- Shift+x to delete workspace
 
 -- ===========================================
+-- SHIFT+ENTER (send CSI-u encoded sequence)
+-- ===========================================
+map("Enter", "SHIFT", act.SendString("\x1b[13;2u"))
+
+-- ===========================================
 -- MAC SPECIFIC
 -- ===========================================
 if utils.is_darwin() then
