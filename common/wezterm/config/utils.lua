@@ -62,40 +62,61 @@ end
 M.get_current_working_dir = function(tab)
 	local current_dir = tab.active_pane.current_working_dir
 
-	-- DEBUG: Log the current working directory info
-	wezterm.log_info("DEBUG: current_working_dir type: " .. type(current_dir))
-	wezterm.log_info("DEBUG: current_working_dir value: " .. tostring(current_dir))
-	if current_dir then
-		if type(current_dir) == "table" then
-			wezterm.log_info("DEBUG: current_working_dir.file_path: " .. tostring(current_dir.file_path))
-		end
-	end
-
 	if current_dir == nil then
-		return "."
+		return nil
 	end
 
-	local HOME_DIR = string.format("file://%s", wezterm.home_dir)
-
-	if type(current_dir) == "string" then
-		return current_dir == HOME_DIR and "~" or string.gsub(current_dir, "(.*[/\\])(.*)", "%2")
-	elseif type(current_dir) == "table" and current_dir.file_path then
-		local path = current_dir.file_path
-		return path == wezterm.home_dir and "~" or string.gsub(path, "(.*[/\\])(.*)", "%2")
+	-- Extract the path string from either a URL object or plain string
+	local path
+	if type(current_dir) == "table" and current_dir.file_path then
+		path = current_dir.file_path
+	elseif type(current_dir) == "string" then
+		path = current_dir
 	else
-		return "."
+		-- Try tostring as last resort (URL objects support this)
+		path = tostring(current_dir)
 	end
+
+	-- Strip file:// prefix if present
+	path = path:gsub("^file://[^/]*", "")
+
+	-- Strip trailing slashes
+	path = path:gsub("[/\\]+$", "")
+
+	-- Check if home directory
+	local home = wezterm.home_dir:gsub("[/\\]+$", "")
+	if path == home then
+		return "~"
+	end
+
+	-- Return just the last folder name
+	local basename = path:match("([^/\\]+)$")
+	return basename or path
 end
 
--- Function to retrieve the tab title or fall back to the active pane's working directory
+-- Function to retrieve the tab title
+-- Priority: explicit tab title > CWD folder name > pane title (process name)
 M.tab_title = function(tab_info)
 	local title = tab_info.tab_title
 	-- If the tab title is explicitly set, return that
 	if title and #title > 0 then
 		return title
 	end
-	-- Otherwise, return the active pane's current working directory
-	return "❯ " .. M.get_current_working_dir(tab_info)
+	-- Try the current working directory
+	local cwd = M.get_current_working_dir(tab_info)
+	if cwd then
+		return cwd
+	end
+	-- Fall back to the active pane's title (process name), cleaned up
+	local pane_title = tab_info.active_pane.title or ""
+	-- Strip common Windows path prefixes to just get the process name
+	pane_title = pane_title:gsub(".*[/\\]", "")
+	-- Remove .exe suffix
+	pane_title = pane_title:gsub("%.exe$", "")
+	if #pane_title > 0 then
+		return pane_title
+	end
+	return "shell"
 end
 
 return M

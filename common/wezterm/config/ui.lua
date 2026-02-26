@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local utils = require("config.utils")
 
 local M = {}
 
@@ -37,7 +38,9 @@ function M.apply(c)
 	}
 
 	-- Window appearance
-	c.window_background_opacity = 0.90
+	c.window_background_opacity = 0.50
+	c.win32_system_backdrop = "Tabbed"
+	c.macos_window_background_blur = 20
 	c.window_decorations = "RESIZE"
 	c.initial_cols = 120
 	c.initial_rows = 28
@@ -58,6 +61,7 @@ function M.apply(c)
 	c.use_fancy_tab_bar = false
 	c.tab_bar_at_bottom = true
 	c.show_new_tab_button_in_tab_bar = false
+	c.tab_max_width = 32
 
 	-- Pane settings
 	c.inactive_pane_hsb = {
@@ -67,19 +71,50 @@ function M.apply(c)
 end
 
 -- Format tab titles
+local TAB_FIXED_WIDTH = 20
+local ZOOM_ICON = wezterm.nerdfonts.cod_search .. " "
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local title = tab.active_pane.title
+	local title = utils.tab_title(tab)
 	title = title:gsub("^Copy mode: ", "")
 	local tab_number = tab.tab_index + 1
+
+	-- Show zoom indicator when pane is zoomed
+	local is_zoomed = tab.active_pane.is_zoomed
+	local prefix = " " .. tab_number .. " " .. (is_zoomed and ZOOM_ICON or "")
+	local suffix = " "
+
+	-- Calculate display widths
+	local prefix_width = wezterm.column_width(prefix)
+	local suffix_width = wezterm.column_width(suffix)
+	local title_width = wezterm.column_width(title)
+	local total_width = prefix_width + title_width + suffix_width
+
+	-- Truncate title if over fixed width
+	if total_width > TAB_FIXED_WIDTH then
+		local available = TAB_FIXED_WIDTH - prefix_width - suffix_width - 1 -- 1 for ellipsis
+		title = wezterm.truncate_right(title, available) .. "…"
+	end
+
+	-- Pad to fixed width
+	local content = prefix .. title .. suffix
+	local content_width = wezterm.column_width(content)
+	if content_width < TAB_FIXED_WIDTH then
+		content = content .. string.rep(" ", TAB_FIXED_WIDTH - content_width)
+	end
 
 	if tab.is_active then
 		return {
 			{ Attribute = { Intensity = "Bold" } },
-			{ Text = " " .. tab_number .. " " .. title .. " " },
+			{ Text = content },
+			{ Background = { Color = "#111111" } },
+			{ Text = " " },
 		}
 	else
 		return {
-			{ Text = " " .. tab_number .. " " .. title .. " " },
+			{ Text = content },
+			{ Background = { Color = "#111111" } },
+			{ Text = " " },
 		}
 	end
 end)
