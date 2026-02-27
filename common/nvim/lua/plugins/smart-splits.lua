@@ -6,7 +6,9 @@ return {
     ignored_filetypes = {},
     -- Default is to wrap, which will move to wezterm when at actual edge
     -- If you want explicit control, remove this line or use a function
-    at_edge = "stop", -- wrap split stop
+    at_edge = "wrap",
+    -- Allow navigating to wezterm panes even when the current pane is zoomed
+    disable_multiplexer_nav_when_zoomed = false,
   },
   keys = {
     -- stylua: ignore start
