@@ -38,9 +38,10 @@ function M.apply(c)
 	}
 
 	-- Window appearance
-	c.window_background_opacity = 0.50
-	c.win32_system_backdrop = "Tabbed"
-	c.macos_window_background_blur = 20
+	c.front_end = "WebGpu"
+	-- c.window_background_opacity = 0.50
+	-- c.win32_system_backdrop = "Tabbed"
+	-- c.macos_window_background_blur = 20
 	c.window_decorations = "RESIZE"
 	c.initial_cols = 120
 	c.initial_rows = 28
