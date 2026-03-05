@@ -37,7 +37,10 @@ Set-Alias -Name ff -Value fastfetch
 
 
 Set-Alias -Name cc -Value claude
-Set-Alias -Name oo -Value opencode
+# Set-Alias -Name oo -Value opencode
+function oo {
+        opencode -c
+    }
 
 Function wu {
     winget upgrade --all --include-unknown
