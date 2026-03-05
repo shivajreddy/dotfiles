@@ -64,6 +64,9 @@ function M.apply(c)
 	c.show_new_tab_button_in_tab_bar = false
 	c.tab_max_width = 32
 
+	-- Suppress ESC glyph warning (from CSI-u encoded sequences)
+	c.warn_about_missing_glyphs = false
+
 	-- Pane settings
 	c.inactive_pane_hsb = {
 		saturation = 1,
