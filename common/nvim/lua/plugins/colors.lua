@@ -304,10 +304,10 @@ return {
     opts = {
       -- colorscheme = "base16-black-metal", -- tinted-vim (base16)
       -- colorscheme = "kanagawa",
-      colorscheme = "gruber-darker",
+      -- colorscheme = "gruber-darker",
       -- colorscheme = "kanagawa-paper",
       -- colorscheme = "catppuccin",
-      -- colorscheme = "emperor", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      colorscheme = "taake", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
   },

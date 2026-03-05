@@ -111,6 +111,7 @@ vim.opt.listchars = {
 }
 
 -- Show signcolumn(signcolumn is used to show the gutter symbols)
-vim.opt.signcolumn = "no" -- "yes" "no"
+-- "auto" = only show when marks/signs exist, "yes" = always show, "no" = never show
+vim.opt.signcolumn = "yes"
 -- Add a gutter line next to line number
 -- vim.opt.statuscolumn = "%=" .. "%{printf('%3s', v:relnum ? v:relnum : v:lnum)} ▕"
