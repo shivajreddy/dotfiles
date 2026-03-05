@@ -28,7 +28,7 @@
       "presets": [
         {
           "name": "default",
-          "anchor": "bottom_center",
+          "anchor": "top_center",
           "offsetX": "0px",
           "offsetY": "0px",
           "width": "100%",
@@ -37,8 +37,8 @@
             "type": "all"
           },
           "dockToEdge": {
-            "enabled": true,
-            "edge": "bottom",
+            "enabled": false,
+            "edge": "top",
             "windowMargin": "0px"
           }
         }
