@@ -34,7 +34,7 @@ return {
           -- Make background transparent
           -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" }) --for transparent
           vim.api.nvim_set_hl(0, "Normal", { bg = "#0A0A0A" })
-          -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
           -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
           -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
           -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#5f5f5f", bg = "NONE", ctermbg = "NONE" }) -- Non-active line numbers
@@ -304,10 +304,10 @@ return {
     opts = {
       -- colorscheme = "base16-black-metal", -- tinted-vim (base16)
       -- colorscheme = "kanagawa",
-      -- colorscheme = "gruber-darker",
+      colorscheme = "gruber-darker",
       -- colorscheme = "kanagawa-paper",
       -- colorscheme = "catppuccin",
-      colorscheme = "taake", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
+      -- colorscheme = "emperor", -- blackmetal themes (https://github.com/metalelf0/black-metal-theme-neovim?tab=readme-ov-file#included-themes)
       -- colorscheme = "monotone",
     },
   },

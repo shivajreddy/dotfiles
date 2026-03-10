@@ -23,6 +23,10 @@ return {
       sign = "⚑",
       virt_text = "bookmark",
     },
-    mappings = {},
+    mappings = {
+      delete_buf = "dm<space>",    -- delete all marks in current buffer
+      delete_line = "dm-",         -- delete all marks on current line
+      delete = "dm",               -- delete a specific mark (waits for input)
+    },
   },
 }
