@@ -34,13 +34,15 @@ Set-Alias -Name gg -Value lazygit
 Set-Alias -Name y -Value yazi
 Set-Alias -Name c -Value cls
 Set-Alias -Name ff -Value fastfetch
-
+function which {
+    where.exe $args
+}
 
 Set-Alias -Name cc -Value claude
 # Set-Alias -Name oo -Value opencode
 function oo {
         opencode -c
-    }
+}
 
 Function wu {
     winget upgrade --all --include-unknown
