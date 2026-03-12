@@ -73,35 +73,23 @@ Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 
 
 # ####	FUNCTIONS    ####
-# Delete files with reserved names (nul, con, aux, etc.) that AI tools sometimes create
-function Remove-NulFile {
+# Delete 'nul' reserved file in a directory. Usage: nul .  or  nul C:\some\path
+function nul {
     param(
-        [Parameter(Mandatory=$true)]
-        [string]$FilePath
+        [string]$Directory = "."
     )
     
-    $fileName = Split-Path -Leaf $FilePath
-    $directory = Split-Path -Parent $FilePath
+    $dir = (Resolve-Path $Directory).Path
+    $fullPath = Join-Path $dir "nul"
+    $tempName = "deleteme_$([System.Guid]::NewGuid().ToString('N').Substring(0,8)).txt"
+    $tempPath = Join-Path $dir $tempName
     
-    # If no directory specified, use current directory
-    if ([string]::IsNullOrEmpty($directory)) {
-        $directory = (Get-Location).Path
-    } else {
-        $directory = (Resolve-Path $directory).Path
-    }
-    
-    $fullPath = Join-Path $directory $fileName
-    $tempName = "deletefile_$([System.Guid]::NewGuid().ToString('N').Substring(0,8)).txt"
-    $tempPath = Join-Path $directory $tempName
-    
-    # Use \\.\<path> syntax to access the reserved filename
     $dosDevicePath = "\\.\$fullPath"
-    
     cmd /c "rename `"$dosDevicePath`" `"$tempName`" && del `"$tempPath`""
     
     if (Test-Path $tempPath) {
-        Write-Error "Failed to delete: $FilePath"
+        Write-Error "Failed to delete nul in: $dir"
     } else {
-        Write-Host "Successfully deleted: $FilePath"
+        Write-Host "Deleted nul in: $dir"
     }
 }
