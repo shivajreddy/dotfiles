@@ -146,6 +146,7 @@ workspaces:
 window_rules:
   - commands: ['ignore']
     match:
+
       # Ignore any Zebar windows
       - window_process: { equals: 'zebar' }
 
@@ -193,6 +194,9 @@ window_rules:
       # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
       # - window_process : { equals : 'thinkorswim' }
+
+      # Ignore Handy ai transcriber
+      - window_process: { equals: 'handy' }
 
       # Ignore Dota 2
       # - window_title: { equals : 'Dota 2' }
