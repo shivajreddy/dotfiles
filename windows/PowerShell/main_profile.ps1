@@ -38,6 +38,9 @@ Set-Alias -Name fp -Value fpilot
 function which {
     where.exe $args
 }
+function dots {
+    Set-Location ~/dotfiles
+}
 
 Set-Alias -Name cc -Value claude
 # Set-Alias -Name oo -Value opencode
