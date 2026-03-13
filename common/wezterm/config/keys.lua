@@ -128,7 +128,7 @@ map("n", "SHIFT|CTRL", act.SpawnWindow)
 -- ZOOM & VIEW
 -- ===========================================
 map("z", { "LEADER", "CTRL" }, act.TogglePaneZoomState)
-map("Z", "LEADER", toggleTabBar)
+map("z", "SHIFT|CTRL", toggleTabBar)
 
 -- ===========================================
 -- COPY & PASTE
