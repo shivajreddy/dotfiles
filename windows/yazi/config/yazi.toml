@@ -1,0 +1,25 @@
+# Yazi configuration
+# Symlink to: %APPDATA%\yazi\config\yazi.toml
+
+[opener]
+# Open code/text files in nvim
+edit = [
+  { run = 'nvim "$@"', block = true, for = "windows" },
+]
+
+[open]
+rules = [
+  # Text/code files -> nvim
+  { mime = "text/*", use = "edit" },
+  { mime = "application/json", use = "edit" },
+  { mime = "application/xml", use = "edit" },
+  { mime = "application/javascript", use = "edit" },
+  { mime = "application/typescript", use = "edit" },
+  { mime = "application/x-yaml", use = "edit" },
+  { mime = "application/toml", use = "edit" },
+  { mime = "application/x-sh", use = "edit" },
+  { mime = "application/x-powershell", use = "edit" },
+
+  # Fallback: open with system default
+  { name = "*", use = "open" },
+]
