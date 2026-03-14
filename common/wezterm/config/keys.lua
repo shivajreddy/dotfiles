@@ -70,10 +70,9 @@ local function getCwd(pane)
 	return nil
 end
 
--- Helper: Spawn tab in current directory
-local spawnTabInCwd = wezterm.action_callback(function(window, pane)
-	local cwd_path = getCwd(pane)
-	window:perform_action(act.SpawnCommandInNewTab({ cwd = cwd_path }), pane)
+-- Helper: Spawn tab in home directory
+local spawnTabInHome = wezterm.action_callback(function(window, pane)
+	window:perform_action(act.SpawnCommandInNewTab({ cwd = wezterm.home_dir }), pane)
 end)
 
 -- ===========================================
@@ -119,9 +118,9 @@ map("l", "LEADER", act.ActivatePaneDirection("Right"))
 -- ===========================================
 -- SPAWN & CLOSE
 -- ===========================================
-map("c", "LEADER", spawnTabInCwd)
+map("c", "LEADER", spawnTabInHome)
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
-map("t", "SHIFT|CTRL", spawnTabInCwd)
+map("t", "SHIFT|CTRL", spawnTabInHome)
 map("n", "SHIFT|CTRL", act.SpawnWindow)
 
 -- ===========================================
