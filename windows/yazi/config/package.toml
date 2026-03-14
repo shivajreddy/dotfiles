@@ -1,0 +1,17 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "9511cb0"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "b9541e8"
+hash = "dc840cf225dbf6f0257617403ad43d8b"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "25d28ce"
+hash = "8e6dd7e42a127173e4535993d3e0e393"

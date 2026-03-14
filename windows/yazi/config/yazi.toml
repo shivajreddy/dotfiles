@@ -4,7 +4,7 @@
 [opener]
 # Open code/text files in nvim
 edit = [
-  { run = 'nvim "$@"', block = true, for = "windows" },
+  { run = "nvim %*", block = true, for = "windows" },
 ]
 
 [open]
