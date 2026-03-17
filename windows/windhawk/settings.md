@@ -92,7 +92,7 @@ TimeStyle:
   FontStyle: ''
   FontStretch: ''
   CharacterSpacing: 0
-  Visible: 0
+  # Visible: 0
 DateStyle:
   Hidden: 0
   TextColor: ''
