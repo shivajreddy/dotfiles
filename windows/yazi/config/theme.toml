@@ -1,8 +1,11 @@
 # https://github.com/yazi-rs/flavors
 # install the desired flavors package using 'ya' cli
+# ya pkg add BennyOe/tokyo-night
 # ya pkg add yazi-rs/flavors:catppuccin-mocha
 # ya pkg add marcosvnmelo/kanagawa-dragon
 # ya pkg add gosxrgxx/flexoki-dark
+# NOTE: delete entire flavors filder next to the yazi.toml, when setting for fresh
+# and run the above ya commands, and it will install the flavors
 
 [flavor]
 light = "catppuccin-latte"
