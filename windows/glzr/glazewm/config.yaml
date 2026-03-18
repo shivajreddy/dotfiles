@@ -37,10 +37,10 @@ general:
 gaps:
   # When only a single window is present
   single_window_outer_gap:
-    top:    '2px'
-    right:  '2px'
-    bottom: '2px'
-    left:   '2px'
+    top:    '0px'
+    right:  '0px'
+    bottom: '0px'
+    left:   '0px'
     # top:    '16px'
     # right:  '16px'
     # bottom: '16px'
