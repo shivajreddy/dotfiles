@@ -188,12 +188,13 @@ window_rules:
       # Windows Commande Palette
       - window_class: {equals: 'WinUIDesktopWin32WindowClass'}
 
-      # Sierra Chart
-      # - window_process: { regex: 'SierraChart*' }
+      # Raycast launcher
+      - window_process : { equals : 'Raycast' }
 
       # Trading Softwares
       - window_title : { equals : 'IBKR Desktop' }
       # - window_process : { equals : 'thinkorswim' }
+      # - window_process: { regex: 'SierraChart*' }
 
       # Ignore Handy ai transcriber
       - window_process: { equals: 'handy' }
