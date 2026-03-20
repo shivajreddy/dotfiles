@@ -38,10 +38,11 @@ function M.apply(c)
 	}
 
 	-- Window appearance
-	c.front_end = "OpenGL" -- WebGpu can leave rendering artifacts after closing nvim popups
-	-- c.window_background_opacity = 0.50
-	-- c.win32_system_backdrop = "Tabbed"
-	-- c.macos_window_background_blur = 20
+	c.front_end = "WebGpu" -- OpenGL Software WebGpu
+	-- c.win32_system_backdrop = "Tabbed" -- Auto Disable Acrylic Mica Tabbed
+	-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
+	c.window_background_opacity = 0.95
+	-- c.macos_window_background_blur = 50
 	c.window_decorations = "RESIZE"
 	c.initial_cols = 120
 	c.initial_rows = 28
