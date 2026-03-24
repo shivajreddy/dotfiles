@@ -18,12 +18,15 @@ local autocmd = vim.api.nvim_create_autocmd
 local autoupdate_group = augroup("autoupdate", { clear = true })
 
 -- Define an autocommand that runs when Vim enters
-autocmd("VimEnter", {
-  group = autoupdate_group,
-  callback = function()
-    require("lazy").update({ show = false })
-  end,
-})
+-- NOTE: disabled - silently running lazy.update() on every startup was causing
+-- 3-6s UI freeze on Windows due to git process spawning overhead.
+-- Use :Lazy update manually or rely on lazy.nvim's built-in checker instead.
+-- autocmd("VimEnter", {
+--   group = autoupdate_group,
+--   callback = function()
+--     require("lazy").update({ show = false })
+--   end,
+-- })
 
 -- Set a custom background color of Man pages buffer
 vim.api.nvim_create_autocmd("FileType", {

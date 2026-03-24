@@ -96,8 +96,10 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80" -- traditional
 -- vim.opt.colorcolumn = "100" -- google style guide
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- ufo handles folding (LSP + treesitter providers); do not set foldmethod=expr here
+vim.opt.foldmethod = "manual"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- White Space
 vim.opt.list = false

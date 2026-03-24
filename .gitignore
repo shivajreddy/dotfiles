@@ -3,6 +3,7 @@
 **/nvim/lazy-lock.json
 **/lazy-lock.json
 **/wezterm-session-manager/wezterm_state_*.json
+nul
 
 # Nix OS
 
