@@ -6,7 +6,20 @@ local M = {}
 function M.apply(c)
 	-- Font configuration
 	c.font_size = 14
+	--[[
+    run the following in powershell, to see all the names of fonts
+    wezterm ls-fonts --list-system
+    wezterm ls-fonts --list-system | findstr /i "berkeley"
+    --]]
 	c.font = wezterm.font_with_fallback({
+		{
+			family = "BerkeleyMono Nerd Font",
+			weight = "Regular",
+			stretch = "Condensed", -- maps to BERKELEYMONONERDFONT-EXTRACONDENSED.TTF (ExtraCondensed in font name)
+			-- stretch = "ExtraCondensed",
+			style = "Normal",
+			harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+		},
 		{ family = "Iosevka Nerd Font", weight = "Regular" },
 		{ family = "JetBrains Mono", weight = "Bold" },
 		{ family = "Noto Sans Mono", weight = "Bold" },
