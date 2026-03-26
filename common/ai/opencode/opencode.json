@@ -21,5 +21,11 @@
     }
   },
 
-  "plugin": ["@ex-machina/opencode-anthropic-auth"]
+  "plugin": ["@ex-machina/opencode-anthropic-auth"],
+
+  "agent": {
+    "rust-dev": {
+      "color": "#ff6b6b"
+    }
+  }
 }

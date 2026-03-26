@@ -5,25 +5,40 @@ local M = {}
 
 function M.apply(c)
 	-- Font configuration
-	c.font_size = 14
+	c.font_size = 14.5
 	--[[
     run the following in powershell, to see all the names of fonts
     wezterm ls-fonts --list-system
     wezterm ls-fonts --list-system | findstr /i "berkeley"
     --]]
+
+	-- Use ConfigDirsOnly + font_dirs so wezterm uses FreeType instead of DirectWrite.
+	-- DirectWrite on Windows ignores the stretch attribute and snaps to the regular variant.
+	-- FreeType respects weight/stretch properly, allowing ExtraCondensed to load correctly.
+	c.font_locator = "ConfigDirsOnly"
+	c.font_dirs = { "C:\\Windows\\Fonts" }
+
+	c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
+	-- c.font = wezterm.font({
+	-- 	family = "BerkeleyMono Nerd Font",
+	-- 	weight = "Regular",
+	-- 	stretch = "Condensed",
+	-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	-- })
+	--[[
 	c.font = wezterm.font_with_fallback({
+		-- { family = "Iosevka Nerd Font", weight = "Regular" },
 		{
 			family = "BerkeleyMono Nerd Font",
-			weight = "Regular",
-			stretch = "Condensed", -- maps to BERKELEYMONONERDFONT-EXTRACONDENSED.TTF (ExtraCondensed in font name)
-			-- stretch = "ExtraCondensed",
-			style = "Normal",
+			-- weight = "Regular",
+			-- stretch = "Condensed", -- maps to EXTRACONDENSED.ttf via FreeType (not DirectWrite)
+			-- style = "Condensed",
 			harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 		},
-		{ family = "Iosevka Nerd Font", weight = "Regular" },
 		{ family = "JetBrains Mono", weight = "Bold" },
 		{ family = "Noto Sans Mono", weight = "Bold" },
 	})
+    --]]
 
 	-- Color scheme base
 	c.color_scheme = "Catppuccin Mocha"
