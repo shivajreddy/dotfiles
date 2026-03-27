@@ -42,6 +42,14 @@ function dots {
     Set-Location ~/dotfiles
 }
 
+# LOCALAPPDATA & ROAMING
+Function roam {
+    Set-Location $ENV:APPDATA
+}
+Function local {
+    Set-Location $ENV:LOCALAPPDATA
+}
+
 Set-Alias -Name cc -Value claude
 # Set-Alias -Name oo -Value opencode
 function oo {
