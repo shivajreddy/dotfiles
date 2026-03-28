@@ -5,7 +5,7 @@
 ```
 theme: RosePine
 controlStyles:
-  - target: Rectangle
+  - target: Taskbar.TaskbarFrame > Rectangle
     styles:
       - Fill=Transparent
   - target: Grid#SystemTrayFrameGrid
