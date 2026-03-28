@@ -57,7 +57,7 @@ function oo {
 }
 
 Function wu {
-    winget upgrade --all --include-unknown
+    sudo winget upgrade --all --include-unknown
 }
 
 Set-Alias -Name python -Value py
