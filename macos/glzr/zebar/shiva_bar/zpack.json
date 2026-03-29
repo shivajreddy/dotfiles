@@ -10,7 +10,7 @@
     {
       "name": "main",
       "htmlPath": "./shiva_bar.html",
-      "zOrder": "bottom_most",
+      "zOrder": "top_most",
       "shownInTaskbar": false,
       "focused": false,
       "resizable": false,
@@ -31,13 +31,13 @@
           "anchor": "top_center",
           "offsetX": "0px",
           "offsetY": "0px",
-          "width": "100%",
+          "width": "20%",
           "height": "18px",
           "monitorSelection": {
             "type": "all"
           },
           "dockToEdge": {
-            "enabled": false,
+            "enabled": true,
             "edge": "top",
             "windowMargin": "0px"
           }
