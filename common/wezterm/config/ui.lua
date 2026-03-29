@@ -72,7 +72,7 @@ function M.apply(c)
 		}
 		c.webgpu_power_preference = "HighPerformance"
 		-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
-		c.win32_system_backdrop = "Auto" -- Auto Disable Acrylic Mica Tabbed
+		c.win32_system_backdrop = "Tabbed" -- Auto Disable Acrylic Mica Tabbed
 		c.window_background_opacity = 0
 
 	-- MacOS appearance

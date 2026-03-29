@@ -164,7 +164,7 @@ window_rules:
       # - window_process: { equals: 'Spotify' }
 
       # Ignore Task Manager
-      # - window_process: { equals: 'Taskmgr' }
+      - window_process: { equals: 'Taskmgr' }
 
       # Ignore File Explorer
       # - window_process: { equals: 'explorer' }
