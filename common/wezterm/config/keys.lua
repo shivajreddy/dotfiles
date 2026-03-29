@@ -173,7 +173,10 @@ local key_tables = {
 -- WORKSPACE SWITCHER
 -- ===========================================
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-workspace_switcher.zoxide_path = "C:/Users/shiva/.cargo/bin/zoxide.exe"
+if utils.is_windows() then
+	workspace_switcher.zoxide_path = "C:/Users/shiva/.cargo/bin/zoxide.exe"
+end
+-- On macOS/Linux, zoxide is on PATH so no explicit path needed
 
 wezterm.on("gui-startup", function(cmd)
 	local tab, build_pane, window = wezterm.mux.spawn_window({
@@ -246,6 +249,14 @@ map("Enter", "SHIFT", act.SendString("\x1b[13;2u"))
 -- ===========================================
 if utils.is_darwin() then
 	map("s", "CMD", act.SendKey({ key = "s", mods = "CTRL" }))
+
+	-- Restore expected macOS system bindings lost with disable_default_key_bindings
+	map("c", "CMD", act.CopyTo("Clipboard"))
+	map("v", "CMD", act.PasteFrom("Clipboard"))
+	map("q", "CMD", act.QuitApplication)
+	map("m", "CMD", act.Hide)
+	map("f", "CMD", act.ToggleFullScreen)
+	map("k", "CMD", act.ClearScrollback("ScrollbackOnly"))
 end
 
 -- ===========================================

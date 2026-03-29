@@ -5,8 +5,12 @@ return {
   ---@class snacks.indent.Config
   ---@field enabled? boolean
   opts = {
-    terminal = {
+    terminal = vim.uv.os_uname().sysname == "Windows_NT" and {
       shell = { "pwsh", "-NoLogo" },
+      win = {
+        wo = { winbar = "" },
+      },
+    } or {
       win = {
         wo = { winbar = "" },
       },

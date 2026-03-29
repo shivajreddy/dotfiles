@@ -5,40 +5,35 @@ local M = {}
 
 function M.apply(c)
 	-- Font configuration
-	c.font_size = 14.5
 	--[[
     run the following in powershell, to see all the names of fonts
     wezterm ls-fonts --list-system
     wezterm ls-fonts --list-system | findstr /i "berkeley"
     --]]
 
-	-- Use ConfigDirsOnly + font_dirs so wezterm uses FreeType instead of DirectWrite.
-	-- DirectWrite on Windows ignores the stretch attribute and snaps to the regular variant.
-	-- FreeType respects weight/stretch properly, allowing ExtraCondensed to load correctly.
-	c.font_locator = "ConfigDirsOnly"
-	c.font_dirs = { "C:\\Windows\\Fonts" }
-
-	c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
-	-- c.font = wezterm.font({
-	-- 	family = "BerkeleyMono Nerd Font",
-	-- 	weight = "Regular",
-	-- 	stretch = "Condensed",
-	-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-	-- })
-	--[[
-	c.font = wezterm.font_with_fallback({
-		-- { family = "Iosevka Nerd Font", weight = "Regular" },
-		{
-			family = "BerkeleyMono Nerd Font",
-			-- weight = "Regular",
-			-- stretch = "Condensed", -- maps to EXTRACONDENSED.ttf via FreeType (not DirectWrite)
-			-- style = "Condensed",
-			harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-		},
-		{ family = "JetBrains Mono", weight = "Bold" },
-		{ family = "Noto Sans Mono", weight = "Bold" },
-	})
-    --]]
+	if utils.is_windows() then
+		-- Use ConfigDirsOnly + font_dirs so wezterm uses FreeType instead of DirectWrite.
+		-- DirectWrite on Windows ignores the stretch attribute and snaps to the regular variant.
+		-- FreeType respects weight/stretch properly, allowing ExtraCondensed to load correctly.
+		c.font_locator = "ConfigDirsOnly"
+		c.font_dirs = { "C:\\Windows\\Fonts" }
+		c.font_size = 14.5
+		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
+		-- c.font = wezterm.font({
+		-- 	family = "BerkeleyMono Nerd Font",
+		-- 	weight = "Regular",
+		-- 	stretch = "Condensed",
+		-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+		-- })
+	elseif utils.is_darwin() then
+		c.font_size = 18
+		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
+		-- c.font = wezterm.font({
+		-- 	family = "BerkeleyMono Nerd Font",
+		-- 	weight = "Regular",
+		-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+		-- })
+	end
 
 	-- Color scheme base
 	c.color_scheme = "Catppuccin Mocha"
@@ -70,7 +65,9 @@ function M.apply(c)
 	-- c.win32_system_backdrop = "Tabbed" -- Auto Disable Acrylic Mica Tabbed
 	-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
 	c.window_background_opacity = 0.95
-	-- c.macos_window_background_blur = 50
+	if utils.is_darwin() then
+		c.macos_window_background_blur = 20
+	end
 	c.window_decorations = "RESIZE"
 	c.initial_cols = 120
 	c.initial_rows = 28

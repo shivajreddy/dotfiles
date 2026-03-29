@@ -3,8 +3,9 @@
 live_config_reload = true
 import = [
     "./font.toml",
-    # "./themes/black_metal.toml",
-    "./themes/gruber_dark.toml"
+    # "./themes/gruber_dark.toml",
+    # "./themes/kanagawa_dragon.toml",
+    "./themes/black_metal.toml",
 ]
 
 [env]
@@ -23,28 +24,16 @@ save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
-
+bindings = [{ mouse = "Right", action = "None" }]
 
 ##############################  STARTUP  ##############################
-# [terminal.shell]
-# program = "tmux"
-# [terminal.shell]
-# program = "wsl"
-# args = ["tmux attach || tmux"]
-# args = ["zellij"]
-
 [terminal.shell]
-# program = "/bin/bash"
 program = "/usr/local/bin/fish"
-
-# [shell]
-# program = 'Ubuntu'
-# args = ["run", "tmux"]
-# program = 'powershell'
+# program = "/bin/bash"
+# program = "tmux"
 
 [keyboard]
 bindings = [
-    # {key = "K", mods = "Control", chars = "\u0008" }
     # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
     # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
     # { key = "L", mods = "Control|Shift", chars = "l" },
@@ -52,24 +41,35 @@ bindings = [
     # Send Ctrl+Tab and Ctrl+Shift+Tab
     { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
     { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
-    # Send Ctrl+/ 
+    # Send Ctrl+/
     { key = "Slash", mods = "Control", chars = "\u001F" },
     # Send Ctrl+Enter
     { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
     { key = "Enter", mods = "Alt", action = "None" },
-    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+    # Shift+Enter is new line
+    { key = "Return", mods = "Shift", chars = "\u001b\r"},
+    # Pass Ctrl+t through to tmux/prefix key
+    { key = "T", mods = "Control", chars = "\u0014" },
+    # Pass Ctrl+j through (otherwise interpreted as Enter)
+    { key = "J", mods = "Control", chars = "\u001b[74;5u" },
+    # macOS: CMD+S -> Ctrl+S
     { key = "S", mods = "Command", chars = "\u0013" },
+    # macOS: let CMD+Space pass through to system (Raycast/Spotlight)
+    { key = "Space", mods = "Command", action = "None" },
+    # macOS: CMD+N opens a new window
+    { key = "N", mods = "Command", action = "CreateNewWindow" },
 ]
+
 
 ##############################  WINDOW  ##############################
 [window]
 opacity = 0.85
-blur = false
+blur = true
 dynamic_title = false
-# title = "simple_colon"
-# title = ""
-# dynamic_padding = true
-decorations = "Buttonless" # "Full" | "None" | "Transparent" | "Buttonless"
+title = "Alacritty"
+dynamic_padding = false
+decorations = "Buttonless"   # "Full" | "None" | "Transparent" | "Buttonless"
+resize_increments = true
 
 [window.dimensions]
 columns = 80
@@ -82,4 +82,3 @@ instance = "Alacritty"
 [window.padding]
 x = 0
 y = 0
-

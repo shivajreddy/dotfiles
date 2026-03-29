@@ -44,6 +44,7 @@ export PATH="/usr/local/go/bin/:$PATH"
 # zoxide - z (cd replacement)
 eval "$(zoxide init zsh)"
 # starship prompt
+export STARSHIP_CONFIG="$HOME/dotfiles/common/starship.toml"
 eval "$(starship init zsh)"
 # auto suggestions
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

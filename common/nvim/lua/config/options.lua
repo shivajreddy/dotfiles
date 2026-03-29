@@ -26,6 +26,8 @@ local sysname = vim.loop.os_uname().sysname
 -- Use pwsh as the terminal shell on Windows
 if sysname == "Windows_NT" then
   LazyVim.terminal.setup("pwsh")
+elseif sysname == "Darwin" then
+  vim.opt.fsync = false -- fsync on every save causes noticeable latency on macOS
 end
 
 -- Disable cursor blinking

@@ -32,15 +32,15 @@ fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.emacs.d/bin
 fish_add_path $HOME/.config/emacs/bin
 
-
 # Add fish scripts
 # Automatically source all .fish scripts in ~/.config/fish/scripts/
 # for script in $HOME/.config/fish/scripts/*.fish
 #     source $script
 # end
 
-# Environment variables
-# set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
+# Starship prompt (set the env variable so starship looks here for its config)
+set -gx STARSHIP_CONFIG "$HOME/dotfiles/common/starship.toml"
+starship init fish | source
 
 # Terminal settings
 set -gx TERM tmux-256color
@@ -73,6 +73,11 @@ alias ff="fastfetch"
 alias c="clear"
 alias gp="git pull"
 
+alias oo="opencode --continue"
+alias cc="claude"
+alias dots="cd ~/dotfiles"
+alias bu="brew update && brew upgrade"
+
 # Git aliases
 alias gaa="git add ."
 alias gcmsg="git commit -m"
@@ -93,3 +98,6 @@ alias sudo="sudo "
 
 # Set key bindings
 # fish_vi_key_bindings
+
+# opencode
+fish_add_path /Users/smpl/.opencode/bin
