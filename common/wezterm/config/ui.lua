@@ -36,7 +36,7 @@ function M.apply(c)
 	end
 
 	-- Color scheme base
-	-- c.color_scheme = "Catppuccin Mocha"
+	c.color_scheme = "Catppuccin Mocha"
 
 	-- Custom colors
 	c.colors = {
