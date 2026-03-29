@@ -55,6 +55,7 @@ Set-Alias -Name cc -Value claude
 function oo {
         opencode -c
 }
+Set-Alias -Name o -Value opencode
 
 Function wu {
     sudo winget upgrade --all --include-unknown
