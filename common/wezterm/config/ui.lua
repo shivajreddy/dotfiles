@@ -40,7 +40,7 @@ function M.apply(c)
 
 	-- Custom colors
 	c.colors = {
-		background = "rgba(0, 0, 0, 0)",
+		background = "#000000",
 		cursor_bg = "#DA3B01",
 		cursor_fg = "#000000",
 		tab_bar = {
@@ -62,18 +62,8 @@ function M.apply(c)
 
 	-- Window appearance
 	if utils.is_windows() then
-		c.front_end = "WebGpu" -- OpenGL, WebGpu, Software
-		-- https://wezterm.org/config/lua/config/webgpu_preferred_adapter.html
-		c.webgpu_preferred_adapter = {
-			name = "NVIDIA GeForce RTX 4080 SUPER",
-			backend = "Dx12",
-			device_type = "DiscreteGpu",
-			vendor = 4318,
-		}
-		c.webgpu_power_preference = "HighPerformance"
-		-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
-		c.win32_system_backdrop = "Tabbed" -- Auto Disable Acrylic Mica Tabbed
-		c.window_background_opacity = 0
+		c.front_end = "OpenGL" -- OpenGL works with window_background_opacity; WebGpu does not
+		c.window_background_opacity = 0.95
 
 	-- MacOS appearance
 	elseif utils.is_darwin() then
