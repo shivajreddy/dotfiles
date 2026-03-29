@@ -1,11 +1,13 @@
 #!/bin/bash
 
 options=(
-	style=round
-	width=6.0
-	hidpi=off
-	active_color=0xffe2e2e3
-	inactive_color=0xff414550
+    style=round
+    width=4.0
+    hidpi=on
+    ax_focus=on
+    active_color=0xffDA3B01
+    inactive_color=0xff031208
+    blacklist="Raycast,Spotlight"
 )
 
 borders "${options[@]}"
