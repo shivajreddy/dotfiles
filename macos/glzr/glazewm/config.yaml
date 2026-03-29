@@ -185,6 +185,8 @@ window_rules:
       # /System/Applications/System Settings.app/Contents/MacOS/System Settings
       - window_process: { equals: 'System Settings' }
 
+      - window_process: { equals: 'Activity Monitor' }
+
       # Raycast launcher
       - window_process : { equals : 'Raycast' }
 
