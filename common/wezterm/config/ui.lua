@@ -36,11 +36,11 @@ function M.apply(c)
 	end
 
 	-- Color scheme base
-	c.color_scheme = "Catppuccin Mocha"
+	-- c.color_scheme = "Catppuccin Mocha"
 
 	-- Custom colors
 	c.colors = {
-		background = "#000000",
+		background = "rgba(0, 0, 0, 0)",
 		cursor_bg = "#DA3B01",
 		cursor_fg = "#000000",
 		tab_bar = {
@@ -61,13 +61,25 @@ function M.apply(c)
 	}
 
 	-- Window appearance
-	c.front_end = "WebGpu" -- OpenGL Software WebGpu
-	-- c.win32_system_backdrop = "Tabbed" -- Auto Disable Acrylic Mica Tabbed
-	-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
-	c.window_background_opacity = 0.95
-	if utils.is_darwin() then
+	if utils.is_windows() then
+		c.front_end = "WebGpu" -- OpenGL, WebGpu, Software
+		-- https://wezterm.org/config/lua/config/webgpu_preferred_adapter.html
+		c.webgpu_preferred_adapter = {
+			name = "NVIDIA GeForce RTX 4080 SUPER",
+			backend = "Dx12",
+			device_type = "DiscreteGpu",
+			vendor = 4318,
+		}
+		c.webgpu_power_preference = "HighPerformance"
+		-- c.win32_acrylic_accent_color = "#FFFFFF" -- only works for Acrylic backdrop
+		c.win32_system_backdrop = "Auto" -- Auto Disable Acrylic Mica Tabbed
+		c.window_background_opacity = 0
+
+	-- MacOS appearance
+	elseif utils.is_darwin() then
 		c.macos_window_background_blur = 20
 	end
+
 	c.window_decorations = "RESIZE"
 	c.initial_cols = 120
 	c.initial_rows = 28
