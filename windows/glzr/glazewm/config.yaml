@@ -3,12 +3,12 @@ general:
   # script or launching another application.
   # Example: The below command launches Zebar.
   # startup_commands: ['shell-exec zebar']
-  # startup_commands: ['shell-exec glazeid']
+  startup_commands: ['shell-exec glazeid']
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
   # shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
-  # shutdown_commands: ['shell-exec taskkill /IM glazeid.exe /F']
+  shutdown_commands: ['shell-exec taskkill /IM glazeid.exe /F']
 
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
