@@ -4,7 +4,6 @@
         {
             "complex_modifications": {
                 "rules": [
-
                     {
                         "description": "clion: Swap Left-Cmd ↔ Left-Ctrl",
                         "manipulators": [

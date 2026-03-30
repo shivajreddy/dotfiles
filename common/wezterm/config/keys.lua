@@ -266,11 +266,7 @@ local M = {}
 
 function M.apply(c)
 	-- Leader key
-	if utils.is_windows() then
-		c.leader = { key = "t", mods = "CTRL", timeout_milliseconds = math.maxinteger }
-	elseif utils.is_darwin() then
-		c.leader = { key = "t", mods = "CMD", timeout_milliseconds = math.maxinteger }
-	end
+	c.leader = { key = "t", mods = "CTRL", timeout_milliseconds = math.maxinteger }
 
 	-- Merge with existing keys (e.g., from smart-splits plugin)
 	if c.keys then
