@@ -26,7 +26,7 @@ function M.apply(c)
 		-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 		-- })
 	elseif utils.is_darwin() then
-		c.font_size = 18
+		c.font_size = 20
 		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
 		-- c.font = wezterm.font({
 		-- 	family = "BerkeleyMono Nerd Font",
