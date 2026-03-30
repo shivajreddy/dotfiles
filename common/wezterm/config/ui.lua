@@ -67,6 +67,8 @@ function M.apply(c)
 
 	-- MacOS appearance
 	elseif utils.is_darwin() then
+		c.front_end = "OpenGL" -- OpenGL works with window_background_opacity; WebGpu does not
+		c.window_background_opacity = 0.85
 		c.macos_window_background_blur = 20
 	end
 
