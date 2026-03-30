@@ -207,6 +207,14 @@ return {
         which_key = true,
       },
     },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
+      -- -- Recompile on every startup to avoid stale cache (nvim 0.12 compat)
+      -- vim.defer_fn(function()
+      --   vim.cmd("CatppuccinCompile")
+      -- end, 0)
+    end,
   },
 
   -- BLACK METAL
