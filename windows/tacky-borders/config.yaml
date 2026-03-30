@@ -140,6 +140,11 @@ window_rules:
     name: "Zebar"
     enabled: False
 
+  - match: Process
+    strategy: Contains
+    name: "glazeid"
+    enabled: False
+
   - match: Title
     name: "komorebi-bar"
     enabled: False
@@ -176,7 +181,7 @@ window_rules:
     enabled: False
 
   # Example rule:
-  # - match: Class                   # Match based on Class or Title
+  # - match: Class                   # Match based on Class or Title or Process
   #   name: "MozillaWindowClass"     # Class (value next to ahk_class) or Title (value in first row, some windows dont have titles fyi) or Process (value next to ahk_exe with out .exe) name to match
   #   strategy: Equals               # Matching strategy: Equals, Contains, or Regex (default: Equals)
   #   enabled: True                  # Border enabled: True, False, or Auto (default: Auto)
