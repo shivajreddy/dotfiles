@@ -166,6 +166,8 @@ window_rules:
       # Ignore Task Manager
       - window_process: { equals: 'Taskmgr' }
 
+      - window_process: { equals: 'glazeid' }
+
       # Ignore File Explorer
       # - window_process: { equals: 'explorer' }
         # window_title : {regex: '^.+ - File Explorer$'}
