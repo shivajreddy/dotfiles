@@ -257,6 +257,9 @@ if utils.is_darwin() then
 	map("m", "CMD", act.Hide)
 	map("f", "CMD", act.ToggleFullScreen)
 	map("k", "CMD", act.ClearScrollback("ScrollbackOnly"))
+
+	-- Ctrl+Esc -> Cmd+Esc (e.g. for Raycast)
+	map("Escape", "CTRL", act.SendKey({ key = "Escape", mods = "CMD" }))
 end
 
 -- ===========================================
