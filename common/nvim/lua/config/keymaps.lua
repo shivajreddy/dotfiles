@@ -36,9 +36,8 @@ end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
 -- F8 will toggle(open if not, the floating termianl), and run cmd
 --#region F8: configurable run command in persistent terminal
 local F8_CMD = "cargo run"
-
 local _run_term = nil
-vim.keymap.set({ "n", "t" }, "<F8>", function()
+vim.keymap.set("n", "<F8>", function()
   vim.cmd("write")
   if not _run_term then
     local Terminal = require("toggleterm.terminal").Terminal
@@ -47,7 +46,6 @@ vim.keymap.set({ "n", "t" }, "<F8>", function()
       dir = LazyVim.root(),
       direction = "horizontal",
       close_on_exit = false,
-      persist_mode = true, -- dont think this works
     })
   end
   _run_term:toggle()
