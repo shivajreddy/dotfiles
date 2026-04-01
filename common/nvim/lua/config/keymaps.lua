@@ -33,20 +33,42 @@ end, { noremap = true, silent = true, desc = "CPP BUILD & RUN to output.txt" })
 --]]
 --#endregion
 
+-- F8 will toggle(open if not, the floating termianl), and run cmd
+--#region F8: configurable run command in persistent terminal
+local F8_CMD = "cargo run"
+
+local _run_term = nil
+vim.keymap.set({ "n", "t" }, "<F8>", function()
+  vim.cmd("write")
+  if not _run_term then
+    local Terminal = require("toggleterm.terminal").Terminal
+    _run_term = Terminal:new({
+      cmd = F8_CMD,
+      dir = LazyVim.root(),
+      direction = "horizontal",
+      close_on_exit = false,
+      persist_mode = true, -- dont think this works
+    })
+  end
+  _run_term:toggle()
+end, { noremap = true, silent = true, desc = "Run: " .. F8_CMD })
+--#endregion
+
 -- F8 will use the marked tmux pane(ctrl-b h), to run the command
+--[[
 vim.keymap.set("n", "<F8>", function()
   local command = "clear && ./build.sh"
-  --[[ Method 1: just use the pane with id 1. see pane id's using ctrl-b q
+  -- Method 1: just use the pane with id 1. see pane id's using ctrl-b q
   -- Send commandsto tmux pane
   -- Format: tmux send-keys -t {session}:{window}.{pane} "command" Enter
-  vim.fn.system('tmux send-keys -t :.1 "clear && ./build.sh" Enter')
-    --]]
+  -- vim.fn.system('tmux send-keys -t :.1 "clear && ./build.sh" Enter')
 
   --Method 2: on the pane that i want as terminal, look what its id(say 1) is, then run
   -- tmux select-pane -t :.1 -m -T "build"
   vim.cmd("write") -- save the current file
   vim.fn.system('tmux send-keys -t "{marked}" "' .. command .. '" Enter')
 end, { noremap = true, silent = true, desc = "RUN BUILD IN TMUX" })
+--]]
 
 --#region CPP, build & run
 --[[
