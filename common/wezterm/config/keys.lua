@@ -65,7 +65,11 @@ end
 local function getCwd(pane)
 	local cwd = pane:get_current_working_dir()
 	if cwd then
-		return toWindowsPath(cwd.file_path or tostring(cwd))
+		local path = cwd.file_path or tostring(cwd)
+		if utils.is_windows() then
+			return toWindowsPath(path)
+		end
+		return path
 	end
 	return nil
 end
