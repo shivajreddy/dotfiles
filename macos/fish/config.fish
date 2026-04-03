@@ -73,6 +73,7 @@ alias ff="fastfetch"
 alias c="clear"
 alias gp="git pull"
 
+alias o="opencode"
 alias oo="opencode --continue"
 alias cc="claude"
 alias dots="cd ~/dotfiles"
