@@ -19,7 +19,8 @@ import = [
     "./font_iosevka.toml",
     # "./font_other.toml",
     # "./kanagawa_dragon.toml",
-    "./black_metal.toml",
+    # "./black_metal.toml",
+    "./catppuccin-mocha.toml"
 ]
 
 [keyboard]
@@ -28,9 +29,13 @@ bindings = [
     # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
     # { key = "L", mods = "Control|Shift", chars = "l" },
     # {key = "K", mods = "Control", chars = "\u0008" },
-    # Send Ctrl+Tab and Ctrl+Shift+Tab
-    { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
-    { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+    # Ctrl+Tab / Ctrl+Shift+Tab -> psmux window navigation
+    # Alacritty receives the key event, but ConPTY swallows modifyOtherKeys sequences
+    # like \u001b[27;5;9~. Alt sequences (ESC + char) pass through ConPTY fine.
+    # So we send ESC ] / ESC [ which is the same as Alt+] / Alt+[,
+    # and psmux binds M-] / M-[ to next-window / previous-window.
+    { key = "Tab", mods = "Control", chars = "\u001b]" },
+    { key = "Tab", mods = "Control|Shift", chars = "\u001b[" },
     # Send Ctrl+/ 
     { key = "Slash", mods = "Control", chars = "\u001F" },
     # Send Ctrl+Enter
@@ -41,8 +46,12 @@ bindings = [
     { key = "Return", mods = "Shift", chars = "\u001b\r"},
     # Pass Ctrl+t through to psmux (prefix key)
     { key = "T", mods = "Control", chars = "\u0014" },
-    # Pass Ctrl+j through (otherwise interpreted as Enter)
-    { key = "J", mods = "Control", chars = "\u001b[74;5u" },
+    # Ctrl+Shift+T -> new psmux window (same ConPTY workaround: send ESC t = Alt+t)
+    { key = "T", mods = "Control|Shift", chars = "\u001bt" },
+    # Ctrl+h/j are swallowed by ConPTY (backspace and newline).
+    # CSI-u sequences are also swallowed. ESC-prefix (M-h/j) passes through.
+    { key = "H", mods = "Control", chars = "\u001bh" },
+    { key = "J", mods = "Control", chars = "\u001bj" },
 ]
 
 
