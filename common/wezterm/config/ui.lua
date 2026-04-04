@@ -18,7 +18,7 @@ function M.apply(c)
 		c.font_locator = "ConfigDirsOnly"
 		c.font_dirs = { "C:\\Windows\\Fonts" }
 		c.font_size = 14.5
-		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
+		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular", harfbuzz_features = { "calt=0", "clig=0", "liga=0" } })
 		-- c.font = wezterm.font({
 		-- 	family = "BerkeleyMono Nerd Font",
 		-- 	weight = "Regular",
@@ -27,7 +27,7 @@ function M.apply(c)
 		-- })
 	elseif utils.is_darwin() then
 		c.font_size = 20
-		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular" })
+		c.font = wezterm.font({ family = "Iosevka Nerd Font", weight = "Regular", harfbuzz_features = { "calt=0", "clig=0", "liga=0" } })
 		-- c.font = wezterm.font({
 		-- 	family = "BerkeleyMono Nerd Font",
 		-- 	weight = "Regular",
