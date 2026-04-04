@@ -28,6 +28,9 @@ return {
             ".env*",
             -- ".gitignore"
           },
+          exclude = {
+            -- "Cargo.lock",
+          },
           -- hidden = true,
           -- ignored = true,
         },
