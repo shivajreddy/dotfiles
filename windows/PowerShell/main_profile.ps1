@@ -102,3 +102,23 @@ function nul {
         Write-Host "Deleted nul in: $dir"
     }
 }
+
+# Invoke the cli command and then copy the result into clipboard
+function Invoke-And-Copy {
+    param(
+        [Parameter(Mandatory, ValueFromRemainingArguments)]
+        [string[]]$Command
+    )
+
+    $exe, $rest = $Command
+    & $exe @rest 2>&1 | Tee-Object -Variable output
+    $output | Set-Clipboard
+    Write-Host "`n[Copied to clipboard]" -ForegroundColor Green
+}
+Set-Alias iac Invoke-And-Copy
+
+
+# RUST Aliases
+function Invoke-CargoRun { cargo run @args }
+Set-Alias cr Invoke-CargoRun
+
