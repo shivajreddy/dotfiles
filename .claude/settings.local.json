@@ -1,17 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(gh api:*)",
-      "Bash(gh search:*)",
-      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(item[''''path'''']\\) for item in data.get\\(''''tree'''',[]\\) if item[''''type'''']==''''blob'''']\")",
-      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(item[''''path'''']\\) for item in data.get\\(''''tree'''',[]\\) if item[''''type'''']==''''blob'''' and item[''''path''''].startswith\\(''''src/''''\\)]\")",
-      "Bash(python3 -c \"import sys,json,base64; d=json.load\\(sys.stdin\\); print\\(base64.b64decode\\(d[''''content'''']\\).decode\\(''''utf-8'''', errors=''''replace''''\\)\\)\")",
-      "Bash(python3 -c \"import sys; sys.stdout.reconfigure\\(encoding=''''utf-8''''\\); [print\\(l\\) for l in sys.stdin]\")",
-      "Bash(PYTHONIOENCODING=utf-8 gh api repos/psmux/psmux/contents/src/format.rs)",
-      "Bash(python3 -c \":*)",
-      "Read(//tmp/**)",
-      "Bash(PYTHONIOENCODING=utf-8 gh api repos/psmux/psmux/contents/src/commands.rs)",
-      "Bash(PYTHONIOENCODING=utf-8 gh api repos/psmux/psmux/contents/src/window_ops.rs)"
-    ]
+    "allow": ["Bash", "Read", "WebFetch"]
   }
 }

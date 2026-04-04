@@ -12,10 +12,13 @@ return {
   },
   keys = {
     -- stylua: ignore start
-    { "<C-h>", function() require("smart-splits").move_cursor_left() end, desc = "Move cursor left", },
-    { "<C-j>", function() require("smart-splits").move_cursor_down() end, desc = "Move cursor down", },
-    { "<C-k>", function() require("smart-splits").move_cursor_up() end, desc = "Move cursor up", },
-    { "<C-l>", function() require("smart-splits").move_cursor_right() end, desc = "Move cursor right", },
+    { "<C-h>", function() require("smart-splits").move_cursor_left() end, desc = "Move cursor left" },
+    { "<C-j>", function() require("smart-splits").move_cursor_down() end, desc = "Move cursor down" },
+    { "<C-k>", function() require("smart-splits").move_cursor_up() end, desc = "Move cursor up" },
+    { "<C-l>", function() require("smart-splits").move_cursor_right() end, desc = "Move cursor right" },
+    -- psmux/Windows: C-h/C-j are swallowed by ConPTY, Alacritty remaps them to M-h/M-j
+    { "<M-h>", function() require("smart-splits").move_cursor_left() end, desc = "Move cursor left" },
+    { "<M-j>", function() require("smart-splits").move_cursor_down() end, desc = "Move cursor down" },
     -- { "<C-Left>", function() require("smart-splits").resize_left() end, desc = "Resize left", },
     -- { "<C-Down>", function() require("smart-splits").resize_down() end, desc = "Resize down", },
     -- { "<C-Up>", function() require("smart-splits").resize_up() end, desc = "Resize up", },
