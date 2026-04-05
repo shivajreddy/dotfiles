@@ -4,7 +4,10 @@
 **/lazy-lock.json
 **/wezterm-session-manager/wezterm_state_*.json
 nul
+
+# ai
 .claude
+./common/ai/opencode/package-lock.json
 
 # Nix OS
 
