@@ -39,13 +39,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Hide line numbers for markdown and text files using BufEnter to match by file extension
-vim.api.nvim_create_autocmd("BufEnter", {
+-- DISABLED
+--[[ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.md", "*.txt" },
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
   end,
-})
+}) ]]
 
 -- Deletes the autocommand that comes with lazyvim, with the group name "lazyvim_wrap_spell"
 -- this autocommand enables spellcheck for text, markdown files
