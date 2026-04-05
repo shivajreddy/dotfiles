@@ -88,6 +88,9 @@ alias gpull="git pull"
 alias gpush="git push"
 alias gsave="gaa && gcmsg '.' && gpush"
 
+# Rust
+alias cr="cargo run"
+
 # Python
 alias python="python3.12"
 alias py="python3.12"
