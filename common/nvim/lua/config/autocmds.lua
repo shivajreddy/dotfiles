@@ -51,5 +51,3 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Deletes the autocommand that comes with lazyvim, with the group name "lazyvim_wrap_spell"
 -- this autocommand enables spellcheck for text, markdown files
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
-
-

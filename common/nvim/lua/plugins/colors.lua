@@ -157,7 +157,7 @@ return {
           -- base = "#11111b",
         },
       },
-      custom_highlights = function()
+      custom_highlights = function(colors)
         return {
           -- NeoTree
           -- NeoTreeNormal = { bg = "#11111b" },
@@ -205,6 +205,7 @@ return {
         treesitter = true,
         treesitter_context = true,
         which_key = true,
+        snacks = true,
       },
     },
     config = function(_, opts)
