@@ -6,7 +6,7 @@ return {
     -- local active_fg = "#000000"
     -- local active_fg = "#DA3B01"
     local active_bg = "#181825"
-    local active_fg = "#ffffff"
+    -- local active_fg = "#ffffff"
 
     opts.highlights = require("catppuccin.special.bufferline").get_theme({
       styles = { "bold" }, -- bold only, no italic

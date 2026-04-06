@@ -157,13 +157,15 @@ return {
           -- base = "#11111b",
         },
       },
-      custom_highlights = function(colors)
-        return {
-          -- NeoTree
-          -- NeoTreeNormal = { bg = "#11111b" },
-          -- NeoTreeNormalNC = { bg = "#11111b" },
-        }
-      end,
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            NvimTreeNormal = { fg = colors.none },
+            CmpBorder = { fg = "#3e4145" },
+            NormalFloat = { bg = colors.none },
+          }
+        end,
+      },
       default_integrations = true,
       integrations = {
         aerial = true,
