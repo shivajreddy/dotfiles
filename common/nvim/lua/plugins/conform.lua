@@ -1,5 +1,7 @@
 -- for formatting python files
 return {
+  -- Disable nvim-ts-autotag (causes cursor issues and errors when typing >)
+  { "windwp/nvim-ts-autotag", enabled = false },
   {
     "stevearc/conform.nvim",
     opts = {
