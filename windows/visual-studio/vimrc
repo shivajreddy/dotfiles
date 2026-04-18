@@ -31,7 +31,7 @@ set sidescrolloff=10
 
 " Enable line numbers and relative line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " Enable smart indentation
 set smartindent

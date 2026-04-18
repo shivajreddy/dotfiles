@@ -42,6 +42,33 @@ function dots {
     Set-Location ~/dotfiles
 }
 
+# GIT Aliases
+# Remove conflicting built-in aliases
+Remove-Item alias:gl -Force -ErrorAction SilentlyContinue
+Remove-Item alias:gp -Force -ErrorAction SilentlyContinue
+# --- Git functions (PowerShell-native) ---
+function g   { git @args }
+function ga  { git add @args }           # better than hardcoding '.'
+function gaa  { git add . }           # better than hardcoding '.'
+function gb  { git branch --show-current }
+function gcl { git clone @args }
+function gch { git checkout -b @args }
+function gco { param([string]$msg) git commit -m "$msg" }
+function gcp { git cherry-pick @args --no-commit }
+function gbd { git branch -D @args }
+function gd  { git diff @args }
+function gl  { git log @args }
+function gp  { git pull @args }
+function gpu { git push @args }
+function gs  { git status }
+function gsc { git stash clear }
+function gsa { git stash apply }
+function git-sha { git rev-parse HEAD }
+function greset {
+    param([string]$commit)
+    git reset --soft $commit
+}
+
 # LOCALAPPDATA & ROAMING
 Function roam {
     Set-Location $ENV:APPDATA
