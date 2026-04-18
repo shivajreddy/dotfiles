@@ -46,6 +46,7 @@ function dots {
 # Remove conflicting built-in aliases
 Remove-Item alias:gl -Force -ErrorAction SilentlyContinue
 Remove-Item alias:gp -Force -ErrorAction SilentlyContinue
+Remove-Item alias:gcm -Force -ErrorAction SilentlyContinue
 # --- Git functions (PowerShell-native) ---
 function g   { git @args }
 function ga  { git add @args }           # better than hardcoding '.'
@@ -55,6 +56,17 @@ function gcl { git clone @args }
 function gch { git checkout -b @args }
 function gco { param([string]$msg) git commit -m "$msg" }
 function gcp { git cherry-pick @args --no-commit }
+function gcm {
+    param(
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$msg
+    )
+    if (-not $msg) {
+        Write-Error "Commit message required"
+        return
+    }
+    git commit -m ($msg -join " ")
+}
 function gbd { git branch -D @args }
 function gd  { git diff @args }
 function gl  { git log @args }
