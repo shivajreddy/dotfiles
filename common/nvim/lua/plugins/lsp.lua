@@ -61,6 +61,9 @@ return {
         pyright = {},
         --#endregion
 
+        --#region C# Configuration (uses seblj/roslyn.nvim, see plugins/roslyn.lua)
+        --#endregion
+
         --#region Rust Configuration
         -- rust_analyzer = {
         --   -- this is a good post: https://oneofone.dev/post/neovim-lsp-go-rust/

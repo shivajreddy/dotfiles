@@ -17,6 +17,7 @@ return {
       ensure_installed = {
         "clangd",
         "black",
+        "roslyn",
       },
     },
   },
