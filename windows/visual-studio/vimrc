@@ -3,8 +3,8 @@
 " Disable bell
 set vb t_vb=
 
-" Set clipboard to unnamedplus for system clipboard integration
-set clipboard=unnamed
+" ~/.vimrc  (or %USERPROFILE%\_vimrc on Windows — VsVim checks both)
+set clipboard=unnamed        " y/p use * register (system clipboard)
 
 " Case-insensitive search
 set ignorecase
@@ -121,6 +121,8 @@ vnoremap <leader>d "_d
 " Yank to clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
 " Disable Q for recording
 nnoremap Q <nop>
