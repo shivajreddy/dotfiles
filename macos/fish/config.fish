@@ -22,6 +22,7 @@ end
 ########################### PATHS ###########################
 
 # Add locations to PATH
+fish_add_path /usr/local/share/dotnet
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/nvim-linux64/bin
 fish_add_path /snap/bin

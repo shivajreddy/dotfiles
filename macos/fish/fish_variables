@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/Users/smpl/\x2eopencode/bin\x1e/Users/smpl/\x2econfig/emacs/bin\x1e/usr/local/go/bin\x1e/Users/smpl/\x2ecargo/bin
+SETUVAR fish_user_paths:/usr/local/share/dotnet\x1e/Users/smpl/\x2eopencode/bin\x1e/Users/smpl/\x2econfig/emacs/bin\x1e/usr/local/go/bin\x1e/Users/smpl/\x2ecargo/bin
