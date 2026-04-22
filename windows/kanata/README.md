@@ -31,15 +31,15 @@ Use Task Scheduler to run kanata at boot with elevated privileges. Requires kana
 ### Import the included task
 1. Open Task Scheduler (`taskschd.msc`)
 2. Action → Import Task → select `kanata-win-task.xml`
-3. No path changes needed — the task uses `kanata` from PATH
+3. No path changes needed — the task uses `%USERPROFILE%` so it resolves to the current user automatically
 
 ### Or create manually
 1. Open Task Scheduler → Create Task
 2. General tab: Name it, check "Run with highest privileges"
 3. Triggers tab: New → Begin the task "At startup"
 4. Actions tab: New → Start a program
-   - Program: `kanata`
-   - Arguments: `--cfg <path_to_kanata.kbd>`
+   - Program: `%USERPROFILE%\AppData\Local\Microsoft\WinGet\Links\kanata.exe`
+   - Arguments: `--cfg %USERPROFILE%\dotfiles\windows\kanata\kanata.kbd`
 5. Settings tab: Check "Allow task to be run on demand"
 
 ## Stop
