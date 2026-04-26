@@ -5,6 +5,13 @@
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
+-- Root directory patterns
+vim.g.root_spec = {
+  "lsp",
+  { "*.csproj", "*.sln", ".git", "lua" },
+  "cwd",
+}
+
 -- vim.opt.clipboard:append("unnamedplus")
 -- vim.opt.clipboard = "unnamedplus" --Works for linux
 -- vim.g.clipboard = { --Works for wsl
