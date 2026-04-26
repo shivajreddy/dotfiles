@@ -84,7 +84,7 @@ window_effects:
     corner_style:
       enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'small_rounded'
+      style: 'square'
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -128,23 +128,23 @@ workspaces:
   - name: '1'
     # display_name: "1 👥"
     # keep_alive: true
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '2'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '3'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '4'
-    bind_to_monitor: 1
+    # bind_to_monitor: 1
   - name: '5'
-    bind_to_monitor: 1
+    # bind_to_monitor: 1
   - name: '6'
-    bind_to_monitor: 1
-  # - name: '7'
+    # bind_to_monitor: 1
+  - name: '7'
     # bind_to_monitor: 1
   - name: '8'
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: '9'
-    bind_to_monitor: 0
+  #   bind_to_monitor: 0
 
 # ########################
 # On macOS, run `glazewm query windows` in terminal to find window info.
@@ -161,56 +161,23 @@ workspaces:
 window_rules:
   - commands: ['ignore']
     match:
-
-      # Ignore any Zebar windows
       # - window_process: { equals: 'zebar' }
-      # Ignore any glazeid windows
       - window_process: { equals: 'glazeid' }
 
-      # Ignore emacs
-      # - window_process: { equals: 'emacs' }
-
-      # Ignore Spotify
-      # - window_process: { equals: 'Spotify' }
-
-      # Ignore Task Manager
-      # - window_process: { equals: 'Taskmgr' }
-
-      # Ignore File Explorer
-      # - window_process: { equals: 'explorer' }
-        # window_title : {regex: '^.+ - File Explorer$'}
-
+      # MacOS Apps
+      - window_process: { equals: 'Finder' }
+      - window_process: { equals: 'System Settings' }
+      - window_process: { equals: 'Activity Monitor' }
       # Ignores System Settings
       - window_class : { equals : 'ApplicationFrameWindow' }
         window_process: { equals: 'ApplicationFrameHost' }
 
-      # Ignores System Settings
-      # com.applesystempreferences
-      # /System/Applications/System Settings.app/Contents/MacOS/System Settings
-      - window_process: { equals: 'System Settings' }
-
-      - window_process: { equals: 'Activity Monitor' }
-
       # Raycast launcher
       - window_process : { equals : 'Raycast' }
-
-      # Ignore Handy ai transcriber
       - window_process: { equals: 'handy' }
-
-      # Ignore any WSL windows
-      # - window_title : { regex: '.*(Ubuntu)' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-        # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
-
-      # Ignore rules for various 3rd-party apps.
-      # - window_process: { equals: 'PowerToys' }
-        # window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      # - window_process: { equals: 'PowerToys' }
-        # window_title: { regex: '.*? - Peek' }
-      # - window_process: { equals: 'Lively' }
-        # window_class: { regex: 'HwndWrapper' }
 
 
 binding_modes:
@@ -284,12 +251,12 @@ keybindings:
     bindings: ['alt+v']
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ['wm-cycle-focus']
-    bindings: ['alt+space']
+  # - commands: ['wm-cycle-focus']
+  #   bindings: ['alt+space']
 
   # Change the focused window to be floating.
-  - commands: ['toggle-floating --centered']
-    bindings: ['alt+shift+space']
+  # - commands: ['toggle-floating --centered']
+  #   bindings: ['alt+shift+space']
 
   # Change the focused window to be tiling.
   - commands: ['toggle-tiling']
@@ -300,8 +267,8 @@ keybindings:
     bindings: ['alt+f']
 
   # Minimize focused window.
-  - commands: ['toggle-minimized']
-    bindings: ['alt+m']
+  # - commands: ['toggle-minimized']
+  #   bindings: ['alt+m']
 
   # Close focused window.
   - commands: ['close']
@@ -348,8 +315,8 @@ keybindings:
     bindings: ['alt+5']
   - commands: ['focus --workspace 6']
     bindings: ['alt+6']
-  # - commands: ['focus --workspace 7']
-  #   bindings: ['alt+7']
+  - commands: ['focus --workspace 7']
+    bindings: ['alt+7']
   - commands: ['focus --workspace 8']
     bindings: ['alt+8']
   - commands: ['focus --workspace 9']
