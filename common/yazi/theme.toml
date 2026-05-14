@@ -1,8 +1,10 @@
 
 # install the catppuccin-mocha yazi package using 'ya' cli
-# ya pack -a yazi-rs/flavors:catppuccin-mocha
-# ya pack -a marcosvnmelo/kanagawa-dragon
-# ya pack -a gosxrgxx/flexoki-dark
+# ya pack add yazi-rs/flavors:catppuccin-mocha
+# ya pack add marcosvnmelo/kanagawa-dragon
+# ya pack add gosxrgxx/flexoki-dark
+# to remove them use
+# ya pack delete yazi-rs/flavors:catppuccin-mocha
 
 [flavor]
 dark = "catppuccin-mocha"

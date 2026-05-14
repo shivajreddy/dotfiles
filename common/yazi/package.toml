@@ -1,5 +1,17 @@
 [plugin]
 deps = []
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d04a298" }, { use = "marcosvnmelo/kanagawa-dragon", rev = "4905527" }, { use = "gosxrgxx/flexoki-dark", rev = "28e1977" }]
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "4905527"
+hash = ""
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = ""
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "0670801"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"
