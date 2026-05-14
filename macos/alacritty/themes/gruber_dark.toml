@@ -1,0 +1,39 @@
+# Gruber Darker theme for Alacritty
+
+[colors]
+# this makes nvim transparent even when you set a background on nvim
+transparent_background_colors = false
+
+[colors.primary]
+foreground = '#e0def4'
+background = '#000000'
+# background = '#181818' # shouldnt be set for transparent
+# background = 'None'
+
+[colors.cursor]
+text = "#000000"    # bg
+cursor = '#ffdd33'
+
+[colors.selection]
+text = '#e0def4'
+background = '#403d52'
+
+[colors.normal]
+black = '#26233a'
+red = '#e0def4'
+green = '#95a99f'
+yellow = '#ffdd33'
+blue = '#e0def4'
+magenta = '#c4a7e7'
+cyan = '#ebbcba'
+white = '#e0def4'
+
+[colors.bright]
+black = '#6e6a86'
+red = '#e0def4'
+green = '#95a99f'
+yellow = '#ffdd33'
+blue = '#e0def4'
+magenta = '#c4a7e7'
+cyan = '#ebbcba'
+white = '#e0def4'

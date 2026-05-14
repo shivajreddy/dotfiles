@@ -1,0 +1,32 @@
+-- temporary fix to install the specific version
+--[[
+return {
+  { "mason-org/mason.nvim", version = "^1.0.0" },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+}
+--]]
+
+return {
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+      ensure_installed = {
+        "clangd",
+        "black",
+        "roslyn",
+      },
+    },
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "clangd",
+      },
+    },
+  },
+}

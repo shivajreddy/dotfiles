@@ -1,0 +1,70 @@
+# Common
+**/.zsh_sessions/
+**/nvim/lazy-lock.json
+**/lazy-lock.json
+**/wezterm-session-manager/wezterm_state_*.json
+nul
+
+# ai
+.claude
+./common/ai/opencode/package-lock.json
+**/node_modules/
+
+# Nix OS
+
+
+# Mac OS
+.DS_Store
+**/.zsh_history
+**/wallpapers/
+**/lazy-lock.json
+./macos/nvim/lazy-lock.json
+
+
+# Windows
+*.Identifier
+**/gh/
+**/errors.log
+/windows/.glzr/zebar/tmp-*/
+**/tacky-borders.log
+windows/glzr/zebar/tmp*/
+windows/yazi/state/
+windows/yazi/config/flavors/
+**/yazi/flavors/
+
+
+
+# WSL
+**/.zcompdump
+
+
+.DS_Store
+
+# Emacs temporary files
+*~
+\#*\#
+.\#*
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Emacs backup files
+*~
+*.bak
+
+# Emacs session files
+.session
+session.*
+
+# Emacs auto-save files
+\#*\#
+
+# Emacs lock files
+.#*
+
+# Org-mode
+*.org~
+.org-id-locations
+*_archive
+

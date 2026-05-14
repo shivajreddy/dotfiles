@@ -1,0 +1,86 @@
+# SKHD - Configuration  | use `skhd --observe` for viewing keycodes for any key
+# NOTE: yabai & skhd use the shell to execute commands, since i use fish shell
+# as my default shell, both yabai+skhd will be slow. so edit the plist files 
+# for both yabai and skhd. use 'skhd --install-service' to see the location of 
+# the plist files(https://github.com/koekeishiya/skhd/issues/42), and add the 
+# SHELL environment variable, with its string value as the shell of choice.
+# dash is faster than bash, so if you want dash, install it first.
+# 1. use `skhd --install-service`##
+# Ex:
+    # <dict>
+    #     (existing key-string entries)
+    #     <key>SHELL</key>
+    #     <string>/bin/dash</string>
+    # </dict>
+#
+
+# change layout of desktop
+# toggle between float and binary-space-partition mode
+alt + shift - b : yabai -m space --layout bsp     # b as in bsp 
+alt + shift - f : yabai -m space --layout float   # f as in float
+
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+
+
+# move window
+alt + shift - h : yabai -m window --warp west
+alt + shift - j: yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+alt + shift - l : yabai -m window --warp east
+
+# Fast focus desktop (must disable SIP and finish https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition)
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - d : yabai -m space --focus recent
+
+# D E S T R O Y   D E S K T O P
+alt + shift - w : yabai -m space --destroy
+
+###### display means monitor, space means destop-space with in a monitor
+
+# increase window size
+alt - p : yabai -m window --resize left:-20:0; yabai -m window --resize right:20:0
+alt - i : yabai -m window --resize top:0:-20; yabai -m window --resize bottom:0:20
+
+# decrease window size
+alt - u : yabai -m window --resize left:20:0; yabai -m window --resize right:-20:0
+alt - o : yabai -m window --resize top:0:20; yabai -m window --resize bottom:0:-20
+
+# move window to a space and focus desktop that space
+alt + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
+
+# send window to monitor and follow focus
+lcmd + rcmd - 0x21  : yabai -m window --display prev; yabai -m display --focus prev
+lcmd + rcmd - 0x1E  : yabai -m window --display next; yabai -m display --focus next
+lcmd + rcmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+lcmd + rcmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+lcmd + rcmd - 3  : yabai -m window --display 3; yabai -m display --focus 3
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window border
+alt + ctrl - b : yabai -m window --toggle border
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 20:20:1:1:18:18
+alt + shift - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# toggle sticky, float and resize to picture-in-picture size
+alt +shift - p : yabai -m window --grid 5:5:4:0:1:1
+

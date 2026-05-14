@@ -1,0 +1,124 @@
+/* @import url("./mocha.css"); */
+@import url("./rosepine.css");
+
+/* :: FONT CONFIG - change font here :: */
+* {
+    font-family: 'Iosevka Nerd Font';
+    font-size: 10px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar
+{
+  background: rgba(21, 18, 27, 0);
+  color: @text;
+}
+
+tooltip
+{
+  background: @base;
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @overlay;
+}
+
+#workspaces {
+}
+
+#workspaces button
+{
+  margin: 0 0.2em;
+  min-width: 25px;
+  padding: 0px 4px;
+
+  color: @muted;
+  background: @highlightLow;
+}
+
+#workspaces button.active {
+  color: @base;
+  background-color: @rose;
+}
+
+#workspaces button.focused {
+  color: @subtle;
+  background: @love;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  background: @pine;
+}
+
+
+
+#custom-power_profile,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#tray,
+#cpu,
+#memory,
+#custom-wlogout,
+#custom-notification
+{
+  color:@text;
+  background: @base;
+  opacity: 0.7;
+
+  border-radius: 4px;
+  padding: 0px 10px;
+  margin: 0px 2px;
+}
+
+#window {
+  color: @muted;
+  background: @overlay;
+  opacity: 1;
+  /* border: 1px solid @rose; */
+}
+
+
+
+#pulseaudio
+{
+  color: @foam;
+  /* border: 1px solid @foam; */
+}
+
+#network
+{
+  color: @gold;
+  /* border: 1px solid @love; */
+}
+
+#bluetooth
+{
+  color: @iris;
+  /* border: 1px solid @iris; */
+}
+
+#clock
+{
+  color: @text;
+  /* border: 1px solid @text; */
+}
+
+#custom-notification
+{
+  color: @rose;
+  /* border: 1px solid @rose; */
+}
+
+#custom-wlogout
+{
+  color: @love;
+}
+

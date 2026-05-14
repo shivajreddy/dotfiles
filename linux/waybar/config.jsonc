@@ -1,0 +1,81 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 10,
+    "reload_style_on_change": true,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/keymap", "wlr/taskbar", "pulseaudio", "network", "bluetooth", "battery", "clock"],
+
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate"
+    },
+
+    "battery": {
+		"format": "{icon} {capacity}% ",
+		"format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+
+    "clock": {
+        "format-alt": "{:%H:%M}",
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        // "on-click": "pamixer -t" /* toggle mute */
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format": "󰌙",
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰌐",
+        "format-disconnected": "󰌙",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "disconnected",
+        // "on-click": "nm-connection-editor"
+        "on-click": "iwgtk"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "hyprctl dispatch killactivewindow"
+    },
+
+    "custom/keymap": {
+        "exec": "~/.config/waybar/scripts/keymap-state.sh",
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch submap pause || hyprctl dispatch submap reset"
+    }
+
+}

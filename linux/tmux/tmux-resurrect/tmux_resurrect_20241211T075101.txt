@@ -1,0 +1,14 @@
+pane	AOC	1	1	:*	0	TECLAB-SHIVA	:/home/shiva/projects/aoc	1	nvim	:/opt/nvim/usr/bin/nvim .
+pane	AOC	1	1	:*	1	TECLAB-SHIVA	:/home/shiva/projects/aoc	0	bash	:/bin/bash ./aoc.sh ./2024/cpp/day-07/part-01/main.cpp
+pane	COACHABLE	1	1	:*	0	TECLAB-SHIVA	:/home/shiva/projects/coachable-leetcode	1	nvim	:/opt/nvim/usr/bin/nvim
+pane	COACHABLE	1	1	:*	1	TECLAB-SHIVA	:/home/shiva/projects/coachable-leetcode	0	bash	:/bin/bash /home/shiva/.config/zsh/scripts/runcpp.sh ./leetcode/microsoft/162_Find_Peak_Element.cpp
+pane	HOME	1	1	:*	0	TECLAB-SHIVA	:/home/shiva/dotfiles	1	zsh	:
+pane	PLAYGROUND	1	1	:*	0	TECLAB-SHIVA	:/home/shiva/projects/playground/cpp	1	nvim	:/opt/nvim/usr/bin/nvim .
+pane	PLAYGROUND	1	1	:*	1	TECLAB-SHIVA	:/home/shiva/projects/playground/cpp	0	bash	:/bin/bash /home/shiva/.config/zsh/scripts/runcpp.sh ./ground/main.cpp
+pane	WINDOWS	1	1	:*	0	C:Program FilesPowerShell7pwsh.exe	:/home/shiva	1	init	:/init /mnt/c/Program Files/PowerShell/7//pwsh.exe pwsh.exe -nologo
+window	AOC	1	:nvim	1	:*	566f,220x69,0,0{150x69,0,0,1,69x69,151,0,2}	:
+window	COACHABLE	1	:nvim	1	:*	8324,220x69,0,0{136x69,0,0,3,83x69,137,0,4}	:
+window	HOME	1	:zsh	1	:*	d31d,220x69,0,0,0	:
+window	PLAYGROUND	1	:nvim	1	:*	e860,220x69,0,0{133x69,0,0,8,86x69,134,0,9}	:
+window	WINDOWS	1	:init	1	:*	6bbf,228x69,0,0,10	:
+state	HOME	COACHABLE

@@ -1,0 +1,11 @@
+keymap:
+  - name: Browser tab navigation
+    application:
+      only:
+        - firefox
+        - zen
+        - chromium
+        - google-chrome
+    remap:
+      KEY_LEFTALT-KEY_LEFTBRACE: KEY_LEFTCTRL-KEY_LEFTSHIFT-KEY_TAB
+      KEY_LEFTALT-KEY_RIGHTBRACE: KEY_LEFTCTRL-KEY_TAB

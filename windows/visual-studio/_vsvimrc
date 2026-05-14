@@ -1,0 +1,69 @@
+" Symlink: New-Item -ItemType SymbolicLink -Path "$HOME\_vsvimrc" -Target "$HOME\dotfiles\windows\visual-studio\_vsvimrc" -Force
+
+" ── Core behavior ────────────────────────────────────────────────────────
+set vb t_vb=
+set clipboard=unnamed
+set ignorecase
+set hlsearch
+set vsvim_hidemarks=<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+set formatoptions-=c
+set formatoptions-=r
+set formatoptions-=o
+set nolist
+set sidescroll=1
+set sidescrolloff=10
+set number
+set nowrap
+set scrolloff=8
+
+" ── Leader ───────────────────────────────────────────────────────────────
+let mapleader = " "
+
+" ── Save ─────────────────────────────────────────────────────────────────
+inoremap <C-s> <Esc>:w<CR>a
+xnoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> :w<CR>
+snoremap <C-s> <Esc>:w<CR>
+
+" ── Disable C-f (VS uses it for Find) ────────────────────────────────────
+nnoremap <C-f> <Nop>
+inoremap <C-f> <Nop>
+vnoremap <C-f> <Nop>
+
+" ── Window splits (VS-style) ─────────────────────────────────────────────
+nnoremap <Leader>w' :vsc Window.NewVerticalTabGroup<CR>
+nnoremap <Leader>w" :vsc Window.NewHorizontalTabGroup<CR>
+
+" ── Motion tweaks ────────────────────────────────────────────────────────
+nnoremap Y y$
+nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" ── Clipboard ────────────────────────────────────────────────────────────
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+" ── Paste over selection without clobbering register ─────────────────────
+xnoremap <leader>p "_dP
+
+" ── Delete to void register ──────────────────────────────────────────────
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" ── Buffer operations ────────────────────────────────────────────────────
+function! YankEntireBuffer()
+  let l:cursor_pos = getpos(".")
+  execute "normal! ggVGy"
+  call setpos('.', l:cursor_pos)
+endfunction
+nnoremap <leader>ay :call YankEntireBuffer()<CR>
+nnoremap <leader>ad :%d<CR>
+nnoremap <leader>aa ggVG
+
+" ── Disable macro recording (Q) ──────────────────────────────────────────
+nnoremap Q <nop>

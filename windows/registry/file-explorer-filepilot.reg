@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; Replace Windows Explorer with FilePilot as default file manager
+; FilePilot path obtained via: where.exe fpilot (or where.exe filepilot)
+; HKEY_CLASSES_ROOT\Folder\shell\open\command -> FilePilot + remove DelegateExecute
+; HKEY_CLASSES_ROOT\Folder\shell\explore\command -> FilePilot + remove DelegateExecute
+
+[HKEY_CLASSES_ROOT\Folder\shell\open\command]
+@="\"C:\\Users\\smpl\\AppData\\Local\\Voidstar\\FilePilot\\FPilot.exe\" \"%1\""
+"DelegateExecute"=-
+
+[HKEY_CLASSES_ROOT\Folder\shell\explore\command]
+@="\"C:\\Users\\smpl\\AppData\\Local\\Voidstar\\FilePilot\\FPilot.exe\" \"%1\""
+"DelegateExecute"=-

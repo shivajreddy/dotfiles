@@ -1,0 +1,121 @@
+=== Debugging Special Workspace Detection ===
+Full monitors output:
+Monitor eDP-1 (ID 0):
+	3840x2160@59.99700 at 0x0
+	description: Sharp Corporation 0x148D
+	make: Sharp Corporation
+	model: 0x148D
+	physical size (mm): 340x190
+	serial: 
+	active workspace: 1 (1)
+	special workspace: 0 ()
+	reserved: 0 24 0 0
+	scale: 2.00
+	transform: 0
+	focused: yes
+	dpmsStatus: 1
+	vrr: false
+	solitary: 0
+	solitaryBlockedBy: windowed mode,missing candidate
+	activelyTearing: false
+	tearingBlockedBy: next frame is not torn,user settings,missing candidate
+	directScanoutTo: 0
+	directScanoutBlockedBy: user settings,missing candidate
+	disabled: false
+	currentFormat: XRGB8888
+	mirrorOf: none
+	availableModes: 3840x2160@60.00Hz 
+	colorManagementPreset: srgb
+	sdrBrightness: 1.00
+	sdrSaturation: 1.00
+	sdrMinLuminance: 0.20
+	sdrMaxLuminance: 80
+
+
+Checking for special workspace:
+SPECIAL_ID value: '0'
+SPECIAL_NAME value: ''
+RESULT: No special workspace is active
+
+
+=== Debugging Special Workspace Detection ===
+Full monitors output:
+Monitor eDP-1 (ID 0):
+	3840x2160@59.99700 at 0x0
+	description: Sharp Corporation 0x148D
+	make: Sharp Corporation
+	model: 0x148D
+	physical size (mm): 340x190
+	serial: 
+	active workspace: 1 (1)
+	special workspace: -98 (special:floatingterminal)
+	reserved: 0 24 0 0
+	scale: 2.00
+	transform: 0
+	focused: yes
+	dpmsStatus: 1
+	vrr: false
+	solitary: 0
+	solitaryBlockedBy: windowed mode,special workspace,missing candidate
+	activelyTearing: false
+	tearingBlockedBy: next frame is not torn,user settings,missing candidate
+	directScanoutTo: 0
+	directScanoutBlockedBy: user settings,missing candidate
+	disabled: false
+	currentFormat: XRGB8888
+	mirrorOf: none
+	availableModes: 3840x2160@60.00Hz 
+	colorManagementPreset: srgb
+	sdrBrightness: 1.00
+	sdrSaturation: 1.00
+	sdrMinLuminance: 0.20
+	sdrMaxLuminance: 80
+
+
+Checking for special workspace:
+SPECIAL_ID value: '-98'
+SPECIAL_NAME value: 'special:floatingterminal'
+RESULT: Special workspace IS active
+Special workspace detected: ID=-98, Name=special:floatingterminal
+
+
+=== Debugging Special Workspace Detection ===
+Full monitors output:
+Monitor eDP-1 (ID 0):
+	3840x2160@59.99700 at 0x0
+	description: Sharp Corporation 0x148D
+	make: Sharp Corporation
+	model: 0x148D
+	physical size (mm): 340x190
+	serial: 
+	active workspace: 1 (1)
+	special workspace: -97 (special:media)
+	reserved: 0 24 0 0
+	scale: 2.00
+	transform: 0
+	focused: yes
+	dpmsStatus: 1
+	vrr: false
+	solitary: 0
+	solitaryBlockedBy: windowed mode,special workspace,missing candidate
+	activelyTearing: false
+	tearingBlockedBy: next frame is not torn,user settings,missing candidate
+	directScanoutTo: 0
+	directScanoutBlockedBy: user settings,missing candidate
+	disabled: false
+	currentFormat: XRGB8888
+	mirrorOf: none
+	availableModes: 3840x2160@60.00Hz 
+	colorManagementPreset: srgb
+	sdrBrightness: 1.00
+	sdrSaturation: 1.00
+	sdrMinLuminance: 0.20
+	sdrMaxLuminance: 80
+
+
+Checking for special workspace:
+SPECIAL_ID value: '-97'
+SPECIAL_NAME value: 'special:media'
+RESULT: Special workspace IS active
+Special workspace detected: ID=-97, Name=special:media
+

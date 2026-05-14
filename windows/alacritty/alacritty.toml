@@ -1,0 +1,112 @@
+#######################################################
+# On Windows, the config file will be looked for in:
+# %APPDATA%\alacritty\alacritty.toml
+
+# 1. go to %APPDATA% for me it is C:\Users\shiva\AppData\Roaming
+# 2. make sure there is no 'alacritty' folder already
+# 3. Sym link the 'alacritty' folder so that all the relative paths used below will work
+# ┌~/AppData/Roaming
+# └  New-Item -ItemType SymbolicLink -Path .\alacritty -Target "C:\Users\shiva\dotfiles\windows\alacritty\"
+#######################################################
+
+
+##############################  GENERAL  ##############################
+## using properties > compatibility > Run as Administrator
+[general]
+live_config_reload = true
+working_directory = "C:\\Users\\smpl"
+import = [
+    "./font_iosevka.toml",
+    # "./font_other.toml",
+    # "./kanagawa_dragon.toml",
+    # "./black_metal.toml",
+    "./catppuccin-mocha.toml"
+]
+
+[keyboard]
+bindings = [
+    # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+    # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # { key = "L", mods = "Control|Shift", chars = "l" },
+    # {key = "K", mods = "Control", chars = "\u0008" },
+    # Ctrl+Tab / Ctrl+Shift+Tab -> psmux window navigation
+    # Alacritty receives the key event, but ConPTY swallows modifyOtherKeys sequences
+    # like \u001b[27;5;9~. Alt sequences (ESC + char) pass through ConPTY fine.
+    # So we send ESC ] / ESC [ which is the same as Alt+] / Alt+[,
+    # and psmux binds M-] / M-[ to next-window / previous-window.
+    { key = "Tab", mods = "Control", chars = "\u001b]" },
+    { key = "Tab", mods = "Control|Shift", chars = "\u001b[" },
+    # Send Ctrl+/ 
+    { key = "Slash", mods = "Control", chars = "\u001F" },
+    # Send Ctrl+Enter
+    { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
+    { key = "Enter", mods = "Alt", action = "None" },
+    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+    # Shift+Enter is new line
+    { key = "Return", mods = "Shift", chars = "\u001b\r"},
+    # Pass Ctrl+t through to psmux (prefix key)
+    { key = "T", mods = "Control", chars = "\u0014" },
+    # Ctrl+Shift+T -> new psmux window (same ConPTY workaround: send ESC t = Alt+t)
+    { key = "T", mods = "Control|Shift", chars = "\u001bt" },
+    # Ctrl+h/j are swallowed by ConPTY (backspace and newline).
+    # CSI-u sequences are also swallowed. ESC-prefix (M-h/j) passes through.
+    { key = "H", mods = "Control", chars = "\u001bh" },
+    { key = "J", mods = "Control", chars = "\u001bj" },
+]
+
+
+# working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
+
+[env]
+TERM = "xterm-256color"
+
+[debug]
+log_level = "Info"
+print_events = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", action = "None" }]
+
+##############################  STARTUP  ##############################
+# WORKS ON WINDOWS
+[terminal.shell]
+program = "pwsh"
+args = ["-nologo"]
+# args = ["-nologo", "-Command", "tmux"]
+# program = "wsl"
+# args = ["tmux attach || tmux"]
+
+
+##############################  WINDOW  ##############################
+[window]
+# opacity = 1
+# opacity = 0.55
+opacity = 0.85
+blur = true
+dynamic_title = false
+# title = "smpl;"
+# title = ""
+title = "Alacritty"
+dynamic_padding = false
+decorations = "None"     # "Full" | "None" | "Transparent" | "Buttonless"
+resize_increments = true
+
+[window.dimensions]
+columns = 80
+lines = 3
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0

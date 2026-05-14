@@ -1,0 +1,83 @@
+##############################  GENERAL  ##############################
+## using properties > compatibility > Run as Administrator
+[general]
+live_config_reload = true
+import = [
+    "./font_iosevka.toml",
+    # "./font_other.toml",
+    "./kanagawa_dragon.toml",
+    # "./black_metal.toml",
+]
+
+[keyboard]
+bindings = [
+    # { key = "l", mods = "Control|Shift", action = "ClearHistory" },
+    # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # { key = "L", mods = "Control|Shift", chars = "l" },
+    # {key = "K", mods = "Control", chars = "\u0008" },
+    # Send Ctrl+Tab and Ctrl+Shift+Tab
+    { key = "Tab", mods = "Control", chars = "\u001b[27;5;9~" },
+    { key = "Tab", mods = "Control|Shift", chars = "\u001b[27;6;9~" },
+    # Send Ctrl+/ 
+    { key = "Slash", mods = "Control", chars = "\u001F" },
+    # Send Ctrl+Enter
+    { key = "Enter", mods = "Control", chars = "\u001b[13;5u" },
+    { key = "Enter", mods = "Alt", action = "None" },
+    # { key = "Enter", mods = "Alt", action = "ReceiveChar" },
+]
+
+
+# working_directory = '\\wsl.localhost\Ubuntu\home\shiva'
+
+[env]
+TERM = "xterm-256color"
+
+[debug]
+log_level = "Info"
+print_events = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", action = "None" }]
+
+##############################  STARTUP  ##############################
+# WORKS ON WINDOWS
+# [terminal.shell]
+# program = "/usr/bin/fish"
+# program = "pwsh -nologo"
+# program = "wsl"
+# args = ["tmux attach || tmux"]
+# args = ["tmux"]
+
+
+##############################  WINDOW  ##############################
+[window]
+opacity = 1
+# opacity = 0.70
+blur = true
+dynamic_title = false
+# title = "smpl;"
+# title = ""
+title = "Alacritty"
+dynamic_padding = false
+decorations = "Buttonless"     # "Full" | "None" | "Transparent" | "Buttonless"
+resize_increments = true
+
+[window.dimensions]
+columns = 80
+lines = 3
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0

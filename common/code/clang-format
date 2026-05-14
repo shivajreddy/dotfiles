@@ -1,0 +1,55 @@
+#################
+# Author: Shiva
+# This will be used by default for all cpp files
+# NOTE: The file name of this file should be .clang-format
+# Use the following command to make a sym link on your linux home(~) directory
+# ln -s ~/dotfiles/common/code/clang-format .clang-format
+# New-Item -ItemType SymbolicLink -Path "C:\Users\shiva\.clang-format" -Target "\\wsl$\Ubuntu\home\shiva\dotfiles\common\code\clang-format"
+
+# Formatting options clang-format
+# Example: run the following command to set GNU formatting
+# ~/.local/share/nvim/mason/bin/clang-format --style GNU --dump-config > .config-format
+#################
+
+BasedOnStyle: LLVM
+Language:        Cpp
+IndentWidth:     4
+UseTab:          Never
+TabWidth:        4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass:               false
+  AfterFunction:            false
+  SplitEmptyFunction:       false
+  AfterNamespace:           false
+  AfterEnum:                false
+  AfterControlStatement:    false
+  AfterStruct:              false
+  AfterUnion:               true
+  BeforeCatch:              true
+  BeforeElse:               false
+  IndentBraces:             false
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine:        true
+AllowShortFunctionsOnASingleLine:    None 
+ColumnLimit:      80
+ContinuationIndentWidth: 4
+# SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 1
+AccessModifierOffset: -4
+IndentAccessModifiers: false  # Optional
+
+IndentPPDirectives: AfterHash
+
+SpacesInAngles: false
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInContainerLiterals: true
+Cpp11BracedListStyle: false
+SpacesInCStyleCastParentheses: false
+SpaceBeforeCpp11BracedList: true    # Ensures space before opening brace
+SpaceBeforeAssignmentOperators: true
+
+PointerAlignment: Left
+

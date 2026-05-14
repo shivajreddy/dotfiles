@@ -1,0 +1,43 @@
+# Black Metal Colors - Welcome to Hell 1981
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "#000000"  # bg - actual terminal background
+foreground = "#c1c1c1"  # fg - default text color
+
+[colors.cursor]
+text = "#000000"    # bg
+cursor = "#DA3B01"  # DA3B01(dune) fc302e(bright red) 
+
+[colors.normal]
+black = "#211816"   # alt_bg
+red = "#5f8787"     # diag_red/alt
+green = "#c1c1c1"   # property/fg
+yellow = "#888888"  # func
+blue = "#aaaaaa"    # constant/number
+magenta = "#fc302e" # type
+cyan = "#f8f7f2"    # string
+white = "#c1c1c1"   # fg
+
+[colors.bright]
+black = "#505050"   # comment (brighter than normal black)
+red = "#5f8787"     # diag_red/alt
+green = "#c1c1c1"   # property/fg
+yellow = "#888888"  # func
+blue = "#aaaaaa"    # constant
+magenta = "#fc302e" # type
+cyan = "#f8f7f2"    # string
+white = "#c1c1c1"   # fg
+
+[colors.selection]
+background = "#333333" # visual
+foreground = "#c1c1c1" # fg
+
+[[colors.indexed_colors]]
+index = 16
+color = "#9b99a3"   # operator
+
+[[colors.indexed_colors]]
+index = 17
+color = "#999999"   # keyword

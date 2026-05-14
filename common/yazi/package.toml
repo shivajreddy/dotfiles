@@ -1,0 +1,5 @@
+[plugin]
+deps = []
+
+[flavor]
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d04a298" }, { use = "marcosvnmelo/kanagawa-dragon", rev = "4905527" }, { use = "gosxrgxx/flexoki-dark", rev = "28e1977" }]

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+options=(
+    style=round
+    width=4.0
+    hidpi=on
+    ax_focus=on
+    active_color=0xffDA3B01
+    inactive_color=0xff031208
+    blacklist="Raycast,Spotlight"
+)
+
+borders "${options[@]}"

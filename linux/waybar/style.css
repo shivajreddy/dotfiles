@@ -1,0 +1,93 @@
+@import url("./rosepine.css");
+
+* {
+    /* font-family: 'IosevkaNerdFont', 'Iosevka Nerd Font', monospace; */
+    font-family: 'BerkeleyMono Nerd Font', 'Iosevka Nerd Font', monospace;
+    font-size: 14px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: rgba(21, 18, 27, 0);
+    color: @text;
+}
+
+#window,
+#workspaces,
+#battery,
+#clock {
+    background: none;
+    /* background: @base; */
+    /* border-radius: 4px; */
+    /* padding: 0px 0px; */
+    /* margin: 0px 0px; */
+}
+
+#window {
+    color: @muted;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    margin: 0px;
+    min-height: 0;
+    min-width: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: bold;
+    color: @muted;
+    /* background: @highlightLow; */
+    background: none;
+}
+
+#workspaces button label {
+    padding: 0px;
+    margin: 0px;
+}
+
+#workspaces button.active {
+    border-radius: 0;
+    color: @base;
+    /* background-color: @rose; */
+    background: #DA3B01;
+}
+
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#clock {
+    margin: 0 5px;
+}
+
+#battery {
+    color: @text;
+}
+
+#battery.warning {
+    color: @gold;
+}
+
+#battery.critical {
+    color: @love;
+}
+
+#clock {
+    color: @text;
+}
+
+#taskbar button {
+    padding-right: 4px;
+}
+
+#custom-keymap {
+    margin: 0 5px;
+    color: @text;
+}
+
+#custom-keymap.paused {
+    color: @love;
+    font-weight: bold;
+}
