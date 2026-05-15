@@ -145,7 +145,13 @@ Set-Alias cr Invoke-CargoRun
 function which { where.exe $args }
 
 # Elevate and upgrade all winget packages
-function wu { winget upgrade --all --include-unknown }
+function wu {
+    sudo winget upgrade --all --include-unknown
+    scoop update
+    scoop update *
+}
+# function wu { sudo winget upgrade --all --include-unknown }
+# function wu { winget upgrade --all --include-unknown }
 
 # Delete the reserved 'nul' device file from a directory
 # Usage: nul .   or   nul C:\some\path
