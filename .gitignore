@@ -7,7 +7,7 @@ nul
 
 # ai
 .claude
-./common/ai/opencode/package-lock.json
+common/ai/opencode/package-lock.json
 **/node_modules/
 
 # Nix OS
