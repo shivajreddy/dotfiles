@@ -20,7 +20,7 @@ function M.apply(c)
 			"C:\\Windows\\Fonts",
 			wezterm.home_dir .. "\\AppData\\Local\\Microsoft\\Windows\\Fonts",
 		}
-		c.font_size = 14
+		c.font_size = 12
 		c.font = wezterm.font({
 			family = "Iosevka Nerd Font",
 			weight = "Regular",
